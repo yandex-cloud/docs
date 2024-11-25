@@ -62,7 +62,7 @@
 
 ### Version 1.2.0 {#version1.2.0}
 
-* Added the option to use OS Login where OS Login users are automatically added to the `docker` group.
+* Added the option to use {{ oslogin }} with {{ oslogin }} users automatically added to the `docker` group.
 * Improved updating Docker Compose projects (added the `--delete-orphans` flag to delete the old version of a project).
 
 ### Version 1.1.2 {#version1.1.2}

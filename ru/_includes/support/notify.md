@@ -67,4 +67,5 @@
 1. В блоке **{{ ui-key.yacloud_components.settings.section_settings }}** выберите типы отправляемых уведомлений и каналы получения для каждого типа:
     * ![image](../../_assets/console-icons/at.svg) — письмом на электронную почту;
     * ![image](../../_assets/console-icons/smartphone.svg) — SMS-сообщением;
-    * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот.
+    * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот;
+    * ![image](../../_assets/console-icons/handset.svg) — прозвоном на указанный номер телефона (работает только для эскалаций сервиса {{ monitoring-name }}).

@@ -61,13 +61,97 @@ keywords:
 
     Если вы хотите ограничить список резервных копий, который выводится после запуска команды, передайте в команде флаг `--limit <количество_записей>`. Например, если вывод команды `{{ yc-mdb-os }} backup list` занимает несколько экранов, выполните команду `{{ yc-mdb-os }} backup list --limit 5`. Тогда вывод будет содержать список из последних пяти резервных копий.
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Чтобы получить список резервных копий всех кластеров {{ mos-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups' \
+                --url-query folderId=<идентификатор_каталога>
+            ```
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.opensearch.v1.ClusterService.ListBackups
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "folder_id": "<идентификатор_каталога>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.opensearch.v1.BackupService.List
+            ```
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse).
 
 {% endlist %}
 
@@ -128,11 +212,51 @@ keywords:
         indices_total: "6"
         ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Чтобы узнать идентификатор резервной копии, [получите список резервных копий](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups/<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "backup_id": "<идентификатор_резервной_копии>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.BackupService.Get
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup).
 
 {% endlist %}
 
@@ -162,11 +286,52 @@ keywords:
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>:backup'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Backup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -236,15 +401,228 @@ keywords:
 
         В команде также можно передать параметры, которые задаются при создании кластера. Описание таких параметров читайте в разделе [Создание кластера](cluster-create.md).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы восстановить из резервной копии существующий кластер, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор нужной резервной копии в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
-    * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
-    * Конфигурацию кластера в параметре `configSpec`.
-    * Идентификатор сети в параметре `networkId`.
-    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+            "backupId": "<идентификатор_резервной_копии>",
+            "folderId": "<идентификатор_каталога>",
+            "name": "<имя_кластера>",
+            "environment": "<окружение>",
+            "networkId": "<идентификатор_сети>",
+            "configSpec": {
+                "version": "<версия_{{ OS }}>",
+                "adminPassword": "<пароль_пользователя-администратора>",
+                "opensearchSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<имя_группы_хостов_{{ OS }}>",
+                            "resources": {
+                                "resourcePresetId": "<класс_хостов>",
+                                "diskSize": "<размер_хранилища_в_байтах>",
+                                "diskTypeId": "<тип_диска>"
+                            },
+                            "roles": ["<роль_1>","<роль_2>"],
+                            "hostsCount": "<число_хостов>",
+                            "zoneIds": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnetIds": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboardsSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<имя_группы_хостов_Dashboards>",
+                            "resources": {
+                                "resourcePresetId": "<класс_хостов>",
+                                "diskSize": "<размер_хранилища_в_байтах>",
+                                "diskTypeId": "<тип_диска>"
+                            },
+                            "hostsCount": "<число_хостов>",
+                            "zoneIds": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnetIds": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Где:
+
+        * `backupId` — идентификатор резервной копии, из которой восстанавливаете кластер. Идентификатор можно запросить со [списком резервных копий](#list-backups).
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+        * `configSpec` — настройки кластера:
+
+            * `version` — версия {{ OS }}.
+            * `adminPassword` — пароль пользователя `admin`.
+            * `opensearchSpec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                * `name` — имя группы хостов.
+                * `resources` — ресурсы кластера:
+
+                    * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                    * `diskSize` — размер диска в байтах;
+                    * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+                * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                * `hostsCount` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                * `zoneIds` — список зон доступности, где размещаются хосты кластера.
+                * `subnetIds` — список идентификаторов подсетей.
+
+            * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат массив элементов `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+            "backup_id": "<идентификатор_резервной_копии>",
+            "folder_id": "<идентификатор_каталога>",
+            "name": "<имя_кластера>",
+            "environment": "<окружение>",
+            "network_id": "<идентификатор_сети>",
+            "config_spec": {
+                "version": "<версия_{{ OS }}>",
+                "admin_password": "<пароль_пользователя-администратора>",
+                "opensearch_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<имя_группы_хостов_{{ OS }}>",
+                            "resources": {
+                                "resource_preset_id": "<класс_хостов>",
+                                "disk_size": "<размер_хранилища_в_байтах>",
+                                "disk_type_id": "<тип_диска>"
+                            },
+                            "roles": ["<роль_1>","<роль_2>"],
+                            "hosts_count": "<число_хостов>",
+                            "zone_ids": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnet_ids": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboards_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<имя_группы_хостов_Dashboards>",
+                            "resources": {
+                                "resource_preset_id": "<класс_хостов>",
+                                "disk_size": "<размер_хранилища_в_байтах>",
+                                "disk_type_id": "<тип_диска>"
+                            },
+                            "hosts_count": "<число_хостов>",
+                            "zone_ids": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnet_ids": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Где:
+
+        * `backup_id` — идентификатор резервной копии, из которой восстанавливаете кластер. Идентификатор можно запросить со [списком резервных копий](#list-backups).
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+        * `config_spec` — настройки кластера:
+
+            * `version` — версия {{ OS }}.
+            * `admin_password` — пароль пользователя `admin`.
+            * `opensearch_spec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                * `name` — имя группы хостов.
+                * `resources` — ресурсы кластера:
+
+                    * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                    * `disk_size` — размер диска в байтах;
+                    * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+                * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                * `hosts_count` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                * `zone_ids` — список зон доступности, где размещаются хосты кластера.
+                * `subnet_ids` — список идентификаторов подсетей.
+
+            * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат массив элементов `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

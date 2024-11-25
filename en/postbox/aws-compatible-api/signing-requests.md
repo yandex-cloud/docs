@@ -10,12 +10,12 @@ To avoid signing requests, use [authentication with an IAM token](../api-ref/aut
 
 To get a signature:
 
-1. [{#T}](#canonical-request).
-1. [{#T}](#string-to-sign-gen).
-1. [{#T}](#signing-key-gen).
-1. [{#T}](#signing).
-1. [{#T}](#debugging).
-1. [{#T}](#authorization-header).
+1. [Create a canonical request](#canonical-request)
+1. [Generate a string to sign](#string-to-sign-gen)
+1. [Generate a signing key](#signing-key-gen)
+1. [Sign the string with the key](#signing)
+1. Optionally, [debug the obtained data using the AWS CLI](#debugging)
+1. [Create the `Authorization` header](#authorization-header)
 
 Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function for signing. This technique supports many programming languages. The examples below assume the code uses functions for encoding and hashing strings with the appropriate technique.
 
@@ -41,7 +41,7 @@ Where:
 
 * `CanonicalQueryString`: Query parameters of the final URL. Provide all possible and supported parameters in the request. They must be URL-encoded and sorted alphabetically.
 
-   Here is an example: `NextToken=my%2Ftoken&PageSize=10`.
+   Example: `NextToken=my%2Ftoken&PageSize=10`.
 
 * `CanonicalHeaders`: List of request headers and their values. 
 
@@ -55,7 +55,7 @@ Where:
 
    You can also add any request header to the list. The more headers you sign, the safer your request is going to be.
 
-   Examples: 
+   Here is an example: 
 
    ```
    host:{{ postbox-host }}

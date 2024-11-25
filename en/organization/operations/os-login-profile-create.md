@@ -1,13 +1,15 @@
 ---
-title: How to create an OS Login profile
-description: Follow this guide to create an OS Login profile.
+title: How to create an {{ oslogin }} profile
+description: Follow this guide to create an {{ oslogin }} profile.
 ---
 
-# Creating an OS Login profile
+# Creating an {{ oslogin }} profile
 
-By default, [enabling the setting](./os-login-access.md) creates OS Login profiles for all users within your organization. If necessary, you can create additional profiles or edit existing ones. You can use OS Login profiles as user profiles when working within [VMs](../../compute/concepts/vm.md) or {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes.
+By default, [enabling the {{ oslogin }} access](../concepts/os-login.md#os-login-profiles) creates [{{ oslogin }} profiles](./os-login-access.md) for all users within your organization. Also, you can create additional profiles or edit the existing ones. You can use {{ oslogin }} profiles as user profiles when working within [VMs](../../compute/concepts/vm.md) or {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes.
 
-To create an OS Login profile for a user:
+{% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+To create an additional {{ oslogin }} profile for a user, follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -21,15 +23,15 @@ To create an OS Login profile for a user:
  
   1. From the list, select the user you want to create an {{ oslogin }} profile for.
   
-      You may want to use the filter or search feature.
+      You may want to use the filter or search for that.
   
-  1. On the user page, click the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
+  1. On the user page, go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
 
-      1. Enter the username in the OS that will be assigned to the user when connecting to the VM. It must be unique within the folder.
+      1. Enter the OS username the user will get when connected to the VM. It must be unique within the folder.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      1. In the **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** field, enter a unique numeric user ID (UID) within the range of `1000` to `65534`. It must be unique within the system.
+      1. In the **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** field, enter a unique numeric user ID (UID) within the range from `1000` to `65534`. It must be unique within the system.
 
       1. (Optional) In the **{{ ui-key.yacloud_org.form.oslogin.field_home-directory }}** field, enter the path to the user's home folder.
 
@@ -43,7 +45,7 @@ To create an OS Login profile for a user:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for creating an OS Login profile:
+  1. View the description of the CLI command for creating an {{ oslogin }} profile:
 
       ```bash
       yc organization-manager oslogin profile create --help
@@ -84,13 +86,14 @@ To create an OS Login profile for a user:
       +----------------------+----------+-------------------+---------------+-----------------------+
       ```
 
+      To create an {{ oslogin }} profile for a service account, [get](../../iam/operations/sa/get-id.md) the service account ID.
 
-  1. Create an OS Login profile for the selected user:
+  1. Create an {{ oslogin }} profile for the selected user or service account:
 
       ```bash
       yc organization-manager oslogin profile create \
         --organization-id <organization_ID> \
-        --subject-id <user_ID> \
+        --subject-id <user_or_service_account_ID> \
         --login <login> \
         --uid <numeric_ID> \
         --home-directory <path_to_home_folder> \
@@ -100,8 +103,8 @@ To create an OS Login profile for a user:
       Where:
 
       * `--organization-id`: Organization ID you got earlier.
-      * `--subject-id`: User ID you got earlier.
-      * `--login`: Username in the OS that will be assigned to the user when connecting to the VM. It must be unique within the folder.
+      * `--subject-id`: User or service account ID you got earlier.
+      * `--login`: OS username the user will get when connected to the VM. It must be unique within the folder.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
@@ -129,7 +132,7 @@ To create an OS Login profile for a user:
 
 {% note info %}
 
-If you set the UID manually, use values in the range of `1000` to `65534`. Using this range will prevent matches between the OS Login profile UID and those of OS system profiles.
+If you set the UID manually, use values in the range from `1000` to `65534`. Using this range will prevent collisions between the {{ oslogin }} profile UID and those of OS system profiles.
 
 {% endnote %}
 
@@ -138,5 +141,5 @@ If you set the UID manually, use values in the range of `1000` to `65534`. Using
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
-* [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an {{ oslogin }} profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)

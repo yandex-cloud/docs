@@ -1013,6 +1013,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Empty document
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md
       - name: Too many series on the chart
         hidden: true
         href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md

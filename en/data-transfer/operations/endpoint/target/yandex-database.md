@@ -26,7 +26,7 @@ description: In this tutorial, you will learn how to set up an {{ ydb-name }} ta
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
     * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
-
+    * [Delivering data from {{ DS }} to {{ ydb-short-name }}](../../../tutorials/yds-to-ydb.md).
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
     * [Loading data from {{ objstorage-name }} to {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
@@ -87,7 +87,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required number of `N` shards.
 
-        If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
+        If the setting is specified, the `_shard_col` column is added to tables. Its values are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time, and `N` is the number of shards according to the setting.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}**: Set the `COMPRESSION` setting for the default column group (FAMILY default).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory]({{ ydb.docs }}/concepts/datamodel/dir) to host your tables.
@@ -102,7 +102,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.keep_part_count.title }}**: Required number of tables in the target database.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the _time_ type.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Column to split (_partition_) the table based on. The column must be of the _time_ type.
 
 
             For more information about partitioning tables, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
@@ -110,7 +110,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         If this setting is used, the specified number of data tables for different intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the respective tables in the target database.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill in if you need to rename tables in the source database when transferring data to the target database.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill if you need to rename the source database tables when transferring them to the target database.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
 

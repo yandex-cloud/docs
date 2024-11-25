@@ -29,7 +29,7 @@ Use this guide to create your address and send a verification email.
 
         {% note info %}
 
-        You can specify a selector other than `postbox`. You should only use the specified selector in a single resource record: the one you create at [{#T}](#verify-domain).
+        You can specify a selector other than `postbox`. You should only use the specified selector in a single resource record: the one you create at the [Pass domain ownership verification](#verify-domain) step.
 
         {% endnote %}
 
@@ -176,7 +176,7 @@ You can send a verification email using:
     * Server name: `postbox.cloud.yandex.net`.
     * Port: `587`.
     * Username: Static key ID of the `postbox-user` service account.
-    * Password you obtained in the previous step.
+    * Password obtained in the previous step.
 
     {% note info %}
 

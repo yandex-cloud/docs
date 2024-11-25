@@ -859,6 +859,7 @@ default:
   sku|KZT|audit-trails:
     events:
       data_plane:
+        v1|number: 180
         v1|string: ₸180.00
   sku|KZT|b2b:
     tracker:
@@ -1379,6 +1380,7 @@ default:
         mysql|month|string: ₸65.05
         opensearch|month|string: ₸65.05
         pg|month|string: ₸65.05
+        redis|month|number: 65.05
         redis|month|string: ₸65.05
       network-ssd-io-m3:
         ch|month|string: ₸108.90
@@ -1412,10 +1414,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸6048.00
+            c100|number: 8.4
             c100|string: ₸8.40
             c50|month|string: ₸2419.20
             c50|string: ₸3.36
           ram|month|string: ₸2520.00
+          ram|number: 3.5
           ram|string: ₸3.50
       pg:
         backup|month|string: ₸9.60
@@ -1475,10 +1479,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸5436.00
+            c100|number: 7.55
             c100|string: ₸7.55
             c50|month|string: ₸3276.00
             c50|string: ₸4.55
           ram|month|string: ₸1440.00
+          ram|number: 2
           ram|string: ₸2.00
     dataproc:
       v2:
@@ -2061,6 +2067,7 @@ default:
   sku|RUB|audit-trails:
     events:
       data_plane:
+        v1|number: 36
         v1|string: ₽36.00
   sku|RUB|b2b:
     tracker:
@@ -2582,6 +2589,7 @@ default:
         mysql|month|string: ₽13.01
         opensearch|month|string: ₽13.01
         pg|month|string: ₽13.01
+        redis|month|number: 13.01
         redis|month|string: ₽13.01
       network-ssd-io-m3:
         ch|month|string: ₽21.78
@@ -2615,10 +2623,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1209.60
+            c100|number: 1.68
             c100|string: ₽1.68
             c50|month|string: ₽483.84
             c50|string: ₽0.6720
           ram|month|string: ₽504.00
+          ram|number: 0.7
           ram|string: ₽0.70
       pg:
         backup|month|string: ₽1.92
@@ -2678,10 +2688,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1087.20
+            c100|number: 1.51
             c100|string: ₽1.51
             c50|month|string: ₽655.20
             c50|string: ₽0.91
           ram|month|string: ₽288.00
+          ram|number: 0.4
           ram|string: ₽0.40
     dataproc:
       v2:
@@ -3264,6 +3276,7 @@ default:
   sku|USD|audit-trails:
     events:
       data_plane:
+        v1|number: 0.288
         v1|string: $0.288000
   sku|USD|b2b:
     tracker:
@@ -5346,8 +5359,6 @@ default:
         label_users: Users
       organization:
         action_send-invitation: Send invitation
-      request-alpha-flag-dialog:
-        button_send: Send request
       services:
         service_compute: Compute Cloud
       settings:
@@ -5433,8 +5444,12 @@ default:
             title: Notification channels
           dashboards:
             title: Dashboards
+          escalations:
+            title: Escalation Policies
           explorer:
             title: Metric Explorer
+          notification-feed:
+            title: Notification Feed
           prometheus:
             title: Prometheus
       channel:
@@ -5538,6 +5553,9 @@ default:
           action_add-file: Add file
         tab:
           alert-manager-key-value: Alert manager configuration
+      querystring:
+        action:
+          execute-query: Execute query
       service:
         field:
           function: Aggregation function
@@ -10096,7 +10114,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.11
+        tag: v0.2.14
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

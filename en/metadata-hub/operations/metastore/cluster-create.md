@@ -11,9 +11,9 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 Getting started:
 
-1. [{#T}](#set-up-network).
-1. [{#T}](#set-up-security-groups).
-1. [{#T}](#prepare-access-key).
+1. [Configure a network](#set-up-network).
+1. [Configure security groups](#set-up-security-groups).
+1. (Optional) [Prepare a static access key](#prepare-access-key).
 
 Next, [create a cluster](#create-cluster).
 
@@ -56,7 +56,7 @@ To enable a {{ metastore-name }} cluster to work with [{{ objstorage-full-name }
    The roles you need depend on your use case scenario. You can view the service roles in the [{{ metastore-name }} section](../../security/metastore-roles.md) and all the available roles in this [reference](../../../iam/roles-reference.md).
 
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
-1. Save the ID and secret key. You will not be able to access them later.
+1. Save the ID and secret key. They will only be available when you create the key.
 
 ## Create a cluster {#create-cluster}
 
@@ -71,7 +71,6 @@ To enable a {{ metastore-name }} cluster to work with [{{ objstorage-full-name }
     1. Enter a name for the cluster. It must be unique within the folder.
     1. (Optional) Enter a cluster description.
     1. (Optional) Add [{{ yandex-cloud }} labels](../../../resource-manager/concepts/labels.md) to break resources into logical groups.
-    1. Select the [service account](../../../iam/concepts/users/service-accounts.md) on behalf of which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services or [create](../../../iam/operations/sa/create.md) new.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
     1. (Optional) Under **{{ ui-key.yacloud.logging.label_title }}** enable logging, set minimum logging level and specify a folder or a [log group](../../../logging/concepts/log-group.md).
     1. If required, enable protection of the cluster from accidental deletion by a user.

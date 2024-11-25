@@ -125,13 +125,13 @@ To make sure that {{ org-name }} can verify the {{ keycloak }} server certificat
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click the row with the federation you need to add a certificate for: `demo-federation`.
+  1. Click the row with `demo-federation` to add your certificate to.
 
-  1. At the bottom of the page, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**.
+  1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
 
   1. Enter a name for the certificate and specify the path to the `keycloak-cert.cer` file.
 

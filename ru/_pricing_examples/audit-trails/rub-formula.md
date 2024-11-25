@@ -1,3 +1,3 @@
-> (17&nbsp;000 / 100&nbsp;000) × 36,00&nbsp;₽ = 0,17 × 36,00&nbsp;₽ = 6,12&nbsp;₽
+> (17&nbsp;000 / 100&nbsp;000) × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = {% calc [currency=RUB] 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
 >
-> Итого: 6,12&nbsp;₽
+> Итого: {% calc [currency=RUB] 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}

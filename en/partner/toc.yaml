@@ -9,7 +9,7 @@ items:
     items:
       - name: Referral program
         href: program/referral.md
-      - name: VAR program
+      - name: Direct partnership program
         items:
           - name: Overview
             href: program/var.md
@@ -36,6 +36,8 @@ items:
         href: operations/stop-client-services.md
       - name: Linking a cloud to a subaccount
         href: operations/pin-cloud.md
+  - name: Access management
+    href: security/index.md
   - name: Terms and definitions
     href: terms.md
   - name: FAQ

@@ -5,6 +5,7 @@ description: This section contains {{ data-transfer-name }} release notes.
 
 # {{ data-transfer-name }} release notes
 
+- [October 2024](2410.md)
 - [September 2024](2409.md)
 - [August 2024](2408.md)
 - [July 2024](2407.md)

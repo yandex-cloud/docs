@@ -9,6 +9,10 @@
 
 : * [Ubuntu 20.04 LTS GPU](/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`)
 
+{{ t4i-ice-lake }}
+
+: * [Ubuntu 24.04 LTS GPU](/marketplace/products/yc/ubuntu-2404-lts-oslogin) (`ubuntu-2404-lts-oslogin`)
+
 {{ a100-epyc }}
 
 : * [Ubuntu 20.04 LTS GPU A100](/marketplace/products/yc/ubuntu-20-04-lts-gpu-a100) (`ubuntu-2004-lts-a100`)

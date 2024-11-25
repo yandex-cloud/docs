@@ -5,11 +5,8 @@ With an [identity federation](../../concepts/add-federation.md), you can use [Go
 Authentication setup includes the following steps:
 
 1. [Creating and setting up a SAML application in Google Workspace](#gworkspace-settings).
-
 1. [Creating and setting up a federation in {{ org-full-name }}](#yc-settings).
-
 1. [Setting up single sign-on (SSO)](#sso-settings).
-
 1. [Authentication](#test-auth).
 
 ## Getting started {#before-you-begin}
@@ -171,16 +168,16 @@ To create a federation:
 
             {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`.
-        * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
+        * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`. 
+        * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
             If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings: 
-          * `encrypted_assertions`: For signing authentication queries. 
-            If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          * `encrypted_assertions`: Sign authentication requests. 
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -207,7 +204,7 @@ To create a federation:
         $ terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Create a federation.
 
@@ -244,9 +241,9 @@ To create a federation:
         
         * `name`: Federation name. It must be unique within the folder.
 
-        * `organizationId`: [Organization ID](../../operations/organization-get-id.md).
+        * `organizationId`: [Organization ID](../../operations/organization-get-id.md). 
 
-        * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
+        * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
             If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
@@ -312,7 +309,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
   Use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
 
-  1. Generate the query body. In the `data` property, specify the contents of the certificate:
+  1. Create a request body. In the `data` property, specify the contents of the certificate:
 
       ```json
       {
@@ -322,7 +319,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
       }
       ```
 
-  1. Send the add certificate query:
+  1. Send the request to add the certificate:
 
       ```bash
       export IAM_TOKEN=CggaAT********
@@ -388,7 +385,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
     * **First name**.
     * **Last name**.
 
-    User attributes supported by {{ org-full-name }} services are listed in [{#T}](#claims-mapping).
+    User attributes supported by the {{ org-full-name }} services are listed in the [User attributes mapping](#claims-mapping) section.
 
     {% endnote %}
 
@@ -397,7 +394,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 ### Add users {#add-users}
 
-1. On the app page, under **User access**, click **Disabled for everyone**.
+1. On the app page, under **User access**, click **Disabled for everyone**. 
 
 1. In the page that opens, select who can authenticate with this identity federation:
 
@@ -437,7 +434,9 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../security/index.md#admin) section.
+
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 
@@ -485,7 +484,7 @@ A user can be added by the organization administrator (the `organization-manager
         ]
       }
       ```
-  1. Send the request by specifying the Federation ID in the parameters:
+  1. Send the request by specifying the federation ID in the parameters:
 
       ```bash
       curl \
@@ -520,7 +519,7 @@ When you finish configuring the server, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you back to the ACS URL that you specified in the Google Workspace settings, and then, to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you back to the ACS URL you specified in the Google Workspace settings and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you can see that you are logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

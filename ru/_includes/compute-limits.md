@@ -28,6 +28,7 @@
 Суммарное количество [GPU](../compute/concepts/gpus.md) NVIDIA® Tesla® V100 для всех ВМ в одном облаке | 0
 Суммарное количество GPU на платформе {{ a100-epyc }} для всех ВМ в одном облаке | 0
 Суммарное количество GPU на платформе {{ t4-ice-lake }} для всех ВМ в одном облаке | 0
+Суммарное количество GPU на платформе {{ t4i-ice-lake }} для всех ВМ в одном облаке | 0
 Количество одновременно выполняемых [операций](../api-design-guide/concepts/operation.md) в одном [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) | 15
 Максимальное количество [групп размещения ВМ](../compute/concepts/placement-groups.md) в одном облаке | 2
 Максимальное количество ВМ в разделе группы размещения ВМ со стратегией [размещения разделами](../compute/concepts/placement-groups.md#partition) | 100

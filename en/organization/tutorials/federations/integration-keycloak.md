@@ -168,7 +168,7 @@ To follow the steps in this section, you will need:​
 
           {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
-      1. It you want all authentication requests from {{ yandex-cloud }} to contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field immediately after saving a federation.
+      1. To make sure all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field immediately after saving a federation.
 
       1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
@@ -227,7 +227,7 @@ To follow the steps in this section, you will need:​
 
           If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
-        * `--encrypted-assertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
+        * `--encrypted-assertions`: Flag enabling a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -291,7 +291,7 @@ To follow the steps in this section, you will need:​
 
 - API {#api}
 
-  1. Create a file with the request body, e.g., `body.json`:
+  1. Create a request body file, e.g., `body.json`:
 
       - Keycloak 17 or higher
 
@@ -396,7 +396,7 @@ To follow the steps in this section, you will need:​
 
           {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-        * `encryptedAssertions`: Flag that enables a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
+        * `encryptedAssertions`: Flag enabling a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
         * {% include [forceauthn-api-enable](../../../_includes/organization/forceauth-api-enable.md) %}
 
@@ -477,8 +477,8 @@ To follow the steps in this section, you will need:​
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
         If this option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
-      * `encrypted_assertions`: For signing authentication queries. 
-        If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+        * `encrypted_assertions`: Sign authentication requests. 
+           If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
       {% cut "Here is a sample configuration file structure" %}
 
@@ -575,7 +575,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 - API {#api}
 
   Use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
-  1. Generate the query body. In the `data` property, specify the contents of the certificate:
+  1. Create a request body. In the `data` property, specify the contents of the certificate:
 
      ```json
      {
@@ -585,7 +585,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
      }
      ```
 
-  1. Send the add certificate query:
+  1. Send the request to add the certificate:
 
      ```bash
      export IAM_TOKEN=CggaAT********
@@ -734,7 +734,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. Select the **Import** method for **Client Signature Required**.
 
-      1. In the **Archive Format** field, select **Certificate PEM**. (You might need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
+      1. In the **Archive Format** field, select **Certificate PEM**. (You may need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
       {#signature}
       1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
@@ -772,7 +772,9 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../security/index.md#admin) section.
+
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 
@@ -820,7 +822,7 @@ A user can be added by the organization administrator (the `organization-manager
       }
       ```
 
-  1. Send the request by specifying the Federation ID in the parameters:
+  1. Send the request by specifying the federation ID in the parameters:
 
       ```bash
       curl \
@@ -864,7 +866,6 @@ You can set up a mapping between the SAML message attributes and the personal da
       1. In the window that opens, click **Add predefined mappers**.
 
       1. Select the attributes you need in the list and click **Add**. The following user attributes are available in Keycloak by default:
-
           * `X500 email`: Email address.
           * `X500 surname`: Last name.
           * `X500 givenName`: First name.
@@ -881,7 +882,6 @@ You can set up a mapping between the SAML message attributes and the personal da
       1. In the **Mappers** tab, click **Add Builtins**.
 
       1. Select the desired attributes in the list and click **Add selected**. The following user attributes are available in Keycloak by default:
-
           * `X500 email`: Email address.
           * `X500 surname`: Last name.
           * `X500 givenName`: First name.
@@ -903,7 +903,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
         {% note info %}
 
-        By default, the **Value** field is limited to 256 characters. Attributes may contain more characters, for example, a Base64-encoded profile image. To add such a value, change the field data type in the internal Keycloak storage in the `user_attribute` table. 
+        By default, the **Value** field is limited to 256 characters. Attributes may contain more characters, for example, a Base64-encoded profile image. To add such a value, change the field data type in the `user_attribute` table in the internal Keycloak storage. 
 
         {% endnote %}
 
@@ -951,4 +951,4 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Sign in**.
 
-On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the Keycloak settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL you specified in the Keycloak settings and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.

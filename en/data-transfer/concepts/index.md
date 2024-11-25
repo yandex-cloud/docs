@@ -1,6 +1,6 @@
 ---
-title: Relationships between {{ data-transfer-full-name }} resources
-description: With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
+title: Resource relationships in {{ data-transfer-full-name }}
+description: You can use {{ data-transfer-full-name }} to easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
 ---
 
 # Resource relationships in {{ data-transfer-name }}
@@ -13,7 +13,7 @@ The service is suitable for creating a permanent replica of the database. The tr
 
 ## Endpoint {#endpoint}
 
-_Endpoint_ is a configuration used to connect to the _datasource_ service or _target_ service. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
+An _endpoint_ is a configuration used to connect to a service: _datasource_ or _target_. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
 
 The following can be the data source or target:
 
@@ -47,9 +47,13 @@ If subnets are specified for endpoints, these subnets must be hosted in the same
 
 ### Worker {#worker}
 
-_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. By default, one worker uses 2 vCPUs and 4 GB RAM. During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. You can specify which computing resources to use for this virtual machine:
 
-vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
+{% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
+
+During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+
+vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
 
 ### Transfer types {#transfer-type}
 

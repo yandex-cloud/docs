@@ -2,7 +2,7 @@ To create a billing account:
 
 1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 
-1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) in [{{ org-full-name }}]({{ link-org-cloud-center }}) for you to work in. If using your social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
+1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) in [{{ org-full-name }}]({{ link-org-cloud-center }}) for you to work in. If using your social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
 
 1. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, click **Create billing account**. Fill in your information:
 
@@ -53,7 +53,6 @@ To create a billing account:
    If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. Once your documents have been verified, you can activate your billing account and start using {{ yandex-cloud }}.
 
    Email the following documents to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}):
-   * A copy of the certificate of registration of the legal entity or sole proprietor (in English).
-   * [Billing account](../../billing/concepts/billing-account.md#billing-account-id) ID.
-
+   * Copy of the minutes or resolution on the appointment of the general director
+   * [Billing account](../../billing/concepts/billing-account.md#billing-account-id) ID
 

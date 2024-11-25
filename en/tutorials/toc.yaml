@@ -35,7 +35,9 @@ items:
         href: security/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: security/static-key-in-lockbox.md
-      - name: Service account with an OS Login profile for VM management via Ansible
+      - name: >-
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: security/sa-oslogin-ansible.md
       - name: Providing secure access to content in {{ cdn-name }}
         href: security/protected-access-to-content.md
@@ -118,8 +120,8 @@ items:
       - name: JMeter load testing
         href: testing/loadtesting-jmeter.md
       - name: >-
-          Getting statistics for the requests to {{ objstorage-name }} objects
-          using {{ yq-name }}
+          Getting statistics of queries to {{ objstorage-name }} objects using
+          {{ yq-name }}
         href: testing/server-logs-yq.md
   - name: Basic infrastructure
     items:
@@ -318,7 +320,7 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
-      - name: 1С
+      - name: 1C
         items:
           - name: 1C-Bitrix online store
             items:
@@ -414,7 +416,7 @@ items:
           Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
-      - name: Configuring Kafka Connect to use a {{ mkf-name }} cluster
+      - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -504,7 +506,7 @@ items:
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
         href: dataplatform/dataproc-to-dataproc.md
       - name: >-
-          Transferring data between {{ dataproc-name }} clusters using {{
+          Transferring metadata between {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: dataplatform/metastore-import.md
       - name: >-
@@ -712,7 +714,7 @@ items:
         href: routing/route-switcher.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the next-generation firewall
+          dedicated DMZ based on the Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
           Cloud infrastructure segmentation with Check Point Next-Generation

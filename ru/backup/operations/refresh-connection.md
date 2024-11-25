@@ -99,4 +99,4 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-1. [Привяжите](./policy-vm/update.md#update-vm-list) ВМ к политике резервного копирования.
+1. [Привяжите](./policy-vm/attach-and-detach-vm.md) ВМ к политике резервного копирования.

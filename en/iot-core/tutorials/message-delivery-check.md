@@ -11,11 +11,11 @@ When sending a message, you may need to verify that it was delivered. Messages m
 * From a client with writes to the specified topic disabled.
 * From a client that is not [authenticated in the system](../concepts/authorization.md).
 
-The IoT network structure assumes that MQTT clients connect to the MQTT server. It accepts messages sent by publishers and forwards them to subscribers. MQTT does not support notifications about message delivery to subscribers. They can only get a confirmation that a message has been delivered to the MQTT server.
+The IoT network structure assumes that MQTT clients connect to the MQTT server. It accepts messages sent by publishers and forwards them to subscribers. MQTT does not support notifications that the message has been delivered to subscriber. You can only get a confirmation that a message has been delivered to the MQTT server.
 
-To make sure the MQTT server has received a sent message, specify [additional debugging parameters](#debugging-parameters) in the send message command. As a result, you will get a detailed command output.
+To ascertain that the MQTT server has received the message, specify [additional debugging parameters](#debugging-parameters) in the send message command. As a result, you will get a detailed command output.
 
-To test the {{ iot-full-name }} service, use [message sending and a subscription to a device](#several-clients) at the same time. If you subscribe a [registry](../concepts/index.md#registry) to a device topic and send a message to this topic, the registry will receive the message.
+To test the {{ iot-full-name }} service, use [both messaging and device subscription](#several-clients) at the same time. If you subscribe a [registry](../concepts/index.md#registry) to a device topic and send a message to this topic, the registry will receive the message.
 
 In the example below, a device with a light intensity sensor sends the light intensity value of `150` to a [permanent device topic](../concepts/topic/devices-topic.md). Client authentication is performed through X.509 certificates. The CLI and [Mosquitto](https://mosquitto.org), an open-source MQTT message broker, are used as tools for sending messages and subscribing to devices.
 
@@ -34,7 +34,7 @@ In the example below, a device with a light intensity sensor sends the light int
 
    To connect to the MQTT server via Mosquitto, use the following parameters:
 
-   * [A certificate from the certificate authority]({{ ca-address }}).
+   * [Certificate from the certificate authority]({{ ca-address }}).
    * **Server address:** `{{ mqtt-server-address }}`.
    * **Server port:** `{{ mqtt-server-port }}`.
    * **Protocol:** `TLSv1.2`.
@@ -43,7 +43,7 @@ In the example below, a device with a light intensity sensor sends the light int
 
 When sending messages, add the following flags to the command:
 
-* `--qos 1` for the CLI or `-q 1` for Mosquitto: [Quality of service (QoS)](../concepts/index.md#qos) set to `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once.
+* `--qos 1` for the CLI or `-q 1` for Mosquitto: [Quality of service (QoS)](../concepts/index.md#qos) level `QoS 1: At least once`. This level guarantees that a message is delivered to a client at least once.
 
    With this QoS level, the MQTT server sends a [PUBACK packet](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901022) to the publisher. This is how the server confirms that it has received a message from the publisher.
 
@@ -71,7 +71,7 @@ Example of sending a message:
    * `--key`: Path to the private part of the certificate of the device with the sensor.
    * `--topic`: Permanent topic of the device with the sensor.
    * `--message`: Message text.
-   * `--qos`: Quality of service (QoS).
+   * `--qos`: Quality of service (QoS) level.
    * `--debug`: Debug log output.
 
 - Mosquitto {#mosquitto}
@@ -92,12 +92,12 @@ Example of sending a message:
 
    * `-h`: MQTT server address.
    * `-p`: MQTT server port.
-   * `--cafile`: Path to the certificate from the certificate authority (CA).
+   * `--cafile`: Path to the certificate from the certificate authority.
    * `--cert`: Path to the public part of the certificate of the device with the sensor.
    * `--key`: Path to the private part of the certificate of the device with the sensor.
    * `-t`: Permanent topic of the device with the sensor.
    * `-m`: Message text.
-   * `-q`: Quality of service (QoS).
+   * `-q`: Quality of service level.
    * `--debug`: Debug log output.
 
 {% endlist %}
@@ -143,9 +143,9 @@ To make sure a sent message has been delivered, subscribe your registry to a dev
 
 To use two clients to work with the same topic:
 
-1. [{#T}](#subscribe).
-1. [{#T}](#publish).
-1. [{#T}](#check).
+1. [Subscribe a registry to a device's permanent topic](#subscribe)
+1. [Send a message to the device's permanent topic](#publish)
+1. [Make sure the registry has received the message from the device](#check)
 
 ### Subscribe your registry to the device's permanent topic {#subscribe}
 
@@ -166,10 +166,10 @@ Run this command:
 
    Where:
 
-   * `--cert`: Path to the public part of the registry certificate.
+   * `--cert`: Path to the public part of the registry.
    * `--key`: Path to the private part of the registry certificate.
    * `--topic`: Permanent topic of the device with the sensor.
-   * `--qos`: Quality of service (QoS).
+   * `--qos`: Quality of service (QoS) level.
    * `--debug`: Debug log output.
 
 - Mosquitto {#mosquitto}
@@ -189,11 +189,11 @@ Run this command:
 
    * `-h`: MQTT server address.
    * `-p`: MQTT server port.
-   * `--cafile`: Path to the certificate from the certificate authority (CA).
-   * `--cert`: Path to the public part of the registry certificate.
+   * `--cafile`: Path to the certificate from the certificate authority.
+   * `--cert`: Path to the public part of the registry.
    * `--key`: Path to the private part of the registry certificate.
    * `-t`: Permanent topic of the device with the sensor.
-   * `-q`: Quality of service (QoS).
+   * `-q`: Quality of service level.
    * `--debug`: Debug log output.
 
 {% endlist %}
@@ -278,7 +278,7 @@ Open a new terminal window and run this command:
    * `--key`: Path to the private part of the certificate of the device with the sensor.
    * `--topic`: Permanent topic of the device with the sensor.
    * `--message`: Message text.
-   * `--qos`: Quality of service (QoS).
+   * `--qos`: Quality of service (QoS) level.
    * `--debug`: Debug log output.
 
 - Mosquitto {#mosquitto}
@@ -299,12 +299,12 @@ Open a new terminal window and run this command:
 
    * `-h`: MQTT server address.
    * `-p`: MQTT server port.
-   * `--cafile`: Path to the certificate from the certificate authority (CA).
+   * `--cafile`: Path to the certificate from the certificate authority.
    * `--cert`: Path to the public part of the certificate of the device with the sensor.
    * `--key`: Path to the private part of the certificate of the device with the sensor.
    * `-t`: Permanent topic of the device with the sensor.
    * `-m`: Message text.
-   * `-q`: Quality of service (QoS).
+   * `-q`: Quality of service level.
    * `--debug`: Debug log output.
 
 {% endlist %}
@@ -344,7 +344,7 @@ Result example:
 
 ### Make sure the registry has received the message from the device {#check}
 
-If the message is delivered, the subscribe to device command outputs the result. For example:
+If the message is delivered, the subscribe to device command outputs the result. Here is an example:
 
 {% list tabs group=instructions %}
 

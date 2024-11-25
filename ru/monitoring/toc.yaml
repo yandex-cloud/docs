@@ -47,6 +47,8 @@ items:
             href: operations/alert/create-alert.md
           - name: Создание канала уведомлений
             href: operations/alert/create-channel.md
+          - name: Создание политики эскалаций
+            href: operations/alert/create-escalation.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
   - name: Агент сбора метрик
@@ -105,6 +107,8 @@ items:
             href: concepts/alerting/annotation.md
           - name: Канал уведомлений
             href: concepts/alerting/notification-channel.md
+          - name: Эскалации
+            href: concepts/alerting/escalations.md
       - name: Прореживание данных
         href: concepts/decimation.md
       - name: Удаление устаревших метрик (TTL)

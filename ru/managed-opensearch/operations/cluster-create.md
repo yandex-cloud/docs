@@ -312,30 +312,366 @@ keywords:
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать кластер {{ mos-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  * Имя кластера в параметре `name`.
-  * Версию {{ OS }} в параметре `configSpec.version`.
-  * Пароль пользователя `admin` в параметре `configSpec.adminPassword`.
-  * Конфигурацию одной или нескольких групп хостов с [ролями](../concepts/host-roles.md) `DATA` и `MANAGER` (опционально) в параметре `configSpec.opensearchSpec.nodeGroups`.
-  * Конфигурацию одной или нескольких групп хостов с [ролью](../concepts/host-roles.md#dashboards) `DASHBOARDS` в параметре `configSpec.dashboardsSpec.nodeGroups`.
-  * Список плагинов в параметре `configSpec.opensearchSpec.plugins`.
-  * Настройки доступа из других сервисов в параметре `configSpec.access`.
-  * Идентификатор сети в параметре `networkId`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
 
-  * Идентификаторы групп безопасности в параметре `securityGroupIds`. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
-  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
+      ```json
+      {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "deletionProtection": <защита_от_удаления:_true_или_false>,
+          "configSpec": {
+              "version": "<версия_{{ OS }}>",
+              "adminPassword": "<пароль_пользователя-администратора>",
+              "opensearchSpec": {
+                  "plugins": [
+                      "<плагин_{{ OS }}_1>",
+                      "<плагин_{{ OS }}_2>",
+                      ...
+                      "<плагин_{{ OS }}_N>"
+                  ],
+                  "nodeGroups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resourcePresetId": "<класс_хостов>",
+                              "diskSize": "<размер_хранилища_в_байтах>",
+                              "diskTypeId": "<тип_диска>"
+                          },
+                          "roles": ["<роль_1>","<роль_2>"],
+                          "hostsCount": "<число_хостов>",
+                          "zoneIds": [
+                              "<зона_доступности_1>",
+                              "<зона_доступности_2>",
+                              "<зона_доступности_3>"
+                          ],
+                          "subnetIds": [
+                              "<идентификатор_подсети_1>",
+                              "<идентификатор_подсети_2>",
+                              "<идентификатор_подсети_3>"
+                          ],
+                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                              "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                              "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboardsSpec": {
+                  "nodeGroups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resourcePresetId": "<класс_хостов>",
+                              "diskSize": "<размер_хранилища_в_байтах>",
+                              "diskTypeId": "<тип_диска>"
+                          },
+                          "hostsCount": "<число_хостов>",
+                          "zoneIds": ["<зона_доступности>"],
+                          "subnetIds": ["<идентификатор_подсети>"],
+                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                              "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                              "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "dataTransfer": <доступ_из_Data_Transfer:_true_или_false>,
+                  "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+              }
+          },
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час>"
+              }
+          }
+      }
+      ```
 
 
-  * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+      Где:
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-  * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+
+      * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+      * `serviceAccountId` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
+
+
+      * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+      * `configSpec` — настройки кластера:
+
+          * `version` — версия {{ OS }}.
+          * `adminPassword` — пароль пользователя `admin`.
+          * `opensearchSpec` — настройки групп хостов `{{ OS }}`:
+
+              * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.
+              * `nodeGroups` — настройки хостов в виде массива элементов. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                  * `name` — имя группы хостов.
+                  * `resources` — ресурсы кластера:
+
+                      * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                      * `diskSize` — размер диска в байтах;
+                      * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `hostsCount` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `zoneIds` — список зон доступности, где размещаются хосты кластера.
+                  * `subnetIds` — список идентификаторов подсетей.
+
+
+                  * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+
+                  * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
+
+                      * `plannedUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                          Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenanceWindow`.
+
+                      * `emergencyUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено). Должно быть не меньше значения `plannedUsageThreshold`.
+
+                      * `diskSizeLimit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
+
+          * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат параметр `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+              * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+
+      * `maintenance_window.weeklyMaintenanceWindow` — расписание окна технического обслуживания:
+
+          * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+          * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+
+      ```json
+      {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "service_account_id": "<идентификатор_сервисного_аккаунта>",
+          "deletion_protection": <защита_от_удаления:_true_или_false>,
+          "config_spec": {
+              "version": "<версия_{{ OS }}>",
+              "admin_password": "<пароль_пользователя-администратора>",
+              "opensearch_spec": {
+                  "plugins": [
+                      "<плагин_{{ OS }}_1>",
+                      "<плагин_{{ OS }}_2>",
+                      ...
+                      "<плагин_{{ OS }}_N>"
+                  ],
+                  "node_groups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resource_preset_id": "<класс_хостов>",
+                              "disk_size": "<размер_хранилища_в_байтах>",
+                              "disk_type_id": "<тип_диска>"
+                          },
+                          "roles": ["<роль_1>","<роль_2>"],
+                          "hosts_count": "<число_хостов>",
+                          "zone_ids": [
+                              "<зона_доступности_1>",
+                              "<зона_доступности_2>",
+                              "<зона_доступности_3>"
+                          ],
+                          "subnet_ids": [
+                              "<идентификатор_подсети_1>",
+                              "<идентификатор_подсети_2>",
+                              "<идентификатор_подсети_3>"
+                          ],
+                          "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                              "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                              "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboards_spec": {
+                  "node_groups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resource_preset_id": "<класс_хостов>",
+                              "disk_size": "<размер_хранилища_в_байтах>",
+                              "disk_type_id": "<тип_диска>"
+                          },
+                          "hosts_count": "<число_хостов>",
+                          "zone_ids": ["<зона_доступности>"],
+                          "subnet_ids": ["<идентификатор_подсети>"],
+                          "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                              "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                              "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "data_transfer": <доступ_из_Data_Transfer:_true_или_false>,
+                  "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+              }
+          },
+          "maintenance_window": {
+              "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<час>"
+              }
+          }
+      }
+      ```
+
+
+      Где:
+
+      * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+
+      * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+      * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
+
+
+      * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+      * `config_spec` — настройки кластера:
+
+          * `version` — версия {{ OS }}.
+          * `admin_password` — пароль пользователя `admin`.
+          * `opensearch_spec` — настройки групп хостов `{{ OS }}`:
+
+              * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.
+              * `node_groups` — настройки хостов в виде массива элементов. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                  * `name` — имя группы хостов.
+                  * `resources` — ресурсы кластера:
+
+                      * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                      * `disk_size` — размер диска в байтах;
+                      * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `hosts_count` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `zone_ids` — список зон доступности, где размещаются хосты кластера.
+                  * `subnet_ids` — список идентификаторов подсетей.
+
+
+                  * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+
+                  * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
+
+                      * `planned_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                          Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenance_window`.
+
+                      * `emergency_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено). Должно быть не меньше значения `planned_usage_threshold`.
+
+                      * `disk_size_limit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
+
+          * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат параметр `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+              * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+
+      * `maintenance_window.weekly_maintenance_window` — расписание окна технического обслуживания:
+
+          * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+          * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.opensearch.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

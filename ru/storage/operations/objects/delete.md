@@ -42,7 +42,54 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для удаления объекта из бакета:
+
+      ```bash
+      yc storage s3api delete-object --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api put-object \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта>
+      ```
+
+      Где:
+
+      * `--bucket` — имя вашего бакета.
+      * `--key` — [ключ](../../concepts/object.md#key) объекта.
+
+      Результат:
+
+      ```bash
+      request_id: 0311ec7********
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -241,7 +288,93 @@ description: Следуя данной инструкции, вы сможете
   
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Получите информации о блокировке версии объекта::
+
+      ```bash
+      yc storage s3api head-object \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии>
+      ```
+
+     Где:
+     * `--bucket` — имя вашего бакета.
+     * `--key` — [ключ](../../concepts/object.md#key) объекта.
+     * `--version-id` — идентификатор версии объекта.
+
+     Если на версию установлена блокировка, об этом отобразится информация:
+
+     ```text     
+     object_lock_mode: GOVERNANCE
+     object_lock_retain_until_date: "2024-10-11T10:23:12Z"
+     ```
+
+     Или:
+
+     ```text
+     object_lock_legal_hold_status: ON
+     ```
+
+     Где:
+     * `object_lock_mode` — [тип](../../concepts/object-lock.md#types) временной блокировки:
+       * `GOVERNANCE` — временная управляемая блокировка. Удалить версию объекта может пользователь с ролью `storage.admin`.
+       * `COMPLIANCE` — временная строгая блокировка. Удалить версию объекта нельзя.
+
+     * `object_lock_retain_until_date` — дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `Mon, 12 Dec 2022 09:00:00 GMT`.
+
+     * `object_lock_legal_hold_status` — статус [бессрочной блокировки](../../concepts/object-lock.md#types):
+       * `ON` — включена. Удалить версию объекта нельзя. [Снять блокировку](edit-object-lock.md#remove-legal-hold) может пользователь с ролью `storage.uploader`.
+       * `OFF` — выключена.
+
+     Если на версии объекта нет блокировки, эти поля не отобразятся, и версию объекта можно удалить по [инструкции по удалению версии без блокировки](#wo-object-lock).
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Если установлена временная управляемая блокировка (`"object_lock_mode": "GOVERNANCE"`) и у вас есть роль `storage.admin`, удалите версию объекта:
+
+      ```bash
+      yc storage s3api delete-object \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии> \
+        --bypass-governance-retention
+      ```
+
+      Где:
+
+      * `--bucket` — имя вашего бакета.
+      * `--key` — [ключ](../../concepts/object.md#key) объекта.
+      * `--version-id` — идентификатор версии объекта.
+      * `--bypass-governance-retention` — флаг, подтверждающий обход блокировки.
+
+      Результат:
+
+      ```bash
+      request_id: a58bf215********
+      version_id: "null"
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
