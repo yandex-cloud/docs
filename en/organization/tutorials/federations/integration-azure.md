@@ -137,7 +137,7 @@ Add users to the IdP server:
 
         * `--name`: Federation name. It must be unique within the folder.
 
-        * `--organization-id`: [Organization ID](../../operations/organization-get-id.md). 
+        * `--organization-id`: [Organization ID](../../operations/organization-get-id.md).
 
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
@@ -204,8 +204,8 @@ Add users to the IdP server:
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
-          * `encrypted_assertions`: For signing authentication queries. 
-            If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          * `encrypted_assertions`: Sign authentication requests.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -339,7 +339,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
   Use the [create](../../saml/api-ref/Certificate/create.md) method for the [Certificate](../../saml/api-ref/Certificate/index.md) resource:
 
-  1. Generate the query body. In the `data` property, specify the contents of the certificate:
+  1. Create a request body. In the `data` property, specify the contents of the certificate:
 
       ```json
       {
@@ -349,7 +349,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
       }
       ```
 
-  1. Send the add certificate query:
+  1. Send the request to add the certificate:
 
       ```bash
       export IAM_TOKEN=CggaAT********
@@ -430,7 +430,9 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../security/index.md#admin) section.
+
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 
@@ -513,7 +515,7 @@ When you finish setting up SSO, test that everything works properly:
 
 1. Enter your credentials and click **Next**.
 
-On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the {{ microsoft-idp.entra-id-short }} settings, and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
+On successful authentication, the IdP server will redirect you to the ACS URL you specified in the {{ microsoft-idp.entra-id-short }} settings and then to the [management console]({{ link-console-main }}) home page. In the top-right corner, you will see being logged in to the console as a federated user.
 
 #### What's next {#what-is-next}
 

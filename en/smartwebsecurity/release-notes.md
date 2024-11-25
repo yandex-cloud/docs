@@ -7,7 +7,14 @@ description: This section contains {{ sws-name }} release notes.
 
 ## Q3 2024 {#q3-2024}
 
-For traffic conditions that use regular expressions, you can now toggle between case-sensitive an case-insensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
+* Web Application Firewall (WAF) and Advanced Rate Limiter (ARL) entered the [General Availability](../overview/concepts/launch-stages.md) stage.
+* There are some changes in the pricing: 
+  * You only pay for [legitimate](concepts/rules.md#rule-action) requests.
+  * Profiles and rules are not billable.
+* For basic rules, you now can send requests to [{{ captcha-full-name }}](../smartcaptcha/).
+* Implemented sending [data events](./at-ref.md#data-plane-events) to {{ at-full-name }}: `ArlMatchedRequest`, `WafMatchedExclusionRule`, and `WafMatchedRule`.
+* API, CLI, and {{ TF }} are now supported.
+* For traffic conditions that use regular expressions, you can now toggle between case-sensitive and case-insensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
 
 ## Q2 2024 {#q2-2024}
 
@@ -30,7 +37,7 @@ For traffic conditions that use regular expressions, you can now toggle between 
 ## Q4 2023 {#q4-2023}
 
 * Now you can create security profiles from a preset template.
-* Supported sending of [metrics](./metrics.md) to [{{ monitoring-full-name }}](../monitoring/).
+* Implemented sending [metrics](./metrics.md) to [{{ monitoring-full-name }}](../monitoring/).
 * Fixed the error of matching a string in the `Host` [condition](./concepts/conditions.md) when creating a security rule.
 * Improved the stability by implementing a new pattern for [{{ alb-name }}](../application-load-balancer/) and {{ sws-name }} interaction.
 

@@ -561,6 +561,7 @@ default:
   roles-editor: editor
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
+  roles-functions-viewer: functions.viewer
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
   roles-license-manager-subscription-agent: license-manager.subscriptionAgent
@@ -868,6 +869,7 @@ default:
   sku|KZT|audit-trails:
     events:
       data_plane:
+        v1|number: 180
         v1|string: "180,00\_₸"
   sku|KZT|b2b:
     tracker:
@@ -1388,6 +1390,7 @@ default:
         mysql|month|string: "65,05\_₸"
         opensearch|month|string: "65,05\_₸"
         pg|month|string: "65,05\_₸"
+        redis|month|number: 65.05
         redis|month|string: "65,05\_₸"
       network-ssd-io-m3:
         ch|month|string: "108,90\_₸"
@@ -1421,10 +1424,12 @@ default:
         v3:
           cpu:
             c100|month|string: "6\_048,00\_₸"
+            c100|number: 8.4
             c100|string: "8,40\_₸"
             c50|month|string: "2\_419,20\_₸"
             c50|string: "3,36\_₸"
           ram|month|string: "2\_520,00\_₸"
+          ram|number: 3.5
           ram|string: "3,50\_₸"
       pg:
         backup|month|string: "9,60\_₸"
@@ -1484,10 +1489,12 @@ default:
         v3:
           cpu:
             c100|month|string: "5\_436,00\_₸"
+            c100|number: 7.55
             c100|string: "7,55\_₸"
             c50|month|string: "3\_276,00\_₸"
             c50|string: "4,55\_₸"
           ram|month|string: "1\_440,00\_₸"
+          ram|number: 2
           ram|string: "2,00\_₸"
     dataproc:
       v2:
@@ -2070,6 +2077,7 @@ default:
   sku|RUB|audit-trails:
     events:
       data_plane:
+        v1|number: 36
         v1|string: "36,00\_₽"
   sku|RUB|b2b:
     tracker:
@@ -2591,6 +2599,7 @@ default:
         mysql|month|string: "13,01\_₽"
         opensearch|month|string: "13,01\_₽"
         pg|month|string: "13,01\_₽"
+        redis|month|number: 13.01
         redis|month|string: "13,01\_₽"
       network-ssd-io-m3:
         ch|month|string: "21,78\_₽"
@@ -2624,10 +2633,12 @@ default:
         v3:
           cpu:
             c100|month|string: "1\_209,60\_₽"
+            c100|number: 1.68
             c100|string: "1,68\_₽"
             c50|month|string: "483,84\_₽"
             c50|string: "0,6720\_₽"
           ram|month|string: "504,00\_₽"
+          ram|number: 0.7
           ram|string: "0,70\_₽"
       pg:
         backup|month|string: "1,92\_₽"
@@ -2687,10 +2698,12 @@ default:
         v3:
           cpu:
             c100|month|string: "1\_087,20\_₽"
+            c100|number: 1.51
             c100|string: "1,51\_₽"
             c50|month|string: "655,20\_₽"
             c50|string: "0,91\_₽"
           ram|month|string: "288,00\_₽"
+          ram|number: 0.4
           ram|string: "0,40\_₽"
     dataproc:
       v2:
@@ -3273,6 +3286,7 @@ default:
   sku|USD|audit-trails:
     events:
       data_plane:
+        v1|number: 0.288
         v1|string: "0,288000\_$"
   sku|USD|b2b:
     tracker:
@@ -5357,8 +5371,6 @@ default:
         label_users: Пользователи
       organization:
         action_send-invitation: Отправить приглашение
-      request-alpha-flag-dialog:
-        button_send: Отправить заявку
       services:
         service_compute: Compute Cloud
       settings:
@@ -5444,8 +5456,12 @@ default:
             title: Каналы уведомлений
           dashboards:
             title: Дашборды
+          escalations:
+            title: Политики эскалаций
           explorer:
             title: Обзор метрик
+          notification-feed:
+            title: Лента уведомлений
           prometheus:
             title: Prometheus
       channel:
@@ -5549,6 +5565,9 @@ default:
           action_add-file: Добавить файл
         tab:
           alert-manager-key-value: Конфигурация Alert manager
+      querystring:
+        action:
+          execute-query: Выполнить запрос
       service:
         field:
           function: Функция агрегации
@@ -10107,7 +10126,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.11
+        tag: v0.2.14
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

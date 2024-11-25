@@ -16,7 +16,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
     1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
     1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -219,9 +219,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 ## Examples {#examples}
 
-* [{#T}](#multiple-roles).
-* [{#T}](#impersonation).
-* [{#T}](#access-to-sa).
+* [Assigning multiple roles](#multiple-roles)
+* [Setting up impersonation](#impersonation)
+* [Setting up access of one service account to another service account](#access-to-sa)
 
 ### Assigning multiple roles {#multiple-roles}
 
@@ -333,7 +333,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - API {#api}
 
-    Assign the `editor` role to one user and the `viewer` role to another:
+    Assign the `editor` role to one user and the `viewer` role to another user:
 
     ```bash
     curl \
@@ -374,7 +374,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
     curl \
       --request POST \
       --header 'Content-Type: application/json' \
-      --header "Authorization: Bearer <IAM token>" \
+      --header "Authorization: Bearer <IAM_token>" \
       --data '{
       "accessBindings": [{
           "roleId": "editor",
@@ -391,7 +391,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 ### Set up impersonation {#impersonation}
 
-[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user to perform actions on behalf of a service account using the `--impersonate-service-account-id` flag. To do this, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
+[Impersonation](../../concepts/access-control/index.md#impersonation) enables a user perform actions under a service account using the `--impersonate-service-account-id` flag. To use impersonation, the service account needs the relevant permissions, and the user needs the `iam.serviceAccounts.tokenCreator` role.
 
 {% list tabs group=instructions %}
 
@@ -416,7 +416,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       +----------------------+----------+------------------+
       ```
 
-  1. Assign the `test-sa` service account the `viewer` role for `my-folder`. In the subject type, specify `serviceAccount`, and in its value, specify the ID of the service account (in the administrator profile):
+  1. Assign the `test-sa` service account the `viewer` role for `my-folder`. In the subject type, specify `serviceAccount`, and in its value, specify the service account ID from the administrator profile:
 
       ```
       yc resource-manager folder add-access-binding my-folder \
@@ -433,7 +433,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       ```
 
 
-  1. The user can perform the command on behalf of the `test-sa` service account using the `--impersonate-service-account-id` flag.
+  1. The user can run the command as the `test-sa` service account using the `--impersonate-service-account-id` flag.
 
       For example, the user can get a list of VMs in `my-folder`:
 
@@ -442,7 +442,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
         --impersonate-service-account-id ajebqtreob2d********
       ```
 
-      The user can also obtain an [IAM token](../../concepts/authorization/iam-token.md) of the `test-sa` service account, for short-term access:
+      The user can also get an [IAM token](../../concepts/authorization/iam-token.md) of the `test-sa` service account for short-term access:
 
       ```
       yc iam create-token --impersonate-service-account-id ajebqtreob2d********
@@ -515,7 +515,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
        * `role`: Role being assigned. This is a required parameter.
        * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
+     {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
 
      ```hcl
      ...
@@ -570,7 +570,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
       ```bash
       curl \
-        --header "Authorization: Bearer <IAM token>" \
+        --header "Authorization: Bearer <IAM_token>" \
         https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
@@ -596,13 +596,13 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       }
       ```
 
-  1. Assign the `editor` role to the `test-sa` service account for another `my-robot` service account. In the `subject` property, specify the `serviceAccount` type and `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
+  1. Assign the `editor` role to the `test-sa` service account for another service account named `my-robot`. In the `subject` property, specify the `serviceAccount` type and `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
 
       ```bash
       curl \
         --request POST \
         --header 'Content-Type: application/json' \
-        --header "Authorization: Bearer <IAM token>" \
+        --header "Authorization: Bearer <IAM_token>" \
         --data '{
         "accessBindingDeltas": [{
             "action": "ADD",

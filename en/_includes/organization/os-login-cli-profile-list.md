@@ -1,4 +1,4 @@
-Get a list of logins in the OS Login profiles of an organization's users and service accounts by specifying its ID:
+Get a list of logins in the {{ oslogin }} profiles of the organization's users and service accounts by specifying the organization ID:
 
 ```bash
 yc organization-manager os-login profile list \
@@ -18,3 +18,5 @@ Result:
 ```
 
 Save the `LOGIN` field value for the required user or service account: you will need it later.
+
+{% include [os-login-profile-tab-access-notice](./os-login-profile-tab-access-notice.md) %}

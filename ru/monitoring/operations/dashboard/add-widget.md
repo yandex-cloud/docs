@@ -5,30 +5,40 @@ description: Из статьи вы узнаете, как добавить ви
 
 # Добавление виджета на дашборд
 
-## Новый график {#new}
+1. Откройте или [создайте дашборд](create.md).
+1. Справа вверху нажмите ![image](../../../_assets/console-icons/plus.svg) и выберите виджет, который хотите добавить.
+1. Укажите настройки виджета.
+1. Справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
-Для добавления нового графика на дашборд выполните следующее:
-1. Откройте дашборд. Если у вас нет дашборда, [создайте его](create.md).
-1. В верхней части страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
+## График {#new}
+
 1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
 1. Настройте новый график, указав запросы и настроив отображение метрик. 
-1. Закончив настройку нового графика, нажмите **{{ ui-key.yacloud_monitoring.actions.common.save }}**. График добавится на дашборд.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
+
+
+## Эскалация {#escalation}
+
+{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
+
+Для добавления эскалации на дашборд сначала [создайте](../alert/create-escalation.md) политику эскалаций.
+
+1. Нажмите **Эскалация**.
+1. Введите произвольный заголовок для эскалации.
+1. В списке выберите политику эскалаций.
+1. (Опционально) Укажите, следует ли отображать на дашборде только запущенные эскалации или все эскалации.
+1. (Опционально) Введите максимальное количество эскалаций, которое можно отобразить на дашборде.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
 
 ## Текст {#text}
 
-Для добавления виджета с текстом на дашборд выполните следующее:
-1. Откройте дашборд. Если у вас нет дашборда, [создайте его](create.md).
-1. В верхней части страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
 1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-text }}**.
-1. Введите текст в поле ввода.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**. Текстовый виджет добавится на дашборд.
+1. Введите текст в поле ввода. При необходимости примените к тексту форматирование.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
 
 ## Заголовок {#heading}
 
-Для добавления виджета с заголовком на дашборд выполните следующее:
-1. Откройте дашборд. Если у вас нет дашборда, [создайте его](create.md).
-1. В верхней части страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
 1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
 1. Введите текст в поле ввода.
 1. Выберите размер заголовка.
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**. Виджет с заголовком добавится на дашборд.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.add }}**.

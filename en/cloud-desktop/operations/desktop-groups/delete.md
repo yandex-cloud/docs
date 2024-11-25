@@ -1,5 +1,5 @@
 ---
-title: Tutorial on deleting a desktop group in {{ cloud-desktop-full-name }}
+title: How to delete a desktop group in {{ cloud-desktop-full-name }}
 description: In this tutorial, you will learn how to delete a desktop group in {{ cloud-desktop-full-name }}.
 ---
 
@@ -9,16 +9,43 @@ description: In this tutorial, you will learn how to delete a desktop group in {
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the desktop group is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the desktop group you want to delete and select **{{ ui-key.yacloud.common.delete }}**.
-
+  1. In the [management console]({{ link-console-main }}), select the folder the desktop group is in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the desktop group you want to delete and select **{{ ui-key.yacloud.common.delete }}**.
+  
       {% note tip %}
 
       To delete multiple desktop groups, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
       {% endnote %}
 
-   1. Confirm the deletion.
+  1. Confirm the deletion.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the [CLI](../../../cli/index.yaml) command to delete a [desktop group](../../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      ```bash
+      yc desktops group delete --help
+      ```
+
+  1. Get a list of desktop groups in the default folder:
+
+      {% include [desktops-group-list](../../../_includes/cloud-desktop/desktops-group-list.md) %}
+
+  1. Select the desktop group `ID` or `NAME`, for example, `my-desktop-group`.
+  1. Delete the desktop group:
+
+     ```bash
+     yc desktops group delete <desktop_group_name_or_ID>
+     ```
+
+- API {#api}
+
+  Use the [delete](../../api-ref/DesktopGroup/delete.md) REST API method for the [DesktopGroup](../../api-ref/DesktopGroup/index.md) resource or the [DesktopGroupService/Delete](../../api-ref/grpc/DesktopGroup/delete.md) gRPC API call.
 
 {% endlist %}

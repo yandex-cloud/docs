@@ -42,13 +42,75 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
   1. Open a new browser page and paste the obtained URL to the address bar.
   1. Click the Play button.
 
-- API {#api}
+- REST API {#api}
 
-  Use the [create](../../api-ref/Video/create.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/Create](../../api-ref/grpc/Video/create.md) gRPC API call.
-  
-  The request will register the video in the channel. After that, upload your video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. You can either code the upload yourself in any programming language or use [ready-made](https://tus.io/implementations) libraries for this purpose.
-  
-  For more information about uploading videos, see [Getting started with the {{ video-full-name }} API](../../api-ref/quickstart.md#create-video).
+  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the point where the failure occurred.
+
+  1. Register your video on the channel:
+
+      {% include [register-video-rest-api-command](../../../_includes/video/register-video-rest-api-command.md) %}
+
+      Where:
+      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+      * `<channel_ID>`: ID of the channel where you want to create the video.
+      * `<video_name>`: Name the video will get when uploaded to the channel.
+      * `<video_file_size>`: Size of the video file to upload, in bytes.
+      * `<video_file_name>`: Name of the video file you are going to upload.
+
+      {% include [register-video-rest-api-output](../../../_includes/video/register-video-rest-api-output.md) %}
+
+      Save the video upload link (`url` field value) and video ID (`videoId` field value) as you will need them later.
+
+  1. Upload the video file:
+
+      {% include [create-video-upload-file-curl](../../../_includes/video/create-video-upload-file-curl.md) %}
+
+  1. Make sure your video file has been fully uploaded by specifying the video ID you saved before:
+
+      {% include [verify-video-upload-rest](../../../_includes/video/verify-video-upload-rest.md) %}
+
+      If you see `PROCESSING` or `READY` in the `status` field, the video file has been fully uploaded.
+
+  1. If you see `WAIT_UPLOADING` in the `status` field, the video file upload was interrupted. In this case you need to resume and complete the upload. To do this, you need to know the `offset` point the previous upload attempt was interrupted at.
+
+      {% include [resume-video-upload-curl](../../../_includes/video/resume-video-upload-curl.md) %}
+
+      Check once again that the video file has been fully uploaded. If the upload was interrupted again, repeat this step.
+
+- gRPC API {#grpc-api}
+
+  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the point where the failure occurred.
+
+  1. Register your video on the channel:
+
+      {% include [register-video-grpc-api-command](../../../_includes/video/register-video-grpc-api-command.md) %}
+
+      Where:
+      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+      * `<channel_ID>`: ID of the channel where you want to create the video.
+      * `<video_name>`: Name the video will get when uploaded to the channel.
+      * `<video_file_size>`: Size of the video file to upload, in bytes.
+      * `<video_file_name>`: Name of the video file you are going to upload.
+
+      {% include [register-video-grpc-api-output](../../../_includes/video/register-video-grpc-api-output.md) %}
+
+      Save the video upload link (`url` field value) and video ID (`videoId` field value) as you will need them later.
+
+  1. Upload the video file:
+
+      {% include [create-video-upload-file-curl](../../../_includes/video/create-video-upload-file-curl.md) %}
+
+  1. Make sure your video file has been fully uploaded by specifying the video ID you saved before:
+
+      {% include [verify-video-upload-grpc](../../../_includes/video/verify-video-upload-grpc.md) %}
+
+      If you see `PROCESSING` or `READY` in the `status` field, the video file has been fully uploaded.
+
+  1. If you see `WAIT_UPLOADING` in the `status` field, the video file upload was interrupted. In this case you need to resume and complete the upload. To do this, you need to know the `offset` point the previous upload attempt was interrupted at.
+
+      {% include [resume-video-upload-curl](../../../_includes/video/resume-video-upload-curl.md) %}
+
+      Check once again that the video file has been fully uploaded. If the upload was interrupted again, repeat this step.
 
 {% endlist %}
 

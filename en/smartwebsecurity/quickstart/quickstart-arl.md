@@ -21,12 +21,9 @@ To get started with ARL:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your ARL profile.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create your ARL profile in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../../_assets/smartwebsecurity/arl.svg) **ARL profiles** tab and click **Create ARL profile**.
-  1. Describe a scenario of using ARL features in your projects and click **Submit request**.
-
-      Once your request is approved, you can proceed to create an ARL profile.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
   1. Add profile description and labels if needed.
   1. Click **Create**.
@@ -46,12 +43,12 @@ To get started with ARL:
   1. Under **Traffic conditions**, select **All traffic** or **With a condition**.
   1. To set [traffic conditions](../concepts/conditions.md), select one or more items from the **Conditions** list:
      *  `IP`: IP address, IP address range, or IP address region.
-     *  `HTTP header`: String in the HTTP header.
+     *  `HTTP header`: HTTP header string.
      *  `HTTP body`: String in the HTTP packet body.
      *  `Request path`: Request path.
      *  `Host`: Domain receiving the request.
      *  `HTTP method`: Request method.
-     *  `Cookie`: String in the cookie header.
+     *  `Cookie`: Cookie header string.
   
   1. Under **Request counting**, select how to count requests for limit application purposes:
      * **No grouping**: Counting each request individually.
@@ -63,7 +60,7 @@ To get started with ARL:
             *  `Region`: IP address region of the requests.
             *  `Host`: Domain receiving the request.
             *  `HTTP cookie`: String in the cookie header.
-            *  `HTTP header`: String in the HTTP header.
+            *  `HTTP header`: HTTP header string.
             *  `Query params`: String in query parameters.
         1. (Optional) Enable **Case-sensitive** to put properties with the same values in different cases into different groups.
 

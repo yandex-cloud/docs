@@ -5,8 +5,11 @@ description: Из статьи вы узнаете, как работать с {
 
 # Пошаговые инструкции для {{ maf-name }}
 
+* [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
-* [{#T}](af-interfaces.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Работа с интерфейсами {{ AF }}](af-interfaces.md)
 * [Загрузка DAG-файлов в кластер](upload-dags.md)
+* [Передача логов кластера в {{ cloud-logging-full-name }}](af-logging.md)
 * [Удаление кластера](cluster-delete.md)

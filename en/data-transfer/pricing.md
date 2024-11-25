@@ -50,7 +50,9 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Examples of cost calculation {#price-example}
 
-When doing your cost calculation, remember that one [worker](concepts/index.md#worker) uses 2 vCPUs and 4 GB of RAM by default.
+When calculating the cost, note that one [worker](concepts/index.md#worker) can use the following computing resources:
+
+{% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
 
 ### Single data copying from {{ PG }} to {{ CH }} {#copy}
 

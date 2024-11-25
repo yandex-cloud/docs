@@ -9,13 +9,13 @@ You can use [{{ microsoft-idp.adfs-short }}](https://learn.microsoft.com/ru-ru/w
 
 To configure mapping between user groups in {{ microsoft-idp.adfs-abbreviated }} and user groups in an [identity federation](../../../concepts/add-federation.md):
 
-1. [{#T}](#get-adfs-info).
-1. [{#T}](#create-federation).
-1. [{#T}](#add-certificate).
-1. [{#T}](#create-relying-party-trust).
-1. [{#T}](#adfs-mapping).
-1. [{#T}](#org-mapping).
-1. [{#T}](#test-auth).
+1. [Collect the {{ microsoft-idp.adfs-abbreviated }} farm data](#get-adfs-info).
+1. [Create a {{ org-full-name }} federation](#create-federation).
+1. [Add an {{ microsoft-idp.adfs-abbreviated }} certificate to your federation](#add-certificate).
+1. [Create and configure a relying party trust on the {{ microsoft-idp.adfs-abbreviated }} side](#create-relying-party-trust).
+1. [Configure attribute mapping on the {{ microsoft-idp.adfs-abbreviated }} side](#adfs-mapping).
+1. [Configure group mapping on the federation side](#org-mapping).
+1. [Test authentication](#test-auth).
 
 ## Getting started {#before-you-begin}
 
@@ -138,7 +138,7 @@ To enable {{ org-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} cert
 
   1. In the left-hand panel, select ![VectorSquare](../../../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click the row with the federation you need to add a certificate for: `demo-federation`.
+  1. Click the row with `demo-federation` to add your certificate to.
 
   1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
 
@@ -422,7 +422,7 @@ To configure such a policy:
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in {{ org-name }} and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 

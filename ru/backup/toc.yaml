@@ -4,6 +4,7 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
+    expanded: true
     items:
       - name: Все инструкции
         href: operations/index.md
@@ -27,6 +28,14 @@ items:
             href: operations/refresh-connection-oslogin-linux.md
           - name: Удалить ВМ из {{ backup-name }}
             href: operations/delete-vm.md
+      - name: '{{ baremetal-name }} в {{ backup-name }}'
+        items:
+          - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+            href: operations/backup-baremetal/backup-baremetal.md
+          - name: >-
+              Обновить подключение сервера {{ baremetal-name }} к {{ backup-name
+              }}
+            href: operations/backup-baremetal/refresh-connection.md
       - name: Политики резервного копирования
         items:
           - name: Создать политику
@@ -59,7 +68,7 @@ items:
         href: operations/get-stats.md
   - name: Практические руководства
     items:
-      - name: Подключение сервера BareMetal к Cloud Backup
+      - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
         href: tutorials/backup-baremetal.md
       - name: Автоматическая привязка политики резервного копирования к ВМ
         items:

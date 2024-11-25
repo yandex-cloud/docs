@@ -1,5 +1,7 @@
 Event name | Description
 --- | ---
+`ActivateDataset` | Activating a dataset
+`ActivateDocker` | Applying a Docker image to a project
 `CancelJob` | Canceling a job
 `CloneJob` | Cloning a job
 `CloseProject` | Closing a project
@@ -7,6 +9,11 @@ Event name | Description
 `CreateJob` | Creating a job
 `CreateNode` | Creating a node
 `CreateProject` | Creating a project
+`CreateDataset` | Creating a dataset
+`CreateDocker` | Creating a Docker image
+`DeactivateDataset` | Deactivating a dataset
+`DeleteDataset` | Deleting a dataset
+`DeleteDocker` | Deleting a Docker image
 `DeleteAllJobData` | Deleting all job data
 `DeleteCommunity` | Deleting a community
 `DeleteJobData` | Deleting job data

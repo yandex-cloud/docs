@@ -11,7 +11,80 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для удаления объектов:
+
+      ```bash
+      yc storage s3api delete-objects --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Подготовьте файл JSON со списком объектов для удаления. Пример наполнения:
+
+      ```json
+      {
+          "Objects": [
+              {
+                  "Key": "<ключ_объекта>"
+              },
+              {
+                  "Key": "<ключ_объекта>"
+              },
+              ...
+          ]          
+      }
+      ```
+
+      Где:
+
+      * `Objects` — массив объектов для удаления.
+      * `Key` — [ключ](../../concepts/object.md#key) объекта. 
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api delete-objects \
+        --bucket <имя_бакета> \
+        --delete <путь_к_файлу_json>
+      ```
+
+      Где:
+
+      * `--bucket` — имя вашего бакета.
+      * `--delete` — путь к файлу JSON со списком объектов для удаления.
+
+      Результат:
+
+      ```bash
+      deleted:
+        - key: file-1
+          version_id: "null"
+        - key: file-2
+          version_id: "null"
+      request_id: 4c35e7d4********
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 

@@ -49,7 +49,7 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  By default, information about operations is provided as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml
@@ -77,12 +77,16 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
       desktop_id: e3v7nfkhn0q4********
   ```
 
+- API {#api}
+
+  Use the [listOperations](../api-ref/Desktop/listOperations.md) REST API method for the [Desktop](../api-ref/Desktop/index.md) resource or the [DesktopService/ListOperations](../api-ref/grpc/Desktop/listOperations.md) gRPC API call.
+
 {% endlist %}
 
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

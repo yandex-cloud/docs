@@ -18,4 +18,9 @@
   1. Specify the user that the desktop is created for.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+
+- API {#api}
+
+  Use the [create](../../cloud-desktop/api-ref/Desktop/create.md) REST API method for the [Desktop](../../cloud-desktop/api-ref/Desktop/index.md) resource or the [DesktopService/Create](../../cloud-desktop/api-ref/grpc/Desktop/create.md) gRPC API call.
+
 {% endlist %}

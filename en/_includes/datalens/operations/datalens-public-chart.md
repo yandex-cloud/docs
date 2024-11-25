@@ -3,7 +3,7 @@
 
 
 1. On the [navigation page]({{ link-datalens-main }}/navigation), find the chart and open it.
-1. At the top of the wizard interface, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/globe.svg) **Public access**.
+1. At the top of the dashboard wizard, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/globe.svg) **Public access**.
 
    ![screen03](../../../_assets/datalens/concepts/datalens-public/screen03.png)
 

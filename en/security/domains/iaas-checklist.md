@@ -11,12 +11,12 @@ description: This article presents a security checklist for a {{ yandex-cloud }}
 
 &#x2713; **Disable password authentication**: Password authentication in {{ yandex-cloud }} is disabled by default. Do not enable password-based access unless you have to.
 
-&#x2713; **Connect via OS Login**: Use [OS Login](../../organization/concepts/os-login.md) to link your VM user account with the organization user account. To [connect](../../compute/operations/vm-connect/os-login.md) to a VM via OS Login, set up OS Login on a [new](../../compute/operations/vm-connect/os-login-create-vm.md) or [existing VM](../../compute/operations/vm-connect/enable-os-login.md) instead of the standard SSH connection.
+&#x2713; **Connect via {{ oslogin }}**: Use [{{ oslogin }}](../../organization/concepts/os-login.md) to link your VM user account with the organization user account. To [connect](../../compute/operations/vm-connect/os-login.md) to a VM via {{ oslogin }}, set up {{ oslogin }} on a [new](../../compute/operations/vm-connect/os-login-create-vm.md) or [existing VM](../../compute/operations/vm-connect/enable-os-login.md) instead of the standard SSH connection.
 
 &#x2713; **Use a benchmark image to deploy a VM**: Prepare a VM image configured according to your organization's security policies and use this image to [create](../../compute/operations/vm-create/create-from-user-image.md) VMs.
 
 
-&#x2713; **Set up VM network interfaces**: For stable and reliable networks, set up [network interfaces](../../vpc/concepts/network.md) on all your new or existing VMs that are stopped, i.e., a subnet, internal and public IP addresses, and security groups. Learn more about security groups and other VM networking concepts in [{#T}](#network-security).
+&#x2713; **Set up VM network interfaces**: For stable and reliable networks, set up [network interfaces](../../vpc/concepts/network.md) on all your new VMs or existing ones that are stopped, i.e., a subnet, internal and public IP addresses, and security groups. See [Network security](#network-security) to learn more about security groups and other VM networking concepts.
 
 For more information on how to [set up a secure virtual environment](../standard/virtualenv-safe-config.md#serial-console) and [secure access management](../standard/authentication.md), see the respective sections of the {{ yandex-cloud }} security standard.
 

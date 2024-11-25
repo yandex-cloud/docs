@@ -2,6 +2,8 @@
 
 To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the folder.
 
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
+
 ## Assigning a role for a folder {#access-to-user}
 
 {% list tabs group=instructions %}
@@ -108,8 +110,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
-       * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-       * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+       * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+       * `system:group:federation:<federation_ID>:users`: [Identity federation](../../../organization/concepts/add-federation.md) ID to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -350,7 +352,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another:
+  Assign the `editor` role to one user and the `viewer` role to another user:
 
   ```bash
   curl \

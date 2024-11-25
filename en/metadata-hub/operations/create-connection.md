@@ -9,15 +9,15 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 
 You can create connections of the following types:
 * [To a cluster with a managed database](#mdb-connection):
-  * [{#T}](#mdb-postgresql)
-  * [{#T}](#mdb-clickhouse)
-  * [{#T}](#mdb-mysql)
-  * [{#T}](#mdb-redis)
+  * [{{ mpg-name }}](#mdb-postgresql)
+  * [{{ mch-name }}](#mdb-clickhouse)
+  * [{{ mmy-name }}](#mdb-mysql)
+  * [{{ mrd-name }}](#mdb-redis)
 * [To a user database installation](#on-premise-connection):
-  * [{#T}](#postgresql-on-premise)
-  * [{#T}](#clickhouse-on-premise)
-  * [{#T}](#mysql-on-premise)
-  * [{#T}](#redis-on-premise)
+  * [{{ PG }}](#postgresql-on-premise)
+  * [{{ CH }}](#clickhouse-on-premise)
+  * [{{ MY }}](#mysql-on-premise)
+  * [{{ RD }}](#redis-on-premise)
 
 ## Connecting to a cluster with a managed database {#mdb-connection}
 
@@ -187,7 +187,7 @@ You can create connections of the following types:
    1. Click **Create connection**.
    1. Specify the connection name.
    1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
-   1. Select the **Connection type**:
+   1. Select the **Connection type**.
    1. Under **Connection to {{ MY }}**, specify the connection parameters:
        1. In the **Connection type** field, select **User installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.

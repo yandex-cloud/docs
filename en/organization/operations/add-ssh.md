@@ -1,15 +1,15 @@
 ---
 title: How to add a user SSH key
-description: Follow this guide to add SSH keys to a user profile, which will allow the user to connect to VMs and {{ k8s }} cluster nodes with configured access via OS Login.
+description: Follow this guide to add to a user profile the SSH keys to allow the user to connect to VMs and {{ k8s }} cluster nodes with {{ oslogin }} access configured.
 ---
 
 # Adding an SSH key
 
-Upload SSH keys to the organization user or [service account](../../iam/concepts/users/service-accounts.md) profile in {{ org-name }} so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [OS Login](../concepts/os-login.md) access enabled.
+Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [{{ oslogin }}](../concepts/os-login.md) access enabled.
 
 To add an SSH key to a user profile or service account, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
 
-To add a public SSH key to an OS Login profile:
+To add a public SSH key to an {{ oslogin }} profile:
 
 {% list tabs group=instructions %}
 
@@ -23,7 +23,7 @@ To add a public SSH key to an OS Login profile:
  
   1. From the list, select the user whose {{ oslogin }} profile you want to add an SSH key to.
   
-      Use the filter or search feature as needed.
+      Use the filter or search as needed.
 
   1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
   
@@ -64,7 +64,7 @@ To add a public SSH key to an OS Login profile:
       +----------------------+-------------------------+-------------------------+
       ```
 
-  1. Get the required user ID by specifying the organization ID you obtained earlier:
+  1. Get the required user ID by specifying the organization ID you got earlier:
 
       ```bash
       yc organization-manager user list \
@@ -197,5 +197,5 @@ To allow users to upload SSH keys to their own profiles, [enable](./os-login-acc
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/os-login-profile-create.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
-* [Connecting to a {{ k8s }} node via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an {{ oslogin }} profile for VM management via Ansible](../tutorials/sa-oslogin-ansible.md)

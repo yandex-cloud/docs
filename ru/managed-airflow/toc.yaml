@@ -19,6 +19,8 @@ items:
         href: operations/af-interfaces.md
       - name: Загрузка DAG-файлов в кластер
         href: operations/upload-dags.md
+      - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
+        href: operations/af-logging.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
   - name: Практические руководства

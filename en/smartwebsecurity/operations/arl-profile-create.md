@@ -1,13 +1,5 @@
 # Creating an ARL profile
 
-{% note info %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To gain access, provide a description of how you plan to use ARL when creating your first ARL profile and click **{{ ui-key.yacloud_components.request-alpha-flag-dialog.button_send }}**.
-
-Once your request is approved, you can proceed to create an ARL profile.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

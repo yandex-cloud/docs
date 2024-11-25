@@ -1,10 +1,10 @@
-> (2 × 7000 / 100&nbsp;000) × 180,00&nbsp;₸ = 0,14 × 180,00&nbsp;₸ = 25,20&nbsp;₸
+> (2 × 7&nbsp;000 / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 >
-> Итого: 25,20&nbsp;₸
+> Итого: {% calc [currency=KZT] 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 
 Где:
 
 * 2 — количество доставляемых событий при одном обращении к секрету.
-* 7000 — количество обращений к секрету.
-* 180,00&nbsp;₸ — цена за доставку 100&nbsp;000 событий.
+* 7&nbsp;000 — количество обращений к секрету.
+* {{ sku|KZT|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
 * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.

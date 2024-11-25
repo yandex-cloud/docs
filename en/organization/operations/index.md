@@ -1,9 +1,9 @@
 ---
-title: How to work with {{ org-full-name }}
+title: Guides on using {{ org-full-name }}
 description: In this article, you will learn how to work with {{ org-full-name }} in {{ yandex-cloud }}.
 ---
 
-# How to work with {{ org-full-name }}
+# Guides on using {{ org-full-name }}
 
 ## Managing organizations {#manage-orgs}
 
@@ -35,7 +35,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](setup-federation.md).
 * [{#T}](federation-group-mapping.md).
 
-## Working with OS Login {#os-login}
+## Working with {{ oslogin }} {#os-login}
 
 * [{#T}](os-login-access.md).
 * [{#T}](os-login-profile-create.md).

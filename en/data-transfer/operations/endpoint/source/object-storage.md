@@ -31,32 +31,50 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 {% include [note-preview](../../../../_includes/preview-pp.md) %}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to S3-compatible storage.
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
-### Settings {#settings}
+* [Configurations](#bucket-config) and [event queues](#sqs-queue) for an {{ objstorage-full-name }} bucket or a custom S3-compatible storage.
+* [Additional parameters](#additional-settings).
 
-#### Bucket configuration parameters {#bucket-config}
+### Bucket configurations {#bucket-config}
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Bucket name.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: [ID and contents of the AWS key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) used to access a private bucket.
-  * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.path_prefix.title }}**: Prefix for folders and files that may be used when performing a search within the bucket.
-  * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}**: Endpoint for an Amazon S3-compatible service. Leave this field empty to use Amazon.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}**: Region to send requests.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}**: Allow self-signed certificates.
+{% list tabs group=instructions %}
 
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
+- {{ objstorage-full-name }} bucket {#obj-storage}
 
-#### Event queue configuration {#event-queue-config}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}**: Name of the queue set up in the S3 bucket to get `s3:ObjectCreated` events.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}**: ID of the AWS account used to create the queue. Leave this field empty if the S3 bucket and queue were created by the same account.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}**: ID of the AWS key used as part of the credentials to read from the SQS queue. Leave this field empty if the credentials used for the S3 bucket are applicable.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: AWS secret used as part of the credentials to read from the SQS queue. Leave this field empty if the credentials used for the S3 bucket are applicable.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}**: Endpoint for an S3-compatible service. Leave this field empty to use AWS.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: AWS region to send requests. Leave this field empty if it matches the bucket region.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}**: Allow self-signed certificates.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: [Bucket](../../../../storage/concepts/bucket.md) name.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}**: Select a [service account](../../../../iam/concepts/users/service-accounts.md) with access to the bucket from the list.
+
+
+    * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}**: Prefix for folders and files that may be used when performing a search within the bucket.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
+
+- Custom S3-compatible storage {#s3-storage}
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Bucket name.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: [ID and contents of the AWS key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) used to access a private bucket.
+    * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}**: Endpoint for an Amazon S3-compatible service. Leave this field empty to use Amazon.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}**: Region to send requests.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}**: Allow self-signed certificates.
+    * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_prefix.title }}**: Prefix for folders and files that may be used when performing a search within the bucket.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.path_pattern.title }}**: Enter the path pattern. If the bucket only includes files, use the `**` value.
+
+{% endlist %}
+
+### Event queue configuration {#sqs-queue}
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.queue_name.title }}**: Name of the queue set up in the S3 bucket to get `s3:ObjectCreated` events.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.owner_id.title }}**: ID of the AWS account used to create the queue. Leave this field empty if the S3 bucket and queue were created by the same account.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}**: ID of the AWS key used as part of the credentials to read from the SQS queue. Leave this field empty if the credentials used for the S3 bucket are applicable.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}**: AWS secret used as part of the credentials to read from the SQS queue. Leave this field empty if the credentials used for the S3 bucket are applicable.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}**: Endpoint for an S3-compatible service. Leave this field empty to use AWS.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: AWS region to send requests. Leave this field empty if it matches the bucket region.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}**: Select this option if the remote server uses a secure SSL/TLS connection.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}**: Allow self-signed certificates.
+
+### Additional settings {#additional-settings}
 
 #### Data format {#data-format}
 
@@ -77,7 +95,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.jsonl.title }}
-
+  
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.newlines_in_values.title }}**: Allow using newline characters in JSON values. Enabling this parameter may affect performance. Leave this field empty to use the default `FALSE` value.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}**: Method for handling JSON fields outside the `explicit_schema` (if specified). See the [PyArrow documentation](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.block_size.title }}**: Size of file segments in bytes for concurrent processing in each file memory. When handling large amounts of data where the schema cannot be inferred, increasing this value should solve the problem. Setting the value too high may lead to OOM errors.
@@ -108,9 +126,11 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
   {% endnote %}
 
-**{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Specify a JSON schema in `{"<column>": "<data_type>"}` format or list the fields for the schema of the resulting table. If you select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, the schema will be inferred automatically.
-
-Additionally, you can specify how to process rows that did not pass a type check: continue the transfer, repeat the attempt to define the type, abort the transfer.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}**: Specify a JSON schema in `{"<column>": "<data_type>"}` format or list the fields for the resulting table's schema. If you select `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.infer.title }}`, the schema will be inferred automatically.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSourceAdvancedSettings.unparsed_mode.title }}**: Specify how to process rows that failed to pass a type check:
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_CONTINUE.title }}**: Continue data transfer.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_FAIL.title }}**: Abort.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.OBJECT_STORAGE_UNPARSED_RETRY.title }}**: Repeat the type check attempt.
 
 ## Configuring the data target {#supported-targets}
 

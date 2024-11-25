@@ -1,10 +1,10 @@
-> ((25&nbsp;000 - 1000) / 100&nbsp;000) × 180,00&nbsp;₸ = 0,24 × 180,00&nbsp;₸ = 43,20&nbsp;₸
+> ((25&nbsp;000 - 1&nbsp;000) / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 >
-> Итого: 43,20&nbsp;₸
+> Итого: {% calc [currency=KZT] 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 
 Где:
 
 * 25&nbsp;000 — общее количество доставленных событий {{ objstorage-name }}.
-* 1000 — количество доставленных событий уровня конфигурации, которые не тарифицируются.
-* 180,00&nbsp;₸ — цена за доставку 100&nbsp;000 событий.
+* 1&nbsp;000 — количество доставленных событий уровня конфигурации, которые не тарифицируются.
+* {{ sku|KZT|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
 * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.
