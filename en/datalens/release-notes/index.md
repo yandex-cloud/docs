@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: September 2024'
-description: Check out {{ datalens-full-name }} release notes for September 2024.
+title: '{{ datalens-full-name }} release notes: October 2024'
+description: Check out {{ datalens-full-name }} release notes for October 2024.
 ---
 
-# {{ datalens-full-name }} release notes: September 2024
+# {{ datalens-full-name }} release notes: October 2024
 
 
 * [Changes in basic features](#base)
@@ -13,131 +13,126 @@ description: Check out {{ datalens-full-name }} release notes for September 2024
 
 
 
+### Copying links together with a widget {#widget-links-copy}
 
-### Special FQDNs in connections {#special-fqdns}
+Now a widget you copy retains its links if you paste it to the same dashboard tab. This option is not available when adding a selector to a group.
 
-In connections to [{{ CH }}](../operations/connection/create-clickhouse.md), [{{ PG }}](../operations/connection/create-postgresql.md), [{{ MY }}](../operations/connection/create-mysql.md), or [{{ GP }}](../operations/connection/create-greenplum.md), now you can select a special FQDN that points to the current master host or the latest replica.
+### Widget size on a dashboard {#dashboard-widget-resize}
 
-For standard FQDNs, now you can specify multiple hosts for connection.
+You can now resize widgets on a dashboard by dragging their bottom corners.
 
-### Integration with {{ connection-manager-name }} {#dash-link-settings}
+![image](../../_assets/datalens/release-notes/dashboard-widget-resize.png)
 
-Now, there is integration with [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) for connections:
+### Chart tooltips {#tooltips}
 
-* [{{ CH }}](../operations/connection/create-clickhouse.md)
-* [{{ PG }}](../operations/connection/create-postgresql.md)
-* [{{ MY }}](../operations/connection/create-mysql.md)
-
-
-### Pinning widgets {#widget-fixation}
-
-Now, you can [pin (i.e. lock the position of) a widget](../dashboard/settings.md#widget-fixation) in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
-
-### Freezing table columns {#column-fixation}
-
-For [regular](../visualization-ref/table-chart.md#column-fixation) and [pivot](../visualization-ref/pivot-table-chart.md#column-fixation) tables, now you can freeze one or more columns. Once frozen, these columns stay in place as you scroll horizontally.
-
-### New bulk operations with fields {#bulk-changes}
-
-In the [dataset](../dataset/index.md), new bulk operations with marked fields. Now, you can change their types or aggregation.
-
-![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
-
-### Support for markup functions in charts {#markup-support}
-
-In charts, you now can employ [markup functions](../function-ref/markup-functions.md) in labels, e.g., under **Labels**, you can add a field with the formula:
-
-```markdown
-MARKUP(
-    COLOR(STR([OrderCount]), IF ([OrderCount] < 7000) THEN 'red' ELSE 'green' END),
-    BR(),
-    IF(LEN([ProductSubcategory]) > 15) THEN LEFT([ProductSubcategory],15) +'...' ELSE [ProductSubcategory] END
-)
-```
-
-![image](../../_assets/datalens/release-notes/markup-chart.png)
-
-### Using _markdown_ to sign charts and map tooltip {#markdown-sign-map-tooltips}
-
-Now, in [signatures](../concepts/chart/settings.md#sign) for charts and [map tooltips](../concepts/chart/settings.md#map-settings), you can configure formatting for fields with the `String` type, using the basic [_markdown_](../dashboard/markdown.md) syntax. To do this, click the icon before the field name and enable **Markdown**.
-
-{% cut "Markdown in chart signatures" %}
-
-![image](../../_assets/datalens/release-notes/markdown-chart.png)
-
-{% endcut %}
-
-{% cut "Markdown in map tooltips" %}
-
-![image](../../_assets/datalens/release-notes/markdown-chart-map.png)
-
-{% endcut %}
-
-### Configuring RLS for user groups {#group-rls}
-
-In the dataset, now, you can configure [RLS for user groups](../security/row-level-security.md#group-rls).
-
-### Filtering charts by other charts for maps {#chart-chart-map-filtration}
-
-Now, you can [filter charts by charts](../dashboard/chart-chart-filtration.md) for [maps](../visualization-ref/map-chart.md). Clicking a map element applies filtering by all the dimensions used in the chart except the coordinates themselves.
+* Added the **Tooltip** [setting](../concepts/chart/settings.md#common-settings) in charts which enables and disables on-hover tooltips for chart elements.
+* Added settings for customizing tooltip display in [maps](../visualization-ref/map-chart.md).
 
 
-### Field hints in a chart {#hint-fields}
+### Disabling links on a dashboard {#dashboard-links-off-error}
 
-We fixed the bug that caused field hints to disappear after changing a dataset in a chart.
+Fixed an issue where clicking `Disable` → `all`/`charts`/`selectors` would reset link parameters not yet applied.
 
-### Dataset access error {#dataset-access-error}
+### Dashboard auto-scroll {#autoscroll-dashboard}
 
-We fixed the issue where a different type of error was displayed instead of the message about no access permissions to the dataset.
-
-### Displaying charts as tables {#chart-as-table}
-
-We fixed the bug with displaying charts as tables. To open your chart as a table, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/layout-cells.svg) **Open as a table** in the top-right corner of the chart.
-
-### Fixing tables {#table-fix}
-
-We fixed these table related errors:
-
-* Incorrect display of old dates.
-* Wrong colors in a table after updating filters.
-* Incorrect display of the **Totals** row.
-* In a table with hierarchy, when pagination was enabled, only the first rows were displayed and there was no navigator to move through the pages.
-
-### **Heat map** chart display {#heat-map-fix}
-
-Fixed the display of [Heat map](../visualization-ref/heat-map-chart.md) chart in the wizard.
+* Fixed page auto-scroll when dragging dashboard items in edit mode.
+* Fixed the dashboard auto-scroll issue in mobile `Safari` browsers when switching from chart view mode back to the dashboard.
 
 
-### Dashboard link settings {#dash-link-settings}
+### Fixes in workbooks {#workbook-errors-fix}
 
-In dashboards, when setting up a link for access, now you can save the state of your selectors and share the link with the federation:
+* Hid the malfunctioning **Request permissions** button for objects in workbooks the user has no access to.
+* Fixed an error where the workbook window displayed connections instead of charts, and vice versa.
 
-1. At the top of your dashboard, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/arrow-shape-turn-up-right.svg) **Share**.
-1. In the window that opens, set up:
 
-   * The menu language, theme, and appearance.
-   * (Optional) Save the selector values.
-   * (Optional) If you have an [identity federation](../../organization/concepts/add-federation.md), save the federation to share your link with the federation users.
 
-1. Copy the link with the set design parameters by clicking **Copy and close**.
+### Selector comparison operations {#selector-compare-operations}
+
+Added such comparison operations as `Greater than`, `Less than`, `Greater than or equal to`, and `Less than or equal to` for the `Input field` selector that filters by dataset text field.
+
+### Displaying X and Y axes in charts {#axis-visible-chart-settings}
+
+Added the **Axis on chart** [setting](../concepts/chart/settings.md#axis-settings) enabling users to hide all elements associated with the X and Y axes. This feature is available for [wizard charts](../concepts/chart/dataset-based-charts.md) and [QL charts](../concepts/chart/ql-charts.md).
+
+### Line chart improvements {#line-chart-improves}
+
+The following features are now available in [line charts](../visualization-ref/line-chart.md):
+
+* Continuous axis.
+* Sorting by measure when the **Colors** section specifies a dimension.
+
+### Point coloring in scatter charts {#scatter-chart-color}
+
+Fixed the issue with point coloring in [scatter charts](../visualization-ref/scatter-chart.md) after renaming fields.
+
+### Fixes in _indicator_ QL charts {#ql-charts-indicator}
+
+* Fixed QL chart rendering issues when updating the list of fields.
+* Fixed an error where the selection list in the dashboard link creation window showed invalid aliases for QL charts.
+
+### Displaying layers in maps {#old-maps-layers}
+
+Fixed an error where layers in older or outdated maps were displayed incorrectly.
+
+### Fixes in tables {#table-fixes}
+
+Fixed the following errors in [tables](../visualization-ref/table-chart.md):
+
+* Incorrect application of color and gradient fill in null table cells.
+* Incorrect rendering of QL chart tables with no data.
+* Errors in calculating column width for tables with a large number of rows.
+* Errors in calculating column width for cells with [markup functions](../function-ref/markup-functions.md).
+* Incorrect sorting of dates with null values.
+* Table display errors when [pinning](../visualization-ref/table-chart.md#column-fixation) more than one column.
+* Browser freezing when scrolling a table.
+* Duplicate table content when selecting the whole page.
+
+### Disabling row sorting in pivot tables {#pivot-table-sorting-off}
+
+Added the option to disable row sorting in [pivot tables](../visualization-ref/pivot-table-chart.md).
+
+### Displaying linear indicators {#table-line-indicator}
+
+Fixed linear indicator display issues:
+
+* In manually scaled tables.
+* In tables with column fill.
+
+### Displaying combined charts with a hierarchy {#chart-as-table}
+
+Fixed the rendering of [combined charts](../visualization-ref/combined-chart.md) with a hierarchy and continuous axis.
+
+### Changes in the text toolbar {#text-toolbar}
+
+In the toolbar of the text editing window:
+
+* Fixed the display of commands when pressing `/`.
+* Restored the display of buttons for adding formulas.
+* Added the **Mermaid** button for `Markdown markup` mode.
+
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Reports {#reports}
+### Changes in reports {#report-changes}
 
-Now, {{ datalens-short-name }} support [reports](../reports/index.md), i.e., multi-page documents that you can export to PDF and print. You can add charts, text blocks, headers, and images to report pages.
+* Improved [report](../reports/index.md) export:
 
-### Restrictions on embedding private objects {#private-embedded-connections}
+  * Exported report files now have the same names as objects in {{ datalens-short-name }}.
+  * Optimized the size of exported `pdf` files.
+  * Pages of exported `pdf` files are now sized to the `А3`/`A4` dimensions.
+  * Fixed rendering issues for exported `pdf` files.
+  * Fixed the order of layers in `pdf` files.
 
-Now, you cannot create a [private embedding](../security/private-embedded-objects.md) for an object if it has dependent objects that are built based on the following connections:
+* Added a confirm box when exiting the report editing interface with unsaved changes.
+* Updated the minimum dimensions for the `Image` widget.
+* Report and dashboard options are now listed next to each other in the object creation menu on a workbook page.
+* Added the option to migrate a report to a workbook.
+* Fixed an error where the preview area did not display chart background changes.
+* Fixed the text in the report creation menu.
 
-* [Snowflake](../operations/connection/create-snowflake.md)
-* [Metrica](../operations/connection/create-metrica-api.md)
-* [AppMetrica](../operations/connection/create-appmetrica.md)
-* [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
-* [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+### Changes in private embeddings {#embedded-changes}
 
-### Embedding settings {#private-embedded-setings}
-
-Now, you can edit embeddings for private objects. In the object row in your workbook, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **Embedding settings**.
+* Improved readability of token and dependent object error messages in [private embeddings](../security/private-embedded-objects.md). They now describe the possible causes of the error.
+* `Outdated embedding settings` error message is now displayed correctly for widgets in private embeddings of dashboards.
+* Fixed an error on mobile devices where embedded dashboard selector values were reset after clicking a chart.
 

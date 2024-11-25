@@ -108,15 +108,15 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_ID>` `service = data-transfer` `name = publisher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.changeitems`
 
     ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -139,14 +139,14 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_ID>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.data.changeitems`
     ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -169,11 +169,11 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_ID>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec`
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
     * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
     * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
@@ -182,7 +182,7 @@ Alert parameters:
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}`.
     * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-period }}**: `1 minute`.
 
-### Reads {#reading}
+### Read {#reading}
 
 Alert triggering means that no bytes of data were read from the source during the evaluation window.
 
@@ -195,14 +195,14 @@ Alert parameters:
 
 * Metrics:
 
-    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_ID>` `service = data-transfer` `name = publisher.data.bytes`
+    ![image](../../_assets/console-icons/chart-line.svg) `<cloud_name> > <folder_name>` `service = data-transfer` `name = publisher.data.bytes`
     ![image](../../_assets/console-icons/function.svg) `derivative()` (in the **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformation.transformers.array_item_label }}** section)
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
 
     Additional settings:
 
@@ -211,4 +211,4 @@ Alert parameters:
 
 ## Specifics of working with alerts {#alert-specifics}
 
-* To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if the [{#T}](#source-change-items) alert is fired, and the [{#T}](#target-change-items) alert is not fired, the problem is probably not on the source.
+* To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if the [Number of source events](#source-change-items) alert has fired, and the [Number of target events](#target-change-items) alert has not, in all probability the problem is not on the source.

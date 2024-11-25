@@ -1,12 +1,12 @@
-# Using a service account with an OS Login profile for VM management via Ansible
+# Using a service account with an {{ oslogin }} profile for VM management via Ansible
 
-To manage [virtual machines](../../compute/concepts/vm.md) via [Ansible](https://www.ansible.com/), you can use a [service account](../../iam/concepts/users/service-accounts.md) with an [OS Login](../../organization/concepts/os-login.md) profile with an SSH key. This configuration will allow you to have a separate account for VM management via Ansible with scheduled or manual SSH key revocation.
+To manage [virtual machines](../../compute/concepts/vm.md) via [Ansible](https://www.ansible.com/), you can use a [service account](../../iam/concepts/users/service-accounts.md) provided with an [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) with an SSH key. This configuration will allow you to have a separate account for VM management via Ansible with scheduled or manual SSH key revocation.
 
 In addition, with this configuration you can temporarily elevate the privileges of this account by assigning additional [roles](../../iam/concepts/access-control/roles.md) to the service account. For example, to use the `become` directive in Ansible tasks, you will have to temporarily assign the `compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin) to the service account.
 
 To configure a service account for VM management via Ansible:
 1. [Prepare your cloud](#before-you-begin).
-1. [Create a service account with an SSH key in the OS Login profile](#create-ssh-key).
+1. [Create a service account with an SSH key in the {{ oslogin }} profile](#create-ssh-key).
 1. [Configure Ansible to run on behalf of a service account](#configure-ansible).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -21,8 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create](../../compute/operations/vm-create/create-linux-vm.md) a virtual machine from a public image with OS Login access enabled, e.g., [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
-1. In your organization settings, [enable](../../organization/operations/os-login-access.md) OS Login access using SSH keys.
+1. [Create](../../compute/operations/vm-create/create-linux-vm.md) a virtual machine from a public image with enabled {{ oslogin }} access, e.g., [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
+1. In your organization settings, [enable](../../organization/operations/os-login-access.md) {{ oslogin }} access using SSH keys.
 1. [Install](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html) Ansible.
 
 ### Required paid resources {#paid-resources}
@@ -31,10 +31,10 @@ The cost of supporting the infrastructure created in the guide includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-## Create a service account with an SSH key in the OS Login profile {#create-ssh-key}
+## Create a service account with an SSH key in the {{ oslogin }} profile {#create-ssh-key}
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) it the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin).
-1. Create an SSH keys pair of the `ed25519` type that the service account will use to connect to virtual machines:
+1. Create an SSH key pair of the `ed25519` type the service account will use to connect to virtual machines:
 
     ```bash
     ssh-keygen \
@@ -46,7 +46,7 @@ The cost of supporting the infrastructure created in the guide includes:
 
     As a result, two SSH key files will be created in the specified directory: `id_yc-sa-my-ansible-sa` and `id_yc-sa-my-ansible-sa.pub`.
 
-1. Add the new SSH key to the OS Login profile of the `my-ansible-sa` service account:
+1. Add the new SSH key to the {{ oslogin }} profile of the `my-ansible-sa` service account:
 
     {% list tabs group=instructions %}
 
@@ -95,14 +95,14 @@ The cost of supporting the infrastructure created in the guide includes:
 
     {% endnote %}
 
-1. Check if you can log in to the VM using the service account's OS Login profile:
+1. Check if you can log in to the VM using the service account's {{ oslogin }} profile:
 
     ```bash
     ssh yc-sa-my-ansible-sa@<VM_IP_address> -i <path_to_private_SSH_key>
     ```
  
     Where:
-    * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM with enabled OS Login access.
+    * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the VM with enabled {{ oslogin }} access.
     * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
 
 ## Configure Ansible to run on behalf of a service account {#configure-ansible}
@@ -122,7 +122,7 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     ```
     Where:
     * `<path_to_private_SSH_key>`: Path to the file containing the private part of the previously created SSH key, e.g., `/home/user/ansible-key/id_yc-sa-my-ansible-sa`.
-    * `<VM_IP_address>`: Public IP address of the VM with enabled OS Login access.
+    * `<VM_IP_address>`: Public IP address of the VM with enabled {{ oslogin }} access.
 
 1. Run Ansible with the `ansible.builtin.ping` module:
 
@@ -141,7 +141,7 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     }
     ```
 
-Connection to the VM is established. You can now manage virtual machines via Ansible on behalf of a service account with an OS Login profile and an SSH key with a limited validity period.
+Connection to the VM is established. You can now manage virtual machines via Ansible under a service account with an {{ oslogin }} profile and a limited-validity SSH key.
 
 ## How to delete the resources you created {#clear-out}
 

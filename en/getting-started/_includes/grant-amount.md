@@ -1,7 +1,7 @@
-The initial grant can be provided to an individual or legal entity only once. You will get the initial grant upon [creating your first billing account](../../billing/quickstart/index.md) provided that you:
+The initial grant can be issued to an individual or single-owner legal entity only once. For example, if the grant is already issued to an individual, it will not be issued to their legal entity. You get your initial grant when [creating your first billing account](../../billing/quickstart/index.md) provided that you:
 
-* Have never purchased {{ yandex-cloud }} services.
-* Have not activated the [trial period](../free-trial/concepts/quickstart.md) before.
+* Have never purchased {{ yandex-cloud }} services before.
+* Have not activated the [trial period](../free-trial/concepts/quickstart.md).
 
 The initial grant is valid for 60 days. The grant amount and currency depend on your country of residence:
 

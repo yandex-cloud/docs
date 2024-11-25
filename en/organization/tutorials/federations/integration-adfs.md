@@ -1,6 +1,6 @@
 # Authentication using Active Directory
 
-With an [identity federation](../../concepts/add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (AD FS) to authenticate in the cloud.
+With an [identity federation](../../concepts/add-federation.md), you can use [Active Directory Federation Services]({{ link-adfs }}) (AD FS) for authentication in the cloud.
 
 To set up authentication:
 
@@ -145,8 +145,8 @@ To create a federation:
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
-          * `encrypted_assertions`: For signing authentication queries. 
-            If this option is enabled, all authentication queries from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          * `encrypted_assertions`: Sign authentication requests. 
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -312,7 +312,7 @@ To add a certificate to a federation:
       }
       ```
 
-  1. Send the add certificate query:
+  1. Send the request to add the certificate:
 
       ```bash
       export IAM_TOKEN=CggaAT********
@@ -391,7 +391,7 @@ Create a relying party trust for the federation you created in the cloud:
 
 1. On the next page, you can choose who can authenticate using this federation. By default, the **Permit for everyone** policy is selected enabling access for all users.
 
-    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click `<parameter>` to select the groups to allow access for. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
+    You can choose a different policy. For example, to grant access to a specific group of users, select **Permit specific group** and click `<parameter>` to select the groups to get the access permission. [Read more about access control policies](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-in-ad-fs).
 
     ![image](../../../_assets/iam/federations/specify-access-policy-ad.png)
 
@@ -437,7 +437,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
     1. Specify what the server will return as the name ID to uniquely identify the user. To do this, add a line to the **Mapping of LDAP attributes** list:
 
-        In the **LDAP Attribute** column, select an attribute for a unique and fixed ID of a federation user: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or **E-Mail-Addresses**.
+        In the **LDAP Attribute** column, select an attribute for a unique and fixed user ID: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or **E-Mail-Addresses**.
 
         In the **Outgoing Claim Type** column, select **Name ID**.
 
@@ -447,7 +447,7 @@ To set up a mapping between the user data and Outgoing Claim Types:
 
     1. To provide the user's first and last name separately, add the **Given Name** and **Surname** claim types.
 	
-	  1. To add the user's phone number or [profile image](#add-avatar), enter the `phone` or `thumbnailPhoto` type, respectively, in the **Outgoing Claim Type** field.
+	1. To add the user's phone number or [profile image](#add-avatar), enter the `phone` or `thumbnailPhoto` type, respectively, in the **Outgoing Claim Type** field.
 
        ![image](../../../_assets/iam/federations/specify-claims-mapping-ad.png)
 
@@ -504,7 +504,9 @@ To do this, you need to know the user name IDs returned by the Identity Provider
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant roles to a user, see [Roles](../../security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../security/index.md#admin) section.
+
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 
 To add federation users to an organization:
 
@@ -548,7 +550,7 @@ To add federation users to an organization:
         ]
       }
       ```
-  1. Send the request by specifying the Federation ID in the parameters:
+  1. Send the request by specifying the federation ID in the parameters:
 
       ```bash
       curl \

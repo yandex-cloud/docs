@@ -102,7 +102,13 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
              * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-     * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations. The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
+     * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations:
+
+         {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
+
+         The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
 
      * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 
@@ -254,7 +260,13 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
             * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-       * For the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}** settings section. Select one of the three suggested configurations. The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
+        * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}** settings section. Select one of the three suggested configurations:
+
+            {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
+
+            The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
 

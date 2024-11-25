@@ -66,6 +66,8 @@ items:
             href: operations/arl-rule-delete.md
       - name: Viewing operations with profiles
         href: operations/operation-logs.md
+      - name: Configuring monitoring
+        href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Creating an L7 load balancer with a security profile

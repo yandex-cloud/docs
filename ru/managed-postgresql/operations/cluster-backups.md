@@ -134,7 +134,8 @@ description: Вы можете создавать резервные копии 
           * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
-          * `network-ssd-nonreplicated`.
+          * `network-ssd-nonreplicated`;
+          * `network-ssd-io-m3`.
 
 
 - {{ TF }} {#tf}

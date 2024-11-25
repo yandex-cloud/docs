@@ -2,7 +2,7 @@
    
 1. [Connect to the VM over SSH](../../compute/operations/vm-connect/ssh.md).
    
-    If you have the [{{ yandex-cloud }} command line interface](../../cli/quickstart.md) installed, you can connect to the VM via [OS Login](../../compute/operations/vm-connect/os-login):
+    If you have the [{{ yandex-cloud }} command line interface](../../cli/quickstart.md) installed, you can connect to the VM via [{{ oslogin }}](../../compute/operations/vm-connect/os-login):
 
     ```bash
     yc compute ssh --name test-vm1

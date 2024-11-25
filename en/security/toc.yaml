@@ -61,7 +61,9 @@ items:
         hidden: true
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: tutorials/remote-wireguard-vpn.md
-      - name: Service account with an OS Login profile for VM management via Ansible
+      - name: >-
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: tutorials/sa-oslogin-ansible.md
   - name: Guides
     items:

@@ -1,4 +1,4 @@
-Get the ID of the organization which contains the required OS Login profile of a user or [service account](../../iam/concepts/users/service-accounts.md):
+Get the ID of the organization containing the required OS Login profile of the user or [service account](../../iam/concepts/users/service-accounts.md):
 
 ```bash
 yc organization-manager organization list

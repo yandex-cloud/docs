@@ -51,7 +51,7 @@ title: Как настроить группы безопасности для и
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — задайте диапазоны адресов подсетей внутри {{ yandex-cloud }} или публичные IP-адреса компьютеров в интернете, чтобы открыть доступ для подсетей и компьютеров.
 ||
 || Для [проверки доступности ресурсов](../../network-load-balancer/concepts/health-check.md) сетевым балансировщиком. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — целевой порт, указанный в настройках балансировщика.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `80`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 ||

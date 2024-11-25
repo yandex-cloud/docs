@@ -6,7 +6,7 @@ _Organization_ is a workspace that combines different types of {{ yandex-cloud }
 
 You can manage organization settings in the **{{ ui-key.yacloud_org.layout.organization }}** section of the [{{ cloud-center }} interface]({{ cloud-center-link }}).
 
-Before getting started with {{ org-full-name }}, [log in]({{ link-passport }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
+Before you start using {{ org-full-name }}, [log in]({{ link-passport }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
 
 ## Create an organization {#create}
 
@@ -18,11 +18,13 @@ Before getting started with {{ org-full-name }}, [log in]({{ link-passport }}) t
 
 {% endlist %}
 
-After registering, you become the organization owner. You will be able to manage employee accounts, as well as connect and disable services.
+After registering, you will become the organization owner. You will be able to manage employee accounts, connect and disconnect services.
 
 ## Add employees {#add-users}
 
-To grant your employees access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{yandex-cloud}} services.
+To grant your employees access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{ yandex-cloud }} services.
+
+{% include [console-user-access](../_includes/organization/console-user-access.md) %}
 
 ### Connect employees with Yandex accounts {#add-ya-users}
 

@@ -131,7 +131,7 @@ description: This section contains {{ at-name }} release notes.
   Event name | Description
   --- | ---
   `ComputeNodeAccess` | Connecting the Access Transparency [module](../security-deck/concepts/access-transparency.md) to the Data Proc [subcluster](../data-proc/concepts/index.md#resources)
-  `MDBClusterAccess` | Connecting an Access Transparency module to a database cluster
+  `MDBClusterAccess` | Connecting the Access Transparency module to the database cluster
 
   {% endcut %}
 
@@ -155,9 +155,9 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `ArlMatchedRequest` | Request according to the ARL rules
-  `WafMatchedExclusionRule` | Applied WAF exclusion rule
-  `WafMatchedRule` | Applied WAF rule
+  `ArlMatchedRequest` | Request matching the ARL rules
+  `WafMatchedExclusionRule` | Triggered WAF exclusion rule
+  `WafMatchedRule` | Triggered WAF rule
 
   {% endcut %}
 
@@ -261,8 +261,8 @@ description: This section contains {{ at-name }} release notes.
   Event | Description
   --- | ---
   `CreateIamToken` | Creating an IAM token
-  `oslogin.CheckSshPolicy` | Checking permissions to connect via SSH with OS Login access
-  `oslogin.GenerateSshCertificate` | Generating an SSH certificate for OS Login access
+  `oslogin.CheckSshPolicy` | Checking permissions to connect via SSH with {{ oslogin }} access
+  `oslogin.GenerateSshCertificate` | Generating an SSH certificate for {{ oslogin }} access
 
   {% endcut %}
 
@@ -493,13 +493,13 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `CreateOsLoginProfile` | Creating an OS Login profile
+  `CreateOsLoginProfile` | Creating a profile {{ oslogin }}
   `CreateUserSshKey` | Creating an SSH user key
-  `UpdateOsLoginProfile` | Updating an OS Login profile
-  `UpdateOsLoginSettings` | Updating OS Login settings
+  `UpdateOsLoginProfile` | Updating an {{ oslogin }} profile
+  `UpdateOsLoginSettings` | Editing {{ oslogin }} settings
   `UpdateUserSshKey` | Updating an SSH user key
   `SetDefaultProfile` | Setting the default profile
-  `DeleteOsLoginProfile` | Deleting an OS Login profile
+  `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
   `DeleteUserSshKey` | Deleting an SSH user key
 
   {% endcut %}

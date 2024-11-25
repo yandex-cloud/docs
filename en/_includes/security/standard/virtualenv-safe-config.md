@@ -176,7 +176,7 @@ To control a VM's runtime environment (e.g., to enable access from the VM to a s
 
 {% endlist %}
 
-#### 3.5 Principles of protection against side-channel attacks are incorporated {#side-chanel-protection}
+#### 3.5 Principles of protection against side-channel attacks are followed {#side-chanel-protection}
 
 To ensure the best protection against CPU level side-channel attacks (such as Spectre or Meltdown):
 
@@ -206,13 +206,13 @@ Access to {{ objstorage-name }} resources is verified at three levels:
 
    1. If the request meets at least one of the Deny rules, access is denied.
    1. If the request meets at least one of the Allow rules, access is allowed.
-   1. If the request doesn't meet any of the rules, access is denied.
+   1. If the request does not meet any of the rules, access is denied.
 
 1. If the request fails the {{ iam-short-name }} or bucket policy check, access verification is performed based on an object's ACL.
 
 In {{ iam-short-name }}, a bucket inherits the same access permissions as those of the folder and cloud where it is located. For more information, see [{#T}](../../../storage/concepts/acl.md#inheritance). Therefore, we recommend that you only assign the minimum required roles to certain buckets or objects in {{ objstorage-name }}.
 
-Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP, grant granular rights permissions to objects, and so on.
+Bucket policies are used for additional data protection, for example, to restrict access to a bucket by IP, issue granular permissions to objects, and so on.
 
 With ACLs, you can grant access to an object bypassing {{ iam-short-name }} verification and bucket policies. We recommend setting strict ACLs for buckets.
 
@@ -239,7 +239,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
 
@@ -677,11 +677,11 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 
 {% endlist %}
 
-#### 3.20 Specifics of time synchronization in {{ sf-name }} are considered {#ntp-functions}
+#### 3.20 Special aspects of time synchronization in {{ sf-name }} are considered {#ntp-functions}
 
 The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the {{ compute-short-name }} documentation, [Configuring clock synchronization](../../../compute/tutorials/ntp.md).
 
-#### 3.21 Specifics of header management in {{ sf-name }} are considered {#http-functions}
+#### 3.21 Special aspects of header management in {{ sf-name }} are considered {#http-functions}
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 #### 3.22 {{ serverless-containers-short-name }}/{{ sf-name }} uses the {{ vpc-short-name }} internal network {#vpc-functions}
@@ -968,20 +968,20 @@ Follow the vendor guide to install the AV solution.
 
 Check the recommendations in [{#T}](../../../security/domains/kubernetes.md).
 
-#### 3.32 Connecting to a VM or {{ k8s }} node via OS Login {#os-login-onto-hosts}
+#### 3.32 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
-[OS Login](../../../organization/concepts/os-login.md) is a convenient way to manage connections to [virtual machines](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [YC CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key previously added to the organization user's OS Login or [service account](../../../iam/concepts/users/service-accounts.md) profile in {{ org-full-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to [VMs](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes via SSH through the [YC CLI](../../../cli/quickstart.md) or via a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
 
-OS Login links the account of a virtual machine or {{ k8s }} node user with the account of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level, then [activate](../../../compute/operations/vm-connect/enable-os-login.md) OS Login access on each virtual machine or {{ k8s }} node separately.
+{{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
-Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles, the user or service account will lose access to all virtual machines and {{ k8s }} nodes with OS Login access enabled.
+Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles from a user or service account, they will lose access to all virtual machines and {{ k8s }} nodes with {{ oslogin }} access enabled.
 
 **Guides and solutions to use**:
 
-* [Enabling OS Login access at the organization level](../../../organization/operations/os-login-access.md).
-* [Setting up OS Login access on an existing VM](../../../compute/operations/vm-connect/enable-os-login.md).
-* [Connecting to a virtual machine via OS Login](../../../compute/operations/vm-connect/os-login.md).
-* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md).
+* [Enabling {{ oslogin }} access at the organization level](../../../organization/operations/os-login-access.md).
+* [Setting up {{ oslogin }} access on an existing VM](../../../compute/operations/vm-connect/enable-os-login.md).
+* [Connect to the virtual machine via {{ oslogin }}](../../../compute/operations/vm-connect/os-login.md).
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md).
 
 #### 3.33 Vulnerability scanning is performed at the cloud IP level {#ip-level}
 

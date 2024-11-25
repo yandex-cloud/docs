@@ -199,6 +199,8 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: '{{ KF }} to {{ DS }}'
             href: tutorials/mkf-to-yds.md
+          - name: '{{ DS }} to {{ KF }}'
+            href: tutorials/yds-to-kafka.md
           - name: '{{ DS }} to {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
           - name: '{{ DS }} to {{ objstorage-name }}'
@@ -206,6 +208,8 @@ items:
           - name: '{{ DS }} to {{ OS }}'
             hidden: true
             href: tutorials/trails-to-os.md
+          - name: '{{ DS }} to {{ ydb-short-name }}'
+            href: tutorials/yds-to-ydb.md
           - name: Entering data into storage systems
             href: tutorials/data-ingestion.md
       - name: Uploading data to data marts
@@ -262,7 +266,7 @@ items:
         href: concepts/data-transformation.md
       - name: Serialization
         href: concepts/serializer.md
-      - name: '{{ data-transfer-full-name }} specifics for sources and targets'
+      - name: '{{ data-transfer-full-name }} workflow for sources and targets'
         href: concepts/work-with-endpoints.md
       - name: Delivery guarantees
         href: concepts/delivery-configuration.md
@@ -402,6 +406,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: October 2024
+        href: release-notes/2410.md
       - name: September 2024
         href: release-notes/2409.md
       - name: August 2024

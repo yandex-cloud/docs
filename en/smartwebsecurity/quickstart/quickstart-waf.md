@@ -22,12 +22,9 @@ To get started with WAF:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your WAF profile.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create your WAF profile in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../../_assets/smartwebsecurity/waf.svg) **WAF profiles** tab and click **Create WAF profile**.
-  1. Describe a scenario of using WAF features in your projects and click **Submit request**.
-
-      Once your request is approved, you can proceed to create a WAF profile.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. The WAF profile's default basic rule set is called [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
   1. Click **Create**.

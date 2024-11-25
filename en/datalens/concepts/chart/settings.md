@@ -138,14 +138,14 @@ Some of these settings may not be available for some axes.
 
 * **Linear**: Use linear axis.
 * **Logarithmic**: Use logarithmic axis. Suitable for charts with a large spread of values. The logarithmic axis allows you to display a fast-growing graph in a convenient form for analysis, reducing values by an order of magnitude. ||
-|| Graph axis | This setting allows you to hide all axis elements: lines, labels, and grid.<br/><br/>Possible values:
+|| Graph axis | This setting hides everything that relates to the axis: lines, labels, and grid.<br/><br/>Possible values:
 
-* **Show**: Displays all axis elements.
-* **Hide**: Hides all axis elements. ||
+* **Show**: Displays everything related to the axis.
+* **Hide**: Hides everything related to the axis. ||
 || Display mode | Enables configuring continuous chart display.<br/><br/>Possible values:
 
 * **Discrete**: Plots the chart only for non-null values.
-* **Continuous**: Plots the chart for all values continuously. You can only use continuous mode for the `Integer`, `Fractional number`, `Date`, or `Date and time` data types. ||
+* **Continuous**: Plots the chart for all values continuously. You can only use continuous mode for the `Integer`, `Decimal`, `Date`, or `Date and time` data types. ||
 || Axis formatting | Sets the formatting of numerical axis labels.<br/><br/>Possible values:
 
 * **Auto**: Default formatting.
@@ -173,7 +173,8 @@ Some of these settings may not be available for some axes.
 
 * **Hide**: Hides null values in charts.
 * **Connect**: Connects field values where there are null values in between.
-* **Display as 0**: Displays null values in charts as zero (0) field values. ||
+* **Display as 0**: Displays null values in charts as zero (0) field values.
+* **Use previous**: Replaces the chart's empty values with the value of the previous point on the axis. Available in the Y axis settings for the [stacked chart](../../visualization-ref/area-chart.md). ||
 || Scaling | Sets the chart axis scale.<br/><br/>Possible values:
 
 * **Auto**: Enables autoscaling. You can specify how {{ datalens-short-name }} sets the scale: from 0 to the maximum field value (**Autoscale from 0 to max**) or from the minimum to the maximum field values (**Autoscale from min to max**).
@@ -188,7 +189,7 @@ The following settings are available for a tree diagram, a table (including a pi
 
 #|
 || **Name** | **Description** ||
-|| Gradient type | Sets the number of gradient colors.<br/><br/>Possible values:
+|| Gradient type | Sets the number of colors used in the gradient.<br/><br/>Possible values:
 
 * **Two-color**: Sets two colors for the gradient.
 * **Tree-color**: Sets three colors for the gradient. ||
@@ -277,7 +278,7 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 
 #|
 || **Name** | **Description** ||
-|| Gradient type | Sets the number of gradient colors.<br/><br/>Possible values:
+|| Gradient type | Sets the number of colors used in the gradient.<br/><br/>Possible values:
 
 * **Two-color**: Sets two colors for the gradient.
 * **Tree-color**: Sets three colors for the gradient. ||

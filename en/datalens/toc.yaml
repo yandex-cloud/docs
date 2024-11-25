@@ -621,7 +621,7 @@ items:
             href: concepts/chart/measure-values.md
           - name: Multi-dataset charts
             href: concepts/chart/multidataset-chart.md
-          - name: Step-by-step guide
+          - name: Step-by-step guides
             items:
               - name: Creating a chart
                 href: operations/chart/create-chart.md
@@ -725,7 +725,7 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Markdown
         href: dashboard/markdown.md
-      - name: Step-by-step guide
+      - name: Step-by-step guides
         items:
           - name: Creating a dashboard
             href: operations/dashboard/create.md
@@ -827,8 +827,10 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: September 2024
+      - name: October 2024
         href: release-notes/index.md
+      - name: September 2024
+        href: release-notes/2409.md
       - name: August 2024
         href: release-notes/2408.md
       - name: July 2024
@@ -837,10 +839,10 @@ items:
         href: release-notes/2406.md
       - name: May 2024
         href: release-notes/2405.md
-      - name: April 2024
-        href: release-notes/2404.md
       - name: Archive
         items:
+          - name: April 2024
+            href: release-notes/2404.md
           - name: March 2024
             href: release-notes/2403.md
           - name: February 2024

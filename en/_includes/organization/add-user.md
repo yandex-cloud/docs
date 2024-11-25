@@ -4,6 +4,8 @@ Add a user to your [organization](../../overview/roles-and-resources.md) and [gr
 
 You can add [users with a Yandex account](../../iam/concepts/users/accounts.md#passport) as well as [federated users](../../iam/concepts/users/accounts.md#saml-federation). To do this, you need to be the organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [{#T}](../../iam/operations/roles/grant.md).
 
+{% include [console-user-access](console-user-access.md) %}
+
 ## Yandex account users {#useraccount}
 
 {% include notitle [useraccount](./useraccount.md) %}

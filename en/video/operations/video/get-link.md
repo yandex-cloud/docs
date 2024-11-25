@@ -29,10 +29,28 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
       1. Click ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
 
-- API {#api}
+- REST API {#api}
 
-  Use the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource or the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call.
-  
-  For details on how to get a link to your video, see [Getting started with the {{ video-full-name }} API](../../api-ref/quickstart.md#get-link)
+  Run this command:
+
+  {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
+
+  Where:
+  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+  * `<video_ID>`: ID of the video you want to get a link to.
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
+
+- gRPC API {#grpc-api}
+
+  Run this command:
+
+  {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
+
+  Where:
+  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+  * `<video_ID>`: ID of the video you want to get a link to.
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 {% endlist %}

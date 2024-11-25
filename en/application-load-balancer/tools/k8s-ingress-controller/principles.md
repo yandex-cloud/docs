@@ -8,8 +8,10 @@ description: Learn about the {{ alb-name }} Ingress controller and the relations
 
 An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) has two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
-* The primary `yc-alb-ingress-controller-*` pod is responsible for creating and updating {{ alb-name }} resources. You can use its logs to follow the operations with the resources.
-* The `yc-alb-ingress-controller-hc-*` [health check](../../concepts/backend-group.md#health-checks) pod with a container receives health check requests from the L7 load balancer on TCP port `10501` and health checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node. This is the default health check workflow for the {{ alb-name }} Ingress controller. You can also [configure your own health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md) in the [HttpBackendGroup](../../k8s-ref/http-backend-group.md) resource parameters.
+* The primary `yc-alb-ingress-controller-*` pod responsible for creating and updating {{ alb-name }} resources. You can use its logs to follow the operations with the resources.
+* The `yc-alb-ingress-controller-hc-*` [health check](../../concepts/backend-group.md#health-checks) pod with a container which receives health check requests from the L7 load balancer on TCP port 10501 and health checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If kube-proxy is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+
+  This is the default health check workflow for the {{ alb-name }} Ingress controller. You can [configure custom health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md) to control app performance on all nodes.
 
 {% note warning %}
 

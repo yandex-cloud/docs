@@ -49,6 +49,49 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
+### Пример расчета стоимости кластера {#example}
+
+Стоимость использования кластера со следующими параметрами в течение 30 дней:
+
+* **Хосты {{ RD }}**: 3 хоста класса `hm3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых SSD-дисках.
+
+Расчет стоимости для хостов {{ RD }}:
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-redis-host](../_pricing_examples/managed-redis/rub-host.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-redis-host](../_pricing_examples/managed-redis/kzt-host.md) %}
+
+{% endlist %}
+
+
+
+
+Расчет стоимости хранилища и итоговой стоимости:
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-redis-storage](../_pricing_examples/managed-redis/rub-storage.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-redis-storage](../_pricing_examples/managed-redis/kzt-storage.md) %}
+
+{% endlist %}
+
+
+
+
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
