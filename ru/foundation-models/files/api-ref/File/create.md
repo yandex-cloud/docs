@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/create.md
 ---
 
-# Files API, REST: File.Create {#Create}
+# Files API, REST: File.Create
 
 Create a new file.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/create.md
 ---
 
-# SmartCaptcha API, REST: Captcha.Create {#Create}
+# SmartCaptcha API, REST: Captcha.Create
 
 Creates a captcha in the specified folder using the data specified in the request.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/get.md
 ---
 
-# Container Registry API, gRPC: RegistryService.Get {#Get}
+# Container Registry API, gRPC: RegistryService.Get
 
 Returns the specified Registry resource.
 
@@ -17,13 +17,13 @@ To get the list of available Registry resources, make a [List](/docs/container-r
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the Registry resource to return.
 
@@ -35,10 +35,10 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
 ```json
 {
   "id": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "status": "Status",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "labels": "string"
 }
 ```
@@ -50,7 +50,7 @@ A Registry resource. For more information, see the [Registry](/docs/container-re
 || id | **string**
 
 Output only. ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
 || name | **string**
@@ -64,7 +64,7 @@ Output only. Status of the registry.
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || labels | **string**

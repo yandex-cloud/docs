@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/DiskPlacementGroup/create.md
 ---
 
-# Compute Cloud API, gRPC: DiskPlacementGroupService.Create {#Create}
+# Compute Cloud API, gRPC: DiskPlacementGroupService.Create
 
 Creates a placement group in the specified folder.
 
@@ -15,14 +15,14 @@ Creates a placement group in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "zoneId": "string",
-  // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-  "spreadPlacementStrategy": "DiskSpreadPlacementStrategy",
-  "partitionPlacementStrategy": {
+  "zone_id": "string",
+  // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+  "spread_placement_strategy": "DiskSpreadPlacementStrategy",
+  "partition_placement_strategy": {
     "partitions": "int64"
   }
   // end of the list of possible fields
@@ -31,7 +31,7 @@ Creates a placement group in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a placement group in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
@@ -44,22 +44,22 @@ Description of the placement group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone where the placement group resides.
 To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| spreadPlacementStrategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
+|| spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
 
 Distribute disks over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
-|| partitionPlacementStrategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
+|| partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
 
 Distribute disks over partitions.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
 |#
@@ -84,27 +84,27 @@ Placement strategy. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "diskPlacementGroupId": "string"
+    "disk_placement_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "zoneId": "string",
+    "zone_id": "string",
     "status": "Status",
-    // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-    "spreadPlacementStrategy": "DiskSpreadPlacementStrategy",
-    "partitionPlacementStrategy": {
+    // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+    "spread_placement_strategy": "DiskSpreadPlacementStrategy",
+    "partition_placement_strategy": {
       "partitions": "int64"
     }
     // end of the list of possible fields
@@ -123,13 +123,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -172,7 +172,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| diskPlacementGroupId | **string**
+|| disk_placement_group_id | **string**
 
 ID of the placement group that is being created. ||
 |#
@@ -184,10 +184,10 @@ ID of the placement group that is being created. ||
 || id | **string**
 
 ID of the placement group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the placement group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -200,7 +200,7 @@ Description of the placement group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the placement group resides. ||
 || status | enum **Status**
@@ -211,18 +211,18 @@ Current status of the placement group
 - `CREATING`
 - `READY`
 - `DELETING` ||
-|| spreadPlacementStrategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy2)**
+|| spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy2)**
 
 Distribute disks over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
-|| partitionPlacementStrategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy2)**
+|| partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy2)**
 
 Distribute disks over partitions.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
 |#

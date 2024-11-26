@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/create.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.Create {#Create}
+# Cloud Desktop API, REST: DesktopGroup.Create
 
 Creates desktop group in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/get.md
 ---
 
-# Cloud Backup API, gRPC: ResourceService.Get {#Get}
+# Cloud Backup API, gRPC: ResourceService.Get
 
 Get specific Compute Cloud instance.
 
@@ -15,13 +15,13 @@ Get specific Compute Cloud instance.
 
 ```json
 {
-  "computeInstanceId": "string"
+  "compute_instance_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
 |#
@@ -31,19 +31,19 @@ Required field. Compute Cloud instance ID. ||
 ```json
 {
   "resource": {
-    "computeInstanceId": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "compute_instance_id": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "online": "bool",
     "enabled": "bool",
     "status": "Status",
-    "statusDetails": "string",
-    "statusProgress": "int64",
-    "lastBackupTime": "google.protobuf.Timestamp",
-    "nextBackupTime": "google.protobuf.Timestamp",
-    "resourceId": "string",
-    "isActive": "bool",
-    "initStatus": "InitStatus",
+    "status_details": "string",
+    "status_progress": "int64",
+    "last_backup_time": "google.protobuf.Timestamp",
+    "next_backup_time": "google.protobuf.Timestamp",
+    "resource_id": "string",
+    "is_active": "bool",
+    "init_status": "InitStatus",
     "metadata": "string",
     "type": "ResourceType"
   }
@@ -61,11 +61,11 @@ Set of resource parameters. ||
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || online | **bool**
 
 If this field is true, it means that instance is online. ||
@@ -82,25 +82,25 @@ If this field is true, it means that backup is enabled to instance. ||
 `status_details` field for more information.
 - `OTHER`: Unspecified state, check `status_details` field
 for more information. ||
-|| statusDetails | **string**
+|| status_details | **string**
 
 If status value is one of `OTHER` or `FAILED`,
 detailed info might be stored here. ||
-|| statusProgress | **int64**
+|| status_progress | **int64**
 
 In case status is one of `BACKUPING` or `RECOVERING`,
 progress value might be found here. ||
-|| lastBackupTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| nextBackupTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| resourceId | **string**
+|| last_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| next_backup_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| resource_id | **string**
 
 Resource ID is used to identify Compute Cloud instance in backup service. ||
-|| isActive | **bool**
+|| is_active | **bool**
 
 Status `is_active` shows whether current Compute Cloud instance controls Cloud Backup resource.
 If status `is_active` is false it means Compute Cloud instance is not able to manipulate
 Cloud Backup resource. ||
-|| initStatus | enum **InitStatus**
+|| init_status | enum **InitStatus**
 
 Status of resource initialization in cloud backup service.
 

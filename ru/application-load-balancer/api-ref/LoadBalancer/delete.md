@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/delete.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Delete {#Delete}
+# Application Load Balancer API, REST: LoadBalancer.Delete
 
 Deletes the specified application load balancer.
 

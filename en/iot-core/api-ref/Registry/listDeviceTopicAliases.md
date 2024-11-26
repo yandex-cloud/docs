@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listDeviceTopicAliases.md
 ---
 
-# IoT Core Service, REST: Registry.ListDeviceTopicAliases {#ListDeviceTopicAliases}
+# IoT Core Service, REST: Registry.ListDeviceTopicAliases
 
 Retrieves the list of device topic aliases for the specified registry.
 

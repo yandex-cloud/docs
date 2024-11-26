@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/list.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.List {#List}
+# Compute Cloud API, REST: DiskPlacementGroup.List
 
 Retrieves the list of placement groups in the specified folder.
 

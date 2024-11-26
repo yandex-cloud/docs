@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/DiskPlacementGroup/get.md
 ---
 
-# Compute Cloud API, gRPC: DiskPlacementGroupService.Get {#Get}
+# Compute Cloud API, gRPC: DiskPlacementGroupService.Get
 
 Returns the specified placement group.
 
@@ -15,13 +15,13 @@ Returns the specified placement group.
 
 ```json
 {
-  "diskPlacementGroupId": "string"
+  "disk_placement_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| diskPlacementGroupId | **string**
+|| disk_placement_group_id | **string**
 
 Required field. ID of the placement group to return.
 To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
@@ -32,16 +32,16 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "zoneId": "string",
+  "zone_id": "string",
   "status": "Status",
-  // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-  "spreadPlacementStrategy": "DiskSpreadPlacementStrategy",
-  "partitionPlacementStrategy": {
+  // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+  "spread_placement_strategy": "DiskSpreadPlacementStrategy",
+  "partition_placement_strategy": {
     "partitions": "int64"
   }
   // end of the list of possible fields
@@ -53,10 +53,10 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
 || id | **string**
 
 ID of the placement group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the placement group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -69,7 +69,7 @@ Description of the placement group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the placement group resides. ||
 || status | enum **Status**
@@ -80,18 +80,18 @@ Current status of the placement group
 - `CREATING`
 - `READY`
 - `DELETING` ||
-|| spreadPlacementStrategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
+|| spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
 
 Distribute disks over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
-|| partitionPlacementStrategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
+|| partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
 
 Distribute disks over partitions.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
 |#

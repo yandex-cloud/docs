@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/create.md
 ---
 
-# Threads, REST: Thread.Create {#Create}
+# Threads, REST: Thread.Create
 
 Create a new thread.
 

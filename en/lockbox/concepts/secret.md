@@ -1,6 +1,6 @@
 ---
-title: What secrets in {{ lockbox-full-name }} are
-description: In this tutorial, you will learn what secrets in {{ lockbox-full-name }} are and what they consist of.
+title: What are {{ lockbox-full-name }} secrets
+description: In this tutorial, you will learn about {{ lockbox-full-name }} secrets and their components.
 ---
 
 # Secrets in {{ lockbox-full-name }}
@@ -19,9 +19,11 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
 * A _generated secret_ is an automatically generated sequence of random characters. You can configure generation parameters, such as length and character set. Generated secrets are good for passwords you do not have to set manually as well as for passwords with frequent rotation, e.g., for database access, microservice level authentication, in CI/CD systems, and for other program interactions.
 
-   You can also use generated secrets to store data on connections to {{ PG }}, {{ MY }}, and {{ CH }} databases via [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md). In which case the secret is created in {{ connection-manager-full-name }} and stored in {{ lockbox-full-name }}.
+    You can also use generated secrets to store data on connections to {{ PG }}, {{ MY }}, and {{ CH }} databases via [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md). In which case the secret is created in {{ connection-manager-full-name }} and stored in {{ lockbox-full-name }}.
 
 * A _user secret_ is created manually. It is suitable for externally generated secrets. You can specify not only a string but also a file for your user secret's confidential value.
+
+    {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
 
 ## Version {#version}
 

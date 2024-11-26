@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Bus/update.md
 ---
 
-# EventRouter Service, gRPC: BusService.Update {#Update}
+# EventRouter Service, gRPC: BusService.Update
 
 Updates the specified bus.
 
@@ -15,21 +15,21 @@ Updates the specified bus.
 
 ```json
 {
-  "busId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "bus_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "deletionProtection": "bool"
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| busId | **string**
+|| bus_id | **string**
 
 Required field. ID of the bus to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the bus are going to be updated. ||
 || name | **string**
@@ -41,7 +41,7 @@ New description of the bus. ||
 || labels | **string**
 
 New labels of the bus. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 New flag that disallow deletion of the bus. ||
 |#
@@ -52,24 +52,24 @@ New flag that disallow deletion of the bus. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "busId": "string"
+    "bus_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "deletionProtection": "bool",
+    "deletion_protection": "bool",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -86,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -135,7 +135,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| busId | **string**
+|| bus_id | **string**
 
 Required field. ID of the bus that is being updated. ||
 |#
@@ -147,13 +147,13 @@ Required field. ID of the bus that is being updated. ||
 || id | **string**
 
 ID of the bus. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the bus belongs to. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the bus resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -165,7 +165,7 @@ Description of the bus. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion protection. ||
 || status | enum **Status**

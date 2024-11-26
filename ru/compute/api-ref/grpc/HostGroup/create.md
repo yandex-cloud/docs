@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostGroup/create.md
 ---
 
-# Compute Cloud API, gRPC: HostGroupService.Create {#Create}
+# Compute Cloud API, gRPC: HostGroupService.Create
 
 Creates a host group in the specified folder.
 
@@ -15,16 +15,16 @@ Creates a host group in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "zoneId": "string",
-  "typeId": "string",
-  "maintenancePolicy": "MaintenancePolicy",
-  "scalePolicy": {
-    // Includes only one of the fields `fixedScale`
-    "fixedScale": {
+  "zone_id": "string",
+  "type_id": "string",
+  "maintenance_policy": "MaintenancePolicy",
+  "scale_policy": {
+    // Includes only one of the fields `fixed_scale`
+    "fixed_scale": {
       "size": "int64"
     }
     // end of the list of possible fields
@@ -34,7 +34,7 @@ Creates a host group in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a host group in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
@@ -47,20 +47,20 @@ Description of the group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. Availability zone where all dedicated hosts will be allocated. ||
-|| typeId | **string**
+|| type_id | **string**
 
 Required field. ID of host type. Resources provided by each host of the group. ||
-|| maintenancePolicy | enum **MaintenancePolicy**
+|| maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events.
 
 - `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
+|| scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
 
 Scale policy. Only fixed number of hosts are supported at this moment. ||
 |#
@@ -69,9 +69,9 @@ Scale policy. Only fixed number of hosts are supported at this moment. ||
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+|| fixed_scale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixed_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.compute.v1.ScalePolicy.FixedScale}
@@ -87,29 +87,29 @@ Includes only one of the fields `fixedScale`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "hostGroupId": "string"
+    "host_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "zoneId": "string",
+    "zone_id": "string",
     "status": "Status",
-    "typeId": "string",
-    "maintenancePolicy": "MaintenancePolicy",
-    "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
-      "fixedScale": {
+    "type_id": "string",
+    "maintenance_policy": "MaintenancePolicy",
+    "scale_policy": {
+      // Includes only one of the fields `fixed_scale`
+      "fixed_scale": {
         "size": "int64"
       }
       // end of the list of possible fields
@@ -129,13 +129,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -178,7 +178,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 ID of the host group that is being created. ||
 |#
@@ -192,10 +192,10 @@ Represents group of dedicated hosts
 || id | **string**
 
 ID of the group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -207,7 +207,7 @@ Description of the group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone where all dedicated hosts are allocated. ||
 || status | enum **Status**
@@ -219,17 +219,17 @@ Status of the group.
 - `READY`
 - `UPDATING`
 - `DELETING` ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of host type. Resources provided by each host of the group. ||
-|| maintenancePolicy | enum **MaintenancePolicy**
+|| maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events.
 
 - `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**
+|| scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**
 
 Scale policy. Only fixed number of hosts are supported at this moment. ||
 |#
@@ -238,9 +238,9 @@ Scale policy. Only fixed number of hosts are supported at this moment. ||
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale2)**
+|| fixed_scale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale2)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixed_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.compute.v1.ScalePolicy.FixedScale2}

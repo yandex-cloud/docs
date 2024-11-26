@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/get.md
 ---
 
-# Cloud Logging Service, REST: Export.Get {#Get}
+# Cloud Logging Service, REST: Export.Get
 
 Returns the specified export.
 

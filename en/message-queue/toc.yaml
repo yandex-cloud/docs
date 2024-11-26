@@ -79,6 +79,8 @@ items:
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         href: tutorials/static-key-in-lockbox.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

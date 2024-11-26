@@ -2,17 +2,11 @@
 
 {{ yagpt-full-name }} allows you to quickly create text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.
 
-The model understands prompts both in Russian and English; however, Russian texts are its first priority. In addition to a text description, prompts must contain a special parameter called _temperature_ that determines the variability of the model's response: the higher the temperature value, the less predictable the model's output is going to be.
+The model understands prompts in more than 20 languages, including English and Japenese; however, Russian texts are its first priority. In addition to a text description, prompts must contain a special parameter called _temperature_ that determines the variability of the model's response: the higher the temperature value, the less predictable the model's output is going to be.
 
-There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You can send requests to [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration.
+There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You can submit requests to [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration. You can also use the API to work with models in [asynchronous mode](../index.md#working-mode). You can view the examples of working with {{ yagpt-name }} via the API in [Step-by-step guides for {{ yagpt-full-name }}](../../operations/index.md#yandexgpt-api).
 
-{{ foundation-models-name }} Playground is a good option for introduction and testing: use it to send synchronous requests to {{ yagpt-full-name }} models. You can communicate with a model in these two formats:
-
-* In **Prompt mode**, you submit a ready-made prompt to the model and get the result. The model treats each new question as a stand-alone task without saving the context of the previous request. In this format, you can choose between the {{ gpt-lite }} and {{ gpt-pro }} models in the management console.
-
-* In **Chat mode**, you can chat with the model to update your instructions and elaborate on your previous inputs. The communication context is transmitted in every message and maintained throughout the current session until you explicitly start a new one. To work in chat mode, use the {{ gpt-pro }} model.
-
-Both the [prompt mode](../../operations/yandexgpt/create-prompt.md) and [chat mode](../../operations/yandexgpt/create-chat.md) are available via the API. You can use the API to work with models in [asynchronous mode](../../operations/yandexgpt/async-request.md).
+{{ ai-playground }} is a good option for introduction and testing: use it to submit synchronous requests to {{ yagpt-full-name }} models, set up parameters and choose prompts. When communicating, the model saves the dialog context, but you can also create a new experiment if you need to change the context. Additionally, {{ yagpt-name }} Playground interfaces in chat format or prompt mode are available in the left-hand navigation menu. Use them when you need to fully repeat the model's behavior via the API and you do not want to save the results of the dialog. 
 
 To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
 
@@ -20,7 +14,7 @@ To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
 
 By default, the model returns a response formatted using [Markdown](https://en.wikipedia.org/wiki/Markdown). Use the prompt text to get a response with additional formatting, e.g., with [emoji](https://en.wikipedia.org/wiki/Emoji), or in a different format, e.g., [JSON](https://en.wikipedia.org/wiki/JSON), [XML](https://en.wikipedia.org/wiki/XML), etc.
 
-Examples:
+Here is an example:
 
 ```json
 {

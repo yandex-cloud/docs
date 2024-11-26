@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/delete.md
 ---
 
-# Threads, REST: Thread.Delete {#Delete}
+# Threads, REST: Thread.Delete
 
 Delete a thread by its ID.
 

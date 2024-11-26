@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listOperations.md
 ---
 
-# Lockbox API, REST: Secret.ListOperations {#ListOperations}
+# Lockbox API, REST: Secret.ListOperations
 
 Lists operations for the specified secret.
 

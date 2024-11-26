@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/delete.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Delete {#Delete}
+# Cloud CDN API, REST: ResourceRules.Delete
 
 Delete specified by id resource rule.
 

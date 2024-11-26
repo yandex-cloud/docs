@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/scan.md
 ---
 
-# Container Registry API, REST: Scanner.Scan {#Scan}
+# Container Registry API, REST: Scanner.Scan
 
 Executes scanning of specified image.
 

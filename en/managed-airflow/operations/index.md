@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ maf-full-name }}
+title: Guides on using {{ maf-full-name }}
 description: In this article, you will learn how to work with {{ maf-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -10,4 +10,3 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 * [{#T}](af-interfaces.md)
 * [Uploading DAG files to a cluster](upload-dags.md)
 * [Deleting a cluster](cluster-delete.md)
-* [Viewing operations with clusters](operation-logs.md)

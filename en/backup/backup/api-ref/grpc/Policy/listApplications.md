@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Policy/listApplications.md
 ---
 
-# Cloud Backup API, gRPC: PolicyService.ListApplications {#ListApplications}
+# Cloud Backup API, gRPC: PolicyService.ListApplications
 
 List applied policies using filters.
 
@@ -15,33 +15,33 @@ List applied policies using filters.
 
 ```json
 {
-  // Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`
-  "folderId": "string",
-  "policyId": "string",
-  "computeInstanceId": "string",
+  // Includes only one of the fields `folder_id`, `policy_id`, `compute_instance_id`
+  "folder_id": "string",
+  "policy_id": "string",
+  "compute_instance_id": "string",
   // end of the list of possible fields
-  "showProcessing": "bool"
+  "show_processing": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Folder ID.
 
-Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
-|| policyId | **string**
+Includes only one of the fields `folder_id`, `policy_id`, `compute_instance_id`. ||
+|| policy_id | **string**
 
 Policy ID.
 
-Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
-|| computeInstanceId | **string**
+Includes only one of the fields `folder_id`, `policy_id`, `compute_instance_id`. ||
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID.
 
-Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`. ||
-|| showProcessing | **bool**
+Includes only one of the fields `folder_id`, `policy_id`, `compute_instance_id`. ||
+|| show_processing | **bool**
 
 If true, also returns applications that in the process of binding. ||
 |#
@@ -52,12 +52,12 @@ If true, also returns applications that in the process of binding. ||
 {
   "applications": [
     {
-      "policyId": "string",
-      "computeInstanceId": "string",
+      "policy_id": "string",
+      "compute_instance_id": "string",
       "enabled": "bool",
       "status": "Status",
-      "createdAt": "google.protobuf.Timestamp",
-      "isProcessing": "bool"
+      "created_at": "google.protobuf.Timestamp",
+      "is_processing": "bool"
     }
   ]
 }
@@ -72,10 +72,10 @@ If true, also returns applications that in the process of binding. ||
 
 #|
 ||Field | Description ||
-|| policyId | **string**
+|| policy_id | **string**
 
 Policy ID. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
 || enabled | **bool** ||
@@ -85,8 +85,8 @@ Compute Cloud instance ID. ||
 - `OK`: Application is applied and everything is OK.
 - `RUNNING`: Application is currently running.
 - `DISABLED`: Application is disabled. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| isProcessing | **bool**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| is_processing | **bool**
 
 If true, then the policy is in in the process of binding to the instance. ||
 |#

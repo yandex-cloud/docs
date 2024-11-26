@@ -80,12 +80,13 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
+       {% include [rest-add-hosts](../../_includes/mdb/mrd/api/rest-add-hosts.md) %}
 
-      * Идентификатор кластера в параметре `clusterId`. Идентификатор можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-      * Настройки нового хоста в параметрах `hostSpecs`.
+   - gRPC API {#grpc-api}
+
+       {% include [grpc-add-hosts](../../_includes/mdb/mrd/api/grpc-add-hosts.md) %}
 
    {% endlist %}
 
@@ -128,12 +129,13 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
+       {% include [rest-remove-hosts](../../_includes/mdb/mrd/api/rest-remove-hosts.md) %}
 
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * FQDN-имя или массив имен удаляемых хостов в параметре `hostNames`.
+   - gRPC API {#grpc-api}
+
+       {% include [grpc-remove-hosts](../../_includes/mdb/mrd/api/grpc-remove-hosts.md) %}
 
    {% endlist %}
 

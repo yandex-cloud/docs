@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/delete.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Delete {#Delete}
+# Managed Service for Apache Kafka® API, REST: User.Delete
 
 Deletes the specified Kafka user.
 

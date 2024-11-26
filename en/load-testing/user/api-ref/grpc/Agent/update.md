@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Agent/update.md
 ---
 
-# Load Testing API, gRPC: AgentService.Update {#Update}
+# Load Testing API, gRPC: AgentService.Update
 
 Updates the specified agent.
 
@@ -15,101 +15,101 @@ Updates the specified agent.
 
 ```json
 {
-  "agentId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "agent_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "computeInstanceParams": {
+  "compute_instance_params": {
     "labels": "string",
-    "zoneId": "string",
-    "resourcesSpec": {
+    "zone_id": "string",
+    "resources_spec": {
       "memory": "int64",
       "cores": "int64",
-      "coreFraction": "int64",
+      "core_fraction": "int64",
       "gpus": "int64"
     },
     "metadata": "string",
-    "bootDiskSpec": {
+    "boot_disk_spec": {
       "mode": "Mode",
-      "deviceName": "string",
-      "autoDelete": "bool",
-      // Includes only one of the fields `diskSpec`, `diskId`
-      "diskSpec": {
+      "device_name": "string",
+      "auto_delete": "bool",
+      // Includes only one of the fields `disk_spec`, `disk_id`
+      "disk_spec": {
         "name": "string",
         "description": "string",
-        "typeId": "string",
+        "type_id": "string",
         "size": "int64",
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string",
+        // Includes only one of the fields `image_id`, `snapshot_id`
+        "image_id": "string",
+        "snapshot_id": "string",
         // end of the list of possible fields
-        "diskPlacementPolicy": {
-          "placementGroupId": "string",
-          "placementGroupPartition": "int64"
+        "disk_placement_policy": {
+          "placement_group_id": "string",
+          "placement_group_partition": "int64"
         },
-        "blockSize": "int64",
-        "kmsKeyId": "string"
+        "block_size": "int64",
+        "kms_key_id": "string"
       },
-      "diskId": "string"
+      "disk_id": "string"
       // end of the list of possible fields
     },
-    "networkInterfaceSpecs": [
+    "network_interface_specs": [
       {
-        "subnetId": "string",
-        "primaryV4AddressSpec": {
+        "subnet_id": "string",
+        "primary_v4_address_spec": {
           "address": "string",
-          "oneToOneNatSpec": {
-            "ipVersion": "IpVersion",
+          "one_to_one_nat_spec": {
+            "ip_version": "IpVersion",
             "address": "string",
-            "dnsRecordSpecs": [
+            "dns_record_specs": [
               {
                 "fqdn": "string",
-                "dnsZoneId": "string",
+                "dns_zone_id": "string",
                 "ttl": "int64",
                 "ptr": "bool"
               }
             ]
           },
-          "dnsRecordSpecs": [
+          "dns_record_specs": [
             {
               "fqdn": "string",
-              "dnsZoneId": "string",
+              "dns_zone_id": "string",
               "ttl": "int64",
               "ptr": "bool"
             }
           ]
         },
-        "primaryV6AddressSpec": {
+        "primary_v6_address_spec": {
           "address": "string",
-          "oneToOneNatSpec": {
-            "ipVersion": "IpVersion",
+          "one_to_one_nat_spec": {
+            "ip_version": "IpVersion",
             "address": "string",
-            "dnsRecordSpecs": [
+            "dns_record_specs": [
               {
                 "fqdn": "string",
-                "dnsZoneId": "string",
+                "dns_zone_id": "string",
                 "ttl": "int64",
                 "ptr": "bool"
               }
             ]
           },
-          "dnsRecordSpecs": [
+          "dns_record_specs": [
             {
               "fqdn": "string",
-              "dnsZoneId": "string",
+              "dns_zone_id": "string",
               "ttl": "int64",
               "ptr": "bool"
             }
           ]
         },
-        "securityGroupIds": [
+        "security_group_ids": [
           "string"
         ],
         "index": "string"
       }
     ],
-    "serviceAccountId": "string",
-    "platformId": "string"
+    "service_account_id": "string",
+    "platform_id": "string"
   },
   "labels": "string"
 }
@@ -117,10 +117,10 @@ Updates the specified agent.
 
 #|
 ||Field | Description ||
-|| agentId | **string**
+|| agent_id | **string**
 
 Required field. ID of the agent to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask that specifies which attributes of the agent are going to be updated. ||
 || name | **string**
@@ -129,7 +129,7 @@ New name of the agent. ||
 || description | **string**
 
 New description of the agent. ||
-|| computeInstanceParams | **[CreateComputeInstance](#yandex.cloud.loadtesting.api.v1.agent.CreateComputeInstance)**
+|| compute_instance_params | **[CreateComputeInstance](#yandex.cloud.loadtesting.api.v1.agent.CreateComputeInstance)**
 
 New parameters of compute instance managed by the agent. ||
 || labels | **string**
@@ -144,11 +144,11 @@ New labels of the agent. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone where the instance resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
 
 Required field. Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
@@ -162,19 +162,19 @@ The values must be 256 KB or less.
 
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](/docs/compute/concepts/vm-metadata). ||
-|| bootDiskSpec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
+|| boot_disk_spec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
 
 Required field. Boot disk to attach to the instance. ||
-|| networkInterfaceSpecs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+|| network_interface_specs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
 
 Network configuration for the instance. Specifies how the network interface is configured
 to interact with other services on the internal network and on the internet.
 Currently only one network interface is supported per instance. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
-|| platformId | **string**
+|| platform_id | **string**
 
 ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created.
 Default value: "standard-v2" ||
@@ -190,7 +190,7 @@ Required field. The amount of memory available to the instance, specified in byt
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
@@ -213,26 +213,26 @@ The mode in which to attach this disk.
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. Default value. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
 If not specified, a random value will be generated. ||
-|| autoDelete | **bool**
+|| auto_delete | **bool**
 
 Specifies whether the disk will be auto-deleted when the instance is deleted. ||
-|| diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+|| disk_spec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
 
 Disk specification.
 
-Includes only one of the fields `diskSpec`, `diskId`. ||
-|| diskId | **string**
+Includes only one of the fields `disk_spec`, `disk_id`. ||
+|| disk_id | **string**
 
 ID of the disk that should be attached.
 
-Includes only one of the fields `diskSpec`, `diskId`. ||
+Includes only one of the fields `disk_spec`, `disk_id`. ||
 |#
 
 ## DiskSpec {#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec}
@@ -245,30 +245,30 @@ Name of the disk. ||
 || description | **string**
 
 Description of the disk. ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of the disk type.
 To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request. ||
 || size | **int64**
 
 Required field. Size of the disk, specified in bytes. ||
-|| imageId | **string**
+|| image_id | **string**
 
 ID of the image to create the disk from.
 
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| snapshotId | **string**
+Includes only one of the fields `image_id`, `snapshot_id`. ||
+|| snapshot_id | **string**
 
 ID of the snapshot to restore the disk from.
 
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+Includes only one of the fields `image_id`, `snapshot_id`. ||
+|| disk_placement_policy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
 
 Placement policy configuration. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size of the disk, specified in bytes. The default is 4096. ||
-|| kmsKeyId | **string**
+|| kms_key_id | **string**
 
 ID of KMS key for disk encryption ||
 |#
@@ -277,26 +277,26 @@ ID of KMS key for disk encryption ||
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| placementGroupPartition | **int64** ||
+|| placement_group_partition | **int64** ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.compute.v1.NetworkInterfaceSpec}
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Required field. ID of the subnet. ||
-|| primaryV4AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+|| primary_v4_address_spec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
 
 Primary IPv4 address that will be assigned to the instance for this network interface. ||
-|| primaryV6AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+|| primary_v6_address_spec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
 
 Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 ID's of security groups attached to the interface ||
 || index | **string**
@@ -312,11 +312,11 @@ The index of the network interface, will be generated by the server, 0,1,2... et
 
 An IPv4 internal network address that is assigned to the instance for this network interface.
 If not specified by the user, an unused internal IP is assigned by the system. ||
-|| oneToOneNatSpec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
+|| one_to_one_nat_spec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
 
 An external IP address configuration.
 If not specified, then this instance will have no external internet access. ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+|| dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
 
 Internal DNS configuration ||
 |#
@@ -325,7 +325,7 @@ Internal DNS configuration ||
 
 #|
 ||Field | Description ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 External IP address version.
 
@@ -335,7 +335,7 @@ External IP address version.
 || address | **string**
 
 set static IP by value ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+|| dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
 
 External DNS configuration ||
 |#
@@ -347,7 +347,7 @@ External DNS configuration ||
 || fqdn | **string**
 
 Required field. FQDN (required) ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 DNS zone id (optional, if not set, private zone used) ||
 || ttl | **int64**
@@ -364,30 +364,30 @@ When set to true, also create PTR DNS record (optional) ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "agentId": "string"
+    "agent_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "name": "string",
     "description": "string",
-    "computeInstanceId": "string",
+    "compute_instance_id": "string",
     "status": "Status",
     "errors": [
       "string"
     ],
-    "currentJobId": "string",
-    "agentVersionId": "string",
+    "current_job_id": "string",
+    "agent_version_id": "string",
     "labels": "string",
-    "logSettings": {
-      "cloudLogGroupId": "string"
+    "log_settings": {
+      "cloud_log_group_id": "string"
     }
   }
   // end of the list of possible fields
@@ -404,13 +404,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -453,7 +453,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| agentId | **string**
+|| agent_id | **string**
 
 ID of the agent that is being updated. ||
 |#
@@ -467,7 +467,7 @@ Load testing agent on which tests are executed.
 || id | **string**
 
 ID of the agent. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the agent belongs to. ||
 || name | **string**
@@ -476,7 +476,7 @@ Name of the agent. ||
 || description | **string**
 
 Description of the agent. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 ID of the compute instance managed by the agent.
 
@@ -505,16 +505,16 @@ Status of the agent.
 || errors[] | **string**
 
 List of errors reported by the agent. ||
-|| currentJobId | **string**
+|| current_job_id | **string**
 
 ID of the test that is currently being executed by the agent. ||
-|| agentVersionId | **string**
+|| agent_version_id | **string**
 
 Version of the agent. ||
 || labels | **string**
 
 Agent labels as `key:value` pairs. ||
-|| logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
+|| log_settings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
 
 Agent log settings ||
 |#
@@ -523,7 +523,7 @@ Agent log settings ||
 
 #|
 ||Field | Description ||
-|| cloudLogGroupId | **string**
+|| cloud_log_group_id | **string**
 
 Id of Yandex Cloud log group to upload agent logs to ||
 |#

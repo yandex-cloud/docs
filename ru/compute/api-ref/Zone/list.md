@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Zone/list.md
 ---
 
-# Compute Cloud API, REST: Zone.List {#List}
+# Compute Cloud API, REST: Zone.List
 
 Retrieves the list of availability zones.
 

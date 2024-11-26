@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/list.md
 ---
 
-# Managed Service for YDB API, REST: Backup.List {#List}
+# Managed Service for YDB API, REST: Backup.List
 
 Retrieves a list of backups.
 

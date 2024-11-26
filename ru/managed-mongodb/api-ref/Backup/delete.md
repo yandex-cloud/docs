@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for MongoDB API, REST: Backup.Delete {#Delete}
+# Managed Service for MongoDB API, REST: Backup.Delete
 
 Returns the list of available backups for the specified MongoDB cluster.
 

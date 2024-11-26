@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/listLogs.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.ListLogs {#ListLogs}
+# Managed Service for MongoDB API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified MongoDB cluster.
 See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.

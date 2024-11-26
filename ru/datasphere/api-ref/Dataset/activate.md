@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Dataset/activate.md
 ---
 
-# DataSphere API v2, REST: Dataset.Activate {#Activate}
+# DataSphere API v2, REST: Dataset.Activate
 
 Activates shared dataset for project
 

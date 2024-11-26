@@ -8,11 +8,21 @@ You **do not need** a [billing account](../billing/concepts/billing-account.md).
 
 ### Can I use the plugin without internet access? {#using-plugin-without-internet}
 
-No. To work with {{ ca-short-name }}, you will need continuous internet access.
+No. To work with {{ ca-short-name }}, you need continuous internet access.
 
 ### How to change the user authenticated in the {{ ca-name }} plugin {#change-user}
 
 To authenticate to the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./quickstart.md#logout) of the profile and then re-authenticate as described in step 3 of [{#T}](./quickstart.md#install-plugin).
+
+### Error getting a refresh token {#refresh-token}
+
+Error message:
+
+```text
+Error refreshing token: no refresh token found
+```
+
+Your [organization](../overview/roles-and-resources.md) does not allow issuing [refresh tokens](../iam/api-ref/RefreshToken/) used by {{ ca-name }} for authentication. To work with {{ ca-name }}, [register](../getting-started/) in {{ yandex-cloud }} using your personal [Yandex account](../iam/concepts/users/accounts.md#passport) and [create](../organization/operations/enable-org.md) a new organization.
 
 ## Working in Visual Studio Code {#vs-code-ide}
 
@@ -46,11 +56,11 @@ See also [How to find out your IDE version](https://code.visualstudio.com/docs/s
 
 ## Using JetBrains IDE {#jetbrains-ide}
 
-### Which IDE versions are supported? {#ide-versions}
+### What IDE versions are supported? {#ide-versions}
 
-{{ ca-short-name }} supports JetBrains IDE versions 2024.1 and 2024.2.
+{{ ca-short-name }} supports working in JetBrains IDE versions 2024.1 and 2024.2.
 
-### The plugin does not start, there is a 404 error, suggestions from {{ ca-short-name }} are not displayed {#plugin-doesnt-start}
+### The plugin does not start, error 404, offers from {{ ca-short-name }} do not appear {#plugin-doesnt-start}
 
 Try restarting the IDE.
 
@@ -74,7 +84,3 @@ If you want to resolve issues with {{ ca-short-name }} through our [support]({{ 
 
 1. In the IDE top menu, click **Help** and select **Show log in Explorer** (**Show Log in Finder** for macOS).
 1. In the window that opens, copy the `idea.log` file and attach it to your support ticket.
-
-### How to change the user authenticated in the {{ ca-name }} plugin {#change-user}
-
-To authenticate in the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./quickstart.md#logout) of your current account and re-authenticate as described in step 3 of [{#T}](./quickstart.md#install-plugin).

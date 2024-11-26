@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/get.md
 ---
 
-# Cloud CDN API, gRPC: RawLogsService.Get {#Get}
+# Cloud CDN API, gRPC: RawLogsService.Get
 
 ## gRPC request
 
@@ -13,13 +13,13 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/get.md
 
 ```json
 {
-  "resourceId": "string"
+  "resource_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field. ID of CDN resource to request status and settings. ||
 |#
@@ -30,9 +30,9 @@ Required field. ID of CDN resource to request status and settings. ||
 {
   "status": "RawLogsStatus",
   "settings": {
-    "bucketName": "string",
-    "bucketRegion": "string",
-    "filePrefix": "string"
+    "bucket_name": "string",
+    "bucket_region": "string",
+    "file_prefix": "string"
   }
 }
 ```
@@ -59,13 +59,13 @@ User settings for Raw logs.
 
 #|
 ||Field | Description ||
-|| bucketName | **string**
+|| bucket_name | **string**
 
 Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
-|| bucketRegion | **string**
+|| bucket_region | **string**
 
 Bucket region, unused for now, could be blank. ||
-|| filePrefix | **string**
+|| file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
 

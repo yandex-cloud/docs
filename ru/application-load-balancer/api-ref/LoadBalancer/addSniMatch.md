@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/addSniMatch.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.AddSniMatch {#AddSniMatch}
+# Application Load Balancer API, REST: LoadBalancer.AddSniMatch
 
 Adds a SNI handler to the specified listener.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.Start {#Start}
+# Managed Service for MongoDB API, REST: Cluster.Start
 
 Start the specified MongoDB cluster.
 

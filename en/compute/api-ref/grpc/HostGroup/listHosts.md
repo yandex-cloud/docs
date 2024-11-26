@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostGroup/listHosts.md
 ---
 
-# Compute Cloud API, gRPC: HostGroupService.ListHosts {#ListHosts}
+# Compute Cloud API, gRPC: HostGroupService.ListHosts
 
 Lists hosts that belongs to the specified host group.
 
@@ -15,28 +15,28 @@ Lists hosts that belongs to the specified host group.
 
 ```json
 {
-  "hostGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "host_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 Required field. ID of the host group to list hosts for.
 To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/grpc/HostGroup/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
+results is larger than `page_size`,
+the service returns a [ListHostGroupHostsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
+set `page_token` to the [ListHostGroupHostsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 returned by a previous list request. ||
 |#
 
@@ -48,14 +48,14 @@ returned by a previous list request. ||
     {
       "id": "string",
       "status": "Status",
-      "serverId": "string",
+      "server_id": "string",
       "replacement": {
-        "hostId": "string",
-        "deadlineAt": "google.protobuf.Timestamp"
+        "host_id": "string",
+        "deadline_at": "google.protobuf.Timestamp"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -64,14 +64,14 @@ returned by a previous list request. ||
 || hosts[] | **[Host](#yandex.cloud.compute.v1.Host)**
 
 Lists hosts for the specified host group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is more than [ListHostGroupHostsRequest.pageSize](#yandex.cloud.compute.v1.ListHostGroupHostsRequest), use
-`nextPageToken` as the value
-for the [ListHostGroupHostsRequest.pageToken](#yandex.cloud.compute.v1.ListHostGroupHostsRequest) query parameter
+is more than [ListHostGroupHostsRequest.page_size](#yandex.cloud.compute.v1.ListHostGroupHostsRequest), use
+`next_page_token` as the value
+for the [ListHostGroupHostsRequest.page_token](#yandex.cloud.compute.v1.ListHostGroupHostsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.compute.v1.Host}
@@ -90,7 +90,7 @@ Current status of the host. New instances are unable to start on host in DOWN st
 - `STATUS_UNSPECIFIED`
 - `UP`
 - `DOWN` ||
-|| serverId | **string**
+|| server_id | **string**
 
 ID of the physical server that the host belongs to. ||
 || replacement | **[Replacement](#yandex.cloud.compute.v1.Replacement)**
@@ -102,10 +102,10 @@ Set temporarily if maintenance is planned for this host, and a new host was prov
 
 #|
 ||Field | Description ||
-|| hostId | **string**
+|| host_id | **string**
 
 ID of the host which replaces this one. ||
-|| deadlineAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The date and time when this host will be automatically freed of instances. ||
 |#

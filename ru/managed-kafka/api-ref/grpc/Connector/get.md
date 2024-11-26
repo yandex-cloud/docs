@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Connector/get.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: ConnectorService.Get {#Get}
+# Managed Service for Apache Kafka® API, gRPC: ConnectorService.Get
 
 Returns information about an Apache Kafka® connector.
 
@@ -15,19 +15,19 @@ Returns information about an Apache Kafka® connector.
 
 ```json
 {
-  "clusterId": "string",
-  "connectorName": "string"
+  "cluster_id": "string",
+  "connector_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster the connector belongs to.
 
 To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
-|| connectorName | **string**
+|| connector_name | **string**
 
 Required field. Name of the Apache Kafka® connector to return information about.
 
@@ -39,49 +39,49 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grp
 ```json
 {
   "name": "string",
-  "tasksMax": "google.protobuf.Int64Value",
+  "tasks_max": "google.protobuf.Int64Value",
   "properties": "string",
   "health": "Health",
   "status": "Status",
-  "clusterId": "string",
-  // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
-  "connectorConfigMirrormaker": {
-    "sourceCluster": {
+  "cluster_id": "string",
+  // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`
+  "connector_config_mirrormaker": {
+    "source_cluster": {
       "alias": "string",
-      // Includes only one of the fields `thisCluster`, `externalCluster`
-      "thisCluster": "ThisCluster",
-      "externalCluster": {
-        "bootstrapServers": "string",
-        "saslUsername": "string",
-        "saslMechanism": "string",
-        "securityProtocol": "string"
+      // Includes only one of the fields `this_cluster`, `external_cluster`
+      "this_cluster": "ThisCluster",
+      "external_cluster": {
+        "bootstrap_servers": "string",
+        "sasl_username": "string",
+        "sasl_mechanism": "string",
+        "security_protocol": "string"
       }
       // end of the list of possible fields
     },
-    "targetCluster": {
+    "target_cluster": {
       "alias": "string",
-      // Includes only one of the fields `thisCluster`, `externalCluster`
-      "thisCluster": "ThisCluster",
-      "externalCluster": {
-        "bootstrapServers": "string",
-        "saslUsername": "string",
-        "saslMechanism": "string",
-        "securityProtocol": "string"
+      // Includes only one of the fields `this_cluster`, `external_cluster`
+      "this_cluster": "ThisCluster",
+      "external_cluster": {
+        "bootstrap_servers": "string",
+        "sasl_username": "string",
+        "sasl_mechanism": "string",
+        "security_protocol": "string"
       }
       // end of the list of possible fields
     },
     "topics": "string",
-    "replicationFactor": "google.protobuf.Int64Value"
+    "replication_factor": "google.protobuf.Int64Value"
   },
-  "connectorConfigS3Sink": {
+  "connector_config_s3_sink": {
     "topics": "string",
-    "fileCompressionType": "string",
-    "fileMaxRecords": "google.protobuf.Int64Value",
-    "s3Connection": {
-      "bucketName": "string",
-      // Includes only one of the fields `externalS3`
-      "externalS3": {
-        "accessKeyId": "string",
+    "file_compression_type": "string",
+    "file_max_records": "google.protobuf.Int64Value",
+    "s3_connection": {
+      "bucket_name": "string",
+      // Includes only one of the fields `external_s3`
+      "external_s3": {
+        "access_key_id": "string",
         "endpoint": "string",
         "region": "string"
       }
@@ -97,7 +97,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grp
 || name | **string**
 
 Name of the connector. ||
-|| tasksMax | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
 || properties | **string**
@@ -119,21 +119,21 @@ Current status of the connector.
 - `RUNNING`: Connector is running normally.
 - `ERROR`: Connector has encountered a problem and cannot operate.
 - `PAUSED`: Connector is paused. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Kafka® cluster that the connector belongs to. ||
-|| connectorConfigMirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
+|| connector_config_mirrormaker | **[ConnectorConfigMirrorMaker](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMaker)**
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
 
 Additional settings for the connector. ||
-|| connectorConfigS3Sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
+|| connector_config_s3_sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
 
 Configuration of S3-Sink connector.
 
-Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
 
 Additional settings for the connector. ||
 |#
@@ -142,16 +142,16 @@ Additional settings for the connector. ||
 
 #|
 ||Field | Description ||
-|| sourceCluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
+|| source_cluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
 
 Source cluster connection configuration. ||
-|| targetCluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
+|| target_cluster | **[ClusterConnection](#yandex.cloud.mdb.kafka.v1.ClusterConnection)**
 
 Target cluster connection configuration. ||
 || topics | **string**
 
 List of Kafka topics, separated by `,`. ||
-|| replicationFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication factor for automatically created topics. ||
 |#
@@ -164,18 +164,18 @@ Replication factor for automatically created topics. ||
 
 Alias of cluster connection configuration.
 Examples: `source`, `target`. ||
-|| thisCluster | **[ThisCluster](#yandex.cloud.mdb.kafka.v1.ThisCluster)**
+|| this_cluster | **[ThisCluster](#yandex.cloud.mdb.kafka.v1.ThisCluster)**
 
 Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
 
-Includes only one of the fields `thisCluster`, `externalCluster`.
+Includes only one of the fields `this_cluster`, `external_cluster`.
 
 Type of connection to Apache Kafka® cluster. ||
-|| externalCluster | **[ExternalClusterConnection](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnection)**
+|| external_cluster | **[ExternalClusterConnection](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnection)**
 
 Configuration of connection to an external cluster with all the necessary credentials.
 
-Includes only one of the fields `thisCluster`, `externalCluster`.
+Includes only one of the fields `this_cluster`, `external_cluster`.
 
 Type of connection to Apache Kafka® cluster. ||
 |#
@@ -191,16 +191,16 @@ Type of connection to Apache Kafka® cluster. ||
 
 #|
 ||Field | Description ||
-|| bootstrapServers | **string**
+|| bootstrap_servers | **string**
 
 List of bootstrap servers of the cluster, separated by `,`. ||
-|| saslUsername | **string**
+|| sasl_username | **string**
 
 SASL username to use for connection to the cluster. ||
-|| saslMechanism | **string**
+|| sasl_mechanism | **string**
 
 SASL mechanism to use for connection to the cluster. ||
-|| securityProtocol | **string**
+|| security_protocol | **string**
 
 Security protocol to use for connection to the cluster. ||
 |#
@@ -215,15 +215,15 @@ connector resource.
 || topics | **string**
 
 List of Kafka topics, separated by ','. ||
-|| fileCompressionType | **string**
+|| file_compression_type | **string**
 
 The compression type used for files put on GCS.
 The supported values are: `gzip`, `snappy`, `zstd`, `none`.
 Optional, the default is `none`. ||
-|| fileMaxRecords | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| file_max_records | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max records per file. ||
-|| s3Connection | **[S3Connection](#yandex.cloud.mdb.kafka.v1.S3Connection)**
+|| s3_connection | **[S3Connection](#yandex.cloud.mdb.kafka.v1.S3Connection)**
 
 Credentials for connecting to S3 storage. ||
 |#
@@ -237,17 +237,17 @@ YC Object Storage is AWS-compatible.
 
 #|
 ||Field | Description ||
-|| bucketName | **string** ||
-|| externalS3 | **[ExternalS3Storage](#yandex.cloud.mdb.kafka.v1.ExternalS3Storage)**
+|| bucket_name | **string** ||
+|| external_s3 | **[ExternalS3Storage](#yandex.cloud.mdb.kafka.v1.ExternalS3Storage)**
 
-Includes only one of the fields `externalS3`. ||
+Includes only one of the fields `external_s3`. ||
 |#
 
 ## ExternalS3Storage {#yandex.cloud.mdb.kafka.v1.ExternalS3Storage}
 
 #|
 ||Field | Description ||
-|| accessKeyId | **string** ||
+|| access_key_id | **string** ||
 || endpoint | **string** ||
 || region | **string**
 

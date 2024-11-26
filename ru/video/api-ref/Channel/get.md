@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/get.md
 ---
 
-# Video API, REST: Channel.Get {#Get}
+# Video API, REST: Channel.Get
 
 Returns the specific channel.
 

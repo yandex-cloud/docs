@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/get.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Get {#Get}
+# Cloud Organization API, REST: UserSshKey.Get
 
 ## HTTP request
 

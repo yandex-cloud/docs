@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/get.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.Get {#Get}
+# Cloud Organization API, gRPC: GroupService.Get
 
 Returns the specified Group resource.
 
@@ -17,13 +17,13 @@ To get the list of available Group resources, make a [List](/docs/organization/a
 
 ```json
 {
-  "groupId": "string"
+  "group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field. ID of the Group resource to return.
 To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
@@ -34,8 +34,8 @@ To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/G
 ```json
 {
   "id": "string",
-  "organizationId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "organization_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string"
 }
@@ -49,10 +49,10 @@ For more information, see [Groups](/docs/organization/operations/manage-groups).
 || id | **string**
 
 ID of the group. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**

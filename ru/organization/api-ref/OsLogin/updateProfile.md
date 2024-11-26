@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/updateProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.UpdateProfile {#UpdateProfile}
+# Cloud Organization API, REST: OsLogin.UpdateProfile
 
 ## HTTP request
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/getProviderCName.md
 ---
 
-# Cloud CDN API, REST: Resource.GetProviderCName {#GetProviderCName}
+# Cloud CDN API, REST: Resource.GetProviderCName
 
 Get Provider's CNAME (edge endpoint) bind to specified folder id.
 Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
 ---
 
-# SpeechKit Recognition API v3, REST: AsyncRecognizer.RecognizeFile {#RecognizeFile}
+# SpeechKit Recognition API v3, REST: AsyncRecognizer.RecognizeFile
 
 ## HTTP request
 

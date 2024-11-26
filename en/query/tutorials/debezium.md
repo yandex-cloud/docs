@@ -17,11 +17,11 @@ In this use case, you will send [{{ PG }}](https://www.postgresql.org/) database
 
 To implement this use case:
 
-1. [{#T}](#create-yds-stream)
-1. [{#T}](#credentials)
-1. [{#T}](#debezium-server)
-1. [{#T}](#connect-query)
-1. [{#T}](#query)
+1. [Create a {{ yds-name }} data stream](#create-yds-stream).
+1. [Set the stream connection credentials](#credentials).
+1. [Set up Debezium Server](#debezium-server).
+1. [Connect {{ yq-name }} to your data stream](#connect-query).
+1. [Query the data](#query).
 
 ## Getting started {#before-you-begin}
 
@@ -29,24 +29,24 @@ To implement this use case:
 
 ## Create a {{ yds-name }} data stream {#create-yds-stream}
 
-[Create a stream](../../data-streams/operations/manage-streams.md#create-data-stream) named `debezium`.
+[Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream) named `debezium`.
 
 ## Set the stream connection parameters {#credentials}
 
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
 1. On the server where {{ PG }} is set up and running, configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
-   1. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and run this command:
+    1. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and run this command:
 
-      ```bash
-      aws configure
-      ```
+        ```bash
+        aws configure
+        ```
 
-   1. Enter the following one by one:
+    1. Enter the following one by one:
 
-      * `AWS Access Key ID [None]:`: Service account [key ID](../../iam/concepts/authorization/access-key.md).
-      * `AWS Secret Access Key [None]:`: [Secret access key](../../iam/concepts/authorization/access-key.md) of the service account.
-      * `Default region name [None]:`: `{{ region-id }}` availability zone.
+        * `AWS Access Key ID [None]:`: Service account [key ID](../../iam/concepts/authorization/access-key.md).
+        * `AWS Secret Access Key [None]:`: Service account [secret key](../../iam/concepts/authorization/access-key.md).
+        * `Default region name [None]:`: `{{ region-id }}` availability zone.
 
 ## Set up Debezium Server {#debezium-server}
 
@@ -58,12 +58,12 @@ On the server where PostgreSQL is set up and running:
 
 1. [Create a connection](../operations/connection.md#create) named `yds-connection` of the `{{ ui-key.yql.yq-connection.action_datastreams }}` type.
 1. On the binding creation page:
-   * Enter the binding name: `debezium`.
-   * Specify the stream: `cdebezium`.
-   * Add a `JSON` column named `data`.
+    * Enter a name for the binding: `debezium`.
+    * Specify the data stream: `cdebezium`.
+    * Add a column named `data` of the `JSON` type.
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-## Run a data query {#query}
+## Query the data {#query}
 
 Open the query editor in the {{ yq-name }} interface and run the query:
 

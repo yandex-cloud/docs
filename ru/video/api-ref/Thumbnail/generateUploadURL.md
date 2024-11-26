@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/generateUploadURL.md
 ---
 
-# Video API, REST: Thumbnail.GenerateUploadURL {#GenerateUploadURL}
+# Video API, REST: Thumbnail.GenerateUploadURL
 
 Generate url for upload image.
 

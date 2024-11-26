@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/privatelink/api-ref/grpc/PrivateEndpoint/get.md
 ---
 
-# Virtual Private Cloud API, gRPC: PrivateEndpointService.Get {#Get}
+# Virtual Private Cloud API, gRPC: PrivateEndpointService.Get
 
 Returns the specified Private Endpoint resource.
 
@@ -18,13 +18,13 @@ request.
 
 ```json
 {
-  "privateEndpointId": "string"
+  "private_endpoint_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| privateEndpointId | **string**
+|| private_endpoint_id | **string**
 
 Required field. ID of the PrivateEndpoint resource to return.
 
@@ -37,23 +37,23 @@ request. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "networkId": "string",
+  "network_id": "string",
   "status": "Status",
   "address": {
-    "subnetId": "string",
+    "subnet_id": "string",
     "address": "string",
-    "addressId": "string"
+    "address_id": "string"
   },
-  "dnsOptions": {
-    "privateDnsRecordsEnabled": "bool"
+  "dns_options": {
+    "private_dns_records_enabled": "bool"
   },
-  // Includes only one of the fields `objectStorage`
-  "objectStorage": "ObjectStorage"
+  // Includes only one of the fields `object_storage`
+  "object_storage": "ObjectStorage"
   // end of the list of possible fields
 }
 ```
@@ -63,10 +63,10 @@ request. ||
 || id | **string**
 
 ID of the private endpoint. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the private endpoint belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -86,7 +86,7 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the private endpoint belongs to. ||
 || status | enum **Status**
@@ -100,14 +100,14 @@ Status of the private endpoint.
 || address | **[EndpointAddress](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress)**
 
 Private endpoint ip address details. ||
-|| dnsOptions | **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
+|| dns_options | **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
 
 Private endpoint dns options. ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.ObjectStorage)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.ObjectStorage)**
 
 Yandex Cloud Object Storage.
 
-Includes only one of the fields `objectStorage`.
+Includes only one of the fields `object_storage`.
 
 Service to connect with via private endpoint. ||
 |#
@@ -118,13 +118,13 @@ Private endpoint ip address details.
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the private endpoint address belongs to. ||
 || address | **string**
 
 IP address of the private endpoint. ||
-|| addressId | **string**
+|| address_id | **string**
 
 ID of the private endpoint address. ||
 |#
@@ -133,7 +133,7 @@ ID of the private endpoint address. ||
 
 #|
 ||Field | Description ||
-|| privateDnsRecordsEnabled | **bool**
+|| private_dns_records_enabled | **bool**
 
 If enabled - vpc will create private dns records for specified service. ||
 |#

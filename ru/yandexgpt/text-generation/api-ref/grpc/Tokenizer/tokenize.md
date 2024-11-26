@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/text_generation/text-generation/api-ref/grpc/Tokenizer/tokenize.md
 ---
 
-# Foundation Models Text Generation API, gRPC: TokenizerService.Tokenize {#Tokenize}
+# Foundation Models Text Generation API, gRPC: TokenizerService.Tokenize
 
 RPC method for tokenizing text.
 
@@ -15,7 +15,7 @@ RPC method for tokenizing text.
 
 ```json
 {
-  "modelUri": "string",
+  "model_uri": "string",
   "text": "string"
 }
 ```
@@ -24,7 +24,7 @@ Request for the service to tokenize input text.
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The identifier of the model to be used for tokenization. ||
 || text | **string**
@@ -43,7 +43,7 @@ Text to be tokenized. ||
       "special": "bool"
     }
   ],
-  "modelVersion": "string"
+  "model_version": "string"
 }
 ```
 
@@ -54,7 +54,7 @@ Response containing tokenized content from request.
 || tokens[] | **[Token](#yandex.cloud.ai.foundation_models.v1.Token)**
 
 A list of tokens obtained from tokenization. ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 Model version (changes with model releases). ||
 |#

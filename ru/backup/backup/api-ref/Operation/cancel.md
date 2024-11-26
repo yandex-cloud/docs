@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Operation/cancel.md
 ---
 
-# Cloud Backup API, REST: Operation.Cancel {#Cancel}
+# Cloud Backup API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

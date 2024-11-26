@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/get.md
 ---
 
-# Object Storage API, REST: Bucket.Get {#Get}
+# Object Storage API, REST: Bucket.Get
 
 Returns the specified bucket.
 

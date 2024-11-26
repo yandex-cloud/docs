@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/move.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Move {#Move}
+# Virtual Private Cloud API, REST: Subnet.Move
 
 Move subnet to another folder.
 

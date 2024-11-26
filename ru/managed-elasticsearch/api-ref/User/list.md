@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/list.md
 ---
 
-# Managed Service for Elasticsearch API, REST: User.List {#List}
+# Managed Service for Elasticsearch API, REST: User.List
 
 Retrieves the list of Elasticsearch users in the specified cluster.
 

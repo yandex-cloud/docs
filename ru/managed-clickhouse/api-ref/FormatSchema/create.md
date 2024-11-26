@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.Create {#Create}
+# Managed Service for ClickHouse API, REST: FormatSchema.Create
 
 Adds a format schema to a cluster.
 

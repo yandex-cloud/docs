@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/get.md
 ---
 
-# Cloud Organization API, REST: Group.Get {#Get}
+# Cloud Organization API, REST: Group.Get
 
 Returns the specified Group resource.
 

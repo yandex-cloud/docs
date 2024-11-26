@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/list.md
 ---
 
-# Workflows Service, gRPC: ExecutionService.List {#List}
+# Workflows Service, gRPC: ExecutionService.List
 
 Retrieves list of Workflow executions.
 
@@ -15,29 +15,29 @@ Retrieves list of Workflow executions.
 
 ```json
 {
-  "workflowId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "workflow_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 Required field. ID of the Workflow. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListExecutionsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
+results is larger than `pageSize`, the service returns a [ListExecutionsResponse.next_page_token](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListExecutionsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse) returned by a previous list request. ||
+[ListExecutionsResponse.next_page_token](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -56,13 +56,13 @@ Examples of a filter: `status=ERROR`, `created_by=John.Doe`. ||
   "executions": [
     {
       "id": "string",
-      "workflowId": "string",
+      "workflow_id": "string",
       "status": "Status",
-      "startedAt": "google.protobuf.Timestamp",
+      "started_at": "google.protobuf.Timestamp",
       "duration": "google.protobuf.Duration"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,11 +71,11 @@ Examples of a filter: `status=ERROR`, `created_by=John.Doe`. ||
 || executions[] | **[ExecutionPreview](#yandex.cloud.serverless.workflows.v1.ExecutionPreview)**
 
 List of Workflow executions. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListExecutionsRequest.pageSize](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest), use `next_page_token` as the value
-for the [ListExecutionsRequest.pageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest) parameter in the next list request.
+the specified [ListExecutionsRequest.page_size](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest), use `next_page_token` as the value
+for the [ListExecutionsRequest.page_token](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -87,7 +87,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 || id | **string**
 
 ID of the Workflow execution. Generated at creation time. ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 ID of the Workflow. ||
 || status | enum **Status**
@@ -101,7 +101,7 @@ Status of the Workflow execution
 - `STOPPED`: Workflow execution is stopped.
 - `FAILED`: Workflow execution is failed.
 - `FINISHED`: Workflow execution is finished. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the Workflow execution. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**

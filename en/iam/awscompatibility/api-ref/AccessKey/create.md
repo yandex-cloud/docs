@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/create.md
 ---
 
-# Access Key, REST: AccessKey.Create {#Create}
+# Access Key, REST: AccessKey.Create
 
 Creates an access key for the specified service account.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/get.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.Get {#Get}
+# Cloud Organization API, gRPC: OrganizationService.Get
 
 Returns the specified Organization resource.
 
@@ -17,13 +17,13 @@ To get the list of available Organization resources, make a [List](/docs/organiz
 
 ```json
 {
-  "organizationId": "string"
+  "organization_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 Required field. ID of the Organization resource to return.
 To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
@@ -34,7 +34,7 @@ To get the organization ID, use a [OrganizationService.List](/docs/organization/
 ```json
 {
   "id": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "title": "string",
@@ -49,7 +49,7 @@ An Organization resource. For more information, see [Organization](/docs/organiz
 || id | **string**
 
 ID of the organization. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**

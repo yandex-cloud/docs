@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/pauseProcesses.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.PauseProcesses {#PauseProcesses}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.PauseProcesses
 
 Pauses all processes regarding management of the specified instance group,
 i.e. scaling, checking instances' health, auto-healing and updating them. Running instances are not stopped.

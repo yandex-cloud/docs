@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.Move {#Move}
+# Managed Service for Apache Kafka® API, REST: Cluster.Move
 
 Moves the specified Apache Kafka® cluster to the specified folder.
 

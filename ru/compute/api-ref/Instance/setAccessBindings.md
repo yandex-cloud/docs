@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/setAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Instance.SetAccessBindings {#SetAccessBindings}
+# Compute Cloud API, REST: Instance.SetAccessBindings
 
 Sets access bindings for the instance.
 

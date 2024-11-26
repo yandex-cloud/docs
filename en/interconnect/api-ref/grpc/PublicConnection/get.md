@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PublicConnection/get.md
 ---
 
-# Cloud Interconnect API, gRPC: PublicConnectionService.Get {#Get}
+# Cloud Interconnect API, gRPC: PublicConnectionService.Get
 
 Returns the specified PublicConnection resource.
 
@@ -17,13 +17,13 @@ To get the list of available PublicConnection resources, make a [List](/docs/cic
 
 ```json
 {
-  "publicConnectionId": "string"
+  "public_connection_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| publicConnectionId | **string**
+|| public_connection_id | **string**
 
 Required field. ID of the PublicConnection resource to return.
 To get the publicConnection ID use a [PublicConnectionService.List](/docs/cic/workload/api-ref/grpc/PublicConnection/list#List) request. ||
@@ -36,22 +36,22 @@ To get the publicConnection ID use a [PublicConnectionService.List](/docs/cic/wo
   "id": "string",
   "name": "string",
   "description": "string",
-  "folderId": "string",
-  "regionId": "string",
-  "trunkConnectionId": "string",
-  "vlanId": "google.protobuf.Int64Value",
-  "ipv4Peering": {
-    "peeringSubnet": "string",
-    "peerIp": "string",
-    "cloudIp": "string",
-    "peerBgpAsn": "int64",
-    "cloudBgpAsn": "int64",
-    "peerBgpMd5Key": "string"
+  "folder_id": "string",
+  "region_id": "string",
+  "trunk_connection_id": "string",
+  "vlan_id": "google.protobuf.Int64Value",
+  "ipv4_peering": {
+    "peering_subnet": "string",
+    "peer_ip": "string",
+    "cloud_ip": "string",
+    "peer_bgp_asn": "int64",
+    "cloud_bgp_asn": "int64",
+    "peer_bgp_md5_key": "string"
   },
-  "ipv4AllowedServiceTypes": [
+  "ipv4_allowed_service_types": [
     "CloudServiceType"
   ],
-  "ipv4PeerAnnouncedPrefixes": [
+  "ipv4_peer_announced_prefixes": [
     "string"
   ],
   "labels": "string"
@@ -73,24 +73,24 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the publicConnection. 0-256 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the publicConnection belongs to. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the publicConnection belongs to. ||
-|| trunkConnectionId | **string**
+|| trunk_connection_id | **string**
 
 ID of the trunk_connection that the publicConnection belongs to. ||
-|| vlanId | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| vlan_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 VLAN_ID that the privateConnection uses in multiplexing.
 Not used in connections over partners-II
 Value range: [1, 4095] ||
-|| ipv4Peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
+|| ipv4_peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
 
 IPv4 peering config of connection ||
-|| ipv4AllowedServiceTypes[] | enum **CloudServiceType**
+|| ipv4_allowed_service_types[] | enum **CloudServiceType**
 
 Cloud services that the publicConnection connects to.
 
@@ -106,7 +106,7 @@ Cloud services that the publicConnection connects to.
 - `CLOUD_SERVICE_YANDEX_GPT`
 - `CLOUD_SERVICES_ALL_API_ENDPOINT`
 - `CLOUD_SERVICE_YMQ` ||
-|| ipv4PeerAnnouncedPrefixes[] | **string**
+|| ipv4_peer_announced_prefixes[] | **string**
 
 IPv4 Peer Announced Prefixes
 It's an list of ip with format ipPrefix/length where address part of ipPrefix is 0 ||
@@ -124,26 +124,26 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 #|
 ||Field | Description ||
-|| peeringSubnet | **string**
+|| peering_subnet | **string**
 
 PeeringSubnet.
 It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
-|| peerIp | **string**
+|| peer_ip | **string**
 
 PeerIp.
 It's an ip with just an ipAddress format without mask. ||
-|| cloudIp | **string**
+|| cloud_ip | **string**
 
 CloudIp.
 It's an ip with just an ipAddress format without mask. ||
-|| peerBgpAsn | **int64**
+|| peer_bgp_asn | **int64**
 
 PeerBgpAsn.
 PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551). ||
-|| cloudBgpAsn | **int64**
+|| cloud_bgp_asn | **int64**
 
 CloudBgpAsn. ||
-|| peerBgpMd5Key | **string**
+|| peer_bgp_md5_key | **string**
 
 PeerBgpMd5Key.
 Optional. ||

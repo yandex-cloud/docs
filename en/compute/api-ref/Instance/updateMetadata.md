@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/updateMetadata.md
 ---
 
-# Compute Cloud API, REST: Instance.UpdateMetadata {#UpdateMetadata}
+# Compute Cloud API, REST: Instance.UpdateMetadata
 
 Updates the metadata of the specified instance. For more information on metadata, see [VM metadata](/docs/compute/concepts/vm-metadata).
 

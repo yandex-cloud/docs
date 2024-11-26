@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 
-# Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin {#GetByLogin}
+# Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin
 
 Returns the specified YandexPassportUserAccount resource.
 

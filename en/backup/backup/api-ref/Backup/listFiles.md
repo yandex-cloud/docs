@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/listFiles.md
 ---
 
-# Cloud Backup API, REST: Backup.ListFiles {#ListFiles}
+# Cloud Backup API, REST: Backup.ListFiles
 
 ListFiles of the backup.
 

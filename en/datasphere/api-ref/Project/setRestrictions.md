@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/setRestrictions.md
 ---
 
-# DataSphere API v2, REST: Project.SetRestrictions {#SetRestrictions}
+# DataSphere API v2, REST: Project.SetRestrictions
 
 Set project restrictions.
 

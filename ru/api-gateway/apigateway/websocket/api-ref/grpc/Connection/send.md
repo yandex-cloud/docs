@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/grpc/Connection/send.md
 ---
 
-# API Gateway WebSocket Connection Service, gRPC: ConnectionService.Send {#Send}
+# API Gateway WebSocket Connection Service, gRPC: ConnectionService.Send
 
 Sends data to the specified connection.
 
@@ -15,7 +15,7 @@ Sends data to the specified connection.
 
 ```json
 {
-  "connectionId": "string",
+  "connection_id": "string",
   "data": "bytes",
   "type": "DataType"
 }
@@ -23,7 +23,7 @@ Sends data to the specified connection.
 
 #|
 ||Field | Description ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 Required field. ID of the connection to which send. ||
 || data | **bytes**

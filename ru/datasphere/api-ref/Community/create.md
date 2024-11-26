@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/create.md
 ---
 
-# DataSphere API v2, REST: Community.Create {#Create}
+# DataSphere API v2, REST: Community.Create
 
 Creates community in specified organization.
 

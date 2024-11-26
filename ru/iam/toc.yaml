@@ -96,6 +96,10 @@ items:
           Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: tutorials/sa-oslogin-ansible.md
+      - name: Интеграции федераций удостоверений сервисных аккаунтов
+        items:
+          - name: GitHub
+            href: tutorials/wlif-github-integration.md
   - name: Концепции
     items:
       - name: Обзор

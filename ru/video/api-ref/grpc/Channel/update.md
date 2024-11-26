@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/update.md
 ---
 
-# Video API, gRPC: ChannelService.Update {#Update}
+# Video API, gRPC: ChannelService.Update
 
 Update channel.
 
@@ -15,8 +15,8 @@ Update channel.
 
 ```json
 {
-  "channelId": "string",
-  "fieldMask": "google.protobuf.FieldMask",
+  "channel_id": "string",
+  "field_mask": "google.protobuf.FieldMask",
   "title": "string",
   "description": "string",
   "labels": "string"
@@ -25,10 +25,10 @@ Update channel.
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| fieldMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+Required field. ID of the channel. ||
+|| field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the channel are going to be updated. ||
 || title | **string**
@@ -48,22 +48,22 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "channelId": "string"
+    "channel_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
+    "organization_id": "string",
     "title": "string",
     "description": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "labels": "string"
   }
   // end of the list of possible fields
@@ -80,13 +80,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -129,7 +129,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
 ID of the channel. ||
 |#
@@ -143,7 +143,7 @@ Root entity for content separation.
 || id | **string**
 
 ID of the channel. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization where channel should be created. ||
 || title | **string**
@@ -152,10 +152,10 @@ Channel title. ||
 || description | **string**
 
 Channel description. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when channel was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last channel update. ||
 || labels | **string**

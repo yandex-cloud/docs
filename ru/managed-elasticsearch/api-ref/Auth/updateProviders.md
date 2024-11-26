@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/updateProviders.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.UpdateProviders {#UpdateProviders}
+# Managed Service for Elasticsearch API, REST: Auth.UpdateProviders
 
 Replase the list of auth providers.
 

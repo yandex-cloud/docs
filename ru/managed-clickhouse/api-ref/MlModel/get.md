@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/get.md
 ---
 
-# Managed Service for ClickHouse API, REST: MlModel.Get {#Get}
+# Managed Service for ClickHouse API, REST: MlModel.Get
 
 Returns the specified machine learning model.
 

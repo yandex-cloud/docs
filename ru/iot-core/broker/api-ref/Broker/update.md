@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/update.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Update {#Update}
+# IoT Core Broker Service, REST: Broker.Update
 
 Updates the specified broker.
 

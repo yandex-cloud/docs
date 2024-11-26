@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/delete.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Delete {#Delete}
+# Managed Service for Elasticsearch API, REST: Cluster.Delete
 
 Deletes the specified Elasticsearch cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/get.md
 ---
 
-# Workflows Service, gRPC: ExecutionService.Get {#Get}
+# Workflows Service, gRPC: ExecutionService.Get
 
 Retrieves specified Workflow execution.
 
@@ -15,13 +15,13 @@ Retrieves specified Workflow execution.
 
 ```json
 {
-  "executionId": "string"
+  "execution_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| executionId | **string**
+|| execution_id | **string**
 
 Required field. ID of the Workflow execution. ||
 |#
@@ -32,23 +32,23 @@ Required field. ID of the Workflow execution. ||
 {
   "execution": {
     "id": "string",
-    "workflowId": "string",
+    "workflow_id": "string",
     "input": {
-      // Includes only one of the fields `inputJson`
-      "inputJson": "string"
+      // Includes only one of the fields `input_json`
+      "input_json": "string"
       // end of the list of possible fields
     },
     "result": {
-      // Includes only one of the fields `resultJson`
-      "resultJson": "string"
+      // Includes only one of the fields `result_json`
+      "result_json": "string"
       // end of the list of possible fields
     },
     "error": {
       "message": "string",
-      "errorCode": "string"
+      "error_code": "string"
     },
     "status": "Status",
-    "startedAt": "google.protobuf.Timestamp",
+    "started_at": "google.protobuf.Timestamp",
     "duration": "google.protobuf.Duration"
   }
 }
@@ -68,7 +68,7 @@ Workflow execution details. ||
 || id | **string**
 
 ID of the Workflow execution. Generated at creation time. ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 ID of the Workflow. ||
 || input | **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
@@ -91,7 +91,7 @@ Status of the Workflow execution
 - `STOPPED`: Workflow execution is stopped.
 - `FAILED`: Workflow execution is failed.
 - `FINISHED`: Workflow execution is finished. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the Workflow execution. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -103,22 +103,22 @@ Duration of the Workflow execution. ||
 
 #|
 ||Field | Description ||
-|| inputJson | **string**
+|| input_json | **string**
 
 JSON input data for the Workflow execution.
 
-Includes only one of the fields `inputJson`. ||
+Includes only one of the fields `input_json`. ||
 |#
 
 ## ExecutionResult {#yandex.cloud.serverless.workflows.v1.ExecutionResult}
 
 #|
 ||Field | Description ||
-|| resultJson | **string**
+|| result_json | **string**
 
 JSON result of the Workflow execution.
 
-Includes only one of the fields `resultJson`. ||
+Includes only one of the fields `result_json`. ||
 |#
 
 ## ExecutionError {#yandex.cloud.serverless.workflows.v1.ExecutionError}
@@ -128,7 +128,7 @@ Includes only one of the fields `resultJson`. ||
 || message | **string**
 
 Error message of the Workflow execution. ||
-|| errorCode | **string**
+|| error_code | **string**
 
 Error code of the Workflow execution. ||
 |#

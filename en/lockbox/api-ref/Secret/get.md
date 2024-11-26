@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/get.md
 ---
 
-# Lockbox API, REST: Secret.Get {#Get}
+# Lockbox API, REST: Secret.Get
 
 Returns the specified secret.
 

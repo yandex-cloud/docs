@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for MySQL API, REST: Database.List {#List}
+# Managed Service for MySQL API, REST: Database.List
 
 Retrieves the list of databases in a cluster.
 

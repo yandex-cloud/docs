@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Provider/listActivated.md
 ---
 
-# Cloud Backup API, gRPC: ProviderService.ListActivated {#ListActivated}
+# Cloud Backup API, gRPC: ProviderService.ListActivated
 
 List activated providers for specified client.
 
@@ -15,13 +15,13 @@ List activated providers for specified client.
 
 ```json
 {
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to find out the backup provider. ||
 |#
@@ -30,7 +30,7 @@ Required field. ID of the folder to find out the backup provider. ||
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "names": [
     "string"
   ]
@@ -39,7 +39,7 @@ Required field. ID of the folder to find out the backup provider. ||
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Folder ID. ||
 || names[] | **string**

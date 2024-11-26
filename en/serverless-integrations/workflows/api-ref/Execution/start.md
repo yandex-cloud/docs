@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/start.md
 ---
 
-# Workflows Service, REST: Execution.Start {#Start}
+# Workflows Service, REST: Execution.Start
 
 Starts new Workflow execution.
 

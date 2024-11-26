@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/get.md
 ---
 
-# DataSphere API v2, gRPC: CommunityService.Get {#Get}
+# DataSphere API v2, gRPC: CommunityService.Get
 
 Returns community.
 
@@ -15,13 +15,13 @@ Returns community.
 
 ```json
 {
-  "communityId": "string"
+  "community_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 Required field. ID of the community. ||
 |#
@@ -31,13 +31,13 @@ Required field. ID of the community. ||
 ```json
 {
   "id": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "createdById": "string",
-  "organizationId": "string",
-  "zoneId": "string"
+  "created_by_id": "string",
+  "organization_id": "string",
+  "zone_id": "string"
 }
 ```
 
@@ -46,7 +46,7 @@ Required field. ID of the community. ||
 || id | **string**
 
 ID of the community. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when community was created. ||
 || name | **string**
@@ -58,13 +58,13 @@ Description of the comminuty. ||
 || labels | **string**
 
 Labels of the community. ||
-|| createdById | **string**
+|| created_by_id | **string**
 
 ID of the user who created the community. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization to which community belongs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the zone where this community was created ||
 |#

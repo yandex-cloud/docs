@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/rollback.md
 ---
 
-# Serverless Containers Service, REST: Container.Rollback {#Rollback}
+# Serverless Containers Service, REST: Container.Rollback
 
 Rollback the specified container to an old revision.
 

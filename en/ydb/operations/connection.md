@@ -8,10 +8,10 @@ Before you start, install the [{{ ydb-short-name }} CLI]({{ ydb.docs }}/referenc
 
 To connect to your DB in {{ dd }} mode, allow incoming and outgoing traffic over TCP on port `{{ ydb.port-dedicated }}`. Make sure the assigned [security group](../../vpc/concepts/security-groups.md) contains the appropriate rule, or add one:
 
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ ydb.port-dedicated }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 ## Get connection details {#endpoint-and-path}
 
@@ -64,7 +64,7 @@ To get the database connection details:
 
 - API {#api}
 
-  Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/Database/get.md) gRPC API call and provide the database ID in the `databaseId` query parameter.
+  Use the [get](../api-ref/Database/get.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Get](../api-ref/grpc/Database/get.md) gRPC API call and provide the database ID in the `databaseId` request parameter.
 
   Database connection details are specified in the `endpoint` parameter.
 
@@ -96,9 +96,9 @@ Set up the selected mode:
 
 - OAuth token
 
-  Get an OAuth token by sending a [query]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
+  Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
 
-  To avoid entering this parameter every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+  To avoid entering this parameter every time you run a command, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
   Check that the connection is correct by requesting user information:
 
@@ -111,7 +111,7 @@ Set up the selected mode:
   ```
 
   * `--endpoint`: DB endpoint.
-  * `--database`: Path to DB.
+  * `--database`: Path to the DB.
   * `--yc-token-file`: Path to the OAuth token file.
 
   >Command example:
@@ -142,7 +142,7 @@ Set up the selected mode:
   1. Save the token to a file.
   1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up of a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+      To avoid entering this parameter every time you run a command, save the IAM token value to the `IAM_TOKEN` environment variable or [set up of a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
   1. Check that the connection is correct by requesting user information:
 
       ```bash
@@ -154,7 +154,7 @@ Set up the selected mode:
       ```
 
       * `--endpoint`: DB endpoint.
-      * `--database`: Path to DB.
+      * `--database`: Path to the DB.
       * `--iam-token-file`: Path to the IAM token file.
 
       >Command example:
@@ -176,7 +176,7 @@ Set up the selected mode:
 - Authorized access key
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
-  1. [Create](../../iam/operations/sa/create.md) a service account to access your DB. The service account must be in the same folder as the database and have the `viewer` or `viewer` + `editor` role depending on what access to the DB is required.
+  1. [Create](../../iam/operations/sa/create.md) a service account to access your DB. The service account must be in the same folder as the database and have the `viewer` or `viewer` + `editor` role(s) depending on what access to the DB is required.
   1. Use the [{{ yandex-cloud }} CLI](../../cli/) to create an authorized key for the service account:
 
       ```bash
@@ -190,7 +190,7 @@ Set up the selected mode:
 
   1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
+      To avoid entering this parameter every time you run a command, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
   1. Check that the connection is correct by requesting user information:
 
@@ -203,7 +203,7 @@ Set up the selected mode:
       ```
 
       * `--endpoint`: DB endpoint.
-      * `--database`: Path to DB.
+      * `--database`: Path to the DB.
       * `--sa-key-file`: Path to the file with the private key and public key ID.
 
       Command example:
@@ -224,7 +224,7 @@ Set up the selected mode:
 
 - Metadata service
 
-  When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
+  When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. The {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
 
   To avoid entering this parameter every time you run a command, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
 
@@ -239,7 +239,7 @@ Set up the selected mode:
   ```
 
   * `--endpoint`: DB endpoint.
-  * `--database`: Path to DB.
+  * `--database`: Path to the DB.
   * `--use-metadata-credentials`: Use the metadata service.
 
   >Command example:

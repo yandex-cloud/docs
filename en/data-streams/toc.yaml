@@ -95,6 +95,8 @@ items:
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

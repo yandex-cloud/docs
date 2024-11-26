@@ -3,7 +3,7 @@ title: How to create a {{ PG }} cluster
 description: Follow this guide to create a {{ PG }} cluster with a single or multiple DB hosts.
 ---
 
-# Creating an {{ PG }} cluster
+# Creating a {{ PG }} cluster
 
 
 A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) across which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. The transaction is confirmed if the data is written to [disk](../concepts/storage.md) both on the master host and on a certain number of replicas, sufficient to establish a quorum.
@@ -471,7 +471,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -635,7 +635,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ PG }} cluster copy:
+To create a {{ PG }} cluster copy:
 
 {% list tabs group=instructions %}
 

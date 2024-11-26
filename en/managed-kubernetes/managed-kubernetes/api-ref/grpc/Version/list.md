@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/k8s/v1/managed-kubernetes/api-ref/grpc/Version/list.md
 ---
 
-# Managed Services for Kubernetes API, gRPC: VersionService.List {#List}
+# Managed Services for Kubernetes API, gRPC: VersionService.List
 
 Retrieves the list of versions in the specified release channel.
 
@@ -26,9 +26,9 @@ Retrieves the list of versions in the specified release channel.
 
 ```json
 {
-  "availableVersions": [
+  "available_versions": [
     {
-      "releaseChannel": "ReleaseChannel",
+      "release_channel": "ReleaseChannel",
       "versions": [
         "string"
       ]
@@ -39,7 +39,7 @@ Retrieves the list of versions in the specified release channel.
 
 #|
 ||Field | Description ||
-|| availableVersions[] | **[AvailableVersions](#yandex.cloud.k8s.v1.AvailableVersions)**
+|| available_versions[] | **[AvailableVersions](#yandex.cloud.k8s.v1.AvailableVersions)**
 
 Versions available in the specified release channel. ||
 |#
@@ -48,7 +48,7 @@ Versions available in the specified release channel. ||
 
 #|
 ||Field | Description ||
-|| releaseChannel | enum **ReleaseChannel**
+|| release_channel | enum **ReleaseChannel**
 
 Release channel: `RAPID`, `REGULAR` or `STABLE`. For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 

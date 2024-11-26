@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/list.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.List {#List}
+# Cloud Functions Service, gRPC: FunctionService.List
 
 Retrieves the list of functions in the specified folder.
 
@@ -15,31 +15,31 @@ Retrieves the list of functions in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list functions in.
 
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListFunctionsResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse)
+results is larger than `pageSize`, the service returns a [ListFunctionsResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListFunctionsResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse) returned by a previous list request. ||
+[ListFunctionsResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters functions listed in the response.
@@ -58,16 +58,16 @@ Example of a filter: `name="my-function"`. ||
   "functions": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "httpInvokeUrl": "string",
+      "http_invoke_url": "string",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -76,11 +76,11 @@ Example of a filter: `name="my-function"`. ||
 || functions[] | **[Function](#yandex.cloud.serverless.functions.v1.Function)**
 
 List of functions in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListFunctionsRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListFunctionsRequest), use `nextPageToken` as the value
-for the [ListFunctionsRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsRequest) parameter in the next list request.
+the specified [ListFunctionsRequest.page_size](#yandex.cloud.serverless.functions.v1.ListFunctionsRequest), use `nextPageToken` as the value
+for the [ListFunctionsRequest.page_token](#yandex.cloud.serverless.functions.v1.ListFunctionsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -94,10 +94,10 @@ A serverless function. For details about the concept, see [Functions](/docs/func
 || id | **string**
 
 ID of the function. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the function belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the function. ||
 || name | **string**
@@ -109,7 +109,7 @@ Description of the function. ||
 || labels | **string**
 
 Function labels as `key:value` pairs. ||
-|| httpInvokeUrl | **string**
+|| http_invoke_url | **string**
 
 URL that needs to be requested to invoke the function. ||
 || status | enum **Status**

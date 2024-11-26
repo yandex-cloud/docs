@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/delete.md
 ---
 
-# Data Transfer API, REST: Transfer.Delete {#Delete}
+# Data Transfer API, REST: Transfer.Delete
 
 ## HTTP request
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Bus/get.md
 ---
 
-# EventRouter Service, gRPC: BusService.Get {#Get}
+# EventRouter Service, gRPC: BusService.Get
 
 Returns the specified bus.
 To get the list of all available buses, make a [List](/docs/functions/eventrouter/api-ref/grpc/Bus/list#List) request.
@@ -16,13 +16,13 @@ To get the list of all available buses, make a [List](/docs/functions/eventroute
 
 ```json
 {
-  "busId": "string"
+  "bus_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| busId | **string**
+|| bus_id | **string**
 
 Required field. ID of the bus to get. ||
 |#
@@ -32,13 +32,13 @@ Required field. ID of the bus to get. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "cloudId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "cloud_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "deletionProtection": "bool",
+  "deletion_protection": "bool",
   "status": "Status"
 }
 ```
@@ -48,13 +48,13 @@ Required field. ID of the bus to get. ||
 || id | **string**
 
 ID of the bus. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the bus belongs to. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the bus resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -66,7 +66,7 @@ Description of the bus. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion protection. ||
 || status | enum **Status**

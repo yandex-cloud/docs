@@ -3,11 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/LoadBalancer/addSniMatch.md
 ---
 
-# Application Load Balancer API, gRPC: LoadBalancerService.AddSniMatch {#AddSniMatch}
+# Application Load Balancer API, gRPC: LoadBalancerService.AddSniMatch
 
 Adds a SNI handler to the specified listener.
 
-This request does not allow to add [TlsListener.defaultHandler](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener). Make an [UpdateListener](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/updateListener#UpdateListener) request instead.
+This request does not allow to add [TlsListener.default_handler](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener). Make an [UpdateListener](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/updateListener#UpdateListener) request instead.
 
 ## gRPC request
 
@@ -17,30 +17,30 @@ This request does not allow to add [TlsListener.defaultHandler](/docs/applicatio
 
 ```json
 {
-  "loadBalancerId": "string",
-  "listenerName": "string",
+  "load_balancer_id": "string",
+  "listener_name": "string",
   "name": "string",
-  "serverNames": [
+  "server_names": [
     "string"
   ],
   "handler": {
-    // Includes only one of the fields `httpHandler`, `streamHandler`
-    "httpHandler": {
-      "httpRouterId": "string",
-      // Includes only one of the fields `http2Options`, `allowHttp10`
-      "http2Options": {
-        "maxConcurrentStreams": "int64"
+    // Includes only one of the fields `http_handler`, `stream_handler`
+    "http_handler": {
+      "http_router_id": "string",
+      // Includes only one of the fields `http2_options`, `allow_http10`
+      "http2_options": {
+        "max_concurrent_streams": "int64"
       },
-      "allowHttp10": "bool",
+      "allow_http10": "bool",
       // end of the list of possible fields
-      "rewriteRequestId": "bool"
+      "rewrite_request_id": "bool"
     },
-    "streamHandler": {
-      "backendGroupId": "string",
-      "idleTimeout": "google.protobuf.Duration"
+    "stream_handler": {
+      "backend_group_id": "string",
+      "idle_timeout": "google.protobuf.Duration"
     },
     // end of the list of possible fields
-    "certificateIds": [
+    "certificate_ids": [
       "string"
     ]
   }
@@ -49,21 +49,21 @@ This request does not allow to add [TlsListener.defaultHandler](/docs/applicatio
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 Required field. ID of the application load balancer to add a SNI handler to. ||
-|| listenerName | **string**
+|| listener_name | **string**
 
 Required field. Name of the listener to add a SNI handler to. ||
 || name | **string**
 
 Required field. Name of the SNI handler to add. ||
-|| serverNames[] | **string**
+|| server_names[] | **string**
 
 Server names that are matched by the SNI handler. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
-Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
+Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
 |#
 
 ## TlsHandler {#yandex.cloud.apploadbalancer.v1.TlsHandler}
@@ -72,21 +72,21 @@ A TLS-encrypted (HTTP or TCP stream) handler resource.
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+|| http_handler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
 
 HTTP handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+|| stream_handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
 
 Stream (TCP) handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| certificateIds[] | **string**
+|| certificate_ids[] | **string**
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
@@ -99,35 +99,35 @@ An HTTP handler resource.
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 ID of the HTTP router processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/http-router).
 
 To get the list of all available HTTP routers, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
-|| http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
+|| http2_options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
 
 HTTP/2 settings.
 
 If specified, incoming HTTP/2 requests are supported by the listener.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| allowHttp10 | **bool**
+|| allow_http10 | **bool**
 
 Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| rewriteRequestId | **bool**
+|| rewrite_request_id | **bool**
 
 When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 |#
@@ -138,7 +138,7 @@ An HTTP/2 options resource.
 
 #|
 ||Field | Description ||
-|| maxConcurrentStreams | **int64**
+|| max_concurrent_streams | **int64**
 
 Maximum number of concurrent HTTP/2 streams in a connection. ||
 |#
@@ -149,7 +149,7 @@ A stream (TCP) handler resource.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. ID of the backend group processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group).
@@ -157,7 +157,7 @@ Required field. ID of the backend group processing requests. For details about t
 The backend group type, specified via [BackendGroup.backend](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
 
 To get the list of all available backend groups, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/grpc/BackendGroup/list#List) request. ||
-|| idleTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
 If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
@@ -169,14 +169,14 @@ If not configured, the default idle timeout is 1 hour. Setting it to 0 disables 
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "loadBalancerId": "string",
-    "listenerName": "string",
-    "sniMatchName": "string"
+    "load_balancer_id": "string",
+    "listener_name": "string",
+    "sni_match_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -195,13 +195,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -244,13 +244,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 ID of the application load balancer that the SNI handler is being added to. ||
-|| listenerName | **string**
+|| listener_name | **string**
 
 Name of the listener that the SNI handler is being added to. ||
-|| sniMatchName | **string**
+|| sni_match_name | **string**
 
 Name of the SNI handler that is being added to the listener. ||
 |#

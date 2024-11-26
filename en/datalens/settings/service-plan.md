@@ -30,12 +30,12 @@ To switch to a different service plan:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
 1. At the top of the screen, click **Change plan**.
-1. Select a service plan and click **Switch**. If you do not have a billing account yet, you will see the sign-up form. For more information, see [{#T}](#add-billing-account).
+1. Select a service plan and click **Switch**. If you do not have a billing account yet, you will see the sign-up form. For more information, see [Adding a billing account](#add-billing-account).
 1. Click **Confirm**.
 
 ## Adding a billing account {#add-billing-account}
 
-{% note info  %}
+{% note info %}
 
 To link a billing account, the user needs to following [roles](../security/roles.md#service-roles):
 

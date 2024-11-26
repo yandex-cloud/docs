@@ -1,11 +1,11 @@
 ---
-title: How to change a {{ CH }} cluster version in {{ mch-full-name }}
-description: Follow this guide to change a {{ CH }} cluster version.
+title: How to change {{ CH }} cluster settings in {{ mch-full-name }}
+description: Follow this guide to update a {{ CH }} cluster version.
 ---
 
 # {{ CH }} version upgrade
 
-You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, for {{ mch-name }}, the upgrade sequence from version 22.8 to 24.3 is: 22.8 → 23.3 → 23.8 → 24.3.
+You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, the sequence for upgrading {{ mch-name }} from version 22.8 to 24.3 is as follows: 22.8 → 23.3 → 23.8 → 24.3.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -15,7 +15,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - Management console {#console}
 
-    In the [management console]({{ link-console-main }}), open the {{ mos-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 - CLI {#cli}
 
@@ -29,9 +29,45 @@ To learn more about updates within a single version and host maintenance, see [M
     yc managed-clickhouse version list
     ```
 
-- API {#api}
+- REST API {#api}
 
-    To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/Versions/list.md) gRPC API call.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Versions.list](../api-ref/Versions/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/versions'
+        ```
+
+    1. View the [server response](../api-ref/Versions/list.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [VersionsService/List](../api-ref/grpc/Versions/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.VersionsService.List
+        ```
+
+    1. View the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -114,15 +150,87 @@ Make sure this does not affect your applications:
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * {{ CH }} version in the `configSpec.version` parameter: {{ versions.api.str }}.
-    * List of settings to update (in this case, `configSpec.version`) in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.version",
+                      "configSpec": {
+                        "version": "<{{ CH }}>_version"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here we specified just a single parameter, `configSpec.version`.
+
+        * `configSpec.version`: target {{ CH }} version, {{ versions.api.str }}.
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.version"
+                    ]
+                  },
+                  "config_spec": {
+                    "version": "<{{ CH }}>_version"
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here we specified just a single parameter, `config_spec.version`.
+
+        * `config_spec.version`: target {{ CH }} version, {{ versions.api.str }}.
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

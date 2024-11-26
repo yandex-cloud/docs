@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Operation/get.md
 ---
 
-# Certificate Manager API, REST: Operation.Get {#Get}
+# Certificate Manager API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

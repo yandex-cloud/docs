@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/get.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.Get {#Get}
+# Identity and Access Management SAML API, REST: Federation.Get
 
 Returns the specified federation.
 

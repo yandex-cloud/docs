@@ -59,7 +59,7 @@
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `--service-type`.
+            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -106,7 +106,7 @@
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `serviceType`.
+            The example only contains the main columns. A list of columns to output depends on the selected `serviceType`.
 
             {% endnote %}
 
@@ -115,7 +115,7 @@
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listLogs.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -162,7 +162,7 @@
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `service_type`.
+            The example only contains the main columns. A list of columns to output depends on the selected `service_type`.
 
             {% endnote %}
 
@@ -228,13 +228,13 @@ This method allows you to get cluster logs in real time.
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `serviceType`.
+            The example only contains the main columns. A list of columns to output depends on the selected `serviceType`.
 
             {% endnote %}
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/streamLogs.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.mysql.v1.StreamLogRecord) to make sure the request was successful.
 
         Once you run the command, it does not terminate. The command output displays new logs in real time.
 
@@ -281,7 +281,7 @@ This method allows you to get cluster logs in real time.
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `service_type`.
+            The example only contains the main columns. A list of columns to output depends on the selected `service_type`.
 
             {% endnote %}
 

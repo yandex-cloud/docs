@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/update.md
 ---
 
-# EventRouter Service, REST: Bus.Update {#Update}
+# EventRouter Service, REST: Bus.Update
 
 Updates the specified bus.
 

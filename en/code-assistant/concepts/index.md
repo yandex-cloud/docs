@@ -6,8 +6,6 @@
 
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
-LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-source code corpus.
-
 The {{ ca-name }} plugin is available for [Visual Studio Code](https://code.visualstudio.com/) and [JetBrains IDE](https://www.jetbrains.com/ides/) versions 2024.1 and 2024.2.
 
 {% note info %}
@@ -17,6 +15,8 @@ To work with {{ ca-name }}, you need continuous internet access.
 {% endnote %}
 
 The code analysis is running using the {{ yandex-cloud }} computing resources, which means {{ ca-name }} does not generate any load against the user workstations.
+
+LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-source code corpus. The quality and number of auto-completion prompts depends on the amount and diversity of open-source code in a particular language.
 
 {% include [syntax-support](../../_includes/code-assistant/syntax-support.md) %}
 

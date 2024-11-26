@@ -44,13 +44,14 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       ```bash
       curl \
-          --request GET \
-          --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters?folderId=<folder_ID>'
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters' \
+        --url-query folderId=<folder_ID>
       ```
 
 
-      You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
   1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure the request was successful.
@@ -80,7 +81,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
       ```
 
 
-      You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
   1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.clickhouse.v1.ListClustersResponse) to make sure the request was successful.
@@ -155,7 +156,7 @@ You can request detailed information about each {{ mch-short-name }} cluster you
 
       You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.clickhouse.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -209,7 +210,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can request a [list of clusters in the folder](cluster-list.md#list-clusters) to get the cluster ID and name.
+  You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
 
   By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
@@ -286,8 +287,8 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the cluster.
-1. Copy the ID of the operation.
+1. [Get a list of operations](#get-operations) for a cluster.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/BackendGroup/updateBackend.md
 ---
 
-# Application Load Balancer API, gRPC: BackendGroupService.UpdateBackend {#UpdateBackend}
+# Application Load Balancer API, gRPC: BackendGroupService.UpdateBackend
 
 Updates the specified backend.
 
@@ -15,26 +15,26 @@ Updates the specified backend.
 
 ```json
 {
-  "backendGroupId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "backend_group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   // Includes only one of the fields `http`, `grpc`, `stream`
   "http": {
     "name": "string",
-    "backendWeight": "google.protobuf.Int64Value",
-    "loadBalancingConfig": {
-      "panicThreshold": "int64",
-      "localityAwareRoutingPercent": "int64",
-      "strictLocality": "bool",
+    "backend_weight": "google.protobuf.Int64Value",
+    "load_balancing_config": {
+      "panic_threshold": "int64",
+      "locality_aware_routing_percent": "int64",
+      "strict_locality": "bool",
       "mode": "LoadBalancingMode"
     },
     "port": "int64",
-    // Includes only one of the fields `targetGroups`, `storageBucket`
-    "targetGroups": {
-      "targetGroupIds": [
+    // Includes only one of the fields `target_groups`, `storage_bucket`
+    "target_groups": {
+      "target_group_ids": [
         "string"
       ]
     },
-    "storageBucket": {
+    "storage_bucket": {
       "bucket": "string"
     },
     // end of the list of possible fields
@@ -42,10 +42,10 @@ Updates the specified backend.
       {
         "timeout": "google.protobuf.Duration",
         "interval": "google.protobuf.Duration",
-        "intervalJitterPercent": "double",
-        "healthyThreshold": "int64",
-        "unhealthyThreshold": "int64",
-        "healthcheckPort": "int64",
+        "interval_jitter_percent": "double",
+        "healthy_threshold": "int64",
+        "unhealthy_threshold": "int64",
+        "healthcheck_port": "int64",
         // Includes only one of the fields `stream`, `http`, `grpc`
         "stream": {
           "send": {
@@ -62,20 +62,23 @@ Updates the specified backend.
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "bool"
+          "use_http2": "bool",
+          "expected_statuses": [
+            "int64"
+          ]
         },
         "grpc": {
-          "serviceName": "string"
+          "service_name": "string"
         },
         // end of the list of possible fields
         // Includes only one of the fields `plaintext`, `tls`
         "plaintext": "PlaintextTransportSettings",
         "tls": {
           "sni": "string",
-          "validationContext": {
-            // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-            "trustedCaId": "string",
-            "trustedCaBytes": "string"
+          "validation_context": {
+            // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+            "trusted_ca_id": "string",
+            "trusted_ca_bytes": "string"
             // end of the list of possible fields
           }
         }
@@ -84,28 +87,28 @@ Updates the specified backend.
     ],
     "tls": {
       "sni": "string",
-      "validationContext": {
-        // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-        "trustedCaId": "string",
-        "trustedCaBytes": "string"
+      "validation_context": {
+        // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+        "trusted_ca_id": "string",
+        "trusted_ca_bytes": "string"
         // end of the list of possible fields
       }
     },
-    "useHttp2": "bool"
+    "use_http2": "bool"
   },
   "grpc": {
     "name": "string",
-    "backendWeight": "google.protobuf.Int64Value",
-    "loadBalancingConfig": {
-      "panicThreshold": "int64",
-      "localityAwareRoutingPercent": "int64",
-      "strictLocality": "bool",
+    "backend_weight": "google.protobuf.Int64Value",
+    "load_balancing_config": {
+      "panic_threshold": "int64",
+      "locality_aware_routing_percent": "int64",
+      "strict_locality": "bool",
       "mode": "LoadBalancingMode"
     },
     "port": "int64",
-    // Includes only one of the fields `targetGroups`
-    "targetGroups": {
-      "targetGroupIds": [
+    // Includes only one of the fields `target_groups`
+    "target_groups": {
+      "target_group_ids": [
         "string"
       ]
     },
@@ -114,10 +117,10 @@ Updates the specified backend.
       {
         "timeout": "google.protobuf.Duration",
         "interval": "google.protobuf.Duration",
-        "intervalJitterPercent": "double",
-        "healthyThreshold": "int64",
-        "unhealthyThreshold": "int64",
-        "healthcheckPort": "int64",
+        "interval_jitter_percent": "double",
+        "healthy_threshold": "int64",
+        "unhealthy_threshold": "int64",
+        "healthcheck_port": "int64",
         // Includes only one of the fields `stream`, `http`, `grpc`
         "stream": {
           "send": {
@@ -134,20 +137,23 @@ Updates the specified backend.
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "bool"
+          "use_http2": "bool",
+          "expected_statuses": [
+            "int64"
+          ]
         },
         "grpc": {
-          "serviceName": "string"
+          "service_name": "string"
         },
         // end of the list of possible fields
         // Includes only one of the fields `plaintext`, `tls`
         "plaintext": "PlaintextTransportSettings",
         "tls": {
           "sni": "string",
-          "validationContext": {
-            // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-            "trustedCaId": "string",
-            "trustedCaBytes": "string"
+          "validation_context": {
+            // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+            "trusted_ca_id": "string",
+            "trusted_ca_bytes": "string"
             // end of the list of possible fields
           }
         }
@@ -156,27 +162,27 @@ Updates the specified backend.
     ],
     "tls": {
       "sni": "string",
-      "validationContext": {
-        // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-        "trustedCaId": "string",
-        "trustedCaBytes": "string"
+      "validation_context": {
+        // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+        "trusted_ca_id": "string",
+        "trusted_ca_bytes": "string"
         // end of the list of possible fields
       }
     }
   },
   "stream": {
     "name": "string",
-    "backendWeight": "google.protobuf.Int64Value",
-    "loadBalancingConfig": {
-      "panicThreshold": "int64",
-      "localityAwareRoutingPercent": "int64",
-      "strictLocality": "bool",
+    "backend_weight": "google.protobuf.Int64Value",
+    "load_balancing_config": {
+      "panic_threshold": "int64",
+      "locality_aware_routing_percent": "int64",
+      "strict_locality": "bool",
       "mode": "LoadBalancingMode"
     },
     "port": "int64",
-    // Includes only one of the fields `targetGroups`
-    "targetGroups": {
-      "targetGroupIds": [
+    // Includes only one of the fields `target_groups`
+    "target_groups": {
+      "target_group_ids": [
         "string"
       ]
     },
@@ -185,10 +191,10 @@ Updates the specified backend.
       {
         "timeout": "google.protobuf.Duration",
         "interval": "google.protobuf.Duration",
-        "intervalJitterPercent": "double",
-        "healthyThreshold": "int64",
-        "unhealthyThreshold": "int64",
-        "healthcheckPort": "int64",
+        "interval_jitter_percent": "double",
+        "healthy_threshold": "int64",
+        "unhealthy_threshold": "int64",
+        "healthcheck_port": "int64",
         // Includes only one of the fields `stream`, `http`, `grpc`
         "stream": {
           "send": {
@@ -205,20 +211,23 @@ Updates the specified backend.
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "bool"
+          "use_http2": "bool",
+          "expected_statuses": [
+            "int64"
+          ]
         },
         "grpc": {
-          "serviceName": "string"
+          "service_name": "string"
         },
         // end of the list of possible fields
         // Includes only one of the fields `plaintext`, `tls`
         "plaintext": "PlaintextTransportSettings",
         "tls": {
           "sni": "string",
-          "validationContext": {
-            // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-            "trustedCaId": "string",
-            "trustedCaBytes": "string"
+          "validation_context": {
+            // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+            "trusted_ca_id": "string",
+            "trusted_ca_bytes": "string"
             // end of the list of possible fields
           }
         }
@@ -227,14 +236,15 @@ Updates the specified backend.
     ],
     "tls": {
       "sni": "string",
-      "validationContext": {
-        // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-        "trustedCaId": "string",
-        "trustedCaBytes": "string"
+      "validation_context": {
+        // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+        "trusted_ca_id": "string",
+        "trusted_ca_bytes": "string"
         // end of the list of possible fields
       }
     },
-    "enableProxyProtocol": "bool"
+    "enable_proxy_protocol": "bool",
+    "keep_connections_on_host_health_failure": "bool"
   }
   // end of the list of possible fields
 }
@@ -242,10 +252,10 @@ Updates the specified backend.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. ID of the backend group to update the backend in. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the backend should be updated. ||
 || http | **[HttpBackend](#yandex.cloud.apploadbalancer.v1.HttpBackend)**
@@ -280,7 +290,7 @@ An HTTP backend resource.
 || name | **string**
 
 Required field. Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -288,24 +298,24 @@ Weights must be set either for all backends in a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
 [documentation](/docs/application-load-balancer/concepts/target-group).
 
-Includes only one of the fields `targetGroups`, `storageBucket`.
+Includes only one of the fields `target_groups`, `storage_bucket`.
 
 Reference to targets that belong to the backend.
 
 A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
-|| storageBucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+|| storage_bucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
 
 Object Storage bucket to use as the backend. For details about buckets, see
 [documentation](/docs/storage/concepts/bucket).
@@ -313,7 +323,7 @@ Object Storage bucket to use as the backend. For details about buckets, see
 If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
 accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
 
-Includes only one of the fields `targetGroups`, `storageBucket`.
+Includes only one of the fields `target_groups`, `storage_bucket`.
 
 Reference to targets that belong to the backend.
 
@@ -330,9 +340,9 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
-and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+and compares received certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls).
 If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
-|| useHttp2 | **bool**
+|| use_http2 | **bool**
 
 Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
 
@@ -345,7 +355,7 @@ A load balancing configuration resource.
 
 #|
 ||Field | Description ||
-|| panicThreshold | **int64**
+|| panic_threshold | **int64**
 
 Threshold for panic mode.
 
@@ -357,7 +367,7 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
 Default value: `0`. ||
-|| localityAwareRoutingPercent | **int64**
+|| locality_aware_routing_percent | **int64**
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
 The rest is divided equally between other zones. For details about zone-aware routing, see
@@ -365,11 +375,11 @@ The rest is divided equally between other zones. For details about zone-aware ro
 
 If there are no healthy backends in an availability zone, all the traffic is divided between other zones.
 
-If `strictLocality` is `true`, the specified value is ignored.
+If `strict_locality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
 Default value: `0`. ||
-|| strictLocality | **bool**
+|| strict_locality | **bool**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
 regardless of their health, and ignore backends in other zones.
@@ -378,7 +388,7 @@ If set to `true` and there are no healthy backends in the zone, the node in this
 to incoming traffic with errors.
 For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
 
-If `strict_locality` is `true`, the value specified in `localityAwareRoutingPercent` is ignored.
+If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored.
 
 Default value: `false`. ||
 || mode | enum **LoadBalancingMode**
@@ -417,7 +427,7 @@ A resource for target groups that belong to the backend.
 
 #|
 ||Field | Description ||
-|| targetGroupIds[] | **string**
+|| target_group_ids[] | **string**
 
 List of ID's of target groups that belong to the backend.
 
@@ -452,8 +462,8 @@ If the target doesn't respond in time, the check is considered failed. ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Base interval between consecutive health checks. ||
-|| intervalJitterPercent | **double** ||
-|| healthyThreshold | **int64**
+|| interval_jitter_percent | **double** ||
+|| healthy_threshold | **int64**
 
 Number of consecutive successful health checks required to mark an unhealthy target as healthy.
 
@@ -462,7 +472,7 @@ Both `0` and `1` values amount to one successful check required.
 The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check.
 
 Default value: `0`. ||
-|| unhealthyThreshold | **int64**
+|| unhealthy_threshold | **int64**
 
 Number of consecutive failed health checks required to mark a healthy target as unhealthy.
 
@@ -472,7 +482,7 @@ The value is ignored if a health check is failed due to an HTTP `503 Service Una
 (not applicable to TCP stream health checks). The target is immediately marked unhealthy.
 
 Default value: `0`. ||
-|| healthcheckPort | **int64**
+|| healthcheck_port | **int64**
 
 Port used for health checks.
 
@@ -569,11 +579,15 @@ Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header us
 
 Required field. HTTP path used in requests to targets: request URI for HTTP/1.1 request line
 or value for the HTTP/2 `:path` pseudo-header. ||
-|| useHttp2 | **bool**
+|| use_http2 | **bool**
 
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expected_statuses[] | **int64**
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck}
@@ -582,7 +596,7 @@ A resource for gRPC health check settings.
 
 #|
 ||Field | Description ||
-|| serviceName | **string**
+|| service_name | **string**
 
 Name of the gRPC service to be checked.
 
@@ -609,7 +623,7 @@ Transport settings to be used instead of the settings configured per-cluster
 || sni | **string**
 
 SNI string for TLS connections. ||
-|| validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
+|| validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for backend TLS connections. ||
 |#
@@ -620,16 +634,16 @@ A TLS validation context resource.
 
 #|
 ||Field | Description ||
-|| trustedCaId | **string**
+|| trusted_ca_id | **string**
 
-Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`.
 
 TLS certificate issued by a trusted certificate authority (CA). ||
-|| trustedCaBytes | **string**
+|| trusted_ca_bytes | **string**
 
 X.509 certificate contents in PEM format.
 
-Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`.
 
 TLS certificate issued by a trusted certificate authority (CA). ||
 |#
@@ -643,7 +657,7 @@ A resource for backend TLS settings.
 || sni | **string**
 
 Server Name Indication (SNI) string for TLS connections. ||
-|| validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
+|| validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for TLS connections. ||
 |#
@@ -657,7 +671,7 @@ A gRPC backend resource.
 || name | **string**
 
 Required field. Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -665,17 +679,17 @@ Weights must be set either for all backends of a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend.
 
-Includes only one of the fields `targetGroups`.
+Includes only one of the fields `target_groups`.
 
 Reference to targets that belong to the backend. For now, targets are referenced via target groups. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
@@ -689,7 +703,7 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
-and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+and compares received certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls).
 If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
 |#
 
@@ -702,7 +716,7 @@ A stream (TCP) backend resource.
 || name | **string**
 
 Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -710,18 +724,18 @@ Weights must be set either for all backends in a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
 [documentation](/docs/application-load-balancer/concepts/target-group).
 
-Includes only one of the fields `targetGroups`.
+Includes only one of the fields `target_groups`.
 
 Reference to targets that belong to the backend. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
@@ -735,11 +749,15 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
-certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls).
 If not specified, the load balancer establishes unencrypted TCP connections with targets. ||
-|| enableProxyProtocol | **bool**
+|| enable_proxy_protocol | **bool**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keep_connections_on_host_health_failure | **bool**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -748,13 +766,13 @@ If set, proxy protocol will be enabled for this backend. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "backendGroupId": "string",
-    "backendName": "string"
+    "backend_group_id": "string",
+    "backend_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -762,28 +780,28 @@ If set, proxy protocol will be enabled for this backend. ||
     "id": "string",
     "name": "string",
     "description": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "labels": "string",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
         {
           "name": "string",
-          "backendWeight": "google.protobuf.Int64Value",
-          "loadBalancingConfig": {
-            "panicThreshold": "int64",
-            "localityAwareRoutingPercent": "int64",
-            "strictLocality": "bool",
+          "backend_weight": "google.protobuf.Int64Value",
+          "load_balancing_config": {
+            "panic_threshold": "int64",
+            "locality_aware_routing_percent": "int64",
+            "strict_locality": "bool",
             "mode": "LoadBalancingMode"
           },
           "port": "int64",
-          // Includes only one of the fields `targetGroups`, `storageBucket`
-          "targetGroups": {
-            "targetGroupIds": [
+          // Includes only one of the fields `target_groups`, `storage_bucket`
+          "target_groups": {
+            "target_group_ids": [
               "string"
             ]
           },
-          "storageBucket": {
+          "storage_bucket": {
             "bucket": "string"
           },
           // end of the list of possible fields
@@ -791,10 +809,10 @@ If set, proxy protocol will be enabled for this backend. ||
             {
               "timeout": "google.protobuf.Duration",
               "interval": "google.protobuf.Duration",
-              "intervalJitterPercent": "double",
-              "healthyThreshold": "int64",
-              "unhealthyThreshold": "int64",
-              "healthcheckPort": "int64",
+              "interval_jitter_percent": "double",
+              "healthy_threshold": "int64",
+              "unhealthy_threshold": "int64",
+              "healthcheck_port": "int64",
               // Includes only one of the fields `stream`, `http`, `grpc`
               "stream": {
                 "send": {
@@ -811,20 +829,23 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "bool"
+                "use_http2": "bool",
+                "expected_statuses": [
+                  "int64"
+                ]
               },
               "grpc": {
-                "serviceName": "string"
+                "service_name": "string"
               },
               // end of the list of possible fields
               // Includes only one of the fields `plaintext`, `tls`
               "plaintext": "PlaintextTransportSettings",
               "tls": {
                 "sni": "string",
-                "validationContext": {
-                  // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-                  "trustedCaId": "string",
-                  "trustedCaBytes": "string"
+                "validation_context": {
+                  // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+                  "trusted_ca_id": "string",
+                  "trusted_ca_bytes": "string"
                   // end of the list of possible fields
                 }
               }
@@ -833,22 +854,22 @@ If set, proxy protocol will be enabled for this backend. ||
           ],
           "tls": {
             "sni": "string",
-            "validationContext": {
-              // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-              "trustedCaId": "string",
-              "trustedCaBytes": "string"
+            "validation_context": {
+              // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+              "trusted_ca_id": "string",
+              "trusted_ca_bytes": "string"
               // end of the list of possible fields
             }
           },
-          "useHttp2": "bool"
+          "use_http2": "bool"
         }
       ],
       // Includes only one of the fields `connection`, `header`, `cookie`
       "connection": {
-        "sourceIp": "bool"
+        "source_ip": "bool"
       },
       "header": {
-        "headerName": "string"
+        "header_name": "string"
       },
       "cookie": {
         "name": "string",
@@ -860,17 +881,17 @@ If set, proxy protocol will be enabled for this backend. ||
       "backends": [
         {
           "name": "string",
-          "backendWeight": "google.protobuf.Int64Value",
-          "loadBalancingConfig": {
-            "panicThreshold": "int64",
-            "localityAwareRoutingPercent": "int64",
-            "strictLocality": "bool",
+          "backend_weight": "google.protobuf.Int64Value",
+          "load_balancing_config": {
+            "panic_threshold": "int64",
+            "locality_aware_routing_percent": "int64",
+            "strict_locality": "bool",
             "mode": "LoadBalancingMode"
           },
           "port": "int64",
-          // Includes only one of the fields `targetGroups`
-          "targetGroups": {
-            "targetGroupIds": [
+          // Includes only one of the fields `target_groups`
+          "target_groups": {
+            "target_group_ids": [
               "string"
             ]
           },
@@ -879,10 +900,10 @@ If set, proxy protocol will be enabled for this backend. ||
             {
               "timeout": "google.protobuf.Duration",
               "interval": "google.protobuf.Duration",
-              "intervalJitterPercent": "double",
-              "healthyThreshold": "int64",
-              "unhealthyThreshold": "int64",
-              "healthcheckPort": "int64",
+              "interval_jitter_percent": "double",
+              "healthy_threshold": "int64",
+              "unhealthy_threshold": "int64",
+              "healthcheck_port": "int64",
               // Includes only one of the fields `stream`, `http`, `grpc`
               "stream": {
                 "send": {
@@ -899,20 +920,23 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "bool"
+                "use_http2": "bool",
+                "expected_statuses": [
+                  "int64"
+                ]
               },
               "grpc": {
-                "serviceName": "string"
+                "service_name": "string"
               },
               // end of the list of possible fields
               // Includes only one of the fields `plaintext`, `tls`
               "plaintext": "PlaintextTransportSettings",
               "tls": {
                 "sni": "string",
-                "validationContext": {
-                  // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-                  "trustedCaId": "string",
-                  "trustedCaBytes": "string"
+                "validation_context": {
+                  // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+                  "trusted_ca_id": "string",
+                  "trusted_ca_bytes": "string"
                   // end of the list of possible fields
                 }
               }
@@ -921,10 +945,10 @@ If set, proxy protocol will be enabled for this backend. ||
           ],
           "tls": {
             "sni": "string",
-            "validationContext": {
-              // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-              "trustedCaId": "string",
-              "trustedCaBytes": "string"
+            "validation_context": {
+              // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+              "trusted_ca_id": "string",
+              "trusted_ca_bytes": "string"
               // end of the list of possible fields
             }
           }
@@ -932,10 +956,10 @@ If set, proxy protocol will be enabled for this backend. ||
       ],
       // Includes only one of the fields `connection`, `header`, `cookie`
       "connection": {
-        "sourceIp": "bool"
+        "source_ip": "bool"
       },
       "header": {
-        "headerName": "string"
+        "header_name": "string"
       },
       "cookie": {
         "name": "string",
@@ -947,17 +971,17 @@ If set, proxy protocol will be enabled for this backend. ||
       "backends": [
         {
           "name": "string",
-          "backendWeight": "google.protobuf.Int64Value",
-          "loadBalancingConfig": {
-            "panicThreshold": "int64",
-            "localityAwareRoutingPercent": "int64",
-            "strictLocality": "bool",
+          "backend_weight": "google.protobuf.Int64Value",
+          "load_balancing_config": {
+            "panic_threshold": "int64",
+            "locality_aware_routing_percent": "int64",
+            "strict_locality": "bool",
             "mode": "LoadBalancingMode"
           },
           "port": "int64",
-          // Includes only one of the fields `targetGroups`
-          "targetGroups": {
-            "targetGroupIds": [
+          // Includes only one of the fields `target_groups`
+          "target_groups": {
+            "target_group_ids": [
               "string"
             ]
           },
@@ -966,10 +990,10 @@ If set, proxy protocol will be enabled for this backend. ||
             {
               "timeout": "google.protobuf.Duration",
               "interval": "google.protobuf.Duration",
-              "intervalJitterPercent": "double",
-              "healthyThreshold": "int64",
-              "unhealthyThreshold": "int64",
-              "healthcheckPort": "int64",
+              "interval_jitter_percent": "double",
+              "healthy_threshold": "int64",
+              "unhealthy_threshold": "int64",
+              "healthcheck_port": "int64",
               // Includes only one of the fields `stream`, `http`, `grpc`
               "stream": {
                 "send": {
@@ -986,20 +1010,23 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "bool"
+                "use_http2": "bool",
+                "expected_statuses": [
+                  "int64"
+                ]
               },
               "grpc": {
-                "serviceName": "string"
+                "service_name": "string"
               },
               // end of the list of possible fields
               // Includes only one of the fields `plaintext`, `tls`
               "plaintext": "PlaintextTransportSettings",
               "tls": {
                 "sni": "string",
-                "validationContext": {
-                  // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-                  "trustedCaId": "string",
-                  "trustedCaBytes": "string"
+                "validation_context": {
+                  // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+                  "trusted_ca_id": "string",
+                  "trusted_ca_bytes": "string"
                   // end of the list of possible fields
                 }
               }
@@ -1008,24 +1035,25 @@ If set, proxy protocol will be enabled for this backend. ||
           ],
           "tls": {
             "sni": "string",
-            "validationContext": {
-              // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-              "trustedCaId": "string",
-              "trustedCaBytes": "string"
+            "validation_context": {
+              // Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`
+              "trusted_ca_id": "string",
+              "trusted_ca_bytes": "string"
               // end of the list of possible fields
             }
           },
-          "enableProxyProtocol": "bool"
+          "enable_proxy_protocol": "bool",
+          "keep_connections_on_host_health_failure": "bool"
         }
       ],
       // Includes only one of the fields `connection`
       "connection": {
-        "sourceIp": "bool"
+        "source_ip": "bool"
       }
       // end of the list of possible fields
     },
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp"
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -1041,13 +1069,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -1090,10 +1118,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 ID of the backend group that the backend is being updated it. ||
-|| backendName | **string**
+|| backend_name | **string**
 
 Name of the backend that is being updated. ||
 |#
@@ -1114,7 +1142,7 @@ Name of the backend group. The name is unique within the folder. The string leng
 || description | **string**
 
 Description of the backend group. The string is 0-256 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backend group belongs to. ||
 || labels | **string**
@@ -1143,7 +1171,7 @@ List of stream (TCP) backends that the backend group consists of.
 Includes only one of the fields `http`, `grpc`, `stream`.
 
 Backends that the backend group consists of. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#
@@ -1171,7 +1199,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
+[HttpBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backend_type](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backend_type) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
 [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
 affinity will not work. ||
 || header | **[HeaderSessionAffinity](#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
@@ -1186,7 +1214,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
+[HttpBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backend_type](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backend_type) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
 [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
 affinity will not work. ||
 || cookie | **[CookieSessionAffinity](#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
@@ -1201,7 +1229,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
+[HttpBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backend_type](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backend_type) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
 [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
 affinity will not work. ||
 |#
@@ -1215,7 +1243,7 @@ An HTTP backend resource.
 || name | **string**
 
 Required field. Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -1223,24 +1251,24 @@ Weights must be set either for all backends in a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see
 [documentation](/docs/application-load-balancer/concepts/target-group).
 
-Includes only one of the fields `targetGroups`, `storageBucket`.
+Includes only one of the fields `target_groups`, `storage_bucket`.
 
 Reference to targets that belong to the backend.
 
 A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
-|| storageBucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend2)**
+|| storage_bucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend2)**
 
 Object Storage bucket to use as the backend. For details about buckets, see
 [documentation](/docs/storage/concepts/bucket).
@@ -1248,7 +1276,7 @@ Object Storage bucket to use as the backend. For details about buckets, see
 If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
 accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
 
-Includes only one of the fields `targetGroups`, `storageBucket`.
+Includes only one of the fields `target_groups`, `storage_bucket`.
 
 Reference to targets that belong to the backend.
 
@@ -1265,9 +1293,9 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
-and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls2).
+and compares received certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls2).
 If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
-|| useHttp2 | **bool**
+|| use_http2 | **bool**
 
 Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
 
@@ -1280,7 +1308,7 @@ A load balancing configuration resource.
 
 #|
 ||Field | Description ||
-|| panicThreshold | **int64**
+|| panic_threshold | **int64**
 
 Threshold for panic mode.
 
@@ -1292,7 +1320,7 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
 Default value: `0`. ||
-|| localityAwareRoutingPercent | **int64**
+|| locality_aware_routing_percent | **int64**
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
 The rest is divided equally between other zones. For details about zone-aware routing, see
@@ -1300,11 +1328,11 @@ The rest is divided equally between other zones. For details about zone-aware ro
 
 If there are no healthy backends in an availability zone, all the traffic is divided between other zones.
 
-If `strictLocality` is `true`, the specified value is ignored.
+If `strict_locality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
 Default value: `0`. ||
-|| strictLocality | **bool**
+|| strict_locality | **bool**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
 regardless of their health, and ignore backends in other zones.
@@ -1313,7 +1341,7 @@ If set to `true` and there are no healthy backends in the zone, the node in this
 to incoming traffic with errors.
 For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
 
-If `strict_locality` is `true`, the value specified in `localityAwareRoutingPercent` is ignored.
+If `strict_locality` is `true`, the value specified in `locality_aware_routing_percent` is ignored.
 
 Default value: `false`. ||
 || mode | enum **LoadBalancingMode**
@@ -1352,7 +1380,7 @@ A resource for target groups that belong to the backend.
 
 #|
 ||Field | Description ||
-|| targetGroupIds[] | **string**
+|| target_group_ids[] | **string**
 
 List of ID's of target groups that belong to the backend.
 
@@ -1387,8 +1415,8 @@ If the target doesn't respond in time, the check is considered failed. ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Base interval between consecutive health checks. ||
-|| intervalJitterPercent | **double** ||
-|| healthyThreshold | **int64**
+|| interval_jitter_percent | **double** ||
+|| healthy_threshold | **int64**
 
 Number of consecutive successful health checks required to mark an unhealthy target as healthy.
 
@@ -1397,7 +1425,7 @@ Both `0` and `1` values amount to one successful check required.
 The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check.
 
 Default value: `0`. ||
-|| unhealthyThreshold | **int64**
+|| unhealthy_threshold | **int64**
 
 Number of consecutive failed health checks required to mark a healthy target as unhealthy.
 
@@ -1407,7 +1435,7 @@ The value is ignored if a health check is failed due to an HTTP `503 Service Una
 (not applicable to TCP stream health checks). The target is immediately marked unhealthy.
 
 Default value: `0`. ||
-|| healthcheckPort | **int64**
+|| healthcheck_port | **int64**
 
 Port used for health checks.
 
@@ -1504,11 +1532,15 @@ Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header us
 
 Required field. HTTP path used in requests to targets: request URI for HTTP/1.1 request line
 or value for the HTTP/2 `:path` pseudo-header. ||
-|| useHttp2 | **bool**
+|| use_http2 | **bool**
 
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expected_statuses[] | **int64**
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck2}
@@ -1517,7 +1549,7 @@ A resource for gRPC health check settings.
 
 #|
 ||Field | Description ||
-|| serviceName | **string**
+|| service_name | **string**
 
 Name of the gRPC service to be checked.
 
@@ -1544,7 +1576,7 @@ Transport settings to be used instead of the settings configured per-cluster
 || sni | **string**
 
 SNI string for TLS connections. ||
-|| validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext2)**
+|| validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext2)**
 
 Validation context for backend TLS connections. ||
 |#
@@ -1555,16 +1587,16 @@ A TLS validation context resource.
 
 #|
 ||Field | Description ||
-|| trustedCaId | **string**
+|| trusted_ca_id | **string**
 
-Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`.
 
 TLS certificate issued by a trusted certificate authority (CA). ||
-|| trustedCaBytes | **string**
+|| trusted_ca_bytes | **string**
 
 X.509 certificate contents in PEM format.
 
-Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+Includes only one of the fields `trusted_ca_id`, `trusted_ca_bytes`.
 
 TLS certificate issued by a trusted certificate authority (CA). ||
 |#
@@ -1578,7 +1610,7 @@ A resource for backend TLS settings.
 || sni | **string**
 
 Server Name Indication (SNI) string for TLS connections. ||
-|| validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext2)**
+|| validation_context | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext2)**
 
 Validation context for TLS connections. ||
 |#
@@ -1589,7 +1621,7 @@ A resource for connection-based session affinity configuration.
 
 #|
 ||Field | Description ||
-|| sourceIp | **bool**
+|| source_ip | **bool**
 
 Specifies whether an IP address of the client is used to define a connection for session affinity. ||
 |#
@@ -1600,7 +1632,7 @@ A resource for HTTP-header-field-based session affinity configuration.
 
 #|
 ||Field | Description ||
-|| headerName | **string**
+|| header_name | **string**
 
 Name of the HTTP header field that is used for session affinity. ||
 |#
@@ -1647,7 +1679,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+[GrpcBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
 || header | **[HeaderSessionAffinity](#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
 
@@ -1661,7 +1693,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+[GrpcBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
 || cookie | **[CookieSessionAffinity](#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
 
@@ -1675,7 +1707,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+[GrpcBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.GrpcBackend2)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
 |#
 
@@ -1688,7 +1720,7 @@ A gRPC backend resource.
 || name | **string**
 
 Required field. Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -1696,17 +1728,17 @@ Weights must be set either for all backends of a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend.
 
-Includes only one of the fields `targetGroups`.
+Includes only one of the fields `target_groups`.
 
 Reference to targets that belong to the backend. For now, targets are referenced via target groups. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck2)**
@@ -1720,7 +1752,7 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
-and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls2).
+and compares received certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls2).
 If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
 |#
 
@@ -1747,7 +1779,7 @@ For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
 
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
+[HttpBackend.backend_weight](#yandex.cloud.apploadbalancer.v1.HttpBackend2)), its [HttpBackend.backend_type](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backend_type) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2), and its
 [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
 affinity will not work. ||
 |#
@@ -1761,7 +1793,7 @@ A stream (TCP) backend resource.
 || name | **string**
 
 Name of the backend. ||
-|| backendWeight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backend_weight | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
 
@@ -1769,18 +1801,18 @@ Weights must be set either for all backends in a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
 
 If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
+|| load_balancing_config | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig2)**
 
 Load balancing configuration for the backend. ||
 || port | **int64**
 
 Port used by all targets to receive traffic. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
+|| target_groups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see
 [documentation](/docs/application-load-balancer/concepts/target-group).
 
-Includes only one of the fields `targetGroups`.
+Includes only one of the fields `target_groups`.
 
 Reference to targets that belong to the backend. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck2)**
@@ -1794,9 +1826,13 @@ If no health checks are specified, active health checking is not performed. ||
 Settings for TLS connections between load balancer nodes and backend targets.
 
 If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
-certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls2).
+certificates with the one specified in [BackendTls.validation_context](#yandex.cloud.apploadbalancer.v1.BackendTls2).
 If not specified, the load balancer establishes unencrypted TCP connections with targets. ||
-|| enableProxyProtocol | **bool**
+|| enable_proxy_protocol | **bool**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keep_connections_on_host_health_failure | **bool**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#

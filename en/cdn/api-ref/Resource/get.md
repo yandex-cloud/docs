@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/get.md
 ---
 
-# Cloud CDN API, REST: Resource.Get {#Get}
+# Cloud CDN API, REST: Resource.Get
 
 Get client's CDN resource by resource id.
 

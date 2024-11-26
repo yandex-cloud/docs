@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/get.md
 ---
 
-# Resource Manager API, REST: Folder.Get {#Get}
+# Resource Manager API, REST: Folder.Get
 
 Returns the specified Folder resource.
 

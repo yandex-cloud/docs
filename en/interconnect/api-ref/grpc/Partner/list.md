@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/Partner/list.md
 ---
 
-# Cloud Interconnect API, gRPC: PartnerService.List {#List}
+# Cloud Interconnect API, gRPC: PartnerService.List
 
 Retrieves the list of Partner resources in the specified folder.
 
@@ -15,24 +15,24 @@ Retrieves the list of Partner resources in the specified folder.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListPartnersResponse.nextPageToken](#yandex.cloud.cic.v1.ListPartnersResponse)
+results is larger than `page_size`,
+the service returns a [ListPartnersResponse.next_page_token](#yandex.cloud.cic.v1.ListPartnersResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListPartnersResponse.nextPageToken](#yandex.cloud.cic.v1.ListPartnersResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListPartnersResponse.next_page_token](#yandex.cloud.cic.v1.ListPartnersResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -49,11 +49,11 @@ The expression must specify:
   "partners": [
     {
       "id": "string",
-      "regionId": "string",
+      "region_id": "string",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -62,14 +62,14 @@ The expression must specify:
 || partners[] | **[Partner](#yandex.cloud.cic.v1.Partner)**
 
 List of Partner resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListPartnersRequest.pageSize](#yandex.cloud.cic.v1.ListPartnersRequest), use
-the `nextPageToken` as the value
-for the [ListPartnersRequest.pageToken](#yandex.cloud.cic.v1.ListPartnersRequest) query parameter
+is larger than [ListPartnersRequest.page_size](#yandex.cloud.cic.v1.ListPartnersRequest), use
+the `next_page_token` as the value
+for the [ListPartnersRequest.page_token](#yandex.cloud.cic.v1.ListPartnersRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Partner {#yandex.cloud.cic.v1.Partner}
@@ -81,7 +81,7 @@ A Partner resource.
 || id | **string**
 
 ID of the routingInstance. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the partner belongs to. ||
 || status | enum **Status**

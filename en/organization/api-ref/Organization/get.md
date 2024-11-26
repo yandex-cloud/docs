@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/get.md
 ---
 
-# Cloud Organization API, REST: Organization.Get {#Get}
+# Cloud Organization API, REST: Organization.Get
 
 Returns the specified Organization resource.
 

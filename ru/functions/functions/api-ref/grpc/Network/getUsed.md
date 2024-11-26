@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Network/getUsed.md
 ---
 
-# Cloud Functions Service, gRPC: NetworkService.GetUsed {#GetUsed}
+# Cloud Functions Service, gRPC: NetworkService.GetUsed
 
 Returns the specified network used in serverless resources.
 
@@ -15,13 +15,13 @@ Returns the specified network used in serverless resources.
 
 ```json
 {
-  "networkId": "string"
+  "network_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network to return. ||
 |#
@@ -30,12 +30,12 @@ Required field. ID of the network to return. ||
 
 ```json
 {
-  "networkId": "string",
-  "cloudId": "string",
-  "folderId": "string",
+  "network_id": "string",
+  "cloud_id": "string",
+  "folder_id": "string",
   "status": "Status",
-  "willBeCleanedUpAt": "google.protobuf.Timestamp",
-  "connectionsCount": "int64"
+  "will_be_cleaned_up_at": "google.protobuf.Timestamp",
+  "connections_count": "int64"
 }
 ```
 
@@ -43,13 +43,13 @@ A VPC network used in serverless resources.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the VPC network. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the network belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network belongs to. ||
 || status | enum **Status**
@@ -61,10 +61,10 @@ Status of the network.
 - `ACTIVE`: Network is already being used by some serverless resources.
 - `OBSOLETE`: Network is no longer used by any serverless resources.
 It will be cleaned-up after a while. ||
-|| willBeCleanedUpAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| will_be_cleaned_up_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Clean-up timestamp of the obsolete network. ||
-|| connectionsCount | **int64**
+|| connections_count | **int64**
 
 Number of serverless resources connected to the network. ||
 |#

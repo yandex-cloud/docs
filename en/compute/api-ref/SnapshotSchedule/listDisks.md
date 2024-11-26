@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listDisks.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.ListDisks {#ListDisks}
+# Compute Cloud API, REST: SnapshotSchedule.ListDisks
 
 Retrieves the list of disks attached to the specified snapshot schedule.
 

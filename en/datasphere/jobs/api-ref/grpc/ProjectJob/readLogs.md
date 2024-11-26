@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/readLogs.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.ReadLogs {#ReadLogs}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.ReadLogs
 
 Returns stream of job logs.
 
@@ -15,14 +15,14 @@ Returns stream of job logs.
 
 ```json
 {
-  "jobId": "string",
+  "job_id": "string",
   "offset": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| jobId | **string**
+|| job_id | **string**
 
 ID of the job. ||
 || offset | **int64**
@@ -37,10 +37,10 @@ Log offset. ||
   "logs": [
     {
       "content": "bytes",
-      "createdAt": "google.protobuf.Timestamp",
-      // Includes only one of the fields `standardStream`, `filePath`
-      "standardStream": "StandardStream",
-      "filePath": "string"
+      "created_at": "google.protobuf.Timestamp",
+      // Includes only one of the fields `standard_stream`, `file_path`
+      "standard_stream": "StandardStream",
+      "file_path": "string"
       // end of the list of possible fields
     }
   ],
@@ -63,21 +63,21 @@ Log offset. ||
 || content | **bytes**
 
 Log message contents. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log message creation timestamp. ||
-|| standardStream | enum **StandardStream**
+|| standard_stream | enum **StandardStream**
 
 Program standard streams.
 
-Includes only one of the fields `standardStream`, `filePath`.
+Includes only one of the fields `standard_stream`, `file_path`.
 
 - `STANDARD_STREAM_UNSPECIFIED`
 - `OUT`: Stdout.
 - `ERR`: Stderr. ||
-|| filePath | **string**
+|| file_path | **string**
 
 System debug log files.
 
-Includes only one of the fields `standardStream`, `filePath`. ||
+Includes only one of the fields `standard_stream`, `file_path`. ||
 |#

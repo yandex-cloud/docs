@@ -152,6 +152,8 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
           text_value: example-value
       ```
 
+      {% include [secret-content-base64-cli](../../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -210,6 +212,8 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - API {#api}
 
   To get the secret contents, use the [get](../api-ref/Payload/get.md) REST API method for the [Payload](../api-ref/Payload/index.md) resource or the [PayloadService/Get](../api-ref/grpc/Payload/get.md) gRPC API call.
+
+  {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
 
 {% endlist %}
 

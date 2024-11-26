@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/list.md
 ---
 
-# Cloud Backup API, REST: Policy.List {#List}
+# Cloud Backup API, REST: Policy.List
 
 List [policies](/docs/backup/concepts/policy) of specified folder.
 

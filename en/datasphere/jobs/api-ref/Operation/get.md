@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/jobs/api-ref/Operation/get.md
 ---
 
-# DataSphere Jobs API v2, REST: Operation.Get {#Get}
+# DataSphere Jobs API v2, REST: Operation.Get
 
 Returns the specified Operation resource.
 

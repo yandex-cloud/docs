@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/cancelVersionDestruction.md
 ---
 
-# Lockbox API, REST: Secret.CancelVersionDestruction {#CancelVersionDestruction}
+# Lockbox API, REST: Secret.CancelVersionDestruction
 
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
 

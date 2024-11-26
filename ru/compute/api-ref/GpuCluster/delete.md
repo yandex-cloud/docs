@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/delete.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Delete {#Delete}
+# Compute Cloud API, REST: GpuCluster.Delete
 
 Deletes the specified GPU cluster.
 

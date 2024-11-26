@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Database/list.md
 ---
 
-# Managed Service for MySQL API, gRPC: DatabaseService.List {#List}
+# Managed Service for MySQL API, gRPC: DatabaseService.List
 
 Retrieves the list of databases in a cluster.
 
@@ -15,29 +15,29 @@ Retrieves the list of databases in a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to list databases in.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the API returns a [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests. ||
+|| page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request. ||
+To get the next page of results, set `page_token` to the [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request. ||
 |#
 
 ## ListDatabasesResponse {#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse}
@@ -47,10 +47,10 @@ To get the next page of results, set `pageToken` to the [ListDatabasesResponse.n
   "databases": [
     {
       "name": "string",
-      "clusterId": "string"
+      "cluster_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -59,13 +59,13 @@ To get the next page of results, set `pageToken` to the [ListDatabasesResponse.n
 || databases[] | **[Database](#yandex.cloud.mdb.mysql.v1.Database)**
 
 List of databases. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 The token that can be used to get the next page of results.
 
-If the number of results is larger than [ListDatabasesRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest), use the `nextPageToken` as the value for the [ListDatabasesRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest) in the subsequent [DatabaseService.List](#List) request to iterate through multiple pages of results.
+If the number of results is larger than [ListDatabasesRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest), use the `next_page_token` as the value for the [ListDatabasesRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest) in the subsequent [DatabaseService.List](#List) request to iterate through multiple pages of results.
 
-Each of the subsequent [DatabaseService.List](#List) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
+Each of the subsequent [DatabaseService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Database {#yandex.cloud.mdb.mysql.v1.Database}
@@ -79,7 +79,7 @@ See [the documentation](/docs/managed-mysql/operations/databases) for details.
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that the database belongs to. ||
 |#

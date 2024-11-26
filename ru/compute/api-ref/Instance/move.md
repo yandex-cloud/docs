@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/move.md
 ---
 
-# Compute Cloud API, REST: Instance.Move {#Move}
+# Compute Cloud API, REST: Instance.Move
 
 Moves the specified instance to another folder of the same cloud.
 

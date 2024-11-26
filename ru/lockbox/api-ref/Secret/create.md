@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/create.md
 ---
 
-# Lockbox API, REST: Secret.Create {#Create}
+# Lockbox API, REST: Secret.Create
 
 Creates a secret in the specified folder.
 

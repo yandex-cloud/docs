@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/create.md
 ---
 
-# Certificate Manager API, REST: Certificate.Create {#Create}
+# Certificate Manager API, REST: Certificate.Create
 
 Creates a certificate in the specified folder.
 

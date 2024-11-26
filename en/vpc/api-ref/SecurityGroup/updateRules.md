@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.UpdateRules {#UpdateRules}
+# Virtual Private Cloud API, REST: SecurityGroup.UpdateRules
 
 Updates the rules of the specified security group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/update.md
 ---
 
-# Access Key, gRPC: AccessKeyService.Update {#Update}
+# Access Key, gRPC: AccessKeyService.Update
 
 Updates the specified access key.
 
@@ -15,19 +15,19 @@ Updates the specified access key.
 
 ```json
 {
-  "accessKeyId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "access_key_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "description": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| accessKeyId | **string**
+|| access_key_id | **string**
 
 Required field. ID of the AccessKey resource to update.
 To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/grpc/AccessKey/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Accesskey resource are going to be updated. ||
 || description | **string**
@@ -41,22 +41,22 @@ Description of the access key. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "accessKeyId": "string"
+    "access_key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "serviceAccountId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "service_account_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "description": "string",
-    "keyId": "string",
-    "lastUsedAt": "google.protobuf.Timestamp"
+    "key_id": "string",
+    "last_used_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -72,13 +72,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -121,7 +121,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| accessKeyId | **string**
+|| access_key_id | **string**
 
 ID of the AccessKey resource that is being updated. ||
 |#
@@ -137,20 +137,20 @@ For more information, see [AWS-compatible access keys](/docs/iam/concepts/author
 
 ID of the AccessKey resource.
 It is used to manage secret credentials: an access key ID and a secret access key. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account that the access key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the access key. 0-256 characters long. ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the access key.
 The key is AWS compatible. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication using this Access key. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/updateAccessBindings.md
 ---
 
-# Serverless Containers Service, REST: Container.UpdateAccessBindings {#UpdateAccessBindings}
+# Serverless Containers Service, REST: Container.UpdateAccessBindings
 
 Updates access bindings for the specified container.
 

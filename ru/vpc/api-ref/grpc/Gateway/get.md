@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Gateway/get.md
 ---
 
-# Virtual Private Cloud API, gRPC: GatewayService.Get {#Get}
+# Virtual Private Cloud API, gRPC: GatewayService.Get
 
 Returns the specified Gateway resource.
 
@@ -17,13 +17,13 @@ To get the list of all available Gateway resources, make a [List](/docs/vpc/api-
 
 ```json
 {
-  "gatewayId": "string"
+  "gateway_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field. ID of the Gateway resource to return.
 
@@ -35,13 +35,13 @@ To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/grpc/G
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `sharedEgressGateway`
-  "sharedEgressGateway": "SharedEgressGateway"
+  // Includes only one of the fields `shared_egress_gateway`
+  "shared_egress_gateway": "SharedEgressGateway"
   // end of the list of possible fields
 }
 ```
@@ -53,10 +53,10 @@ A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gatew
 || id | **string**
 
 ID of the gateway. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the gateway belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -75,9 +75,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_./\\@0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. ||
-|| sharedEgressGateway | **[SharedEgressGateway](#yandex.cloud.vpc.v1.SharedEgressGateway)**
+|| shared_egress_gateway | **[SharedEgressGateway](#yandex.cloud.vpc.v1.SharedEgressGateway)**
 
-Includes only one of the fields `sharedEgressGateway`.
+Includes only one of the fields `shared_egress_gateway`.
 
 Gateway specification ||
 |#

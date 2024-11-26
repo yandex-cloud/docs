@@ -26,7 +26,7 @@ GROUP BY PULocationID           -- Column to aggregate the data by.
 View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select).
 * [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by).

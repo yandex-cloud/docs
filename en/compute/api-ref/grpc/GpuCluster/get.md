@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/GpuCluster/get.md
 ---
 
-# Compute Cloud API, gRPC: GpuClusterService.Get {#Get}
+# Compute Cloud API, gRPC: GpuClusterService.Get
 
 Returns the specified GPU cluster.
 
@@ -17,13 +17,13 @@ To get the list of available GPU clusters, make a [List](/docs/compute/api-ref/g
 
 ```json
 {
-  "gpuClusterId": "string"
+  "gpu_cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 ID of the GPU cluster to return.
 
@@ -35,14 +35,14 @@ To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/g
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
   "status": "Status",
-  "zoneId": "string",
-  "interconnectType": "GpuInterconnectType"
+  "zone_id": "string",
+  "interconnect_type": "GpuInterconnectType"
 }
 ```
 
@@ -53,10 +53,10 @@ A GPU cluster. For details about the concept, see [documentation](/docs/compute/
 || id | **string**
 
 ID of GPU cluster. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the GPU cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -79,10 +79,10 @@ Status of the GPU cluster.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
 - `DELETING`: GPU cluster is being deleted. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the GPU cluster resides. ||
-|| interconnectType | enum **GpuInterconnectType**
+|| interconnect_type | enum **GpuInterconnectType**
 
 Type of interconnect used for this GPU cluster.
 

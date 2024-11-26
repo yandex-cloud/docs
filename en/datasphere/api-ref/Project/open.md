@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/open.md
 ---
 
-# DataSphere API v2, REST: Project.Open {#Open}
+# DataSphere API v2, REST: Project.Open
 
 Opens the specified project.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/create.md
 ---
 
-# Object Storage API, REST: Bucket.Create {#Create}
+# Object Storage API, REST: Bucket.Create
 
 Creates a bucket in the specified folder.
 

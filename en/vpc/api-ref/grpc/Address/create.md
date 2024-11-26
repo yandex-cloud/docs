@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Address/create.md
 ---
 
-# Virtual Private Cloud API, gRPC: AddressService.Create {#Create}
+# Virtual Private Cloud API, gRPC: AddressService.Create
 
 Creates an address in the specified folder and network.
 
@@ -15,25 +15,25 @@ Creates an address in the specified folder and network.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `externalIpv4AddressSpec`
-  "externalIpv4AddressSpec": {
+  // Includes only one of the fields `external_ipv4_address_spec`
+  "external_ipv4_address_spec": {
     "address": "string",
-    "zoneId": "string",
+    "zone_id": "string",
     "requirements": {
-      "ddosProtectionProvider": "string",
-      "outgoingSmtpCapability": "string"
+      "ddos_protection_provider": "string",
+      "outgoing_smtp_capability": "string"
     }
   },
   // end of the list of possible fields
-  "deletionProtection": "bool",
-  "dnsRecordSpecs": [
+  "deletion_protection": "bool",
+  "dns_record_specs": [
     {
       "fqdn": "string",
-      "dnsZoneId": "string",
+      "dns_zone_id": "string",
       "ttl": "int64",
       "ptr": "bool"
     }
@@ -43,7 +43,7 @@ Creates an address in the specified folder and network.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a address in.
 
@@ -58,15 +58,15 @@ Description of the address. ||
 || labels | **string**
 
 Address labels as `key:value` pairs. ||
-|| externalIpv4AddressSpec | **[ExternalIpv4AddressSpec](#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
+|| external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
 
-Includes only one of the fields `externalIpv4AddressSpec`.
+Includes only one of the fields `external_ipv4_address_spec`.
 
 External ipv4 address specification. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if address protected from deletion. ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.vpc.v1.DnsRecordSpec)**
+|| dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.vpc.v1.DnsRecordSpec)**
 
 Optional DNS record specifications ||
 |#
@@ -78,7 +78,7 @@ Optional DNS record specifications ||
 || address | **string**
 
 Value of address. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone from which the address will be allocated. ||
 || requirements | **[AddressRequirements](#yandex.cloud.vpc.v1.AddressRequirements)**
@@ -90,10 +90,10 @@ Parameters of the allocated address, for example DDoS Protection. ||
 
 #|
 ||Field | Description ||
-|| ddosProtectionProvider | **string**
+|| ddos_protection_provider | **string**
 
 DDoS protection provider ID. ||
-|| outgoingSmtpCapability | **string**
+|| outgoing_smtp_capability | **string**
 
 Capability to send SMTP traffic. ||
 |#
@@ -105,7 +105,7 @@ Capability to send SMTP traffic. ||
 || fqdn | **string**
 
 Required field. Required. DNS record name (absolute or relative to the DNS zone in use). ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 Required field. Required. ID of the public DNS zone. The maximum string length in characters is 20. ||
 || ttl | **int64**
@@ -122,41 +122,41 @@ Optional. If the PTR record is required, this parameter must be set to "true". |
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "addressId": "string"
+    "address_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    // Includes only one of the fields `externalIpv4Address`
-    "externalIpv4Address": {
+    // Includes only one of the fields `external_ipv4_address`
+    "external_ipv4_address": {
       "address": "string",
-      "zoneId": "string",
+      "zone_id": "string",
       "requirements": {
-        "ddosProtectionProvider": "string",
-        "outgoingSmtpCapability": "string"
+        "ddos_protection_provider": "string",
+        "outgoing_smtp_capability": "string"
       }
     },
     // end of the list of possible fields
     "reserved": "bool",
     "used": "bool",
     "type": "Type",
-    "ipVersion": "IpVersion",
-    "deletionProtection": "bool",
-    "dnsRecords": [
+    "ip_version": "IpVersion",
+    "deletion_protection": "bool",
+    "dns_records": [
       {
         "fqdn": "string",
-        "dnsZoneId": "string",
+        "dns_zone_id": "string",
         "ttl": "int64",
         "ptr": "bool"
       }
@@ -176,13 +176,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -225,7 +225,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| addressId | **string**
+|| address_id | **string**
 
 ID of the address that is being created. ||
 |#
@@ -239,10 +239,10 @@ An Address resource. For more information, see [Address](/docs/vpc/concepts/addr
 || id | **string**
 
 ID of the address. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the address belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -261,9 +261,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
+|| external_ipv4_address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
-Includes only one of the fields `externalIpv4Address`.
+Includes only one of the fields `external_ipv4_address`.
 
 External ipv4 address specification. ||
 || reserved | **bool**
@@ -279,17 +279,17 @@ Type of the IP address.
 - `TYPE_UNSPECIFIED`
 - `INTERNAL`: Internal IP address.
 - `EXTERNAL`: Public IP address. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 Version of the IP address.
 
 - `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address.
 - `IPV6`: IPv6 address. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if address protected from deletion. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
+|| dns_records[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
 
 Optional DNS record specifications ||
 |#
@@ -301,7 +301,7 @@ Optional DNS record specifications ||
 || address | **string**
 
 Value of address. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone from which the address will be allocated. ||
 || requirements | **[AddressRequirements](#yandex.cloud.vpc.v1.AddressRequirements2)**
@@ -313,10 +313,10 @@ Parameters of the allocated address, for example DDoS Protection. ||
 
 #|
 ||Field | Description ||
-|| ddosProtectionProvider | **string**
+|| ddos_protection_provider | **string**
 
 DDoS protection provider ID. ||
-|| outgoingSmtpCapability | **string**
+|| outgoing_smtp_capability | **string**
 
 Capability to send SMTP traffic. ||
 |#
@@ -328,7 +328,7 @@ Capability to send SMTP traffic. ||
 || fqdn | **string**
 
 DNS record name (absolute or relative to the DNS zone in use). ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the public DNS zone. ||
 || ttl | **int64**

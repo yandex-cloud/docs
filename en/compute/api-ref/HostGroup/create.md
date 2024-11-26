@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/create.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Create {#Create}
+# Compute Cloud API, REST: HostGroup.Create
 
 Creates a host group in the specified folder.
 

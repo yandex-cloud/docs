@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Workflow/create.md
 ---
 
-# Workflows Service, gRPC: WorkflowService.Create {#Create}
+# Workflows Service, gRPC: WorkflowService.Create
 
 Creates Workflow in specified folder.
 
@@ -15,31 +15,31 @@ Creates Workflow in specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "specification": {
-    // Includes only one of the fields `specYaml`
-    "specYaml": "string"
+    // Includes only one of the fields `spec_yaml`
+    "spec_yaml": "string"
     // end of the list of possible fields
   },
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   },
-  "networkId": "string",
-  "serviceAccountId": "string"
+  "network_id": "string",
+  "service_account_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create Workflow in. ||
 || name | **string**
@@ -55,13 +55,13 @@ Workflow labels as `key:value` pairs. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
 Required field. Specification of Workflow ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions)**
 
 Options for logging from Workflow. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the VPC network Workflow will be executed in, in order to access private resources. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the Service Account which will be used for resources access in Workflow execution. ||
 |#
@@ -70,11 +70,11 @@ ID of the Service Account which will be used for resources access in Workflow ex
 
 #|
 ||Field | Description ||
-|| specYaml | **string**
+|| spec_yaml | **string**
 
 Workflow specification in YAML format.
 
-Includes only one of the fields `specYaml`. ||
+Includes only one of the fields `spec_yaml`. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions}
@@ -84,17 +84,17 @@ Includes only one of the fields `specYaml`. ||
 || disabled | **bool**
 
 Is logging from Workflow disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the logging group which should be used for Workflows logs.
 
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| folderId | **string**
+Includes only one of the fields `log_group_id`, `folder_id`. ||
+|| folder_id | **string**
 
 ID of the folder which default logging group should be used for Workflows.
 
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| minLevel | enum **Level**
+Includes only one of the fields `log_group_id`, `folder_id`. ||
+|| min_level | enum **Level**
 
 Minimum logs level.
 
@@ -129,38 +129,38 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "workflowId": "string"
+    "workflow_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "specification": {
-      // Includes only one of the fields `specYaml`
-      "specYaml": "string"
+      // Includes only one of the fields `spec_yaml`
+      "spec_yaml": "string"
       // end of the list of possible fields
     },
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "status": "Status",
-    "logOptions": {
+    "log_options": {
       "disabled": "bool",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
+      // Includes only one of the fields `log_group_id`, `folder_id`
+      "log_group_id": "string",
+      "folder_id": "string",
       // end of the list of possible fields
-      "minLevel": "Level"
+      "min_level": "Level"
     },
-    "networkId": "string",
-    "serviceAccountId": "string"
+    "network_id": "string",
+    "service_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -176,13 +176,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -225,7 +225,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 Required field. ID of the Workflow. ||
 |#
@@ -237,13 +237,13 @@ Required field. ID of the Workflow. ||
 || id | **string**
 
 ID of the Workflow. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Workflow belongs to. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2)**
 
 Specification of the Workflow ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the Workflow. ||
 || name | **string**
@@ -265,13 +265,13 @@ Status of the Workflow.
 - `UPDATING`: Workflow is being updated.
 - `DELETING`: Workflow is being deleted.
 - `ERROR`: Workflow failed. The only allowed action is delete. ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions2)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions2)**
 
 Options for logging from the Workflow. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the VPC network Workflow will be executed in, in order to access private resources. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the Service Account which will be used for resource access in Workflow execution. ||
 |#
@@ -280,11 +280,11 @@ ID of the Service Account which will be used for resource access in Workflow exe
 
 #|
 ||Field | Description ||
-|| specYaml | **string**
+|| spec_yaml | **string**
 
 Workflow specification in YAML format.
 
-Includes only one of the fields `specYaml`. ||
+Includes only one of the fields `spec_yaml`. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions2}
@@ -294,17 +294,17 @@ Includes only one of the fields `specYaml`. ||
 || disabled | **bool**
 
 Is logging from Workflow disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the logging group which should be used for Workflows logs.
 
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| folderId | **string**
+Includes only one of the fields `log_group_id`, `folder_id`. ||
+|| folder_id | **string**
 
 ID of the folder which default logging group should be used for Workflows.
 
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| minLevel | enum **Level**
+Includes only one of the fields `log_group_id`, `folder_id`. ||
+|| min_level | enum **Level**
 
 Minimum logs level.
 

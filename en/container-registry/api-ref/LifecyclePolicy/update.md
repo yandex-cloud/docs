@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/update.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Update {#Update}
+# Container Registry API, REST: LifecyclePolicy.Update
 
 Updates the specified lifecycle policy.
 

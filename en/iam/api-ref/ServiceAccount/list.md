@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/list.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.List {#List}
+# Identity and Access Management API, REST: ServiceAccount.List
 
 Retrieves the list of ServiceAccount resources in the specified folder.
 

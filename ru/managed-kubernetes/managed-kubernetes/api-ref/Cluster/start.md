@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/start.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Start {#Start}
+# Managed Services for Kubernetes API, REST: Cluster.Start
 
 Starts the specified Kubernetes cluster.
 

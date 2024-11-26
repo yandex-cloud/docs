@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/list.md
 ---
 
-# Users, REST: User.List {#List}
+# Users, REST: User.List
 
 List users in a specific folder.
 

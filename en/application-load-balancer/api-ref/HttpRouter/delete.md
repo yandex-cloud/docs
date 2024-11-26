@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/delete.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.Delete {#Delete}
+# Application Load Balancer API, REST: HttpRouter.Delete
 
 Deletes the specified HTTP router.
 

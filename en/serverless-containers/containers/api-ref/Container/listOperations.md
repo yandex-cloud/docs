@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listOperations.md
 ---
 
-# Serverless Containers Service, REST: Container.ListOperations {#ListOperations}
+# Serverless Containers Service, REST: Container.ListOperations
 
 Lists operations for the specified container.
 

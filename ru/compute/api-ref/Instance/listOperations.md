@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/listOperations.md
 ---
 
-# Compute Cloud API, REST: Instance.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Instance.ListOperations
 
 Lists operations for the specified instance.
 

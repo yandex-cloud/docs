@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Provider/listActivated.md
 ---
 
-# Cloud Backup API, REST: Provider.ListActivated {#ListActivated}
+# Cloud Backup API, REST: Provider.ListActivated
 
 List activated providers for specified client.
 

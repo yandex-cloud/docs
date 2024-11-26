@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/create.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Create {#Create}
+# Application Load Balancer API, REST: LoadBalancer.Create
 
 Creates an application load balancer in the specified folder.
 

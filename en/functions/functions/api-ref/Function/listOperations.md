@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listOperations.md
 ---
 
-# Cloud Functions Service, REST: Function.ListOperations {#ListOperations}
+# Cloud Functions Service, REST: Function.ListOperations
 
 Lists operations for the specified function.
 

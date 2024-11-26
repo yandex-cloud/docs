@@ -17,118 +17,219 @@ The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools fo
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-## Code samples {#go-code-examples}
+## Code snippets {#go-code-examples}
 
-List of bucket names:
+[AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go stopped receiving updates in July 2024. We recommend upgrading to [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2).
 
-```go
-package main
+#### Getting a list of bucket names {#list-buckets}
 
-import (
-	"context"
-	"fmt"
-	"log"
+{% list tabs group=interface_relevance %}
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/s3"
-)
+- AWS SDK v.2 {#contemporary}
 
-func main() {
+  ```go
+  package main
 
-	// Creating a custom endpoint resolver for returning correct URL for S3 storage in the {{ region-id }} region
-	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == s3.ServiceID && region == "{{ region-id }}" {
-			return aws.Endpoint{
-				PartitionID:   "yc",
-				URL:           "https://{{ s3-storage-host }}",
-				SigningRegion: "{{ region-id }}",
-			}, nil
-		}
-		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
-	})
+  import (
+      "context"
+      "log"
 
-	// Loading configuration from ~/.aws/*
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
-	if err != nil {
-		log.Fatal(err)
-	}
+      "github.com/aws/aws-sdk-go-v2/aws"
+      "github.com/aws/aws-sdk-go-v2/config"
+      "github.com/aws/aws-sdk-go-v2/service/s3"
+  )
 
-	// Creating the S3 client
-	client := s3.NewFromConfig(cfg)
+  func main() {
 
-	// Getting the list of buckets
-	result, err := client.ListBuckets(context.TODO(), &s3.ListBucketsInput{})
-	if err != nil {
-		log.Fatal(err)
-	}
+      // Loading configuration from ~/.aws/*
+      cfg, err := config.LoadDefaultConfig(context.TODO())
+      if err != nil {
+          log.Fatal(err)
+      }
 
-	for _, bucket := range result.Buckets {
-		log.Printf("bucket=%s creation time=%s", aws.ToString(bucket.Name), bucket.CreationDate.Format("2006-01-02 15:04:05 Monday"))
-	}
-}
-```
+      // Creating a client to access S3 storage
+      client := s3.NewFromConfig(cfg)
 
-Getting a list of objects in a bucket:
+      // Requesting a list of buckets
+      result, err := client.ListBuckets(context.TODO(), &s3.ListBucketsInput{})
+      if err != nil {
+          log.Fatal(err)
+      }
 
-```go
-package main
+      for _, bucket := range result.Buckets {
+          log.Printf("bucket=%s creation time=%s", aws.ToString(bucket.Name), bucket.CreationDate.Local().Format("2006-01-02 15:04:05 Monday"))
+      }
+  }
+  ```
 
-import (
-	"context"
-	"fmt"
-	"log"
-	"flag"
+- AWS SDK v.1 {#deprecated}
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/s3"
-)
+  ```go
+  package main
 
-func main() {
-	// Getting the bucket name from the command line argument
-	bucketName := flag.String("b", "", "The name of the bucket")
-	flag.Parse()
+  import (
+      "context"
+      "fmt"
+      "log"
 
-	if *bucketName == "" {
-		fmt.Println("You must supply the name of a bucket (-b BUCKET)")
-		return
-	}
+      "github.com/aws/aws-sdk-go-v2/aws"
+      "github.com/aws/aws-sdk-go-v2/config"
+      "github.com/aws/aws-sdk-go-v2/service/s3"
+  )
 
+  func main() {
 
-	// Creating a custom endpoint resolver for returning the correct URL for S3 storage in the {{ region-id }} region
-	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-		if service == s3.ServiceID && region == "{{ region-id }}" {
-			return aws.Endpoint{
-				PartitionID:   "yc",
-				URL:           "https://{{ s3-storage-host }}",
-				SigningRegion: "{{ region-id }}",
-			}, nil
-		}
-		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
-	})
+      // Creating a custom endpoint resolver to return the correct URL for S3 and {{ region-id }}
+      customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+          if service == s3.ServiceID && region == "{{ region-id }}" {
+              return aws.Endpoint{
+                  PartitionID:   "yc",
+                  URL:           "https://{{ s3-storage-host }}",
+                  SigningRegion: "{{ region-id }}",
+              }, nil
+          }
+          return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
+      })
 
-	// Loading configuration from ~/.aws/*
-	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
-	if err != nil {
-		log.Fatal(err)
-	}
+      // Loading configuration from ~/.aws/*
+      cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
+      if err != nil {
+          log.Fatal(err)
+      }
 
-	// Creating an S3 client
-	client := s3.NewFromConfig(cfg)
+      // Creating a client to access S3 storage
+      client := s3.NewFromConfig(cfg)
 
-	// Getting the list of all files in the bucket
-	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-		Bucket: aws.String(*bucketName),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
+      // Requesting a list of buckets
+      result, err := client.ListBuckets(context.TODO(), &s3.ListBucketsInput{})
+      if err != nil {
+          log.Fatal(err)
+      }
 
-	for _, object := range result.Contents {
-		log.Printf("object=%s size=%d Bytes last modified=%s", aws.ToString(object.Key), object.Size, object.LastModified.Format("2006-01-02 15:04:05 Monday"))
-	}
-}
-```
+      for _, bucket := range result.Buckets {
+          log.Printf("bucket=%s creation time=%s", aws.ToString(bucket.Name), bucket.CreationDate.Format("2006-01-02 15:04:05 Monday"))
+      }
+  }
+  ```
+
+{% endlist %}
+
+#### Getting a list of bucket objects {#list-buckets}
+
+To get a list of objects in a bucket, provide its name in the `-b` command line parameter.
+
+{% list tabs group=interface_relevance %}
+
+- AWS SDK v.2 {#contemporary}
+
+  ```go
+  package main
+
+  import (
+      "context"
+      "flag"
+      "fmt"
+      "log"
+
+      "github.com/aws/aws-sdk-go-v2/aws"
+      "github.com/aws/aws-sdk-go-v2/config"
+      "github.com/aws/aws-sdk-go-v2/service/s3"
+  )
+
+  func main() {
+      // Getting the bucket namefrom the command line argument
+      bucketName := flag.String("b", "", "The name of the bucket")
+      flag.Parse()
+
+      if *bucketName == "" {
+          fmt.Println("You must supply the name of a bucket (-b BUCKET)")
+          return
+      }
+
+      // Loading configuration from ~/.aws/*
+      cfg, err := config.LoadDefaultConfig(context.TODO())
+      if err != nil {
+          log.Fatal(err)
+      }
+
+      // Creating a client to access S3 storage
+      client := s3.NewFromConfig(cfg)
+
+      // Requesting a list of all bucket files
+      result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
+          Bucket: aws.String(*bucketName),
+      })
+      if err != nil {
+          log.Fatal(err)
+      }
+
+      for _, object := range result.Contents {
+          log.Printf("object=%s size=%d Bytes last modified=%s", aws.ToString(object.Key), aws.ToInt64(object.Size), object.LastModified.Local().Format("2006-01-02 15:04:05 Monday"))
+      }
+  }
+  ```
+
+- AWS SDK v.1 {#deprecated}
+
+  ```go
+  package main
+
+  import (
+      "context"
+      "fmt"
+      "log"
+      "flag"
+
+      "github.com/aws/aws-sdk-go-v2/aws"
+      "github.com/aws/aws-sdk-go-v2/config"
+      "github.com/aws/aws-sdk-go-v2/service/s3"
+  )
+
+  func main() {
+      // Getting the bucket namefrom the command line argument
+      bucketName := flag.String("b", "", "The name of the bucket")
+      flag.Parse()
+
+      if *bucketName == "" {
+          fmt.Println("You must supply the name of a bucket (-b BUCKET)")
+          return
+      }
+
+      // Creating a custom endpoint resolver to return the correct URL for S3 and {{ region-id }}
+      customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
+          if service == s3.ServiceID && region == "{{ region-id }}" {
+              return aws.Endpoint{
+                  PartitionID:   "yc",
+                  URL:           "https://{{ s3-storage-host }}",
+                  SigningRegion: "{{ region-id }}",
+              }, nil
+          }
+          return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
+      })
+
+      // Loading configuration from ~/.aws/*
+      cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
+      if err != nil {
+          log.Fatal(err)
+      }
+
+      // Creating a client to access S3 storage
+      client := s3.NewFromConfig(cfg)
+
+      // Requesting a list of all bucket files
+      result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
+          Bucket: aws.String(*bucketName),
+      })
+      if err != nil {
+          log.Fatal(err)
+      }
+
+      for _, object := range result.Contents {
+          log.Printf("object=%s size=%d Bytes last modified=%s", aws.ToString(object.Key), object.Size, object.LastModified.Format("2006-01-02 15:04:05 Monday"))
+      }
+  }
+  ```
+
+{% endlist %}
 
 See also the [code samples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).

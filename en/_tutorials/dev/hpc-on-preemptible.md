@@ -37,8 +37,8 @@ To create a VM:
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the type of the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` boot [disk](../../compute/concepts/disk.md).
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify parameters for solving current computational problems:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` as the boot [disk](../../compute/concepts/disk.md) type.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify parameters for your current computational tasks:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -48,12 +48,12 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the VM you are creating or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
         * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
         * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-            * In the window that opens, specify the network name and select the folder to create it in.
+            * In the window that opens, enter the network name and select the folder to host the network.
             * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
@@ -61,7 +61,7 @@ To create a VM:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to create on the VM, e.g., `ubuntu`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `ubuntu`.
 
       {% note alert %}
 
@@ -157,7 +157,7 @@ To allow the VMs to use the same source files, create a shared network directory
    mkdir ~/shared
    ```
 
-1. Open the `/etc/exports` file using any text editor, e.g., `nano`:
+1. Open the `/etc/exports` file in any text editor, e.g., `nano`:
    
    ```bash
    sudo nano /etc/exports
@@ -179,7 +179,7 @@ To allow the VMs to use the same source files, create a shared network directory
 
 #### Mount directories on group VMs {#mount}
 
-On each VM in the `compute-group`, mount the directory you created:
+On each VM in `compute-group`, mount the directory you created:
 1. Create a `shared` directory and mount the directory with the `master-node` VM on it:
 
    ```bash
@@ -257,7 +257,7 @@ You can check the load on VM cores by running the `htop` command in a separate S
    0: Time of task=36.561695
    ```
 
-1. Run the task on four cores using the resources of two VMs with two cores per VM. To do this, run the task with the `-host` key that accepts parameters like `<VM IP address>:<number of cores>[,<ip>:<cores>[,...]]`:
+1. Run the task on four cores using the resources of two VMs with two cores per VM. To do this, run the task with the `-host` key that accepts parameters expressed as `<VM IP address>:<number of cores>[,<ip>:<cores>[,...]]`:
 
    ```bash
    mpirun -np 4 -host localhost:2,<VM IP address>:2 task
@@ -277,7 +277,7 @@ You can check the load on VM cores by running the `htop` command in a separate S
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for your deployed server and created VM group, just delete the `master-node` VM and `compute-group` 
+To stop paying for the deployed server and VM group you created, simply delete the `master-node` VM and `compute-group`. 
 
 If you reserved a static public IP address specifically for this VM:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/listOperations.md
 ---
 
-# EventRouter Service, REST: Bus.ListOperations {#ListOperations}
+# EventRouter Service, REST: Bus.ListOperations
 
 Lists operations for the specified bus.
 

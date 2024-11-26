@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/addDomain.md
 ---
 
-# API Gateway Service, REST: ApiGateway.AddDomain {#AddDomain}
+# API Gateway Service, REST: ApiGateway.AddDomain
 
 Attaches domain to the specified API gateway.
 

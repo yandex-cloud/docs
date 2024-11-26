@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/Operation/cancel.md
 ---
 
-# Vision OCR API, REST: Operation.Cancel {#Cancel}
+# Vision OCR API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

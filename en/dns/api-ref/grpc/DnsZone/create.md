@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/create.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.Create {#Create}
+# Cloud DNS API, gRPC: DnsZoneService.Create
 
 Creates a DNS zone in the specified folder.
 
@@ -15,24 +15,24 @@ Creates a DNS zone in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "zone": "string",
-  "privateVisibility": {
-    "networkIds": [
+  "private_visibility": {
+    "network_ids": [
       "string"
     ]
   },
-  "publicVisibility": "PublicVisibility",
-  "deletionProtection": "bool"
+  "public_visibility": "PublicVisibility",
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create DNS zones in.
 
@@ -50,15 +50,15 @@ DNS zone labels as `key:value` pairs. ||
 || zone | **string**
 
 Required field. DNS zone suffix. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
+|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
 
 Privately visible zone settings.
 At least one of two visibility fields must be set. ||
-|| publicVisibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
+|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
 
 Publicly visible zone settings.
 At least one of two visibility fields must be set. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Prevents accidental zone removal. ||
 |#
@@ -69,7 +69,7 @@ Configuration for privately visible zones.
 
 #|
 ||Field | Description ||
-|| networkIds[] | **string**
+|| network_ids[] | **string**
 
 Network IDs. ||
 |#
@@ -89,30 +89,30 @@ Configuration for publicly visible zones.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "dnsZoneId": "string"
+    "dns_zone_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "zone": "string",
-    "privateVisibility": {
-      "networkIds": [
+    "private_visibility": {
+      "network_ids": [
         "string"
       ]
     },
-    "publicVisibility": "PublicVisibility",
-    "deletionProtection": "bool"
+    "public_visibility": "PublicVisibility",
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -128,13 +128,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -177,7 +177,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone that is being created. ||
 |#
@@ -191,10 +191,10 @@ A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dn
 || id | **string**
 
 ID of the DNS zone. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the DNS zone belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -210,15 +210,15 @@ DNS zone labels as `key:value` pairs. ||
 || zone | **string**
 
 DNS zone suffix. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
+|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
 
 Privately visible zone settings.
 Specifies whether records within the zone are visible from a VPC networks only. ||
-|| publicVisibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility2)**
+|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility2)**
 
 Publicly visible zone settings.
 Indicates whether records within the zone are publicly visible. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Prevents accidental zone removal. ||
 |#
@@ -229,7 +229,7 @@ Configuration for privately visible zones.
 
 #|
 ||Field | Description ||
-|| networkIds[] | **string**
+|| network_ids[] | **string**
 
 Network IDs. ||
 |#

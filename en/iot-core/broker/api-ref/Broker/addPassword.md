@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/addPassword.md
 ---
 
-# IoT Core Broker Service, REST: Broker.AddPassword {#AddPassword}
+# IoT Core Broker Service, REST: Broker.AddPassword
 
 Adds password for the specified broker.
 

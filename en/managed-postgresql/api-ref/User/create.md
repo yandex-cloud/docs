@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/create.md
 ---
 
-# Managed Service for PostgreSQL API, REST: User.Create {#Create}
+# Managed Service for PostgreSQL API, REST: User.Create
 
 Creates a PostgreSQL user in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopImage/copyFromDesktop.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopImageService.CopyFromDesktop {#CopyFromDesktop}
+# Cloud Desktop API, gRPC: DesktopImageService.CopyFromDesktop
 
 Copies the specified desktop image from the specified desktop.
 
@@ -15,21 +15,21 @@ Copies the specified desktop image from the specified desktop.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "desktopId": "string"
+  "desktop_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to copy the image to. ||
 || name | **string**
 
 Name of the image. ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
 Required field. ID of the desktop to copy the image from. ||
 |#
@@ -40,24 +40,24 @@ Required field. ID of the desktop to copy the image from. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "imageId": "string"
+    "image_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "status": "Status",
     "name": "string",
     "labels": "string",
-    "storageSize": "int64",
-    "minDiskSize": "int64"
+    "storage_size": "int64",
+    "min_disk_size": "int64"
   }
   // end of the list of possible fields
 }
@@ -73,13 +73,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -122,7 +122,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 ID of the new image. ||
 |#
@@ -136,10 +136,10 @@ A desktop image resource.
 || id | **string**
 
 ID of the image. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -156,10 +156,10 @@ Name of the image. ||
 || labels | **string**
 
 Description of the image. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 Size of the image, specified in bytes. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum disk size in bytes required to use the image. ||
 |#

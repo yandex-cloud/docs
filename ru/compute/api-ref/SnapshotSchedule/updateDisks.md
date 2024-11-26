@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/updateDisks.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.UpdateDisks {#UpdateDisks}
+# Compute Cloud API, REST: SnapshotSchedule.UpdateDisks
 
 Updates the list of disks attached to the specified schedule.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopGroup/create.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopGroupService.Create {#Create}
+# Cloud Desktop API, gRPC: DesktopGroupService.Create
 
 Creates desktop group in the specified folder.
 
@@ -15,18 +15,18 @@ Creates desktop group in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "desktopImageId": "string",
+  "folder_id": "string",
+  "desktop_image_id": "string",
   "name": "string",
   "description": "string",
-  "resourcesSpec": {
+  "resources_spec": {
     "memory": "int64",
     "cores": "int64",
-    "coreFraction": "int64"
+    "core_fraction": "int64"
   },
-  "networkInterfaceSpec": {
-    "networkId": "string",
-    "subnetIds": [
+  "network_interface_spec": {
+    "network_id": "string",
+    "subnet_ids": [
       "string"
     ]
   }
@@ -35,12 +35,12 @@ Creates desktop group in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a DesktopGroup in.
 
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| desktopImageId | **string**
+|| desktop_image_id | **string**
 
 Required field. An image used to create a desktop boot disk ||
 || name | **string**
@@ -50,10 +50,10 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the DesktopGroup. ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
 
 Resource specification of the desktop group. ||
-|| networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+|| network_interface_spec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
 
 Network interface specification of the desktop group. ||
 |#
@@ -68,7 +68,7 @@ RAM volume, in bytes. ||
 || cores | **int64**
 
 Number of CPU cores. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -78,10 +78,10 @@ This field sets baseline performance for each core. ||
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network interface specification. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 List of subnet IDs. ||
 |#
@@ -92,30 +92,30 @@ List of subnet IDs. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "desktopGroupId": "string"
+    "desktop_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "status": "Status",
     "name": "string",
     "description": "string",
-    "resourcesSpec": {
+    "resources_spec": {
       "memory": "int64",
       "cores": "int64",
-      "coreFraction": "int64"
+      "core_fraction": "int64"
     },
-    "networkInterfaceSpec": {
-      "networkId": "string",
-      "subnetIds": [
+    "network_interface_spec": {
+      "network_id": "string",
+      "subnet_ids": [
         "string"
       ]
     }
@@ -134,13 +134,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -183,7 +183,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| desktopGroupId | **string**
+|| desktop_group_id | **string**
 
 ID of the desktop group that is being created. ||
 |#
@@ -197,10 +197,10 @@ A desktop group resource.
 || id | **string**
 
 Desktop group ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the desktop group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -217,10 +217,10 @@ Name of the desktop group. ||
 || description | **string**
 
 Description of the desktop group. ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec2)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec2)**
 
 Resource specification of the desktop group. ||
-|| networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2)**
+|| network_interface_spec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2)**
 
 Network interface specification of the desktop group. ||
 |#
@@ -235,7 +235,7 @@ RAM volume, in bytes. ||
 || cores | **int64**
 
 Number of CPU cores. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -245,10 +245,10 @@ This field sets baseline performance for each core. ||
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network interface specification. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 List of subnet IDs. ||
 |#

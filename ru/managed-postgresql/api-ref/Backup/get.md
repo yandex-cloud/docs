@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Backup.Get {#Get}
+# Managed Service for PostgreSQL API, REST: Backup.Get
 
 Returns the specified PostgreSQL Backup resource.
 

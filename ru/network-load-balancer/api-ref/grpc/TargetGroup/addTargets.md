@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/TargetGroup/addTargets.md
 ---
 
-# Network Load Balancer API, gRPC: TargetGroupService.AddTargets {#AddTargets}
+# Network Load Balancer API, gRPC: TargetGroupService.AddTargets
 
 Adds targets to the target group.
 
@@ -15,10 +15,10 @@ Adds targets to the target group.
 
 ```json
 {
-  "targetGroupId": "string",
+  "target_group_id": "string",
   "targets": [
     {
-      "subnetId": "string",
+      "subnet_id": "string",
       "address": "string"
     }
   ]
@@ -27,7 +27,7 @@ Adds targets to the target group.
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the TargetGroup resource to add targets to.
 To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
@@ -42,7 +42,7 @@ A Target resource. For more information, see [Target groups and resources](/docs
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that targets are connected to.
 All targets in the target group must be connected to the same subnet within a single availability zone. ||
@@ -57,26 +57,26 @@ IP address of the target. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "targetGroupId": "string"
+    "target_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "regionId": "string",
+    "region_id": "string",
     "targets": [
       {
-        "subnetId": "string",
+        "subnet_id": "string",
         "address": "string"
       }
     ]
@@ -95,13 +95,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -144,7 +144,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 ID of the target group that targets are being added to. ||
 |#
@@ -158,10 +158,10 @@ A TargetGroup resource. For more information, see [Target groups and resources](
 || id | **string**
 
 Output only. ID of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -174,7 +174,7 @@ Description of the target group. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region where the target group resides. ||
 || targets[] | **[Target](#yandex.cloud.loadbalancer.v1.Target2)**
@@ -188,7 +188,7 @@ A Target resource. For more information, see [Target groups and resources](/docs
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that targets are connected to.
 All targets in the target group must be connected to the same subnet within a single availability zone. ||

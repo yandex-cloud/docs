@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/update.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Update {#Update}
+# Key Management Service API, REST: SymmetricKey.Update
 
 Updates the specified symmetric KMS key.
 

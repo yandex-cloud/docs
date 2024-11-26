@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/classify.md
 ---
 
-# Foundation Models Text Classification API, REST: TextClassification.Classify {#Classify}
+# Foundation Models Text Classification API, REST: TextClassification.Classify
 
 RPC method to classify text with tuned model.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/startFailover.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.StartFailover {#StartFailover}
+# Managed Service for Redis API, REST: Cluster.StartFailover
 
 Start a manual failover on the specified Redis cluster.
 
@@ -369,7 +369,9 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -398,7 +400,9 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -427,7 +431,9 @@ List of hostnames which should not be masters. Can be empty for sentinel cluster
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1224,6 +1230,12 @@ Allows to turn before switchover in RDSync ||
 || allowDataLoss | **boolean**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| useLuajit | **boolean**
+
+Use JIT for lua scripts and functions ||
+|| ioThreadsAllowed | **boolean**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

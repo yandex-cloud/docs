@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/get.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Get {#Get}
+# Key Management Service API, REST: AsymmetricSignatureKey.Get
 
 Returns the specified asymmetric KMS key.
 

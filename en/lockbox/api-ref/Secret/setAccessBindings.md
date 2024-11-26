@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/setAccessBindings.md
 ---
 
-# Lockbox API, REST: Secret.SetAccessBindings {#SetAccessBindings}
+# Lockbox API, REST: Secret.SetAccessBindings
 
 Sets access bindings for the secret.
 

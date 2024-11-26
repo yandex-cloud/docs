@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/get.md
 ---
 
-# IoT Core Service, gRPC: DeviceService.Get {#Get}
+# IoT Core Service, gRPC: DeviceService.Get
 
 Returns the specified device.
 
@@ -17,19 +17,19 @@ To get the list of available devices, make a [List](/docs/iot-core/api-ref/grpc/
 
 ```json
 {
-  "deviceId": "string",
-  "deviceView": "DeviceView"
+  "device_id": "string",
+  "device_view": "DeviceView"
 }
 ```
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 Required field. ID of the device to return.
 
 To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
-|| deviceView | enum **DeviceView**
+|| device_view | enum **DeviceView**
 
 Specifies which parts of the device resource should be returned
 in the response.
@@ -44,18 +44,18 @@ The default value.
 ```json
 {
   "id": "string",
-  "registryId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "registry_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "topicAliases": "string",
+  "topic_aliases": "string",
   "status": "Status",
-  "monitoringData": {
-    "lastAuthIp": "string",
-    "lastAuthTime": "google.protobuf.Timestamp",
-    "lastPubActivityTime": "google.protobuf.Timestamp",
-    "lastSubActivityTime": "google.protobuf.Timestamp",
-    "lastOnlineTime": "google.protobuf.Timestamp"
+  "monitoring_data": {
+    "last_auth_ip": "string",
+    "last_auth_time": "google.protobuf.Timestamp",
+    "last_pub_activity_time": "google.protobuf.Timestamp",
+    "last_sub_activity_time": "google.protobuf.Timestamp",
+    "last_online_time": "google.protobuf.Timestamp"
   }
 }
 ```
@@ -67,10 +67,10 @@ A device. For more information, see [Device](/docs/iot-core/concepts/index#devic
 || id | **string**
 
 ID of the device. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the device belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -79,7 +79,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topic_aliases | **string**
 
 Alias of a device topic.
 
@@ -92,7 +92,7 @@ Status of the device.
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||
-|| monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
+|| monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
 |#
@@ -101,9 +101,9 @@ Device monitoring data, returns if FULL view specified. ||
 
 #|
 ||Field | Description ||
-|| lastAuthIp | **string** ||
-|| lastAuthTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastPubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastSubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastOnlineTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_auth_ip | **string** ||
+|| last_auth_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

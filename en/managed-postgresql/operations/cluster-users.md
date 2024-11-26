@@ -54,7 +54,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/User/list.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -160,7 +160,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
         cluster_id = "<cluster_ID>"
         name       = "<username>"
         password   = "<password>"
-        grants     = [ "<role1>","<role2>" ]
+        grants     = [ "<role_1>","<role_2>" ]
         login      = <DB_login_permission>
         conn_limit = <maximum_number_of_connections>
         deletion_protection = <deletion_protection>
@@ -229,7 +229,7 @@ You can use SQL commands to assign privileges to users, but you cannot use them 
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/User/create.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -327,7 +327,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
       For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-  1. Locate the user's `yandex_mdb_postgresql_user` resource.
+  1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
   1. Change the value of the `password` field:
 
       ```hcl
@@ -381,9 +381,9 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
        {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -429,7 +429,7 @@ Once created, the user only gets the `CONNECT` privilege for the selected databa
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -510,7 +510,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
     1. To grant the user permissions to access certain databases:
-        1. Locate the user's `yandex_mdb_postgresql_user` resource.
+        1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
         1. Add `permission` sections with the appropriate DB names:
 
             ```hcl
@@ -580,11 +580,11 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
        In this case, only one parameter is provided.
 
-     * `settings`: New settings. See the [method description](../api-ref/User/update.md#body_params) and [{#T}](../concepts/settings-list.md#dbms-user-settings) for the list of available settings.
+     * `settings`: New settings. See the [method description](../api-ref/User/update.md#yandex.cloud.mdb.postgresql.v1.UpdateUserRequest) and [{#T}](../concepts/settings-list.md#dbms-user-settings) for the list of available settings.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -630,7 +630,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -650,7 +650,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-    1. Locate the user's `yandex_mdb_postgresql_user` resource.
+    1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
 
     1. Add the `deletion_protection` parameter. The possible values are `true`,`false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
@@ -703,7 +703,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -747,7 +747,7 @@ For information on setting up user privileges and roles, see [Assigning privileg
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -797,7 +797,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-  1. Delete the `yandex_mdb_postgresql_user` resource with the user's description.
+  1. Delete the `yandex_mdb_postgresql_user` resource with the description of the user you need.
 
   1. Make sure the settings are correct.
 
@@ -824,7 +824,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -852,7 +852,7 @@ A user can be protected against deletion. To delete such a user, [disable the pr
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation2) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

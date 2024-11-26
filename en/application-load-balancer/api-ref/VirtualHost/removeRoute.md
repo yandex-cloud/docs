@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/removeRoute.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.RemoveRoute {#RemoveRoute}
+# Application Load Balancer API, REST: VirtualHost.RemoveRoute
 
 Deletes the specified route from the specified virtual host.
 

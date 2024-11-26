@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.RescheduleMaintenance {#RescheduleMaintenance}
+# Managed Service for MySQL API, REST: Cluster.RescheduleMaintenance
 
 Reschedules planned maintenance operation.
 

@@ -128,7 +128,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
 
      You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/get.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

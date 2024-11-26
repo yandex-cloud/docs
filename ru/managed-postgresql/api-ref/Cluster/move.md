@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Cluster.Move {#Move}
+# Managed Service for PostgreSQL API, REST: Cluster.Move
 
 Moves the specified PostgreSQL cluster to the specified folder.
 

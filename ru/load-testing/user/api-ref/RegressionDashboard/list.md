@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/list.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.List {#List}
+# Load Testing API, REST: RegressionDashboard.List
 
 Retrieves the list of regression dashboards in the specified folder.
 

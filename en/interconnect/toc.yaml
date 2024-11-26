@@ -1,6 +1,36 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
 items:
+  - name: Step-by-step guides
+    expanded: false
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Getting information about {{ interconnect-name }} partners
+        href: operations/partner-get-info.md
+      - name: Getting information about {{ interconnect-name }} points of presence
+        href: operations/pop-get-info.md
+      - name: Getting information about trunks
+        href: operations/trunk-get-info.md
+      - name: Getting information about private connections
+        href: operations/priv-con-get-info.md
+      - name: Getting information about public connections
+        href: operations/pub-con-get-info.md
+  - name: Tutorials
+    expanded: false
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Creating a direct trunk and a private connection in it
+        href: tutorials/trunk-priv-add.md
+      - name: Creating a direct trunk and a public connection in it
+        href: tutorials/trunk-pub-add.md
+      - name: Adding a private connection to a direct or partner trunk
+        href: tutorials/priv-add.md
+      - name: Adding a public connection to a direct or partner trunk
+        href: tutorials/pub-add.md
+      - name: Integrating with a corporate DNS service
+        href: tutorials/dns-integration.md
   - name: Concepts
     expanded: true
     items:
@@ -26,23 +56,6 @@ items:
         href: concepts/capacity.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Guides
-    expanded: false
-    items:
-      - name: All guides
-        href: operations/index.md
-      - name: Creating a direct trunk and a private connection in it
-        href: operations/trunk-priv-add.md
-      - name: Creating a direct trunk and a public connection in it
-        href: operations/trunk-pub-add.md
-      - name: Adding a private connection to a direct or partner trunk
-        href: operations/priv-add.md
-      - name: Adding a public connection to a direct or partner trunk
-        href: operations/pub-add.md
-  - name: Tutorials
-    items:
-      - name: Integrating with a corporate DNS service
-        href: tutorials/dns-integration.md
   - name: API reference
     items:
       - name: Authentication with the API

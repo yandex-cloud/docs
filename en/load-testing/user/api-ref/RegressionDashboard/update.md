@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/update.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.Update {#Update}
+# Load Testing API, REST: RegressionDashboard.Update
 
 Updates the specified regression dashboard.
 

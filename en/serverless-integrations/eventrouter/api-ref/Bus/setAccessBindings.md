@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/setAccessBindings.md
 ---
 
-# EventRouter Service, REST: Bus.SetAccessBindings {#SetAccessBindings}
+# EventRouter Service, REST: Bus.SetAccessBindings
 
 Sets access bindings for the bus.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/list.md
 ---
 
-# Virtual Private Cloud API, REST: Network.List {#List}
+# Virtual Private Cloud API, REST: Network.List
 
 Retrieves the list of Network resources in the specified folder.
 

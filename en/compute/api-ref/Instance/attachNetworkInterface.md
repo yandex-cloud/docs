@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachNetworkInterface.md
 ---
 
-# Compute Cloud API, REST: Instance.AttachNetworkInterface {#AttachNetworkInterface}
+# Compute Cloud API, REST: Instance.AttachNetworkInterface
 
 Attaches the network-interface to the instance.
 

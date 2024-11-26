@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/prefetch.md
 ---
 
-# Cloud CDN API, REST: Cache.Prefetch {#Prefetch}
+# Cloud CDN API, REST: Cache.Prefetch
 
 Uploads specified files from origins to cache of the specified resource. For defails about prefetching, see [documentation](/docs/cdn/concepts/caching#prefetch).
 

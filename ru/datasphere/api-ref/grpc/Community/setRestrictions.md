@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/setRestrictions.md
 ---
 
-# DataSphere API v2, gRPC: CommunityService.SetRestrictions {#SetRestrictions}
+# DataSphere API v2, gRPC: CommunityService.SetRestrictions
 
 Set community restrictions.
 
@@ -15,17 +15,17 @@ Set community restrictions.
 
 ```json
 {
-  "communityId": "string",
+  "community_id": "string",
   "restrictions": [
     {
       "name": "string",
-      "boolValue": [
+      "bool_value": [
         "bool"
       ],
-      "longValue": [
+      "long_value": [
         "int64"
       ],
-      "stringValue": [
+      "string_value": [
         "string"
       ]
     }
@@ -35,7 +35,7 @@ Set community restrictions.
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 Required field. ID of the community. ||
 || restrictions[] | **[Restriction](#yandex.cloud.datasphere.v2.Restriction)**
@@ -50,13 +50,13 @@ List of restrictions to set. ||
 || name | **string**
 
 Name of restriction. ||
-|| boolValue[] | **bool**
+|| bool_value[] | **bool**
 
 List of boolean restriction values. Empty if value type is not boolean. ||
-|| longValue[] | **int64**
+|| long_value[] | **int64**
 
 List of long restriction values. Empty if value type is not long. ||
-|| stringValue[] | **string**
+|| string_value[] | **string**
 
 List of string restriction values. Empty if value type is not string. ||
 |#
@@ -67,9 +67,9 @@ List of string restriction values. Empty if value type is not string. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -78,13 +78,13 @@ List of string restriction values. Empty if value type is not string. ||
     "restrictions": [
       {
         "name": "string",
-        "boolValue": [
+        "bool_value": [
           "bool"
         ],
-        "longValue": [
+        "long_value": [
           "int64"
         ],
-        "stringValue": [
+        "string_value": [
           "string"
         ]
       }
@@ -104,13 +104,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -165,13 +165,13 @@ List of restrictions. ||
 || name | **string**
 
 Name of restriction. ||
-|| boolValue[] | **bool**
+|| bool_value[] | **bool**
 
 List of boolean restriction values. Empty if value type is not boolean. ||
-|| longValue[] | **int64**
+|| long_value[] | **int64**
 
 List of long restriction values. Empty if value type is not long. ||
-|| stringValue[] | **string**
+|| string_value[] | **string**
 
 List of string restriction values. Empty if value type is not string. ||
 |#

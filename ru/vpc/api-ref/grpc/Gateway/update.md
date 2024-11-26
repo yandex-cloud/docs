@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Gateway/update.md
 ---
 
-# Virtual Private Cloud API, gRPC: GatewayService.Update {#Update}
+# Virtual Private Cloud API, gRPC: GatewayService.Update
 
 Updates the specified gateway.
 
@@ -15,25 +15,25 @@ Updates the specified gateway.
 
 ```json
 {
-  "gatewayId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "gateway_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `sharedEgressGatewaySpec`
-  "sharedEgressGatewaySpec": "SharedEgressGatewaySpec"
+  // Includes only one of the fields `shared_egress_gateway_spec`
+  "shared_egress_gateway_spec": "SharedEgressGatewaySpec"
   // end of the list of possible fields
 }
 ```
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field. ID of the gateway to update.
 
 To get the gateway ID make a [GatewayService.List](/docs/vpc/api-ref/grpc/Gateway/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the Gateway should be updated. ||
 || name | **string**
@@ -52,9 +52,9 @@ to add or remove a label:
 1. Get the current set of labels with a [GatewayService.Get](/docs/vpc/api-ref/grpc/Gateway/get#Get) request.
 2. Add or remove a label in this set.
 3. Send the new set in this field. ||
-|| sharedEgressGatewaySpec | **[SharedEgressGatewaySpec](#yandex.cloud.vpc.v1.SharedEgressGatewaySpec)**
+|| shared_egress_gateway_spec | **[SharedEgressGatewaySpec](#yandex.cloud.vpc.v1.SharedEgressGatewaySpec)**
 
-Includes only one of the fields `sharedEgressGatewaySpec`.
+Includes only one of the fields `shared_egress_gateway_spec`.
 
 New Gateway configuration specification ||
 |#
@@ -72,24 +72,24 @@ New Gateway configuration specification ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "gatewayId": "string"
+    "gateway_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    // Includes only one of the fields `sharedEgressGateway`
-    "sharedEgressGateway": "SharedEgressGateway"
+    // Includes only one of the fields `shared_egress_gateway`
+    "shared_egress_gateway": "SharedEgressGateway"
     // end of the list of possible fields
   }
   // end of the list of possible fields
@@ -106,13 +106,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -155,7 +155,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 ID of the Gateway that is being updated. ||
 |#
@@ -169,10 +169,10 @@ A Gateway resource. For more information, see [Gateway](/docs/vpc/concepts/gatew
 || id | **string**
 
 ID of the gateway. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the gateway belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -191,9 +191,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_./\\@0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. ||
-|| sharedEgressGateway | **[SharedEgressGateway](#yandex.cloud.vpc.v1.SharedEgressGateway)**
+|| shared_egress_gateway | **[SharedEgressGateway](#yandex.cloud.vpc.v1.SharedEgressGateway)**
 
-Includes only one of the fields `sharedEgressGateway`.
+Includes only one of the fields `shared_egress_gateway`.
 
 Gateway specification ||
 |#

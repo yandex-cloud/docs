@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/removeListener.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.RemoveListener {#RemoveListener}
+# Network Load Balancer API, REST: NetworkLoadBalancer.RemoveListener
 
 Removes the listener from the specified network load balancer.
 

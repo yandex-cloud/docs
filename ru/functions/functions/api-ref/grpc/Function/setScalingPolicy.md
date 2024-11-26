@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/setScalingPolicy.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.SetScalingPolicy {#SetScalingPolicy}
+# Cloud Functions Service, gRPC: FunctionService.SetScalingPolicy
 
 Set scaling policy for specified function and tag
 
@@ -15,17 +15,17 @@ Set scaling policy for specified function and tag
 
 ```json
 {
-  "functionId": "string",
+  "function_id": "string",
   "tag": "string",
-  "provisionedInstancesCount": "int64",
-  "zoneInstancesLimit": "int64",
-  "zoneRequestsLimit": "int64"
+  "provisioned_instances_count": "int64",
+  "zone_instances_limit": "int64",
+  "zone_requests_limit": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to retrieve scaling policies for.
 
@@ -35,15 +35,15 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 Required field. Version tag.
 
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request. ||
-|| provisionedInstancesCount | **int64**
+|| provisioned_instances_count | **int64**
 
 Minimum guaranteed provisioned instances count for all zones in total.
 Billed separately. ||
-|| zoneInstancesLimit | **int64**
+|| zone_instances_limit | **int64**
 
 Upper limit for instance count in each zone.
 0 means no limit. ||
-|| zoneRequestsLimit | **int64**
+|| zone_requests_limit | **int64**
 
 Upper limit of requests count in each zone.
 0 means no limit. ||
@@ -55,23 +55,23 @@ Upper limit of requests count in each zone.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "functionId": "string"
+    "function_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "functionId": "string",
+    "function_id": "string",
     "tag": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "modifiedAt": "google.protobuf.Timestamp",
-    "provisionedInstancesCount": "int64",
-    "zoneInstancesLimit": "int64",
-    "zoneRequestsLimit": "int64"
+    "created_at": "google.protobuf.Timestamp",
+    "modified_at": "google.protobuf.Timestamp",
+    "provisioned_instances_count": "int64",
+    "zone_instances_limit": "int64",
+    "zone_requests_limit": "int64"
   }
   // end of the list of possible fields
 }
@@ -87,13 +87,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -136,7 +136,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 ID of the function for which scaling policy was set. ||
 |#
@@ -145,27 +145,27 @@ ID of the function for which scaling policy was set. ||
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 ID of the function that the scaling policy belongs to. ||
 || tag | **string**
 
 Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the scaling policy ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Modification timestamp for the scaling policy ||
-|| provisionedInstancesCount | **int64**
+|| provisioned_instances_count | **int64**
 
 Minimum guaranteed provisioned instances count for all zones in total.
 Billed separately. ||
-|| zoneInstancesLimit | **int64**
+|| zone_instances_limit | **int64**
 
 Upper limit for instance count in each zone.
 0 means no limit. ||
-|| zoneRequestsLimit | **int64**
+|| zone_requests_limit | **int64**
 
 Upper limit of requests count in each zone.
 0 means no limit. ||

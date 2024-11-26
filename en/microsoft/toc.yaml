@@ -9,11 +9,23 @@ items:
         href: byol.md
       - name: Secure password transmission to an initialization script
         href: tutorials/secure-password-script.md
-  - name: Licensing
+      - name: Deploying Active Directory
+        href: tutorials/active-directory.md
+      - name: Deploying Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: Deploying Remote Desktop Services
+        href: tutorials/rds.md
+      - name: Deploying Remote Desktop Gateway
+        href: tutorials/rds-gw.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: tutorials/mssql-alwayson-lb.md
+  - name: Licensing agencies
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}
         href: licensing.md
-      - name: Requirements for {{ yandex-cloud }} accounts
+      - name: Requirements for {{ yandex-cloud }} account
         href: check-user-data.md
   - name: Pricing policy
     href: pricing.md

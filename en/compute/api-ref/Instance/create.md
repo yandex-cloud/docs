@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/create.md
 ---
 
-# Compute Cloud API, REST: Instance.Create {#Create}
+# Compute Cloud API, REST: Instance.Create
 
 Creates an instance in the specified folder.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

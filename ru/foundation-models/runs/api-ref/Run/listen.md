@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/listen.md
 ---
 
-# Runs, REST: Run.Listen {#Listen}
+# Runs, REST: Run.Listen
 
 Listen to events from a specific run.
 If the run was created with `stream = false`, Listen will only respond with the final status of the run

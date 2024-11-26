@@ -19,7 +19,7 @@
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../compute/concepts/instance-groups/instance-template.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../compute/concepts/disk.md).
 
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+   * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
      * Specify the disk size.
      * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.

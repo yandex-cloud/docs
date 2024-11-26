@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/get.md
 ---
 
-# DataSphere API v2, REST: Project.Get {#Get}
+# DataSphere API v2, REST: Project.Get
 
 Returns the specified project.
 

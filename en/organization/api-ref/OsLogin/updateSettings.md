@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/updateSettings.md
 ---
 
-# Cloud Organization API, REST: OsLogin.UpdateSettings {#UpdateSettings}
+# Cloud Organization API, REST: OsLogin.UpdateSettings
 
 ## HTTP request
 

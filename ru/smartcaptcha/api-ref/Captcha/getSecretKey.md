@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/getSecretKey.md
 ---
 
-# SmartCaptcha API, REST: Captcha.GetSecretKey {#GetSecretKey}
+# SmartCaptcha API, REST: Captcha.GetSecretKey
 
 Returns the secret data of specified Captcha resource.
 

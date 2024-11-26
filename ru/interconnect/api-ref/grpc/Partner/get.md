@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/Partner/get.md
 ---
 
-# Cloud Interconnect API, gRPC: PartnerService.Get {#Get}
+# Cloud Interconnect API, gRPC: PartnerService.Get
 
 Returns the specified Partner resource.
 
@@ -17,13 +17,13 @@ To get the list of available Partner resources, make a [List](/docs/cic/workload
 
 ```json
 {
-  "partnerId": "string"
+  "partner_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| partnerId | **string**
+|| partner_id | **string**
 
 Required field. ID of the Partner resource to return.
 To get the partner ID use a [PartnerService.List](/docs/cic/workload/api-ref/grpc/Partner/list#List) request. ||
@@ -34,7 +34,7 @@ To get the partner ID use a [PartnerService.List](/docs/cic/workload/api-ref/grp
 ```json
 {
   "id": "string",
-  "regionId": "string",
+  "region_id": "string",
   "status": "Status"
 }
 ```
@@ -46,7 +46,7 @@ A Partner resource.
 || id | **string**
 
 ID of the routingInstance. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the partner belongs to. ||
 || status | enum **Status**

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/list.md
 ---
 
-# Data Proc API, REST: Job.List {#List}
+# Data Proc API, REST: Job.List
 
 Retrieves a list of jobs for a cluster.
 

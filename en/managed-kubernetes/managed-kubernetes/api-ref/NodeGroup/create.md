@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/create.md
 ---
 
-# Managed Services for Kubernetes API, REST: NodeGroup.Create {#Create}
+# Managed Services for Kubernetes API, REST: NodeGroup.Create
 
 Creates a node group in the specified Kubernetes cluster.
 

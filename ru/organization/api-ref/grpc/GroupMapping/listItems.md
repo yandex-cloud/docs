@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/listItems.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.ListItems {#ListItems}
+# Cloud Organization API, gRPC: GroupMappingService.ListItems
 
 Returns all the group mappings items
 
@@ -17,20 +17,20 @@ Filtering is only supported by external_group_id or internal_group_id
 
 ```json
 {
-  "federationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "federation_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field.  ||
-|| pageSize | **int64** ||
-|| pageToken | **string** ||
+|| page_size | **int64** ||
+|| page_token | **string** ||
 || filter | **string** ||
 |#
 
@@ -38,20 +38,20 @@ Required field.  ||
 
 ```json
 {
-  "groupMappingItems": [
+  "group_mapping_items": [
     {
-      "externalGroupId": "string",
-      "internalGroupId": "string"
+      "external_group_id": "string",
+      "internal_group_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| groupMappingItems[] | **[GroupMappingItem](#yandex.cloud.organizationmanager.v1.GroupMappingItem)** ||
-|| nextPageToken | **string** ||
+|| group_mapping_items[] | **[GroupMappingItem](#yandex.cloud.organizationmanager.v1.GroupMappingItem)** ||
+|| next_page_token | **string** ||
 |#
 
 ## GroupMappingItem {#yandex.cloud.organizationmanager.v1.GroupMappingItem}
@@ -60,10 +60,10 @@ Group mapping represents which external (federated) groups should match which in
 
 #|
 ||Field | Description ||
-|| externalGroupId | **string**
+|| external_group_id | **string**
 
 Required field. External group id (received from identity provider) ||
-|| internalGroupId | **string**
+|| internal_group_id | **string**
 
 Required field. Internal cloud group id ||
 |#

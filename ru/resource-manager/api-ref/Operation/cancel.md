@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Operation/cancel.md
 ---
 
-# Resource Manager API, REST: Operation.Cancel {#Cancel}
+# Resource Manager API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/get.md
 ---
 
-# Identity and Access Management API, REST: Key.Get {#Get}
+# Identity and Access Management API, REST: Key.Get
 
 Returns the specified Key resource.
 

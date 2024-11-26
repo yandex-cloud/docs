@@ -58,7 +58,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-  1. View the [server response](../api-ref/Cluster/list.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.mysql.v1.ListClustersResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -131,7 +131,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
       You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/get.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -248,7 +248,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
 
       You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listOperations.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -331,7 +331,7 @@ All actions with {{ mmy-name }} clusters are logged as a list of operations. Eac
               --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
           ```
 
-      1. View the [server response](../api-ref/Operation/get.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
     - gRPC API {#grpc-api}
 

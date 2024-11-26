@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Thread/delete.md
 ---
 
-# Threads, gRPC: ThreadService.Delete {#Delete}
+# Threads, gRPC: ThreadService.Delete
 
 Delete a thread by its ID.
 
@@ -15,7 +15,7 @@ Delete a thread by its ID.
 
 ```json
 {
-  "threadId": "string"
+  "thread_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for deleting a thread by ID.
 
 #|
 ||Field | Description ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread to delete. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/listUsedAddresses.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.ListUsedAddresses {#ListUsedAddresses}
+# Virtual Private Cloud API, REST: Subnet.ListUsedAddresses
 
 List used addresses in specified subnet.
 

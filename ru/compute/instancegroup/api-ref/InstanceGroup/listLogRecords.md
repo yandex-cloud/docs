@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/listLogRecords.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.ListLogRecords {#ListLogRecords}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.ListLogRecords
 
 Lists logs for the specified instance group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/updateShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.UpdateShardGroup {#UpdateShardGroup}
+# Managed Service for ClickHouse API, gRPC: ClusterService.UpdateShardGroup
 
 Updates the specified shard group.
 
@@ -15,11 +15,11 @@ Updates the specified shard group.
 
 ```json
 {
-  "clusterId": "string",
-  "shardGroupName": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "cluster_id": "string",
+  "shard_group_name": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "shardNames": [
+  "shard_names": [
     "string"
   ]
 }
@@ -27,21 +27,21 @@ Updates the specified shard group.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster that contains the shard group to update.
 
 To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| shardGroupName | **string**
+|| shard_group_name | **string**
 
 Required field. Name of the shard group that should be updated.
 
 To get the name, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShardGroups#ListShardGroups) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || description | **string**
 
 Updated description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 Updated list of shard names that belongs to the shard group. ||
 |#
@@ -52,21 +52,21 @@ Updated list of shard names that belongs to the shard group. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "shardGroupName": "string"
+    "cluster_id": "string",
+    "shard_group_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "description": "string",
-    "shardNames": [
+    "shard_names": [
       "string"
     ]
   }
@@ -84,13 +84,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -133,10 +133,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that contains the shard group being updated. ||
-|| shardGroupName | **string**
+|| shard_group_name | **string**
 
 Name of the shard group that is being updated. ||
 |#
@@ -148,13 +148,13 @@ Name of the shard group that is being updated. ||
 || name | **string**
 
 Name of the shard group. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the shard group belongs to. ||
 || description | **string**
 
 Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 List of shard names contained in the shard group. ||
 |#

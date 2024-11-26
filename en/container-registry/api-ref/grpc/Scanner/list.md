@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/list.md
 ---
 
-# Container Registry API, gRPC: ScannerService.List {#List}
+# Container Registry API, gRPC: ScannerService.List
 
 Retrieves the list of ScanResults for specified Image.
 
@@ -15,46 +15,46 @@ Retrieves the list of ScanResults for specified Image.
 
 ```json
 {
-  // Includes only one of the fields `imageId`, `repositoryId`
-  "imageId": "string",
-  "repositoryId": "string",
+  // Includes only one of the fields `image_id`, `repository_id`
+  "image_id": "string",
+  "repository_id": "string",
   // end of the list of possible fields
-  "pageSize": "int64",
-  "pageToken": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
-Includes only one of the fields `imageId`, `repositoryId`.
-
-ID of the Image or Repository to list ScanResults for.
-
-To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
-To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
-|| repositoryId | **string**
-
-Includes only one of the fields `imageId`, `repositoryId`.
+Includes only one of the fields `image_id`, `repository_id`.
 
 ID of the Image or Repository to list ScanResults for.
 
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
-|| pageSize | **int64**
+|| repository_id | **string**
+
+Includes only one of the fields `image_id`, `repository_id`.
+
+ID of the Image or Repository to list ScanResults for.
+
+To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
+To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+results is larger than `page_size`,
+the service returns a [ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -62,7 +62,7 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [ScanResult.status](#yandex.cloud.containerregistry.v1.ScanResult) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). ||
-|| orderBy | **string**
+|| order_by | **string**
 
 An order expression that orders resources listed in the response.
 The expression must specify:
@@ -74,11 +74,11 @@ The expression must specify:
 
 ```json
 {
-  "scanResults": [
+  "scan_results": [
     {
       "id": "string",
-      "imageId": "string",
-      "scannedAt": "google.protobuf.Timestamp",
+      "image_id": "string",
+      "scanned_at": "google.protobuf.Timestamp",
       "status": "Status",
       "vulnerabilities": {
         "critical": "int64",
@@ -90,23 +90,23 @@ The expression must specify:
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| scanResults[] | **[ScanResult](#yandex.cloud.containerregistry.v1.ScanResult)**
+|| scan_results[] | **[ScanResult](#yandex.cloud.containerregistry.v1.ScanResult)**
 
 List of ScanResult resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListImagesRequest.pageSize](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest), use
-the `nextPageToken` as the value
-for the [ListImagesRequest.pageToken](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) query parameter
+is larger than [ListImagesRequest.page_size](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest), use
+the `next_page_token` as the value
+for the [ListImagesRequest.page_token](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## ScanResult {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -118,10 +118,10 @@ A ScanResult resource.
 || id | **string**
 
 Output only. ID of the ScanResult. ||
-|| imageId | **string**
+|| image_id | **string**
 
 Output only. ID of the Image that the ScanResult belongs to. ||
-|| scannedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. ||
 || status | enum **Status**

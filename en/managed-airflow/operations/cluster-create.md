@@ -196,7 +196,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 
@@ -368,7 +368,7 @@ To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             --data '@body.json'
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

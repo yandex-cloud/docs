@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/delete.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.Delete {#Delete}
+# Managed Service for ClickHouse API, REST: FormatSchema.Delete
 
 Deletes a format schema from a cluster.
 

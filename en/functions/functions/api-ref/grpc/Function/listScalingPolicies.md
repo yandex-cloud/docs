@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/listScalingPolicies.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.ListScalingPolicies {#ListScalingPolicies}
+# Cloud Functions Service, gRPC: FunctionService.ListScalingPolicies
 
 Lists existing scaling policies for specified function
 
@@ -15,61 +15,61 @@ Lists existing scaling policies for specified function
 
 ```json
 {
-  "functionId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "function_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to retrieve scaling policies for.
 
 To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse)
+results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListScalingPoliciesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse) returned by a previous list request. ||
+[ListScalingPoliciesResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse) returned by a previous list request. ||
 |#
 
 ## ListScalingPoliciesResponse {#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse}
 
 ```json
 {
-  "scalingPolicies": [
+  "scaling_policies": [
     {
-      "functionId": "string",
+      "function_id": "string",
       "tag": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "modifiedAt": "google.protobuf.Timestamp",
-      "provisionedInstancesCount": "int64",
-      "zoneInstancesLimit": "int64",
-      "zoneRequestsLimit": "int64"
+      "created_at": "google.protobuf.Timestamp",
+      "modified_at": "google.protobuf.Timestamp",
+      "provisioned_instances_count": "int64",
+      "zone_instances_limit": "int64",
+      "zone_requests_limit": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| scalingPolicies[] | **[ScalingPolicy](#yandex.cloud.serverless.functions.v1.ScalingPolicy)**
+|| scaling_policies[] | **[ScalingPolicy](#yandex.cloud.serverless.functions.v1.ScalingPolicy)**
 
 Set of relevant scaling policies. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListScalingPoliciesRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest), use `nextPageToken` as the value
-for the [ListScalingPoliciesRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest) parameter in the next list request.
+the specified [ListScalingPoliciesRequest.page_size](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest), use `nextPageToken` as the value
+for the [ListScalingPoliciesRequest.page_token](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -78,27 +78,27 @@ Each subsequent page will have its own `nextPageToken` to continue paging throug
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 ID of the function that the scaling policy belongs to. ||
 || tag | **string**
 
 Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the scaling policy ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Modification timestamp for the scaling policy ||
-|| provisionedInstancesCount | **int64**
+|| provisioned_instances_count | **int64**
 
 Minimum guaranteed provisioned instances count for all zones in total.
 Billed separately. ||
-|| zoneInstancesLimit | **int64**
+|| zone_instances_limit | **int64**
 
 Upper limit for instance count in each zone.
 0 means no limit. ||
-|| zoneRequestsLimit | **int64**
+|| zone_requests_limit | **int64**
 
 Upper limit of requests count in each zone.
 0 means no limit. ||

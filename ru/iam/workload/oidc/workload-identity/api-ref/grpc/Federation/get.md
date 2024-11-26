@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/get.md
 ---
 
-# Federation, gRPC: FederationService.Get {#Get}
+# Federation, gRPC: FederationService.Get
 
 Returns the specified OIDC workload identity federation.
 
@@ -17,13 +17,13 @@ To get the list of available OIDC workload identity federation, make a [List](/d
 
 ```json
 {
-  "federationId": "string"
+  "federation_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the OIDC workload identity federation to return.
 To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/grpc/Federation/list#List) request. ||
@@ -35,16 +35,16 @@ To get the OIDC workload identity federation ID, make a [FederationService.List]
 {
   "id": "string",
   "name": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "description": "string",
   "enabled": "bool",
   "audiences": [
     "string"
   ],
   "issuer": "string",
-  "jwksUrl": "string",
+  "jwks_url": "string",
   "labels": "string",
-  "createdAt": "google.protobuf.Timestamp"
+  "created_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -59,7 +59,7 @@ Id of the OIDC workload identity federation. ||
 
 Name of the OIDC workload identity federation
 The name is unique within the folder. 3-63 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the OIDC workload identity federation belongs to. ||
 || description | **string**
@@ -75,13 +75,13 @@ List of trusted values for aud claim. ||
 || issuer | **string**
 
 URL of the external IdP server to be used for authentication. ||
-|| jwksUrl | **string**
+|| jwks_url | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

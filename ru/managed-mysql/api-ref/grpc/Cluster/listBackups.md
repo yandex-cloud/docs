@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Cluster/listBackups.md
 ---
 
-# Managed Service for MySQL API, gRPC: ClusterService.ListBackups {#ListBackups}
+# Managed Service for MySQL API, gRPC: ClusterService.ListBackups
 
 Retrieves a list of backups for a cluster.
 
@@ -17,29 +17,29 @@ To list all backups in a folder, make a [BackupService.List](/docs/managed-mysql
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to list backups for.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the API returns a [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests. ||
+|| page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request. ||
+To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request. ||
 |#
 
 ## ListClusterBackupsResponse {#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse}
@@ -49,16 +49,16 @@ To get the next page of results, set `pageToken` to the [ListClusterBackupsRespo
   "backups": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "sourceClusterId": "string",
-      "startedAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "source_cluster_id": "string",
+      "started_at": "google.protobuf.Timestamp",
       "size": "int64",
       "type": "BackupCreationType",
       "status": "BackupStatus"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,13 +67,13 @@ To get the next page of results, set `pageToken` to the [ListClusterBackupsRespo
 || backups[] | **[Backup](#yandex.cloud.mdb.mysql.v1.Backup)**
 
 List of the cluster backups. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 The token that can be used to get the next page of results.
 
-If the number of results is larger than [ListClusterBackupsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest), use the `nextPageToken` as the value for the [ListClusterBackupsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups) request to iterate through multiple pages of results.
+If the number of results is larger than [ListClusterBackupsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups) request to iterate through multiple pages of results.
 
-Each of the subsequent [ClusterService.ListBackups](#ListBackups) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
+Each of the subsequent [ClusterService.ListBackups](#ListBackups) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Backup {#yandex.cloud.mdb.mysql.v1.Backup}
@@ -87,16 +87,16 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
 || id | **string**
 
 Required field. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp (the time when the backup operation was completed). ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp (the time when the backup operation was started). ||
 || size | **int64**

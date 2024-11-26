@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for MongoDB API, REST: Database.List {#List}
+# Managed Service for MongoDB API, REST: Database.List
 
 Retrieves the list of MongoDB Database resources in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: HBARule.Delete
 
 Delete specified HBA rule for the specified Greenplum cluster.
 

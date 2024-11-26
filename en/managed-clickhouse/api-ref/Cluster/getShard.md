@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/getShard.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.GetShard {#GetShard}
+# Managed Service for ClickHouse API, REST: Cluster.GetShard
 
 Returns the specified shard.
 

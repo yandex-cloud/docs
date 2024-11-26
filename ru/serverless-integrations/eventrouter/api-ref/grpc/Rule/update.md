@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Rule/update.md
 ---
 
-# EventRouter Service, gRPC: RuleService.Update {#Update}
+# EventRouter Service, gRPC: RuleService.Update
 
 Updates the specified rule.
 
@@ -15,104 +15,104 @@ Updates the specified rule.
 
 ```json
 {
-  "ruleId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "rule_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
   "filter": {
-    // Includes only one of the fields `jqFilter`
-    "jqFilter": "string"
+    // Includes only one of the fields `jq_filter`
+    "jq_filter": "string"
     // end of the list of possible fields
   },
   "targets": [
     {
-      // Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`
+      // Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`
       "yds": {
         "database": "string",
-        "streamName": "string",
-        "serviceAccountId": "string"
+        "stream_name": "string",
+        "service_account_id": "string"
       },
       "ymq": {
-        "queueArn": "string",
-        "serviceAccountId": "string"
+        "queue_arn": "string",
+        "service_account_id": "string"
       },
       "function": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
-          "maxCount": "int64",
-          "maxBytes": "int64",
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "batch_settings": {
+          "max_count": "int64",
+          "max_bytes": "int64",
           "cutoff": "google.protobuf.Duration"
         }
       },
       "container": {
-        "containerId": "string",
-        "containerRevisionId": "string",
+        "container_id": "string",
+        "container_revision_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
-          "maxCount": "int64",
-          "maxBytes": "int64",
+        "service_account_id": "string",
+        "batch_settings": {
+          "max_count": "int64",
+          "max_bytes": "int64",
           "cutoff": "google.protobuf.Duration"
         }
       },
-      "gatewayWsBroadcast": {
-        "gatewayId": "string",
+      "gateway_ws_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
-          "maxCount": "int64",
-          "maxBytes": "int64",
+        "service_account_id": "string",
+        "batch_settings": {
+          "max_count": "int64",
+          "max_bytes": "int64",
           "cutoff": "google.protobuf.Duration"
         }
       },
       "logging": {
-        // Includes only one of the fields `logGroupId`, `folderId`
-        "logGroupId": "string",
-        "folderId": "string",
+        // Includes only one of the fields `log_group_id`, `folder_id`
+        "log_group_id": "string",
+        "folder_id": "string",
         // end of the list of possible fields
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       },
       "workflow": {
-        "workflowId": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
-          "maxCount": "int64",
-          "maxBytes": "int64",
+        "workflow_id": "string",
+        "service_account_id": "string",
+        "batch_settings": {
+          "max_count": "int64",
+          "max_bytes": "int64",
           "cutoff": "google.protobuf.Duration"
         }
       },
       // end of the list of possible fields
       "transformer": {
-        // Includes only one of the fields `jqTransformer`
-        "jqTransformer": "string"
+        // Includes only one of the fields `jq_transformer`
+        "jq_transformer": "string"
         // end of the list of possible fields
       },
-      "retrySettings": {
-        "retryAttempts": "int64",
-        "maximumAge": "google.protobuf.Duration"
+      "retry_settings": {
+        "retry_attempts": "int64",
+        "maximum_age": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `deadLetterQueue`
-      "deadLetterQueue": {
-        "queueArn": "string",
-        "serviceAccountId": "string"
+      // Includes only one of the fields `dead_letter_queue`
+      "dead_letter_queue": {
+        "queue_arn": "string",
+        "service_account_id": "string"
       },
       // end of the list of possible fields
       "status": "Status"
     }
   ],
-  "deletionProtection": "bool"
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 Required field. ID of the rule to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the rule are going to be updated. ||
 || name | **string**
@@ -130,7 +130,7 @@ New filter for the rule. ||
 || targets[] | **[Target](#yandex.cloud.serverless.eventrouter.v1.Target)**
 
 New targets for the rule. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 New flag that disallow deletion of the rule. ||
 |#
@@ -139,11 +139,11 @@ New flag that disallow deletion of the rule. ||
 
 #|
 ||Field | Description ||
-|| jqFilter | **string**
+|| jq_filter | **string**
 
 JQ filter for matching events.
 
-Includes only one of the fields `jqFilter`. ||
+Includes only one of the fields `jq_filter`. ||
 |#
 
 ## Target {#yandex.cloud.serverless.eventrouter.v1.Target}
@@ -152,36 +152,36 @@ Includes only one of the fields `jqFilter`. ||
 ||Field | Description ||
 || yds | **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || ymq | **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || function | **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || container | **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
-|| gatewayWsBroadcast | **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
+|| gateway_ws_broadcast | **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || logging | **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || workflow | **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || transformer | **[Transformer](#yandex.cloud.serverless.eventrouter.v1.Transformer)**
 
 Transformer of the target. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings)**
 
 Retry settings of the target. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
 
 Dead letter queue.
 
-Includes only one of the fields `deadLetterQueue`.
+Includes only one of the fields `dead_letter_queue`.
 
 Dead letter settings of the target. ||
 || status | enum **Status**
@@ -203,10 +203,10 @@ Status of the target.
 || database | **string**
 
 Required field. Stream database. ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account, which has write permission on the stream. ||
 |#
@@ -215,11 +215,11 @@ Required field. Service account, which has write permission on the stream. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write access to the queue. ||
 |#
@@ -228,16 +228,16 @@ Required field. Service account which has write access to the queue. ||
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. Function ID. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Function tag, optional. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account which has call permission on the function, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
 |#
@@ -246,10 +246,10 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| maxCount | **int64**
+|| max_count | **int64**
 
 Maximum batch size: trigger will send a batch if number of events exceeds this value. ||
-|| maxBytes | **int64**
+|| max_bytes | **int64**
 
 Maximum batch size: trigger will send a batch if total size of events exceeds this value. ||
 || cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -261,19 +261,19 @@ Required field. Maximum batch size: trigger will send a batch if its lifetime ex
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. Container ID. ||
-|| containerRevisionId | **string**
+|| container_revision_id | **string**
 
 Container revision ID. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account which should be used to call a container, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
 |#
@@ -282,16 +282,16 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field. Gateway ID. ||
 || path | **string**
 
 Required field. Path. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has permission for writing to websockets. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
 |#
@@ -300,17 +300,17 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log group ID or folder ID. ||
-|| folderId | **string**
-
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
-|| serviceAccountId | **string**
+|| folder_id | **string**
+
+Includes only one of the fields `log_group_id`, `folder_id`.
+
+Log group ID or folder ID. ||
+|| service_account_id | **string**
 
 Required field. Service account which has permission for writing logs. ||
 |#
@@ -319,13 +319,13 @@ Required field. Service account which has permission for writing logs. ||
 
 #|
 ||Field | Description ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 Required field. Workflow ID. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. SA which should be used to start workflow. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
 
 Batch settings. ||
 |#
@@ -334,21 +334,21 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| jqTransformer | **string**
+|| jq_transformer | **string**
 
 JQ string inrerpolation expression for changing event format.
 
-Includes only one of the fields `jqTransformer`. ||
+Includes only one of the fields `jq_transformer`. ||
 |#
 
 ## RetrySettings {#yandex.cloud.serverless.eventrouter.v1.RetrySettings}
 
 #|
 ||Field | Description ||
-|| retryAttempts | **int64**
+|| retry_attempts | **int64**
 
 Maximum number of retries (extra calls) before an action fails. ||
-|| maximumAge | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| maximum_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Event goes to dlq when its age exceeds this value. Default is 24h. ||
 |#
@@ -357,10 +357,10 @@ Event goes to dlq when its age exceeds this value. Default is 24h. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 ID of the queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write permission on the queue. ||
 |#
@@ -371,108 +371,108 @@ Required field. Service account which has write permission on the queue. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "ruleId": "string"
+    "rule_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "busId": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "bus_id": "string",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "filter": {
-      // Includes only one of the fields `jqFilter`
-      "jqFilter": "string"
+      // Includes only one of the fields `jq_filter`
+      "jq_filter": "string"
       // end of the list of possible fields
     },
     "targets": [
       {
-        // Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`
+        // Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`
         "yds": {
           "database": "string",
-          "streamName": "string",
-          "serviceAccountId": "string"
+          "stream_name": "string",
+          "service_account_id": "string"
         },
         "ymq": {
-          "queueArn": "string",
-          "serviceAccountId": "string"
+          "queue_arn": "string",
+          "service_account_id": "string"
         },
         "function": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "batchSettings": {
-            "maxCount": "int64",
-            "maxBytes": "int64",
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "batch_settings": {
+            "max_count": "int64",
+            "max_bytes": "int64",
             "cutoff": "google.protobuf.Duration"
           }
         },
         "container": {
-          "containerId": "string",
-          "containerRevisionId": "string",
+          "container_id": "string",
+          "container_revision_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "batchSettings": {
-            "maxCount": "int64",
-            "maxBytes": "int64",
+          "service_account_id": "string",
+          "batch_settings": {
+            "max_count": "int64",
+            "max_bytes": "int64",
             "cutoff": "google.protobuf.Duration"
           }
         },
-        "gatewayWsBroadcast": {
-          "gatewayId": "string",
+        "gateway_ws_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "batchSettings": {
-            "maxCount": "int64",
-            "maxBytes": "int64",
+          "service_account_id": "string",
+          "batch_settings": {
+            "max_count": "int64",
+            "max_bytes": "int64",
             "cutoff": "google.protobuf.Duration"
           }
         },
         "logging": {
-          // Includes only one of the fields `logGroupId`, `folderId`
-          "logGroupId": "string",
-          "folderId": "string",
+          // Includes only one of the fields `log_group_id`, `folder_id`
+          "log_group_id": "string",
+          "folder_id": "string",
           // end of the list of possible fields
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         },
         "workflow": {
-          "workflowId": "string",
-          "serviceAccountId": "string",
-          "batchSettings": {
-            "maxCount": "int64",
-            "maxBytes": "int64",
+          "workflow_id": "string",
+          "service_account_id": "string",
+          "batch_settings": {
+            "max_count": "int64",
+            "max_bytes": "int64",
             "cutoff": "google.protobuf.Duration"
           }
         },
         // end of the list of possible fields
         "transformer": {
-          // Includes only one of the fields `jqTransformer`
-          "jqTransformer": "string"
+          // Includes only one of the fields `jq_transformer`
+          "jq_transformer": "string"
           // end of the list of possible fields
         },
-        "retrySettings": {
-          "retryAttempts": "int64",
-          "maximumAge": "google.protobuf.Duration"
+        "retry_settings": {
+          "retry_attempts": "int64",
+          "maximum_age": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `deadLetterQueue`
-        "deadLetterQueue": {
-          "queueArn": "string",
-          "serviceAccountId": "string"
+        // Includes only one of the fields `dead_letter_queue`
+        "dead_letter_queue": {
+          "queue_arn": "string",
+          "service_account_id": "string"
         },
         // end of the list of possible fields
         "status": "Status"
       }
     ],
-    "deletionProtection": "bool",
+    "deletion_protection": "bool",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -489,13 +489,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -538,7 +538,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 Required field. ID of the rule that is being updated. ||
 |#
@@ -550,16 +550,16 @@ Required field. ID of the rule that is being updated. ||
 || id | **string**
 
 ID of the rule. ||
-|| busId | **string**
+|| bus_id | **string**
 
 ID of the bus that the rule belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the rule resides in. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the rule resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -577,7 +577,7 @@ Filter for the rule. ||
 || targets[] | **[Target](#yandex.cloud.serverless.eventrouter.v1.Target2)**
 
 Targets of the rule. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that disallow deletion of the rule. ||
 || status | enum **Status**
@@ -596,11 +596,11 @@ Rule status
 
 #|
 ||Field | Description ||
-|| jqFilter | **string**
+|| jq_filter | **string**
 
 JQ filter for matching events.
 
-Includes only one of the fields `jqFilter`. ||
+Includes only one of the fields `jq_filter`. ||
 |#
 
 ## Target {#yandex.cloud.serverless.eventrouter.v1.Target2}
@@ -609,36 +609,36 @@ Includes only one of the fields `jqFilter`. ||
 ||Field | Description ||
 || yds | **[YdsTarget](#yandex.cloud.serverless.eventrouter.v1.YdsTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || ymq | **[YmqTarget](#yandex.cloud.serverless.eventrouter.v1.YmqTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || function | **[FunctionTarget](#yandex.cloud.serverless.eventrouter.v1.FunctionTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || container | **[ContainerTarget](#yandex.cloud.serverless.eventrouter.v1.ContainerTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
-|| gatewayWsBroadcast | **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget2)**
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
+|| gateway_ws_broadcast | **[GatewayWebsocketBroadcastTarget](#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || logging | **[LoggingTarget](#yandex.cloud.serverless.eventrouter.v1.LoggingTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || workflow | **[WorkflowTarget](#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget2)**
 
-Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`. ||
+Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gateway_ws_broadcast`, `logging`, `workflow`. ||
 || transformer | **[Transformer](#yandex.cloud.serverless.eventrouter.v1.Transformer2)**
 
 Transformer of the target. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings2)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.eventrouter.v1.RetrySettings2)**
 
 Retry settings of the target. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage2)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage2)**
 
 Dead letter queue.
 
-Includes only one of the fields `deadLetterQueue`.
+Includes only one of the fields `dead_letter_queue`.
 
 Dead letter settings of the target. ||
 || status | enum **Status**
@@ -660,10 +660,10 @@ Status of the target.
 || database | **string**
 
 Required field. Stream database. ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account, which has write permission on the stream. ||
 |#
@@ -672,11 +672,11 @@ Required field. Service account, which has write permission on the stream. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write access to the queue. ||
 |#
@@ -685,16 +685,16 @@ Required field. Service account which has write access to the queue. ||
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. Function ID. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Function tag, optional. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account which has call permission on the function, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
 |#
@@ -703,10 +703,10 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| maxCount | **int64**
+|| max_count | **int64**
 
 Maximum batch size: trigger will send a batch if number of events exceeds this value. ||
-|| maxBytes | **int64**
+|| max_bytes | **int64**
 
 Maximum batch size: trigger will send a batch if total size of events exceeds this value. ||
 || cutoff | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -718,19 +718,19 @@ Required field. Maximum batch size: trigger will send a batch if its lifetime ex
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. Container ID. ||
-|| containerRevisionId | **string**
+|| container_revision_id | **string**
 
 Container revision ID. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account which should be used to call a container, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
 |#
@@ -739,16 +739,16 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field. Gateway ID. ||
 || path | **string**
 
 Required field. Path. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has permission for writing to websockets. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
 |#
@@ -757,17 +757,17 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log group ID or folder ID. ||
-|| folderId | **string**
-
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log group ID or folder ID. ||
-|| serviceAccountId | **string**
+|| folder_id | **string**
+
+Includes only one of the fields `log_group_id`, `folder_id`.
+
+Log group ID or folder ID. ||
+|| service_account_id | **string**
 
 Required field. Service account which has permission for writing logs. ||
 |#
@@ -776,13 +776,13 @@ Required field. Service account which has permission for writing logs. ||
 
 #|
 ||Field | Description ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 Required field. Workflow ID. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. SA which should be used to start workflow. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.eventrouter.v1.BatchSettings2)**
 
 Batch settings. ||
 |#
@@ -791,21 +791,21 @@ Batch settings. ||
 
 #|
 ||Field | Description ||
-|| jqTransformer | **string**
+|| jq_transformer | **string**
 
 JQ string inrerpolation expression for changing event format.
 
-Includes only one of the fields `jqTransformer`. ||
+Includes only one of the fields `jq_transformer`. ||
 |#
 
 ## RetrySettings {#yandex.cloud.serverless.eventrouter.v1.RetrySettings2}
 
 #|
 ||Field | Description ||
-|| retryAttempts | **int64**
+|| retry_attempts | **int64**
 
 Maximum number of retries (extra calls) before an action fails. ||
-|| maximumAge | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| maximum_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Event goes to dlq when its age exceeds this value. Default is 24h. ||
 |#
@@ -814,10 +814,10 @@ Event goes to dlq when its age exceeds this value. Default is 24h. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 ID of the queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write permission on the queue. ||
 |#

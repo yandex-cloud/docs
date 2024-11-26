@@ -42,7 +42,7 @@ You can add and remove cluster hosts and manage their settings. For information 
   ```
 
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -61,7 +61,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listHosts.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -161,7 +161,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
 
-     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
      You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
@@ -257,11 +257,11 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      * `priority`: Host priority among all hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
-       See the [method description](../api-ref/Cluster/addHosts.md#body_params) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+       See the [method description](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/addHosts.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -339,7 +339,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
   To change the parameters of the cluster host:
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Set new settings for the host:
      1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
@@ -445,17 +445,17 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
      Where `updateHostSpecs` is an array of hosts being changed. One array element contains settings for a single host and has the following structure:
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
-     * `hostName`: [FQDN of a host being changed](connect.md#fqdn).
+     * `hostName`: [FQDN of the host being changed](connect.md#fqdn).
      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
      * `replicationSource`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual). In the parameter, specify the FQDN of the host to be used as a replication source.
      * `priority`: Host priority among all hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
-       See the [method description](../api-ref/Cluster/updateHosts.md#body_params) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+       See the [method description](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/updateHosts.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -506,7 +506,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
      Where `update_host_specs` is an array of hosts being changed. One array element contains settings for a single host and has the following structure:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
-     * `host_name`: [FQDN of a host being changed](connect.md#fqdn).
+     * `host_name`: [FQDN of the host being changed](connect.md#fqdn).
      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
      * `replication_source`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual). In the parameter, specify the FQDN of the host to be used as a replication source.
      * `priority`: Host priority among all hosts.
@@ -532,7 +532,7 @@ If you cannot [connect](connect.md) to the host after you changed it, check that
 
 You can remove a host from a {{ PG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master at the time of deletion, {{ mpg-short-name }} will automatically assign the next highest priority replica as the master.
+If the host is the master when deleted, {{ mpg-short-name }} automatically assigns the replica of the next highest priority as the master.
 
 {% list tabs group=instructions %}
 
@@ -541,7 +541,7 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
   To remove a host from a cluster:
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
 - CLI {#cli}
 
@@ -602,7 +602,7 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/deleteHosts.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

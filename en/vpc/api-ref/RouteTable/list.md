@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/list.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.List {#List}
+# Virtual Private Cloud API, REST: RouteTable.List
 
 Retrieves the list of RouteTable resources in the specified folder.
 

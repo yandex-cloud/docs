@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
 Если доступ к серийной консоли отсутствует, для восстановления публичной части SSH-ключа выполните следующие действия:
 1. [Остановите](../vm-control/vm-stop-and-start.md) ВМ.
 1. [Сделайте снимок](../disk-control/create-snapshot.md) с загрузочного диска ВМ.
-1. [Создайте](../vm-create/create-from-snapshots.md) вспомогательную ВМ на базе Linux. Для загрузочного диска выберите операционную систему в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**. Чтобы подключить диск с данными к вспомогательной ВМ, выберите ранее созданный снимок в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**.
+1. [Создайте](../vm-create/create-from-snapshots.md) вспомогательную ВМ на базе Linux. Для загрузочного диска выберите операционную систему в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**. Чтобы подключить диск с данными к вспомогательной ВМ, выберите ранее созданный снимок в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**.
 1. [Подключитесь по SSH](../vm-connect/ssh.md) к вспомогательной ВМ, [смонтируйте диск](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid), созданный из снимка.
 1. Замените SSH-ключ, который хранится на этом диске, на работоспособный:
    1. Перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хранится публичная часть SSH-ключа на смонтированном разделе, например:

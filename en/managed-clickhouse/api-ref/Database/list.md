@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: Database.List {#List}
+# Managed Service for ClickHouse API, REST: Database.List
 
 Retrieves the list of ClickHouse Database resources in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Service/list.md
 ---
 
-# Billing API, REST: Service.List {#List}
+# Billing API, REST: Service.List
 
 Retrieves the list of services.
 

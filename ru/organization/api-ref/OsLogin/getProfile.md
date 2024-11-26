@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/getProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.GetProfile {#GetProfile}
+# Cloud Organization API, REST: OsLogin.GetProfile
 
 OsLogin Profiles
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/list.md
 ---
 
-# SAML Federation API, REST: Federation.List {#List}
+# SAML Federation API, REST: Federation.List
 
 Retrieves the list of federations in the specified organization.
 

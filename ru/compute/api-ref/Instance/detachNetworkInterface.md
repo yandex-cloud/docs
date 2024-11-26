@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachNetworkInterface.md
 ---
 
-# Compute Cloud API, REST: Instance.DetachNetworkInterface {#DetachNetworkInterface}
+# Compute Cloud API, REST: Instance.DetachNetworkInterface
 
 Detaches the network-interface to the instance.
 

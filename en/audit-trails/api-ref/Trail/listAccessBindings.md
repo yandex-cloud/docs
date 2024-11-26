@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/listAccessBindings.md
 ---
 
-# Audit Trails API, REST: Trail.ListAccessBindings {#ListAccessBindings}
+# Audit Trails API, REST: Trail.ListAccessBindings
 
 Lists existing access bindings for the specified trail.
 

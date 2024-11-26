@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/list.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.List {#List}
+# Virtual Private Cloud API, REST: PrivateEndpoint.List
 
 Retrieves the list of PrivateEndpoint resources in the specified folder.
 

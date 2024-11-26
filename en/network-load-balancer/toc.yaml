@@ -49,6 +49,8 @@ items:
         href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
+      - name: Implementing fault-tolerant scenarios for network VMs
+        href: tutorials/route-switcher.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
@@ -73,6 +75,20 @@ items:
         href: tutorials/updating-under-load.md
       - name: Integrating {{ dns-name }} and a corporate DNS service
         href: tutorials/dns-integration.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: Deploying Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: tutorials/mssql-alwayson-lb.md
   - name: Concepts
     items:
       - name: Overview
@@ -241,6 +257,8 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
 base: en/network-load-balancer

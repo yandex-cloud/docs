@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/setHTTPSConfig.md
 ---
 
-# Object Storage API, REST: Bucket.SetHTTPSConfig {#SetHTTPSConfig}
+# Object Storage API, REST: Bucket.SetHTTPSConfig
 
 Updates the HTTPS configuration for the specified bucket.
 

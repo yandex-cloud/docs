@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setScalingPolicy.md
 ---
 
-# Cloud Functions Service, REST: Function.SetScalingPolicy {#SetScalingPolicy}
+# Cloud Functions Service, REST: Function.SetScalingPolicy
 
 Set scaling policy for specified function and tag
 

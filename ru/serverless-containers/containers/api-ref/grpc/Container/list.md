@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Container/list.md
 ---
 
-# Serverless Containers Service, gRPC: ContainerService.List {#List}
+# Serverless Containers Service, gRPC: ContainerService.List
 
 Retrieves the list of containers in the specified folder.
 
@@ -15,31 +15,31 @@ Retrieves the list of containers in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list containers in.
 
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListContainersResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainersResponse)
+results is larger than `pageSize`, the service returns a [ListContainersResponse.next_page_token](#yandex.cloud.serverless.containers.v1.ListContainersResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListContainersResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainersResponse) returned by a previous list request. ||
+[ListContainersResponse.next_page_token](#yandex.cloud.serverless.containers.v1.ListContainersResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters containers listed in the response.
@@ -58,8 +58,8 @@ Example of a filter: `name="my-container"`. ||
   "containers": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
@@ -67,7 +67,7 @@ Example of a filter: `name="my-container"`. ||
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -76,11 +76,11 @@ Example of a filter: `name="my-container"`. ||
 || containers[] | **[Container](#yandex.cloud.serverless.containers.v1.Container)**
 
 List of containers in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListContainersRequest.pageSize](#yandex.cloud.serverless.containers.v1.ListContainersRequest), use `nextPageToken` as the value
-for the [ListContainersRequest.pageToken](#yandex.cloud.serverless.containers.v1.ListContainersRequest) parameter in the next list request.
+the specified [ListContainersRequest.page_size](#yandex.cloud.serverless.containers.v1.ListContainersRequest), use `nextPageToken` as the value
+for the [ListContainersRequest.page_token](#yandex.cloud.serverless.containers.v1.ListContainersRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -92,10 +92,10 @@ Each subsequent page will have its own `nextPageToken` to continue paging throug
 || id | **string**
 
 ID of the container. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the container belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the container. ||
 || name | **string**

@@ -1,0 +1,1 @@
+Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} и нажмите **{{ ui-key.yc-ui-datasphere.common.id }}** ![alt](../../_assets/console-icons/copy.svg).

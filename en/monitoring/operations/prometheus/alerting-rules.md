@@ -7,14 +7,15 @@ description: In this tutorial, you will learn to create and edit {{ prometheus-n
 
 {% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
 
-Alerting rules allow you to create PromQL based alerts and send notifications when they are triggered.
+With {{ managed-prometheus-name }} alerting, you can add alert calculation rules and send notifications when these are triggered. To configure alerting in {{ prometheus-name }}, you need to create alerting rules and set up the alert manager to process and deliver notifications.
 
-In {{ managed-prometheus-name }}, you can use your existing [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules) and [alerting rule](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) files.
+## Requirements for alerting rules {#rule-requirements}
+
+In {{ prometheus-name }}, you can use your existing PromQL-based [alerting rule](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) files.
 
 For rules, it supports all the fields described in the YAML file [specification](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/). It also supports annotation [templates](https://prometheus.io/docs/prometheus/latest/configuration/template_examples/) using the `$value` and `$labels` variables. Iterations and functions are not supported.
 
 This section describes some aspects related to alerting rules and the alert manager configuration. For how to upload and work with files, see [{#T}](./recording-rules.md).
-
 
 ## Alert manager
 
@@ -27,91 +28,138 @@ Rule processing highlights:
 * The channel is selected according to the specified type; [dynamic routing](https://prometheus.io/docs/alerting/latest/configuration/#route) is currently not supported but is planned for upcoming releases.
 * If the configuration has no channels matching the folder channels, the file will not be accepted.
 
-You can use alerting rules without loading a configuration file. In this case, the alerting rules will be calculated and will create the `ALERTS` and `ALERTS_FOR_STATE` metrics, but no alert notifications will be sent.
+You can use alerting rules without loading a configuration file. In which case the alerting rules will be computed and will create the `ALERTS` and `ALERTS_FOR_STATE` metrics, but no alert notifications will be dispatched.
 
-## Creating or replacing an alerting rule file {#create}
+You can manage recording rule files via the [management console]({{ link-console-main }}) or API.
 
-1. Encode the file contents as [Base64](https://en.wikipedia.org/wiki/Base64) [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+## Pre-configuring the service to work with the API {#api-set}
 
-    ```bash
-    cat alerting-rule.yaml
+The API is represented by REST resources located at `https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules`. 
 
-    # groups:
-    #   - name: example
-    #     rules:
-    #     - record: example
-    #       expr: up
+To start executing requests:
 
-    base64 -i recording-rule.yaml
+1. Install [cURL](https://curl.haxx.se/).
+1. [Authenticate](../../api-ref/authentication.md) in the API.
+1. [Create a workspace](index.md#access) and copy its ID to use it in the request address.
 
-    # Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg==
-    ```
+## Adding or replacing an alerting rule file {#create}
 
-1. Save the result as a JSON file:
+{% list tabs group=instructions %}
 
-    **body.json**
+- Management console {#console}
 
-    ```json
-    {
-        "name": "alerting-rules",
-        "content" : "Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg=="
-    }
-    ```
+   1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. Select or create a workspace.
+   1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab.
+   1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
+   1. To add another file, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
+   1. To replace an existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to the right of it. 
 
-1. Create or replace a recording rule file:
+- API {#api}
 
-    ```bash
-    export IAM_TOKEN=<IAM_token>
+   1. Encode the file contents as [Base64](https://en.wikipedia.org/wiki/Base64) [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
-    ```
+       ```bash
+       cat alerting-rule.yaml
 
-For more information about rule calculating, see [{#T}](./recording-rules.md).
+       # groups:
+       #   - name: example
+       #     rules:
+       #     - alert: HighRequestLatency
+       #       expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
+       #       for: 10m
+       #       labels:
+       #         severity: page
+       #       annotations:
+       #         summary: High request latency
 
-## Creating or replacing an alert manager configuration file {#alert-manager-create}
+       base64 -i alerting-rule.yaml
 
-1. Create an RFC 4648 Base64 encoding of the file contents:
+       # Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg==
+       ```
 
-    ```bash
-    cat alert-manager.yaml
+   1. Save the result as a JSON file:
 
-    # receivers:
-    #   - name: 'email'
-    #     email_configs:
-    #       - to: 'alerts@monitoring.org'
-    #   - name: 'telegram'
-    #     telegram_configs:
-    #     - api_url: https://api.telegram.org
+       **body.json**
 
-    base64 -i alert-manager.yaml
+       ```json
+       {
+           "name": "alerting-rules",
+           "content" : "Z3JvdXBzOgotIG5hbWU6IGV4YW1wbGUKICBydWxlczoKICAtIGFsZXJ0OiBIaW...CBsYXRlbmN5Cg=="
+       }
+       ```
 
-    # cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg==
-    ```
+   1. Create or replace an alerting rule file:
 
-1. Save the result as a JSON file:
+       ```bash
+       export IAM_TOKEN=<IAM_token>
 
-    **body.json**
+       curl -X PUT \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer ${IAM_TOKEN}" \
+           -d "@body.json"  \
+           "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules"
+       ```
 
-    ```json
-    {
-        "content" : "cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg=="
-    }
-    ```
+For more information about operations with files and computing rules, see [{#T}](./recording-rules.md).
 
-1. Create or replace a configuration file:
+{% endlist %}
 
-    ```bash
-    export IAM_TOKEN=<IAM_token>
+## Adding or replacing an alert manager configuration file {#alert-manager-create}
 
-    curl -X PUT \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d "@body.json"  \
-        "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/alertmanager"
-    ```
+{% list tabs group=instructions %}
 
-If the request is successful, you will get the `204` HTTP code, if not, the error text. A file without a single match with current notification channels in the folder will not be accepted.
+- Management console {#console}
+
+   1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
+   1. Select or create a workspace.
+   1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.tab.alert-manager-key-value }}** tab.
+   1. If you have no uploaded configuration files yet, click **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** and select a `.yml` file.
+   1. To download the file, click **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.download }}**.
+   1. To replace the file, click **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.replace }}**. 
+
+- API {#api}
+
+   1. Encode the file contents as Base64 RFC 4648:
+
+       ```bash
+       cat alert-manager.yaml
+
+       # receivers:
+       #   - name: 'email'
+       #     email_configs:
+       #       - to: 'alerts@monitoring.org'
+       #   - name: 'telegram'
+       #     telegram_configs:
+       #     - api_url: https://api.telegram.org
+
+       base64 -i alert-manager.yaml
+
+       # cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg==
+       ```
+
+   1. Save the result as a JSON file:
+
+       **body.json**
+
+       ```json
+       {
+           "content" : "cmVjZWl2ZXJzOgogIC0gbmFtZTogJ2VtYWlsJwogICA...sOiBodHRwczovL2FwaS50ZWxlZ3JhbS5vcmcKCg=="
+       }
+       ```
+
+   1. Create or replace a configuration file:
+
+       ```bash
+       export IAM_TOKEN=<IAM_token>
+
+       curl -X PUT \
+           -H "Content-Type: application/json" \
+           -H "Authorization: Bearer ${IAM_TOKEN}" \
+           -d "@body.json"  \
+           "https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/alertmanager"
+       ```
+
+   If the request is successful, you will get the `204` HTTP code, if not, the error text. A file without a single match with current notification channels in the folder will not be accepted.
+
+{% endlist %}

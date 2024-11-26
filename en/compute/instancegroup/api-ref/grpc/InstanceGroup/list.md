@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/InstanceGroup/list.md
 ---
 
-# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.List {#List}
+# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.List
 
 Retrieves the list of InstanceGroup resources in the specified folder.
 
@@ -15,9 +15,9 @@ Retrieves the list of InstanceGroup resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
   "view": "InstanceGroupView"
 }
@@ -25,20 +25,20 @@ Retrieves the list of InstanceGroup resources in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list instance groups in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListInstanceGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse)
+results is larger than `page_size`,
+the service returns a [ListInstanceGroupsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListInstanceGroupsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse)
+set `page_token` to the [ListInstanceGroupsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsResponse)
 returned by a previous list request. ||
 || filter | **string**
 
@@ -56,128 +56,128 @@ Defines which information about the Instance template should be returned in the 
 
 ```json
 {
-  "instanceGroups": [
+  "instance_groups": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "instanceTemplate": {
+      "instance_template": {
         "description": "string",
         "labels": "string",
-        "platformId": "string",
-        "resourcesSpec": {
+        "platform_id": "string",
+        "resources_spec": {
           "memory": "int64",
           "cores": "int64",
-          "coreFraction": "int64",
+          "core_fraction": "int64",
           "gpus": "int64"
         },
         "metadata": "string",
-        "bootDiskSpec": {
+        "boot_disk_spec": {
           "mode": "Mode",
-          "deviceName": "string",
-          "diskSpec": {
+          "device_name": "string",
+          "disk_spec": {
             "description": "string",
-            "typeId": "string",
+            "type_id": "string",
             "size": "int64",
-            // Includes only one of the fields `imageId`, `snapshotId`
-            "imageId": "string",
-            "snapshotId": "string",
+            // Includes only one of the fields `image_id`, `snapshot_id`
+            "image_id": "string",
+            "snapshot_id": "string",
             // end of the list of possible fields
-            "preserveAfterInstanceDelete": "bool"
+            "preserve_after_instance_delete": "bool"
           },
-          "diskId": "string",
+          "disk_id": "string",
           "name": "string"
         },
-        "secondaryDiskSpecs": [
+        "secondary_disk_specs": [
           {
             "mode": "Mode",
-            "deviceName": "string",
-            "diskSpec": {
+            "device_name": "string",
+            "disk_spec": {
               "description": "string",
-              "typeId": "string",
+              "type_id": "string",
               "size": "int64",
-              // Includes only one of the fields `imageId`, `snapshotId`
-              "imageId": "string",
-              "snapshotId": "string",
+              // Includes only one of the fields `image_id`, `snapshot_id`
+              "image_id": "string",
+              "snapshot_id": "string",
               // end of the list of possible fields
-              "preserveAfterInstanceDelete": "bool"
+              "preserve_after_instance_delete": "bool"
             },
-            "diskId": "string",
+            "disk_id": "string",
             "name": "string"
           }
         ],
-        "networkInterfaceSpecs": [
+        "network_interface_specs": [
           {
-            "networkId": "string",
-            "subnetIds": [
+            "network_id": "string",
+            "subnet_ids": [
               "string"
             ],
-            "primaryV4AddressSpec": {
-              "oneToOneNatSpec": {
-                "ipVersion": "IpVersion",
+            "primary_v4_address_spec": {
+              "one_to_one_nat_spec": {
+                "ip_version": "IpVersion",
                 "address": "string",
-                "dnsRecordSpecs": [
+                "dns_record_specs": [
                   {
                     "fqdn": "string",
-                    "dnsZoneId": "string",
+                    "dns_zone_id": "string",
                     "ttl": "int64",
                     "ptr": "bool"
                   }
                 ]
               },
-              "dnsRecordSpecs": [
+              "dns_record_specs": [
                 {
                   "fqdn": "string",
-                  "dnsZoneId": "string",
+                  "dns_zone_id": "string",
                   "ttl": "int64",
                   "ptr": "bool"
                 }
               ],
               "address": "string"
             },
-            "primaryV6AddressSpec": {
-              "oneToOneNatSpec": {
-                "ipVersion": "IpVersion",
+            "primary_v6_address_spec": {
+              "one_to_one_nat_spec": {
+                "ip_version": "IpVersion",
                 "address": "string",
-                "dnsRecordSpecs": [
+                "dns_record_specs": [
                   {
                     "fqdn": "string",
-                    "dnsZoneId": "string",
+                    "dns_zone_id": "string",
                     "ttl": "int64",
                     "ptr": "bool"
                   }
                 ]
               },
-              "dnsRecordSpecs": [
+              "dns_record_specs": [
                 {
                   "fqdn": "string",
-                  "dnsZoneId": "string",
+                  "dns_zone_id": "string",
                   "ttl": "int64",
                   "ptr": "bool"
                 }
               ],
               "address": "string"
             },
-            "securityGroupIds": [
+            "security_group_ids": [
               "string"
             ]
           }
         ],
-        "schedulingPolicy": {
+        "scheduling_policy": {
           "preemptible": "bool"
         },
-        "serviceAccountId": "string",
-        "networkSettings": {
+        "service_account_id": "string",
+        "network_settings": {
           "type": "Type"
         },
         "name": "string",
         "hostname": "string",
-        "placementPolicy": {
-          "placementGroupId": "string",
-          "hostAffinityRules": [
+        "placement_policy": {
+          "placement_group_id": "string",
+          "host_affinity_rules": [
             {
               "key": "string",
               "op": "Operator",
@@ -187,132 +187,132 @@ Defines which information about the Instance template should be returned in the 
             }
           ]
         },
-        "filesystemSpecs": [
+        "filesystem_specs": [
           {
             "mode": "Mode",
-            "deviceName": "string",
-            "filesystemId": "string"
+            "device_name": "string",
+            "filesystem_id": "string"
           }
         ],
-        "metadataOptions": {
-          "gceHttpEndpoint": "MetadataOption",
-          "awsV1HttpEndpoint": "MetadataOption",
-          "gceHttpToken": "MetadataOption",
-          "awsV1HttpToken": "MetadataOption"
+        "metadata_options": {
+          "gce_http_endpoint": "MetadataOption",
+          "aws_v1_http_endpoint": "MetadataOption",
+          "gce_http_token": "MetadataOption",
+          "aws_v1_http_token": "MetadataOption"
         }
       },
-      "scalePolicy": {
-        // Includes only one of the fields `fixedScale`, `autoScale`
-        "fixedScale": {
+      "scale_policy": {
+        // Includes only one of the fields `fixed_scale`, `auto_scale`
+        "fixed_scale": {
           "size": "int64"
         },
-        "autoScale": {
-          "minZoneSize": "int64",
-          "maxSize": "int64",
-          "measurementDuration": "google.protobuf.Duration",
-          "warmupDuration": "google.protobuf.Duration",
-          "stabilizationDuration": "google.protobuf.Duration",
-          "initialSize": "int64",
-          "cpuUtilizationRule": {
-            "utilizationTarget": "double"
+        "auto_scale": {
+          "min_zone_size": "int64",
+          "max_size": "int64",
+          "measurement_duration": "google.protobuf.Duration",
+          "warmup_duration": "google.protobuf.Duration",
+          "stabilization_duration": "google.protobuf.Duration",
+          "initial_size": "int64",
+          "cpu_utilization_rule": {
+            "utilization_target": "double"
           },
-          "customRules": [
+          "custom_rules": [
             {
-              "ruleType": "RuleType",
-              "metricType": "MetricType",
-              "metricName": "string",
+              "rule_type": "RuleType",
+              "metric_type": "MetricType",
+              "metric_name": "string",
               "labels": "string",
               "target": "double",
-              "folderId": "string",
+              "folder_id": "string",
               "service": "string"
             }
           ],
-          "autoScaleType": "AutoScaleType"
+          "auto_scale_type": "AutoScaleType"
         },
         // end of the list of possible fields
-        "testAutoScale": {
-          "minZoneSize": "int64",
-          "maxSize": "int64",
-          "measurementDuration": "google.protobuf.Duration",
-          "warmupDuration": "google.protobuf.Duration",
-          "stabilizationDuration": "google.protobuf.Duration",
-          "initialSize": "int64",
-          "cpuUtilizationRule": {
-            "utilizationTarget": "double"
+        "test_auto_scale": {
+          "min_zone_size": "int64",
+          "max_size": "int64",
+          "measurement_duration": "google.protobuf.Duration",
+          "warmup_duration": "google.protobuf.Duration",
+          "stabilization_duration": "google.protobuf.Duration",
+          "initial_size": "int64",
+          "cpu_utilization_rule": {
+            "utilization_target": "double"
           },
-          "customRules": [
+          "custom_rules": [
             {
-              "ruleType": "RuleType",
-              "metricType": "MetricType",
-              "metricName": "string",
+              "rule_type": "RuleType",
+              "metric_type": "MetricType",
+              "metric_name": "string",
               "labels": "string",
               "target": "double",
-              "folderId": "string",
+              "folder_id": "string",
               "service": "string"
             }
           ],
-          "autoScaleType": "AutoScaleType"
+          "auto_scale_type": "AutoScaleType"
         }
       },
-      "deployPolicy": {
-        "maxUnavailable": "int64",
-        "maxDeleting": "int64",
-        "maxCreating": "int64",
-        "maxExpansion": "int64",
-        "startupDuration": "google.protobuf.Duration",
+      "deploy_policy": {
+        "max_unavailable": "int64",
+        "max_deleting": "int64",
+        "max_creating": "int64",
+        "max_expansion": "int64",
+        "startup_duration": "google.protobuf.Duration",
         "strategy": "Strategy",
-        "minimalAction": "MinimalAction"
+        "minimal_action": "MinimalAction"
       },
-      "allocationPolicy": {
+      "allocation_policy": {
         "zones": [
           {
-            "zoneId": "string",
-            "instanceTagsPool": [
+            "zone_id": "string",
+            "instance_tags_pool": [
               "string"
             ]
           }
         ]
       },
-      "loadBalancerState": {
-        "targetGroupId": "string",
-        "statusMessage": "string"
+      "load_balancer_state": {
+        "target_group_id": "string",
+        "status_message": "string"
       },
-      "managedInstancesState": {
-        "targetSize": "int64",
-        "runningActualCount": "int64",
-        "runningOutdatedCount": "int64",
-        "processingCount": "int64"
+      "managed_instances_state": {
+        "target_size": "int64",
+        "running_actual_count": "int64",
+        "running_outdated_count": "int64",
+        "processing_count": "int64"
       },
-      "loadBalancerSpec": {
-        "targetGroupSpec": {
+      "load_balancer_spec": {
+        "target_group_spec": {
           "name": "string",
           "description": "string",
           "labels": "string"
         },
-        "maxOpeningTrafficDuration": "google.protobuf.Duration",
-        "ignoreHealthChecks": "bool"
+        "max_opening_traffic_duration": "google.protobuf.Duration",
+        "ignore_health_checks": "bool"
       },
-      "healthChecksSpec": {
-        "healthCheckSpecs": [
+      "health_checks_spec": {
+        "health_check_specs": [
           {
             "interval": "google.protobuf.Duration",
             "timeout": "google.protobuf.Duration",
-            "unhealthyThreshold": "int64",
-            "healthyThreshold": "int64",
-            // Includes only one of the fields `tcpOptions`, `httpOptions`
-            "tcpOptions": {
+            "unhealthy_threshold": "int64",
+            "healthy_threshold": "int64",
+            // Includes only one of the fields `tcp_options`, `http_options`
+            "tcp_options": {
               "port": "int64"
             },
-            "httpOptions": {
+            "http_options": {
               "port": "int64",
               "path": "string"
             }
             // end of the list of possible fields
           }
         ],
-        "maxCheckingHealthDuration": "google.protobuf.Duration"
+        "max_checking_health_duration": "google.protobuf.Duration"
       },
-      "serviceAccountId": "string",
+      "service_account_id": "string",
       "status": "Status",
       "variables": [
         {
@@ -320,42 +320,42 @@ Defines which information about the Instance template should be returned in the 
           "value": "string"
         }
       ],
-      "deletionProtection": "bool",
-      "applicationLoadBalancerSpec": {
-        "targetGroupSpec": {
+      "deletion_protection": "bool",
+      "application_load_balancer_spec": {
+        "target_group_spec": {
           "name": "string",
           "description": "string",
           "labels": "string"
         },
-        "maxOpeningTrafficDuration": "google.protobuf.Duration",
-        "ignoreHealthChecks": "bool"
+        "max_opening_traffic_duration": "google.protobuf.Duration",
+        "ignore_health_checks": "bool"
       },
-      "applicationLoadBalancerState": {
-        "targetGroupId": "string",
-        "statusMessage": "string"
+      "application_load_balancer_state": {
+        "target_group_id": "string",
+        "status_message": "string"
       },
-      "autoHealingPolicy": {
-        "autoHealingAction": "AutoHealingAction"
+      "auto_healing_policy": {
+        "auto_healing_action": "AutoHealingAction"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceGroups[] | **[InstanceGroup](#yandex.cloud.compute.v1.instancegroup.InstanceGroup)**
+|| instance_groups[] | **[InstanceGroup](#yandex.cloud.compute.v1.instancegroup.InstanceGroup)**
 
 Lists instance groups for the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListInstanceGroupsRequest.pageSize](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest), use
-`nextPageToken` as the value
-for the [ListInstanceGroupsRequest.pageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest) query parameter
+is larger than [ListInstanceGroupsRequest.page_size](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest), use
+`next_page_token` as the value
+for the [ListInstanceGroupsRequest.page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## InstanceGroup {#yandex.cloud.compute.v1.instancegroup.InstanceGroup}
@@ -365,10 +365,10 @@ in the next list request. Each subsequent list request will have its own
 || id | **string**
 
 ID of the instance group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the instance group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -381,33 +381,33 @@ Description of the instance group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| instanceTemplate | **[InstanceTemplate](#yandex.cloud.compute.v1.instancegroup.InstanceTemplate)**
+|| instance_template | **[InstanceTemplate](#yandex.cloud.compute.v1.instancegroup.InstanceTemplate)**
 
 Instance template for creating the instance group.
 For more information, see [Instance Templates](/docs/compute/concepts/instance-groups/instance-template). ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.instancegroup.ScalePolicy)**
+|| scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.instancegroup.ScalePolicy)**
 
 [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group. ||
-|| deployPolicy | **[DeployPolicy](#yandex.cloud.compute.v1.instancegroup.DeployPolicy)**
+|| deploy_policy | **[DeployPolicy](#yandex.cloud.compute.v1.instancegroup.DeployPolicy)**
 
 Deployment policy of the instance group. ||
-|| allocationPolicy | **[AllocationPolicy](#yandex.cloud.compute.v1.instancegroup.AllocationPolicy)**
+|| allocation_policy | **[AllocationPolicy](#yandex.cloud.compute.v1.instancegroup.AllocationPolicy)**
 
 Allocation policy of the instance group by zones and regions. ||
-|| loadBalancerState | **[LoadBalancerState](#yandex.cloud.compute.v1.instancegroup.LoadBalancerState)**
+|| load_balancer_state | **[LoadBalancerState](#yandex.cloud.compute.v1.instancegroup.LoadBalancerState)**
 
 Status of the Network Load Balancer target group attributed to the instance group. ||
-|| managedInstancesState | **[ManagedInstancesState](#yandex.cloud.compute.v1.instancegroup.ManagedInstancesState)**
+|| managed_instances_state | **[ManagedInstancesState](#yandex.cloud.compute.v1.instancegroup.ManagedInstancesState)**
 
 States of instances for this instance group. ||
-|| loadBalancerSpec | **[LoadBalancerSpec](#yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec)**
+|| load_balancer_spec | **[LoadBalancerSpec](#yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec)**
 
 Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts)
 (OSI model layer 3). ||
-|| healthChecksSpec | **[HealthChecksSpec](#yandex.cloud.compute.v1.instancegroup.HealthChecksSpec)**
+|| health_checks_spec | **[HealthChecksSpec](#yandex.cloud.compute.v1.instancegroup.HealthChecksSpec)**
 
 Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account. The service account will be used for all API calls
 made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
@@ -441,23 +441,23 @@ may still be running.
 call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](/docs/compute/api-ref/grpc/InstanceGroup/resumeProcesses#ResumeProcesses).
 The group status will change to `ACTIVE`. ||
 || variables[] | **[Variable](#yandex.cloud.compute.v1.instancegroup.Variable)** ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag prohibiting deletion of the instance group.
 
 Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted.
 
 The default is `false`. ||
-|| applicationLoadBalancerSpec | **[ApplicationLoadBalancerSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec)**
+|| application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec)**
 
 Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts)
 (OSI model layer 7). ||
-|| applicationLoadBalancerState | **[ApplicationLoadBalancerState](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerState)**
+|| application_load_balancer_state | **[ApplicationLoadBalancerState](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerState)**
 
 Status of the Application Load Balancer target group attributed to the instance group.
 
 Returned if there is a working load balancer that the target group is connected to. ||
-|| autoHealingPolicy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+|| auto_healing_policy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
 
 AutoHealingPolicy policy of the instance group. ||
 |#
@@ -472,13 +472,13 @@ Description of the instance template. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| platformId | **string**
+|| platform_id | **string**
 
 Required field. ID of the hardware platform configuration for the instance.
 Platforms allows you to create various types of instances: with a large amount of memory,
 with a large number of cores, with a burstable performance.
 For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
 
 Required field. Computing resources of the instance such as the amount of memory and number of cores. ||
 || metadata | **string**
@@ -500,22 +500,22 @@ it must be escaped with double brackets, in example {instance.index}.
 
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](/docs/compute/concepts/vm-metadata). ||
-|| bootDiskSpec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
+|| boot_disk_spec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
 
 Required field. Boot disk specification that will be attached to the instance. ||
-|| secondaryDiskSpecs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
+|| secondary_disk_specs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
 
 Array of secondary disks that will be attached to the instance. ||
-|| networkInterfaceSpecs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.instancegroup.NetworkInterfaceSpec)**
+|| network_interface_specs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.instancegroup.NetworkInterfaceSpec)**
 
 Required field. Array of network interfaces that will be attached to the instance. ||
-|| schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.instancegroup.SchedulingPolicy)**
+|| scheduling_policy | **[SchedulingPolicy](#yandex.cloud.compute.v1.instancegroup.SchedulingPolicy)**
 
 Scheduling policy for the instance. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account ID for the instance. ||
-|| networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.instancegroup.NetworkSettings)**
+|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.instancegroup.NetworkSettings)**
 
 Network settings for the instance. ||
 || name | **string**
@@ -543,10 +543,10 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, `name` value will be used
 It may also contain another placeholders, see metadata doc for full list. ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy)**
+|| placement_policy | **[PlacementPolicy](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy)**
 
 Placement Group ||
-|| filesystemSpecs[] | **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.instancegroup.AttachedFilesystemSpec)**
+|| filesystem_specs[] | **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.instancegroup.AttachedFilesystemSpec)**
 
 Array of filesystems to attach to the instance.
 
@@ -554,7 +554,7 @@ The filesystems must reside in the same availability zone as the instance.
 
 To use the instance with an attached filesystem, the latter must be mounted.
 For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm). ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)**
+|| metadata_options | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)**
 
 Metadata options for the instance ||
 |#
@@ -569,7 +569,7 @@ The amount of memory available to the instance, specified in bytes. ||
 || cores | **int64**
 
 The number of cores available to the instance. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -589,17 +589,17 @@ Required field. Access mode to the Disk resource.
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Serial number that is reflected in the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
-|| diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
+|| disk_spec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
 
 Required field. oneof disk_spec or disk_id
 Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk). ||
-|| diskId | **string**
+|| disk_id | **string**
 
 Set to use an existing disk. To set use variables. ||
 || name | **string**
@@ -614,23 +614,23 @@ When set can be later used to change DiskSpec of actual disk. ||
 || description | **string**
 
 Description of the disk. ||
-|| typeId | **string**
+|| type_id | **string**
 
 Required field. ID of the disk type. ||
 || size | **int64**
 
 Size of the disk, specified in bytes. ||
-|| imageId | **string**
+|| image_id | **string**
 
 ID of the image that will be used for disk creation.
 
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| snapshotId | **string**
+Includes only one of the fields `image_id`, `snapshot_id`. ||
+|| snapshot_id | **string**
 
 ID of the snapshot that will be used for disk creation.
 
-Includes only one of the fields `imageId`, `snapshotId`. ||
-|| preserveAfterInstanceDelete | **bool**
+Includes only one of the fields `image_id`, `snapshot_id`. ||
+|| preserve_after_instance_delete | **bool**
 
 When set to true, disk will not be deleted even after managed instance is deleted.
 It will be a user's responsibility to delete such disks. ||
@@ -640,19 +640,19 @@ It will be a user's responsibility to delete such disks. ||
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of the subnets. ||
-|| primaryV4AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
+|| primary_v4_address_spec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
 
 Primary IPv4 address that is assigned to the instance for this network interface. ||
-|| primaryV6AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
+|| primary_v6_address_spec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
 
 Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 IDs of security groups. ||
 |#
@@ -661,11 +661,11 @@ IDs of security groups. ||
 
 #|
 ||Field | Description ||
-|| oneToOneNatSpec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec)**
+|| one_to_one_nat_spec | **[OneToOneNatSpec](#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec)**
 
 An external IP address configuration.
 If not specified, then this managed instance will have no external internet access. ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
+|| dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
 
 Internal DNS configuration ||
 || address | **string**
@@ -677,7 +677,7 @@ Optional. Manual set static internal IP. To set use variables. ||
 
 #|
 ||Field | Description ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version for the public IP address.
 
@@ -687,7 +687,7 @@ IP version for the public IP address.
 || address | **string**
 
 Manual set static public IP. To set use variables. (optional) ||
-|| dnsRecordSpecs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
+|| dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
 
 External DNS configuration ||
 |#
@@ -699,7 +699,7 @@ External DNS configuration ||
 || fqdn | **string**
 
 Required field. FQDN (required) ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 DNS zone id (optional, if not set, private zone used) ||
 || ttl | **int64**
@@ -739,10 +739,10 @@ Type of instance network.
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Identifier of placement group ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy.HostAffinityRule)**
+|| host_affinity_rules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy.HostAffinityRule)**
 
 List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
 |#
@@ -779,7 +779,7 @@ Mode of access to the filesystem that should be attached.
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. Default value. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Name of the device representing the filesystem on the instance.
 
@@ -787,7 +787,7 @@ The name should be used for referencing the filesystem from within the instance
 when it's being mounted, resized etc.
 
 If not specified, a random value will be generated. ||
-|| filesystemId | **string**
+|| filesystem_id | **string**
 
 ID of the filesystem that should be attached. ||
 |#
@@ -796,28 +796,28 @@ ID of the filesystem that should be attached. ||
 
 #|
 ||Field | Description ||
-|| gceHttpEndpoint | enum **MetadataOption**
+|| gce_http_endpoint | enum **MetadataOption**
 
 Enabled access to GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpEndpoint | enum **MetadataOption**
+|| aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| gceHttpToken | enum **MetadataOption**
+|| gce_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpToken | enum **MetadataOption**
+|| aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
@@ -830,17 +830,17 @@ Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.FixedScale)**
+|| fixed_scale | **[FixedScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.FixedScale)**
 
 [Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group.
 
-Includes only one of the fields `fixedScale`, `autoScale`. ||
-|| autoScale | **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
 
 [Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
 
-Includes only one of the fields `fixedScale`, `autoScale`. ||
-|| testAutoScale | **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| test_auto_scale | **[AutoScale](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
 
 Test spec for [automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group. ||
 |#
@@ -858,43 +858,43 @@ Number of instances in the instance group. ||
 
 #|
 ||Field | Description ||
-|| minZoneSize | **int64**
+|| min_zone_size | **int64**
 
 Lower limit for instance count in each zone. ||
-|| maxSize | **int64**
+|| max_size | **int64**
 
 Upper limit for total instance count (across all zones).
 0 means maximum limit = 100. ||
-|| measurementDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Time in seconds allotted for averaging metrics.
 1 minute by default. ||
-|| warmupDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The warmup time of the instance in seconds. During this time,
 traffic is sent to the instance, but instance metrics are not collected. ||
-|| stabilizationDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Minimum amount of time in seconds allotted for monitoring before
 Instance Groups can reduce the number of instances in the group.
 During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
-|| initialSize | **int64**
+|| initial_size | **int64**
 
 Target group size. ||
-|| cpuUtilizationRule | **[CpuUtilizationRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule)**
+|| cpu_utilization_rule | **[CpuUtilizationRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule)**
 
 Defines an autoscaling rule based on the average CPU utilization of the instance group.
 
-If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics (`customRules`),
+If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics (`custom_rules`),
 the size of the instance group will be equal to the maximum of sizes calculated according to each metric. ||
-|| customRules[] | **[CustomRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)**
+|| custom_rules[] | **[CustomRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)**
 
 Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Monitoring.
 
-If more than one rule is specified, e.g. CPU utilization (`cpuUtilizationRule`) and one or more Monitoring
+If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Monitoring
 metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric. ||
-|| autoScaleType | enum **AutoScaleType**
+|| auto_scale_type | enum **AutoScaleType**
 
 Autoscaling type.
 
@@ -907,7 +907,7 @@ Autoscaling type.
 
 #|
 ||Field | Description ||
-|| utilizationTarget | **double**
+|| utilization_target | **double**
 
 Target CPU utilization level. Instance Groups maintains this level for each availability zone. ||
 |#
@@ -916,7 +916,7 @@ Target CPU utilization level. Instance Groups maintains this level for each avai
 
 #|
 ||Field | Description ||
-|| ruleType | enum **RuleType**
+|| rule_type | enum **RuleType**
 
 Required field. Custom metric rule type. This field affects which label from
 the custom metric should be used: `zone_id` or `instance_id`.
@@ -928,7 +928,7 @@ then averages the values for instances in one availability zone or in whole grou
 This type of metric must have the `instance_id` label.
 - `WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type.
 This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen. ||
-|| metricType | enum **MetricType**
+|| metric_type | enum **MetricType**
 
 Required field. Type of custom metric. This field affects how Instance Groups calculates the average metric value.
 
@@ -937,13 +937,13 @@ Required field. Type of custom metric. This field affects how Instance Groups ca
 such as requests per second to the server on an instance.
 
   Instance Groups calculates the average metric value for the period
-specified in the [AutoScale.measurementDuration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field.
+specified in the [AutoScale.measurement_duration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field.
 - `COUNTER`: This type is used for metrics that monotonically increase over time,
 such as the total number of requests to the server on an instance.
 
   Instance Groups calculates the average value increase for the period
-specified in the [AutoScale.measurementDuration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field. ||
-|| metricName | **string**
+specified in the [AutoScale.measurement_duration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field. ||
+|| metric_name | **string**
 
 Required field. Name of custom metric in Monitoring that should be used for scaling. ||
 || labels | **string**
@@ -952,7 +952,7 @@ Labels of custom metric in Monitoring that should be used for scaling. ||
 || target | **double**
 
 Target value for the custom metric. Instance Groups maintains this level for each availability zone. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Folder id of custom metric in Monitoring that should be used for scaling. ||
 || service | **string**
@@ -964,27 +964,27 @@ Service of custom metric in Monitoring that should be used for scaling. ||
 
 #|
 ||Field | Description ||
-|| maxUnavailable | **int64**
+|| max_unavailable | **int64**
 
 The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
 during the update process.
-If `maxExpansion` is not specified or set to zero, `maxUnavailable` must be set to a non-zero value. ||
-|| maxDeleting | **int64**
+If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value. ||
+|| max_deleting | **int64**
 
 The maximum number of instances that can be deleted at the same time.
 
 The value 0 is any number of virtual machines within the allowed values. ||
-|| maxCreating | **int64**
+|| max_creating | **int64**
 
 The maximum number of instances that can be created at the same time.
 
 The value 0 is any number of virtual machines within the allowed values. ||
-|| maxExpansion | **int64**
+|| max_expansion | **int64**
 
 The maximum number of instances that can be temporarily allocated above the group's target size
 during the update process.
-If `maxUnavailable` is not specified or set to zero, `maxExpansion` must be set to a non-zero value. ||
-|| startupDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value. ||
+|| startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Instance startup duration.
 Instance will be considered up and running (and start receiving traffic) only after startup_duration
@@ -998,10 +998,10 @@ Affects the lifecycle of the instance during deployment.
 - `PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.
 - `OPPORTUNISTIC`: Instance Groups does not stop a running instance.
 Instead, it will wait until the instance stops itself or becomes unhealthy. ||
-|| minimalAction | enum **MinimalAction**
+|| minimal_action | enum **MinimalAction**
 
-If instance update requires a less disruptive action than `minimalAction`,
-Instance Groups performs `minimalAction` to execute the update
+If instance update requires a less disruptive action than `minimal_action`,
+Instance Groups performs `minimal_action` to execute the update
 
 - `MINIMAL_ACTION_UNSPECIFIED`
 - `LIVE_UPDATE`: Updating an instance without stopping. This is the default.
@@ -1022,10 +1022,10 @@ List of availability zones. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone where the instance resides. ||
-|| instanceTagsPool[] | **string**
+|| instance_tags_pool[] | **string**
 
 Each instance in a zone will be associated with exactly one of a tag from a pool below.
 All specified tags must be unique across the whole group not only the zone.
@@ -1037,10 +1037,10 @@ It is possible to use tag associated with instance in templating via {instance.t
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 ID of the Network Load Balancer target group attributed to the instance group. ||
-|| statusMessage | **string**
+|| status_message | **string**
 
 Status message of the target group. ||
 |#
@@ -1049,16 +1049,16 @@ Status message of the target group. ||
 
 #|
 ||Field | Description ||
-|| targetSize | **int64**
+|| target_size | **int64**
 
 Target number of instances for this instance group. ||
-|| runningActualCount | **int64**
+|| running_actual_count | **int64**
 
 The number of running instances that match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_ACTUAL](/docs/compute/api-ref/grpc/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
-|| runningOutdatedCount | **int64**
+|| running_outdated_count | **int64**
 
 The number of running instances that does not match the current instance template. For more information, see [ManagedInstance.Status.RUNNING_OUTDATED](/docs/compute/api-ref/grpc/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
-|| processingCount | **int64**
+|| processing_count | **int64**
 
 The number of instances in flight (for example, updating, starting, deleting). For more information, see [ManagedInstance.Status](/docs/compute/api-ref/grpc/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status). ||
 |#
@@ -1067,14 +1067,14 @@ The number of instances in flight (for example, updating, starting, deleting). F
 
 #|
 ||Field | Description ||
-|| targetGroupSpec | **[TargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.TargetGroupSpec)**
+|| target_group_spec | **[TargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.TargetGroupSpec)**
 
 Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources). ||
-|| maxOpeningTrafficDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
 the VM will be turned off based on the deployment policy. Specified in seconds. ||
-|| ignoreHealthChecks | **bool**
+|| ignore_health_checks | **bool**
 
 Do not wait load balancer health checks. ||
 |#
@@ -1098,10 +1098,10 @@ Resource labels as `key:value` pairs. ||
 
 #|
 ||Field | Description ||
-|| healthCheckSpecs[] | **[HealthCheckSpec](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)**
+|| health_check_specs[] | **[HealthCheckSpec](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)**
 
 Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check). ||
-|| maxCheckingHealthDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to become healthy. If the timeout is exceeded,
 the VM will be turned off based on the deployment policy. Specified in seconds. ||
@@ -1117,22 +1117,22 @@ The interval between health checks. The default is 2 seconds. ||
 || timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for the managed instance to return a response for the health check. The default is 1 second. ||
-|| unhealthyThreshold | **int64**
+|| unhealthy_threshold | **int64**
 
 The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2. ||
-|| healthyThreshold | **int64**
+|| healthy_threshold | **int64**
 
 The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2. ||
-|| tcpOptions | **[TcpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
+|| tcp_options | **[TcpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
 
 Configuration options for a TCP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`. ||
-|| httpOptions | **[HttpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions)**
+Includes only one of the fields `tcp_options`, `http_options`. ||
+|| http_options | **[HttpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions)**
 
 Configuration options for an HTTP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`. ||
+Includes only one of the fields `tcp_options`, `http_options`. ||
 |#
 
 ## TcpOptions {#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions}
@@ -1168,14 +1168,14 @@ URL path to set for health checking requests. ||
 
 #|
 ||Field | Description ||
-|| targetGroupSpec | **[ApplicationTargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationTargetGroupSpec)**
+|| target_group_spec | **[ApplicationTargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationTargetGroupSpec)**
 
 Required field. Basic properties of the Application Load Balancer target group attributed to the instance group. ||
-|| maxOpeningTrafficDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
 the VM will be turned off based on the deployment policy. Specified in seconds. ||
-|| ignoreHealthChecks | **bool**
+|| ignore_health_checks | **bool**
 
 Do not wait load balancer health checks. ||
 |#
@@ -1199,10 +1199,10 @@ Resource labels as `key:value` pairs. ||
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 ID of the Application Load Balancer target group attributed to the instance group. ||
-|| statusMessage | **string**
+|| status_message | **string**
 
 Status message of the target group. ||
 |#
@@ -1211,9 +1211,9 @@ Status message of the target group. ||
 
 #|
 ||Field | Description ||
-|| autoHealingAction | enum **AutoHealingAction**
+|| auto_healing_action | enum **AutoHealingAction**
 
-Instance Groups performs `autoHealingAction` when instance becomes unhealthy.
+Instance Groups performs `auto_healing_action` when instance becomes unhealthy.
 
 - `AUTO_HEALING_ACTION_UNSPECIFIED`
 - `RESTART`: Re-starting an instance with restart: stopping and then starting the instance.

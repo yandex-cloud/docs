@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listAccessBindings.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.ListAccessBindings {#ListAccessBindings}
+# Cloud Logging Service, REST: LogGroup.ListAccessBindings
 
 Lists existing access bindings for the specified log group.
 

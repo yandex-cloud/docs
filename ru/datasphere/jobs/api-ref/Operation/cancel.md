@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/jobs/api-ref/Operation/cancel.md
 ---
 
-# DataSphere Jobs API v2, REST: Operation.Cancel {#Cancel}
+# DataSphere Jobs API v2, REST: Operation.Cancel
 
 Cancels the specified operation.
 

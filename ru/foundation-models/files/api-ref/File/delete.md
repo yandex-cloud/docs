@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/delete.md
 ---
 
-# Files API, REST: File.Delete {#Delete}
+# Files API, REST: File.Delete
 
 Delete a file by its ID.
 

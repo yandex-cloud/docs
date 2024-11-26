@@ -5,14 +5,14 @@ description: You can monitor storage usage and increase its size either manually
 
 # Managing disk space in a {{ mkf-name }} cluster
 
-When the [storage](../concepts/storage.md) is more than 97% full, the host automatically switches to read-only mode. To avoid issues with writing to the database, use one of the following methods:
+As soon as the [storage](../concepts/storage.md) is 97% full, the host automatically enters read-only mode. To avoid issues with writing to the topic, use one of the following methods:
 
 
 * [Set up alerts in {{ monitoring-full-name }}](#set-alert) to monitor storage utilization.
 
 
 * [Increase the storage size](#change-disk-size) to automatically disable the read-only mode.
-* [Set up automatic storage size increase](#disk-size-autoscale).
+* [Set up automatic increase of storage size](#disk-size-autoscale) to prevent situations where the disk runs out of free space and the host switches to read-only mode.
 
 
 ## Set up alerts in {{ monitoring-full-name }} {#set-alert}
@@ -25,10 +25,10 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
         * Cloud
         * Folder
-        * **{{ ui-key.yacloud_monitoring.services.label_managed-kafka }}** service
-        * {{ mpg-name }} cluster ID
+        * **{{ ui-key.yacloud_monitoring.services.label_managed-kafka }}**
+        * {{ mkf-name }} cluster ID
 
-            You can [get](../operations/cluster-list.md#list-clusters) the cluster ID with a list of clusters in the folder.
+            You can get the ID with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
         * `disk.free_bytes` label
 
@@ -104,7 +104,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, change the value of the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` blocks for {{ KF }} and {{ ZK }} hosts, respectively:
+    1. In the {{ mkf-name }} cluster description, change the value of the `disk_size` parameter in the `kafka.resources` and `zookeeper.resources` sections for {{ KF }} and {{ ZK }} hosts, respectively:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -143,9 +143,9 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
     To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).
-    * List of settings to update in the `updateMask` parameter.
+    * List of settings to update, in the `updateMask` parameter.
 
     You cannot change the disk type for an {{ KF }} cluster once you create it.
 
@@ -155,7 +155,7 @@ When the [storage](../concepts/storage.md) is more than 97% full, the host autom
 
 ## Setting up automatic increase of storage size {#disk-size-autoscale}
 
-To prevent the cluster disk space from running out, set up [automatic storage increase](../concepts/storage.md#auto-rescale).
+Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prevent the cluster from running out of disk space and the hosts from switching to read-only mode.
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/list.md
 ---
 
-# Cloud Functions Service, REST: Function.List {#List}
+# Cloud Functions Service, REST: Function.List
 
 Retrieves the list of functions in the specified folder.
 

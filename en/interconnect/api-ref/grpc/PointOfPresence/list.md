@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PointOfPresence/list.md
 ---
 
-# Cloud Interconnect API, gRPC: PointOfPresenceService.List {#List}
+# Cloud Interconnect API, gRPC: PointOfPresenceService.List
 
 Retrieves the list of PointOfPresence resources in the specified folder.
 
@@ -15,24 +15,24 @@ Retrieves the list of PointOfPresence resources in the specified folder.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListPointOfPresencesResponse.nextPageToken](#yandex.cloud.cic.v1.ListPointOfPresencesResponse)
+results is larger than `page_size`,
+the service returns a [ListPointOfPresencesResponse.next_page_token](#yandex.cloud.cic.v1.ListPointOfPresencesResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListPointOfPresencesResponse.nextPageToken](#yandex.cloud.cic.v1.ListPointOfPresencesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListPointOfPresencesResponse.next_page_token](#yandex.cloud.cic.v1.ListPointOfPresencesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -46,29 +46,29 @@ The expression must specify:
 
 ```json
 {
-  "pointOfPresences": [
+  "point_of_presences": [
     {
       "id": "string",
-      "regionId": "string"
+      "region_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pointOfPresences[] | **[PointOfPresence](#yandex.cloud.cic.v1.PointOfPresence)**
+|| point_of_presences[] | **[PointOfPresence](#yandex.cloud.cic.v1.PointOfPresence)**
 
 List of PointOfPresence resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListPointOfPresencesRequest.pageSize](#yandex.cloud.cic.v1.ListPointOfPresencesRequest), use
-the `nextPageToken` as the value
-for the [ListPointOfPresencesRequest.pageToken](#yandex.cloud.cic.v1.ListPointOfPresencesRequest) query parameter
+is larger than [ListPointOfPresencesRequest.page_size](#yandex.cloud.cic.v1.ListPointOfPresencesRequest), use
+the `next_page_token` as the value
+for the [ListPointOfPresencesRequest.page_token](#yandex.cloud.cic.v1.ListPointOfPresencesRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## PointOfPresence {#yandex.cloud.cic.v1.PointOfPresence}
@@ -80,7 +80,7 @@ A PointOfPresence resource.
 || id | **string**
 
 ID of the pointOfPresence. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the pointOfPresence belongs to. ||
 |#

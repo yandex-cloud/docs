@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: User.Get
 
 Returns the specified Kafka user.
 

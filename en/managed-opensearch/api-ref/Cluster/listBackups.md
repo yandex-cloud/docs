@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for OpenSearch API, REST: Cluster.ListBackups
 
 Returns a list of available backups for the specified OpenSearch cluster.
 

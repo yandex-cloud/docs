@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/list.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.List {#List}
+# Identity and Access Management SAML API, REST: Federation.List
 
 Retrieves the list of federations in the specified folder.
 

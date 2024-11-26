@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Bus/list.md
 ---
 
-# EventRouter Service, gRPC: BusService.List {#List}
+# EventRouter Service, gRPC: BusService.List
 
 Retrieves the list of buses in the specified folder.
 
@@ -15,25 +15,25 @@ Retrieves the list of buses in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list buses in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 Maximum number of buses to return. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListBusesResponse.nextPageToken](#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request. ||
+[ListBusesResponse.next_page_token](#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request. ||
 || filter | **string**
 
 Supported fields for filter:
@@ -48,17 +48,17 @@ created_at ||
   "buses": [
     {
       "id": "string",
-      "folderId": "string",
-      "cloudId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "cloud_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "deletionProtection": "bool",
+      "deletion_protection": "bool",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,7 +67,7 @@ created_at ||
 || buses[] | **[Bus](#yandex.cloud.serverless.eventrouter.v1.Bus)**
 
 List of buses. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list of buses. ||
 |#
@@ -79,13 +79,13 @@ Token for getting the next page of the list of buses. ||
 || id | **string**
 
 ID of the bus. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the bus belongs to. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the bus resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -97,7 +97,7 @@ Description of the bus. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion protection. ||
 || status | enum **Status**

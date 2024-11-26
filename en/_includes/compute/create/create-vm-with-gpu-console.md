@@ -7,7 +7,7 @@
     {% include [gpu-os](../gpu-os.md) %}
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-1. (Optional) Configure the boot [disk](../../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
+1. (Optional) Configure the boot [disk](../../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
     * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
     * Specify the required disk size.

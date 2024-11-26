@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/create.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.Create {#Create}
+# Identity and Access Management API, REST: ServiceAccount.Create
 
 Creates a service account in the specified folder.
 

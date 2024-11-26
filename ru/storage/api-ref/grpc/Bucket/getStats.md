@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/getStats.md
 ---
 
-# Object Storage API, gRPC: BucketService.GetStats {#GetStats}
+# Object Storage API, gRPC: BucketService.GetStats
 
 Returns the statistics for the specified bucket.
 
@@ -31,42 +31,42 @@ Required field. Name of the bucket to return the statistics for. ||
 ```json
 {
   "name": "string",
-  "maxSize": "google.protobuf.Int64Value",
-  "usedSize": "int64",
-  "storageClassMaxSizes": [
+  "max_size": "google.protobuf.Int64Value",
+  "used_size": "int64",
+  "storage_class_max_sizes": [
     {
-      "storageClass": "string",
-      "classSize": "google.protobuf.Int64Value"
+      "storage_class": "string",
+      "class_size": "google.protobuf.Int64Value"
     }
   ],
-  "storageClassUsedSizes": [
+  "storage_class_used_sizes": [
     {
-      "storageClass": "string",
-      "classSize": "int64"
+      "storage_class": "string",
+      "class_size": "int64"
     }
   ],
-  "storageClassCounters": [
+  "storage_class_counters": [
     {
-      "storageClass": "string",
+      "storage_class": "string",
       "counters": {
-        "simpleObjectSize": "int64",
-        "simpleObjectCount": "int64",
-        "objectsPartsSize": "int64",
-        "objectsPartsCount": "int64",
-        "multipartObjectsSize": "int64",
-        "multipartObjectsCount": "int64",
-        "activeMultipartCount": "int64"
+        "simple_object_size": "int64",
+        "simple_object_count": "int64",
+        "objects_parts_size": "int64",
+        "objects_parts_count": "int64",
+        "multipart_objects_size": "int64",
+        "multipart_objects_count": "int64",
+        "active_multipart_count": "int64"
       }
     }
   ],
-  "defaultStorageClass": "google.protobuf.StringValue",
-  "anonymousAccessFlags": {
+  "default_storage_class": "google.protobuf.StringValue",
+  "anonymous_access_flags": {
     "read": "google.protobuf.BoolValue",
     "list": "google.protobuf.BoolValue",
-    "configRead": "google.protobuf.BoolValue"
+    "config_read": "google.protobuf.BoolValue"
   },
-  "createdAt": "google.protobuf.Timestamp",
-  "updatedAt": "google.protobuf.Timestamp"
+  "created_at": "google.protobuf.Timestamp",
+  "updated_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -77,34 +77,34 @@ A bucket statistics resource.
 || name | **string**
 
 Name of the bucket. ||
-|| maxSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum size of the bucket, in bytes. ||
-|| usedSize | **int64**
+|| used_size | **int64**
 
 Size of used space in the bucket, in bytes. ||
-|| storageClassMaxSizes[] | **[OptionalSizeByClass](#yandex.cloud.storage.v1.OptionalSizeByClass)**
+|| storage_class_max_sizes[] | **[OptionalSizeByClass](#yandex.cloud.storage.v1.OptionalSizeByClass)**
 
 Size of available space in the bucket by storage class, in bytes. ||
-|| storageClassUsedSizes[] | **[SizeByClass](#yandex.cloud.storage.v1.SizeByClass)**
+|| storage_class_used_sizes[] | **[SizeByClass](#yandex.cloud.storage.v1.SizeByClass)**
 
 Size of used space in the bucket by storage class, in bytes. ||
-|| storageClassCounters[] | **[CountersByClass](#yandex.cloud.storage.v1.CountersByClass)**
+|| storage_class_counters[] | **[CountersByClass](#yandex.cloud.storage.v1.CountersByClass)**
 
 Object-related statistics by storage class and type of upload (simple vs. multipart), in bytes. ||
-|| defaultStorageClass | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+|| default_storage_class | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
 (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
 For details, see [documentation](/docs/storage/concepts/storage-class). ||
-|| anonymousAccessFlags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
+|| anonymous_access_flags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
 
 Flags for configuring public (anonymous) access to the bucket's content and settings.
 For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Bucket creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Bucket latest update timestamp. ||
 |#
@@ -115,12 +115,12 @@ A resource for size of available space in a bucket for a storage class.
 
 #|
 ||Field | Description ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
 all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
 For details, see [documentation](/docs/storage/concepts/storage-class). ||
-|| classSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| class_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size of available space in the bucket for the storage class. ||
 |#
@@ -131,12 +131,12 @@ A resource for size of used space in a bucket for a storage class.
 
 #|
 ||Field | Description ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
 all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
 For details, see [documentation](/docs/storage/concepts/storage-class). ||
-|| classSize | **int64**
+|| class_size | **int64**
 
 Size of used space in the bucket for the storage class. ||
 |#
@@ -147,7 +147,7 @@ A resource for object-related statistics for a storage class by type of upload (
 
 #|
 ||Field | Description ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Storage class. Supported classes are standard storage (`STANDARD`), cold storage (`COLD`, `STANDARD_IA`, `NEARLINE`
 all synonyms), and ice storage (`ice` and `GLACIER` are synonyms).
@@ -161,25 +161,25 @@ Object-related statistics for the storage class by type of upload. ||
 
 #|
 ||Field | Description ||
-|| simpleObjectSize | **int64**
+|| simple_object_size | **int64**
 
 Total size of objects uploaded in single operation, in bytes. ||
-|| simpleObjectCount | **int64**
+|| simple_object_count | **int64**
 
 Number of objects uploaded in single operation. ||
-|| objectsPartsSize | **int64**
+|| objects_parts_size | **int64**
 
 Total size of uploaded parts in incomplete multipart uploads, in bytes. ||
-|| objectsPartsCount | **int64**
+|| objects_parts_count | **int64**
 
 Number of uploaded parts in incomplete multipart uploads. ||
-|| multipartObjectsSize | **int64**
+|| multipart_objects_size | **int64**
 
 Total size of objects uploaded in multiple parts, in bytes. ||
-|| multipartObjectsCount | **int64**
+|| multipart_objects_count | **int64**
 
 Number of objects uploaded in multiple parts. ||
-|| activeMultipartCount | **int64**
+|| active_multipart_count | **int64**
 
 Number of incomplete multipart uploads. ||
 |#
@@ -194,7 +194,7 @@ Specifies whether public (anonymous) access to read objects in the bucket is ena
 || list | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to the list of objects in the bucket is enabled. ||
-|| configRead | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| config_read | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
 [static website hosting](/docs/storage/concepts/hosting), and

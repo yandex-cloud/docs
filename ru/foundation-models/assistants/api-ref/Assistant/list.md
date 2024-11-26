@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/list.md
 ---
 
-# AI Assistants API, REST: Assistant.List {#List}
+# AI Assistants API, REST: Assistant.List
 
 List assistants in a specific folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PublicConnection/list.md
 ---
 
-# Cloud Interconnect API, gRPC: PublicConnectionService.List {#List}
+# Cloud Interconnect API, gRPC: PublicConnectionService.List
 
 Retrieves the list of PublicConnection resources in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of PublicConnection resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list publicConnections in.
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListPublicConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPublicConnectionsResponse)
+results is larger than `page_size`,
+the service returns a [ListPublicConnectionsResponse.next_page_token](#yandex.cloud.cic.v1.ListPublicConnectionsResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListPublicConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPublicConnectionsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListPublicConnectionsResponse.next_page_token](#yandex.cloud.cic.v1.ListPublicConnectionsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -51,49 +51,49 @@ The expression must specify:
 
 ```json
 {
-  "publicConnections": [
+  "public_connections": [
     {
       "id": "string",
       "name": "string",
       "description": "string",
-      "folderId": "string",
-      "regionId": "string",
-      "trunkConnectionId": "string",
-      "vlanId": "google.protobuf.Int64Value",
-      "ipv4Peering": {
-        "peeringSubnet": "string",
-        "peerIp": "string",
-        "cloudIp": "string",
-        "peerBgpAsn": "int64",
-        "cloudBgpAsn": "int64",
-        "peerBgpMd5Key": "string"
+      "folder_id": "string",
+      "region_id": "string",
+      "trunk_connection_id": "string",
+      "vlan_id": "google.protobuf.Int64Value",
+      "ipv4_peering": {
+        "peering_subnet": "string",
+        "peer_ip": "string",
+        "cloud_ip": "string",
+        "peer_bgp_asn": "int64",
+        "cloud_bgp_asn": "int64",
+        "peer_bgp_md5_key": "string"
       },
-      "ipv4AllowedServiceTypes": [
+      "ipv4_allowed_service_types": [
         "CloudServiceType"
       ],
-      "ipv4PeerAnnouncedPrefixes": [
+      "ipv4_peer_announced_prefixes": [
         "string"
       ],
       "labels": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| publicConnections[] | **[PublicConnection](#yandex.cloud.cic.v1.PublicConnection)**
+|| public_connections[] | **[PublicConnection](#yandex.cloud.cic.v1.PublicConnection)**
 
 List of PublicConnection resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListPublicConnectionsRequest.pageSize](#yandex.cloud.cic.v1.ListPublicConnectionsRequest), use
-the `nextPageToken` as the value
-for the [ListPublicConnectionsRequest.pageToken](#yandex.cloud.cic.v1.ListPublicConnectionsRequest) query parameter
+is larger than [ListPublicConnectionsRequest.page_size](#yandex.cloud.cic.v1.ListPublicConnectionsRequest), use
+the `next_page_token` as the value
+for the [ListPublicConnectionsRequest.page_token](#yandex.cloud.cic.v1.ListPublicConnectionsRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## PublicConnection {#yandex.cloud.cic.v1.PublicConnection}
@@ -113,24 +113,24 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the publicConnection. 0-256 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the publicConnection belongs to. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the publicConnection belongs to. ||
-|| trunkConnectionId | **string**
+|| trunk_connection_id | **string**
 
 ID of the trunk_connection that the publicConnection belongs to. ||
-|| vlanId | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| vlan_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 VLAN_ID that the privateConnection uses in multiplexing.
 Not used in connections over partners-II
 Value range: [1, 4095] ||
-|| ipv4Peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
+|| ipv4_peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
 
 IPv4 peering config of connection ||
-|| ipv4AllowedServiceTypes[] | enum **CloudServiceType**
+|| ipv4_allowed_service_types[] | enum **CloudServiceType**
 
 Cloud services that the publicConnection connects to.
 
@@ -146,7 +146,7 @@ Cloud services that the publicConnection connects to.
 - `CLOUD_SERVICE_YANDEX_GPT`
 - `CLOUD_SERVICES_ALL_API_ENDPOINT`
 - `CLOUD_SERVICE_YMQ` ||
-|| ipv4PeerAnnouncedPrefixes[] | **string**
+|| ipv4_peer_announced_prefixes[] | **string**
 
 IPv4 Peer Announced Prefixes
 It's an list of ip with format ipPrefix/length where address part of ipPrefix is 0 ||
@@ -164,26 +164,26 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 #|
 ||Field | Description ||
-|| peeringSubnet | **string**
+|| peering_subnet | **string**
 
 PeeringSubnet.
 It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
-|| peerIp | **string**
+|| peer_ip | **string**
 
 PeerIp.
 It's an ip with just an ipAddress format without mask. ||
-|| cloudIp | **string**
+|| cloud_ip | **string**
 
 CloudIp.
 It's an ip with just an ipAddress format without mask. ||
-|| peerBgpAsn | **int64**
+|| peer_bgp_asn | **int64**
 
 PeerBgpAsn.
 PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551). ||
-|| cloudBgpAsn | **int64**
+|| cloud_bgp_asn | **int64**
 
 CloudBgpAsn. ||
-|| peerBgpMd5Key | **string**
+|| peer_bgp_md5_key | **string**
 
 PeerBgpMd5Key.
 Optional. ||

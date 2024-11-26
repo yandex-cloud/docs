@@ -135,7 +135,7 @@ Make sure the update does not affect your applications:
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

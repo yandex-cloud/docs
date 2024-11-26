@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostType/list.md
 ---
 
-# Compute Cloud API, gRPC: HostTypeService.List {#List}
+# Compute Cloud API, gRPC: HostTypeService.List
 
 List avaliable host types.
 
@@ -15,23 +15,23 @@ List avaliable host types.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListHostTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostTypesResponse)
+results is larger than `page_size`,
+the service returns a [ListHostTypesResponse.next_page_token](#yandex.cloud.compute.v1.ListHostTypesResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListHostTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostTypesResponse)
+set `page_token` to the [ListHostTypesResponse.next_page_token](#yandex.cloud.compute.v1.ListHostTypesResponse)
 returned by a previous list request. ||
 |#
 
@@ -39,29 +39,29 @@ returned by a previous list request. ||
 
 ```json
 {
-  "hostTypes": [
+  "host_types": [
     {
       "id": "string",
       "cores": "int64",
       "memory": "int64",
       "disks": "int64",
-      "diskSize": "int64"
+      "disk_size": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| hostTypes[] | **[HostType](#yandex.cloud.compute.v1.HostType)**
+|| host_types[] | **[HostType](#yandex.cloud.compute.v1.HostType)**
 
 Lists host types. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListHostTypesRequest.pageSize](#yandex.cloud.compute.v1.ListHostTypesRequest), use `next_page_token` as the value
-for the [ListHostTypesRequest.pageToken](#yandex.cloud.compute.v1.ListHostTypesRequest) parameter in the next list request.
+the specified [ListHostTypesRequest.page_size](#yandex.cloud.compute.v1.ListHostTypesRequest), use `next_page_token` as the value
+for the [ListHostTypesRequest.page_token](#yandex.cloud.compute.v1.ListHostTypesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -86,7 +86,7 @@ Ammount of memory available for instances. ||
 || disks | **int64**
 
 Number of local disks available for instances ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Size of each local disk ||
 |#

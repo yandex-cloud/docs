@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/enableSharding.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.EnableSharding {#EnableSharding}
+# Managed Service for MongoDB API, REST: Cluster.EnableSharding
 
 Enables sharding for the cluster:
 creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts

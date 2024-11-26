@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/Operation/cancel.md
 ---
 
-# API Gateway Service, REST: Operation.Cancel {#Cancel}
+# API Gateway Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

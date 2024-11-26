@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.Create {#Create}
+# Managed Service for Apache Kafka® API, REST: Cluster.Create
 
 Creates a new Apache Kafka® cluster in the specified folder.
 

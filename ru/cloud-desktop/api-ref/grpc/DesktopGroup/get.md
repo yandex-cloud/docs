@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopGroup/get.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopGroupService.Get {#Get}
+# Cloud Desktop API, gRPC: DesktopGroupService.Get
 
 Returns the specified desktop group resource.
 
@@ -17,13 +17,13 @@ To get the list of available desktop groups, make a [List](/docs/cloud-desktop/a
 
 ```json
 {
-  "desktopGroupId": "string"
+  "desktop_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopGroupId | **string**
+|| desktop_group_id | **string**
 
 Required field. ID of the desktop group resource to return.
 
@@ -35,19 +35,19 @@ To get the desktop group ID use a [DesktopGroupService.List](/docs/cloud-desktop
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "status": "Status",
   "name": "string",
   "description": "string",
-  "resourcesSpec": {
+  "resources_spec": {
     "memory": "int64",
     "cores": "int64",
-    "coreFraction": "int64"
+    "core_fraction": "int64"
   },
-  "networkInterfaceSpec": {
-    "networkId": "string",
-    "subnetIds": [
+  "network_interface_spec": {
+    "network_id": "string",
+    "subnet_ids": [
       "string"
     ]
   }
@@ -61,10 +61,10 @@ A desktop group resource.
 || id | **string**
 
 Desktop group ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the desktop group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -81,10 +81,10 @@ Name of the desktop group. ||
 || description | **string**
 
 Description of the desktop group. ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
 
 Resource specification of the desktop group. ||
-|| networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+|| network_interface_spec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
 
 Network interface specification of the desktop group. ||
 |#
@@ -99,7 +99,7 @@ RAM volume, in bytes. ||
 || cores | **int64**
 
 Number of CPU cores. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -109,10 +109,10 @@ This field sets baseline performance for each core. ||
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network interface specification. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 List of subnet IDs. ||
 |#

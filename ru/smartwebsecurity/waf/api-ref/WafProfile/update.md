@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/update.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.Update {#Update}
+# SmartWebSecurity WAF API, REST: WafProfile.Update
 
 Updates the specified WAF profile.
 

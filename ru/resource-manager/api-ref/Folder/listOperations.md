@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/listOperations.md
 ---
 
-# Resource Manager API, REST: Folder.ListOperations {#ListOperations}
+# Resource Manager API, REST: Folder.ListOperations
 
 Lists operations for the specified folder.
 

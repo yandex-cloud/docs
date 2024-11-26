@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Operation/get.md
 ---
 
-# Identity and Access Management SAML API, REST: Operation.Get {#Get}
+# Identity and Access Management SAML API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

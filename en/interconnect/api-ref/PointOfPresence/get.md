@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PointOfPresence/get.md
 ---
 
-# Cloud Interconnect API, REST: PointOfPresence.Get {#Get}
+# Cloud Interconnect API, REST: PointOfPresence.Get
 
 Returns the specified PointOfPresence resource.
 

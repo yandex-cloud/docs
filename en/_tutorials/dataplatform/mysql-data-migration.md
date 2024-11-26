@@ -61,7 +61,7 @@ Create the required resources:
 
    1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
-      * **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
+      * **{{ ui-key.yacloud.compute.instances.create.section_storages }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
 
          The recommended size is two or three times the total dump and dump archive size.
 

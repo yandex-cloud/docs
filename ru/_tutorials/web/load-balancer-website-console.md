@@ -48,7 +48,7 @@
 
           Нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

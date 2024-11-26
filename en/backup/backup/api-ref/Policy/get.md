@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/get.md
 ---
 
-# Cloud Backup API, REST: Policy.Get {#Get}
+# Cloud Backup API, REST: Policy.Get
 
 Get specific policy.
 

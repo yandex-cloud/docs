@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/create.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.Create {#Create}
+# Cloud Logging Service, REST: LogGroup.Create
 
 Creates a log group in the specified folder.
 

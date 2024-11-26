@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/awscompatibility/api-ref/grpc/AccessKey/create.md
 ---
 
-# Access Key, gRPC: AccessKeyService.Create {#Create}
+# Access Key, gRPC: AccessKeyService.Create
 
 Creates an access key for the specified service account.
 
@@ -15,14 +15,14 @@ Creates an access key for the specified service account.
 
 ```json
 {
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   "description": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account to create an access key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
@@ -36,13 +36,13 @@ Description of the access key. ||
 
 ```json
 {
-  "accessKey": {
+  "access_key": {
     "id": "string",
-    "serviceAccountId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "service_account_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "description": "string",
-    "keyId": "string",
-    "lastUsedAt": "google.protobuf.Timestamp"
+    "key_id": "string",
+    "last_used_at": "google.protobuf.Timestamp"
   },
   "secret": "string"
 }
@@ -50,7 +50,7 @@ Description of the access key. ||
 
 #|
 ||Field | Description ||
-|| accessKey | **[AccessKey](#yandex.cloud.iam.v1.awscompatibility.AccessKey)**
+|| access_key | **[AccessKey](#yandex.cloud.iam.v1.awscompatibility.AccessKey)**
 
 AccessKey resource. ||
 || secret | **string**
@@ -70,20 +70,20 @@ For more information, see [AWS-compatible access keys](/docs/iam/concepts/author
 
 ID of the AccessKey resource.
 It is used to manage secret credentials: an access key ID and a secret access key. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account that the access key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the access key. 0-256 characters long. ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the access key.
 The key is AWS compatible. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication using this Access key. ||
 |#

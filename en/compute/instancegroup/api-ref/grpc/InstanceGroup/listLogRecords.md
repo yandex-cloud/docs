@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/InstanceGroup/listLogRecords.md
 ---
 
-# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ListLogRecords {#ListLogRecords}
+# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ListLogRecords
 
 Lists logs for the specified instance group.
 
@@ -15,29 +15,29 @@ Lists logs for the specified instance group.
 
 ```json
 {
-  "instanceGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "instance_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceGroupId | **string**
+|| instance_group_id | **string**
 
 Required field. ID of the InstanceGroup resource to list logs for.
 To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/grpc/InstanceGroup/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
+results is larger than `page_size`,
+the service returns a [ListInstanceGroupLogRecordsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
+set `page_token` to the [ListInstanceGroupLogRecordsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
 returned by a previous list request. ||
 || filter | **string**
 
@@ -49,29 +49,29 @@ Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/a
 
 ```json
 {
-  "logRecords": [
+  "log_records": [
     {
       "timestamp": "google.protobuf.Timestamp",
       "message": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| logRecords[] | **[LogRecord](#yandex.cloud.compute.v1.instancegroup.LogRecord)**
+|| log_records[] | **[LogRecord](#yandex.cloud.compute.v1.instancegroup.LogRecord)**
 
 Lists logs for the specified instance group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListInstanceGroupLogRecordsRequest.pageSize](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest), use
-`nextPageToken` as the value
-for the [ListInstanceGroupLogRecordsRequest.pageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest) query parameter
+is larger than [ListInstanceGroupLogRecordsRequest.page_size](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest), use
+`next_page_token` as the value
+for the [ListInstanceGroupLogRecordsRequest.page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## LogRecord {#yandex.cloud.compute.v1.instancegroup.LogRecord}

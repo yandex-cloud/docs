@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/list.md
 ---
 
-# Object Storage API, REST: Bucket.List {#List}
+# Object Storage API, REST: Bucket.List
 
 Retrieves the list of buckets in the specified folder.
 

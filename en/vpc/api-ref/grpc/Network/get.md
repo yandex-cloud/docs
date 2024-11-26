@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Network/get.md
 ---
 
-# Virtual Private Cloud API, gRPC: NetworkService.Get {#Get}
+# Virtual Private Cloud API, gRPC: NetworkService.Get
 
 Returns the specified Network resource.
 
@@ -17,13 +17,13 @@ Get the list of available Network resources by making a [List](/docs/vpc/api-ref
 
 ```json
 {
-  "networkId": "string"
+  "network_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the Network resource to return.
 To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/grpc/Network/list#List) request. ||
@@ -34,12 +34,12 @@ To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/grpc/Networ
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "defaultSecurityGroupId": "string"
+  "default_security_group_id": "string"
 }
 ```
 
@@ -50,10 +50,10 @@ A Network resource. For more information, see [Networks](/docs/vpc/concepts/netw
 || id | **string**
 
 ID of the network. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -72,7 +72,7 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| defaultSecurityGroupId | **string**
+|| default_security_group_id | **string**
 
 ID of default security group for network. ||
 |#

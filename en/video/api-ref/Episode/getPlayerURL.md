@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/getPlayerURL.md
 ---
 
-# Video API, REST: Episode.GetPlayerURL {#GetPlayerURL}
+# Video API, REST: Episode.GetPlayerURL
 
 Returns url to the player.
 

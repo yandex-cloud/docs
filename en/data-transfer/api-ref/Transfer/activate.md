@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/activate.md
 ---
 
-# Data Transfer API, REST: Transfer.Activate {#Activate}
+# Data Transfer API, REST: Transfer.Activate
 
 ## HTTP request
 

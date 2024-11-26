@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Operation/get.md
 ---
 
-# Compute Cloud API, REST: Operation.Get {#Get}
+# Compute Cloud API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

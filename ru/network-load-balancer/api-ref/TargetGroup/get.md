@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/get.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.Get {#Get}
+# Network Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified TargetGroup resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/addHosts.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.AddHosts {#AddHosts}
+# Managed Service for Elasticsearch API, REST: Cluster.AddHosts
 
 Adds new hosts to the specified Elasticsearch cluster.
 

@@ -65,11 +65,47 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
          --description <new_cluster_description>
       ```
 
+- {{ TF }} {#tf}
+
+    {% note alert %}
+
+    Do not change the cluster name using {{ TF }}. This will delete the existing cluster and create a new one.
+
+    {% endnote %}
+
+    To update the cluster description:
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the {{ mgp-name }} cluster description, change the `description` attribute value:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          name        = "<cluster_name>"
+          description = "<new_cluster_description>"
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
     To change a cluster's name and description, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New name in the `name` parameter.
     * New description in the `description` parameter.
     * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `name`, `description`).
@@ -116,7 +152,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
     Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Public access settings in the `config.assignPublicIp` parameter.
     * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `name`, `description`).
 
@@ -158,16 +194,12 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Activates the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/). This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Enables the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) in clusters with {{ GP }} 6.25 or higher. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable this option after you save your cluster settings.
 
 
-            {% note info %}
-
-            This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
-
-            {% endnote %}
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
         * **{{ ui-key.yacloud.mdb.forms.section_pooler }}**: Operation mode and parameters of the [connection pooler](../concepts/pooling.md):
@@ -223,19 +255,110 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--assign-public-ip`: Cluster accessibility from the internet.
-
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the {{ mgp-name }} cluster description, change the values of the required additional settings:
+
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          ...
+          backup_window_start {
+            hours = <backup_period_start>
+          }
+
+          maintenance_window {
+            type = <maintenance_type>
+            day  = <day_of_week>
+            hour = <hour>
+          }
+
+          access {
+            data_lens    = <access_from_{{ datalens-name }}>
+            yandex_query = <access_from_Yandex_Query>
+          }
+
+          deletion_protection = <deletion_protection>
+
+          cloud_storage {
+            enable = <hybrid_storage_use>
+          }
+
+          pooler_config {
+            pooling_mode             = <operation_mode>
+            pool_size                = <size>
+            pool_client_idle_timeout = <client_timeout>
+          }
+        }
+        ```
+
+
+
+
+        You can change the following settings:
+
+        * `backup_window_start.hours`: Start of the period for initiating cluster [backup](../concepts/backup.md). It is set in UTC in `HH` format: from `0` to `23`.
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters):
+
+            * `type`: Maintenance type. The possible values include:
+                * `ANYTIME`: Anytime.
+                * `WEEKLY`: On a schedule.
+            * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
+            * `hour`: Hour of the day in `HH` format for the `WEEKLY` type, e.g., `21`.
+
+
+        * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
+
+        * `access.yandex_query`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
+
+
+
+        * `deletion_protection`: Protection of the cluster, its databases, and users against deletion., `true` or `false` value.
+
+            {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+
+            You cannot disable hybrid storage after you save your cluster settings.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+        * `pooler_config`: [Connection pooler](../concepts/pooling.md) settings:
+
+            * `pooling_mode`: Operation mode, `SESSION` or `TRANSACTION`.
+            * `pool_size`: Maximum number of client connections.
+            * `pool_client_idle_timeout`: Client idle time (in ms), after which the connection will be terminated.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
     To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * Public access in the `config.assignPublicIp` parameter.
     * Backup window in the `config.backupWindowStart` parameter.
 
@@ -276,7 +399,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
     To edit your cluster's scheduled maintenance operations settings, use the REST API [update](../api-ref/Cluster/update.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call, and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * New parameter values for the `configSpec.backgroundActivities.analyzeAndVacuum` object:
 
         * `start.hours`: Start hour of the `VACUUM` operation in UTC. Values range from `0` to `23`, the default one is `19`.
@@ -335,11 +458,42 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {{ mgp-short-name }} runs the update cluster settings operation.
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the cluster description, edit the [{{ GP }} settings](../concepts/settings-list.md) under `greenplum_config`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          ...
+          greenplum_config = {
+            max_connections         = <maximum_number_of_connections>
+            gp_workfile_compression = <true_or_false>
+            ...
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
     To change {{ GP }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * New values ​​in the `configSpec.greenplumConfig_<version>` parameter.
+    * New values in the `configSpec.greenplumConfig_<version>` parameter.
     * List of cluster configuration fields to update, in the `updateMask` parameter.
 
         {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -431,6 +585,7 @@ We recommend changing the host class only when the cluster has no active workloa
             resource_preset_id = "<host_class>"
             ...
           }
+        }
         segment_subcluster {
           resources {
             resource_preset_id = "<host_class>"
@@ -454,7 +609,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the class of cluster hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+  * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
   * Master host class ID in the `masterConfig.resources.resourcePresetId` parameter or segment host class ID in the `segmentConfig.resources.resourcePresetId` parameter. You can get a list of supported values by using the [list](../api-ref/ResourcePreset/list.md) method for the `ResourcePreset`.
   * List of settings to update (in this case, `masterConfig.resources.resourcePresetId` or `segmentConfig.resources.resourcePresetId`), in the `updateMask` parameter.
 
@@ -479,11 +634,49 @@ We recommend changing the host class only when the cluster has no active workloa
   1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the {{ mgp-name }} cluster description, change the `disk_size` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          ...
+          master_subcluster {
+            resources {
+              disk_size = <storage_size_in_GB>
+              ...
+            }
+          }
+          segment_subcluster {
+            resources {
+              disk_size = <storage_size_in_GB>
+              ...
+            }
+          }
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
 - API {#api}
 
   To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+  * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
   * New master and segment host storage size in the `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize` parameters.
   * List of cluster configuration fields to update in the `updateMask` parameter.
 

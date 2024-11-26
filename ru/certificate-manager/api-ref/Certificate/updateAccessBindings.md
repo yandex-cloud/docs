@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/updateAccessBindings.md
 ---
 
-# Certificate Manager API, REST: Certificate.UpdateAccessBindings {#UpdateAccessBindings}
+# Certificate Manager API, REST: Certificate.UpdateAccessBindings
 
 Updates access bindings for the specified certificate.
 

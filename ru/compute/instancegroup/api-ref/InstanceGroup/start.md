@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/start.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Start {#Start}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Start
 
 Starts the specified instance group.
 

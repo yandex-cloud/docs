@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/User/get.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: UserService.Get {#Get}
+# Managed Service for Apache Kafka® API, gRPC: UserService.Get
 
 Returns the specified Kafka user.
 
@@ -17,19 +17,19 @@ To get the list of available Kafka users, make a [List](/docs/managed-kafka/api-
 
 ```json
 {
-  "clusterId": "string",
-  "userName": "string"
+  "cluster_id": "string",
+  "user_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
 To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
-|| userName | **string**
+|| user_name | **string**
 
 Required field. Name of the Kafka user to return.
 
@@ -41,12 +41,12 @@ To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-r
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "permissions": [
     {
-      "topicName": "string",
+      "topic_name": "string",
       "role": "AccessRole",
-      "allowHosts": [
+      "allow_hosts": [
         "string"
       ]
     }
@@ -62,7 +62,7 @@ For more information, see the [Operations -> Accounts](/docs/managed-kafka/opera
 || name | **string**
 
 Name of the Kafka user. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Kafka® cluster the user belongs to.
 
@@ -76,7 +76,7 @@ Set of permissions granted to this user. ||
 
 #|
 ||Field | Description ||
-|| topicName | **string**
+|| topic_name | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 
@@ -89,13 +89,13 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
-|| allowHosts[] | **string**
+|| allow_hosts[] | **string**
 
 Lists hosts allowed for this permission.
 Only ip-addresses allowed as value of single host.
 When not defined, access from any host is allowed.
 
 Bare in mind that the same host might appear in multiple permissions at the same time,
-hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission.
 If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Sink/create.md
 ---
 
-# Cloud Logging Service, gRPC: SinkService.Create {#Create}
+# Cloud Logging Service, gRPC: SinkService.Create
 
 Creates a sink in the specified folder.
 
@@ -15,14 +15,14 @@ Creates a sink in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
-    "streamName": "string"
+    "stream_name": "string"
   },
   "s3": {
     "bucket": "string",
@@ -34,7 +34,7 @@ Creates a sink in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a sink in.
 
@@ -49,7 +49,7 @@ Description of the sink. ||
 || labels | **string**
 
 Sink labels as `key:value` pairs. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Logs will be written to the sink on behalf of this service account ||
 || yds | **[Yds](#yandex.cloud.logging.v1.Sink.Yds)**
@@ -72,7 +72,7 @@ Logs destination ||
 
 #|
 ||Field | Description ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Fully qualified name of data stream ||
 |#
@@ -95,27 +95,27 @@ Prefix to use for saved log object names ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "sinkId": "string"
+    "sink_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "serviceAccountId": "string",
+    "service_account_id": "string",
     // Includes only one of the fields `yds`, `s3`
     "yds": {
-      "streamName": "string"
+      "stream_name": "string"
     },
     "s3": {
       "bucket": "string",
@@ -137,13 +137,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -186,7 +186,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 ID of the sink being created. ||
 |#
@@ -198,13 +198,13 @@ ID of the sink being created. ||
 || id | **string**
 
 Sink ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Sink folder ID. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Sink cloud ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Sink creation time. ||
 || name | **string**
@@ -216,7 +216,7 @@ Sink description. ||
 || labels | **string**
 
 Sink labels. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Logs will be written to the sink on behalf of this service account ||
 || yds | **[Yds](#yandex.cloud.logging.v1.Sink.Yds2)**
@@ -239,7 +239,7 @@ Logs destination ||
 
 #|
 ||Field | Description ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Fully qualified name of data stream ||
 |#

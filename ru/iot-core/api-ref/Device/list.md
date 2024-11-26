@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/list.md
 ---
 
-# IoT Core Service, REST: Device.List {#List}
+# IoT Core Service, REST: Device.List
 
 Retrieves the list of devices in the specified registry.
 

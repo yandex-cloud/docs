@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Managed Service for Redis API, gRPC: ClusterService.ListHosts {#ListHosts}
+# Managed Service for Redis API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for the specified cluster.
 
@@ -15,26 +15,26 @@ Retrieves a list of hosts for the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Redis cluster.
 To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse)
+results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token.  To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse)
+Page token.  To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse)
 returned by the previous list request. ||
 |#
 
@@ -45,13 +45,13 @@ returned by the previous list request. ||
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
-      "subnetId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
+      "subnet_id": "string",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "role": "Role",
       "health": "Health",
@@ -61,12 +61,12 @@ returned by the previous list request. ||
           "health": "Health"
         }
       ],
-      "shardName": "string",
-      "replicaPriority": "google.protobuf.Int64Value",
-      "assignPublicIp": "bool"
+      "shard_name": "string",
+      "replica_priority": "google.protobuf.Int64Value",
+      "assign_public_ip": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -75,12 +75,12 @@ returned by the previous list request. ||
 || hosts[] | **[Host](#yandex.cloud.mdb.redis.v1.Host)**
 
 List of hosts for the cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.redis.v1.ListClusterHostsRequest), use the `nextPageToken` as the value
-for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.redis.v1.ListClusterHostsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.redis.v1.ListClusterHostsRequest), use the `next_page_token` as the value
+for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.redis.v1.ListClusterHostsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.redis.v1.Host}
@@ -93,13 +93,13 @@ Name of the Redis host. The host name is assigned by MDB at creation time, and c
 1-63 characters long.
 
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the Redis host resides. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
@@ -123,13 +123,13 @@ Aggregated health of the host. If the field has default value, it is not returne
 || services[] | **[Service](#yandex.cloud.mdb.redis.v1.Service)**
 
 Services provided by the host. ||
-|| shardName | **string** ||
-|| replicaPriority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| shard_name | **string** ||
+|| replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A replica with a low priority number is considered better for promotion.
 A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
 Works only for non-sharded clusters. Default value is 100. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Flag showing public IP assignment status to this host. ||
 |#
@@ -138,14 +138,14 @@ Flag showing public IP assignment status to this host. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:

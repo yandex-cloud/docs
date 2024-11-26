@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/listOperations.md
 ---
 
-# SAML Federation API, REST: Federation.ListOperations {#ListOperations}
+# SAML Federation API, REST: Federation.ListOperations
 
 Lists operations for the specified federation.
 

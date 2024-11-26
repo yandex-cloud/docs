@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listTagHistory.md
 ---
 
-# Cloud Functions Service, REST: Function.ListTagHistory {#ListTagHistory}
+# Cloud Functions Service, REST: Function.ListTagHistory
 
 Returns the log of tags assigned to versions of the specified function.
 

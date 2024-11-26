@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/update.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Update {#Update}
+# Cloud Organization API, REST: UserSshKey.Update
 
 ## HTTP request
 

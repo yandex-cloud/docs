@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/create.md
 ---
 
-# Cloud Backup API, REST: Policy.Create {#Create}
+# Cloud Backup API, REST: Policy.Create
 
 Create a new policy.
 

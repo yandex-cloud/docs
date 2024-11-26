@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/k8s/marketplace/v1/kubernetes-marketplace/api-ref/grpc/HelmRelease/install.md
 ---
 
-# Kubernetes Marketplace, gRPC: HelmReleaseService.Install {#Install}
+# Kubernetes Marketplace, gRPC: HelmReleaseService.Install
 
 Installs helm release into specified Kubernetes Cluster.
 
@@ -15,14 +15,14 @@ Installs helm release into specified Kubernetes Cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "productVersionId": "string",
-  "userValues": [
+  "cluster_id": "string",
+  "product_version_id": "string",
+  "user_values": [
     {
       "key": "string",
       "value": {
-        // Includes only one of the fields `typedValue`
-        "typedValue": "string"
+        // Includes only one of the fields `typed_value`
+        "typed_value": "string"
         // end of the list of possible fields
       }
     }
@@ -32,13 +32,13 @@ Installs helm release into specified Kubernetes Cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. The ID of the Kubernetes cluster where the Helm release is to be installed. ||
-|| productVersionId | **string**
+|| product_version_id | **string**
 
 The product version ID to install. ||
-|| userValues[] | **[ValueWithKey](#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
+|| user_values[] | **[ValueWithKey](#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
 
 User-defined values for the Helm chart during installation. ||
 |#
@@ -59,11 +59,11 @@ The value associated with the key. ||
 
 #|
 ||Field | Description ||
-|| typedValue | **string**
+|| typed_value | **string**
 
 The typed string value.
 
-Includes only one of the fields `typedValue`. ||
+Includes only one of the fields `typed_value`. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -72,27 +72,27 @@ Includes only one of the fields `typedValue`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "helmReleaseId": "string",
-    "productVersionId": "string"
+    "cluster_id": "string",
+    "helm_release_id": "string",
+    "product_version_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "clusterId": "string",
-    "appName": "string",
-    "appNamespace": "string",
-    "productId": "string",
-    "productName": "string",
-    "productVersion": "string",
+    "cluster_id": "string",
+    "app_name": "string",
+    "app_namespace": "string",
+    "product_id": "string",
+    "product_name": "string",
+    "product_version": "string",
     "status": "Status",
-    "createdAt": "google.protobuf.Timestamp"
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -108,13 +108,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -157,13 +157,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 The ID of the Kubernetes cluster where the Helm release is being installed. ||
-|| helmReleaseId | **string**
+|| helm_release_id | **string**
 
 The ID of the Helm release being installed. ||
-|| productVersionId | **string**
+|| product_version_id | **string**
 
 The ID of the product version being deployed. ||
 |#
@@ -177,22 +177,22 @@ A Helm Release.
 || id | **string**
 
 ID of a helm release. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Kubernetes cluster. ||
-|| appName | **string**
+|| app_name | **string**
 
 Name of the application. ||
-|| appNamespace | **string**
+|| app_namespace | **string**
 
 Namespace of the application. ||
-|| productId | **string**
+|| product_id | **string**
 
 Kubernetes marketplace product id. ||
-|| productName | **string**
+|| product_name | **string**
 
 Kubernetes marketplace product name. ||
-|| productVersion | **string**
+|| product_version | **string**
 
 Kubernetes marketplace product version. ||
 || status | enum **Status**
@@ -209,7 +209,7 @@ Status of a helm release.
 - `PENDING_INSTALL`: Helm release is to be installed.
 - `PENDING_UPGRADE`: Helm release is to be updated.
 - `PENDING_ROLLBACK`: Helm release is to be rolled back. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

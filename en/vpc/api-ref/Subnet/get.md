@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/get.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Get {#Get}
+# Virtual Private Cloud API, REST: Subnet.Get
 
 Returns the specified Subnet resource.
 

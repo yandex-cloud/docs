@@ -38,6 +38,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
   1. Specify the [host class](../concepts/instance-types.md).
   1. Set up the storage settings.
   1. Change the {{ ZK }} host settings, if required. To do this, hover over the host's row and click ![image](../../_assets/console-icons/pencil.svg).
+  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -64,7 +65,9 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
      If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
 
-     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command.
+
+     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -104,7 +107,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
      {{ CH }} host requirements:
      * Minimum host class: `b1.medium`.
-     * If there is more than one host, they must reside in different availability zones.
+     * If there are several hosts, they must be located in different availability zones.
 
      If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
 
@@ -129,9 +132,9 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
      }
      ```
 
-     Where `resource_preset_id` is `b1.medium` host class or higher.
+     Where `resource_preset_id` is the host class: `b1.medium` or higher.
 
-  1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
+  1. Add at least three `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
      {{ ZK }} host requirements:
      * Each availability zone must have at least one host.
@@ -168,7 +171,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
      }
      ```
 
-     Where `resource_preset_id` is `b1.medium` host class or higher.
+     Where `resource_preset_id` is the host class: `b1.medium` or higher.
 
   1. Make sure the settings are correct.
 
@@ -184,7 +187,11 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 - API {#api}
 
-  To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call. When adding, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
+  To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call and provide the following in the request:
+
+  * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+  * Settings for three {{ ZK }} hosts in the `hostSpecs` parameter.
+  * Whether or not to convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) in the `convertTablesToReplicated` parameter.
 
 {% endlist %}
 
@@ -246,7 +253,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. Add the `ZOOKEEPER` type `host` blocks to the {{ mch-name }} cluster description:
+  1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description.
 
     ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -254,7 +261,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
        host {
          type      = "ZOOKEEPER"
          zone      = "<availability_zone>"
-         subnet_id = yandex_vpc_subnet.<subnet_name_in_the_selected_availability_zone>.id
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_selected_availability_zone>.id
        }
        ...
      }
@@ -284,7 +291,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
-## Deleting a {{ ZK }} host {#delete-zk-host}
+## Removing a {{ ZK }} host {#delete-zk-host}
 
 {% list tabs group=instructions %}
 

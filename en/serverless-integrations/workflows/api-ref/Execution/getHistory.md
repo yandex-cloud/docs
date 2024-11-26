@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/getHistory.md
 ---
 
-# Workflows Service, REST: Execution.GetHistory {#GetHistory}
+# Workflows Service, REST: Execution.GetHistory
 
 Retrieves detailed history of specified Workflow execution.
 

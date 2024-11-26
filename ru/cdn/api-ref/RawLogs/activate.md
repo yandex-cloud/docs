@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/activate.md
 ---
 
-# Cloud CDN API, REST: RawLogs.Activate {#Activate}
+# Cloud CDN API, REST: RawLogs.Activate
 
 ## HTTP request
 

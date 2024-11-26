@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Backup/startFilesRecovery.md
 ---
 
-# Cloud Backup API, gRPC: BackupService.StartFilesRecovery {#StartFilesRecovery}
+# Cloud Backup API, gRPC: BackupService.StartFilesRecovery
 
 StartFilesRecovery runs recovery process of selected files to specific Compute Cloud instance.
 
@@ -15,11 +15,11 @@ StartFilesRecovery runs recovery process of selected files to specific Compute C
 
 ```json
 {
-  "computeInstanceId": "string",
-  "backupId": "string",
+  "compute_instance_id": "string",
+  "backup_id": "string",
   "opts": {
     "overwrite": "Overwrite",
-    "rebootIfNeeded": "bool",
+    "reboot_if_needed": "bool",
     // Includes only one of the fields `original`, `custom`
     "original": "TargetPathOriginal",
     "custom": {
@@ -27,7 +27,7 @@ StartFilesRecovery runs recovery process of selected files to specific Compute C
     }
     // end of the list of possible fields
   },
-  "sourceIds": [
+  "source_ids": [
     "string"
   ]
 }
@@ -35,16 +35,16 @@ StartFilesRecovery runs recovery process of selected files to specific Compute C
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Destination instance ID. ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Backup ID. ||
 || opts | **[FilesRecoveryOptions](#yandex.cloud.backup.v1.FilesRecoveryOptions)**
 
 Required field.  ||
-|| sourceIds[] | **string** ||
+|| source_ids[] | **string** ||
 |#
 
 ## FilesRecoveryOptions {#yandex.cloud.backup.v1.FilesRecoveryOptions}
@@ -59,7 +59,7 @@ Overwrite options declares the behavior for files that already exists on the fil
 - `OVERWRITE_ALL`: All overwrites all existing files by recovered ones.
 - `OVERWRITE_OLDER`: Older overwrites older files only.
 - `OVERWRITE_NONE`: None does not overwrites files at all. ||
-|| rebootIfNeeded | **bool**
+|| reboot_if_needed | **bool**
 
 specifies whether the recovery plan is able to reboot host if needed. ||
 || original | **[TargetPathOriginal](#yandex.cloud.backup.v1.TargetPathOriginal)**
@@ -100,15 +100,15 @@ Custom folder for file recovery. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "progressPercentage": "double",
-    "computeInstanceId": "string",
-    "backupId": "string",
-    "sourceIds": [
+    "progress_percentage": "double",
+    "compute_instance_id": "string",
+    "backup_id": "string",
+    "source_ids": [
       "string"
     ]
   },
@@ -129,13 +129,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -178,12 +178,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| progressPercentage | **double** ||
-|| computeInstanceId | **string**
+|| progress_percentage | **double** ||
+|| compute_instance_id | **string**
 
 Required field. Destination instance ID. ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Backup ID. ||
-|| sourceIds[] | **string** ||
+|| source_ids[] | **string** ||
 |#

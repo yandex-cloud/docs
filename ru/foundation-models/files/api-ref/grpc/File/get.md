@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/files/v1/files/api-ref/grpc/File/get.md
 ---
 
-# Files API, gRPC: FileService.Get {#Get}
+# Files API, gRPC: FileService.Get
 
 Retrieve details of a specific file by its ID.
 
@@ -15,7 +15,7 @@ Retrieve details of a specific file by its ID.
 
 ```json
 {
-  "fileId": "string"
+  "file_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for retrieving a file by ID.
 
 #|
 ||Field | Description ||
-|| fileId | **string**
+|| file_id | **string**
 
 Required field. ID of the file to retrieve. ||
 |#
@@ -33,19 +33,19 @@ Required field. ID of the file to retrieve. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "mimeType": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "updatedBy": "string",
-  "updatedAt": "google.protobuf.Timestamp",
-  "expirationConfig": {
-    "expirationPolicy": "ExpirationPolicy",
-    "ttlDays": "int64"
+  "mime_type": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "updated_by": "string",
+  "updated_at": "google.protobuf.Timestamp",
+  "expiration_config": {
+    "expiration_policy": "ExpirationPolicy",
+    "ttl_days": "int64"
   },
-  "expiresAt": "google.protobuf.Timestamp",
+  "expires_at": "google.protobuf.Timestamp",
   "labels": "string"
 }
 ```
@@ -55,7 +55,7 @@ Required field. ID of the file to retrieve. ||
 || id | **string**
 
 Unique identifier of the file. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the file belongs to. ||
 || name | **string**
@@ -64,25 +64,25 @@ Name of the file. ||
 || description | **string**
 
 Description of the file. ||
-|| mimeType | **string**
+|| mime_type | **string**
 
 MIME type of the file, indicating the file's format (e.g., "application/pdf") ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this file. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the file was created. ||
-|| updatedBy | **string**
+|| updated_by | **string**
 
 Identifier of the subject who last updated this file. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing the last time this file was updated. ||
-|| expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
+|| expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Configuration for the expiration of the file, defining when and how the file will expire. ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the file will expire. ||
 || labels | **string**
@@ -94,10 +94,10 @@ Set of key-value pairs that can be used to organize and categorize the file. ||
 
 #|
 ||Field | Description ||
-|| expirationPolicy | enum **ExpirationPolicy**
+|| expiration_policy | enum **ExpirationPolicy**
 
 - `EXPIRATION_POLICY_UNSPECIFIED`
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
-|| ttlDays | **int64** ||
+|| ttl_days | **int64** ||
 |#

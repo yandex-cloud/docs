@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/performAction.md
 ---
 
-# Video API, REST: Stream.PerformAction {#PerformAction}
+# Video API, REST: Stream.PerformAction
 
 Perform an action on the episode.
 

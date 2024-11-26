@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/list.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.List {#List}
+# Virtual Private Cloud API, REST: Gateway.List
 
 Retrieves the list of Gateway resources in the specified folder.
 

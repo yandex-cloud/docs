@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/addShard.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.AddShard {#AddShard}
+# Managed Service for Redis API, REST: Cluster.AddShard
 
 Creates a new shard.
 

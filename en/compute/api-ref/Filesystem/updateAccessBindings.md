@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/updateAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Filesystem.UpdateAccessBindings {#UpdateAccessBindings}
+# Compute Cloud API, REST: Filesystem.UpdateAccessBindings
 
 Updates access bindings for the filesystem.
 

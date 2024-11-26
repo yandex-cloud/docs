@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/listOperations.md
 ---
 
-# Compute Cloud API, REST: Disk.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Disk.ListOperations
 
 Lists operations for the specified disk.
 

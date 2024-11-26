@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/get.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Get {#Get}
+# Compute Cloud API, REST: Snapshot.Get
 
 Returns the specified Snapshot resource.
 

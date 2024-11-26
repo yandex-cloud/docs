@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/grantPermission.md
 ---
 
-# Managed Service for MySQL API, REST: User.GrantPermission {#GrantPermission}
+# Managed Service for MySQL API, REST: User.GrantPermission
 
 Grants permission to access a database to a user in a cluster.
 

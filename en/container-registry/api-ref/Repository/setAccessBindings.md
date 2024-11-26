@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/setAccessBindings.md
 ---
 
-# Container Registry API, REST: Repository.SetAccessBindings {#SetAccessBindings}
+# Container Registry API, REST: Repository.SetAccessBindings
 
 Sets access bindings for the specified repository.
 

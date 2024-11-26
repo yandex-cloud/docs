@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/searchindex/api-ref/grpc/SearchIndex/delete.md
 ---
 
-# Search Index, gRPC: SearchIndexService.Delete {#Delete}
+# Search Index, gRPC: SearchIndexService.Delete
 
 Delete a search index by its ID.
 
@@ -15,7 +15,7 @@ Delete a search index by its ID.
 
 ```json
 {
-  "searchIndexId": "string"
+  "search_index_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for deleting a search index by ID.
 
 #|
 ||Field | Description ||
-|| searchIndexId | **string**
+|| search_index_id | **string**
 
 Required field. ID of the search index to delete. ||
 |#

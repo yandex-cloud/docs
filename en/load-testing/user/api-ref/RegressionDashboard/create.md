@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/create.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.Create {#Create}
+# Load Testing API, REST: RegressionDashboard.Create
 
 Creates a regression dashboard in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listDesktops.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.ListDesktops {#ListDesktops}
+# Cloud Desktop API, REST: DesktopGroup.ListDesktops
 
 Retrieves the list of desktops resources.
 
@@ -133,8 +133,14 @@ Status of the desktop.
 
 - `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
-- `ACTIVE`: Desktop is ready to use.
-- `DELETING`: Desktop is being deleted. ||
+- `ACTIVE`: Desktop is ready to be used.
+- `DELETING`: Desktop is being deleted.
+- `RESTARTING`: Desktop is restarting.
+- `UPDATING`: Desktop is updating.
+- `STARTING`: Desktop is starting.
+- `STOPPING`: Desktop is stopping.
+- `STOPPED`: Desktop is stopped.
+- `ERROR`: Desktop is in error state. ||
 || name | **string**
 
 Name of the desktop. ||

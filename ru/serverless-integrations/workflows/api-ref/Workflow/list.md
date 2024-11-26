@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/list.md
 ---
 
-# Workflows Service, REST: Workflow.List {#List}
+# Workflows Service, REST: Workflow.List
 
 Retrieves list of Workflows in specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/get.md
 ---
 
-# Container Registry API, REST: Registry.Get {#Get}
+# Container Registry API, REST: Registry.Get
 
 Returns the specified Registry resource.
 

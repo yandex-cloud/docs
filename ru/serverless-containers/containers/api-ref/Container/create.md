@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/create.md
 ---
 
-# Serverless Containers Service, REST: Container.Create {#Create}
+# Serverless Containers Service, REST: Container.Create
 
 Creates a container in the specified folder.
 

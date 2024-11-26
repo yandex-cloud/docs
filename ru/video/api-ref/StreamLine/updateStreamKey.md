@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/updateStreamKey.md
 ---
 
-# Video API, REST: StreamLine.UpdateStreamKey {#UpdateStreamKey}
+# Video API, REST: StreamLine.UpdateStreamKey
 
 Change stream key.
 

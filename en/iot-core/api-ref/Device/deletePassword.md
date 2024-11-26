@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/deletePassword.md
 ---
 
-# IoT Core Service, REST: Device.DeletePassword {#DeletePassword}
+# IoT Core Service, REST: Device.DeletePassword
 
 Deletes the specified password.
 

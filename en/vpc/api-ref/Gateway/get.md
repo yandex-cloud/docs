@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/get.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Get {#Get}
+# Virtual Private Cloud API, REST: Gateway.Get
 
 Returns the specified Gateway resource.
 

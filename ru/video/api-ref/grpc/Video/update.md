@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/update.md
 ---
 
-# Video API, gRPC: VideoService.Update {#Update}
+# Video API, gRPC: VideoService.Update
 
 Update video.
 
@@ -15,25 +15,27 @@ Update video.
 
 ```json
 {
-  "videoId": "string",
-  "fieldMask": "google.protobuf.FieldMask",
+  "video_id": "string",
+  "field_mask": "google.protobuf.FieldMask",
   "title": "string",
   "description": "string",
-  "thumbnailId": "string",
+  "thumbnail_id": "string",
+  "auto_transcode": "AutoTranscode",
   "labels": "string",
-  // Includes only one of the fields `publicAccess`, `authSystemAccess`
-  "publicAccess": "VideoPublicAccessParams",
-  "authSystemAccess": "VideoAuthSystemAccessParams"
+  // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+  "public_access": "VideoPublicAccessParams",
+  "auth_system_access": "VideoAuthSystemAccessParams",
+  "sign_url_access": "VideoSignURLAccessParams"
   // end of the list of possible fields
 }
 ```
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
-ID of the video. ||
-|| fieldMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+Required field. ID of the video. ||
+|| field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the video are going to be updated. ||
 || title | **string**
@@ -42,18 +44,28 @@ Video title. ||
 || description | **string**
 
 Video description. ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
+|| auto_transcode | enum **AutoTranscode**
+
+Auto start transcoding.
+
+- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
+- `ENABLE`: Enable auto transcoding.
+- `DISABLE`: Disable auto transcoding. ||
 || labels | **string**
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
-|| publicAccess | **[VideoPublicAccessParams](#yandex.cloud.video.v1.VideoPublicAccessParams)**
+|| public_access | **[VideoPublicAccessParams](#yandex.cloud.video.v1.VideoPublicAccessParams)**
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`. ||
-|| authSystemAccess | **[VideoAuthSystemAccessParams](#yandex.cloud.video.v1.VideoAuthSystemAccessParams)**
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`. ||
+|| auth_system_access | **[VideoAuthSystemAccessParams](#yandex.cloud.video.v1.VideoAuthSystemAccessParams)**
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`. ||
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`. ||
+|| sign_url_access | **[VideoSignURLAccessParams](#yandex.cloud.video.v1.VideoSignURLAccessParams)**
+
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`. ||
 |#
 
 ## VideoPublicAccessParams {#yandex.cloud.video.v1.VideoPublicAccessParams}
@@ -70,41 +82,53 @@ Includes only one of the fields `publicAccess`, `authSystemAccess`. ||
 || Empty | > ||
 |#
 
+## VideoSignURLAccessParams {#yandex.cloud.video.v1.VideoSignURLAccessParams}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "videoId": "string"
+    "video_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "channelId": "string",
+    "channel_id": "string",
     "title": "string",
     "description": "string",
-    "thumbnailId": "string",
+    "thumbnail_id": "string",
     "status": "VideoStatus",
     "duration": "google.protobuf.Duration",
-    "visibilityStatus": "VisibilityStatus",
+    "visibility_status": "VisibilityStatus",
+    "auto_transcode": "AutoTranscode",
+    "subtitle_ids": [
+      "string"
+    ],
     // Includes only one of the fields `tusd`
     "tusd": {
       "url": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
-    "publicAccess": "VideoPublicAccessRights",
-    "authSystemAccess": "VideoAuthSystemAccessRights",
+    // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+    "public_access": "VideoPublicAccessRights",
+    "auth_system_access": "VideoAuthSystemAccessRights",
+    "sign_url_access": "VideoSignURLAccessRights",
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "labels": "string"
   }
   // end of the list of possible fields
@@ -121,13 +145,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -170,7 +194,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
 ID of the video. ||
 |#
@@ -182,7 +206,7 @@ ID of the video. ||
 || id | **string**
 
 ID of the video. ||
-|| channelId | **string**
+|| channel_id | **string**
 
 ID of the channel where the video was created. ||
 || title | **string**
@@ -191,7 +215,7 @@ Video title. ||
 || description | **string**
 
 Video description. ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
 || status | enum **VideoStatus**
@@ -206,13 +230,25 @@ Video status.
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Video duration. Optional, may be empty until the transcoding result is ready. ||
-|| visibilityStatus | enum **VisibilityStatus**
+|| visibility_status | enum **VisibilityStatus**
 
 Video visibility status.
 
 - `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
 - `PUBLISHED`: Video is published and available for viewing.
 - `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
+|| auto_transcode | enum **AutoTranscode**
+
+Auto start transcoding.
+If set to ENABLE, transcoding process is initiated automatically after video upload.
+If set to DISABLE, manual "Transcode()" call is required instead.
+
+- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
+- `ENABLE`: Enable auto transcoding.
+- `DISABLE`: Disable auto transcoding. ||
+|| subtitle_ids[] | **string**
+
+IDs of active video subtitles. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
 Upload video using the tus protocol.
@@ -220,24 +256,31 @@ Upload video using the tus protocol.
 Includes only one of the fields `tusd`.
 
 Source type. ||
-|| publicAccess | **[VideoPublicAccessRights](#yandex.cloud.video.v1.VideoPublicAccessRights)**
+|| public_access | **[VideoPublicAccessRights](#yandex.cloud.video.v1.VideoPublicAccessRights)**
 
 Video is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
 
 Video access rights. ||
-|| authSystemAccess | **[VideoAuthSystemAccessRights](#yandex.cloud.video.v1.VideoAuthSystemAccessRights)**
+|| auth_system_access | **[VideoAuthSystemAccessRights](#yandex.cloud.video.v1.VideoAuthSystemAccessRights)**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
 
 Video access rights. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| sign_url_access | **[VideoSignURLAccessRights](#yandex.cloud.video.v1.VideoSignURLAccessRights)**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+
+Video access rights. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when video was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last video update. ||
 || labels | **string**
@@ -262,6 +305,13 @@ URL for uploading video via the tus protocol. ||
 |#
 
 ## VideoAuthSystemAccessRights {#yandex.cloud.video.v1.VideoAuthSystemAccessRights}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## VideoSignURLAccessRights {#yandex.cloud.video.v1.VideoSignURLAccessRights}
 
 #|
 ||Field | Description ||

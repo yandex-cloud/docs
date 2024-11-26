@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/delete.md
 ---
 
-# DataSphere API v2, REST: Community.Delete {#Delete}
+# DataSphere API v2, REST: Community.Delete
 
 Deletes specified community.
 

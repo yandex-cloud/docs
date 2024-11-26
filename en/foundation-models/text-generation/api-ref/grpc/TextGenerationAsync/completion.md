@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/text_generation/text-generation/api-ref/grpc/TextGenerationAsync/completion.md
 ---
 
-# Foundation Models Text Generation API, gRPC: TextGenerationAsyncService.Completion {#Completion}
+# Foundation Models Text Generation API, gRPC: TextGenerationAsyncService.Completion
 
 A method for generating text completions in [asynchronous mode](/docs/foundation-models/concepts/#working-mode).
 
@@ -15,22 +15,22 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
 
 ```json
 {
-  "modelUri": "string",
-  "completionOptions": {
+  "model_uri": "string",
+  "completion_options": {
     "stream": "bool",
     "temperature": "google.protobuf.DoubleValue",
-    "maxTokens": "google.protobuf.Int64Value"
+    "max_tokens": "google.protobuf.Int64Value"
   },
   "messages": [
     {
       "role": "string",
-      // Includes only one of the fields `text`, `toolCallList`, `toolResultList`
+      // Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`
       "text": "string",
-      "toolCallList": {
-        "toolCalls": [
+      "tool_call_list": {
+        "tool_calls": [
           {
-            // Includes only one of the fields `functionCall`
-            "functionCall": {
+            // Includes only one of the fields `function_call`
+            "function_call": {
               "name": "string",
               "arguments": "google.protobuf.Struct"
             }
@@ -38,11 +38,11 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
           }
         ]
       },
-      "toolResultList": {
-        "toolResults": [
+      "tool_result_list": {
+        "tool_results": [
           {
-            // Includes only one of the fields `functionResult`
-            "functionResult": {
+            // Includes only one of the fields `function_result`
+            "function_result": {
               "name": "string",
               // Includes only one of the fields `content`
               "content": "string"
@@ -73,10 +73,10 @@ Request for the service to generate text completion.
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. ||
-|| completionOptions | **[CompletionOptions](#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
+|| completion_options | **[CompletionOptions](#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
 
 Configuration options for completion generation. ||
 || messages[] | **[Message](#yandex.cloud.ai.foundation_models.v1.Message)**
@@ -102,7 +102,7 @@ Enables streaming of partially generated text. ||
 Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive).
 Lower values produce more straightforward responses while higher values lead to increased creativity and randomness.
 Default temperature: 0.3 ||
-|| maxTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||
@@ -124,21 +124,21 @@ The ID of the message sender. Supported roles:
 
 Textual content of the message.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
-|| toolCallList | **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
+|| tool_call_list | **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList)**
 
 List of tool calls made by the model as part of the response generation.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
-|| toolResultList | **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
+|| tool_result_list | **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList)**
 
 List of tool results returned from external tools that were invoked by the model.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
 |#
@@ -149,7 +149,7 @@ Represents a list of tool calls.
 
 #|
 ||Field | Description ||
-|| toolCalls[] | **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall)**
+|| tool_calls[] | **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall)**
 
 A list of tool calls to be executed. ||
 |#
@@ -160,11 +160,11 @@ Represents a call to a tool.
 
 #|
 ||Field | Description ||
-|| functionCall | **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
+|| function_call | **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall)**
 
 Represents a call to a function.
 
-Includes only one of the fields `functionCall`. ||
+Includes only one of the fields `function_call`. ||
 |#
 
 ## FunctionCall {#yandex.cloud.ai.foundation_models.v1.FunctionCall}
@@ -188,7 +188,7 @@ Represents a list of tool results.
 
 #|
 ||Field | Description ||
-|| toolResults[] | **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult)**
+|| tool_results[] | **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult)**
 
 A list of tool results. ||
 |#
@@ -199,11 +199,11 @@ Represents the result of a tool call.
 
 #|
 ||Field | Description ||
-|| functionResult | **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
+|| function_result | **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult)**
 
 Represents the result of a function call.
 
-Includes only one of the fields `functionResult`. ||
+Includes only one of the fields `function_result`. ||
 |#
 
 ## FunctionResult {#yandex.cloud.ai.foundation_models.v1.FunctionResult}
@@ -260,9 +260,9 @@ The schema should describe the required fields, their types, and any constraints
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -272,13 +272,13 @@ The schema should describe the required fields, their types, and any constraints
       {
         "message": {
           "role": "string",
-          // Includes only one of the fields `text`, `toolCallList`, `toolResultList`
+          // Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`
           "text": "string",
-          "toolCallList": {
-            "toolCalls": [
+          "tool_call_list": {
+            "tool_calls": [
               {
-                // Includes only one of the fields `functionCall`
-                "functionCall": {
+                // Includes only one of the fields `function_call`
+                "function_call": {
                   "name": "string",
                   "arguments": "google.protobuf.Struct"
                 }
@@ -286,11 +286,11 @@ The schema should describe the required fields, their types, and any constraints
               }
             ]
           },
-          "toolResultList": {
-            "toolResults": [
+          "tool_result_list": {
+            "tool_results": [
               {
-                // Includes only one of the fields `functionResult`
-                "functionResult": {
+                // Includes only one of the fields `function_result`
+                "function_result": {
                   "name": "string",
                   // Includes only one of the fields `content`
                   "content": "string"
@@ -306,11 +306,11 @@ The schema should describe the required fields, their types, and any constraints
       }
     ],
     "usage": {
-      "inputTextTokens": "int64",
-      "completionTokens": "int64",
-      "totalTokens": "int64"
+      "input_text_tokens": "int64",
+      "completion_tokens": "int64",
+      "total_tokens": "int64"
     },
-    "modelVersion": "string"
+    "model_version": "string"
   }
   // end of the list of possible fields
 }
@@ -326,13 +326,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -383,7 +383,7 @@ A list of generated completion alternatives. ||
 || usage | **[ContentUsage](#yandex.cloud.ai.foundation_models.v1.ContentUsage)**
 
 A set of statistics describing the number of content tokens used by the completion model. ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 The model version changes with each new releases. ||
 |#
@@ -426,21 +426,21 @@ The ID of the message sender. Supported roles:
 
 Textual content of the message.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
-|| toolCallList | **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList2)**
+|| tool_call_list | **[ToolCallList](#yandex.cloud.ai.foundation_models.v1.ToolCallList2)**
 
 List of tool calls made by the model as part of the response generation.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
-|| toolResultList | **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList2)**
+|| tool_result_list | **[ToolResultList](#yandex.cloud.ai.foundation_models.v1.ToolResultList2)**
 
 List of tool results returned from external tools that were invoked by the model.
 
-Includes only one of the fields `text`, `toolCallList`, `toolResultList`.
+Includes only one of the fields `text`, `tool_call_list`, `tool_result_list`.
 
 Message content. ||
 |#
@@ -451,7 +451,7 @@ Represents a list of tool calls.
 
 #|
 ||Field | Description ||
-|| toolCalls[] | **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall2)**
+|| tool_calls[] | **[ToolCall](#yandex.cloud.ai.foundation_models.v1.ToolCall2)**
 
 A list of tool calls to be executed. ||
 |#
@@ -462,11 +462,11 @@ Represents a call to a tool.
 
 #|
 ||Field | Description ||
-|| functionCall | **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall2)**
+|| function_call | **[FunctionCall](#yandex.cloud.ai.foundation_models.v1.FunctionCall2)**
 
 Represents a call to a function.
 
-Includes only one of the fields `functionCall`. ||
+Includes only one of the fields `function_call`. ||
 |#
 
 ## FunctionCall {#yandex.cloud.ai.foundation_models.v1.FunctionCall2}
@@ -490,7 +490,7 @@ Represents a list of tool results.
 
 #|
 ||Field | Description ||
-|| toolResults[] | **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult2)**
+|| tool_results[] | **[ToolResult](#yandex.cloud.ai.foundation_models.v1.ToolResult2)**
 
 A list of tool results. ||
 |#
@@ -501,11 +501,11 @@ Represents the result of a tool call.
 
 #|
 ||Field | Description ||
-|| functionResult | **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult2)**
+|| function_result | **[FunctionResult](#yandex.cloud.ai.foundation_models.v1.FunctionResult2)**
 
 Represents the result of a function call.
 
-Includes only one of the fields `functionResult`. ||
+Includes only one of the fields `function_result`. ||
 |#
 
 ## FunctionResult {#yandex.cloud.ai.foundation_models.v1.FunctionResult2}
@@ -531,13 +531,13 @@ An object representing the number of content [tokens](/docs/foundation-models/co
 
 #|
 ||Field | Description ||
-|| inputTextTokens | **int64**
+|| input_text_tokens | **int64**
 
 The number of tokens in the textual part of the model input. ||
-|| completionTokens | **int64**
+|| completion_tokens | **int64**
 
 The number of tokens in the generated completion. ||
-|| totalTokens | **int64**
+|| total_tokens | **int64**
 
 The total number of tokens, including all input tokens and all generated tokens. ||
 |#

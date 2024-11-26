@@ -32,7 +32,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Change the VM parameters, e.g., rename it:
 
      ```bash
@@ -84,7 +84,7 @@ To change the name and description of a VM, follow these steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Update the VM name and description:
 
      ```bash
@@ -150,9 +150,9 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM you need.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **Access via OS Login**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
@@ -171,7 +171,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 
   1. Enable access via {{ oslogin }}:
 
@@ -182,7 +182,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
 - API {#api}
 
-  In the `metadata` field, set `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
+  Use the `metadata` field to provide the `enable-oslogin=true` pair in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

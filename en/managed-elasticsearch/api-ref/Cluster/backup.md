@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/backup.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Backup {#Backup}
+# Managed Service for Elasticsearch API, REST: Cluster.Backup
 
 Create a backup for the specified ElasticSearch cluster.
 

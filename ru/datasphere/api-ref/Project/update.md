@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/update.md
 ---
 
-# DataSphere API v2, REST: Project.Update {#Update}
+# DataSphere API v2, REST: Project.Update
 
 Updates the specified project.
 

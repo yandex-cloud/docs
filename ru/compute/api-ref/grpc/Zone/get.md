@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Zone/get.md
 ---
 
-# Compute Cloud API, gRPC: ZoneService.Get {#Get}
+# Compute Cloud API, gRPC: ZoneService.Get
 
 Returns the information about the specified availability zone.
 
@@ -17,13 +17,13 @@ To get the list of availability zones, make a [List](/docs/compute/api-ref/grpc/
 
 ```json
 {
-  "zoneId": "string"
+  "zone_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone to return information about. ||
 |#
@@ -33,7 +33,7 @@ Required field. ID of the availability zone to return information about. ||
 ```json
 {
   "id": "string",
-  "regionId": "string",
+  "region_id": "string",
   "status": "Status"
 }
 ```
@@ -45,7 +45,7 @@ Availability zone. For more information, see [Availability zones](/docs/overview
 || id | **string**
 
 ID of the zone. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region. ||
 || status | enum **Status**

@@ -15,7 +15,7 @@ To restart a host:
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. In the host's row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+  1. In the required host row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
   1. Confirm the host restart.
 
 - CLI {#cli}
@@ -58,7 +58,7 @@ To restart a host:
 
         You can get the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#responses) to make sure the request was successful.
+    1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

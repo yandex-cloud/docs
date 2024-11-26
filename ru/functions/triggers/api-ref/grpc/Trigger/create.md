@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/triggers/v1/triggers/api-ref/grpc/Trigger/create.md
 ---
 
-# Cloud Functions Triggers Service, gRPC: TriggerService.Create {#Create}
+# Cloud Functions Triggers Service, gRPC: TriggerService.Create
 
 Creates a trigger in the specified folder.
 
@@ -15,463 +15,463 @@ Creates a trigger in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "rule": {
-    // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
+    // Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`
     "timer": {
-      "cronExpression": "string",
+      "cron_expression": "string",
       "payload": "string",
-      // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string"
+      // Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string"
       },
-      "invokeFunctionWithRetry": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      "invoke_function_with_retry": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainerWithRetry": {
-        "containerId": "string",
+      "invoke_container_with_retry": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "messageQueue": {
-      "queueId": "string",
-      "serviceAccountId": "string",
-      "batchSettings": {
+    "message_queue": {
+      "queue_id": "string",
+      "service_account_id": "string",
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      "visibilityTimeout": "google.protobuf.Duration",
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string"
+      "visibility_timeout": "google.protobuf.Duration",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string"
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "iotMessage": {
-      "registryId": "string",
-      "deviceId": "string",
-      "mqttTopic": "string",
-      "batchSettings": {
+    "iot_message": {
+      "registry_id": "string",
+      "device_id": "string",
+      "mqtt_topic": "string",
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "iotBrokerMessage": {
-      "brokerId": "string",
-      "mqttTopic": "string",
-      "batchSettings": {
+    "iot_broker_message": {
+      "broker_id": "string",
+      "mqtt_topic": "string",
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "objectStorage": {
-      "eventType": [
+    "object_storage": {
+      "event_type": [
         "ObjectStorageEventType"
       ],
-      "bucketId": "string",
+      "bucket_id": "string",
       "prefix": "string",
       "suffix": "string",
-      "batchSettings": {
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "containerRegistry": {
-      "eventType": [
+    "container_registry": {
+      "event_type": [
         "ContainerRegistryEventType"
       ],
-      "registryId": "string",
-      "imageName": "string",
+      "registry_id": "string",
+      "image_name": "string",
       "tag": "string",
-      "batchSettings": {
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "cloudLogs": {
-      "logGroupId": [
+    "cloud_logs": {
+      "log_group_id": [
         "string"
       ],
-      "batchSettings": {
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       }
       // end of the list of possible fields
     },
     "logging": {
-      "logGroupId": "string",
-      "resourceType": [
+      "log_group_id": "string",
+      "resource_type": [
         "string"
       ],
-      "resourceId": [
+      "resource_id": [
         "string"
       ],
-      "streamName": [
+      "stream_name": [
         "string"
       ],
       "levels": [
         "Level"
       ],
-      "batchSettings": {
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "billingBudget": {
-      "billingAccountId": "string",
-      "budgetId": "string",
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+    "billing_budget": {
+      "billing_account_id": "string",
+      "budget_id": "string",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "dataStream": {
+    "data_stream": {
       "endpoint": "string",
       "database": "string",
       "stream": "string",
-      "serviceAccountId": "string",
-      "batchSettings": {
+      "service_account_id": "string",
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
     "mail": {
       "email": "string",
-      "batchSettings": {
+      "batch_settings": {
         "size": "int64",
         "cutoff": "google.protobuf.Duration"
       },
-      "attachmentsBucket": {
-        "bucketId": "string",
-        "serviceAccountId": "string"
+      "attachments_bucket": {
+        "bucket_id": "string",
+        "service_account_id": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-      "invokeFunction": {
-        "functionId": "string",
-        "functionTag": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+      // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+      "invoke_function": {
+        "function_id": "string",
+        "function_tag": "string",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "invokeContainer": {
-        "containerId": "string",
+      "invoke_container": {
+        "container_id": "string",
         "path": "string",
-        "serviceAccountId": "string",
-        "retrySettings": {
-          "retryAttempts": "int64",
+        "service_account_id": "string",
+        "retry_settings": {
+          "retry_attempts": "int64",
           "interval": "google.protobuf.Duration"
         },
-        "deadLetterQueue": {
-          "queueId": "string",
-          "serviceAccountId": "string"
+        "dead_letter_queue": {
+          "queue_id": "string",
+          "service_account_id": "string"
         }
       },
-      "gatewayWebsocketBroadcast": {
-        "gatewayId": "string",
+      "gateway_websocket_broadcast": {
+        "gateway_id": "string",
         "path": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     }
@@ -482,7 +482,7 @@ Creates a trigger in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a trigger in.
 
@@ -512,41 +512,41 @@ Description of a rule for trigger activation.
 
 Rule for a timed trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| message_queue | **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue)**
 
 Rule for a message queue trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| iotMessage | **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| iot_message | **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage)**
 
 Rule for a IoT Core trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| iot_broker_message | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| object_storage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| container_registry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| cloudLogs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| cloud_logs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 || logging | **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| billing_budget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| dataStream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| data_stream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 || mail | **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 |#
 
 ## Timer {#yandex.cloud.serverless.triggers.v1.Trigger.Timer}
@@ -555,40 +555,40 @@ Rule for activating a timed trigger.
 
 #|
 ||Field | Description ||
-|| cronExpression | **string**
+|| cron_expression | **string**
 
 Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). ||
 || payload | **string**
 
 Payload to be passed to function. ||
-|| invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+|| invoke_function | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| invokeFunctionWithRetry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| invoke_function_with_retry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| invokeContainerWithRetry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| invoke_container_with_retry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
+Action to be executed when the current time matches the `cron_expression`. ||
 |#
 
 ## InvokeFunctionOnce {#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce}
@@ -597,13 +597,13 @@ A single function invocation.
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to invoke. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Version tag of the function to execute. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account that should be used to invoke the function. ||
 |#
@@ -614,19 +614,19 @@ A function invocation with retries.
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to invoke. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Version tag of the function to execute. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the function. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
 
 Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
 
 DLQ policy (no value means discarding a message). ||
 |#
@@ -637,7 +637,7 @@ Settings for retrying to invoke a function.
 
 #|
 ||Field | Description ||
-|| retryAttempts | **int64**
+|| retry_attempts | **int64**
 
 Maximum number of retries (extra invokes) before the action is considered failed. ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -649,10 +649,10 @@ Required field. Time in seconds to wait between individual retries. ||
 
 #|
 ||Field | Description ||
-|| queueId | **string**
+|| queue_id | **string**
 
 ID of the queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write permission on the queue. ||
 |#
@@ -663,19 +663,19 @@ A container invocation with retries.
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to invoke. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the container. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
 
 Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
 
 DLQ policy (no value means discarding a message). ||
 |#
@@ -684,13 +684,13 @@ DLQ policy (no value means discarding a message). ||
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field.  ||
 || path | **string**
 
 Required field.  ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. sa which has permission for writing to websockets ||
 |#
@@ -701,37 +701,37 @@ Rule for activating a message queue trigger.
 
 #|
 ||Field | Description ||
-|| queueId | **string**
+|| queue_id | **string**
 
 Required field. ID of the message queue in Message Queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the service account which has read access to the message queue. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Required field. Batch settings for processing messages in the queue. ||
-|| visibilityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue visibility timeout override. ||
-|| invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+|| invoke_function | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
-|| invokeContainer | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
+|| invoke_container | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
 
 Instructions for invoking a container once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
 |#
@@ -758,13 +758,13 @@ A single container invocation.
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to invoke. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the container. ||
 |#
@@ -775,37 +775,37 @@ Rule for activating a IoT Core trigger.
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the IoT Core registry. ||
-|| deviceId | **string**
+|| device_id | **string**
 
 ID of the IoT Core device in the registry. ||
-|| mqttTopic | **string**
+|| mqtt_topic | **string**
 
 MQTT topic whose messages activate the trigger. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
 |#
@@ -816,34 +816,34 @@ Rule for activating a IoT Core Broker trigger.
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the IoT Core broker. ||
-|| mqttTopic | **string**
+|| mqtt_topic | **string**
 
 MQTT topic whose messages activate the trigger. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
 |#
@@ -852,7 +852,7 @@ Action to be executed when the there's a new message in the MQTT topic. ||
 
 #|
 ||Field | Description ||
-|| eventType[] | enum **ObjectStorageEventType**
+|| event_type[] | enum **ObjectStorageEventType**
 
 Type (name) of events, at least one value is required.
 
@@ -860,7 +860,7 @@ Type (name) of events, at least one value is required.
 - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 ID of the bucket. ||
 || prefix | **string**
@@ -869,31 +869,31 @@ Prefix of the object key. Filter, optional. ||
 || suffix | **string**
 
 Suffix of the object key. Filter, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## ContainerRegistry {#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry}
 
 #|
 ||Field | Description ||
-|| eventType[] | enum **ContainerRegistryEventType**
+|| event_type[] | enum **ContainerRegistryEventType**
 
 Type (name) of events, at least one value is required.
 
@@ -902,55 +902,55 @@ Type (name) of events, at least one value is required.
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry. ||
-|| imageName | **string**
+|| image_name | **string**
 
 Docker-image name. Filter, optional. ||
 || tag | **string**
 
 Docker-image tag. Filter, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## CloudLogs {#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs}
 
 #|
 ||Field | Description ||
-|| logGroupId[] | **string**
+|| log_group_id[] | **string**
 
 Log group identifiers, at least one value is required. ||
-|| batchSettings | **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings)**
+|| batch_settings | **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings)**
 
 Required field. Batch settings for processing log events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`. ||
 |#
 
 ## CloudLogsBatchSettings {#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings}
@@ -971,12 +971,12 @@ the number of messages in the log group reaches `size`, or the `cutoff` time has
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Log events filter settings. ||
-|| resourceType[] | **string** ||
-|| resourceId[] | **string** ||
-|| streamName[] | **string** ||
+|| resource_type[] | **string** ||
+|| resource_id[] | **string** ||
+|| stream_name[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.
@@ -1000,24 +1000,24 @@ Log events filter settings. ||
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| batchSettings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings)**
+|| batch_settings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings)**
 
 Required field. Batch settings for processing log events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## LoggingBatchSettings {#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings}
@@ -1038,19 +1038,19 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 
 #|
 ||Field | Description ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Required field.  ||
-|| budgetId | **string** ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| budget_id | **string** ||
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.triggers.v1.DataStream}
@@ -1066,21 +1066,21 @@ Data stream database. ||
 || stream | **string**
 
 Stream name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to read data stream. ||
-|| batchSettings | **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings)**
+|| batch_settings | **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## DataStreamBatchSettings {#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings}
@@ -1105,31 +1105,31 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 
 Address to receive emails for trigger activation.
 Field is ignored for write requests and populated on trigger creation. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Batch settings for processing events. ||
-|| attachmentsBucket | **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings)**
+|| attachments_bucket | **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings)**
 
 Bucket settings for saving attachments. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## ObjectStorageBucketSettings {#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings}
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Bucket for saving. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. SA which has write permission on storage. ||
 |#
@@ -1140,475 +1140,475 @@ Required field. SA which has write permission on storage. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "triggerId": "string"
+    "trigger_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "rule": {
-      // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
+      // Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`
       "timer": {
-        "cronExpression": "string",
+        "cron_expression": "string",
         "payload": "string",
-        // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string"
+        // Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string"
         },
-        "invokeFunctionWithRetry": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        "invoke_function_with_retry": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainerWithRetry": {
-          "containerId": "string",
+        "invoke_container_with_retry": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "messageQueue": {
-        "queueId": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
+      "message_queue": {
+        "queue_id": "string",
+        "service_account_id": "string",
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        "visibilityTimeout": "google.protobuf.Duration",
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string"
+        "visibility_timeout": "google.protobuf.Duration",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string"
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "iotMessage": {
-        "registryId": "string",
-        "deviceId": "string",
-        "mqttTopic": "string",
-        "batchSettings": {
+      "iot_message": {
+        "registry_id": "string",
+        "device_id": "string",
+        "mqtt_topic": "string",
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "iotBrokerMessage": {
-        "brokerId": "string",
-        "mqttTopic": "string",
-        "batchSettings": {
+      "iot_broker_message": {
+        "broker_id": "string",
+        "mqtt_topic": "string",
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "objectStorage": {
-        "eventType": [
+      "object_storage": {
+        "event_type": [
           "ObjectStorageEventType"
         ],
-        "bucketId": "string",
+        "bucket_id": "string",
         "prefix": "string",
         "suffix": "string",
-        "batchSettings": {
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "containerRegistry": {
-        "eventType": [
+      "container_registry": {
+        "event_type": [
           "ContainerRegistryEventType"
         ],
-        "registryId": "string",
-        "imageName": "string",
+        "registry_id": "string",
+        "image_name": "string",
         "tag": "string",
-        "batchSettings": {
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "cloudLogs": {
-        "logGroupId": [
+      "cloud_logs": {
+        "log_group_id": [
           "string"
         ],
-        "batchSettings": {
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         }
         // end of the list of possible fields
       },
       "logging": {
-        "logGroupId": "string",
-        "resourceType": [
+        "log_group_id": "string",
+        "resource_type": [
           "string"
         ],
-        "resourceId": [
+        "resource_id": [
           "string"
         ],
-        "streamName": [
+        "stream_name": [
           "string"
         ],
         "levels": [
           "Level"
         ],
-        "batchSettings": {
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "billingBudget": {
-        "billingAccountId": "string",
-        "budgetId": "string",
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+      "billing_budget": {
+        "billing_account_id": "string",
+        "budget_id": "string",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
-      "dataStream": {
+      "data_stream": {
         "endpoint": "string",
         "database": "string",
         "stream": "string",
-        "serviceAccountId": "string",
-        "batchSettings": {
+        "service_account_id": "string",
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       },
       "mail": {
         "email": "string",
-        "batchSettings": {
+        "batch_settings": {
           "size": "int64",
           "cutoff": "google.protobuf.Duration"
         },
-        "attachmentsBucket": {
-          "bucketId": "string",
-          "serviceAccountId": "string"
+        "attachments_bucket": {
+          "bucket_id": "string",
+          "service_account_id": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
-        "invokeFunction": {
-          "functionId": "string",
-          "functionTag": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+        // Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`
+        "invoke_function": {
+          "function_id": "string",
+          "function_tag": "string",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "invokeContainer": {
-          "containerId": "string",
+        "invoke_container": {
+          "container_id": "string",
           "path": "string",
-          "serviceAccountId": "string",
-          "retrySettings": {
-            "retryAttempts": "int64",
+          "service_account_id": "string",
+          "retry_settings": {
+            "retry_attempts": "int64",
             "interval": "google.protobuf.Duration"
           },
-          "deadLetterQueue": {
-            "queueId": "string",
-            "serviceAccountId": "string"
+          "dead_letter_queue": {
+            "queue_id": "string",
+            "service_account_id": "string"
           }
         },
-        "gatewayWebsocketBroadcast": {
-          "gatewayId": "string",
+        "gateway_websocket_broadcast": {
+          "gateway_id": "string",
           "path": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         }
         // end of the list of possible fields
       }
@@ -1630,13 +1630,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -1679,7 +1679,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| triggerId | **string**
+|| trigger_id | **string**
 
 ID of the trigger that is being created. ||
 |#
@@ -1693,10 +1693,10 @@ A trigger to invoke a serverless function. For more information, see [Triggers](
 || id | **string**
 
 ID of the trigger. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the trigger belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the trigger. ||
 || name | **string**
@@ -1730,41 +1730,41 @@ Description of a rule for trigger activation.
 
 Rule for a timed trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| message_queue | **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue2)**
 
 Rule for a message queue trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| iotMessage | **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| iot_message | **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage2)**
 
 Rule for a IoT Core trigger.
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| iot_broker_message | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| object_storage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| container_registry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| cloudLogs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| cloud_logs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 || logging | **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| billing_budget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
-|| dataStream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream2)**
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
+|| data_stream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 || mail | **[Mail](#yandex.cloud.serverless.triggers.v1.Mail2)**
 
-Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
+Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`. ||
 |#
 
 ## Timer {#yandex.cloud.serverless.triggers.v1.Trigger.Timer2}
@@ -1773,40 +1773,40 @@ Rule for activating a timed trigger.
 
 #|
 ||Field | Description ||
-|| cronExpression | **string**
+|| cron_expression | **string**
 
 Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). ||
 || payload | **string**
 
 Payload to be passed to function. ||
-|| invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2)**
+|| invoke_function | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2)**
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| invokeFunctionWithRetry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| invoke_function_with_retry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| invokeContainerWithRetry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| invoke_container_with_retry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Action to be executed when the current time matches the `cron_expression`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_function_with_retry`, `invoke_container_with_retry`, `gateway_websocket_broadcast`.
 
-Action to be executed when the current time matches the `cronExpression`. ||
+Action to be executed when the current time matches the `cron_expression`. ||
 |#
 
 ## InvokeFunctionOnce {#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2}
@@ -1815,13 +1815,13 @@ A single function invocation.
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to invoke. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Version tag of the function to execute. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account that should be used to invoke the function. ||
 |#
@@ -1832,19 +1832,19 @@ A function invocation with retries.
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to invoke. ||
-|| functionTag | **string**
+|| function_tag | **string**
 
 Version tag of the function to execute. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the function. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings2)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings2)**
 
 Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage2)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage2)**
 
 DLQ policy (no value means discarding a message). ||
 |#
@@ -1855,7 +1855,7 @@ Settings for retrying to invoke a function.
 
 #|
 ||Field | Description ||
-|| retryAttempts | **int64**
+|| retry_attempts | **int64**
 
 Maximum number of retries (extra invokes) before the action is considered failed. ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -1867,10 +1867,10 @@ Required field. Time in seconds to wait between individual retries. ||
 
 #|
 ||Field | Description ||
-|| queueId | **string**
+|| queue_id | **string**
 
 ID of the queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write permission on the queue. ||
 |#
@@ -1881,19 +1881,19 @@ A container invocation with retries.
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to invoke. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the container. ||
-|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings2)**
+|| retry_settings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings2)**
 
 Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
-|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage2)**
+|| dead_letter_queue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage2)**
 
 DLQ policy (no value means discarding a message). ||
 |#
@@ -1902,13 +1902,13 @@ DLQ policy (no value means discarding a message). ||
 
 #|
 ||Field | Description ||
-|| gatewayId | **string**
+|| gateway_id | **string**
 
 Required field.  ||
 || path | **string**
 
 Required field.  ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. sa which has permission for writing to websockets ||
 |#
@@ -1919,37 +1919,37 @@ Rule for activating a message queue trigger.
 
 #|
 ||Field | Description ||
-|| queueId | **string**
+|| queue_id | **string**
 
 Required field. ID of the message queue in Message Queue. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the service account which has read access to the message queue. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Required field. Batch settings for processing messages in the queue. ||
-|| visibilityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue visibility timeout override. ||
-|| invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2)**
+|| invoke_function | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2)**
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
-|| invokeContainer | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce2)**
+|| invoke_container | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce2)**
 
 Instructions for invoking a container once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the queue. ||
 |#
@@ -1976,13 +1976,13 @@ A single container invocation.
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to invoke. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to invoke the container. ||
 |#
@@ -1993,37 +1993,37 @@ Rule for activating a IoT Core trigger.
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the IoT Core registry. ||
-|| deviceId | **string**
+|| device_id | **string**
 
 ID of the IoT Core device in the registry. ||
-|| mqttTopic | **string**
+|| mqtt_topic | **string**
 
 MQTT topic whose messages activate the trigger. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
 |#
@@ -2034,34 +2034,34 @@ Rule for activating a IoT Core Broker trigger.
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the IoT Core broker. ||
-|| mqttTopic | **string**
+|| mqtt_topic | **string**
 
 MQTT topic whose messages activate the trigger. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`.
 
 Action to be executed when the there's a new message in the MQTT topic. ||
 |#
@@ -2070,7 +2070,7 @@ Action to be executed when the there's a new message in the MQTT topic. ||
 
 #|
 ||Field | Description ||
-|| eventType[] | enum **ObjectStorageEventType**
+|| event_type[] | enum **ObjectStorageEventType**
 
 Type (name) of events, at least one value is required.
 
@@ -2078,7 +2078,7 @@ Type (name) of events, at least one value is required.
 - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 ID of the bucket. ||
 || prefix | **string**
@@ -2087,31 +2087,31 @@ Prefix of the object key. Filter, optional. ||
 || suffix | **string**
 
 Suffix of the object key. Filter, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## ContainerRegistry {#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry2}
 
 #|
 ||Field | Description ||
-|| eventType[] | enum **ContainerRegistryEventType**
+|| event_type[] | enum **ContainerRegistryEventType**
 
 Type (name) of events, at least one value is required.
 
@@ -2120,55 +2120,55 @@ Type (name) of events, at least one value is required.
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry. ||
-|| imageName | **string**
+|| image_name | **string**
 
 Docker-image name. Filter, optional. ||
 || tag | **string**
 
 Docker-image tag. Filter, optional. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## CloudLogs {#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs2}
 
 #|
 ||Field | Description ||
-|| logGroupId[] | **string**
+|| log_group_id[] | **string**
 
 Log group identifiers, at least one value is required. ||
-|| batchSettings | **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings2)**
+|| batch_settings | **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings2)**
 
 Required field. Batch settings for processing log events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`. ||
 |#
 
 ## CloudLogsBatchSettings {#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings2}
@@ -2189,12 +2189,12 @@ the number of messages in the log group reaches `size`, or the `cutoff` time has
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Log events filter settings. ||
-|| resourceType[] | **string** ||
-|| resourceId[] | **string** ||
-|| streamName[] | **string** ||
+|| resource_type[] | **string** ||
+|| resource_id[] | **string** ||
+|| stream_name[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.
@@ -2218,24 +2218,24 @@ Log events filter settings. ||
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| batchSettings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings2)**
+|| batch_settings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings2)**
 
 Required field. Batch settings for processing log events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## LoggingBatchSettings {#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings2}
@@ -2256,19 +2256,19 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 
 #|
 ||Field | Description ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Required field.  ||
-|| budgetId | **string** ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| budget_id | **string** ||
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.triggers.v1.DataStream2}
@@ -2284,21 +2284,21 @@ Data stream database. ||
 || stream | **string**
 
 Stream name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to read data stream. ||
-|| batchSettings | **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings2)**
+|| batch_settings | **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings2)**
 
 Batch settings for processing events. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## DataStreamBatchSettings {#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings2}
@@ -2323,31 +2323,31 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 
 Address to receive emails for trigger activation.
 Field is ignored for write requests and populated on trigger creation. ||
-|| batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
+|| batch_settings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Batch settings for processing events. ||
-|| attachmentsBucket | **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings2)**
+|| attachments_bucket | **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings2)**
 
 Bucket settings for saving attachments. ||
-|| invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
+|| invoke_function | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| invoke_container | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
-|| gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
+|| gateway_websocket_broadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invoke_function`, `invoke_container`, `gateway_websocket_broadcast`. ||
 |#
 
 ## ObjectStorageBucketSettings {#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings2}
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Bucket for saving. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. SA which has write permission on storage. ||
 |#

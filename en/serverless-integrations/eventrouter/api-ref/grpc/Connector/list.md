@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Connector/list.md
 ---
 
-# EventRouter Service, gRPC: ConnectorService.List {#List}
+# EventRouter Service, gRPC: ConnectorService.List
 
 Retrieves the list of connectors in the specified folder.
 
@@ -15,36 +15,36 @@ Retrieves the list of connectors in the specified folder.
 
 ```json
 {
-  // Includes only one of the fields `busId`, `folderId`
-  "busId": "string",
-  "folderId": "string",
+  // Includes only one of the fields `bus_id`, `folder_id`
+  "bus_id": "string",
+  "folder_id": "string",
   // end of the list of possible fields
-  "pageSize": "int64",
-  "pageToken": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| busId | **string**
+|| bus_id | **string**
 
 ID of the bus to list connectors in.
 
-Includes only one of the fields `busId`, `folderId`.
+Includes only one of the fields `bus_id`, `folder_id`.
 
 ID of the folder or bus to list connectors in. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to list connectors in.
 
-Includes only one of the fields `busId`, `folderId`.
+Includes only one of the fields `bus_id`, `folder_id`.
 
 ID of the folder or bus to list connectors in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per response. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 `next_page_token` returned by a previous list request. ||
@@ -62,35 +62,35 @@ created_at ||
   "connectors": [
     {
       "id": "string",
-      "busId": "string",
-      "folderId": "string",
-      "cloudId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "bus_id": "string",
+      "folder_id": "string",
+      "cloud_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
       "source": {
-        // Includes only one of the fields `dataStream`, `messageQueue`
-        "dataStream": {
+        // Includes only one of the fields `data_stream`, `message_queue`
+        "data_stream": {
           "database": "string",
-          "streamName": "string",
+          "stream_name": "string",
           "consumer": "string",
-          "serviceAccountId": "string"
+          "service_account_id": "string"
         },
-        "messageQueue": {
-          "queueArn": "string",
-          "serviceAccountId": "string",
-          "visibilityTimeout": "google.protobuf.Duration",
-          "batchSize": "int64",
-          "pollingTimeout": "google.protobuf.Duration"
+        "message_queue": {
+          "queue_arn": "string",
+          "service_account_id": "string",
+          "visibility_timeout": "google.protobuf.Duration",
+          "batch_size": "int64",
+          "polling_timeout": "google.protobuf.Duration"
         }
         // end of the list of possible fields
       },
-      "deletionProtection": "bool",
+      "deletion_protection": "bool",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -99,7 +99,7 @@ created_at ||
 || connectors[] | **[Connector](#yandex.cloud.serverless.eventrouter.v1.Connector)**
 
 List of connectors. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list of results. ||
 |#
@@ -111,16 +111,16 @@ Token for getting the next page of the list of results. ||
 || id | **string**
 
 ID of the connector. ||
-|| busId | **string**
+|| bus_id | **string**
 
 ID of the bus that the connector belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the connector resides in. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the connector resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -135,7 +135,7 @@ Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
 
 Source of the connector. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion protection. ||
 || status | enum **Status**
@@ -156,12 +156,12 @@ Status of the connector.
 
 #|
 ||Field | Description ||
-|| dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+|| data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
-|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+Includes only one of the fields `data_stream`, `message_queue`. ||
+|| message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `data_stream`, `message_queue`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -172,13 +172,13 @@ Includes only one of the fields `dataStream`, `messageQueue`. ||
 
 Required field. Stream database.
 example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Required field. Stream name, absolute or relative. ||
 || consumer | **string**
 
 Required field. Consumer name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has read permission on the stream. ||
 |#
@@ -187,20 +187,20 @@ Required field. Service account which has read permission on the stream. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has read access to the queue. ||
-|| visibilityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue visibility timeout override. ||
-|| batchSize | **int64**
+|| batch_size | **int64**
 
 Batch size for polling. ||
-|| pollingTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| polling_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue polling timeout. ||
 |#

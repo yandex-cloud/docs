@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/get.md
 ---
 
-# Cloud CDN API, REST: RawLogs.Get {#Get}
+# Cloud CDN API, REST: RawLogs.Get
 
 ## HTTP request
 

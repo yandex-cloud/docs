@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/update.md
 ---
 
-# Threads, REST: Thread.Update {#Update}
+# Threads, REST: Thread.Update
 
 Update an existing thread.
 

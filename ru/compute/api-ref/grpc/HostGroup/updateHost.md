@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostGroup/updateHost.md
 ---
 
-# Compute Cloud API, gRPC: HostGroupService.UpdateHost {#UpdateHost}
+# Compute Cloud API, gRPC: HostGroupService.UpdateHost
 
 Update host
 
@@ -15,25 +15,25 @@ Update host
 
 ```json
 {
-  "hostGroupId": "string",
-  "hostId": "string",
-  "updateMask": "google.protobuf.FieldMask",
-  "deadlineAt": "google.protobuf.Timestamp"
+  "host_group_id": "string",
+  "host_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
+  "deadline_at": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 Required field. ID of the host group to update. ||
-|| hostId | **string**
+|| host_id | **string**
 
 Required field. ID of the host to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Host are going to be updated. ||
-|| deadlineAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The date and time when this host will be automatically freed of instances.
 Timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
@@ -45,23 +45,23 @@ Timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "hostGroupId": "string",
-    "hostId": "string"
+    "host_group_id": "string",
+    "host_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "status": "Status",
-    "serverId": "string",
+    "server_id": "string",
     "replacement": {
-      "hostId": "string",
-      "deadlineAt": "google.protobuf.Timestamp"
+      "host_id": "string",
+      "deadline_at": "google.protobuf.Timestamp"
     }
   }
   // end of the list of possible fields
@@ -78,13 +78,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -127,10 +127,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 ID of the host group that is being updated. ||
-|| hostId | **string**
+|| host_id | **string**
 
 ID of the host that is being updated. ||
 |#
@@ -151,7 +151,7 @@ Current status of the host. New instances are unable to start on host in DOWN st
 - `STATUS_UNSPECIFIED`
 - `UP`
 - `DOWN` ||
-|| serverId | **string**
+|| server_id | **string**
 
 ID of the physical server that the host belongs to. ||
 || replacement | **[Replacement](#yandex.cloud.compute.v1.Replacement)**
@@ -163,10 +163,10 @@ Set temporarily if maintenance is planned for this host, and a new host was prov
 
 #|
 ||Field | Description ||
-|| hostId | **string**
+|| host_id | **string**
 
 ID of the host which replaces this one. ||
-|| deadlineAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The date and time when this host will be automatically freed of instances. ||
 |#

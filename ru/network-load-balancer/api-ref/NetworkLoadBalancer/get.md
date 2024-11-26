@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/get.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Get {#Get}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Get
 
 Returns the specified NetworkLoadBalancer resource.
 

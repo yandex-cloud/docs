@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/delete.md
 ---
 
-# SmartWebSecurity API, REST: SecurityProfile.Delete {#Delete}
+# SmartWebSecurity API, REST: SecurityProfile.Delete
 
 Deletes the specified security profile.
 

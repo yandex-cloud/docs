@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/updateAccessBindings.md
 ---
 
-# EventRouter Service, REST: Connector.UpdateAccessBindings {#UpdateAccessBindings}
+# EventRouter Service, REST: Connector.UpdateAccessBindings
 
 Updates access bindings for the specified connector.
 

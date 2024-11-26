@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/users/api-ref/grpc/User/delete.md
 ---
 
-# Users, gRPC: UserService.Delete {#Delete}
+# Users, gRPC: UserService.Delete
 
 Delete a user by its ID.
 
@@ -15,7 +15,7 @@ Delete a user by its ID.
 
 ```json
 {
-  "userId": "string"
+  "user_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for deleting a user by ID.
 
 #|
 ||Field | Description ||
-|| userId | **string**
+|| user_id | **string**
 
 Required field. ID of the user to delete. ||
 |#

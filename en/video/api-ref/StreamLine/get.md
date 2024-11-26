@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/get.md
 ---
 
-# Video API, REST: StreamLine.Get {#Get}
+# Video API, REST: StreamLine.Get
 
 Returns the specific stream line.
 

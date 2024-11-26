@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/BrokerData/publish.md
 ---
 
-# IoT Core Broker Service, gRPC: BrokerDataService.Publish {#Publish}
+# IoT Core Broker Service, gRPC: BrokerDataService.Publish
 
 Publishes message on behalf of specified broker
 
@@ -15,7 +15,7 @@ Publishes message on behalf of specified broker
 
 ```json
 {
-  "brokerId": "string",
+  "broker_id": "string",
   "topic": "string",
   "data": "bytes"
 }
@@ -23,7 +23,7 @@ Publishes message on behalf of specified broker
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of broker publishing message ||
 || topic | **string**

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.Restore {#Restore}
+# Managed Service for ClickHouse API, REST: Cluster.Restore
 
 Creates a new ClickHouse cluster using the specified backup.
 

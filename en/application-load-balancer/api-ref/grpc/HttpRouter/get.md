@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/HttpRouter/get.md
 ---
 
-# Application Load Balancer API, gRPC: HttpRouterService.Get {#Get}
+# Application Load Balancer API, gRPC: HttpRouterService.Get
 
 Returns the specified HTTP router.
 
@@ -17,13 +17,13 @@ To get the list of all available HTTP routers, make a [List](/docs/application-l
 
 ```json
 {
-  "httpRouterId": "string"
+  "http_router_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 Required field. ID of the HTTP router to return.
 
@@ -37,9 +37,9 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
   "id": "string",
   "name": "string",
   "description": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "labels": "string",
-  "virtualHosts": [
+  "virtual_hosts": [
     {
       "name": "string",
       "authority": [
@@ -51,57 +51,57 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
           // Includes only one of the fields `http`, `grpc`
           "http": {
             "match": {
-              "httpMethod": [
+              "http_method": [
                 "string"
               ],
               "path": {
-                // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-                "exactMatch": "string",
-                "prefixMatch": "string",
-                "regexMatch": "string"
+                // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                "exact_match": "string",
+                "prefix_match": "string",
+                "regex_match": "string"
                 // end of the list of possible fields
               }
             },
-            // Includes only one of the fields `route`, `redirect`, `directResponse`
+            // Includes only one of the fields `route`, `redirect`, `direct_response`
             "route": {
-              "backendGroupId": "string",
+              "backend_group_id": "string",
               "timeout": "google.protobuf.Duration",
-              "idleTimeout": "google.protobuf.Duration",
-              // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
-              "hostRewrite": "string",
-              "autoHostRewrite": "bool",
+              "idle_timeout": "google.protobuf.Duration",
+              // Includes only one of the fields `host_rewrite`, `auto_host_rewrite`
+              "host_rewrite": "string",
+              "auto_host_rewrite": "bool",
               // end of the list of possible fields
-              "prefixRewrite": "string",
-              "upgradeTypes": [
+              "prefix_rewrite": "string",
+              "upgrade_types": [
                 "string"
               ],
-              "rateLimit": {
-                "allRequests": {
-                  // Includes only one of the fields `perSecond`, `perMinute`
-                  "perSecond": "int64",
-                  "perMinute": "int64"
+              "rate_limit": {
+                "all_requests": {
+                  // Includes only one of the fields `per_second`, `per_minute`
+                  "per_second": "int64",
+                  "per_minute": "int64"
                   // end of the list of possible fields
                 },
-                "requestsPerIp": {
-                  // Includes only one of the fields `perSecond`, `perMinute`
-                  "perSecond": "int64",
-                  "perMinute": "int64"
+                "requests_per_ip": {
+                  // Includes only one of the fields `per_second`, `per_minute`
+                  "per_second": "int64",
+                  "per_minute": "int64"
                   // end of the list of possible fields
                 }
               }
             },
             "redirect": {
-              "replaceScheme": "string",
-              "replaceHost": "string",
-              "replacePort": "int64",
-              // Includes only one of the fields `replacePath`, `replacePrefix`
-              "replacePath": "string",
-              "replacePrefix": "string",
+              "replace_scheme": "string",
+              "replace_host": "string",
+              "replace_port": "int64",
+              // Includes only one of the fields `replace_path`, `replace_prefix`
+              "replace_path": "string",
+              "replace_prefix": "string",
               // end of the list of possible fields
-              "removeQuery": "bool",
-              "responseCode": "RedirectResponseCode"
+              "remove_query": "bool",
+              "response_code": "RedirectResponseCode"
             },
-            "directResponse": {
+            "direct_response": {
               "status": "int64",
               "body": {
                 // Includes only one of the fields `text`
@@ -114,45 +114,45 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
           "grpc": {
             "match": {
               "fqmn": {
-                // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-                "exactMatch": "string",
-                "prefixMatch": "string",
-                "regexMatch": "string"
+                // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                "exact_match": "string",
+                "prefix_match": "string",
+                "regex_match": "string"
                 // end of the list of possible fields
               }
             },
-            // Includes only one of the fields `route`, `statusResponse`
+            // Includes only one of the fields `route`, `status_response`
             "route": {
-              "backendGroupId": "string",
-              "maxTimeout": "google.protobuf.Duration",
-              "idleTimeout": "google.protobuf.Duration",
-              // Includes only one of the fields `hostRewrite`, `autoHostRewrite`
-              "hostRewrite": "string",
-              "autoHostRewrite": "bool",
+              "backend_group_id": "string",
+              "max_timeout": "google.protobuf.Duration",
+              "idle_timeout": "google.protobuf.Duration",
+              // Includes only one of the fields `host_rewrite`, `auto_host_rewrite`
+              "host_rewrite": "string",
+              "auto_host_rewrite": "bool",
               // end of the list of possible fields
-              "rateLimit": {
-                "allRequests": {
-                  // Includes only one of the fields `perSecond`, `perMinute`
-                  "perSecond": "int64",
-                  "perMinute": "int64"
+              "rate_limit": {
+                "all_requests": {
+                  // Includes only one of the fields `per_second`, `per_minute`
+                  "per_second": "int64",
+                  "per_minute": "int64"
                   // end of the list of possible fields
                 },
-                "requestsPerIp": {
-                  // Includes only one of the fields `perSecond`, `perMinute`
-                  "perSecond": "int64",
-                  "perMinute": "int64"
+                "requests_per_ip": {
+                  // Includes only one of the fields `per_second`, `per_minute`
+                  "per_second": "int64",
+                  "per_minute": "int64"
                   // end of the list of possible fields
                 }
               }
             },
-            "statusResponse": {
+            "status_response": {
               "status": "Status"
             }
             // end of the list of possible fields
           },
           // end of the list of possible fields
-          "routeOptions": {
-            "modifyRequestHeaders": [
+          "route_options": {
+            "modify_request_headers": [
               {
                 "name": "string",
                 // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -163,7 +163,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
                 // end of the list of possible fields
               }
             ],
-            "modifyResponseHeaders": [
+            "modify_response_headers": [
               {
                 "name": "string",
                 // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -178,20 +178,20 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
               "action": "Action",
               "principals": [
                 {
-                  "andPrincipals": [
+                  "and_principals": [
                     {
-                      // Includes only one of the fields `header`, `remoteIp`, `any`
+                      // Includes only one of the fields `header`, `remote_ip`, `any`
                       "header": {
                         "name": "string",
                         "value": {
-                          // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-                          "exactMatch": "string",
-                          "prefixMatch": "string",
-                          "regexMatch": "string"
+                          // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                          "exact_match": "string",
+                          "prefix_match": "string",
+                          "regex_match": "string"
                           // end of the list of possible fields
                         }
                       },
-                      "remoteIp": "string",
+                      "remote_ip": "string",
                       "any": "bool"
                       // end of the list of possible fields
                     }
@@ -199,11 +199,11 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
                 }
               ]
             },
-            "securityProfileId": "string"
+            "security_profile_id": "string"
           }
         }
       ],
-      "modifyRequestHeaders": [
+      "modify_request_headers": [
         {
           "name": "string",
           // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -214,7 +214,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
           // end of the list of possible fields
         }
       ],
-      "modifyResponseHeaders": [
+      "modify_response_headers": [
         {
           "name": "string",
           // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -225,8 +225,8 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
           // end of the list of possible fields
         }
       ],
-      "routeOptions": {
-        "modifyRequestHeaders": [
+      "route_options": {
+        "modify_request_headers": [
           {
             "name": "string",
             // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -237,7 +237,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
             // end of the list of possible fields
           }
         ],
-        "modifyResponseHeaders": [
+        "modify_response_headers": [
           {
             "name": "string",
             // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -252,20 +252,20 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
           "action": "Action",
           "principals": [
             {
-              "andPrincipals": [
+              "and_principals": [
                 {
-                  // Includes only one of the fields `header`, `remoteIp`, `any`
+                  // Includes only one of the fields `header`, `remote_ip`, `any`
                   "header": {
                     "name": "string",
                     "value": {
-                      // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-                      "exactMatch": "string",
-                      "prefixMatch": "string",
-                      "regexMatch": "string"
+                      // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                      "exact_match": "string",
+                      "prefix_match": "string",
+                      "regex_match": "string"
                       // end of the list of possible fields
                     }
                   },
-                  "remoteIp": "string",
+                  "remote_ip": "string",
                   "any": "bool"
                   // end of the list of possible fields
                 }
@@ -273,27 +273,27 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
             }
           ]
         },
-        "securityProfileId": "string"
+        "security_profile_id": "string"
       },
-      "rateLimit": {
-        "allRequests": {
-          // Includes only one of the fields `perSecond`, `perMinute`
-          "perSecond": "int64",
-          "perMinute": "int64"
+      "rate_limit": {
+        "all_requests": {
+          // Includes only one of the fields `per_second`, `per_minute`
+          "per_second": "int64",
+          "per_minute": "int64"
           // end of the list of possible fields
         },
-        "requestsPerIp": {
-          // Includes only one of the fields `perSecond`, `perMinute`
-          "perSecond": "int64",
-          "perMinute": "int64"
+        "requests_per_ip": {
+          // Includes only one of the fields `per_second`, `per_minute`
+          "per_second": "int64",
+          "per_minute": "int64"
           // end of the list of possible fields
         }
       }
     }
   ],
-  "createdAt": "google.protobuf.Timestamp",
-  "routeOptions": {
-    "modifyRequestHeaders": [
+  "created_at": "google.protobuf.Timestamp",
+  "route_options": {
+    "modify_request_headers": [
       {
         "name": "string",
         // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -304,7 +304,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
         // end of the list of possible fields
       }
     ],
-    "modifyResponseHeaders": [
+    "modify_response_headers": [
       {
         "name": "string",
         // Includes only one of the fields `append`, `replace`, `remove`, `rename`
@@ -319,20 +319,20 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
       "action": "Action",
       "principals": [
         {
-          "andPrincipals": [
+          "and_principals": [
             {
-              // Includes only one of the fields `header`, `remoteIp`, `any`
+              // Includes only one of the fields `header`, `remote_ip`, `any`
               "header": {
                 "name": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
-                  "exactMatch": "string",
-                  "prefixMatch": "string",
-                  "regexMatch": "string"
+                  // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                  "exact_match": "string",
+                  "prefix_match": "string",
+                  "regex_match": "string"
                   // end of the list of possible fields
                 }
               },
-              "remoteIp": "string",
+              "remote_ip": "string",
               "any": "bool"
               // end of the list of possible fields
             }
@@ -340,7 +340,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
         }
       ]
     },
-    "securityProfileId": "string"
+    "security_profile_id": "string"
   }
 }
 ```
@@ -359,23 +359,23 @@ Name of the router. The name is unique within the folder. ||
 || description | **string**
 
 Description of the router. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the router belongs to. ||
 || labels | **string**
 
 Router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| virtualHosts[] | **[VirtualHost](#yandex.cloud.apploadbalancer.v1.VirtualHost)**
+|| virtual_hosts[] | **[VirtualHost](#yandex.cloud.apploadbalancer.v1.VirtualHost)**
 
 Virtual hosts that combine routes inside the router.
 For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
 
 Only one virtual host with no authority (default match) can be specified. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| route_options | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
 |#
 
 ## VirtualHost {#yandex.cloud.apploadbalancer.v1.VirtualHost}
@@ -412,14 +412,14 @@ The order of routes matters: the first route whose predicate matches the request
 The most specific routes should be at the top of the list, so that they are not overridden.
 For example, if the first HTTP route is configured, via [HttpRoute.match](#yandex.cloud.apploadbalancer.v1.HttpRoute), to match paths prefixed with just `/`,
 other routes are never matched. ||
-|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+|| modify_request_headers[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
 
 Deprecated, use route_options.modify_request_headers. ||
-|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+|| modify_response_headers[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
 
 Deprecated, use route_options.modify_response_headers. ||
-|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
-|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+|| route_options | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| rate_limit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for a whole virtual host. ||
 |#
@@ -448,7 +448,7 @@ gRPC route configuration.
 Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
-|| routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| route_options | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -464,21 +464,21 @@ Condition (predicate) used to select the route. ||
 
 Forwards the request to a backend group for processing as configured.
 
-Includes only one of the fields `route`, `redirect`, `directResponse`.
+Includes only one of the fields `route`, `redirect`, `direct_response`.
 
 Action performed on the request if the route is selected. ||
 || redirect | **[RedirectAction](#yandex.cloud.apploadbalancer.v1.RedirectAction)**
 
 Redirects the request as configured.
 
-Includes only one of the fields `route`, `redirect`, `directResponse`.
+Includes only one of the fields `route`, `redirect`, `direct_response`.
 
 Action performed on the request if the route is selected. ||
-|| directResponse | **[DirectResponseAction](#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
+|| direct_response | **[DirectResponseAction](#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
 
 Instructs the load balancer to respond directly as configured.
 
-Includes only one of the fields `route`, `redirect`, `directResponse`.
+Includes only one of the fields `route`, `redirect`, `direct_response`.
 
 Action performed on the request if the route is selected. ||
 |#
@@ -489,7 +489,7 @@ An HTTP route condition (predicate) resource.
 
 #|
 ||Field | Description ||
-|| httpMethod[] | **string**
+|| http_method[] | **string**
 
 HTTP method specified in the request. ||
 || path | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
@@ -505,25 +505,25 @@ A string matcher resource.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
 Exact match string.
 
-Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`.
 
 Match string for either exact or prefix match. ||
-|| prefixMatch | **string**
+|| prefix_match | **string**
 
 Prefix match string.
 
-Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`.
 
 Match string for either exact or prefix match. ||
-|| regexMatch | **string**
+|| regex_match | **string**
 
 Regular expression match string.
 
-Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`.
 
 Match string for either exact or prefix match. ||
 |#
@@ -534,7 +534,7 @@ An HTTP route action resource.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. Backend group to forward requests to.
 
@@ -547,7 +547,7 @@ the maximum time the connection is kept alive for, regardless of whether data is
 If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
 
 Default value: `60`. ||
-|| idleTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Idle timeout for an HTTP connection between a load balancer node an a backend from the backend group:
 the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
@@ -558,37 +558,37 @@ server-push mechanisms such as long polling, server-sent events (`EventSource` i
 If a connection times out, the load balancer responds to the client with a `504 Gateway Timeout` status code.
 
 If not specified, no idle timeout is used, and an alive connection may be idle for any duration (see `timeout`). ||
-|| hostRewrite | **string**
+|| host_rewrite | **string**
 
 Host replacement.
 
-Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+Includes only one of the fields `host_rewrite`, `auto_host_rewrite`.
 
 Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
 
 If not specified, the host is not changed. ||
-|| autoHostRewrite | **bool**
+|| auto_host_rewrite | **bool**
 
 Automatically replaces the host with that of the target.
 
-Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+Includes only one of the fields `host_rewrite`, `auto_host_rewrite`.
 
 Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
 
 If not specified, the host is not changed. ||
-|| prefixRewrite | **string**
+|| prefix_rewrite | **string**
 
 Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch).
 
-For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `prefix_rewrite` value is `/bar`,
+For instance, if [StringMatch.prefix_match](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `prefix_rewrite` value is `/bar`,
 a request with `/foobaz` path is forwarded with `/barbaz` path.
-For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+For [StringMatch.exact_match](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
 
 If not specified, the path is not changed. ||
-|| upgradeTypes[] | **string**
+|| upgrade_types[] | **string**
 
 Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
-|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+|| rate_limit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for route. ||
 |#
@@ -599,10 +599,10 @@ RateLimit is a set of settings for global rate limiting.
 
 #|
 ||Field | Description ||
-|| allRequests | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+|| all_requests | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
 
 AllRequests is a rate limit configuration applied to all incoming requests. ||
-|| requestsPerIp | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
+|| requests_per_ip | **[Limit](#yandex.cloud.apploadbalancer.v1.RateLimit.Limit)**
 
 RequestsPerIp is a rate limit configuration applied separately for each set of requests
 grouped by client IP address. ||
@@ -614,16 +614,16 @@ Limit is a rate limit value settings.
 
 #|
 ||Field | Description ||
-|| perSecond | **int64**
+|| per_second | **int64**
 
 PerSecond is a limit value specified with per second time unit.
 
-Includes only one of the fields `perSecond`, `perMinute`. ||
-|| perMinute | **int64**
+Includes only one of the fields `per_second`, `per_minute`. ||
+|| per_minute | **int64**
 
 PerMinute is a limit value specified with per minute time unit.
 
-Includes only one of the fields `perSecond`, `perMinute`. ||
+Includes only one of the fields `per_second`, `per_minute`. ||
 |#
 
 ## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction}
@@ -632,7 +632,7 @@ A redirect action resource.
 
 #|
 ||Field | Description ||
-|| replaceScheme | **string**
+|| replace_scheme | **string**
 
 URI scheme replacement.
 
@@ -640,42 +640,42 @@ If `http` or `https` scheme is to be replaced and `80` or `443` port is specifie
 the port is also removed.
 
 If not specified, the original scheme and port are used. ||
-|| replaceHost | **string**
+|| replace_host | **string**
 
 URI host replacement.
 
 If not specified, the original host is used. ||
-|| replacePort | **int64**
+|| replace_port | **int64**
 
 URI host replacement.
 
 If not specified, the original host is used. ||
-|| replacePath | **string**
+|| replace_path | **string**
 
 Replacement for the whole path.
 
-Includes only one of the fields `replacePath`, `replacePrefix`.
+Includes only one of the fields `replace_path`, `replace_prefix`.
 
 URI path replacement.
 
 If not specified, the original path is used. ||
-|| replacePrefix | **string**
+|| replace_prefix | **string**
 
 Replacement for the path prefix matched by [StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch).
 
-For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
+For instance, if [StringMatch.prefix_match](#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
 a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
-For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+For [StringMatch.exact_match](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
 
-Includes only one of the fields `replacePath`, `replacePrefix`.
+Includes only one of the fields `replace_path`, `replace_prefix`.
 
 URI path replacement.
 
 If not specified, the original path is used. ||
-|| removeQuery | **bool**
+|| remove_query | **bool**
 
 Removes URI query. ||
-|| responseCode | enum **RedirectResponseCode**
+|| response_code | enum **RedirectResponseCode**
 
 HTTP status code to use in redirect responses.
 
@@ -728,14 +728,14 @@ Condition (predicate) used to select the route. ||
 
 Forwards the request to a backend group for processing as configured.
 
-Includes only one of the fields `route`, `statusResponse`.
+Includes only one of the fields `route`, `status_response`.
 
 Action performed on the request if the route is selected. ||
-|| statusResponse | **[GrpcStatusResponseAction](#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
+|| status_response | **[GrpcStatusResponseAction](#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
 
 Instructs the load balancer to respond directly with a specified status.
 
-Includes only one of the fields `route`, `statusResponse`.
+Includes only one of the fields `route`, `status_response`.
 
 Action performed on the request if the route is selected. ||
 |#
@@ -761,10 +761,10 @@ A gRPC route action resource.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. Backend group to forward requests to. ||
-|| maxTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| max_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Overall timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
 the maximum time the connection is kept alive for, regardless of whether data is transferred over it.
@@ -774,37 +774,37 @@ If a client specifies a lower timeout in HTTP `grpc-timeout` header, the `max_ti
 If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
 
 Default value: `60`. ||
-|| idleTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Idle timeout for an underlying HTTP connection between a load balancer node an a backend from the backend group:
 the maximum time the connection is allowed to be idle, i.e. without any data transferred over it.
 
-Specifying meaningful values for both `maxTimeout` and `idle_timeout` is useful for implementing
+Specifying meaningful values for both `max_timeout` and `idle_timeout` is useful for implementing
 server-push mechanisms such as long polling, server-sent events etc.
 
 If a connection times out, the load balancer responds to the client with an `UNAVAILABLE` status code.
 
 If not specified, no idle timeout is used, and an alive connection may be idle for any duration
-(see `maxTimeout`). ||
-|| hostRewrite | **string**
+(see `max_timeout`). ||
+|| host_rewrite | **string**
 
 Host replacement.
 
-Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+Includes only one of the fields `host_rewrite`, `auto_host_rewrite`.
 
 Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
 
 If not specified, the host is not changed. ||
-|| autoHostRewrite | **bool**
+|| auto_host_rewrite | **bool**
 
 Automatically replaces the host with that of the target.
 
-Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+Includes only one of the fields `host_rewrite`, `auto_host_rewrite`.
 
 Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
 
 If not specified, the host is not changed. ||
-|| rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
+|| rate_limit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for route. ||
 |#
@@ -833,14 +833,14 @@ gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to 
 
 #|
 ||Field | Description ||
-|| modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+|| modify_request_headers[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
 
 Apply the following modifications to the request headers. ||
-|| modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+|| modify_response_headers[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)**
 
 Apply the following modifications to the response headers. ||
 || rbac | **[RBAC](#yandex.cloud.apploadbalancer.v1.RBAC)** ||
-|| securityProfileId | **string**
+|| security_profile_id | **string**
 
 Security profile that will take effect to all requests routed via particular virtual host. ||
 |#
@@ -918,7 +918,7 @@ Principals define a group of identities for a request.
 
 #|
 ||Field | Description ||
-|| andPrincipals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
+|| and_principals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
 
 Required. A match occurs when all principals match the request. ||
 |#
@@ -933,17 +933,17 @@ Principal defines an identity for a request.
 
 A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
 
-Includes only one of the fields `header`, `remoteIp`, `any`. ||
-|| remoteIp | **string**
+Includes only one of the fields `header`, `remote_ip`, `any`. ||
+|| remote_ip | **string**
 
 A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .
 
-Includes only one of the fields `header`, `remoteIp`, `any`. ||
+Includes only one of the fields `header`, `remote_ip`, `any`. ||
 || any | **bool**
 
 When any is set, it matches any request.
 
-Includes only one of the fields `header`, `remoteIp`, `any`. ||
+Includes only one of the fields `header`, `remote_ip`, `any`. ||
 |#
 
 ## HeaderMatcher {#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher}

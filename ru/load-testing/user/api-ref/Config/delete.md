@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/delete.md
 ---
 
-# Load Testing API, REST: Config.Delete {#Delete}
+# Load Testing API, REST: Config.Delete
 
 Deletes the specified config.
 

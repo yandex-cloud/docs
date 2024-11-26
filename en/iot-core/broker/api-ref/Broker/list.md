@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/list.md
 ---
 
-# IoT Core Broker Service, REST: Broker.List {#List}
+# IoT Core Broker Service, REST: Broker.List
 
 Retrieves the list of brokers in the specified folder.
 

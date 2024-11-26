@@ -24,8 +24,8 @@ The infrastructure support cost includes:
 
 * Fee for VMs (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
 * Fee for image use (depends on the image).
-* Fee for using a {{ kms-short-name }} key (see [{{ kms-short-name }}](../../kms/pricing.md) pricing).
-* Fee for using a secret (see [{{ lockbox-name }}](../../lockbox/pricing.md) pricing).
+* Fee for using a {{ kms-short-name }} key (see [{{ kms-short-name }} pricing](../../kms/pricing.md)).
+* Fee for using a secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 ## Create a service account {#create-account}
 
@@ -407,7 +407,7 @@ To check that the data from the secret was successfully used to create users, lo
     1 (AV)    Cmd0001
     ```
 
-1. To switch to a channel, press **ESC**+**TAB** or run the command:
+1. To switch to a channel, press **ESC** + **TAB** or run the command:
 
     ```bash
     SAC>ch -sn Cmd0001
@@ -446,6 +446,6 @@ To check that the data from the secret was successfully used to create users, lo
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-* [Delete the secret](../../lockbox/operations/secret-delete.md).
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+* [Delete](../../lockbox/operations/secret-delete.md) the secret.
 * [Destroy keys](../../kms/operations/key.md#delete).

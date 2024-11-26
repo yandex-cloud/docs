@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listRecordSets.md
 ---
 
-# Cloud DNS API, REST: DnsZone.ListRecordSets {#ListRecordSets}
+# Cloud DNS API, REST: DnsZone.ListRecordSets
 
 Retrieves the list of record sets in the specified folder.
 

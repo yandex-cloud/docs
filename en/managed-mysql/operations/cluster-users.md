@@ -313,7 +313,7 @@ You can add and remove users, as well as manage their settings.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
-  1. Locate the user's `yandex_mdb_mysql_user` resource.
+  1. Find the `yandex_mdb_mysql_user` resource of the user you need.
 
   1. Change the value of the `password` field:
 
@@ -370,9 +370,9 @@ You can add and remove users, as well as manage their settings.
 
           {% include [password-limits](../../_includes/mdb/mmy/note-info-password-limits.md) %}
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -418,7 +418,7 @@ You can add and remove users, as well as manage their settings.
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -475,7 +475,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
-  1. Locate the user's `yandex_mdb_mysql_user` resource.
+  1. Find the `yandex_mdb_mysql_user` resource of the user you need.
 
   1. To set limits on the number of connections and requests, add a block named `connection_limits` to its description:
 
@@ -555,7 +555,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
       Where:
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
-      * `globalPermissions`: Array of administrative privileges. each provided as a separate string in the array. For a list of available values, see the [relevant method description](../api-ref/User/update.md#body_params).
+      * `globalPermissions`: Array of administrative privileges. each provided as a separate string in the array. For a list of available values, see the [relevant method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
       * `connectionLimits`: User connection settings:
 
           * `maxQuestionsPerHour`: Maximum number of requests per hour.
@@ -565,11 +565,11 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
           The minimum value for each connection setting is `0`.
 
-      * `authenticationPlugin`: User authentication plugin. For a list of available plugins, see the [relevant method description](../api-ref/User/update.md#body_params).
+      * `authenticationPlugin`: User authentication plugin. For a list of available plugins, see the [relevant method description](../api-ref/User/update.md#yandex.cloud.mdb.mysql.v1.UpdateUserRequest).
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -634,7 +634,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -668,7 +668,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-  1. Delete the `yandex_mdb_mysql_user` resource with the user's description.
+  1. Delete the `yandex_mdb_mysql_user` resource with the description of the user you need.
 
   1. Make sure the settings are correct.
 
@@ -697,7 +697,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -725,7 +725,7 @@ To change user permissions to access databases, follow [this guide](grant.md#gra
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation2) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

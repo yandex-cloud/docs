@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/create.md
 ---
 
-# Audit Trails API, REST: Trail.Create {#Create}
+# Audit Trails API, REST: Trail.Create
 
 Creates a trail in the specified folder.
 

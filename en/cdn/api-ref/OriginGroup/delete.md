@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/delete.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.Delete {#Delete}
+# Cloud CDN API, REST: OriginGroup.Delete
 
 Deletes origin group with specified origin group id.
 

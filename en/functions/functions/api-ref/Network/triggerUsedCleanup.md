@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/triggerUsedCleanup.md
 ---
 
-# Cloud Functions Service, REST: Network.TriggerUsedCleanup {#TriggerUsedCleanup}
+# Cloud Functions Service, REST: Network.TriggerUsedCleanup
 
 Forces obsolete used network to start cleanup process as soon as possible.
 Invocation does not wait for start or end of the cleanup process.

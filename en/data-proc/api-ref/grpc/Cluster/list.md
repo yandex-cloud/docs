@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/list.md
 ---
 
-# Data Proc API, gRPC: ClusterService.List {#List}
+# Data Proc API, gRPC: ClusterService.List
 
 Retrieves the list of clusters in the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of clusters in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list clusters in.
 
 To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse)
+results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListClustersResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request. ||
+[ListClustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters clusters listed in the response.
@@ -57,8 +57,8 @@ Example of a filter: `name=my-cluster`. ||
   "clusters": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
@@ -70,16 +70,16 @@ Example of a filter: `name=my-cluster`. ||
         }
       ],
       "config": {
-        "versionId": "string",
+        "version_id": "string",
         "hadoop": {
           "services": [
             "Service"
           ],
           "properties": "string",
-          "sshPublicKeys": [
+          "ssh_public_keys": [
             "string"
           ],
-          "initializationActions": [
+          "initialization_actions": [
             {
               "uri": "string",
               "args": [
@@ -92,21 +92,22 @@ Example of a filter: `name=my-cluster`. ||
       },
       "health": "Health",
       "status": "Status",
-      "zoneId": "string",
-      "serviceAccountId": "string",
+      "zone_id": "string",
+      "service_account_id": "string",
       "bucket": "string",
-      "uiProxy": "bool",
-      "securityGroupIds": [
+      "ui_proxy": "bool",
+      "security_group_ids": [
         "string"
       ],
-      "hostGroupIds": [
+      "host_group_ids": [
         "string"
       ],
-      "deletionProtection": "bool",
-      "logGroupId": "string"
+      "deletion_protection": "bool",
+      "log_group_id": "string",
+      "environment": "Environment"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -115,11 +116,11 @@ Example of a filter: `name=my-cluster`. ||
 || clusters[] | **[Cluster](#yandex.cloud.dataproc.v1.Cluster)**
 
 List of clusters in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListClustersRequest.pageSize](#yandex.cloud.dataproc.v1.ListClustersRequest), use `next_page_token` as the value
-for the [ListClustersRequest.pageToken](#yandex.cloud.dataproc.v1.ListClustersRequest) parameter in the next list request.
+the specified [ListClustersRequest.page_size](#yandex.cloud.dataproc.v1.ListClustersRequest), use `next_page_token` as the value
+for the [ListClustersRequest.page_token](#yandex.cloud.dataproc.v1.ListClustersRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -133,10 +134,10 @@ A Data Proc cluster. For details about the concept, see [documentation](/docs/da
 || id | **string**
 
 ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -173,31 +174,38 @@ Cluster status.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the cluster resides. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of service account for the Data Proc manager agent. ||
 || bucket | **string**
 
 Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
-|| uiProxy | **bool**
+|| ui_proxy | **bool**
 
 Whether UI Proxy feature is enabled. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | enum **Environment**
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
@@ -221,7 +229,7 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
@@ -262,10 +270,10 @@ the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
 |#

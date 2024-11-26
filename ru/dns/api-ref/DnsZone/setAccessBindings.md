@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/setAccessBindings.md
 ---
 
-# Cloud DNS API, REST: DnsZone.SetAccessBindings {#SetAccessBindings}
+# Cloud DNS API, REST: DnsZone.SetAccessBindings
 
 Sets access bindings for the specified DNS zone.
 

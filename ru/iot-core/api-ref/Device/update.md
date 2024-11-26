@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/update.md
 ---
 
-# IoT Core Service, REST: Device.Update {#Update}
+# IoT Core Service, REST: Device.Update
 
 Updates the specified device.
 

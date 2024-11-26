@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/delete.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Delete {#Delete}
+# Virtual Private Cloud API, REST: Address.Delete
 
 Deletes the specified address.
 

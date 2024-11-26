@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/delete.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.Delete {#Delete}
+# Application Load Balancer API, REST: VirtualHost.Delete
 
 Deletes the specified virtual host.
 

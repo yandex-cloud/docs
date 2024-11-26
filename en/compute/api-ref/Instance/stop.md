@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/stop.md
 ---
 
-# Compute Cloud API, REST: Instance.Stop {#Stop}
+# Compute Cloud API, REST: Instance.Stop
 
 Stops the running instance.
 

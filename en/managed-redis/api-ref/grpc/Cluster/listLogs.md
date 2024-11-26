@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/listLogs.md
 ---
 
-# Managed Service for Redis API, gRPC: ClusterService.ListLogs {#ListLogs}
+# Managed Service for Redis API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified Redis cluster.
 
@@ -15,47 +15,47 @@ Retrieves logs for the specified Redis cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "serviceType": "ServiceType",
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "service_type": "ServiceType",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Redis cluster to request logs for.
 To get the Redis cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
-|| columnFilter[] | **string**
+|| column_filter[] | **string**
 
 Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
-|| serviceType | enum **ServiceType**
+|| service_type | enum **ServiceType**
 
 - `SERVICE_TYPE_UNSPECIFIED`
 - `REDIS`: Logs of Redis activity. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
+results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse}
@@ -68,7 +68,7 @@ Page token. To get the next page of results, set `pageToken` to the
       "message": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -77,12 +77,12 @@ Page token. To get the next page of results, set `pageToken` to the
 || logs[] | **[LogRecord](#yandex.cloud.mdb.redis.v1.LogRecord)**
 
 Requested log records. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.redis.v1.ListClusterLogsRequest), use the `nextPageToken` as the value
-for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.redis.v1.ListClusterLogsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results.
+is larger than [ListClusterLogsRequest.page_size](#yandex.cloud.mdb.redis.v1.ListClusterLogsRequest), use the `next_page_token` as the value
+for the [ListClusterLogsRequest.page_token](#yandex.cloud.mdb.redis.v1.ListClusterLogsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results.
 This value is interchangeable with `next_record_token` from StreamLogs method. ||
 |#
 

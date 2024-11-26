@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/list.md
 ---
 
-# Load Testing API, REST: Agent.List {#List}
+# Load Testing API, REST: Agent.List
 
 Retrieves the list of agents in the specified folder.
 

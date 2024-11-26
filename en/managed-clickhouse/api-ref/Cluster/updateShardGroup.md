@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/updateShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.UpdateShardGroup {#UpdateShardGroup}
+# Managed Service for ClickHouse API, REST: Cluster.UpdateShardGroup
 
 Updates the specified shard group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/delete.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopService.Delete {#Delete}
+# Cloud Desktop API, gRPC: DesktopService.Delete
 
 Deletes the specified desktop.
 
@@ -15,13 +15,13 @@ Deletes the specified desktop.
 
 ```json
 {
-  "desktopId": "string"
+  "desktop_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
 Required field. ID of the desktop to delete. ||
 |#
@@ -32,12 +32,12 @@ Required field. ID of the desktop to delete. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "desktopId": "string"
+    "desktop_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -56,13 +56,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -105,7 +105,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
 ID of the desktop that is being deleted. ||
 |#

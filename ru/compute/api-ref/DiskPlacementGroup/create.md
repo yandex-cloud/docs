@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/create.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Create {#Create}
+# Compute Cloud API, REST: DiskPlacementGroup.Create
 
 Creates a placement group in the specified folder.
 

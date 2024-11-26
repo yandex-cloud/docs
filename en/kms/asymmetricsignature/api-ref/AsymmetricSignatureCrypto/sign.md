@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureCrypto.Sign {#Sign}
+# Key Management Service API, REST: AsymmetricSignatureCrypto.Sign
 
 Signs data specified KMS key.
 

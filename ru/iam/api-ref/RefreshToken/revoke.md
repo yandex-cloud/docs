@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/RefreshToken/revoke.md
 ---
 
-# Identity and Access Management API, REST: RefreshToken.Revoke {#Revoke}
+# Identity and Access Management API, REST: RefreshToken.Revoke
 
 Revoke Refresh Tokens. Several Refresh Tokens can be revoked by one request.
 

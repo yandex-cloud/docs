@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/delete.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.Delete {#Delete}
+# Cloud Logging Service, REST: LogGroup.Delete
 
 Deletes the specified log group.
 

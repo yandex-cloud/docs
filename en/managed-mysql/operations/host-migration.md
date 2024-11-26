@@ -12,7 +12,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
 
          * Availability zone to which you want to move the hosts.
@@ -91,7 +91,7 @@
 
          You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/addHosts.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    - gRPC API {#grpc-api}
 
@@ -147,7 +147,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -189,7 +189,7 @@
 
          Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
 
-      1. View the [server response](../api-ref/Cluster/deleteHosts.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    - gRPC API {#grpc-api}
 

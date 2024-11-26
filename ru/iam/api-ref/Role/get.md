@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Role/get.md
 ---
 
-# Identity and Access Management API, REST: Role.Get {#Get}
+# Identity and Access Management API, REST: Role.Get
 
 Returns the specified Role resource.
 

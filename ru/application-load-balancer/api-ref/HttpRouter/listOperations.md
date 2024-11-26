@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/listOperations.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.ListOperations {#ListOperations}
+# Application Load Balancer API, REST: HttpRouter.ListOperations
 
 Lists operations for the specified HTTP router.
 

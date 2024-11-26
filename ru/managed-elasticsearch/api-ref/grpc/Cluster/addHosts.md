@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Cluster/addHosts.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: ClusterService.AddHosts {#AddHosts}
+# Managed Service for Elasticsearch API, gRPC: ClusterService.AddHosts
 
 Adds new hosts to the specified Elasticsearch cluster.
 
@@ -15,14 +15,14 @@ Adds new hosts to the specified Elasticsearch cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "hostSpecs": [
+  "cluster_id": "string",
+  "host_specs": [
     {
-      "zoneId": "string",
-      "subnetId": "string",
-      "assignPublicIp": "bool",
+      "zone_id": "string",
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
       "type": "Type",
-      "shardName": "string"
+      "shard_name": "string"
     }
   ]
 }
@@ -30,12 +30,12 @@ Adds new hosts to the specified Elasticsearch cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Elasticsearch cluster.
 
 To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/grpc/Cluster/list#List) request. ||
-|| hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.elasticsearch.v1.HostSpec)**
+|| host_specs[] | **[HostSpec](#yandex.cloud.mdb.elasticsearch.v1.HostSpec)**
 
 One or more configurations of hosts to be added to the Elasticsearch cluster. ||
 |#
@@ -44,13 +44,13 @@ One or more configurations of hosts to be added to the Elasticsearch cluster. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet the host resides in. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 The flag that defines whether a public IP address is assigned to the host.
 
@@ -62,7 +62,7 @@ Required field. Host type.
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `DATA_NODE`: The host is an Elasticsearch data node.
 - `MASTER_NODE`: The host is an Elasticsearch master node. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 The shard name to create on the host. ||
 |#
@@ -73,13 +73,13 @@ The shard name to create on the host. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "hostNames": [
+    "cluster_id": "string",
+    "host_names": [
       "string"
     ]
   },
@@ -100,13 +100,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -149,10 +149,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Elasticsearch cluster. ||
-|| hostNames[] | **string**
+|| host_names[] | **string**
 
 Names of the host that are being added. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/create.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Create {#Create}
+# Virtual Private Cloud API, REST: RouteTable.Create
 
 Creates a route table in the specified folder and network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

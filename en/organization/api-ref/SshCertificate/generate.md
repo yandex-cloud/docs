@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/SshCertificate/generate.md
 ---
 
-# Cloud Organization API, REST: SshCertificate.Generate {#Generate}
+# Cloud Organization API, REST: SshCertificate.Generate
 
 Members of an organization can generate certificates for themselves
 Signing certificates for other users requires a special permission

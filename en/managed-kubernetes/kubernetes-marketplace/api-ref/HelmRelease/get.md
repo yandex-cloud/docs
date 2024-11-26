@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/get.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.Get {#Get}
+# Kubernetes Marketplace, REST: HelmRelease.Get
 
 Returns the specified Helm release.
 

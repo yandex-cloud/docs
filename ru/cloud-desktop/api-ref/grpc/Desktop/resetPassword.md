@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/resetPassword.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopService.ResetPassword {#ResetPassword}
+# Cloud Desktop API, gRPC: DesktopService.ResetPassword
 
 Reset password
 
@@ -15,17 +15,17 @@ Reset password
 
 ```json
 {
-  "desktopId": "string",
+  "desktop_id": "string",
   "user": {
-    "subjectId": "string",
-    "subjectType": "string"
+    "subject_id": "string",
+    "subject_type": "string"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
 Required field. ID of the desktop. ||
 || user | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
@@ -37,10 +37,10 @@ Required field. User of the desktop. ||
 
 #|
 ||Field | Description ||
-|| subjectId | **string**
+|| subject_id | **string**
 
 Required field. Identity of the access binding. ||
-|| subjectType | **string**
+|| subject_type | **string**
 
 Required field. Type of the access binding, e.g. userAccount, serviceAccount, system. ||
 |#

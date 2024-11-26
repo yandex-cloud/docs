@@ -10,7 +10,7 @@ sourcePath: overlay/concepts/limits.md
 {{ ydb-full-name }} has the following limits:
 
 * [_Quotas_]({{ link-console-quotas }}) are organizational constraints that can be changed by technical support on request.
-* _Limits_ are technical constraints due to the {{ ydb-short-name }} architecture. Limits cannot be changed.
+* _Limits_ are technical constraints due to {{ ydb-short-name }} architecture. Limits cannot be changed.
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 

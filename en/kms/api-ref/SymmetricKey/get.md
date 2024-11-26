@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/get.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Get {#Get}
+# Key Management Service API, REST: SymmetricKey.Get
 
 Returns the specified symmetric KMS key.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/delete.md
 ---
 
-# Lockbox API, REST: Secret.Delete {#Delete}
+# Lockbox API, REST: Secret.Delete
 
 Deletes the specified secret.
 

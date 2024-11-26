@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Operation/get.md
 ---
 
-# Object Storage API, REST: Operation.Get {#Get}
+# Object Storage API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

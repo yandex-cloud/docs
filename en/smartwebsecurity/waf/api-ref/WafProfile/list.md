@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/list.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.List {#List}
+# SmartWebSecurity WAF API, REST: WafProfile.List
 
 Retrieves the list of WafProfile resources in the specified folder.
 

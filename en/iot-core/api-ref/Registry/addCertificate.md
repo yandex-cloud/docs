@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/addCertificate.md
 ---
 
-# IoT Core Service, REST: Registry.AddCertificate {#AddCertificate}
+# IoT Core Service, REST: Registry.AddCertificate
 
 Adds a certificate.
 

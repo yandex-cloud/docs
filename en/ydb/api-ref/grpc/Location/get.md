@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Location/get.md
 ---
 
-# Managed Service for YDB API, gRPC: LocationService.Get {#Get}
+# Managed Service for YDB API, gRPC: LocationService.Get
 
 Returns the specified location.
 
@@ -15,13 +15,13 @@ Returns the specified location.
 
 ```json
 {
-  "locationId": "string"
+  "location_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| locationId | **string**
+|| location_id | **string**
 
 Required field. Required. ID of the location to return. ||
 |#

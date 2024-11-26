@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/list.md
 ---
 
-# Lockbox API, REST: Secret.List {#List}
+# Lockbox API, REST: Secret.List
 
 Retrieves the list of secrets in the specified folder.
 

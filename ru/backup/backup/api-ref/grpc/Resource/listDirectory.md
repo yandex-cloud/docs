@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/listDirectory.md
 ---
 
-# Cloud Backup API, gRPC: ResourceService.ListDirectory {#ListDirectory}
+# Cloud Backup API, gRPC: ResourceService.ListDirectory
 
 ListDirectory returns all subdirectories found in requested directory identified
 by the id.
@@ -16,18 +16,18 @@ by the id.
 
 ```json
 {
-  "folderId": "string",
-  "computeInstanceId": "string",
+  "folder_id": "string",
+  "compute_instance_id": "string",
   "path": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. Folder ID. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
 || path | **string**
@@ -43,7 +43,7 @@ Path to list items in. ||
     {
       "name": "string",
       "type": "Type",
-      "fileType": "Type",
+      "file_type": "Type",
       "size": "int64"
     }
   ]
@@ -70,7 +70,7 @@ Might be Volume, Directory of File.
 - `VOLUME`
 - `DIRECTORY`
 - `FILE` ||
-|| fileType | enum **Type**
+|| file_type | enum **Type**
 
 Might be Directory or File.
 

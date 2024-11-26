@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/FormatSchema/create.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Create {#Create}
+# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Create
 
 Adds a format schema to a cluster.
 
@@ -15,8 +15,8 @@ Adds a format schema to a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "formatSchemaName": "string",
+  "cluster_id": "string",
+  "format_schema_name": "string",
   "type": "FormatSchemaType",
   "uri": "string"
 }
@@ -24,12 +24,12 @@ Adds a format schema to a cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
 
 To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method. ||
-|| formatSchemaName | **string**
+|| format_schema_name | **string**
 
 Required field. Format schema name. ||
 || type | enum **FormatSchemaType**
@@ -53,19 +53,19 @@ Required field. [Link to the file](/docs/managed-clickhouse/operations/s3-access
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "formatSchemaName": "string"
+    "cluster_id": "string",
+    "format_schema_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "type": "FormatSchemaType",
     "uri": "string"
   }
@@ -83,13 +83,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -132,10 +132,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ClickHouse cluster ID. ||
-|| formatSchemaName | **string**
+|| format_schema_name | **string**
 
 Format schema name. ||
 |#
@@ -147,7 +147,7 @@ Format schema name. ||
 || name | **string**
 
 Format schema name. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ClickHouse cluster ID. ||
 || type | enum **FormatSchemaType**

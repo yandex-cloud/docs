@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Operation/cancel.md
 ---
 
-# Cloud Functions Triggers Service, REST: Operation.Cancel {#Cancel}
+# Cloud Functions Triggers Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

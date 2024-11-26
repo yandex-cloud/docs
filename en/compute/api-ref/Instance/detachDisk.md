@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachDisk.md
 ---
 
-# Compute Cloud API, REST: Instance.DetachDisk {#DetachDisk}
+# Compute Cloud API, REST: Instance.DetachDisk
 
 Detaches the disk from the instance.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Restore {#Restore}
+# Managed Service for OpenSearch API, REST: Cluster.Restore
 
 Creates a new OpenSearch cluster using the specified backup.
 

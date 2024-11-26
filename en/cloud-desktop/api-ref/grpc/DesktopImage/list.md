@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopImage/list.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopImageService.List {#List}
+# Cloud Desktop API, gRPC: DesktopImageService.List
 
 Lists desktop images in the specified folder.
 
@@ -15,29 +15,29 @@ Lists desktop images in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list desktop images in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
+results is larger than `page_size`,
 the service returns a [ListDesktopImagesRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
+Page token. To get the next page of results, set `page_token` to the
 [ListDesktopImagesRequest.next_page_token] returned by a previous list request. ||
 || filter | **string**
 
@@ -46,9 +46,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [DesktopImage.name](#yandex.cloud.clouddesktop.v1.api.DesktopImage) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. Value or a list of values to compare against the values of the field. ||
-|| orderBy | **string**
+|| order_by | **string**
 
-Sorting the list by [DesktopImage.name](#yandex.cloud.clouddesktop.v1.api.DesktopImage), [DesktopImage.createdAt](#yandex.cloud.clouddesktop.v1.api.DesktopImage) and [DesktopImage.status](#yandex.cloud.clouddesktop.v1.api.DesktopImage) fields.
+Sorting the list by [DesktopImage.name](#yandex.cloud.clouddesktop.v1.api.DesktopImage), [DesktopImage.created_at](#yandex.cloud.clouddesktop.v1.api.DesktopImage) and [DesktopImage.status](#yandex.cloud.clouddesktop.v1.api.DesktopImage) fields.
 The default sorting order is ascending. ||
 |#
 
@@ -56,35 +56,35 @@ The default sorting order is ascending. ||
 
 ```json
 {
-  "desktopImages": [
+  "desktop_images": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "status": "Status",
       "name": "string",
       "labels": "string",
-      "storageSize": "int64",
-      "minDiskSize": "int64"
+      "storage_size": "int64",
+      "min_disk_size": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopImages[] | **[DesktopImage](#yandex.cloud.clouddesktop.v1.api.DesktopImage)**
+|| desktop_images[] | **[DesktopImage](#yandex.cloud.clouddesktop.v1.api.DesktopImage)**
 
 List of desktop images. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListDesktopImagesRequest.pageSize](#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest), use
-the `nextPageToken` as the value
-for the [ListDesktopImagesRequest.pageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest) query parameter
+is larger than [ListDesktopImagesRequest.page_size](#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest), use
+the `next_page_token` as the value
+for the [ListDesktopImagesRequest.page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## DesktopImage {#yandex.cloud.clouddesktop.v1.api.DesktopImage}
@@ -96,10 +96,10 @@ A desktop image resource.
 || id | **string**
 
 ID of the image. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -116,10 +116,10 @@ Name of the image. ||
 || labels | **string**
 
 Description of the image. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 Size of the image, specified in bytes. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum disk size in bytes required to use the image. ||
 |#

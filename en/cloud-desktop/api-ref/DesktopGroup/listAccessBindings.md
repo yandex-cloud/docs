@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listAccessBindings.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.ListAccessBindings {#ListAccessBindings}
+# Cloud Desktop API, REST: DesktopGroup.ListAccessBindings
 
 Returns a list of the access bindings for the specified desktop group.
 

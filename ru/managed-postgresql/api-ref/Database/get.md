@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/get.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.Get {#Get}
+# Managed Service for PostgreSQL API, REST: Database.Get
 
 Returns the specified PostgreSQL Database resource.
 

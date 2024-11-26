@@ -41,13 +41,13 @@ Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178
 
 When [creating a pivot table](#create-diagram), you can use these advanced settings:
 
-* [{#T}](#change-columns-names)
-* [{#T}](#hint-column)
-* [{#T}](#set-column-width)
-* [{#T}](#column-fixation)
-* [{#T}](#add-totals)
-* [{#T}](#set-field-color)
-* [{#T}](#add-linear-indicator)
+* [Renaming table columns and rows](#change-columns-names)
+* [Adding a tooltip to a table header](#hint-column)
+* [Setting the width of columns and rows](#set-column-width)
+* [Freezing table columns](#column-fixation)
+* [Adding rows with subtotals](#add-totals)
+* [Setting the field fill color](#set-field-color)
+* [Adding a linear indicator to a column with a measure](#add-linear-indicator)
 
 ## Wizard sections {#wizard-sections}
 
@@ -57,7 +57,7 @@ Columns | Dimensions
 Rows | Dimensions
 Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. You can move `Measure Names` to **Rows**.
 Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure.
-Sorting | Dimensions and measures under **Columns** and **Rows**. You can use multiple dimensions and measures.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only impacts a request to the source and does not affect the pivot table.
+Sorting | Dimensions and measures under **Columns** and **Rows**. You can use multiple dimensions and measures.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only affects the query to the source, not the pivot table.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a pivot table {#create-diagram}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/grantPermission.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.GrantPermission {#GrantPermission}
+# Managed Service for ClickHouse API, REST: User.GrantPermission
 
 Grants a permission to the specified ClickHouse user.
 

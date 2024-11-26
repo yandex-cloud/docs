@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/list.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.List {#List}
+# Application Load Balancer API, REST: HttpRouter.List
 
 Lists HTTP routers in the specified folder.
 

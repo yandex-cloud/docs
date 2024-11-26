@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/listOperations.md
 ---
 
-# Workflows Service, REST: Workflow.ListOperations {#ListOperations}
+# Workflows Service, REST: Workflow.ListOperations
 
 Lists operations for specified Workflow.
 

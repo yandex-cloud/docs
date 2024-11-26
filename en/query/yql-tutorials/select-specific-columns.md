@@ -14,7 +14,7 @@ SELECT
     trip_distance,                      -- separated by commas.
     fare_amount AS fare,                -- You can use AS to rename columns
     (total_amount/1000) AS total_amount_thousand_dollars, -- or give a name to any expression.
-    CAST(VendorID as Uint32) AS vendorID -- Use CAST to change data type.
+    CAST(VendorID as Uint32) AS vendorID -- You can change data type using CAST.
 FROM
     `tutorial-analytics`
 LIMIT 10

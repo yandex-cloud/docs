@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Sku/list.md
 ---
 
-# Billing API, gRPC: SkuService.List {#List}
+# Billing API, gRPC: SkuService.List
 
 Retrieves the list of SKUs.
 
@@ -16,10 +16,10 @@ Retrieves the list of SKUs.
 ```json
 {
   "currency": "string",
-  "billingAccountId": "string",
+  "billing_account_id": "string",
   "filter": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
@@ -32,7 +32,7 @@ Can be one of the following:
 * `RUB`
 * `USD`
 * `KZT` ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Optional ID of the billing account.
 If specified, contract prices for a particular billing account are included in the response.
@@ -41,20 +41,20 @@ To get the billing account ID, use [BillingAccountService.List](/docs/billing/ap
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
-1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Sku.id](#yandex.cloud.billing.v1.Sku) and [yandex.cloud.billing.v1.Sku.serviceId](#yandex.cloud.billing.v1.Sku) field.
+1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Sku.id](#yandex.cloud.billing.v1.Sku) and [yandex.cloud.billing.v1.Sku.service_id](#yandex.cloud.billing.v1.Sku) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 E.g. `filter=serviceId="dn28hpu6268356q0j8mk"`. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
+results is larger than `page_size`,
+the service returns a [ListSkusResponse.next_page_token](#yandex.cloud.billing.v1.ListSkusResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
+set `page_token` to the [ListSkusResponse.next_page_token](#yandex.cloud.billing.v1.ListSkusResponse)
 returned by a previous list request. ||
 |#
 
@@ -67,18 +67,18 @@ returned by a previous list request. ||
       "id": "string",
       "name": "string",
       "description": "string",
-      "serviceId": "string",
-      "pricingUnit": "string",
-      "pricingVersions": [
+      "service_id": "string",
+      "pricing_unit": "string",
+      "pricing_versions": [
         {
           "type": "PricingVersionType",
-          "effectiveTime": "google.protobuf.Timestamp",
-          "pricingExpressions": [
+          "effective_time": "google.protobuf.Timestamp",
+          "pricing_expressions": [
             {
               "rates": [
                 {
-                  "startPricingQuantity": "string",
-                  "unitPrice": "string",
+                  "start_pricing_quantity": "string",
+                  "unit_price": "string",
                   "currency": "string"
                 }
               ]
@@ -88,7 +88,7 @@ returned by a previous list request. ||
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -97,14 +97,14 @@ returned by a previous list request. ||
 || skus[] | **[Sku](#yandex.cloud.billing.v1.Sku)**
 
 List of skus. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListSkusRequest.pageSize](#yandex.cloud.billing.v1.ListSkusRequest), use
-`nextPageToken` as the value
-for the [ListSkusRequest.pageToken](#yandex.cloud.billing.v1.ListSkusRequest) query parameter
+is larger than [ListSkusRequest.page_size](#yandex.cloud.billing.v1.ListSkusRequest), use
+`next_page_token` as the value
+for the [ListSkusRequest.page_token](#yandex.cloud.billing.v1.ListSkusRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Sku {#yandex.cloud.billing.v1.Sku}
@@ -122,13 +122,13 @@ Name of the SKU. ||
 || description | **string**
 
 Description of the sku. ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service that sku belongs to. ||
-|| pricingUnit | **string**
+|| pricing_unit | **string**
 
 Pricing unit of the SKU, e.g. `core*hour`, `gbyte*hour`. ||
-|| pricingVersions[] | **[PricingVersion](#yandex.cloud.billing.v1.PricingVersion)**
+|| pricing_versions[] | **[PricingVersion](#yandex.cloud.billing.v1.PricingVersion)**
 
 List of pricing versions. ||
 |#
@@ -147,11 +147,11 @@ Type of the pricing version.
 - `PRICING_VERSION_TYPE_UNSPECIFIED`
 - `STREET_PRICE`: Regular price.
 - `CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account. ||
-|| effectiveTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp pricing version is active since inclusive.
 The pricing version is active until next pricing version effective time exclusive. ||
-|| pricingExpressions[] | **[PricingExpression](#yandex.cloud.billing.v1.PricingExpression)**
+|| pricing_expressions[] | **[PricingExpression](#yandex.cloud.billing.v1.PricingExpression)**
 
 List of pricing expressions. ||
 |#
@@ -175,10 +175,10 @@ Define unit price for pricing quantity interval.
 
 #|
 ||Field | Description ||
-|| startPricingQuantity | **string**
+|| start_pricing_quantity | **string**
 
 Start of the pricing quantity interval. The end of the interval is the start pricing quantity of the next rate. ||
-|| unitPrice | **string**
+|| unit_price | **string**
 
 Unit price for the pricing quantity interval. ||
 || currency | **string**

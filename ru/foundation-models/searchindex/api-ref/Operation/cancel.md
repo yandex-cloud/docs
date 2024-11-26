@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/Operation/cancel.md
 ---
 
-# Search Index, REST: Operation.Cancel {#Cancel}
+# Search Index, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/getAuthSettings.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.GetAuthSettings {#GetAuthSettings}
+# Managed Service for OpenSearch API, REST: Cluster.GetAuthSettings
 
 Retrieves auth settings for specified cluster.
 

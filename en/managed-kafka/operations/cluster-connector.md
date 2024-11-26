@@ -288,7 +288,7 @@ You can:
     To create a connector, use the [create](../api-ref/Connector/create.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Create](../api-ref/grpc/Connector/create.md) gRPC API call and provide the following in the request:
 
     * ID of the cluster you want to create a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Connector settings in the `connectorSpec` parameter.
+    * [MirrorMaker](#settings-mm2) or [S3 Sink](#settings-s3) connector settings in the `connectorSpec` parameter.
 
 {% endlist %}
 
@@ -307,7 +307,7 @@ Specify the MirrorMaker connector parameters:
 
       {% note info %}
 
-      Topics in the target cluster are created with the indicated prefix.
+      Topics in the target cluster will be created with the specified prefix.
 
       {% endnote %}
 
@@ -398,7 +398,7 @@ Specify the MirrorMaker connector parameters:
 
             {% note info %}
 
-            Topics in the target cluster are created with the indicated prefix.
+            Topics in the target cluster will be created with the specified prefix.
 
             {% endnote %}
 
@@ -415,6 +415,45 @@ Specify the MirrorMaker connector parameters:
                 * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
                 * `SSL`, `SASL_SSL`: To connect with SSL.
             * **ssl_truststore_certificates**: PEM certificate contents.
+
+- API {#api}
+
+    {% note info %}
+
+    Parameter names are given for the REST API, and in brackets for the gRPC API if the names are different.
+
+    {% endnote %}
+
+    MirrorMaker connector settings are specified in the `connectorConfigMirrormaker` (`connector_config_mirrormaker`) parameter:
+
+    * `sourceCluster` (`source_cluster`) and `targetCluster` (`target_cluster`): Parameters for connecting to the source cluster and target cluster:
+
+        * `alias`: Cluster prefix in the connector settings.
+
+            {% note info %}
+
+            Topics in the target cluster will be created with the specified prefix.
+
+            {% endnote %}
+
+        * `thisCluster` (`this_cluster`): Option to use the current cluster as a source or target.
+
+        * `externalCluster` (`external_cluster`): Parameters for connecting to the external cluster:
+
+            * `bootstrapServers` (`bootstrap_servers`): Comma-separated list of the FQDNs of the cluster broker hosts with the port numbers for connection.
+
+                {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+            * `saslUsername` (`sasl_username`): Username for connecting the connector to the cluster.
+            * `saslPassword` (`sasl_password`): User password for connecting the connector to the cluster.
+            * `saslMechanism` (`sasl_mechanism`): Username and password encryption mechanism.
+            * `securityProtocol` (`security_protocol`): Connector connection protocol:
+                * `PLAINTEXT`, `SASL_PLAINTEXT`: To connect without SSL.
+                * `SSL`, `SASL_SSL`: To connect with SSL.
+            * `sslTruststoreCertificates` (`ssl_truststore_certificates`): PEM certificate contents.
+
+    * `topics`: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
+    * `replicationFactor` (`replication_factor`): Number of topic copies stored in the cluster.
 
 {% endlist %}
 
@@ -515,6 +554,35 @@ Specify the S3 Sink connector parameters:
 
 
             * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+
+- API {#api}
+
+    {% note info %}
+
+    Parameter names are given for the REST API, and in brackets for the gRPC API if the names are different.
+
+    {% endnote %}
+
+    The S3 Sink connector settings are specified in the `connectorConfigS3Sink` (`connector_config_s3_sink`) parameter:
+
+    * `topics`: Template for selecting topics to replicate. Topic names in the list are separated by a comma or `|`. You may use the `.*` expression, e.g., `analysis.*`. To migrate all topics, put `.*`.
+    * `fileCompressionType` (`file_compression_type`): Message compression codec. You cannot change this parameter after creating the cluster. Acceptable values:
+
+        * `none` (default): No compression
+        * `gzip`: [gzip](https://www.gzip.org/) codec
+        * `snappy`: [snappy](https://github.com/google/snappy) codec
+        * `zstd`: [zstd](https://facebook.github.io/zstd/) codec
+
+    * `fileMaxRecords` (`file_max_records`): Maximum number of records that can be written to a single file in an S3-compatible storage.
+    * `s3Connection` (`s3_connection`): S3-compatible storage connection parameters:
+        * `bucketName` (`bucket_name`): Name of the bucket to write data to.
+        * `externalS3` (`external_s3`): External storage parameters:
+            * `endpoint`: Endpoint for storage access (to be requested from the storage provider) Example: `{{ s3-storage-host }}`.
+            * `region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+
+            * `accessKeyId` (`access_key_id`), `secretAccessKey` (`secret_access_key`): [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
 {% endlist %}
@@ -658,8 +726,8 @@ Specify the S3 Sink connector parameters:
 
     To update a connector, use the [update](../api-ref/Connector/update.md) REST API method for the [Connector](../api-ref/Connector/index.md) resource or the [ConnectorService/Update](../api-ref/grpc/Connector/update.md) gRPC API call and provide the following in the request:
 
-    * The ID of the cluster to update a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Connector settings in the `connectorSpec` parameter.
+    * ID of the cluster you want to update a connector in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    * [MirrorMaker](#settings-mm2) or [S3 Sink](#settings-s3) connector settings in the `connectorSpec` parameter.
 
 {% endlist %}
 

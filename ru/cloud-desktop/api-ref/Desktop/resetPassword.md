@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/resetPassword.md
 ---
 
-# Cloud Desktop API, REST: Desktop.ResetPassword {#ResetPassword}
+# Cloud Desktop API, REST: Desktop.ResetPassword
 
 Reset password
 

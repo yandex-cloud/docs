@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.Restore {#Restore}
+# Managed Service for Redis API, REST: Cluster.Restore
 
 Creates a new Redis cluster using the specified backup.
 
@@ -146,7 +146,9 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "lfuDecayTime": "string",
       "lfuLogFactor": "string",
       "turnBeforeSwitchover": "boolean",
-      "allowDataLoss": "boolean"
+      "allowDataLoss": "boolean",
+      "useLuajit": "boolean",
+      "ioThreadsAllowed": "boolean"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -703,6 +705,12 @@ Allows to turn before switchover in RDSync ||
 || allowDataLoss | **boolean**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| useLuajit | **boolean**
+
+Use JIT for lua scripts and functions ||
+|| ioThreadsAllowed | **boolean**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1139,7 +1147,9 @@ Hour of the day in UTC (in `HH` format). ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -1168,7 +1178,9 @@ Hour of the day in UTC (in `HH` format). ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -1197,7 +1209,9 @@ Hour of the day in UTC (in `HH` format). ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1994,6 +2008,12 @@ Allows to turn before switchover in RDSync ||
 || allowDataLoss | **boolean**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| useLuajit | **boolean**
+
+Use JIT for lua scripts and functions ||
+|| ioThreadsAllowed | **boolean**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

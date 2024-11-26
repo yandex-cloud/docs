@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Cluster.Restore {#Restore}
+# Managed Service for PostgreSQL API, REST: Cluster.Restore
 
 Creates a new PostgreSQL cluster using the specified backup.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/setAccessBindings.md
 ---
 
-# Audit Trails API, REST: Trail.SetAccessBindings {#SetAccessBindings}
+# Audit Trails API, REST: Trail.SetAccessBindings
 
 Sets access bindings for the trail.
 

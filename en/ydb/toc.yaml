@@ -85,8 +85,18 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: Interactive debugging of {{ sf-name }} functions
+        href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
+      - name: Developing a custom integration in {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: Developing CRUD APIs for movie services
+        href: tutorials/movies-database.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
   - name: Concepts
     items:
       - name: Overview
@@ -145,7 +155,7 @@ items:
                 href: docapi/tools/aws-cli/update-item.md
               - name: Data selections
                 href: docapi/tools/aws-cli/query.md
-              - name: Delete the resources you created
+              - name: Deleting the resources you created
                 href: docapi/tools/aws-cli/cleanup.md
           - name: Working with the AWS SDK
             items:

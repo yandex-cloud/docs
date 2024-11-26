@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/waf/api-ref/grpc/RuleSetDescriptor/get.md
 ---
 
-# SmartWebSecurity WAF API, gRPC: RuleSetDescriptorService.Get {#Get}
+# SmartWebSecurity WAF API, gRPC: RuleSetDescriptorService.Get
 
 Returns the specified RuleSetDescriptor resource.
 
@@ -40,8 +40,8 @@ Required field. Version of the RuleSetDescriptor resource to return. ||
   "rules": [
     {
       "id": "string",
-      "anomalyScore": "int64",
-      "paranoiaLevel": "int64"
+      "anomaly_score": "int64",
+      "paranoia_level": "int64"
     }
   ]
 }
@@ -70,12 +70,12 @@ List of rules ||
 || id | **string**
 
 ID of the rule ||
-|| anomalyScore | **int64**
+|| anomaly_score | **int64**
 
 Numeric anomaly value, i.e., a potential attack indicator.
 The higher this value, the more likely it is that the request that satisfies the rule is an attack.
 See [documentation](/docs/smartwebsecurity/concepts/waf#anomaly). ||
-|| paranoiaLevel | **int64**
+|| paranoia_level | **int64**
 
 Paranoia level classifies rules according to their aggression.
 The higher the paranoia level, the better your protection, but also the higher the probability of WAF false positives.

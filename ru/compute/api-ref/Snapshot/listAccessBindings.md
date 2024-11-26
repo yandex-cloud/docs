@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/listAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Snapshot.ListAccessBindings {#ListAccessBindings}
+# Compute Cloud API, REST: Snapshot.ListAccessBindings
 
 Lists access bindings for the snapshot.
 

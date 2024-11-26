@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/TargetGroup/list.md
 ---
 
-# Network Load Balancer API, gRPC: TargetGroupService.List {#List}
+# Network Load Balancer API, gRPC: TargetGroupService.List
 
 Retrieves the list of TargetGroup resources in the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of TargetGroup resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list target groups in.
 To get the folder ID, use a [TargetGroupService.List](#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse)
+results is larger than `page_size`,
+the service returns a [ListTargetGroupsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListTargetGroupsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListTargetGroupsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -52,40 +52,40 @@ The expression must specify:
 
 ```json
 {
-  "targetGroups": [
+  "target_groups": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "regionId": "string",
+      "region_id": "string",
       "targets": [
         {
-          "subnetId": "string",
+          "subnet_id": "string",
           "address": "string"
         }
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| targetGroups[] | **[TargetGroup](#yandex.cloud.loadbalancer.v1.TargetGroup)**
+|| target_groups[] | **[TargetGroup](#yandex.cloud.loadbalancer.v1.TargetGroup)**
 
 List of TargetGroup resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListTargetGroupsRequest.pageSize](#yandex.cloud.loadbalancer.v1.ListTargetGroupsRequest), use
-the `nextPageToken` as the value
-for the [ListTargetGroupsRequest.pageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupsRequest) query parameter
+is larger than [ListTargetGroupsRequest.page_size](#yandex.cloud.loadbalancer.v1.ListTargetGroupsRequest), use
+the `next_page_token` as the value
+for the [ListTargetGroupsRequest.page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## TargetGroup {#yandex.cloud.loadbalancer.v1.TargetGroup}
@@ -97,10 +97,10 @@ A TargetGroup resource. For more information, see [Target groups and resources](
 || id | **string**
 
 Output only. ID of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -113,7 +113,7 @@ Description of the target group. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region where the target group resides. ||
 || targets[] | **[Target](#yandex.cloud.loadbalancer.v1.Target)**
@@ -127,7 +127,7 @@ A Target resource. For more information, see [Target groups and resources](/docs
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that targets are connected to.
 All targets in the target group must be connected to the same subnet within a single availability zone. ||

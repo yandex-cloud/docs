@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/update.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Update {#Update}
+# Virtual Private Cloud API, REST: Address.Update
 
 Updates the specified address.
 

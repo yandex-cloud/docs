@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md
 ---
 
-# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Update {#Update}
+# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Update
 
 Updates the specified ARL profile.
 

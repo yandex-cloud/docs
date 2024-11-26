@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/removeTag.md
 ---
 
-# Cloud Functions Service, REST: Function.RemoveTag {#RemoveTag}
+# Cloud Functions Service, REST: Function.RemoveTag
 
 Remove a tag from the specified version of a function.
 

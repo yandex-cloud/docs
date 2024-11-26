@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/cancelVersionDestruction.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.CancelVersionDestruction {#CancelVersionDestruction}
+# Key Management Service API, REST: SymmetricKey.CancelVersionDestruction
 
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
 

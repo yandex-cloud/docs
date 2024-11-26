@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/delete.md
 ---
 
-# Managed Service for MongoDB API, REST: Database.Delete {#Delete}
+# Managed Service for MongoDB API, REST: Database.Delete
 
 Deletes the specified MongoDB database.
 

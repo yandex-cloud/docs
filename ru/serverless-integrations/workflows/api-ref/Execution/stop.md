@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/stop.md
 ---
 
-# Workflows Service, REST: Execution.Stop {#Stop}
+# Workflows Service, REST: Execution.Stop
 
 Stops specified Workflow execution.
 

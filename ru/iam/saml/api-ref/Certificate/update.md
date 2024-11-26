@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/update.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.Update {#Update}
+# Identity and Access Management SAML API, REST: Certificate.Update
 
 Updates the specified certificate.
 

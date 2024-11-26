@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/list.md
 ---
 
-# Container Registry API, REST: Repository.List {#List}
+# Container Registry API, REST: Repository.List
 
 Retrieves the list of Repository resources in the specified registry.
 

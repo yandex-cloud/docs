@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/get.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.Get {#Get}
+# Identity and Access Management SAML API, REST: Certificate.Get
 
 Returns the specified certificate.
 

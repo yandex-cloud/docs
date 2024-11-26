@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/update.md
 ---
 
-# Container Registry API, REST: Registry.Update {#Update}
+# Container Registry API, REST: Registry.Update
 
 Updates the specified registry.
 

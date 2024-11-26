@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/get.md
 ---
 
-# Cloud Desktop API, REST: DesktopImage.Get {#Get}
+# Cloud Desktop API, REST: DesktopImage.Get
 
 Returns the specified desktop image.
 

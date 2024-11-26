@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/list.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.List {#List}
+# Container Registry API, REST: LifecyclePolicy.List
 
 Retrieves the list of lifecycle policies in the specified repository.
 

@@ -25,7 +25,7 @@ You can add, rename, and remove databases, as well as view information about the
   {{ yc-mdb-pg }} database list --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -44,7 +44,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/list.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -148,7 +148,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
      {{ mpg-short-name }} runs the create database operation.
 
@@ -245,7 +245,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/create.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -372,9 +372,9 @@ You can add, rename, and remove databases, as well as view information about the
 
        {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [DB list in your cluster](#list-db).
+     You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -420,7 +420,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -492,7 +492,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -536,7 +536,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -610,7 +610,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -638,7 +638,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation2) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

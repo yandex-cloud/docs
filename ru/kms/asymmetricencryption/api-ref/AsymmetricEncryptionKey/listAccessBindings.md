@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/listAccessBindings.md
 ---
 
-# Key Management Service API, REST: AsymmetricEncryptionKey.ListAccessBindings {#ListAccessBindings}
+# Key Management Service API, REST: AsymmetricEncryptionKey.ListAccessBindings
 
 Lists existing access bindings for the specified key.
 

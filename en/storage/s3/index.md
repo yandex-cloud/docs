@@ -1,6 +1,6 @@
 ---
 title: How do I use the {{ objstorage-name }} S3 API?
-description: In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
+description: In this tutorial, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
 keywords:
   - s3
   - s3 storage
@@ -52,7 +52,7 @@ The request contains an HTTP method, bucket name, and [object key](../concepts/o
 The bucket name can be specified as part of the host name. In this case, the request will look like this:
 
 ```
-{GET|HEAD|PUT|DELETE} /<object_key>} HTTP/2
+{GET|HEAD|PUT|DELETE} /<object_key> HTTP/2
 Host: <bucket_name>.{{ s3-storage-host }}
 ...
 ```
@@ -72,7 +72,7 @@ URLs can take one of the following forms:
 
 {% note info %}
 
-For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL in `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL formatted like `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 

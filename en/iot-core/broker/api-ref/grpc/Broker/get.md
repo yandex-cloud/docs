@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/Broker/get.md
 ---
 
-# IoT Core Broker Service, gRPC: BrokerService.Get {#Get}
+# IoT Core Broker Service, gRPC: BrokerService.Get
 
 Returns the specified broker.
 
@@ -17,13 +17,13 @@ To get the list of available brokers, make a [List](/docs/iot-core/broker/api-re
 
 ```json
 {
-  "brokerId": "string"
+  "broker_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the broker to return.
 
@@ -35,19 +35,19 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grp
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
   "status": "Status",
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   }
 }
 ```
@@ -59,10 +59,10 @@ A broker.
 || id | **string**
 
 ID of the broker. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the broker belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -82,7 +82,7 @@ Status of the broker.
 - `CREATING`: Broker is being created.
 - `ACTIVE`: Broker is ready to use.
 - `DELETING`: Broker is being deleted. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
 
 Options for logging broker events ||
 |#
@@ -94,21 +94,21 @@ Options for logging broker events ||
 || disabled | **bool**
 
 Is logging from broker disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 

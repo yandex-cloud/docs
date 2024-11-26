@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersion.md
 ---
 
-# Cloud Functions Service, REST: Function.GetVersion {#GetVersion}
+# Cloud Functions Service, REST: Function.GetVersion
 
 Returns the specified version of a function.
 

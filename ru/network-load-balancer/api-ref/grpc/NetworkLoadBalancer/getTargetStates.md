@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/NetworkLoadBalancer/getTargetStates.md
 ---
 
-# Network Load Balancer API, gRPC: NetworkLoadBalancerService.GetTargetStates {#GetTargetStates}
+# Network Load Balancer API, gRPC: NetworkLoadBalancerService.GetTargetStates
 
 Gets states of target resources in the attached target group.
 
@@ -15,17 +15,17 @@ Gets states of target resources in the attached target group.
 
 ```json
 {
-  "networkLoadBalancerId": "string",
-  "targetGroupId": "string"
+  "network_load_balancer_id": "string",
+  "target_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkLoadBalancerId | **string**
+|| network_load_balancer_id | **string**
 
 ID of the NetworkLoadBalancer resource with an attached target group. ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 ID of the target group to get states of resources from. ||
 |#
@@ -34,9 +34,9 @@ ID of the target group to get states of resources from. ||
 
 ```json
 {
-  "targetStates": [
+  "target_states": [
     {
-      "subnetId": "string",
+      "subnet_id": "string",
       "address": "string",
       "status": "Status"
     }
@@ -46,7 +46,7 @@ ID of the target group to get states of resources from. ||
 
 #|
 ||Field | Description ||
-|| targetStates[] | **[TargetState](#yandex.cloud.loadbalancer.v1.TargetState)**
+|| target_states[] | **[TargetState](#yandex.cloud.loadbalancer.v1.TargetState)**
 
 List of states of targets within the target group that is specified in the [GetTargetStatesRequest](#yandex.cloud.loadbalancer.v1.GetTargetStatesRequest) message. ||
 |#
@@ -57,7 +57,7 @@ State of the target that was returned after the last health check.
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
 || address | **string**

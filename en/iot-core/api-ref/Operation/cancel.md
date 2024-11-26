@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Operation/cancel.md
 ---
 
-# IoT Core Service, REST: Operation.Cancel {#Cancel}
+# IoT Core Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

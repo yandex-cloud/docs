@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/Operation/cancel.md
 ---
 
-# Key Management Service API, REST: Operation.Cancel {#Cancel}
+# Key Management Service API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/update.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Update {#Update}
+# Managed Services for Kubernetes API, REST: Cluster.Update
 
 Updates the specified Kubernetes cluster.
 

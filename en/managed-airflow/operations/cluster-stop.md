@@ -15,7 +15,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+    1. Find the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
@@ -47,7 +47,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -89,7 +89,7 @@ You can restart clusters with the `Stopped` status.
 
     1. In the [management console]({{ link-console-main }}), go to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+    1. Find the stopped cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
@@ -121,7 +121,7 @@ You can restart clusters with the `Stopped` status.
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/waf/api-ref/grpc/WafProfile/update.md
 ---
 
-# SmartWebSecurity WAF API, gRPC: WafProfileService.Update {#Update}
+# SmartWebSecurity WAF API, gRPC: WafProfileService.Update
 
 Updates the specified WAF profile.
 
@@ -15,19 +15,19 @@ Updates the specified WAF profile.
 
 ```json
 {
-  "wafProfileId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "waf_profile_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
   "rules": [
     {
-      "ruleId": "string",
-      "isEnabled": "bool",
-      "isBlocking": "bool"
+      "rule_id": "string",
+      "is_enabled": "bool",
+      "is_blocking": "bool"
     }
   ],
-  "exclusionRules": [
+  "exclusion_rules": [
     {
       "name": "string",
       "description": "string",
@@ -35,53 +35,53 @@ Updates the specified WAF profile.
         "authority": {
           "authorities": [
             {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
           ]
         },
-        "httpMethod": {
-          "httpMethods": [
+        "http_method": {
+          "http_methods": [
             {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
           ]
         },
-        "requestUri": {
+        "request_uri": {
           "path": {
-            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-            "exactMatch": "string",
-            "exactNotMatch": "string",
-            "prefixMatch": "string",
-            "prefixNotMatch": "string",
-            "pireRegexMatch": "string",
-            "pireRegexNotMatch": "string"
+            // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+            "exact_match": "string",
+            "exact_not_match": "string",
+            "prefix_match": "string",
+            "prefix_not_match": "string",
+            "pire_regex_match": "string",
+            "pire_regex_not_match": "string"
             // end of the list of possible fields
           },
           "queries": [
             {
               "key": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
@@ -91,73 +91,73 @@ Updates the specified WAF profile.
           {
             "name": "string",
             "value": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
           }
         ],
-        "sourceIp": {
-          "ipRangesMatch": {
-            "ipRanges": [
+        "source_ip": {
+          "ip_ranges_match": {
+            "ip_ranges": [
               "string"
             ]
           },
-          "ipRangesNotMatch": {
-            "ipRanges": [
+          "ip_ranges_not_match": {
+            "ip_ranges": [
               "string"
             ]
           },
-          "geoIpMatch": {
+          "geo_ip_match": {
             "locations": [
               "string"
             ]
           },
-          "geoIpNotMatch": {
+          "geo_ip_not_match": {
             "locations": [
               "string"
             ]
           }
         }
       },
-      "excludeRules": {
-        "excludeAll": "bool",
-        "ruleIds": [
+      "exclude_rules": {
+        "exclude_all": "bool",
+        "rule_ids": [
           "string"
         ]
       },
-      "logExcluded": "bool"
+      "log_excluded": "bool"
     }
   ],
-  // Includes only one of the fields `coreRuleSet`
-  "coreRuleSet": {
-    "inboundAnomalyScore": "int64",
-    "paranoiaLevel": "int64",
-    "ruleSet": {
+  // Includes only one of the fields `core_rule_set`
+  "core_rule_set": {
+    "inbound_anomaly_score": "int64",
+    "paranoia_level": "int64",
+    "rule_set": {
       "name": "string",
       "version": "string"
     }
   },
   // end of the list of possible fields
-  "analyzeRequestBody": {
-    "isEnabled": "bool",
-    "sizeLimit": "int64",
-    "sizeLimitAction": "Action"
+  "analyze_request_body": {
+    "is_enabled": "bool",
+    "size_limit": "int64",
+    "size_limit_action": "Action"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| wafProfileId | **string**
+|| waf_profile_id | **string**
 
 Required field. ID of the WAF profile to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the WafProfile resource are going to be updated. ||
 || name | **string**
@@ -172,15 +172,15 @@ Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || rules[] | **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
 
 Settings for each rule in rule set. ||
-|| exclusionRules[] | **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule)**
+|| exclusion_rules[] | **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule)**
 
 List of exclusion rules. See [Rules](/docs/smartwebsecurity/concepts/waf#exclusion-rules). ||
-|| coreRuleSet | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
+|| core_rule_set | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
 
 Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
 
-Includes only one of the fields `coreRuleSet`. ||
-|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
+Includes only one of the fields `core_rule_set`. ||
+|| analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
 
 Parameters for request body analyzer. ||
 |#
@@ -191,13 +191,13 @@ WafProfileRule object. Determines settings for each rule_id in rule set.
 
 #|
 ||Field | Description ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 Required field. Rule ID. ||
-|| isEnabled | **bool**
+|| is_enabled | **bool**
 
 Determines is it rule enabled or not. ||
-|| isBlocking | **bool**
+|| is_blocking | **bool**
 
 Determines is it rule blocking or not. ||
 |#
@@ -217,10 +217,10 @@ Optional description of the rule. 0-512 characters long. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching traffic. ||
-|| excludeRules | **[ExcludeRules](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules)**
+|| exclude_rules | **[ExcludeRules](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules)**
 
 Required field. Exclude rules. ||
-|| logExcluded | **bool**
+|| log_excluded | **bool**
 
 Records the fact that an exception rule is triggered. ||
 |#
@@ -235,16 +235,16 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
 Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
 |#
@@ -266,24 +266,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -292,7 +292,7 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 List of HTTP methods. OR semantics implied. ||
 |#
@@ -345,10 +345,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -357,7 +357,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -379,10 +379,10 @@ Determines list of excluded rules.
 
 #|
 ||Field | Description ||
-|| excludeAll | **bool**
+|| exclude_all | **bool**
 
 Set this option true to exclude all rules. ||
-|| ruleIds[] | **string**
+|| rule_ids[] | **string**
 
 List of rules to exclude. ||
 |#
@@ -391,13 +391,13 @@ List of rules to exclude. ||
 
 #|
 ||Field | Description ||
-|| inboundAnomalyScore | **int64**
+|| inbound_anomaly_score | **int64**
 
 Anomaly score.
 Enter an integer within the range of 2 and 10000.
 The higher this value, the more likely it is that the request that satisfies the rule is an attack.
 See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details. ||
-|| paranoiaLevel | **int64**
+|| paranoia_level | **int64**
 
 Paranoia level.
 Enter an integer within the range of 1 and 4.
@@ -406,7 +406,7 @@ but also the higher the probability of WAF false positives.
 See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
 NOTE: this option has no effect on enabling or disabling rules.
 it is used only as recommendation for user to enable all rules with paranoia_level <= this value. ||
-|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+|| rule_set | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
 
 Required field. Rule set. ||
 |#
@@ -429,13 +429,13 @@ Required field. Version of rule set. ||
 
 #|
 ||Field | Description ||
-|| isEnabled | **bool**
+|| is_enabled | **bool**
 
 Possible to turn analyzer on and turn if off. ||
-|| sizeLimit | **int64**
+|| size_limit | **int64**
 
 Maximum size of body to pass to analyzer. In kilobytes. ||
-|| sizeLimitAction | enum **Action**
+|| size_limit_action | enum **Action**
 
 Action to perform if maximum size of body exceeded.
 
@@ -450,31 +450,31 @@ Action to perform if maximum size of body exceeded.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "wafProfileId": "string"
+    "waf_profile_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
+    "folder_id": "string",
+    "cloud_id": "string",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "rules": [
       {
-        "ruleId": "string",
-        "isEnabled": "bool",
-        "isBlocking": "bool"
+        "rule_id": "string",
+        "is_enabled": "bool",
+        "is_blocking": "bool"
       }
     ],
-    "exclusionRules": [
+    "exclusion_rules": [
       {
         "name": "string",
         "description": "string",
@@ -482,53 +482,53 @@ Action to perform if maximum size of body exceeded.
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -538,63 +538,63 @@ Action to perform if maximum size of body exceeded.
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
             }
           }
         },
-        "excludeRules": {
-          "excludeAll": "bool",
-          "ruleIds": [
+        "exclude_rules": {
+          "exclude_all": "bool",
+          "rule_ids": [
             "string"
           ]
         },
-        "logExcluded": "bool"
+        "log_excluded": "bool"
       }
     ],
-    // Includes only one of the fields `coreRuleSet`
-    "coreRuleSet": {
-      "inboundAnomalyScore": "int64",
-      "paranoiaLevel": "int64",
-      "ruleSet": {
+    // Includes only one of the fields `core_rule_set`
+    "core_rule_set": {
+      "inbound_anomaly_score": "int64",
+      "paranoia_level": "int64",
+      "rule_set": {
         "name": "string",
         "version": "string"
       }
     },
     // end of the list of possible fields
-    "analyzeRequestBody": {
-      "isEnabled": "bool",
-      "sizeLimit": "int64",
-      "sizeLimitAction": "Action"
+    "analyze_request_body": {
+      "is_enabled": "bool",
+      "size_limit": "int64",
+      "size_limit_action": "Action"
     }
   }
   // end of the list of possible fields
@@ -611,13 +611,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -660,7 +660,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| wafProfileId | **string**
+|| waf_profile_id | **string**
 
 ID of the WafProfile resource that is being updated. ||
 |#
@@ -672,10 +672,10 @@ ID of the WafProfile resource that is being updated. ||
 || id | **string**
 
 Required field. ID of the WAF profile. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the WAF profile belongs to. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Required field. ID of the cloud that the WAF profile belongs to. ||
 || name | **string**
@@ -687,21 +687,21 @@ Optional description of the WAF profile. ||
 || labels | **string**
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || rules[] | **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule2)**
 
 Settings for each rule in rule set. ||
-|| exclusionRules[] | **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule2)**
+|| exclusion_rules[] | **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule2)**
 
 List of exclusion rules. See [Rules](/docs/smartwebsecurity/concepts/waf#exclusion-rules). ||
-|| coreRuleSet | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet2)**
+|| core_rule_set | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet2)**
 
 Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
 
-Includes only one of the fields `coreRuleSet`. ||
-|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody2)**
+Includes only one of the fields `core_rule_set`. ||
+|| analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody2)**
 
 Parameters for request body analyzer. ||
 |#
@@ -712,13 +712,13 @@ WafProfileRule object. Determines settings for each rule_id in rule set.
 
 #|
 ||Field | Description ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 Required field. Rule ID. ||
-|| isEnabled | **bool**
+|| is_enabled | **bool**
 
 Determines is it rule enabled or not. ||
-|| isBlocking | **bool**
+|| is_blocking | **bool**
 
 Determines is it rule blocking or not. ||
 |#
@@ -738,10 +738,10 @@ Optional description of the rule. 0-512 characters long. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
 
 The condition for matching traffic. ||
-|| excludeRules | **[ExcludeRules](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules2)**
+|| exclude_rules | **[ExcludeRules](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules2)**
 
 Required field. Exclude rules. ||
-|| logExcluded | **bool**
+|| log_excluded | **bool**
 
 Records the fact that an exception rule is triggered. ||
 |#
@@ -756,16 +756,16 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher2)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2)**
 
 Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
 
 Match IP. ||
 |#
@@ -787,24 +787,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2}
@@ -813,7 +813,7 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 List of HTTP methods. OR semantics implied. ||
 |#
@@ -866,10 +866,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2}
@@ -878,7 +878,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -900,10 +900,10 @@ Determines list of excluded rules.
 
 #|
 ||Field | Description ||
-|| excludeAll | **bool**
+|| exclude_all | **bool**
 
 Set this option true to exclude all rules. ||
-|| ruleIds[] | **string**
+|| rule_ids[] | **string**
 
 List of rules to exclude. ||
 |#
@@ -912,13 +912,13 @@ List of rules to exclude. ||
 
 #|
 ||Field | Description ||
-|| inboundAnomalyScore | **int64**
+|| inbound_anomaly_score | **int64**
 
 Anomaly score.
 Enter an integer within the range of 2 and 10000.
 The higher this value, the more likely it is that the request that satisfies the rule is an attack.
 See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details. ||
-|| paranoiaLevel | **int64**
+|| paranoia_level | **int64**
 
 Paranoia level.
 Enter an integer within the range of 1 and 4.
@@ -927,7 +927,7 @@ but also the higher the probability of WAF false positives.
 See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
 NOTE: this option has no effect on enabling or disabling rules.
 it is used only as recommendation for user to enable all rules with paranoia_level <= this value. ||
-|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet2)**
+|| rule_set | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet2)**
 
 Required field. Rule set. ||
 |#
@@ -950,13 +950,13 @@ Required field. Version of rule set. ||
 
 #|
 ||Field | Description ||
-|| isEnabled | **bool**
+|| is_enabled | **bool**
 
 Possible to turn analyzer on and turn if off. ||
-|| sizeLimit | **int64**
+|| size_limit | **int64**
 
 Maximum size of body to pass to analyzer. In kilobytes. ||
-|| sizeLimitAction | enum **Action**
+|| size_limit_action | enum **Action**
 
 Action to perform if maximum size of body exceeded.
 

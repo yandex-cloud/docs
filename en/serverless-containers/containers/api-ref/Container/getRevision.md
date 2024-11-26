@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/getRevision.md
 ---
 
-# Serverless Containers Service, REST: Container.GetRevision {#GetRevision}
+# Serverless Containers Service, REST: Container.GetRevision
 
 Returns the specified revision of a container.
 

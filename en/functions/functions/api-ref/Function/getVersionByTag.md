@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersionByTag.md
 ---
 
-# Cloud Functions Service, REST: Function.GetVersionByTag {#GetVersionByTag}
+# Cloud Functions Service, REST: Function.GetVersionByTag
 
 Returns all versions with the specified tag.
 

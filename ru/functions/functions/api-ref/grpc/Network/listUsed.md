@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Network/listUsed.md
 ---
 
-# Cloud Functions Service, gRPC: NetworkService.ListUsed {#ListUsed}
+# Cloud Functions Service, gRPC: NetworkService.ListUsed
 
 Retrieves the list of networks in the specified scope that are used in serverless resources.
 
@@ -15,38 +15,38 @@ Retrieves the list of networks in the specified scope that are used in serverles
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string",
-  // Includes only one of the fields `cloudId`, `folderId`
-  "cloudId": "string",
-  "folderId": "string"
+  "page_size": "int64",
+  "page_token": "string",
+  // Includes only one of the fields `cloud_id`, `folder_id`
+  "cloud_id": "string",
+  "folder_id": "string"
   // end of the list of possible fields
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
+results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request. ||
-|| cloudId | **string**
+[ListUsedNetworksResponse.next_page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request. ||
+|| cloud_id | **string**
 
 ID of the cloud to list used networks in.
 
-Includes only one of the fields `cloudId`, `folderId`. ||
-|| folderId | **string**
+Includes only one of the fields `cloud_id`, `folder_id`. ||
+|| folder_id | **string**
 
 ID of the folder to list used networks in.
 
-Includes only one of the fields `cloudId`, `folderId`. ||
+Includes only one of the fields `cloud_id`, `folder_id`. ||
 |#
 
 ## ListUsedNetworksResponse {#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse}
@@ -55,15 +55,15 @@ Includes only one of the fields `cloudId`, `folderId`. ||
 {
   "networks": [
     {
-      "networkId": "string",
-      "cloudId": "string",
-      "folderId": "string",
+      "network_id": "string",
+      "cloud_id": "string",
+      "folder_id": "string",
       "status": "Status",
-      "willBeCleanedUpAt": "google.protobuf.Timestamp",
-      "connectionsCount": "int64"
+      "will_be_cleaned_up_at": "google.protobuf.Timestamp",
+      "connections_count": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -72,11 +72,11 @@ Includes only one of the fields `cloudId`, `folderId`. ||
 || networks[] | **[UsedNetwork](#yandex.cloud.serverless.functions.v1.UsedNetwork)**
 
 List of used networks in the specified scope. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListUsedNetworksRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest), use `nextPageToken` as the value
-for the [ListUsedNetworksRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest) parameter in the next list request.
+the specified [ListUsedNetworksRequest.page_size](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest), use `nextPageToken` as the value
+for the [ListUsedNetworksRequest.page_token](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -87,13 +87,13 @@ A VPC network used in serverless resources.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the VPC network. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the network belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network belongs to. ||
 || status | enum **Status**
@@ -105,10 +105,10 @@ Status of the network.
 - `ACTIVE`: Network is already being used by some serverless resources.
 - `OBSOLETE`: Network is no longer used by any serverless resources.
 It will be cleaned-up after a while. ||
-|| willBeCleanedUpAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| will_be_cleaned_up_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Clean-up timestamp of the obsolete network. ||
-|| connectionsCount | **int64**
+|| connections_count | **int64**
 
 Number of serverless resources connected to the network. ||
 |#

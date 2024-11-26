@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Operation/cancel.md
 ---
 
-# Identity and Access Management SAML API, REST: Operation.Cancel {#Cancel}
+# Identity and Access Management SAML API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

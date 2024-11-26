@@ -4,11 +4,11 @@
 
 This guide describes how to arrange a workspace in {{ ml-platform-name }} to effectively use {{ yandex-cloud }} services.
 
-1. [{#T}](#create-project)
-1. [{#T}](#create-cloud)
-1. [{#T}](#set-network)
-1. [{#T}](#create-sa)
-1. [{#T}](#examples)
+1. [Create a project](#create-project).
+1. [Create a cloud and a folder](#create-cloud).
+1. [Configure a network](#set-network).
+1. [Create a service account](#create-sa).
+1. [Service integration examples](#examples).
 
 For detailed information on how to create and set up resources, see the _Step-by-step guides_ section in the documentation for respective services.
 
@@ -32,7 +32,7 @@ Next, you can specify parameters for integration with other {{ yandex-cloud }} s
 
 ## Create a cloud and folder {#create-cloud}
 
-Most {{ yandex-cloud }} services run inside [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#rm-resources). To access cloud resources, use [{{ console-full-name }}]({{ link-console-cloud }}), a {{ yandex-cloud }} management console.
+Most {{ yandex-cloud }} services run inside [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#rm-resources). To access cloud resources, use [{{ console-full-name }}]({{ link-console-cloud }}), the {{ yandex-cloud }}'s management console.
 
 Log in to the management console and [create your first cloud](../../resource-manager/operations/cloud/create.md) and [folder](../../resource-manager/operations/folder/create.md) to host services you want to use from {{ ml-platform-name }}.
 
@@ -82,9 +82,9 @@ If you want to deploy a model as a separate service in {{ ml-platform-name }}, u
 
 * Default folder to store node logs.
 * Service account with the following permissions:
-   * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image for creating a node.
-   * `vpc.user` to use the {{ ml-platform-name }} network.
-   * (Optional) `datasphere.user` to send requests to the node.
+    * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image to create a node.
+    * `vpc.user` to use the {{ ml-platform-name }} network.
+    * (Optional) `datasphere.user` to send requests to the node.
 
 Learn more about deploying services in {{ ml-platform-name }}:
 * [{#T}](../concepts/deploy/index.md)

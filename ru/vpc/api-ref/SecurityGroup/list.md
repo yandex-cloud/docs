@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/list.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.List {#List}
+# Virtual Private Cloud API, REST: SecurityGroup.List
 
 Retrieves the list of SecurityGroup resources in the specified folder.
 

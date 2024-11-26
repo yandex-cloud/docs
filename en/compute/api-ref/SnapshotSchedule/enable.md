@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/enable.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Enable {#Enable}
+# Compute Cloud API, REST: SnapshotSchedule.Enable
 
 Enables the specified snapshot schedule.
 

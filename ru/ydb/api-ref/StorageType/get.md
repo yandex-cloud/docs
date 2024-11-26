@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/StorageType/get.md
 ---
 
-# Managed Service for YDB API, REST: StorageType.Get {#Get}
+# Managed Service for YDB API, REST: StorageType.Get
 
 Returns the specified storage types.
 

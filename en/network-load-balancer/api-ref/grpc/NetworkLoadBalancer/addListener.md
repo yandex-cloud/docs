@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/NetworkLoadBalancer/addListener.md
 ---
 
-# Network Load Balancer API, gRPC: NetworkLoadBalancerService.AddListener {#AddListener}
+# Network Load Balancer API, gRPC: NetworkLoadBalancerService.AddListener
 
 Adds a listener to the specified network load balancer.
 
@@ -15,34 +15,34 @@ Adds a listener to the specified network load balancer.
 
 ```json
 {
-  "networkLoadBalancerId": "string",
-  "listenerSpec": {
+  "network_load_balancer_id": "string",
+  "listener_spec": {
     "name": "string",
     "port": "int64",
     "protocol": "Protocol",
-    // Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`
-    "externalAddressSpec": {
+    // Includes only one of the fields `external_address_spec`, `internal_address_spec`
+    "external_address_spec": {
       "address": "string",
-      "ipVersion": "IpVersion"
+      "ip_version": "IpVersion"
     },
-    "internalAddressSpec": {
+    "internal_address_spec": {
       "address": "string",
-      "subnetId": "string",
-      "ipVersion": "IpVersion"
+      "subnet_id": "string",
+      "ip_version": "IpVersion"
     },
     // end of the list of possible fields
-    "targetPort": "int64"
+    "target_port": "int64"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkLoadBalancerId | **string**
+|| network_load_balancer_id | **string**
 
 Required field. ID of the network load balancer to add a listener to.
 To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/grpc/NetworkLoadBalancer/list#List) request. ||
-|| listenerSpec | **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+|| listener_spec | **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
 
 Required field. Listener spec. ||
 |#
@@ -66,21 +66,21 @@ Required field. Protocol for incoming traffic.
 - `PROTOCOL_UNSPECIFIED`
 - `TCP`
 - `UDP` ||
-|| externalAddressSpec | **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+|| external_address_spec | **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
 
 External IP address specification.
 
-Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+Includes only one of the fields `external_address_spec`, `internal_address_spec`.
 
 IP address for incoming traffic. Either the ID of the previously created address or the address specification. ||
-|| internalAddressSpec | **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+|| internal_address_spec | **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
 
 Internal IP address specification.
 
-Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+Includes only one of the fields `external_address_spec`, `internal_address_spec`.
 
 IP address for incoming traffic. Either the ID of the previously created address or the address specification. ||
-|| targetPort | **int64**
+|| target_port | **int64**
 
 Port of a target.
 Acceptable values are 1 to 65535, inclusive. ||
@@ -97,7 +97,7 @@ External address specification that is used by [ListenerSpec](#yandex.cloud.load
 Public IP address for a listener.
 If you provide a static public IP address for the [NetworkLoadBalancerService.Update](/docs/network-load-balancer/api-ref/grpc/NetworkLoadBalancer/update#Update)
 method, it will replace the existing listener address. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version.
 
@@ -115,10 +115,10 @@ Internal address specification that is used by [ListenerSpec](#yandex.cloud.load
 || address | **string**
 
 Internal IP address for a listener. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version.
 
@@ -133,52 +133,52 @@ IP version.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "networkLoadBalancerId": "string"
+    "network_load_balancer_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "regionId": "string",
+    "region_id": "string",
     "status": "Status",
     "type": "Type",
-    "sessionAffinity": "SessionAffinity",
+    "session_affinity": "SessionAffinity",
     "listeners": [
       {
         "name": "string",
         "address": "string",
         "port": "int64",
         "protocol": "Protocol",
-        "targetPort": "int64",
-        "subnetId": "string",
-        "ipVersion": "IpVersion"
+        "target_port": "int64",
+        "subnet_id": "string",
+        "ip_version": "IpVersion"
       }
     ],
-    "attachedTargetGroups": [
+    "attached_target_groups": [
       {
-        "targetGroupId": "string",
-        "healthChecks": [
+        "target_group_id": "string",
+        "health_checks": [
           {
             "name": "string",
             "interval": "google.protobuf.Duration",
             "timeout": "google.protobuf.Duration",
-            "unhealthyThreshold": "int64",
-            "healthyThreshold": "int64",
-            // Includes only one of the fields `tcpOptions`, `httpOptions`
-            "tcpOptions": {
+            "unhealthy_threshold": "int64",
+            "healthy_threshold": "int64",
+            // Includes only one of the fields `tcp_options`, `http_options`
+            "tcp_options": {
               "port": "int64"
             },
-            "httpOptions": {
+            "http_options": {
               "port": "int64",
               "path": "string"
             }
@@ -187,7 +187,7 @@ IP version.
         ]
       }
     ],
-    "deletionProtection": "bool"
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -203,13 +203,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -252,7 +252,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| networkLoadBalancerId | **string**
+|| network_load_balancer_id | **string**
 
 ID of the network load balancer that the listener is being added to. ||
 |#
@@ -266,10 +266,10 @@ A NetworkLoadBalancer resource. For more information, see [Network Load Balancer
 || id | **string**
 
 ID of the network load balancer. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network load balancer belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -281,7 +281,7 @@ Optional description of the network load balancer. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the network load balancer belongs to. ||
 || status | enum **Status**
@@ -305,7 +305,7 @@ Type of the network load balancer. Only external network load balancers are avai
 - `TYPE_UNSPECIFIED`
 - `EXTERNAL`: External network load balancer.
 - `INTERNAL`: Internal network load balancer. ||
-|| sessionAffinity | enum **SessionAffinity**
+|| session_affinity | enum **SessionAffinity**
 
 Type of the session affinity. Only 5-tuple affinity is available now.
 
@@ -314,10 +314,10 @@ Type of the session affinity. Only 5-tuple affinity is available now.
 || listeners[] | **[Listener](#yandex.cloud.loadbalancer.v1.Listener)**
 
 List of listeners for the network load balancer. ||
-|| attachedTargetGroups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+|| attached_target_groups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
 
 List of target groups attached to the network load balancer. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if network load balancer protected from deletion. ||
 |#
@@ -344,13 +344,13 @@ Network protocol for incoming traffic.
 - `PROTOCOL_UNSPECIFIED`
 - `TCP`
 - `UDP` ||
-|| targetPort | **int64**
+|| target_port | **int64**
 
 Port of a target. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version of the external address.
 
@@ -365,10 +365,10 @@ An AttachedTargetGroup resource. For more information, see [Targets and groups](
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the target group. ||
-|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
+|| health_checks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
 
 A health check to perform on the target group.
 For now we accept only one health check per AttachedTargetGroup. ||
@@ -389,24 +389,24 @@ The interval between health checks. The default is 2 seconds. ||
 || timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for a target to return a response for the health check. The default is 1 second. ||
-|| unhealthyThreshold | **int64**
+|| unhealthy_threshold | **int64**
 
 Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. ||
-|| healthyThreshold | **int64**
+|| healthy_threshold | **int64**
 
 Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. ||
-|| tcpOptions | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+|| tcp_options | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
 
 Options for TCP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`.
+Includes only one of the fields `tcp_options`, `http_options`.
 
 Protocol to use for the health check. Either TCP or HTTP. ||
-|| httpOptions | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+|| http_options | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
 
 Options for HTTP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`.
+Includes only one of the fields `tcp_options`, `http_options`.
 
 Protocol to use for the health check. Either TCP or HTTP. ||
 |#

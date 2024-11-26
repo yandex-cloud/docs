@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/create.md
 ---
 
-# SmartWebSecurity API, REST: SecurityProfile.Create {#Create}
+# SmartWebSecurity API, REST: SecurityProfile.Create
 
 Creates a security profile in the specified folder using the data specified in the request.
 

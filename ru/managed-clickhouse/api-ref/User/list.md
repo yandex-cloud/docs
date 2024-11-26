@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.List {#List}
+# Managed Service for ClickHouse API, REST: User.List
 
 Retrieves the list of ClickHouse User resources in the specified cluster.
 

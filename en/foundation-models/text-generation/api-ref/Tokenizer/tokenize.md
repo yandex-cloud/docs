@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Tokenizer/tokenize.md
 ---
 
-# Foundation Models Text Generation API, REST: Tokenizer.Tokenize {#Tokenize}
+# Foundation Models Text Generation API, REST: Tokenizer.Tokenize
 
 RPC method for tokenizing text.
 

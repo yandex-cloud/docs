@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.Get {#Get}
+# Managed Service for MongoDB API, REST: Cluster.Get
 
 Returns the specified MongoDB Cluster resource.
 

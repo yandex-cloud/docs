@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.UpdateDashboardsNodeGroup {#UpdateDashboardsNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.UpdateDashboardsNodeGroup
 
 Updates a Dashboards type host group.
 

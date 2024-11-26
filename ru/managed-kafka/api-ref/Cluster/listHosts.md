@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.ListHosts {#ListHosts}
+# Managed Service for Apache Kafka® API, REST: Cluster.ListHosts
 
 Retrieves a list of hosts for the specified Apache Kafka® cluster.
 

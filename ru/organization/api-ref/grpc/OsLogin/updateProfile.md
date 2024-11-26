@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateProfile.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.UpdateProfile {#UpdateProfile}
+# Cloud Organization API, gRPC: OsLoginService.UpdateProfile
 
 ## gRPC request
 
@@ -13,18 +13,18 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateP
 
 ```json
 {
-  "osLoginProfileId": "string",
+  "os_login_profile_id": "string",
   "login": "string",
   "uid": "int64",
-  "homeDirectory": "string",
+  "home_directory": "string",
   "shell": "string",
-  "updateMask": "google.protobuf.FieldMask"
+  "update_mask": "google.protobuf.FieldMask"
 }
 ```
 
 #|
 ||Field | Description ||
-|| osLoginProfileId | **string**
+|| os_login_profile_id | **string**
 
 Required field.  ||
 || login | **string**
@@ -33,9 +33,9 @@ Required field. must not contain . or end in ~ ||
 || uid | **int64**
 
 1000 - 2^63 - 1 ||
-|| homeDirectory | **string** ||
+|| home_directory | **string** ||
 || shell | **string** ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -44,23 +44,23 @@ Required field. must not contain . or end in ~ ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "osLoginProfileId": "string"
+    "os_login_profile_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
-    "subjectId": "string",
+    "organization_id": "string",
+    "subject_id": "string",
     "login": "string",
     "uid": "int64",
-    "isDefault": "bool",
-    "homeDirectory": "string",
+    "is_default": "bool",
+    "home_directory": "string",
     "shell": "string"
   }
   // end of the list of possible fields
@@ -77,13 +77,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -126,7 +126,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| osLoginProfileId | **string** ||
+|| os_login_profile_id | **string** ||
 |#
 
 ## OsLoginProfile {#yandex.cloud.organizationmanager.v1.OsLoginProfile}
@@ -134,11 +134,11 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 #|
 ||Field | Description ||
 || id | **string** ||
-|| organizationId | **string** ||
-|| subjectId | **string** ||
+|| organization_id | **string** ||
+|| subject_id | **string** ||
 || login | **string** ||
 || uid | **int64** ||
-|| isDefault | **bool** ||
-|| homeDirectory | **string** ||
+|| is_default | **bool** ||
+|| home_directory | **string** ||
 || shell | **string** ||
 |#

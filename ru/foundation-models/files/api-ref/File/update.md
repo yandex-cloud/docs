@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/update.md
 ---
 
-# Files API, REST: File.Update {#Update}
+# Files API, REST: File.Update
 
 Update an existing file.
 

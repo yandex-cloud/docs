@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/list.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.List {#List}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.List
 
 Retrieves the list of InstanceGroup resources in the specified folder.
 

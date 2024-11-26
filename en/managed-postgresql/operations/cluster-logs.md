@@ -60,7 +60,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
             {% note info %}
 
-            The example shows only the main columns. A list of columns to output depends on the selected `--service-type`.
+            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -100,7 +100,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listLogs.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.postgresql.v1.ListClusterLogsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -194,7 +194,7 @@ This method allows you to get cluster logs in real time.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/streamLogs.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.postgresql.v1.StreamLogRecord) to make sure the request was successful.
 
      Once you run the command, it does not terminate. The command output displays new logs in real time.
 

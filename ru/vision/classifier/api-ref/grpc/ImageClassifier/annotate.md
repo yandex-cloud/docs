@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/vision/v2/classifier/api-ref/grpc/ImageClassifier/annotate.md
 ---
 
-# Vision Classifier API, gRPC: ImageClassifierService.Annotate {#Annotate}
+# Vision Classifier API, gRPC: ImageClassifierService.Annotate
 
 ## gRPC request
 
@@ -17,7 +17,7 @@ sourcePath: en/_api-ref-grpc/ai/vision/v2/classifier/api-ref/grpc/ImageClassifie
     // Includes only one of the fields `content`
     "content": "bytes",
     // end of the list of possible fields
-    "imageType": "ImageType"
+    "image_type": "ImageType"
   }
 }
 ```
@@ -40,7 +40,7 @@ image to annotate ||
 bytes with data
 
 Includes only one of the fields `content`. ||
-|| imageType | enum **ImageType**
+|| image_type | enum **ImageType**
 
 type of data
 
@@ -53,15 +53,15 @@ type of data
 
 ```json
 {
-  "requestId": "string",
-  "classifierSpecification": {
+  "request_id": "string",
+  "classifier_specification": {
     "labels": [
       {
         "name": "string",
         "description": "string"
       }
     ],
-    "classificationType": "ClassificationType"
+    "classification_type": "ClassificationType"
   },
   "annotations": [
     {
@@ -77,10 +77,10 @@ type of data
 
 #|
 ||Field | Description ||
-|| requestId | **string**
+|| request_id | **string**
 
 internal service requestId ||
-|| classifierSpecification | **[ClassifierSpecification](#yandex.cloud.ai.vision.v2.ClassifierSpecification)**
+|| classifier_specification | **[ClassifierSpecification](#yandex.cloud.ai.vision.v2.ClassifierSpecification)**
 
 class specification ||
 || annotations[] | **[ClassAnnotation](#yandex.cloud.ai.vision.v2.ClassAnnotation)**
@@ -97,7 +97,7 @@ Specification of model used for annotation
 || labels[] | **[Label](#yandex.cloud.ai.vision.v2.Label)**
 
 List of labels, annotated by service ||
-|| classificationType | enum **ClassificationType**
+|| classification_type | enum **ClassificationType**
 
 type of annotation: exclusive (multi-class) or non-exclusive (multi-label)
 

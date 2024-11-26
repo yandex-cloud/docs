@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/Key/update.md
 ---
 
-# Identity and Access Management API, gRPC: KeyService.Update {#Update}
+# Identity and Access Management API, gRPC: KeyService.Update
 
 Updates the specified key pair.
 
@@ -15,19 +15,19 @@ Updates the specified key pair.
 
 ```json
 {
-  "keyId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "key_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "description": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the Key resource to update.
 To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Key resource are going to be updated. ||
 || description | **string**
@@ -41,26 +41,26 @@ Description of the key pair. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "keyId": "string"
+    "key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    // Includes only one of the fields `userAccountId`, `serviceAccountId`
-    "userAccountId": "string",
-    "serviceAccountId": "string",
+    // Includes only one of the fields `user_account_id`, `service_account_id`
+    "user_account_id": "string",
+    "service_account_id": "string",
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "description": "string",
-    "keyAlgorithm": "Algorithm",
-    "publicKey": "string",
-    "lastUsedAt": "google.protobuf.Timestamp"
+    "key_algorithm": "Algorithm",
+    "public_key": "string",
+    "last_used_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -76,13 +76,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -125,7 +125,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the Key resource that is being updated. ||
 |#
@@ -139,33 +139,33 @@ A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/a
 || id | **string**
 
 ID of the Key resource. ||
-|| userAccountId | **string**
+|| user_account_id | **string**
 
 ID of the user account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| serviceAccountId | **string**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| service_account_id | **string**
 
 ID of the service account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the Key resource. 0-256 characters long. ||
-|| keyAlgorithm | enum **Algorithm**
+|| key_algorithm | enum **Algorithm**
 
 An algorithm used to generate a key pair of the Key resource.
 
 - `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
-|| publicKey | **string**
+|| public_key | **string**
 
 A public key of the Key resource. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last use of this key. ||
 |#

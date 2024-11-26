@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/update.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.Update {#Update}
+# Cloud CDN API, REST: OriginGroup.Update
 
 Updates the specified origin group.
 

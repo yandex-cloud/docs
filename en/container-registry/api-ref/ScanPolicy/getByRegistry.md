@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/getByRegistry.md
 ---
 
-# Container Registry API, REST: ScanPolicy.GetByRegistry {#GetByRegistry}
+# Container Registry API, REST: ScanPolicy.GetByRegistry
 
 Returns scan policy for the registry if any exists.
 

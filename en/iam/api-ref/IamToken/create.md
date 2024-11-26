@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---
 
-# Identity and Access Management API, REST: IamToken.Create {#Create}
+# Identity and Access Management API, REST: IamToken.Create
 
 Create an IAM token for the specified identity.
 

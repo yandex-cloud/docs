@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/revokePermission.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.RevokePermission {#RevokePermission}
+# Managed Service for ClickHouse API, REST: User.RevokePermission
 
 Revokes a permission from the specified ClickHouse user.
 

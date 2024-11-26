@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/addCidrBlocks.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.AddCidrBlocks {#AddCidrBlocks}
+# Virtual Private Cloud API, REST: Subnet.AddCidrBlocks
 
 Adds CIDR blocks to the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

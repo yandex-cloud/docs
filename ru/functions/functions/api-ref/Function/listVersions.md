@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listVersions.md
 ---
 
-# Cloud Functions Service, REST: Function.ListVersions {#ListVersions}
+# Cloud Functions Service, REST: Function.ListVersions
 
 Retrieves the list of versions for the specified function, or of all function versions
 in the specified folder.

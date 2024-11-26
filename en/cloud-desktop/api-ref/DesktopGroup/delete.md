@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/delete.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.Delete {#Delete}
+# Cloud Desktop API, REST: DesktopGroup.Delete
 
 Deletes the specified desktop group.
 

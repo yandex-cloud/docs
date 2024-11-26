@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.RescheduleMaintenance {#RescheduleMaintenance}
+# Managed Service for Apache Kafka® API, REST: Cluster.RescheduleMaintenance
 
 Reschedule planned maintenance operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Operation/cancel.md
 ---
 
-# Load Testing API, REST: Operation.Cancel {#Cancel}
+# Load Testing API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

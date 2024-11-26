@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/list.md
 ---
 
-# Files API, REST: File.List {#List}
+# Files API, REST: File.List
 
 List files in a specific folder.
 

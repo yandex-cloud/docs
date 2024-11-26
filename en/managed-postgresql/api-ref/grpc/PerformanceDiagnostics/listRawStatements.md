@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/PerformanceDiagnostics/listRawStatements.md
 ---
 
-# Managed Service for PostgreSQL API, gRPC: PerformanceDiagnosticsService.ListRawStatements {#ListRawStatements}
+# Managed Service for PostgreSQL API, gRPC: PerformanceDiagnosticsService.ListRawStatements
 
 Retrieves statistics on planning and execution of SQL statements (queries).
 
@@ -15,33 +15,33 @@ Retrieves statistics on planning and execution of SQL statements (queries).
 
 ```json
 {
-  "clusterId": "string",
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of a PostgreSQL cluster to request query statistics for.
 
 To get a PostgreSQL cluster ID, use the [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) method. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Beginning of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End of the period for which you need to request data (in the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format). ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
-The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListRawStatementsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse). You can use it to get the next page of the results in subsequent requests. ||
-|| pageToken | **string**
+The maximum number of results per page to return. If the number of the results is larger than `page_size`, the service returns [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse). You can use it to get the next page of the results in subsequent requests. ||
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListRawStatementsResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) returned by the previous SQL statement list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListRawStatementsResponse.next_page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) returned by the previous SQL statement list request. ||
 |#
 
 ## ListRawStatementsResponse {#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse}
@@ -55,64 +55,64 @@ Page token. To get the next page of results, set `pageToken` to the [ListRawStat
         "user": "string",
         "database": "string",
         "toplevel": "bool",
-        "queryId": "string",
-        "planId": "string"
+        "query_id": "string",
+        "plan_id": "string"
       },
       "stats": {
         "time": "google.protobuf.Timestamp",
         "query": "string",
-        "normalizedPlan": "string",
-        "examplePlan": "string",
+        "normalized_plan": "string",
+        "example_plan": "string",
         "plans": "int64",
-        "totalPlanTime": "double",
-        "minPlanTime": "double",
-        "maxPlanTime": "double",
-        "meanPlanTime": "double",
-        "stddevPlanTime": "double",
+        "total_plan_time": "double",
+        "min_plan_time": "double",
+        "max_plan_time": "double",
+        "mean_plan_time": "double",
+        "stddev_plan_time": "double",
         "calls": "int64",
-        "totalTime": "double",
-        "minTime": "double",
-        "maxTime": "double",
-        "meanTime": "double",
-        "stddevTime": "double",
+        "total_time": "double",
+        "min_time": "double",
+        "max_time": "double",
+        "mean_time": "double",
+        "stddev_time": "double",
         "rows": "int64",
-        "sharedBlksHit": "int64",
-        "sharedBlksRead": "int64",
-        "sharedBlksDirtied": "int64",
-        "sharedBlksWritten": "int64",
-        "localBlksHit": "int64",
-        "localBlksRead": "int64",
-        "localBlksDirtied": "int64",
-        "localBlksWritten": "int64",
-        "tempBlksRead": "int64",
-        "tempBlksWritten": "int64",
-        "blkReadTime": "double",
-        "blkWriteTime": "double",
-        "tempBlkReadTime": "double",
-        "tempBlkWriteTime": "double",
-        "walRecords": "int64",
-        "walFpi": "int64",
-        "walBytes": "int64",
-        "jitFunctions": "int64",
-        "jitGenerationTime": "double",
-        "jitInliningCount": "int64",
-        "jitInliningTime": "double",
-        "jitOptimizationCount": "int64",
-        "jitOptimizationTime": "double",
-        "jitEmissionCount": "int64",
-        "jitEmissionTime": "double",
-        "startupCost": "int64",
-        "totalCost": "int64",
-        "planRows": "int64",
-        "planWidth": "int64",
+        "shared_blks_hit": "int64",
+        "shared_blks_read": "int64",
+        "shared_blks_dirtied": "int64",
+        "shared_blks_written": "int64",
+        "local_blks_hit": "int64",
+        "local_blks_read": "int64",
+        "local_blks_dirtied": "int64",
+        "local_blks_written": "int64",
+        "temp_blks_read": "int64",
+        "temp_blks_written": "int64",
+        "blk_read_time": "double",
+        "blk_write_time": "double",
+        "temp_blk_read_time": "double",
+        "temp_blk_write_time": "double",
+        "wal_records": "int64",
+        "wal_fpi": "int64",
+        "wal_bytes": "int64",
+        "jit_functions": "int64",
+        "jit_generation_time": "double",
+        "jit_inlining_count": "int64",
+        "jit_inlining_time": "double",
+        "jit_optimization_count": "int64",
+        "jit_optimization_time": "double",
+        "jit_emission_count": "int64",
+        "jit_emission_time": "double",
+        "startup_cost": "int64",
+        "total_cost": "int64",
+        "plan_rows": "int64",
+        "plan_width": "int64",
         "reads": "int64",
         "writes": "int64",
-        "userTime": "double",
-        "systemTime": "double"
+        "user_time": "double",
+        "system_time": "double"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -121,9 +121,9 @@ Page token. To get the next page of results, set `pageToken` to the [ListRawStat
 || statements[] | **[QueryStatement](#yandex.cloud.mdb.postgresql.v1.QueryStatement)**
 
 List of SQL statements (queries). ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
-This token allows you to get the next page of results when requesting the PostgreSQL session list. If the number of the results is larger than [ListRawStatementsRequest.pageSize](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsRequest), use the `nextPageToken` as the value for the [ListRawStatementsRequest.pageToken](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsRequest) parameter in the next request. Each subsequent request will have its own `nextPageToken` to continue paging through the results. ||
+This token allows you to get the next page of results when requesting the PostgreSQL session list. If the number of the results is larger than [ListRawStatementsRequest.page_size](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsRequest), use the `next_page_token` as the value for the [ListRawStatementsRequest.page_token](#yandex.cloud.mdb.postgresql.v1.ListRawStatementsRequest) parameter in the next request. Each subsequent request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## QueryStatement {#yandex.cloud.mdb.postgresql.v1.QueryStatement}
@@ -154,10 +154,10 @@ Database ID. ||
 || toplevel | **bool**
 
 Returns [true] if a query is executed as a top-level SQL statement or if the [pg_stat_statements.track](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.9) parameter is set to the value [top]. ||
-|| queryId | **string**
+|| query_id | **string**
 
 Query ID. ||
-|| planId | **string**
+|| plan_id | **string**
 
 Query planning ID. ||
 |#
@@ -172,10 +172,10 @@ Time of collecting statistics on planning and execution of queries. ||
 || query | **string**
 
 Statement text. ||
-|| normalizedPlan | **string**
+|| normalized_plan | **string**
 
 Normalized query plan. ||
-|| examplePlan | **string**
+|| example_plan | **string**
 
 Example of a query execution plan (without normalization). ||
 || plans | **int64**
@@ -183,27 +183,27 @@ Example of a query execution plan (without normalization). ||
 Number of times that a query was planned.
 
 The parameter returns a non-zero value if the [pg_stat_statements.track_planning](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.41.9) parameter is enabled. ||
-|| totalPlanTime | **double**
+|| total_plan_time | **double**
 
 Total time taken to plan a query, in milliseconds.
 
 The parameter returns a non-zero value if the [pg_stat_statements.track_planning] parameter is enabled. ||
-|| minPlanTime | **double**
+|| min_plan_time | **double**
 
 Minimum time taken to plan a query, in milliseconds.
 
 The parameter returns a non-zero value if the [pg_stat_statements.track_planning] parameter is enabled. ||
-|| maxPlanTime | **double**
+|| max_plan_time | **double**
 
 Maximum time taken to plan a query, in milliseconds.
 
 The parameter returns a non-zero value if the [pg_stat_statements.track_planning] parameter is enabled. ||
-|| meanPlanTime | **double**
+|| mean_plan_time | **double**
 
 Average time taken to plan a query, in milliseconds.
 
 The parameter returns a non-zero value if the [pg_stat_statements.track_planning] parameter is enabled. ||
-|| stddevPlanTime | **double**
+|| stddev_plan_time | **double**
 
 Population standard deviation of the time taken to plan a query, in milliseconds.
 
@@ -211,117 +211,117 @@ The parameter returns a non-zero value if the [pg_stat_statements.track_planning
 || calls | **int64**
 
 Number of times that a query was executed. ||
-|| totalTime | **double**
+|| total_time | **double**
 
 Total time taken to execute a query, in milliseconds. ||
-|| minTime | **double**
+|| min_time | **double**
 
 Minimum time taken to execute a query, in milliseconds. ||
-|| maxTime | **double**
+|| max_time | **double**
 
 Maximum time taken to execute a query, in milliseconds. ||
-|| meanTime | **double**
+|| mean_time | **double**
 
 Average time taken to execute a query, in milliseconds. ||
-|| stddevTime | **double**
+|| stddev_time | **double**
 
 Population standard deviation of the time taken to execute a query, in milliseconds. ||
 || rows | **int64**
 
 Number of retrieved or affected rows. ||
-|| sharedBlksHit | **int64**
+|| shared_blks_hit | **int64**
 
 Number of shared blocks that are hit from cache. ||
-|| sharedBlksRead | **int64**
+|| shared_blks_read | **int64**
 
 Number of read shared blocks. ||
-|| sharedBlksDirtied | **int64**
+|| shared_blks_dirtied | **int64**
 
 Number of 'dirtied' shared blocks. ||
-|| sharedBlksWritten | **int64**
+|| shared_blks_written | **int64**
 
 Number of written shared blocks. ||
-|| localBlksHit | **int64**
+|| local_blks_hit | **int64**
 
 Number of local blocks that are hit from cache. ||
-|| localBlksRead | **int64**
+|| local_blks_read | **int64**
 
 Number of read local blocks. ||
-|| localBlksDirtied | **int64**
+|| local_blks_dirtied | **int64**
 
 Number of 'dirtied' local blocks. ||
-|| localBlksWritten | **int64**
+|| local_blks_written | **int64**
 
 Number of written local blocks. ||
-|| tempBlksRead | **int64**
+|| temp_blks_read | **int64**
 
 Number of read temporary blocks. ||
-|| tempBlksWritten | **int64**
+|| temp_blks_written | **int64**
 
 Number of written temporary blocks. ||
-|| blkReadTime | **double**
+|| blk_read_time | **double**
 
 Time taken to read data blocks, in milliseconds.
 
 The parameter returns a non-zero value if the [track_io_timing](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-IO-TIMING) parameter is enabled. ||
-|| blkWriteTime | **double**
+|| blk_write_time | **double**
 
 Time taken to record data blocks, in milliseconds.
 
 The parameter returns a non-zero value if the [track_io_timing] parameter is enabled. ||
-|| tempBlkReadTime | **double**
+|| temp_blk_read_time | **double**
 
 Time taken to read temporary data blocks, in milliseconds.
 
 The parameter returns a non-zero value if the [track_io_timing] parameter is enabled. ||
-|| tempBlkWriteTime | **double**
+|| temp_blk_write_time | **double**
 
 Time taken to record temporary data blocks, in milliseconds.
 
 The parameter returns a non-zero value if the [track_io_timing] parameter is enabled. ||
-|| walRecords | **int64**
+|| wal_records | **int64**
 
 Number of WAL records generated during a given period. ||
-|| walFpi | **int64**
+|| wal_fpi | **int64**
 
 Number of WAL full page images generated during a given period. ||
-|| walBytes | **int64**
+|| wal_bytes | **int64**
 
 Number of WAL logs generated during a given period, in bytes. ||
-|| jitFunctions | **int64**
+|| jit_functions | **int64**
 
 Number of JIT-compiled functions. ||
-|| jitGenerationTime | **double**
+|| jit_generation_time | **double**
 
 Time taken to generate JIT code, in milliseconds. ||
-|| jitInliningCount | **int64**
+|| jit_inlining_count | **int64**
 
 Number of times that functions have been inlined. ||
-|| jitInliningTime | **double**
+|| jit_inlining_time | **double**
 
 Time taken to inline functions, in milliseconds. ||
-|| jitOptimizationCount | **int64**
+|| jit_optimization_count | **int64**
 
 Number of times that a query was optimized. ||
-|| jitOptimizationTime | **double**
+|| jit_optimization_time | **double**
 
 Time taken to optimize a query, in milliseconds. ||
-|| jitEmissionCount | **int64**
+|| jit_emission_count | **int64**
 
 Number of times that code was emitted. ||
-|| jitEmissionTime | **double**
+|| jit_emission_time | **double**
 
 Time taken to emit code. ||
-|| startupCost | **int64**
+|| startup_cost | **int64**
 
 Cost of receiving a response to a query before the first row of the response is issued. ||
-|| totalCost | **int64**
+|| total_cost | **int64**
 
 Cost of receiving a response to a query when all the rows of the response are issued. ||
-|| planRows | **int64**
+|| plan_rows | **int64**
 
 Expected number of rows that a given plan node should issue. ||
-|| planWidth | **int64**
+|| plan_width | **int64**
 
 Expected average size of rows that a given plan node should issue. ||
 || reads | **int64**
@@ -330,10 +330,10 @@ Number of bytes that the filesystem layer has read. ||
 || writes | **int64**
 
 Number of bytes that the filesystem layer has written. ||
-|| userTime | **double**
+|| user_time | **double**
 
 User CPU time used. ||
-|| systemTime | **double**
+|| system_time | **double**
 
 System CPU time used. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/listOperations.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.ListOperations {#ListOperations}
+# Network Load Balancer API, REST: NetworkLoadBalancer.ListOperations
 
 Lists operations for the specified network load balancer.
 

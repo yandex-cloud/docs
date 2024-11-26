@@ -2,7 +2,7 @@
 
 [{{ yds-full-name }}](../../data-streams/concepts/index.md) is a service that allows you to transfer data streams to multiple applications for processing, with each of them handling the data independently.
 
-Example of writing `JSON` data to {{ yds-full-name }}.
+Example of writing `JSON` data to {{ yds-full-name }}
 
 ```sql
 INSERT INTO yds.`output_stream`
@@ -99,8 +99,8 @@ Where:
 |`yds`| |{{ yds-full-name }} connection name|
 |`input_stream`| |Source stream name in the SQL query|
 |`output_stream`| |Target stream name in the SQL query|
-|`host`|String|String parameter of the query|
-|`count`|Integer|Numerical parameter of the query|
+|`host`|String|Query string parameter|
+|`count`|Integer|Query numerical parameter|
 |`raw`|String|Data format. Currently, the only supported format is `raw` (raw data)|
 
 The processing results are written to the {{ yds-full-name }} output stream. To facilitate the processing, this data is converted to `JSON` format using the following statement:
@@ -114,7 +114,7 @@ The processing results are written to the {{ yds-full-name }} output stream. To 
     ))))
 ```
 
-The YQL documentation provides a detailed description of the [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson) and [Json]({{ ydb.docs }}/yql/reference/types/json) modules, as well as the language [functions]({{ ydb.docs }}/yql/reference/builtins/json) [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
+The YQL documentation provides a detailed description of [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson), [Json]({{ ydb.docs }}/yql/reference/types/json) and [its functions]({{ ydb.docs }}/yql/reference/builtins/json), [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
 
 ## Supported write formats
 

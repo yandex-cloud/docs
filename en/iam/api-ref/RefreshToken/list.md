@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/RefreshToken/list.md
 ---
 
-# Identity and Access Management API, REST: RefreshToken.List {#List}
+# Identity and Access Management API, REST: RefreshToken.List
 
 List subjects Refresh Tokens.
 

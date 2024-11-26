@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Managed Service for MySQL API, gRPC: ClusterService.ListHosts {#ListHosts}
+# Managed Service for MySQL API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for a cluster.
 
@@ -15,29 +15,29 @@ Retrieves a list of hosts for a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to list hosts for.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the API returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests. ||
+|| page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request. ||
+To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse}
@@ -47,12 +47,12 @@ To get the next page of results, set `pageToken` to the [ListClusterHostsRespons
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "role": "Role",
       "health": "Health",
@@ -62,14 +62,14 @@ To get the next page of results, set `pageToken` to the [ListClusterHostsRespons
           "health": "Health"
         }
       ],
-      "subnetId": "string",
-      "assignPublicIp": "bool",
-      "replicationSource": "string",
-      "backupPriority": "int64",
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
+      "replication_source": "string",
+      "backup_priority": "int64",
       "priority": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -78,13 +78,13 @@ To get the next page of results, set `pageToken` to the [ListClusterHostsRespons
 || hosts[] | **[Host](#yandex.cloud.mdb.mysql.v1.Host)**
 
 List of hosts in the cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 The token that can be used to get the next page of results.
 
-If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts) request to iterate through multiple pages of results.
+If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest) in the subsequent [ClusterService.ListHosts](#ListHosts) request to iterate through multiple pages of results.
 
-Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
+Each of the subsequent [ClusterService.ListHosts](#ListHosts) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.mysql.v1.Host}
@@ -97,10 +97,10 @@ Name of the host.
 
 This name is assigned by the platform at the time of creation.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster the host belongs to. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides. ||
 || resources | **[Resources](#yandex.cloud.mdb.mysql.v1.Resources)**
@@ -125,16 +125,16 @@ Aggregated health of the host. If the field has default value, it is not returne
 || services[] | **[Service](#yandex.cloud.mdb.mysql.v1.Service)**
 
 List of services provided by the host. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Flag that shows if public IP address is assigned to the host so that the host can be accessed from the internet. ||
-|| replicationSource | **string**
+|| replication_source | **string**
 
 Name of the host to be used as the replication source for cascading replication. ||
-|| backupPriority | **int64**
+|| backup_priority | **int64**
 
 Host backup priority. ||
 || priority | **int64**
@@ -148,15 +148,15 @@ Cluster resource preset.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.
 
 All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage (for each cluster host, in bytes). ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage.
 

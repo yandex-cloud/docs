@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.List {#List}
+# Managed Service for ClickHouse API, REST: Cluster.List
 
 Retrieves a list of ClickHouse clusters that belong
 to the specified folder.

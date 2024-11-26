@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/list.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.List {#List}
+# IoT Core Service, gRPC: RegistryService.List
 
 Retrieves the list of registries in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of registries in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list registries in.
 
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `page_size`, the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistriesResponse)
+results is larger than `page_size`, the service returns a [ListRegistriesResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegistriesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistriesResponse) returned by a previous list request. ||
+[ListRegistriesResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistriesResponse) returned by a previous list request. ||
 |#
 
 ## ListRegistriesResponse {#yandex.cloud.iot.devices.v1.ListRegistriesResponse}
@@ -47,24 +47,24 @@ Page token. To get the next page of results, set `page_token` to the
   "registries": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
       "status": "Status",
-      "logGroupId": "string",
-      "logOptions": {
+      "log_group_id": "string",
+      "log_options": {
         "disabled": "bool",
-        // Includes only one of the fields `logGroupId`, `folderId`
-        "logGroupId": "string",
-        "folderId": "string",
+        // Includes only one of the fields `log_group_id`, `folder_id`
+        "log_group_id": "string",
+        "folder_id": "string",
         // end of the list of possible fields
-        "minLevel": "Level"
+        "min_level": "Level"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -73,11 +73,11 @@ Page token. To get the next page of results, set `page_token` to the
 || registries[] | **[Registry](#yandex.cloud.iot.devices.v1.Registry)**
 
 List of registries. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListRegistriesRequest.pageSize](#yandex.cloud.iot.devices.v1.ListRegistriesRequest), use `next_page_token` as the value
-for the [ListRegistriesRequest.pageToken](#yandex.cloud.iot.devices.v1.ListRegistriesRequest) parameter in the next list request.
+the specified [ListRegistriesRequest.page_size](#yandex.cloud.iot.devices.v1.ListRegistriesRequest), use `next_page_token` as the value
+for the [ListRegistriesRequest.page_token](#yandex.cloud.iot.devices.v1.ListRegistriesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -91,10 +91,10 @@ A registry. For more information, see [Registry](/docs/iot-core/concepts/index#r
 || id | **string**
 
 ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -115,10 +115,10 @@ Status of the registry.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted.
 - `DISABLED`: Registry is disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the logs group for the specified registry. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
 
 Options for logging registry events ||
 |#
@@ -130,21 +130,21 @@ Options for logging registry events ||
 || disabled | **bool**
 
 Is logging from registry disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 

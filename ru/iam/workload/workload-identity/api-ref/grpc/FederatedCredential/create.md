@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/workload-identity/api-ref/grpc/FederatedCredential/create.md
 ---
 
-# Workload Identity, gRPC: FederatedCredentialService.Create {#Create}
+# Workload Identity, gRPC: FederatedCredentialService.Create
 
 Creates a federated credential for the specified service account.
 
@@ -15,22 +15,22 @@ Creates a federated credential for the specified service account.
 
 ```json
 {
-  "serviceAccountId": "string",
-  "federationId": "string",
-  "externalSubjectId": "string"
+  "service_account_id": "string",
+  "federation_id": "string",
+  "external_subject_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the service account to create a federated credential for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the workload identity federation that is used for authentication. ||
-|| externalSubjectId | **string**
+|| external_subject_id | **string**
 
 Required field. Id of the external subject. ||
 |#
@@ -41,21 +41,21 @@ Required field. Id of the external subject. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federatedCredentialId": "string"
+    "federated_credential_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "serviceAccountId": "string",
-    "federationId": "string",
-    "externalSubjectId": "string",
-    "createdAt": "google.protobuf.Timestamp"
+    "service_account_id": "string",
+    "federation_id": "string",
+    "external_subject_id": "string",
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -71,13 +71,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -120,7 +120,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federatedCredentialId | **string**
+|| federated_credential_id | **string**
 
 ID of the federated credential that is being created. ||
 |#
@@ -134,16 +134,16 @@ A federated credential.
 || id | **string**
 
 Id of the federated credential. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Id of the service account that the federated credential belongs to. ||
-|| federationId | **string**
+|| federation_id | **string**
 
 ID of the workload identity federation which is used for authentication. ||
-|| externalSubjectId | **string**
+|| external_subject_id | **string**
 
 Id of the external subject. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/updateIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.UpdateIpPermission {#UpdateIpPermission}
+# Container Registry API, REST: Registry.UpdateIpPermission
 
 Update ip permissions for the specified registry.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/list.md
 ---
 
-# Cloud Interconnect API, REST: TrunkConnection.List {#List}
+# Cloud Interconnect API, REST: TrunkConnection.List
 
 Retrieves the list of TrunkConnection resources in the specified folder.
 

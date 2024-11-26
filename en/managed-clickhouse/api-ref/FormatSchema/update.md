@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/update.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.Update {#Update}
+# Managed Service for ClickHouse API, REST: FormatSchema.Update
 
 Changes a format schema.
 

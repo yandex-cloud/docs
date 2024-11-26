@@ -66,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
     datasphere project job execute -p <идентификатор_проекта> -c config.yaml
     ```
 
+    {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
+
 Вы сможете отслеживать прогресс выполнения заданий на странице проекта в интерфейсе {{ ml-platform-name }}.
 
 ## Пример {#example}
@@ -185,6 +187,8 @@ description: Следуя данной инструкции, вы сможете
     ```bash
     datasphere project job execute -p <идентификатор_проекта> -c config.yaml
     ```
+
+    {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
 Модель сохранится в архив `model.zip` в папке задания.
 

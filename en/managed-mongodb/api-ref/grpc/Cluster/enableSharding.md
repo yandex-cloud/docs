@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/enableSharding.md
 ---
 
-# Managed Service for MongoDB API, gRPC: ClusterService.EnableSharding {#EnableSharding}
+# Managed Service for MongoDB API, gRPC: ClusterService.EnableSharding
 
 Enables sharding for the cluster:
 creates 3 mongoinfra (or 3 mongocfg and 2 mongos) hosts
@@ -17,39 +17,39 @@ that would support adding and using shards in the cluster.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "mongocfg": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     }
   },
   "mongos": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     }
   },
-  "hostSpecs": [
+  "host_specs": [
     {
-      "zoneId": "string",
-      "subnetId": "string",
-      "assignPublicIp": "bool",
+      "zone_id": "string",
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
       "type": "Type",
-      "shardName": "string",
+      "shard_name": "string",
       "hidden": "google.protobuf.BoolValue",
-      "secondaryDelaySecs": "google.protobuf.Int64Value",
+      "secondary_delay_secs": "google.protobuf.Int64Value",
       "priority": "google.protobuf.DoubleValue",
       "tags": "string"
     }
   ],
   "mongoinfra": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     }
   }
 }
@@ -57,7 +57,7 @@ that would support adding and using shards in the cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to enable sharding for. ||
 || mongocfg | **[MongoCfg](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
@@ -66,7 +66,7 @@ mongocfg specification for sharding. ||
 || mongos | **[Mongos](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.Mongos)**
 
 mongos specification for sharding. ||
-|| hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
+|| host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
 
 Configurations for mongos and mongocfg hosts. ||
 || mongoinfra | **[MongoInfra](#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
@@ -87,14 +87,14 @@ Required field. Resources for mongocfg hosts. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
@@ -116,21 +116,21 @@ Required field. Resources for mongos hosts. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field. ||
-|| assignPublicIp | **bool**
+The network ID is set in the [Cluster.network_id](/docs/managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field. ||
+|| assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
 
 After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+a public IP to a host without one, recreate the host with `assign_public_ip` set as needed.
 
 Possible values:
 * false - don't assign a public IP to the host.
@@ -144,13 +144,13 @@ Type of the host to be deployed.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
 - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 Name of the shard that the host belongs to. ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Is host hidden in replSet ||
-|| secondaryDelaySecs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds "behind" the primary that this replica set member should "lag" ||
 || priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
@@ -176,12 +176,12 @@ Required field. Resources for mongoinfra (mongos+mongocfg) hosts. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -200,13 +200,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -249,7 +249,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the MongoDB cluster that sharding is being enabled for. ||
 |#

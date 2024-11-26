@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/ocr/v1/ocr/api-ref/grpc/TextRecognition/recognize.md
 ---
 
-# Vision OCR API, gRPC: TextRecognitionService.Recognize {#Recognize}
+# Vision OCR API, gRPC: TextRecognitionService.Recognize
 
 To send the image for text recognition.
 
@@ -18,8 +18,8 @@ To send the image for text recognition.
   // Includes only one of the fields `content`
   "content": "bytes",
   // end of the list of possible fields
-  "mimeType": "string",
-  "languageCodes": [
+  "mime_type": "string",
+  "language_codes": [
     "string"
   ],
   "model": "string"
@@ -33,14 +33,14 @@ To send the image for text recognition.
 Bytes with data
 
 Includes only one of the fields `content`. ||
-|| mimeType | **string**
+|| mime_type | **string**
 
 Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions:
 * Supported file formats: `JPEG`, `PNG`, `PDF`.
 * Maximum file size: see [documentation](/docs/vision/concepts/limits).
 * Image size should not exceed 20M pixels (length x width).
 * The number of pages in a PDF file should not exceed 1. ||
-|| languageCodes[] | **string**
+|| language_codes[] | **string**
 
 [List of the languages](/docs/vision/concepts/ocr/supported-languages) to recognize text.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). ||
@@ -53,12 +53,12 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
 
 ```json
 {
-  "textAnnotation": {
+  "text_annotation": {
     "width": "int64",
     "height": "int64",
     "blocks": [
       {
-        "boundingBox": {
+        "bounding_box": {
           "vertices": [
             {
               "x": "int64",
@@ -68,7 +68,7 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
         },
         "lines": [
           {
-            "boundingBox": {
+            "bounding_box": {
               "vertices": [
                 {
                   "x": "int64",
@@ -79,7 +79,7 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
             "text": "string",
             "words": [
               {
-                "boundingBox": {
+                "bounding_box": {
                   "vertices": [
                     {
                       "x": "int64",
@@ -88,18 +88,18 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
                   ]
                 },
                 "text": "string",
-                "entityIndex": "int64",
-                "textSegments": [
+                "entity_index": "int64",
+                "text_segments": [
                   {
-                    "startIndex": "int64",
+                    "start_index": "int64",
                     "length": "int64"
                   }
                 ]
               }
             ],
-            "textSegments": [
+            "text_segments": [
               {
-                "startIndex": "int64",
+                "start_index": "int64",
                 "length": "int64"
               }
             ],
@@ -108,12 +108,12 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
         ],
         "languages": [
           {
-            "languageCode": "string"
+            "language_code": "string"
           }
         ],
-        "textSegments": [
+        "text_segments": [
           {
-            "startIndex": "int64",
+            "start_index": "int64",
             "length": "int64"
           }
         ]
@@ -127,7 +127,7 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
     ],
     "tables": [
       {
-        "boundingBox": {
+        "bounding_box": {
           "vertices": [
             {
               "x": "int64",
@@ -135,11 +135,11 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
             }
           ]
         },
-        "rowCount": "int64",
-        "columnCount": "int64",
+        "row_count": "int64",
+        "column_count": "int64",
         "cells": [
           {
-            "boundingBox": {
+            "bounding_box": {
               "vertices": [
                 {
                   "x": "int64",
@@ -147,14 +147,14 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
                 }
               ]
             },
-            "rowIndex": "int64",
-            "columnIndex": "int64",
-            "columnSpan": "int64",
-            "rowSpan": "int64",
+            "row_index": "int64",
+            "column_index": "int64",
+            "column_span": "int64",
+            "row_span": "int64",
             "text": "string",
-            "textSegments": [
+            "text_segments": [
               {
-                "startIndex": "int64",
+                "start_index": "int64",
                 "length": "int64"
               }
             ]
@@ -162,7 +162,7 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
         ]
       }
     ],
-    "fullText": "string",
+    "full_text": "string",
     "rotate": "Angle"
   },
   "page": "int64"
@@ -171,7 +171,7 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
 
 #|
 ||Field | Description ||
-|| textAnnotation | **[TextAnnotation](#yandex.cloud.ai.ocr.v1.TextAnnotation)**
+|| text_annotation | **[TextAnnotation](#yandex.cloud.ai.ocr.v1.TextAnnotation)**
 
 Recognized text blocks in page or text from entities. ||
 || page | **int64**
@@ -196,7 +196,7 @@ Recognized text blocks in this page. ||
 
 Recognized entities. ||
 || tables[] | **[Table](#yandex.cloud.ai.ocr.v1.Table)** ||
-|| fullText | **string**
+|| full_text | **string**
 
 Full text recognized from image. ||
 || rotate | enum **Angle**
@@ -214,7 +214,7 @@ Angle of image rotation.
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
 
 Area on the page where the text block is located. ||
 || lines[] | **[Line](#yandex.cloud.ai.ocr.v1.Line)**
@@ -223,7 +223,7 @@ Recognized lines in this block. ||
 || languages[] | **[DetectedLanguage](#yandex.cloud.ai.ocr.v1.Block.DetectedLanguage)**
 
 A list of detected languages ||
-|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+|| text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Block position from full_text string. ||
 |#
@@ -253,7 +253,7 @@ Y coordinate in pixels. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
 
 Area on the page where the line is located. ||
 || text | **string**
@@ -262,7 +262,7 @@ Recognized text. ||
 || words[] | **[Word](#yandex.cloud.ai.ocr.v1.Word)**
 
 Recognized words. ||
-|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+|| text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Line position from full_text string. ||
 || orientation | enum **Angle**
@@ -280,16 +280,16 @@ Angle of line rotation.
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
 
 Area on the page where the word is located. ||
 || text | **string**
 
 Recognized word value. ||
-|| entityIndex | **int64**
+|| entity_index | **int64**
 
 ID of the recognized word in entities array. ||
-|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+|| text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Word position from full_text string. ||
 |#
@@ -298,7 +298,7 @@ Word position from full_text string. ||
 
 #|
 ||Field | Description ||
-|| startIndex | **int64**
+|| start_index | **int64**
 
 Start character position from full_text string. ||
 || length | **int64**
@@ -310,7 +310,7 @@ Text segment length. ||
 
 #|
 ||Field | Description ||
-|| languageCode | **string**
+|| language_code | **string**
 
 Detected language code. ||
 |#
@@ -331,13 +331,13 @@ Recognized entity text. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
 
 Area on the page where the table is located. ||
-|| rowCount | **int64**
+|| row_count | **int64**
 
 Number of rows in table. ||
-|| columnCount | **int64**
+|| column_count | **int64**
 
 Number of columns in table. ||
 || cells[] | **[TableCell](#yandex.cloud.ai.ocr.v1.TableCell)**
@@ -349,25 +349,25 @@ Table cells. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
 
 Area on the page where the table cell is located. ||
-|| rowIndex | **int64**
+|| row_index | **int64**
 
 Row index. ||
-|| columnIndex | **int64**
+|| column_index | **int64**
 
 Column index. ||
-|| columnSpan | **int64**
+|| column_span | **int64**
 
 Column span. ||
-|| rowSpan | **int64**
+|| row_span | **int64**
 
 Row span. ||
 || text | **string**
 
 Text in cell. ||
-|| textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
+|| text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Table cell position from full_text string. ||
 |#

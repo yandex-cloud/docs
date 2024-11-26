@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/get.md
 ---
 
-# Compute Cloud API, REST: Disk.Get {#Get}
+# Compute Cloud API, REST: Disk.Get
 
 Returns the specified Disk resource.
 

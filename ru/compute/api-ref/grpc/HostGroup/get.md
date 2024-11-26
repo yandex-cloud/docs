@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostGroup/get.md
 ---
 
-# Compute Cloud API, gRPC: HostGroupService.Get {#Get}
+# Compute Cloud API, gRPC: HostGroupService.Get
 
 Returns the specified host group.
 
@@ -15,13 +15,13 @@ Returns the specified host group.
 
 ```json
 {
-  "hostGroupId": "string"
+  "host_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 Required field. ID of the host group to return.
 To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/grpc/HostGroup/list#List) request. ||
@@ -32,18 +32,18 @@ To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/grpc
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "zoneId": "string",
+  "zone_id": "string",
   "status": "Status",
-  "typeId": "string",
-  "maintenancePolicy": "MaintenancePolicy",
-  "scalePolicy": {
-    // Includes only one of the fields `fixedScale`
-    "fixedScale": {
+  "type_id": "string",
+  "maintenance_policy": "MaintenancePolicy",
+  "scale_policy": {
+    // Includes only one of the fields `fixed_scale`
+    "fixed_scale": {
       "size": "int64"
     }
     // end of the list of possible fields
@@ -58,10 +58,10 @@ Represents group of dedicated hosts
 || id | **string**
 
 ID of the group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -73,7 +73,7 @@ Description of the group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone where all dedicated hosts are allocated. ||
 || status | enum **Status**
@@ -85,17 +85,17 @@ Status of the group.
 - `READY`
 - `UPDATING`
 - `DELETING` ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of host type. Resources provided by each host of the group. ||
-|| maintenancePolicy | enum **MaintenancePolicy**
+|| maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events.
 
 - `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
+|| scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
 
 Scale policy. Only fixed number of hosts are supported at this moment. ||
 |#
@@ -104,9 +104,9 @@ Scale policy. Only fixed number of hosts are supported at this moment. ||
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+|| fixed_scale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixed_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.compute.v1.ScalePolicy.FixedScale}

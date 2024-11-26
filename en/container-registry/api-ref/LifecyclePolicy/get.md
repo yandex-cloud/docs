@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/get.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Get {#Get}
+# Container Registry API, REST: LifecyclePolicy.Get
 
 Returns the specified lifecycle policy.
 

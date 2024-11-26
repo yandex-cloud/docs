@@ -9,13 +9,18 @@ By **routing**, we mean a number of tools for traffic management in {{ yandex-cl
 
 * Carefully plan your IP addressing before deploying your cloud resources. The IP addressing of {{ yandex-cloud }} subnets and those in the client infrastructure must not overlap.
 * Always set up two channels for connecting via two [points of presence](pops.md).
-* Use the same [BGP ASN](priv-con.md#bgp-asn) on client routers. If the [BGP ASN](priv-con.md#bgp-asn) values are different on different client routers, fault tolerance will not work.
+
+* To simplify the setup of fault-tolerant BGP routing on client routers, consider using the same [BGP ASN](priv-con.md#bgp-asn) if multiple routers are used on the client side for connecting to {{ interconnect-name }}. You can use different **BGP ASNs**, e.g., when arranging connections via telecom providers. Keep in mind that {{ yandex-cloud }} is not responsible for configuring the client and telecom provider network hardware.
+
 * Each client router that sets [BGP connectivity](priv-con.md#bgp-peering) with the {{ yandex-cloud }} equipment over **eBGP** should also set BGP connectivity with other client routers over **iBGP**.
 * Use prefixes of a different length on client routers for BGP announcements to distribute outgoing traffic from cloud subnets across communication circuits:
     * Prefix with a length of `/8` (short prefix) means the lowest route priority.
     * Prefix with a length of `/32` (long prefix) means the highest route priority.
+
 * When selecting a communication circuit for outgoing traffic from the client infrastructure to cloud networks on a client router, you can use such option as a standard BGP attribute named `Local Preference`.
+
 * You can use {{ interconnect-name }} along with a [NAT gateway](../../vpc/operations/create-nat-gateway.md) if client routers do not announce the `0.0.0.0/0` default route over BGP to {{ yandex-cloud }}. If client routers do announce the `0.0.0.0/0` default route over BGP to {{ yandex-cloud }}, you cannot use a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
+
 * Currently, {{ yandex-cloud }} does not support distribution of outgoing traffic from cloud subnets to the client infrastructure based on the [BGP community](https://linkmeup.gitbook.io/sdsm/8.1.-ibgp/3.-atributy-bgp/4.-community/0.-teoriya) method.
 
 {% note alert %}

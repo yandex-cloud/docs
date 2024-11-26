@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/upsertRecordSets.md
 ---
 
-# Cloud DNS API, REST: DnsZone.UpsertRecordSets {#UpsertRecordSets}
+# Cloud DNS API, REST: DnsZone.UpsertRecordSets
 
 Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist.
 Deletes records that match all specified fields which allows to delete only specified records from a record set.

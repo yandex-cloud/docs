@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/getHTTPSConfig.md
 ---
 
-# Object Storage API, REST: Bucket.GetHTTPSConfig {#GetHTTPSConfig}
+# Object Storage API, REST: Bucket.GetHTTPSConfig
 
 Returns the HTTPS configuration for the specified bucket.
 

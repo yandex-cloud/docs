@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Data Proc API, gRPC: ResourcePresetService.Get {#Get}
+# Data Proc API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.
 
@@ -17,13 +17,13 @@ To get the list of available ResourcePreset resources, make a [List](/docs/data-
 
 ```json
 {
-  "resourcePresetId": "string"
+  "resource_preset_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. Required. ID of the resource preset to return.
 To get the resource preset ID, use a [ResourcePresetService.List](/docs/data-proc/api-ref/grpc/ResourcePreset/list#List) request. ||
@@ -34,7 +34,7 @@ To get the resource preset ID, use a [ResourcePresetService.List](/docs/data-pro
 ```json
 {
   "id": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ],
   "cores": "int64",
@@ -49,7 +49,7 @@ A ResourcePreset resource for describing hardware configuration presets.
 || id | **string**
 
 ID of the ResourcePreset resource. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of availability zones where the resource preset is available. ||
 || cores | **int64**

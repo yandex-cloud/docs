@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/SecurityGroup/updateRule.md
 ---
 
-# Virtual Private Cloud API, gRPC: SecurityGroupService.UpdateRule {#UpdateRule}
+# Virtual Private Cloud API, gRPC: SecurityGroupService.UpdateRule
 
 Updates the specified rule.
 
@@ -15,9 +15,9 @@ Updates the specified rule.
 
 ```json
 {
-  "securityGroupId": "string",
-  "ruleId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "security_group_id": "string",
+  "rule_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "description": "string",
   "labels": "string"
 }
@@ -25,13 +25,13 @@ Updates the specified rule.
 
 #|
 ||Field | Description ||
-|| securityGroupId | **string**
+|| security_group_id | **string**
 
 Required field. ID of the SecurityGroup to update rule in. ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 Required field. ID of the rule to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the Address should be updated. ||
 || description | **string**
@@ -54,13 +54,13 @@ to add or remove a label:
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "securityGroupId": "string",
-    "ruleId": "string"
+    "security_group_id": "string",
+    "rule_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -70,22 +70,22 @@ to add or remove a label:
     "labels": "string",
     "direction": "Direction",
     "ports": {
-      "fromPort": "int64",
-      "toPort": "int64"
+      "from_port": "int64",
+      "to_port": "int64"
     },
-    "protocolName": "string",
-    "protocolNumber": "int64",
-    // Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`
-    "cidrBlocks": {
-      "v4CidrBlocks": [
+    "protocol_name": "string",
+    "protocol_number": "int64",
+    // Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`
+    "cidr_blocks": {
+      "v4_cidr_blocks": [
         "string"
       ],
-      "v6CidrBlocks": [
+      "v6_cidr_blocks": [
         "string"
       ]
     },
-    "securityGroupId": "string",
-    "predefinedTarget": "string"
+    "security_group_id": "string",
+    "predefined_target": "string"
     // end of the list of possible fields
   }
   // end of the list of possible fields
@@ -102,13 +102,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -151,10 +151,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| securityGroupId | **string**
+|| security_group_id | **string**
 
 ID of the SecurityGroup that is being updated with new rules. ||
-|| ruleId | **string**
+|| rule_id | **string**
 
 ID of the rule that is being updated. ||
 |#
@@ -182,38 +182,38 @@ Required field. The direction of network traffic allowed by this rule.
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
 
 The range of ports that allow traffic to pass through. Null value means any. ||
-|| protocolName | **string**
+|| protocol_name | **string**
 
 Protocol name. Null value means any protocol.
 Values from [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| protocolNumber | **int64**
+|| protocol_number | **int64**
 
 Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| cidrBlocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
+|| cidr_blocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| securityGroupId | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| security_group_id | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| predefinedTarget | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| predefined_target | **string**
 
 Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange}
 
 #|
 ||Field | Description ||
-|| fromPort | **int64**
+|| from_port | **int64**
 
 The lowest port in the range. ||
-|| toPort | **int64**
+|| to_port | **int64**
 
 The highest port in the range. ||
 |#
@@ -222,10 +222,10 @@ The highest port in the range. ||
 
 #|
 ||Field | Description ||
-|| v4CidrBlocks[] | **string**
+|| v4_cidr_blocks[] | **string**
 
 IPv4 CIDR blocks to allow traffic to. ||
-|| v6CidrBlocks[] | **string**
+|| v6_cidr_blocks[] | **string**
 
 IPv6 CIDR blocks to allow traffic to. ||
 |#

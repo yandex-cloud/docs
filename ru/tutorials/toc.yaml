@@ -47,6 +47,10 @@ items:
             href: security/protected-access-to-content/terraform.md
       - name: Загрузка аудитных логов в SIEM KUMA
         href: security/audit-trails-events-to-kuma.md
+      - name: Интеграции федераций удостоверений сервисных аккаунтов
+        items:
+          - name: GitHub
+            href: security/wlif-github-integration.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

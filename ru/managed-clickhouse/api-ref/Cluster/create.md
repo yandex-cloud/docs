@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.Create {#Create}
+# Managed Service for ClickHouse API, REST: Cluster.Create
 
 Creates a ClickHouse cluster in the specified folder.
 

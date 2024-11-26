@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/delete.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Delete {#Delete}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Delete
 
 Deletes the specified instance group.
 

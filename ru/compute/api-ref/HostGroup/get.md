@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/get.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Get {#Get}
+# Compute Cloud API, REST: HostGroup.Get
 
 Returns the specified host group.
 

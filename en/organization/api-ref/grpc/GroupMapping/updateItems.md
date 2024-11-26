@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/updateItems.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.UpdateItems {#UpdateItems}
+# Cloud Organization API, gRPC: GroupMappingService.UpdateItems
 
 Updates group mapping items for a specified federation
 Errors:
@@ -24,12 +24,12 @@ Such parts of request will be ignored. Others will be applied.
 
 ```json
 {
-  "federationId": "string",
-  "groupMappingItemDeltas": [
+  "federation_id": "string",
+  "group_mapping_item_deltas": [
     {
       "item": {
-        "externalGroupId": "string",
-        "internalGroupId": "string"
+        "external_group_id": "string",
+        "internal_group_id": "string"
       },
       "action": "Action"
     }
@@ -41,10 +41,10 @@ Request for updating group mapping configuration
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. Federation the group mapping update is requested ||
-|| groupMappingItemDeltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta)**
+|| group_mapping_item_deltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta)**
 
 A collection of mapping items to add or remove (ignores update_fields). ||
 |#
@@ -69,10 +69,10 @@ Group mapping represents which external (federated) groups should match which in
 
 #|
 ||Field | Description ||
-|| externalGroupId | **string**
+|| external_group_id | **string**
 
 Required field. External group id (received from identity provider) ||
-|| internalGroupId | **string**
+|| internal_group_id | **string**
 
 Required field. Internal cloud group id ||
 |#
@@ -83,21 +83,21 @@ Required field. Internal cloud group id ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federationId": "string"
+    "federation_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "groupMappingItemDeltas": [
+    "group_mapping_item_deltas": [
       {
         "item": {
-          "externalGroupId": "string",
-          "internalGroupId": "string"
+          "external_group_id": "string",
+          "internal_group_id": "string"
         },
         "action": "Action"
       }
@@ -117,13 +117,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -166,14 +166,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federationId | **string** ||
+|| federation_id | **string** ||
 |#
 
 ## UpdateGroupMappingItemsResponse {#yandex.cloud.organizationmanager.v1.UpdateGroupMappingItemsResponse}
 
 #|
 ||Field | Description ||
-|| groupMappingItemDeltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta2)**
+|| group_mapping_item_deltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta2)**
 
 Effective changes that were applied ||
 |#
@@ -198,10 +198,10 @@ Group mapping represents which external (federated) groups should match which in
 
 #|
 ||Field | Description ||
-|| externalGroupId | **string**
+|| external_group_id | **string**
 
 Required field. External group id (received from identity provider) ||
-|| internalGroupId | **string**
+|| internal_group_id | **string**
 
 Required field. Internal cloud group id ||
 |#

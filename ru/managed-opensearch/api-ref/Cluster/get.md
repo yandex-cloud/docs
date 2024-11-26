@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Get {#Get}
+# Managed Service for OpenSearch API, REST: Cluster.Get
 
 Returns the specified OpenSearch cluster.
 

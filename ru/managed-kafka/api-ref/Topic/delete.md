@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/delete.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Topic.Delete {#Delete}
+# Managed Service for Apache Kafka® API, REST: Topic.Delete
 
 Deletes the specified Kafka topic.
 

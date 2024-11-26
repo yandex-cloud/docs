@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/deleteUserAccounts.md
 ---
 
-# SAML Federation API, REST: Federation.DeleteUserAccounts {#DeleteUserAccounts}
+# SAML Federation API, REST: Federation.DeleteUserAccounts
 
 Deletes users from the specified federation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/encrypt.md
 ---
 
-# Key Management Service API, REST: SymmetricCrypto.Encrypt {#Encrypt}
+# Key Management Service API, REST: SymmetricCrypto.Encrypt
 
 Encrypts given plaintext with the specified key.
 

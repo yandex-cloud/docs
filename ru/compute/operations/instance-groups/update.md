@@ -137,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите группу, которую хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. В правом верхнем углу блока **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите нужный размер диска.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите нужный размер диска.
   1. Нажмите **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.
 

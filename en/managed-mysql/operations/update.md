@@ -165,7 +165,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -320,7 +320,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -477,11 +477,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Use a separate line for each setting; separate them by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#body_params) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -610,7 +610,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-  1. To change the backup start time, add a `backup_window_start` section to the {{ mmy-name }} cluster description:
+  1. To change the backup start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -788,7 +788,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -997,7 +997,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/move.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1127,7 +1127,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

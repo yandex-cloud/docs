@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/listInstances.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.ListInstances {#ListInstances}
+# Compute Cloud API, REST: GpuCluster.ListInstances
 
 List instances created in this GPU cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/k8s/marketplace/v1/kubernetes-marketplace/api-ref/grpc/HelmRelease/get.md
 ---
 
-# Kubernetes Marketplace, gRPC: HelmReleaseService.Get {#Get}
+# Kubernetes Marketplace, gRPC: HelmReleaseService.Get
 
 Returns the specified Helm release.
 
@@ -31,14 +31,14 @@ Required field. The ID of the Helm release to retrieve. ||
 ```json
 {
   "id": "string",
-  "clusterId": "string",
-  "appName": "string",
-  "appNamespace": "string",
-  "productId": "string",
-  "productName": "string",
-  "productVersion": "string",
+  "cluster_id": "string",
+  "app_name": "string",
+  "app_namespace": "string",
+  "product_id": "string",
+  "product_name": "string",
+  "product_version": "string",
   "status": "Status",
-  "createdAt": "google.protobuf.Timestamp"
+  "created_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -49,22 +49,22 @@ A Helm Release.
 || id | **string**
 
 ID of a helm release. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Kubernetes cluster. ||
-|| appName | **string**
+|| app_name | **string**
 
 Name of the application. ||
-|| appNamespace | **string**
+|| app_namespace | **string**
 
 Namespace of the application. ||
-|| productId | **string**
+|| product_id | **string**
 
 Kubernetes marketplace product id. ||
-|| productName | **string**
+|| product_name | **string**
 
 Kubernetes marketplace product name. ||
-|| productVersion | **string**
+|| product_version | **string**
 
 Kubernetes marketplace product version. ||
 || status | enum **Status**
@@ -81,7 +81,7 @@ Status of a helm release.
 - `PENDING_INSTALL`: Helm release is to be installed.
 - `PENDING_UPGRADE`: Helm release is to be updated.
 - `PENDING_ROLLBACK`: Helm release is to be rolled back. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

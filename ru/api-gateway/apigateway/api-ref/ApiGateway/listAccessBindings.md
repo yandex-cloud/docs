@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/listAccessBindings.md
 ---
 
-# API Gateway Service, REST: ApiGateway.ListAccessBindings {#ListAccessBindings}
+# API Gateway Service, REST: ApiGateway.ListAccessBindings
 
 Lists existing access bindings for the specified API gateway.
 

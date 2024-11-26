@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/update.md
 ---
 
-# DataSphere API v2, gRPC: CommunityService.Update {#Update}
+# DataSphere API v2, gRPC: CommunityService.Update
 
 Updates specified community.
 
@@ -15,8 +15,8 @@ Updates specified community.
 
 ```json
 {
-  "communityId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "community_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string"
@@ -25,10 +25,10 @@ Updates specified community.
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 Required field. ID of the community. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Community resource are going to be updated. ||
 || name | **string**
@@ -48,24 +48,24 @@ Labels of the community. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "communityId": "string"
+    "community_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "createdById": "string",
-    "organizationId": "string",
-    "zoneId": "string"
+    "created_by_id": "string",
+    "organization_id": "string",
+    "zone_id": "string"
   }
   // end of the list of possible fields
 }
@@ -81,13 +81,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -130,7 +130,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 ID of the community that is being updated. ||
 |#
@@ -142,7 +142,7 @@ ID of the community that is being updated. ||
 || id | **string**
 
 ID of the community. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when community was created. ||
 || name | **string**
@@ -154,13 +154,13 @@ Description of the comminuty. ||
 || labels | **string**
 
 Labels of the community. ||
-|| createdById | **string**
+|| created_by_id | **string**
 
 ID of the user who created the community. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization to which community belongs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the zone where this community was created ||
 |#

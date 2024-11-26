@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/api-ref/grpc/SymmetricCrypto/reEncrypt.md
 ---
 
-# Key Management Service API, gRPC: SymmetricCryptoService.ReEncrypt {#ReEncrypt}
+# Key Management Service API, gRPC: SymmetricCryptoService.ReEncrypt
 
 Re-encrypts a ciphertext with the specified KMS key.
 
@@ -15,32 +15,32 @@ Re-encrypts a ciphertext with the specified KMS key.
 
 ```json
 {
-  "keyId": "string",
-  "versionId": "string",
-  "aadContext": "bytes",
-  "sourceKeyId": "string",
-  "sourceAadContext": "bytes",
+  "key_id": "string",
+  "version_id": "string",
+  "aad_context": "bytes",
+  "source_key_id": "string",
+  "source_aad_context": "bytes",
   "ciphertext": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the new key to be used for encryption. ||
-|| versionId | **string**
+|| version_id | **string**
 
 ID of the version of the new key to be used for encryption.
 Defaults to the primary version if not specified. ||
-|| aadContext | **bytes**
+|| aad_context | **bytes**
 
 Additional authenticated data to be required for decryption.
 Should be encoded with base64. ||
-|| sourceKeyId | **string**
+|| source_key_id | **string**
 
 Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key. ||
-|| sourceAadContext | **bytes**
+|| source_aad_context | **bytes**
 
 Additional authenticated data provided with the initial encryption request.
 Should be encoded with base64. ||
@@ -54,26 +54,26 @@ Should be encoded with base64. ||
 
 ```json
 {
-  "keyId": "string",
-  "versionId": "string",
-  "sourceKeyId": "string",
-  "sourceVersionId": "string",
+  "key_id": "string",
+  "version_id": "string",
+  "source_key_id": "string",
+  "source_version_id": "string",
   "ciphertext": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the key that the ciphertext is encrypted with now. ||
-|| versionId | **string**
+|| version_id | **string**
 
 ID of key version that was used for encryption. ||
-|| sourceKeyId | **string**
+|| source_key_id | **string**
 
 ID of the key that the ciphertext was encrypted with previously. ||
-|| sourceVersionId | **string**
+|| source_version_id | **string**
 
 ID of the key version that was used to decrypt the re-encrypted ciphertext. ||
 || ciphertext | **bytes**

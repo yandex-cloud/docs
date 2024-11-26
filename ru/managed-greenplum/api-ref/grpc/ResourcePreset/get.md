@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: ResourcePresetService.Get {#Get}
+# Managed Service for Greenplum® API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
 
@@ -17,14 +17,14 @@ To get the list of available resource presets, make a [List](/docs/managed-green
 
 ```json
 {
-  "resourcePresetId": "string",
+  "resource_preset_id": "string",
   "type": "Type"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
 
@@ -43,17 +43,17 @@ Required field. Required. ResourcePreset type - master or segment.
 ```json
 {
   "id": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ],
-  "diskTypeIds": [
+  "disk_type_ids": [
     "string"
   ],
   "cores": "int64",
   "memory": "int64",
   "type": "Type",
-  "hostCountDivider": "int64",
-  "maxSegmentInHostCount": "int64"
+  "host_count_divider": "int64",
+  "max_segment_in_host_count": "int64"
 }
 ```
 
@@ -64,10 +64,10 @@ A preset of resources for hardware configuration of Greenplum® hosts.
 || id | **string**
 
 ID of the resource preset. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of availability zones where the resource preset is available. ||
-|| diskTypeIds[] | **string**
+|| disk_type_ids[] | **string**
 
 IDs of availability disk types available in the resource preset. ||
 || cores | **int64**
@@ -83,10 +83,10 @@ Host type.
 - `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
-|| hostCountDivider | **int64**
+|| host_count_divider | **int64**
 
-The number of hosts must be divisible by `hostCountDivider`. ||
-|| maxSegmentInHostCount | **int64**
+The number of hosts must be divisible by `host_count_divider`. ||
+|| max_segment_in_host_count | **int64**
 
 Maximum number of segments in segment host. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Backup/startRecovery.md
 ---
 
-# Cloud Backup API, gRPC: BackupService.StartRecovery {#StartRecovery}
+# Cloud Backup API, gRPC: BackupService.StartRecovery
 
 Start recovery process of specified backup to specific Compute Cloud instance.
 
@@ -17,17 +17,17 @@ For details, see [Restoring a VM from a backup](/docs/backup/operations/backup-v
 
 ```json
 {
-  "computeInstanceId": "string",
-  "backupId": "string"
+  "compute_instance_id": "string",
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Destination Compute Cloud instance ID to which backup should be applied. ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Backup ID that will be applied to destination Compute Cloud instance. ||
 |#
@@ -38,14 +38,14 @@ Required field. Backup ID that will be applied to destination Compute Cloud inst
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "progressPercentage": "double",
-    "srcBackupId": "string",
-    "dstComputeInstanceId": "string"
+    "progress_percentage": "double",
+    "src_backup_id": "string",
+    "dst_compute_instance_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -64,13 +64,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -113,13 +113,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| progressPercentage | **double**
+|| progress_percentage | **double**
 
 Progress of the backup process. ||
-|| srcBackupId | **string**
+|| src_backup_id | **string**
 
 Source Backup ID that will be applied. ||
-|| dstComputeInstanceId | **string**
+|| dst_compute_instance_id | **string**
 
 Destination Compute Cloud instance ID to which backup will be applied. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/create.md
 ---
 
-# Managed Service for Elasticsearch API, REST: User.Create {#Create}
+# Managed Service for Elasticsearch API, REST: User.Create
 
 Creates a user in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/resumeProcesses.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.ResumeProcesses {#ResumeProcesses}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.ResumeProcesses
 
 Resumes all processes regarding management of the specified instance group,
 i.e. scaling, checking instances' health, auto-healing and updating them.

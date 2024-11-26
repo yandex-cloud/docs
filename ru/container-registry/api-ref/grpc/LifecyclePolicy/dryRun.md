@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/dryRun.md
 ---
 
-# Container Registry API, gRPC: LifecyclePolicyService.DryRun {#DryRun}
+# Container Registry API, gRPC: LifecyclePolicyService.DryRun
 
 Creates a request of a dry run of the lifecycle policy.
 
@@ -15,13 +15,13 @@ Creates a request of a dry run of the lifecycle policy.
 
 ```json
 {
-  "lifecyclePolicyId": "string"
+  "lifecycle_policy_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 Required field. ID of the lifecycle policy. ||
 |#
@@ -32,21 +32,21 @@ Required field. ID of the lifecycle policy. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "dryRunLifecyclePolicyResultId": "string",
-    "lifecyclePolicyId": "string"
+    "dry_run_lifecycle_policy_result_id": "string",
+    "lifecycle_policy_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "dryRunLifecyclePolicyResultId": "string",
-    "lifecyclePolicyId": "string",
-    "runAt": "google.protobuf.Timestamp",
-    "affectedImagesCount": "int64"
+    "dry_run_lifecycle_policy_result_id": "string",
+    "lifecycle_policy_id": "string",
+    "run_at": "google.protobuf.Timestamp",
+    "affected_images_count": "int64"
   }
   // end of the list of possible fields
 }
@@ -62,13 +62,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -111,10 +111,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResultId | **string**
+|| dry_run_lifecycle_policy_result_id | **string**
 
 ID of the dry run result of the lifecycle policy. ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy. ||
 |#
@@ -123,16 +123,16 @@ ID of the lifecycle policy. ||
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResultId | **string**
+|| dry_run_lifecycle_policy_result_id | **string**
 
 ID of the dry run result of the lifecycle policy. ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy. ||
-|| runAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| run_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the getting result. ||
-|| affectedImagesCount | **int64**
+|| affected_images_count | **int64**
 
 Count of affected images. ||
 |#

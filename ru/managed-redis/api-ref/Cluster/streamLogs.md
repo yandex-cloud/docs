@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for Redis API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 

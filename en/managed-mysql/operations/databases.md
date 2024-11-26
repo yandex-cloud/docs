@@ -45,7 +45,7 @@ You can add and remove databases, view information about them, and manage some d
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/list.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -173,7 +173,7 @@ You can add and remove databases, view information about them, and manage some d
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Database/create.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -268,7 +268,7 @@ You can add and remove databases, view information about them, and manage some d
 
       You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/Database/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -296,7 +296,7 @@ You can add and remove databases, view information about them, and manage some d
 
       You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -411,7 +411,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -469,7 +469,7 @@ You can set or change the value of the [sql_mode](../concepts/settings-list.md#s
 
 ## Changing a character set and collation rules {#charset-collate}
 
-To configure the `CHARACTER SET` and `COLLATE` database settings:
+To set the `CHARACTER SET` and `COLLATE` settings for the database:
 
 1. [Connect](connect.md) to the database under the account of the database owner or as a user with the `ALTER` privilege for this database.
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:

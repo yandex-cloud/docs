@@ -1,8 +1,8 @@
-# Upgrading {{ KF }} version
+# {{ KF }} version upgrade
 
-You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#higher-version) with one of these versions.
+You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#create-cluster) with one of these versions.
 
-We recommend updating {{ KF }} step by step, without skipping any versions. For example, the upgrade sequence from version 2.8 to 3.1 is: 2.8 → 3.0 → 3.1.
+We recommend updating {{ KF }} step by step, without skipping any versions. For example, upgrading the version from 2.8 to 3.1 is performed in the following sequence: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -87,7 +87,7 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
     To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+    * Cluster ID, in the `clusterId` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
     * {{ KF }} version number in the `configSpec.version` parameter.
     * List of cluster configuration fields to update in the `updateMask` parameter.
 

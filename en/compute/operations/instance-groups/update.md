@@ -137,7 +137,7 @@ To increase the disk size of an instance group:
   1. Select the group to update.
   1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
   1. In the top-right corner of the **{{ ui-key.yacloud.compute.groups.create.section_instance }}** section, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify the disk size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the disk size.
   1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Click **{{ ui-key.yacloud.common.save }}** on the **{{ ui-key.yacloud.compute.group.edit.label_title }}** page.
 

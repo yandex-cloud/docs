@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/get.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.Get {#Get}
+# Identity and Access Management API, gRPC: ServiceControlService.Get
 
 Returns the Service information in the specified resource container.
 
@@ -17,7 +17,7 @@ To get the list of available Services, make a [List](/docs/iam/api-ref/grpc/Serv
 
 ```json
 {
-  "serviceId": "string",
+  "service_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
@@ -27,7 +27,7 @@ To get the list of available Services, make a [List](/docs/iam/api-ref/grpc/Serv
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 Required field. ID of the Service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
@@ -55,12 +55,12 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
 
 ```json
 {
-  "serviceId": "string",
+  "service_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
   },
-  "updatedAt": "google.protobuf.Timestamp",
+  "updated_at": "google.protobuf.Timestamp",
   "status": "Status"
 }
 ```
@@ -69,13 +69,13 @@ A Service.
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
 
 Resource that the service belongs to. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last status update of the service. ||
 || status | enum **Status**

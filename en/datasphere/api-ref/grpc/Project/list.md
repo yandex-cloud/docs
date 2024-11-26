@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/list.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.List {#List}
+# DataSphere API v2, gRPC: ProjectService.List
 
 Lists projects for the specified community.
 
@@ -15,34 +15,34 @@ Lists projects for the specified community.
 
 ```json
 {
-  "communityId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
-  "projectNamePattern": "string",
-  "ownedById": "string"
+  "community_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
+  "project_name_pattern": "string",
+  "owned_by_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 Required field. ID of the community to list projects in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse)
+results is larger than `page_size`,
+the service returns a [ListProjectsResponse.next_page_token](#yandex.cloud.datasphere.v2.ListProjectsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request. ||
-|| projectNamePattern | **string**
+Page token. To get the next page of results, set `page_token` to the
+[ListProjectsResponse.next_page_token](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request. ||
+|| project_name_pattern | **string**
 
 Name pattern to filter projects that are returned.
 Only projects with names matching the pattern will be returned. ||
-|| ownedById | **string**
+|| owned_by_id | **string**
 
 User ID to filter projects that are returned.
 Only projects that are owned by specified user will be returned. ||
@@ -55,33 +55,33 @@ Only projects that are owned by specified user will be returned. ||
   "projects": [
     {
       "id": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "createdById": "string",
+      "created_by_id": "string",
       "settings": {
-        "serviceAccountId": "string",
-        "subnetId": "string",
-        "dataProcClusterId": "string",
-        "securityGroupIds": [
+        "service_account_id": "string",
+        "subnet_id": "string",
+        "data_proc_cluster_id": "string",
+        "security_group_ids": [
           "string"
         ],
-        "earlyAccess": "bool",
+        "early_access": "bool",
         "ide": "Ide",
-        "defaultFolderId": "string",
-        "staleExecTimeoutMode": "StaleExecutionTimeoutMode",
-        "vmInactivityTimeout": "google.protobuf.Duration",
-        "defaultDedicatedSpec": "string"
+        "default_folder_id": "string",
+        "stale_exec_timeout_mode": "StaleExecutionTimeoutMode",
+        "vm_inactivity_timeout": "google.protobuf.Duration",
+        "default_dedicated_spec": "string"
       },
       "limits": {
-        "maxUnitsPerHour": "google.protobuf.Int64Value",
-        "maxUnitsPerExecution": "google.protobuf.Int64Value"
+        "max_units_per_hour": "google.protobuf.Int64Value",
+        "max_units_per_execution": "google.protobuf.Int64Value"
       },
-      "communityId": "string"
+      "community_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -90,14 +90,14 @@ Only projects that are owned by specified user will be returned. ||
 || projects[] | **[Project](#yandex.cloud.datasphere.v2.Project)**
 
 List of Project resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListProjectsRequest.pageSize](#yandex.cloud.datasphere.v2.ListProjectsRequest), use
-the `nextPageToken` as the value
-for the [ListProjectsRequest.pageToken](#yandex.cloud.datasphere.v2.ListProjectsRequest) query parameter
+is larger than [ListProjectsRequest.page_size](#yandex.cloud.datasphere.v2.ListProjectsRequest), use
+the `next_page_token` as the value
+for the [ListProjectsRequest.page_token](#yandex.cloud.datasphere.v2.ListProjectsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Project {#yandex.cloud.datasphere.v2.Project}
@@ -109,7 +109,7 @@ A Project resource.
 || id | **string**
 
 ID of the project. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the project. 1-63 characters long. ||
@@ -117,14 +117,14 @@ Name of the project. 1-63 characters long. ||
 
 Description of the project. 0-256 characters long. ||
 || labels | **string** ||
-|| createdById | **string** ||
+|| created_by_id | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 
 Settings of the project. ||
 || limits | **[Limits](#yandex.cloud.datasphere.v2.Project.Limits)**
 
 Limits of the project. ||
-|| communityId | **string**
+|| community_id | **string**
 
 ID of the community that the project belongs to. ||
 |#
@@ -133,20 +133,20 @@ ID of the community that the project belongs to. ||
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account, on whose behalf all operations with clusters will be performed. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet where the DataProc cluster resides.
 Currently only subnets created in the availability zone ru-central1-a are supported. ||
-|| dataProcClusterId | **string**
+|| data_proc_cluster_id | **string**
 
 ID of the DataProc cluster. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 Network interfaces security groups. ||
-|| earlyAccess | **bool**
+|| early_access | **bool**
 
 Is early access preview enabled for the project. ||
 || ide | enum **Ide**
@@ -155,10 +155,10 @@ Project IDE.
 
 - `IDE_UNSPECIFIED`
 - `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
-|| defaultFolderId | **string**
+|| default_folder_id | **string**
 
 Default project folder ID. ||
-|| staleExecTimeoutMode | enum **StaleExecutionTimeoutMode**
+|| stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**
 
 Timeout to automatically stop stale executions.
 
@@ -166,10 +166,10 @@ Timeout to automatically stop stale executions.
 - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
 - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
 - `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||
-|| vmInactivityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for VM deallocation. ||
-|| defaultDedicatedSpec | **string**
+|| default_dedicated_spec | **string**
 
 Default VM configuration for DEDICATED mode. ||
 |#
@@ -178,10 +178,10 @@ Default VM configuration for DEDICATED mode. ||
 
 #|
 ||Field | Description ||
-|| maxUnitsPerHour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of units that can be spent per hour. ||
-|| maxUnitsPerExecution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of units that can be spent on the one execution. ||
 |#

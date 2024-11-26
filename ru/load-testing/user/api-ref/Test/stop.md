@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/stop.md
 ---
 
-# Load Testing API, REST: Test.Stop {#Stop}
+# Load Testing API, REST: Test.Stop
 
 Stops the specified test.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Operation/get.md
 ---
 
-# Foundation Models Text Generation API, REST: Operation.Get {#Get}
+# Foundation Models Text Generation API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for Redis API, REST: Cluster.ListBackups
 
 Retrieves the list of available backups for the specified Redis cluster.
 
@@ -53,7 +53,8 @@ returned by the previous list request. ||
       "startedAt": "string",
       "sourceShardNames": [
         "string"
-      ]
+      ],
+      "type": "string"
     }
   ],
   "nextPageToken": "string"
@@ -114,4 +115,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || sourceShardNames[] | **string**
 
 Shard names used as a source for backup. ||
+|| type | **enum** (BackupType)
+
+How this backup was created (manual/automatic/etc...)
+
+- `BACKUP_TYPE_UNSPECIFIED`
+- `AUTOMATED`: Backup created by automated daily schedule
+- `MANUAL`: Backup created by user request ||
 |#

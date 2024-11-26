@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/apply.md
 ---
 
-# Cloud Backup API, REST: Policy.Apply {#Apply}
+# Cloud Backup API, REST: Policy.Apply
 
 Apply policy to [Compute Cloud instance](/docs/backup/concepts/vm-connection#os).
 

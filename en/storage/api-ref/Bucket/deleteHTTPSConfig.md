@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/deleteHTTPSConfig.md
 ---
 
-# Object Storage API, REST: Bucket.DeleteHTTPSConfig {#DeleteHTTPSConfig}
+# Object Storage API, REST: Bucket.DeleteHTTPSConfig
 
 Deletes the HTTPS configuration for the specified bucket.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/start.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Start {#Start}
+# Application Load Balancer API, REST: LoadBalancer.Start
 
 Starts the specified application load balancer.
 

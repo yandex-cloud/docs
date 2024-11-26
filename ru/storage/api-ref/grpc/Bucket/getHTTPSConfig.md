@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/getHTTPSConfig.md
 ---
 
-# Object Storage API, gRPC: BucketService.GetHTTPSConfig {#GetHTTPSConfig}
+# Object Storage API, gRPC: BucketService.GetHTTPSConfig
 
 Returns the HTTPS configuration for the specified bucket.
 
@@ -31,15 +31,15 @@ Required field. Name of the bucket to return the HTTPS configuration for. ||
 ```json
 {
   "name": "string",
-  "sourceType": "SourceType",
+  "source_type": "SourceType",
   "issuer": "google.protobuf.StringValue",
   "subject": "google.protobuf.StringValue",
-  "dnsNames": [
+  "dns_names": [
     "string"
   ],
-  "notBefore": "google.protobuf.Timestamp",
-  "notAfter": "google.protobuf.Timestamp",
-  "certificateId": "string"
+  "not_before": "google.protobuf.Timestamp",
+  "not_after": "google.protobuf.Timestamp",
+  "certificate_id": "string"
 }
 ```
 
@@ -50,7 +50,7 @@ A resource for HTTPS configuration of a bucket.
 || name | **string**
 
 Name of the bucket. ||
-|| sourceType | enum **SourceType**
+|| source_type | enum **SourceType**
 
 Type of TLS certificate source.
 
@@ -63,16 +63,16 @@ Issuer of the TLS certificate. ||
 || subject | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Subject of the TLS certificate. ||
-|| dnsNames[] | **string**
+|| dns_names[] | **string**
 
 List of DNS names of the TLS certificate (Subject Alternative Name field). ||
-|| notBefore | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start of the TLS certificate validity period (Not Before field). ||
-|| notAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End of the TLS certificate validity period (Not After field) ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the TLS certificate in Certificate Manager.
 

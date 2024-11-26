@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteOpenSearchNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.DeleteOpenSearchNodeGroup {#DeleteOpenSearchNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.DeleteOpenSearchNodeGroup
 
 Deletes an OpenSearch type host group.
 

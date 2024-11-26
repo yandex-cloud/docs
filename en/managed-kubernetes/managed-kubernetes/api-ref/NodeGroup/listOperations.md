@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/listOperations.md
 ---
 
-# Managed Services for Kubernetes API, REST: NodeGroup.ListOperations {#ListOperations}
+# Managed Services for Kubernetes API, REST: NodeGroup.ListOperations
 
 Lists operations for the specified node group.
 

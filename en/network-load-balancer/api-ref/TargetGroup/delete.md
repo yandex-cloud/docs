@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/delete.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.Delete {#Delete}
+# Network Load Balancer API, REST: TargetGroup.Delete
 
 Deletes the specified target group.
 

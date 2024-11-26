@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listSubnets.md
 ---
 
-# Virtual Private Cloud API, REST: Network.ListSubnets {#ListSubnets}
+# Virtual Private Cloud API, REST: Network.ListSubnets
 
 Lists subnets from the specified network.
 

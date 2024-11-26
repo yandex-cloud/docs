@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/get.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.Get {#Get}
+# Application Load Balancer API, REST: HttpRouter.Get
 
 Returns the specified HTTP router.
 

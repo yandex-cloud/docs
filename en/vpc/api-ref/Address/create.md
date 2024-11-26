@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/create.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Create {#Create}
+# Virtual Private Cloud API, REST: Address.Create
 
 Creates an address in the specified folder and network.
 

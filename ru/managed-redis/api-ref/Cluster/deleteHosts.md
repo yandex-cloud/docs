@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/deleteHosts.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.DeleteHosts {#DeleteHosts}
+# Managed Service for Redis API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.
 

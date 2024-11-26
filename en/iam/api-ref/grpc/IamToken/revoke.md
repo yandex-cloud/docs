@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/IamToken/revoke.md
 ---
 
-# Identity and Access Management API, gRPC: IamTokenService.Revoke {#Revoke}
+# Identity and Access Management API, gRPC: IamTokenService.Revoke
 
 Revoke the IAM token.
 
@@ -15,13 +15,13 @@ Revoke the IAM token.
 
 ```json
 {
-  "iamToken": "string"
+  "iam_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| iamToken | **string**
+|| iam_token | **string**
 
 Required field.  ||
 |#
@@ -30,11 +30,11 @@ Required field.  ||
 
 ```json
 {
-  "subjectId": "string"
+  "subject_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| subjectId | **string** ||
+|| subject_id | **string** ||
 |#

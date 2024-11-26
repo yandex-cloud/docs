@@ -10,8 +10,6 @@ We also recommend encrypting disks and [disk snapshots](../../compute/concepts/s
 * Track encryption and decryption operations performed using your {{ kms-short-name }} key with the help of {{ at-full-name }}, see [Key usage audit](../../kms/concepts/#keys-audit).
 
 
-{% include [encryption-preview-note](../../_includes/compute/encryption-preview-note.md) %}
-
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
 * Network HDD (`network-hdd`)

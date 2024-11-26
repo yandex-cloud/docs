@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/get.md
 ---
 
-# Data Proc API, REST: Cluster.Get {#Get}
+# Data Proc API, REST: Cluster.Get
 
 Returns the specified cluster.
 
@@ -79,7 +79,8 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
     "string"
   ],
   "deletionProtection": "boolean",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "environment": "string"
 }
 ```
 
@@ -162,6 +163,13 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

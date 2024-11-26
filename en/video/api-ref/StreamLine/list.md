@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/list.md
 ---
 
-# Video API, REST: StreamLine.List {#List}
+# Video API, REST: StreamLine.List
 
 List lines for channel.
 
@@ -19,7 +19,7 @@ GET https://video.{{ api-host }}/video/v1/streamLines
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || pageSize | **string** (int64)
 
 The maximum number of the results per page to return. Default value: 100. ||

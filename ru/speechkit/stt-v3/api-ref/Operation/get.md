@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/Operation/get.md
 ---
 
-# SpeechKit Recognition API v3, REST: Operation.Get {#Get}
+# SpeechKit Recognition API v3, REST: Operation.Get
 
 Returns the specified Operation resource.
 

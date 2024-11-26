@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PrivateConnection/list.md
 ---
 
-# Cloud Interconnect API, gRPC: PrivateConnectionService.List {#List}
+# Cloud Interconnect API, gRPC: PrivateConnectionService.List
 
 Retrieves the list of PrivateConnection resources in the specified folder.
 
@@ -15,28 +15,28 @@ Retrieves the list of PrivateConnection resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list privateConnections in.
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
+results is larger than `page_size`,
 the service returns a [ListPrivatesConnectionResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
+Page token. To get the next page of results, set `page_token` to the
 [ListPrivatesConnectionResponse.next_page_token] returned by a previous list request. ||
 || filter | **string**
 
@@ -51,27 +51,27 @@ The expression must specify:
 
 ```json
 {
-  "privateConnections": [
+  "private_connections": [
     {
       "id": "string",
       "name": "string",
       "description": "string",
-      "folderId": "string",
-      "regionId": "string",
-      "trunkConnectionId": "string",
-      "vlanId": "google.protobuf.Int64Value",
-      "ipv4Peering": {
-        "peeringSubnet": "string",
-        "peerIp": "string",
-        "cloudIp": "string",
-        "peerBgpAsn": "int64",
-        "cloudBgpAsn": "int64",
-        "peerBgpMd5Key": "string"
+      "folder_id": "string",
+      "region_id": "string",
+      "trunk_connection_id": "string",
+      "vlan_id": "google.protobuf.Int64Value",
+      "ipv4_peering": {
+        "peering_subnet": "string",
+        "peer_ip": "string",
+        "cloud_ip": "string",
+        "peer_bgp_asn": "int64",
+        "cloud_bgp_asn": "int64",
+        "peer_bgp_md5_key": "string"
       },
-      "ipv4StaticRoutes": [
+      "ipv4_static_routes": [
         {
           "prefix": "string",
-          "nextHop": [
+          "next_hop": [
             "string"
           ]
         }
@@ -79,23 +79,23 @@ The expression must specify:
       "labels": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| privateConnections[] | **[PrivateConnection](#yandex.cloud.cic.v1.PrivateConnection)**
+|| private_connections[] | **[PrivateConnection](#yandex.cloud.cic.v1.PrivateConnection)**
 
 List of PrivateConnection resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListPrivateConnectionsRequest.pageSize](#yandex.cloud.cic.v1.ListPrivateConnectionsRequest), use
-the `nextPageToken` as the value
-for the [ListPrivateConnectionsRequest.pageToken](#yandex.cloud.cic.v1.ListPrivateConnectionsRequest) query parameter
+is larger than [ListPrivateConnectionsRequest.page_size](#yandex.cloud.cic.v1.ListPrivateConnectionsRequest), use
+the `next_page_token` as the value
+for the [ListPrivateConnectionsRequest.page_token](#yandex.cloud.cic.v1.ListPrivateConnectionsRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## PrivateConnection {#yandex.cloud.cic.v1.PrivateConnection}
@@ -115,24 +115,24 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the privateConnection. 0-256 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the privateConnection belongs to. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the privateConnection belongs to. ||
-|| trunkConnectionId | **string**
+|| trunk_connection_id | **string**
 
 ID of the trunk_connection that the privateConnection belongs to. ||
-|| vlanId | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| vlan_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 VLAN_ID that the privateConnection uses in multiplexing.
 Not used in connections over partners-II
 Value range: [1, 4095] ||
-|| ipv4Peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
+|| ipv4_peering | **[Peering](#yandex.cloud.cic.v1.Peering)**
 
 IPv4 peering config of connection ||
-|| ipv4StaticRoutes[] | **[StaticRoute](#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
+|| ipv4_static_routes[] | **[StaticRoute](#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
 
 IPv4 StaticRoute config of connection ||
 || labels | **string**
@@ -149,26 +149,26 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 #|
 ||Field | Description ||
-|| peeringSubnet | **string**
+|| peering_subnet | **string**
 
 PeeringSubnet.
 It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
-|| peerIp | **string**
+|| peer_ip | **string**
 
 PeerIp.
 It's an ip with just an ipAddress format without mask. ||
-|| cloudIp | **string**
+|| cloud_ip | **string**
 
 CloudIp.
 It's an ip with just an ipAddress format without mask. ||
-|| peerBgpAsn | **int64**
+|| peer_bgp_asn | **int64**
 
 PeerBgpAsn.
 PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551). ||
-|| cloudBgpAsn | **int64**
+|| cloud_bgp_asn | **int64**
 
 CloudBgpAsn. ||
-|| peerBgpMd5Key | **string**
+|| peer_bgp_md5_key | **string**
 
 PeerBgpMd5Key.
 Optional. ||
@@ -182,7 +182,7 @@ Optional. ||
 
 Prefix.
 It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
-|| nextHop[] | **string**
+|| next_hop[] | **string**
 
 PeerIp.
 It's an ip with just an ipAddress format without mask. ||

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/list.md
 ---
 
-# IoT Core Service, gRPC: DeviceService.List {#List}
+# IoT Core Service, gRPC: DeviceService.List
 
 Retrieves the list of devices in the specified registry.
 
@@ -15,43 +15,43 @@ Retrieves the list of devices in the specified registry.
 
 ```json
 {
-  // Includes only one of the fields `registryId`, `folderId`
-  "registryId": "string",
-  "folderId": "string",
+  // Includes only one of the fields `registry_id`, `folder_id`
+  "registry_id": "string",
+  "folder_id": "string",
   // end of the list of possible fields
-  "pageSize": "int64",
-  "pageToken": "string",
-  "deviceView": "DeviceView"
+  "page_size": "int64",
+  "page_token": "string",
+  "device_view": "DeviceView"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry to list devices in.
 
 To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request.
 
-Includes only one of the fields `registryId`, `folderId`. ||
-|| folderId | **string**
+Includes only one of the fields `registry_id`, `folder_id`. ||
+|| folder_id | **string**
 
 ID of the folder to list devices in.
 
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
-Includes only one of the fields `registryId`, `folderId`. ||
-|| pageSize | **int64**
+Includes only one of the fields `registry_id`, `folder_id`. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse)
+results is larger than `page_size`, the service returns a [ListDevicesResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListDevicesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request. ||
-|| deviceView | enum **DeviceView**
+[ListDevicesResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request. ||
+|| device_view | enum **DeviceView**
 
 Specifies which parts of the device resource should be returned
 in the response.
@@ -68,22 +68,22 @@ The default value.
   "devices": [
     {
       "id": "string",
-      "registryId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "registry_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "topicAliases": "string",
+      "topic_aliases": "string",
       "status": "Status",
-      "monitoringData": {
-        "lastAuthIp": "string",
-        "lastAuthTime": "google.protobuf.Timestamp",
-        "lastPubActivityTime": "google.protobuf.Timestamp",
-        "lastSubActivityTime": "google.protobuf.Timestamp",
-        "lastOnlineTime": "google.protobuf.Timestamp"
+      "monitoring_data": {
+        "last_auth_ip": "string",
+        "last_auth_time": "google.protobuf.Timestamp",
+        "last_pub_activity_time": "google.protobuf.Timestamp",
+        "last_sub_activity_time": "google.protobuf.Timestamp",
+        "last_online_time": "google.protobuf.Timestamp"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -92,11 +92,11 @@ The default value.
 || devices[] | **[Device](#yandex.cloud.iot.devices.v1.Device)**
 
 List of devices. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListDevicesRequest.pageSize](#yandex.cloud.iot.devices.v1.ListDevicesRequest), use `next_page_token` as the value
-for the [ListDevicesRequest.pageToken](#yandex.cloud.iot.devices.v1.ListDevicesRequest) parameter in the next list request.
+the specified [ListDevicesRequest.page_size](#yandex.cloud.iot.devices.v1.ListDevicesRequest), use `next_page_token` as the value
+for the [ListDevicesRequest.page_token](#yandex.cloud.iot.devices.v1.ListDevicesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -110,10 +110,10 @@ A device. For more information, see [Device](/docs/iot-core/concepts/index#devic
 || id | **string**
 
 ID of the device. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the device belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -122,7 +122,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topic_aliases | **string**
 
 Alias of a device topic.
 
@@ -135,7 +135,7 @@ Status of the device.
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||
-|| monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
+|| monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
 |#
@@ -144,9 +144,9 @@ Device monitoring data, returns if FULL view specified. ||
 
 #|
 ||Field | Description ||
-|| lastAuthIp | **string** ||
-|| lastAuthTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastPubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastSubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastOnlineTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_auth_ip | **string** ||
+|| last_auth_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

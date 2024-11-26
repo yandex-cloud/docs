@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/create.md
 ---
 
-# Load Testing API, REST: Test.Create {#Create}
+# Load Testing API, REST: Test.Create
 
 Creates (runs) a test in the specified folder.
 

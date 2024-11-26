@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/get.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.Get {#Get}
+# IoT Core Service, gRPC: RegistryService.Get
 
 Returns the specified registry.
 
@@ -17,13 +17,13 @@ To get the list of available registries, make a [List](/docs/iot-core/api-ref/gr
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to return.
 
@@ -35,20 +35,20 @@ To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/R
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
   "status": "Status",
-  "logGroupId": "string",
-  "logOptions": {
+  "log_group_id": "string",
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   }
 }
 ```
@@ -60,10 +60,10 @@ A registry. For more information, see [Registry](/docs/iot-core/concepts/index#r
 || id | **string**
 
 ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -84,10 +84,10 @@ Status of the registry.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted.
 - `DISABLED`: Registry is disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the logs group for the specified registry. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
 
 Options for logging registry events ||
 |#
@@ -99,21 +99,21 @@ Options for logging registry events ||
 || disabled | **bool**
 
 Is logging from registry disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 

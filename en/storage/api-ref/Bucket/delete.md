@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/delete.md
 ---
 
-# Object Storage API, REST: Bucket.Delete {#Delete}
+# Object Storage API, REST: Bucket.Delete
 
 Deletes the specified bucket.
 

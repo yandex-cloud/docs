@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/list.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.List {#List}
+# Cloud DNS API, gRPC: DnsZoneService.List
 
 Retrieves the list of DNS zones in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of DNS zones in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list DNS zones in.
 
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListDnsZonesResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZonesResponse)
+results is larger than `page_size`, the service returns a [ListDnsZonesResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZonesResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDnsZonesResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZonesResponse) returned by a previous list request. ||
+[ListDnsZonesResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZonesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters DNS zones listed in the response.
@@ -53,38 +53,38 @@ Example of a filter: `name=my-dns-zone`. ||
 
 ```json
 {
-  "dnsZones": [
+  "dns_zones": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
       "zone": "string",
-      "privateVisibility": {
-        "networkIds": [
+      "private_visibility": {
+        "network_ids": [
           "string"
         ]
       },
-      "publicVisibility": "PublicVisibility",
-      "deletionProtection": "bool"
+      "public_visibility": "PublicVisibility",
+      "deletion_protection": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dnsZones[] | **[DnsZone](#yandex.cloud.dns.v1.DnsZone)**
+|| dns_zones[] | **[DnsZone](#yandex.cloud.dns.v1.DnsZone)**
 
 List of DNS zones in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListDnsZonesRequest.pageSize](#yandex.cloud.dns.v1.ListDnsZonesRequest), use `next_page_token` as the value
-for the [ListDnsZonesRequest.pageToken](#yandex.cloud.dns.v1.ListDnsZonesRequest) parameter in the next list request.
+the specified [ListDnsZonesRequest.page_size](#yandex.cloud.dns.v1.ListDnsZonesRequest), use `next_page_token` as the value
+for the [ListDnsZonesRequest.page_token](#yandex.cloud.dns.v1.ListDnsZonesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -98,10 +98,10 @@ A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dn
 || id | **string**
 
 ID of the DNS zone. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the DNS zone belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -117,15 +117,15 @@ DNS zone labels as `key:value` pairs. ||
 || zone | **string**
 
 DNS zone suffix. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
+|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
 
 Privately visible zone settings.
 Specifies whether records within the zone are visible from a VPC networks only. ||
-|| publicVisibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
+|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
 
 Publicly visible zone settings.
 Indicates whether records within the zone are publicly visible. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Prevents accidental zone removal. ||
 |#
@@ -136,7 +136,7 @@ Configuration for privately visible zones.
 
 #|
 ||Field | Description ||
-|| networkIds[] | **string**
+|| network_ids[] | **string**
 
 Network IDs. ||
 |#

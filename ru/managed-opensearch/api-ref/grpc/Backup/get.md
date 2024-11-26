@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: BackupService.Get {#Get}
+# Managed Service for OpenSearch API, gRPC: BackupService.Get
 
 Returns the specified backup of an OpenSearch cluster.
 
@@ -15,13 +15,13 @@ Returns the specified backup of an OpenSearch cluster.
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. ID of the backup to return. ||
 |#
@@ -31,16 +31,16 @@ Required field. ID of the backup to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "sourceClusterId": "string",
-  "startedAt": "google.protobuf.Timestamp",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "source_cluster_id": "string",
+  "started_at": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "indices": [
     "string"
   ],
-  "opensearchVersion": "string",
-  "sizeBytes": "int64",
-  "indicesTotal": "int64"
+  "opensearch_version": "string",
+  "size_bytes": "int64",
+  "indices_total": "int64"
 }
 ```
 
@@ -49,28 +49,28 @@ Required field. ID of the backup to return. ||
 || id | **string**
 
 Required. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the OpenSearch cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was completed. ||
 || indices[] | **string**
 
 Names of indices in the backup. ||
-|| opensearchVersion | **string**
+|| opensearch_version | **string**
 
 OpenSearch version used to create the backup. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 Size of the backup in bytes. ||
-|| indicesTotal | **int64**
+|| indices_total | **int64**
 
 The number of indices in the backup. ||
 |#

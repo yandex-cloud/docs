@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/update.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Update {#Update}
+# Virtual Private Cloud API, REST: Gateway.Update
 
 Updates the specified gateway.
 

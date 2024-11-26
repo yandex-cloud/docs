@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogGroup/create.md
 ---
 
-# Cloud Logging Service, gRPC: LogGroupService.Create {#Create}
+# Cloud Logging Service, gRPC: LogGroupService.Create
 
 Creates a log group in the specified folder.
 
@@ -15,18 +15,18 @@ Creates a log group in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "retentionPeriod": "google.protobuf.Duration",
-  "dataStream": "string"
+  "retention_period": "google.protobuf.Duration",
+  "data_stream": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a log group in.
 
@@ -41,14 +41,14 @@ Description of the log group. ||
 || labels | **string**
 
 Log group labels as `key:value` pairs. ||
-|| retentionPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Log group entry retention period.
 
 Entries will be present in group during this period.
 If specified, must be non-negative.
 Empty or zero value is treated as no limit. ||
-|| dataStream | **string**
+|| data_stream | **string**
 
 If specified, all log records will be written to this data stream ||
 |#
@@ -59,26 +59,26 @@ If specified, all log records will be written to this data stream ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "logGroupId": "string"
+    "log_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "status": "Status",
-    "retentionPeriod": "google.protobuf.Duration",
-    "dataStream": "string"
+    "retention_period": "google.protobuf.Duration",
+    "data_stream": "string"
   }
   // end of the list of possible fields
 }
@@ -94,13 +94,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -143,7 +143,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the log group being created. ||
 |#
@@ -155,13 +155,13 @@ ID of the log group being created. ||
 || id | **string**
 
 Log group ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Log group folder ID. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Log group cloud ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log group creation time. ||
 || name | **string**
@@ -186,12 +186,12 @@ Status of the log group.
 
   No messages will be accepted.
 - `ERROR`: Log group is in failed state. ||
-|| retentionPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Log group entry retention period.
 
 Entries will be present in group during this period. ||
-|| dataStream | **string**
+|| data_stream | **string**
 
 Data stream name ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/update.md
 ---
 
-# Object Storage API, REST: Bucket.Update {#Update}
+# Object Storage API, REST: Bucket.Update
 
 Updates the specified bucket.
 

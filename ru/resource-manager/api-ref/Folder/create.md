@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/create.md
 ---
 
-# Resource Manager API, REST: Folder.Create {#Create}
+# Resource Manager API, REST: Folder.Create
 
 Creates a folder in the specified cloud.
 

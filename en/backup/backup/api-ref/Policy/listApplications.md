@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/listApplications.md
 ---
 
-# Cloud Backup API, REST: Policy.ListApplications {#ListApplications}
+# Cloud Backup API, REST: Policy.ListApplications
 
 List applied policies using filters.
 

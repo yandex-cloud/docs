@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.List {#List}
+# Managed Service for Elasticsearch API, REST: Cluster.List
 
 Retrieves the list of Elasticsearch clusters that belong to the specified folder.
 

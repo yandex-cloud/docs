@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/RouteTable/list.md
 ---
 
-# Virtual Private Cloud API, gRPC: RouteTableService.List {#List}
+# Virtual Private Cloud API, gRPC: RouteTableService.List
 
 Retrieves the list of RouteTable resources in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of RouteTable resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the route table belongs to.
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse)
+results is larger than `page_size`,
+the service returns a [ListRouteTablesResponse.next_page_token](#yandex.cloud.vpc.v1.ListRouteTablesResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListRouteTablesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListRouteTablesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListRouteTablesResponse.next_page_token](#yandex.cloud.vpc.v1.ListRouteTablesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -51,46 +51,46 @@ The expression must specify:
 
 ```json
 {
-  "routeTables": [
+  "route_tables": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "networkId": "string",
-      "staticRoutes": [
+      "network_id": "string",
+      "static_routes": [
         {
-          // Includes only one of the fields `destinationPrefix`
-          "destinationPrefix": "string",
+          // Includes only one of the fields `destination_prefix`
+          "destination_prefix": "string",
           // end of the list of possible fields
-          // Includes only one of the fields `nextHopAddress`, `gatewayId`
-          "nextHopAddress": "string",
-          "gatewayId": "string",
+          // Includes only one of the fields `next_hop_address`, `gateway_id`
+          "next_hop_address": "string",
+          "gateway_id": "string",
           // end of the list of possible fields
           "labels": "string"
         }
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| routeTables[] | **[RouteTable](#yandex.cloud.vpc.v1.RouteTable)**
+|| route_tables[] | **[RouteTable](#yandex.cloud.vpc.v1.RouteTable)**
 
 List of RouteTable resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListRouteTablesRequest.pageSize](#yandex.cloud.vpc.v1.ListRouteTablesRequest), use
-the `nextPageToken` as the value
-for the [ListRouteTablesRequest.pageToken](#yandex.cloud.vpc.v1.ListRouteTablesRequest) query parameter
+is larger than [ListRouteTablesRequest.page_size](#yandex.cloud.vpc.v1.ListRouteTablesRequest), use
+the `next_page_token` as the value
+for the [ListRouteTablesRequest.page_token](#yandex.cloud.vpc.v1.ListRouteTablesRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## RouteTable {#yandex.cloud.vpc.v1.RouteTable}
@@ -102,10 +102,10 @@ A RouteTable resource. For more information, see [Static Routes](/docs/vpc/conce
 || id | **string**
 
 ID of the route table. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the route table belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -123,10 +123,10 @@ No more than 64 per resource.
 The string length in characters for each key must be 1-63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network the route table belongs to. ||
-|| staticRoutes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
+|| static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
 
 List of static routes. ||
 |#
@@ -137,21 +137,21 @@ A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/conc
 
 #|
 ||Field | Description ||
-|| destinationPrefix | **string**
+|| destination_prefix | **string**
 
 Destination subnet in CIDR notation
 
-Includes only one of the fields `destinationPrefix`. ||
-|| nextHopAddress | **string**
+Includes only one of the fields `destination_prefix`. ||
+|| next_hop_address | **string**
 
 Next hop IP address
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| gatewayId | **string**
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
+|| gateway_id | **string**
 
 Next hop gateway id
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||

@@ -1,9 +1,11 @@
 # Uploading {{ TF }} states to {{ objstorage-full-name }}
 
 
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
+
 This guide describes the steps for uploading a {{ TF }} state to [{{ objstorage-name }}](../../storage/).
 
-A {{ TF }} state describes the current deployed infrastructure and is stored in files with the `.tfstate` extension. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
+A {{ TF }} state describes the current deployed infrastructure and is stored in `.tfstate` files. The state file is created after the infrastructure is deployed and can be immediately uploaded to {{ objstorage-name }}. The uploaded state file is updated as the infrastructure you created changes.
 
 In this example, the saved state allows other users to get the ID of one of the created [subnets](../../vpc/concepts/network.md#subnet) to connect a new [VM](../../compute/concepts/vm.md) to it.
 
@@ -17,8 +19,6 @@ To configure {{ TF }} state storage in {{ objstorage-name }} and use it to creat
 1. [Retrieve the state from the backend](#retrieve-state).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
-{{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -49,7 +49,7 @@ Follow this guide to create three [VMs](../../compute/concepts/vm.md) with [publ
 
 {% note info %}
 
-The backend settings apply to {{ TF }} `1.6.3` and higher.
+The following backend settings apply in {{ TF }} `1.6.3` and higher.
 
 {% endnote %}
 
@@ -59,17 +59,17 @@ The backend settings apply to {{ TF }} `1.6.3` and higher.
 
    - Bash {#bash}
 
-      ```bash
-      export ACCESS_KEY="<key_ID>"
-      export SECRET_KEY="<secret_key>"
-      ```
+     ```bash
+     export ACCESS_KEY="<key_ID>"
+     export SECRET_KEY="<secret_key>"
+     ```
 
    - PowerShell {#powershell}
 
-      ```powershell
-      $ACCESS_KEY="<key_ID>"
-      $SECRET_KEY="<secret_key>"
-      ```
+     ```powershell
+     $ACCESS_KEY="<key_ID>"
+     $SECRET_KEY="<secret_key>"
+     ```
 
    {% endlist %}
 
@@ -120,8 +120,8 @@ The backend settings apply to {{ TF }} `1.6.3` and higher.
 You can request the {{ objstorage-name }} state saved in {{ TF }} from another configuration to expand the infrastructure you created.
 
 Create another configuration and use the saved state to create another VM in one of the existing subnets:
-1. Create the `remote-state` directory.
-1. Go to the created directory and create the `remote-state.tf` configuration file:
+1. Create a directory named `remote-state`.
+1. Go to that directory and create the `remote-state.tf` configuration file:
 
    ```hcl
    terraform {
@@ -148,7 +148,7 @@ Create another configuration and use the saved state to create another VM in one
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # This option is required to describe backend for Terraform version 1.6.1 or higher.
+       skip_requesting_account_id  = true # This option is required to describe a backend for Terraform versions higher than 1.6.1.
 
        access_key = "<key_ID>"
        secret_key = "<secret_key>"
@@ -199,7 +199,7 @@ Create another configuration and use the saved state to create another VM in one
 1. Run the `terraform init` command.
 1. Run the `terraform plan` command. The terminal will display the plan for creating the VM.
 1. Run the `terraform apply` command.
-1. Go to the management console and make sure you can see the `terraform3` instance in the {{ compute-name }} section.
+1. Go to the management console and make sure you can see the `terraform3` VM in the {{ compute-name }} section.
 
 ## Delete the resources you created {#clear-out}
 

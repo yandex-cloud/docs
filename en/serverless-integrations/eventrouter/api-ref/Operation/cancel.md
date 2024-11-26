@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Operation/cancel.md
 ---
 
-# EventRouter Service, REST: Operation.Cancel {#Cancel}
+# EventRouter Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

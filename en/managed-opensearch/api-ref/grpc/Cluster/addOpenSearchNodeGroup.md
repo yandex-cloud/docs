@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/addOpenSearchNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.AddOpenSearchNodeGroup {#AddOpenSearchNodeGroup}
+# Managed Service for OpenSearch API, gRPC: ClusterService.AddOpenSearchNodeGroup
 
 Creates an OpenSearch type host group.
 
@@ -15,29 +15,29 @@ Creates an OpenSearch type host group.
 
 ```json
 {
-  "clusterId": "string",
-  "nodeGroupSpec": {
+  "cluster_id": "string",
+  "node_group_spec": {
     "name": "string",
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     },
-    "hostsCount": "int64",
-    "zoneIds": [
+    "hosts_count": "int64",
+    "zone_ids": [
       "string"
     ],
-    "subnetIds": [
+    "subnet_ids": [
       "string"
     ],
-    "assignPublicIp": "bool",
+    "assign_public_ip": "bool",
     "roles": [
       "GroupRole"
     ],
-    "diskSizeAutoscaling": {
-      "plannedUsageThreshold": "int64",
-      "emergencyUsageThreshold": "int64",
-      "diskSizeLimit": "int64"
+    "disk_size_autoscaling": {
+      "planned_usage_threshold": "int64",
+      "emergency_usage_threshold": "int64",
+      "disk_size_limit": "int64"
     }
   }
 }
@@ -45,12 +45,12 @@ Creates an OpenSearch type host group.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to create the OpenSearch type host group in.
 
 To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
-|| nodeGroupSpec | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+|| node_group_spec | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
 
 Configuration of the new host group. ||
 |#
@@ -67,16 +67,16 @@ Required field. Name of the group. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the group. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of the availability zones the hosts belong to. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of the subnets that the hosts belong to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
 || roles[] | enum **GroupRole**
@@ -86,7 +86,7 @@ Roles of the hosts in the group.
 - `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -97,13 +97,13 @@ A list of computational resources allocated to a host.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
@@ -112,13 +112,13 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **int64**
+|| planned_usage_threshold | **int64**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **int64**
+|| emergency_usage_threshold | **int64**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **int64**
+|| disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -129,12 +129,12 @@ Limit on how large the storage for database instances can automatically grow, in
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
+    "cluster_id": "string",
     "name": "string"
   },
   // Includes only one of the fields `error`, `response`
@@ -154,13 +154,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -203,7 +203,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the OpenSearch cluster where the host group is being created. ||
 || name | **string**

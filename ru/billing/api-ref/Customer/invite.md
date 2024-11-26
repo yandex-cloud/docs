@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/invite.md
 ---
 
-# Billing API, REST: Customer.Invite {#Invite}
+# Billing API, REST: Customer.Invite
 
 Invites customer to the specified reseller.
 
