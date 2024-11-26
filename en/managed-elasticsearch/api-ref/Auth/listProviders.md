@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/listProviders.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.ListProviders {#ListProviders}
+# Managed Service for Elasticsearch API, REST: Auth.ListProviders
 
 Retrieves the list of registered auth providers for Elasticsearch cluster.
 

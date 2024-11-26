@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/update.md
 ---
 
-# Video API, REST: StreamLine.Update {#Update}
+# Video API, REST: StreamLine.Update
 
 Update stream line.
 
@@ -120,7 +120,7 @@ Video signal settings. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTMP streaming server. ||
+Required field. URL of a RTMP streaming server. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -129,7 +129,7 @@ URL of a RTMP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a SRT streaming server. ||
+Required field. URL of a SRT streaming server. ||
 |#
 
 ## TCPPullParams {#yandex.cloud.video.v1.TCPPullParams}
@@ -138,7 +138,7 @@ URL of a SRT streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a TCP streaming server. ||
+Required field. URL of a TCP streaming server. ||
 |#
 
 ## RTSPPullParams {#yandex.cloud.video.v1.RTSPPullParams}
@@ -147,7 +147,7 @@ URL of a TCP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTSP streaming server. ||
+Required field. URL of a RTSP streaming server. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -163,7 +163,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -204,7 +204,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       Only one parameter is provided in this case.
+       In this case, only one parameter is provided.
 
      * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md).
 
@@ -334,15 +334,15 @@ You can change the DBMS settings of the hosts in your cluster.
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       In this case, specify all the {{ PG }} settings to update.
+       In this case, list all the {{ PG }} settings to update.
 
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
-       See the [method description](../api-ref/Cluster/update.md#body_params) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for description and possible values for each setting.
+       See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -389,7 +389,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, specify all the {{ PG }} settings to update.
+       In this case, list all the {{ PG }} settings to update.
 
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
 
@@ -539,7 +539,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
       * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
       * `web_sql`: Execution of SQL queries from the management console using {{ websql-full-name }} (`true` or `false`).
 
-  1. To change the [connection pooler mode](../concepts/pooling.md), add the `config.pooler_config` section to the {{ mpg-name }} cluster description:
+  1. To change the [connection pooler mode](../concepts/pooling.md), add a `config.pooler_config` block to the {{ mpg-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -652,7 +652,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `poolerConfig`: Connection pooler settings:
 
-         * `poolingMode`: Connection pooler mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
+         * `poolingMode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
          * `poolDiscard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
@@ -700,7 +700,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -778,7 +778,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `pooler_config`: Connection pooler settings:
 
-         * `pooling_mode`: Connection pooler mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
+         * `pooling_mode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
          * `pool_discard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
@@ -921,7 +921,7 @@ To switch the master:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/startFailover.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1013,7 +1013,7 @@ To switch the master:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/move.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1141,13 +1141,13 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       Only one parameter is provided in this case.
+       In this case, only one parameter is provided.
 
      * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1189,7 +1189,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       Only one parameter is provided in this case.
+       In this case, only one parameter is provided.
 
      * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 

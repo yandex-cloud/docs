@@ -1,4 +1,4 @@
-To connect to a VM via OS Login with an SSH certificate using the YC CLI:
+To connect to a VM via {{ oslogin }} with an SSH certificate using the YC CLI:
 
 1. {% include [oslogin-connect-cert-enable-in-org](../../_includes/compute/oslogin-connect-cert-enable-in-org.md) %}
 1. View the description of the CLI command to connect to a VM:
@@ -20,7 +20,7 @@ To connect to a VM via OS Login with an SSH certificate using the YC CLI:
 
     Where:
     * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
-    * `--login`: Previously obtained user or service account login, as set in the OS Login profile. This is an optional parameter. If this parameter is not specified, the connection will use the SSH certificate of the user or service account currently authorized in the YC CLI profile.
+    * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If this parameter is not specified, the connection will use the SSH certificate of the user or service account currently authorized in the YC CLI profile.
     * (Optional) `--internal-address`: To connect using an internal IP address.
 
-    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM you need, under **Connect to VM**, expand the **Connect via the {{ yandex-cloud }} CLI interface** section and select the **Certificate** tab.
+    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **Connect to VM**, expand the **Connect via the {{ yandex-cloud }} CLI interface** section and select the **Certificate** tab.

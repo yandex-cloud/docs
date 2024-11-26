@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/get.md
 ---
 
-# API Gateway Service, REST: ApiGateway.Get {#Get}
+# API Gateway Service, REST: ApiGateway.Get
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
 To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request.

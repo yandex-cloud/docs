@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/CertificateContent/get.md
 ---
 
-# Certificate Manager API, gRPC: CertificateContentService.Get {#Get}
+# Certificate Manager API, gRPC: CertificateContentService.Get
 
 Returns chain and private key of the specified certificate.
 
@@ -15,21 +15,21 @@ Returns chain and private key of the specified certificate.
 
 ```json
 {
-  "certificateId": "string",
-  "versionId": "string",
-  "privateKeyFormat": "PrivateKeyFormat"
+  "certificate_id": "string",
+  "version_id": "string",
+  "private_key_format": "PrivateKeyFormat"
 }
 ```
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate to download content. ||
-|| versionId | **string**
+|| version_id | **string**
 
 Optional ID of the version. ||
-|| privateKeyFormat | enum **PrivateKeyFormat**
+|| private_key_format | enum **PrivateKeyFormat**
 
 Desired format of private key
 
@@ -42,23 +42,23 @@ Desired format of private key
 
 ```json
 {
-  "certificateId": "string",
-  "certificateChain": [
+  "certificate_id": "string",
+  "certificate_chain": [
     "string"
   ],
-  "privateKey": "string"
+  "private_key": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate. ||
-|| certificateChain[] | **string**
+|| certificate_chain[] | **string**
 
 PEM-encoded certificate chain content of the certificate. ||
-|| privateKey | **string**
+|| private_key | **string**
 
 PEM-encoded private key content of the certificate. ||
 |#

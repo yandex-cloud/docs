@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/deleteProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.DeleteProfile {#DeleteProfile}
+# Cloud Organization API, REST: OsLogin.DeleteProfile
 
 ## HTTP request
 

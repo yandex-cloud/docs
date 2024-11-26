@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/searchapi/v2/api-ref/WebSearchAsync/search.md
 ---
 
-# Web Search API, REST: WebSearchAsync.Search {#Search}
+# Web Search API, REST: WebSearchAsync.Search
 
 ## HTTP request
 

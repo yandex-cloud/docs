@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Operation/get.md
 ---
 
-# Cloud Functions Service, REST: Operation.Get {#Get}
+# Cloud Functions Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

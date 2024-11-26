@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/updateAccessBindings.md
 ---
 
-# Compute Cloud API, REST: HostGroup.UpdateAccessBindings {#UpdateAccessBindings}
+# Compute Cloud API, REST: HostGroup.UpdateAccessBindings
 
 Updates access bindings for the host group.
 

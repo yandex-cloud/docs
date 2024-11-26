@@ -16,12 +16,18 @@ description:
 meta:
   title: Yandex Cloud Interconnect
   description: >-
-    Yandex Cloud Interconnect lets you establish a private dedicated connection
-    between your local network infrastructure and Yandex Cloud.
+    Yandex Cloud Interconnect allows you to set up a dedicated physical
+    connection between a client's infrastructure and Yandex Cloud resources.
 links:
   - title: Concepts
-    description: Learn about service features
-    href: concepts/index
+    description: Learn about features of the service
+    href: concepts/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Tutorials
+    description: How to use {{ interconnect-name }}
+    href: tutorials/

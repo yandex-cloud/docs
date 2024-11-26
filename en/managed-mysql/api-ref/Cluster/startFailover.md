@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/startFailover.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.StartFailover {#StartFailover}
+# Managed Service for MySQL API, REST: Cluster.StartFailover
 
 Starts a manual failover for a cluster.
 

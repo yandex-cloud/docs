@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.Restore {#Restore}
+# Managed Service for MongoDB API, REST: Cluster.Restore
 
 Creates a new MongoDB cluster using the specified backup.
 

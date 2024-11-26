@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Operation/cancel.md
 ---
 
-# IoT Core Broker Service, REST: Operation.Cancel {#Cancel}
+# IoT Core Broker Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

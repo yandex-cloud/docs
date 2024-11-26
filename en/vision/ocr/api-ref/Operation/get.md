@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/Operation/get.md
 ---
 
-# Vision OCR API, REST: Operation.Get {#Get}
+# Vision OCR API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

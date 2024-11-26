@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/Operation/cancel.md
 ---
 
-# Foundation Models Image Generation API, REST: Operation.Cancel {#Cancel}
+# Foundation Models Image Generation API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

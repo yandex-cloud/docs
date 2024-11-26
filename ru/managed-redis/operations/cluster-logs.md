@@ -56,15 +56,96 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить лог кластера, воспользуйтесь методом REST API [listLogs](../api-ref/Cluster/listLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+    {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Значение `REDIS` в параметре `serviceType`.
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:logs' \
+            --url-query serviceType=REDIS \
+            --url-query columnFilter=<список_колонок> \
+            --url-query fromTime=<левая_граница_временного_диапазона> \
+            --url-query toTime=<правая_граница_временного_диапазона>
+        ```
+
+        Где:
+
+        * `serviceType` — тип сервиса, для которого нужно запросить логи. Возможное значение — `REDIS`.
+
+        * `columnFilter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `message` — сообщение, которое выводит сервис.
+            * `pid` — идентификатор серверного процесса текущей сессии.
+            * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
+
+            {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
+        {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
+
+        * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "column_filter": [
+                    "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+                  ],
+                  "service_type": "<тип_сервиса>",
+                  "from_time": "<левая_граница_временного_диапазона>",
+                  "to_time": "<правая_граница_временного_диапазона>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.ListLogs
+        ```
+
+        Где:
+
+        * `service_type` — тип сервиса, для которого нужно запросить логи. Возможное значение — `REDIS`.
+
+        * `column_filter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `message` — сообщение, которое выводит сервис.
+            * `pid` — идентификатор серверного процесса текущей сессии.
+            * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
+
+            {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
+        {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
+
+        * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listLogs#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse).
 
 {% endlist %}
 
@@ -88,14 +169,109 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить поток логов кластера, воспользуйтесь методом REST API [streamLogs](../api-ref/Cluster/streamLogs.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+    {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Значение `REDIS` в параметре `serviceType`.
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:stream_logs' \
+            --url-query serviceType=<тип_сервиса> \
+            --url-query columnFilter=<список_колонок> \
+            --url-query fromTime=<левая_граница_временного_диапазона> \
+            --url-query toTime=<правая_граница_временного_диапазона> \
+            --url-query filter=<фильтр_логов>
+        ```
+
+        Где:
+
+        * `serviceType` — тип сервиса, для которого нужно запросить логи. Возможное значение — `REDIS`.
+
+        * `columnFilter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `message` — сообщение, которое выводит сервис.
+            * `pid` — идентификатор серверного процесса текущей сессии.
+            * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
+
+            {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
+        {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
+
+        * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
+
+            {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
+
+        * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
+
+            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/Cluster/streamLogs.md#query_params).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "column_filter": [
+                    "<колонка_1>", "<колонка_2>", ..., "<колонка_N>"
+                  ],
+                  "service_type": "<тип_сервиса>",
+                  "from_time": "<левая_граница_временного_диапазона>",
+                  "to_time": "<правая_граница_временного_диапазона>",
+                  "filter": "<фильтр_логов>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.StreamLogs
+        ```
+
+        Где:
+
+        * `service_type` — тип сервиса, для которого нужно запросить логи. Возможное значение — `REDIS`.
+
+        * `column_filter` — список колонок для вывода информации:
+
+            * `hostname` — [имя хоста](hosts.md#list-hosts).
+            * `message` — сообщение, которое выводит сервис.
+            * `pid` — идентификатор серверного процесса текущей сессии.
+            * `role` — роль компонента кластера, например, `X` или `M` (`Sentinel` и `Master` соответственно).
+
+            {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
+        {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
+
+        * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+
+            {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
+
+        * `filter` — фильтр логов, например: `message.hostname='node1.{{ dns-zone }}'`.
+
+            Подробнее о фильтрах и их синтаксисе см. в [справочнике API](../api-ref/grpc/Cluster/streamLogs.md).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord).
 
 {% endlist %}

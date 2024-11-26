@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/list.md
 ---
 
-# Cloud Organization API, gRPC: UserSshKeyService.List {#List}
+# Cloud Organization API, gRPC: UserSshKeyService.List
 
 ## gRPC request
 
@@ -13,49 +13,49 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/list
 
 ```json
 {
-  "organizationId": "string",
-  "subjectId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "organization_id": "string",
+  "subject_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 Required field.  ||
-|| subjectId | **string**
+|| subject_id | **string**
 
 if empty, list all organization keys ||
-|| pageSize | **int64** ||
-|| pageToken | **string** ||
+|| page_size | **int64** ||
+|| page_token | **string** ||
 |#
 
 ## ListUserSshKeysResponse {#yandex.cloud.organizationmanager.v1.ListUserSshKeysResponse}
 
 ```json
 {
-  "sshKeys": [
+  "ssh_keys": [
     {
       "id": "string",
-      "subjectId": "string",
+      "subject_id": "string",
       "data": "string",
       "name": "string",
       "fingerprint": "string",
-      "organizationId": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "expiresAt": "google.protobuf.Timestamp"
+      "organization_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "expires_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| sshKeys[] | **[UserSshKey](#yandex.cloud.organizationmanager.v1.UserSshKey)** ||
-|| nextPageToken | **string** ||
+|| ssh_keys[] | **[UserSshKey](#yandex.cloud.organizationmanager.v1.UserSshKey)** ||
+|| next_page_token | **string** ||
 |#
 
 ## UserSshKey {#yandex.cloud.organizationmanager.v1.UserSshKey}
@@ -63,13 +63,13 @@ if empty, list all organization keys ||
 #|
 ||Field | Description ||
 || id | **string** ||
-|| subjectId | **string** ||
+|| subject_id | **string** ||
 || data | **string** ||
 || name | **string** ||
 || fingerprint | **string** ||
-|| organizationId | **string** ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| organization_id | **string** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Used for temporary keys, if empty the key doesn't expire ||
 |#

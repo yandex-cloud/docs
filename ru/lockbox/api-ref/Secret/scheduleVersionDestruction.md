@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/scheduleVersionDestruction.md
 ---
 
-# Lockbox API, REST: Secret.ScheduleVersionDestruction {#ScheduleVersionDestruction}
+# Lockbox API, REST: Secret.ScheduleVersionDestruction
 
 Schedules the specified version for destruction.
 

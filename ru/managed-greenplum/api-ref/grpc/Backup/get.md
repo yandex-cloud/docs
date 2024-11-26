@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: BackupService.Get {#Get}
+# Managed Service for Greenplum® API, gRPC: BackupService.Get
 
 Returns the specified backup of Greenplum® cluster.
 
@@ -15,13 +15,13 @@ Returns the specified backup of Greenplum® cluster.
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. ID of the backup to return. ||
 |#
@@ -31,14 +31,14 @@ Required field. ID of the backup to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "sourceClusterId": "string",
-  "startedAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "source_cluster_id": "string",
+  "started_at": "google.protobuf.Timestamp",
   "size": "int64",
   "type": "BackupCreationType",
   "method": "BackupMethod",
-  "journalSize": "int64"
+  "journal_size": "int64"
 }
 ```
 
@@ -47,16 +47,16 @@ Required field. ID of the backup to return. ||
 || id | **string**
 
 Required. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was completed. ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the Greenplum® cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
 || size | **int64**
@@ -76,7 +76,7 @@ Method of backup creation
 - `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
-|| journalSize | **int64**
+|| journal_size | **int64**
 
 Size of the journal associated with backup, in bytes ||
 |#

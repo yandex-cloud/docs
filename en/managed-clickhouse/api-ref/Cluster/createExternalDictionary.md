@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/createExternalDictionary.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.CreateExternalDictionary {#CreateExternalDictionary}
+# Managed Service for ClickHouse API, REST: Cluster.CreateExternalDictionary
 
 Creates an external dictionary for the specified ClickHouse cluster.
 

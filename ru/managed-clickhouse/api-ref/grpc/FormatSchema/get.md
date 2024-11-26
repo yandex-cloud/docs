@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/FormatSchema/get.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Get {#Get}
+# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Get
 
 Returns detailed information about a given format schema.
 
@@ -15,19 +15,19 @@ Returns detailed information about a given format schema.
 
 ```json
 {
-  "clusterId": "string",
-  "formatSchemaName": "string"
+  "cluster_id": "string",
+  "format_schema_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
 
 To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method. ||
-|| formatSchemaName | **string**
+|| format_schema_name | **string**
 
 Required field. Format schema name.
 
@@ -39,7 +39,7 @@ To get a format schema name, use the [FormatSchemaService.List](/docs/managed-cl
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "type": "FormatSchemaType",
   "uri": "string"
 }
@@ -50,7 +50,7 @@ To get a format schema name, use the [FormatSchemaService.List](/docs/managed-cl
 || name | **string**
 
 Format schema name. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ClickHouse cluster ID. ||
 || type | enum **FormatSchemaType**

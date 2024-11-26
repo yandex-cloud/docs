@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Message/list.md
 ---
 
-# Threads, gRPC: MessageService.List {#List}
+# Threads, gRPC: MessageService.List
 
 List messages in a specific thread.
 By default, messages are listed in reverse chronological order, i.e., from the newest to the oldest.
@@ -16,7 +16,7 @@ By default, messages are listed in reverse chronological order, i.e., from the n
 
 ```json
 {
-  "threadId": "string"
+  "thread_id": "string"
 }
 ```
 
@@ -24,7 +24,7 @@ Request message for listing messages in a specific thread.
 
 #|
 ||Field | Description ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread whose messages will be listed. ||
 |#
@@ -34,9 +34,9 @@ Required field. ID of the thread whose messages will be listed. ||
 ```json
 {
   "id": "string",
-  "threadId": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "thread_id": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
   "author": {
     "id": "string",
     "role": "string"
@@ -62,13 +62,13 @@ Required field. ID of the thread whose messages will be listed. ||
 || id | **string**
 
 Unique identifier of the message. ||
-|| threadId | **string**
+|| thread_id | **string**
 
 ID of the thread that this message belongs to. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this message. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**

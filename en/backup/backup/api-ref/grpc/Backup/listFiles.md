@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Backup/listFiles.md
 ---
 
-# Cloud Backup API, gRPC: BackupService.ListFiles {#ListFiles}
+# Cloud Backup API, gRPC: BackupService.ListFiles
 
 ListFiles of the backup.
 
@@ -15,21 +15,21 @@ ListFiles of the backup.
 
 ```json
 {
-  "folderId": "string",
-  "backupId": "string",
-  "sourceId": "string"
+  "folder_id": "string",
+  "backup_id": "string",
+  "source_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. Folder ID. ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Backup ID. ||
-|| sourceId | **string**
+|| source_id | **string**
 
 Empty source will list disks of the backup. ||
 |#
@@ -41,16 +41,16 @@ Empty source will list disks of the backup. ||
   "files": [
     {
       "id": "string",
-      "parentId": "google.protobuf.StringValue",
+      "parent_id": "google.protobuf.StringValue",
       "type": "Type",
-      "fullPath": "string",
+      "full_path": "string",
       "name": "string",
       "size": "int64",
       "actions": {
-        "restoreToDisk": "bool",
-        "goToLocation": "bool"
+        "restore_to_disk": "bool",
+        "go_to_location": "bool"
       },
-      "modifiedAt": "google.protobuf.Timestamp"
+      "modified_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -70,7 +70,7 @@ BackupFile represents a single unit of file or directory system inside the backu
 || id | **string**
 
 Required field. ID of the item. Should be used as source ID in case of listing. ||
-|| parentId | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+|| parent_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Might be empty if this is root directory. ||
 || type | enum **Type**
@@ -80,7 +80,7 @@ Required field. Type of the item.
 - `TYPE_UNSPECIFIED`
 - `TYPE_DIR`
 - `TYPE_FILE` ||
-|| fullPath | **string**
+|| full_path | **string**
 
 Required field. Absolute path of the item. ||
 || name | **string**
@@ -92,7 +92,7 @@ Size in bytes of the item. ||
 || actions | **[Actions](#yandex.cloud.backup.v1.BackupFile.Actions)**
 
 Required field. Actions that might be done on the object. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field.  ||
 |#
@@ -101,10 +101,10 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| restoreToDisk | **bool**
+|| restore_to_disk | **bool**
 
 Allows to send request to restore item to disk ||
-|| goToLocation | **bool**
+|| go_to_location | **bool**
 
 Allows to move to location by id. ||
 |#

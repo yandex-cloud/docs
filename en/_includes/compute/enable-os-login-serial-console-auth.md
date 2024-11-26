@@ -1,4 +1,4 @@
-Enable OS Login authorization for the VM when connecting to the serial console by specifying the VM name:
+Enable {{ oslogin }} authorization for the VM when connecting to the serial console by specifying the VM name:
 
 ```bash
 yc compute instance update \

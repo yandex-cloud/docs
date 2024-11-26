@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Snapshot/list.md
 ---
 
-# Compute Cloud API, gRPC: SnapshotService.List {#List}
+# Compute Cloud API, gRPC: SnapshotService.List
 
 Retrieves the list of Snapshot resources in the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of Snapshot resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list snapshots in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse)
+results is larger than `page_size`,
+the service returns a [ListSnapshotsResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListSnapshotsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListSnapshotsResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -49,7 +49,7 @@ Each condition has the form `<field> <operator> <value>`, where:
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
-|| orderBy | **string**
+|| order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
@@ -63,33 +63,33 @@ The default sorting order is ascending ||
   "snapshots": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "storageSize": "int64",
-      "diskSize": "int64",
-      "productIds": [
+      "storage_size": "int64",
+      "disk_size": "int64",
+      "product_ids": [
         "string"
       ],
       "status": "Status",
-      "sourceDiskId": "string",
-      "hardwareGeneration": {
-        // Includes only one of the fields `legacyFeatures`, `generation2Features`
-        "legacyFeatures": {
-          "pciTopology": "PCITopology"
+      "source_disk_id": "string",
+      "hardware_generation": {
+        // Includes only one of the fields `legacy_features`, `generation2_features`
+        "legacy_features": {
+          "pci_topology": "PCITopology"
         },
-        "generation2Features": "Generation2HardwareFeatures"
+        "generation2_features": "Generation2HardwareFeatures"
         // end of the list of possible fields
       },
-      "kmsKey": {
-        "keyId": "string",
-        "versionId": "string"
+      "kms_key": {
+        "key_id": "string",
+        "version_id": "string"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -98,14 +98,14 @@ The default sorting order is ascending ||
 || snapshots[] | **[Snapshot](#yandex.cloud.compute.v1.Snapshot)**
 
 List of snapshots. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListSnapshotsRequest.pageSize](#yandex.cloud.compute.v1.ListSnapshotsRequest), use
-the `nextPageToken` as the value
-for the [ListSnapshotsRequest.pageToken](#yandex.cloud.compute.v1.ListSnapshotsRequest) query parameter
+is larger than [ListSnapshotsRequest.page_size](#yandex.cloud.compute.v1.ListSnapshotsRequest), use
+the `next_page_token` as the value
+for the [ListSnapshotsRequest.page_token](#yandex.cloud.compute.v1.ListSnapshotsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Snapshot {#yandex.cloud.compute.v1.Snapshot}
@@ -117,10 +117,10 @@ A Snapshot resource. For more information, see [Snapshots](/docs/compute/concept
 || id | **string**
 
 ID of the snapshot. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the snapshot belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the snapshot. 1-63 characters long. ||
@@ -130,13 +130,13 @@ Description of the snapshot. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 Size of the snapshot, specified in bytes. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Size of the disk when the snapshot was created, specified in bytes. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -155,14 +155,14 @@ Current status of the snapshot.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
 - `DELETING`: Snapshot is being deleted. ||
-|| sourceDiskId | **string**
+|| source_disk_id | **string**
 
 ID of the source disk used to create this snapshot. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
 
 Key encryption key info. ||
 |#
@@ -176,12 +176,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -191,7 +191,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
@@ -212,10 +212,10 @@ and UEFI boot (with UEFI related features).
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of KMS symmetric key ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of KMS symmetric key ||
 |#

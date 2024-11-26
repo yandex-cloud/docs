@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/list.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.List {#List}
+# Application Load Balancer API, REST: LoadBalancer.List
 
 Lists application load balancers in the specified folder.
 

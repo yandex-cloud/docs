@@ -17,103 +17,106 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
-1. If no public access is set up for a cluster, you can only connect to it from inside {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example (for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)):
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 
-   ```bash
-   sudo apt install redis-tools
-   ```
+1. [Create a Linux VM](../compute/operations/vm-create/create-linux-vm.md#console_1).
+
+    Specify the following parameters:
+
+    * **{{ ui-key.yacloud.compute.instances.create.section_image }}**: `Ubuntu 24.04` from {{ marketplace-short-name }}.
+    * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+    * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Leave the field empty.
+
+        The VM will be assigned [the default security group](../vpc/concepts/security-groups.md) with the `default-sg` prefix. This security group enables SSH connections to the VM and allows any outgoing traffic.
+
+    Set the other parameters as you need.
+
+1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the {{ RD }} cluster when creating it.
+
+    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) that allows connections to a [non-sharded {{ RD }} cluster](./concepts/sharding.md). Configuire the rule to allow incoming traffic from the default security group assigned to the VM.
 
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a cluster {{ RD }}.
+
+Create a non-sharded {{ RD }} cluster [without public access](./concepts/network.md#public-access-to-host). You can only [connect](#connect) to such a cluster from a VM in the cluster network.
+
+
+To create a cluster:
+
+1. In the management console, select the folder where you want to create a {{ RD }} cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify the following cluster parameters:
+
+    * **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+
+        * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: Cluster name. It must be unique within the folder.
+        * **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**: Keep this option disabled.
+        * Enable **{{ ui-key.yacloud.redis.field_tls-support }}**.
+        * Enable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+
+        * **Network**: Specify the network with the [previously created](#before-you-begin) VM.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Specify the [previously created](#before-you-begin) security group for the cluster.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_host }}** → **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Make sure to disable this option, i.e., set its value to `No`, for all cluster hosts.
+
+    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.config_field_password }}**: User password.
+
+        {% include [requirements-to-password](../_includes/mdb/mrd/requirements-to-password.md) %}
+
+1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Wait until the cluster is ready: its status on the {{ mrd-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+
+For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
 
 ## Connect to the cluster {#connect}
 
-1. If TLS support is enabled in your cluster, get an SSL certificate:
+1. [Use](../compute/operations/vm-connect/ssh.md) SSH to [connect to the previously created VM](#before-you-begin).
 
-   {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
+1. Install the `redis-cli` utility:
 
+    ```bash
+    sudo apt update && sudo apt install --yes redis-tools
+    ```
 
-1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. Connect directly to the master host:
 
+    {% list tabs group=connection %}
 
-1. Connect to the cluster using `redis-cli`.
+    - Connecting without SSL {#without-ssl}
 
-   {% note info %}
+        ```bash
+        redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
+          -p {{ port-mrd }} \
+          -a <{{ RD }}_password>
+        ```
 
-   To connect to an SSL-enabled cluster, [download](https://redis.io/download) an archive with the utility's source code and build a version of the utility with TLS support using the `make BUILD_TLS=yes` command.
+    - Connecting via SSL {#with-ssl}
 
-   {% endnote %}
+        1. Get an SSL certificate:
 
-   {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
+            {% include [unix-certificate](../_includes/mdb/mrd/unix-certificate.md) %}
 
-   {% list tabs group=cluster %}
+        1. Run this command:
 
-   - Non-sharded cluster {#non-sharded}
+            ```bash
+            redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
+              -p {{ port-mrd-tls }} \
+              -a <{{ RD }}_password> \
+              --tls \
+              --cacert ~/.redis/{{ crt-local-file }}
+            ```
 
-      **To connect using [Sentinel](https://redis.io/topics/sentinel) (without SSL)**:
+    {% endlist %}
 
-      1. Get the address of the master host by using Sentinel and any {{ RD }} host:
+    You can get the cluster ID with a [list of clusters in the folder](./operations/cluster-list.md#list-clusters).
 
-         ```bash
-         redis-cli -h <FQDN_of_any_{{ RD }}_host> \
-           -p {{ port-mrd-sentinel }} \
-           sentinel get-master-addr-by-name <{{ RD }}_cluster_name> | head -n 1
-         ```
+    {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-      1. Connect to the host with this address:
-
-         {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
-
-      **To connect directly to the master (without SSL):**
-
-      ```bash
-      redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
-        -p {{ port-mrd }} \
-        -a <{{ RD }}_password>
-      ```
-
-      **To connect directly to the master (with SSL):**
-
-      ```bash
-      redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
-        -p {{ port-mrd-tls }} \
-        -a <{{ RD }}_password> \
-        --tls \
-        --cacert ~/.redis/{{ crt-local-file }}
-      ```
-
-   - Sharded cluster {#sharded}
-
-      **To connect without SSL:**
-
-      ```bash
-      redis-cli -h <FQDN_of_master_host_in_any_shard> \
-        -p {{ port-mrd }} \
-        -a <{{ RD }}_password>
-      ```
-
-      **To connect with SSL:**
-
-      ```bash
-      redis-cli -h <FQDN_of_master_host_in_any_shard> \
-        -p {{ port-mrd-tls }} \
-        -a <{{ RD }}_password> \
-        --tls \
-        --cacert ~/.redis/{{ crt-local-file }}
-      ```
-
-   {% endlist %}
-
-1. Once connected, send the `PING` command. {{ RD }} should return `PONG` in response.
+1. Once connected, send the `PING` command. {{ RD }} should respond with `PONG`.
 
 ## What's next {#whats-next}
 

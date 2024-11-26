@@ -33,45 +33,33 @@
 
     1. [Настройте права доступа](../../managed-clickhouse/operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
-- {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-
-    1. Клонируйте репозиторий с примерами:
-
-        ```bash
-        git clone https://github.com/yandex-cloud/examples/
-        ```
-
-    1. Скопируйте из директории `examples/tutorials/terraform/` файл `clickhouse-hybrid-storage.tf` в директорию, в которой размещен файл с настройками провайдера.
+    1. Скачайте в ту же рабочую директорию файл конфигурации [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf).
 
         В этом файле описаны:
 
-        * сеть;
-
-        * подсеть;
-
-
-        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-
-
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета;
         * кластер {{ mch-name }} с включенным гибридным хранилищем.
 
     1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-    1. Для проверки правильности файлов конфигурации выполните команду:
+        ```bash
+        terraform validate
+        ```
 
-       ```bash
-       terraform validate
-       ```
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте инфраструктуру, необходимую для выполнения инструкций из этого руководства:
+    1. Создайте необходимую инфраструктуру:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

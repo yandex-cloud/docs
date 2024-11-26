@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/saml/api-ref/grpc/Federation/listUserAccounts.md
 ---
 
-# Identity and Access Management SAML API, gRPC: FederationService.ListUserAccounts {#ListUserAccounts}
+# Identity and Access Management SAML API, gRPC: FederationService.ListUserAccounts
 
 Lists users for the specified federation.
 
@@ -15,27 +15,27 @@ Lists users for the specified federation.
 
 ```json
 {
-  "federationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "federation_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation to list user accounts for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsResponse)
+results is larger than `page_size`, the service returns a [ListFederatedUserAccountsResponse.next_page_token](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsResponse)
+Page token. To get the next page of results, set `page_token`
+to the [ListFederatedUserAccountsResponse.next_page_token](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsResponse)
 returned by a previous list request. ||
 |#
 
@@ -43,17 +43,17 @@ returned by a previous list request. ||
 
 ```json
 {
-  "userAccounts": [
+  "user_accounts": [
     {
       "id": "string",
-      // Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`
-      "yandexPassportUserAccount": {
+      // Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`
+      "yandex_passport_user_account": {
         "login": "string",
-        "defaultEmail": "string"
+        "default_email": "string"
       },
-      "samlUserAccount": {
-        "federationId": "string",
-        "nameId": "string",
+      "saml_user_account": {
+        "federation_id": "string",
+        "name_id": "string",
         "attributes": {
           "value": [
             "string"
@@ -61,24 +61,24 @@ returned by a previous list request. ||
         }
       },
       // end of the list of possible fields
-      "lastAuthenticatedAt": "google.protobuf.Timestamp"
+      "last_authenticated_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| userAccounts[] | **[UserAccount](#yandex.cloud.iam.v1.UserAccount)**
+|| user_accounts[] | **[UserAccount](#yandex.cloud.iam.v1.UserAccount)**
 
 List of user accounts for the specified federation. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListFederatedUserAccountsRequest.pageSize](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsRequest), use the `nextPageToken` as the value
-for the [ListFederatedUserAccountsRequest.pageToken](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListFederatedUserAccountsRequest.page_size](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsRequest), use the `next_page_token` as the value
+for the [ListFederatedUserAccountsRequest.page_token](#yandex.cloud.iam.v1.saml.ListFederatedUserAccountsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## UserAccount {#yandex.cloud.iam.v1.UserAccount}
@@ -90,17 +90,17 @@ Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#pas
 || id | **string**
 
 ID of the user account. ||
-|| yandexPassportUserAccount | **[YandexPassportUserAccount](#yandex.cloud.iam.v1.YandexPassportUserAccount)**
+|| yandex_passport_user_account | **[YandexPassportUserAccount](#yandex.cloud.iam.v1.YandexPassportUserAccount)**
 
 A YandexPassportUserAccount resource.
 
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
-|| samlUserAccount | **[SamlUserAccount](#yandex.cloud.iam.v1.SamlUserAccount)**
+Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`. ||
+|| saml_user_account | **[SamlUserAccount](#yandex.cloud.iam.v1.SamlUserAccount)**
 
 A SAML federated user.
 
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
-|| lastAuthenticatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`. ||
+|| last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## YandexPassportUserAccount {#yandex.cloud.iam.v1.YandexPassportUserAccount}
@@ -113,7 +113,7 @@ For more information, see [Yandex account](/docs/iam/concepts/users/accounts#pas
 || login | **string**
 
 Login of the Yandex user account. ||
-|| defaultEmail | **string**
+|| default_email | **string**
 
 Default email of the Yandex user account. ||
 |#
@@ -125,10 +125,10 @@ For more information, see [federations](/docs/iam/concepts/federations).
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation that the federation belongs to. ||
-|| nameId | **string**
+|| name_id | **string**
 
 Required field. Name Id of the SAML federated user.
 The name is unique within the federation. 1-256 characters long. ||

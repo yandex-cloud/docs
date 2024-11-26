@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/update.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Update {#Update}
+# Compute Cloud API, REST: SnapshotSchedule.Update
 
 Updates the specified snapshot schedule.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Operation/get.md
 ---
 
-# IoT Core Service, REST: Operation.Get {#Get}
+# IoT Core Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/ImageGenerationAsync/generate.md
 ---
 
-# Foundation Models Image Generation API, REST: ImageGenerationAsync.Generate {#Generate}
+# Foundation Models Image Generation API, REST: ImageGenerationAsync.Generate
 
 A method for generating an image based on a textual description.
 

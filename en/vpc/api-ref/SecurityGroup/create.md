@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/create.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Create {#Create}
+# Virtual Private Cloud API, REST: SecurityGroup.Create
 
 Creates a security group in the specified folder and network.
 

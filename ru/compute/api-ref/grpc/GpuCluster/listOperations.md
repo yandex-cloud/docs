@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/GpuCluster/listOperations.md
 ---
 
-# Compute Cloud API, gRPC: GpuClusterService.ListOperations {#ListOperations}
+# Compute Cloud API, gRPC: GpuClusterService.ListOperations
 
 Lists operations for the specified GPU cluster.
 
@@ -15,30 +15,30 @@ Lists operations for the specified GPU cluster.
 
 ```json
 {
-  "gpuClusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "gpu_cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 ID of the GPU cluster to list operations for.
 
 To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/grpc/GpuCluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListGpuClusterOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse)
+results is larger than `page_size`, the service returns a [ListGpuClusterOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListGpuClusterOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListGpuClusterOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse) returned by a previous list request. ||
 |#
 
 ## ListGpuClusterOperationsResponse {#yandex.cloud.compute.v1.ListGpuClusterOperationsResponse}
@@ -49,9 +49,9 @@ Page token. To get the next page of results, set `pageToken` to the
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -60,7 +60,7 @@ Page token. To get the next page of results, set `pageToken` to the
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -69,11 +69,11 @@ Page token. To get the next page of results, set `pageToken` to the
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified GPU cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListGpuClusterOperationsRequest.pageSize](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest), use `next_page_token` as the value
-for the [ListGpuClusterOperationsRequest.pageToken](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest) parameter in the next list request.
+the specified [ListGpuClusterOperationsRequest.page_size](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest), use `next_page_token` as the value
+for the [ListGpuClusterOperationsRequest.page_token](#yandex.cloud.compute.v1.ListGpuClusterOperationsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -90,13 +90,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

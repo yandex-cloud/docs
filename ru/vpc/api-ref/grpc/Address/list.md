@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Address/list.md
 ---
 
-# Virtual Private Cloud API, gRPC: AddressService.List {#List}
+# Virtual Private Cloud API, gRPC: AddressService.List
 
 Retrieves the list of Address resources in the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of Address resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list addresses in.
 
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListAddressesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressesResponse)
+results is larger than `page_size`, the service returns a [ListAddressesResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListAddressesResponse.nextPageToken](#yandex.cloud.vpc.v1.ListAddressesResponse) returned by a previous list request. ||
+[ListAddressesResponse.next_page_token](#yandex.cloud.vpc.v1.ListAddressesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters Address listed in the response.
@@ -57,37 +57,37 @@ Example of a filter: `name=my-address`. ||
   "addresses": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      // Includes only one of the fields `externalIpv4Address`
-      "externalIpv4Address": {
+      // Includes only one of the fields `external_ipv4_address`
+      "external_ipv4_address": {
         "address": "string",
-        "zoneId": "string",
+        "zone_id": "string",
         "requirements": {
-          "ddosProtectionProvider": "string",
-          "outgoingSmtpCapability": "string"
+          "ddos_protection_provider": "string",
+          "outgoing_smtp_capability": "string"
         }
       },
       // end of the list of possible fields
       "reserved": "bool",
       "used": "bool",
       "type": "Type",
-      "ipVersion": "IpVersion",
-      "deletionProtection": "bool",
-      "dnsRecords": [
+      "ip_version": "IpVersion",
+      "deletion_protection": "bool",
+      "dns_records": [
         {
           "fqdn": "string",
-          "dnsZoneId": "string",
+          "dns_zone_id": "string",
           "ttl": "int64",
           "ptr": "bool"
         }
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -96,11 +96,11 @@ Example of a filter: `name=my-address`. ||
 || addresses[] | **[Address](#yandex.cloud.vpc.v1.Address)**
 
 List of addresses. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListAddressesRequest.pageSize](#yandex.cloud.vpc.v1.ListAddressesRequest), use `next_page_token` as the value
-for the [ListAddressesRequest.pageToken](#yandex.cloud.vpc.v1.ListAddressesRequest) parameter in the next list request.
+the specified [ListAddressesRequest.page_size](#yandex.cloud.vpc.v1.ListAddressesRequest), use `next_page_token` as the value
+for the [ListAddressesRequest.page_token](#yandex.cloud.vpc.v1.ListAddressesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -114,10 +114,10 @@ An Address resource. For more information, see [Address](/docs/vpc/concepts/addr
 || id | **string**
 
 ID of the address. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the address belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -136,9 +136,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
+|| external_ipv4_address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
-Includes only one of the fields `externalIpv4Address`.
+Includes only one of the fields `external_ipv4_address`.
 
 External ipv4 address specification. ||
 || reserved | **bool**
@@ -154,17 +154,17 @@ Type of the IP address.
 - `TYPE_UNSPECIFIED`
 - `INTERNAL`: Internal IP address.
 - `EXTERNAL`: Public IP address. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 Version of the IP address.
 
 - `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address.
 - `IPV6`: IPv6 address. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if address protected from deletion. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
+|| dns_records[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
 
 Optional DNS record specifications ||
 |#
@@ -176,7 +176,7 @@ Optional DNS record specifications ||
 || address | **string**
 
 Value of address. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone from which the address will be allocated. ||
 || requirements | **[AddressRequirements](#yandex.cloud.vpc.v1.AddressRequirements)**
@@ -188,10 +188,10 @@ Parameters of the allocated address, for example DDoS Protection. ||
 
 #|
 ||Field | Description ||
-|| ddosProtectionProvider | **string**
+|| ddos_protection_provider | **string**
 
 DDoS protection provider ID. ||
-|| outgoingSmtpCapability | **string**
+|| outgoing_smtp_capability | **string**
 
 Capability to send SMTP traffic. ||
 |#
@@ -203,7 +203,7 @@ Capability to send SMTP traffic. ||
 || fqdn | **string**
 
 DNS record name (absolute or relative to the DNS zone in use). ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the public DNS zone. ||
 || ttl | **int64**

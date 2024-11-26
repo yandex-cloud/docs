@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/User/delete.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: UserService.Delete {#Delete}
+# Managed Service for Elasticsearch API, gRPC: UserService.Delete
 
 Deletes the specified user.
 
@@ -15,19 +15,19 @@ Deletes the specified user.
 
 ```json
 {
-  "clusterId": "string",
-  "userName": "string"
+  "cluster_id": "string",
+  "user_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Elasticsearch cluster the user belongs to.
 
 To get the cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/grpc/Cluster/list#List) request. ||
-|| userName | **string**
+|| user_name | **string**
 
 Required field. Name of the user to delete.
 
@@ -40,13 +40,13 @@ To get the name of the user, make a [UserService.List](/docs/managed-elasticsear
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "userName": "string"
+    "cluster_id": "string",
+    "user_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -65,13 +65,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -114,10 +114,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Elasticsearch cluster the user belongs to. ||
-|| userName | **string**
+|| user_name | **string**
 
 Name of the user that is being deleted. ||
 |#

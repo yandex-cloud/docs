@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Operation/get.md
 ---
 
-# Cloud Logging Service, REST: Operation.Get {#Get}
+# Cloud Logging Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

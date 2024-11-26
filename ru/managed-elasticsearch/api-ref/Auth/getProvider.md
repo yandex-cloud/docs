@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/getProvider.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.GetProvider {#GetProvider}
+# Managed Service for Elasticsearch API, REST: Auth.GetProvider
 
 Returns registered auth provider by name.
 

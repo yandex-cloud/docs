@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Operation/get.md
 ---
 
-# Data Proc API, REST: Operation.Get {#Get}
+# Data Proc API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

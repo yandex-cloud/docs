@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/create.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Create {#Create}
+# Virtual Private Cloud API, REST: Network.Create
 
 Creates a network in the specified folder using the data specified in the request.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

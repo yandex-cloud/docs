@@ -16,4 +16,5 @@ Channel management service.
 || [Create](create.md) | Create channel. ||
 || [Update](update.md) | Update channel. ||
 || [Delete](delete.md) | Delete channel. ||
+|| [BatchDelete](batchDelete.md) | Batch delete channels. ||
 |#

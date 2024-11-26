@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/deactivate.md
 ---
 
-# Data Transfer API, REST: Transfer.Deactivate {#Deactivate}
+# Data Transfer API, REST: Transfer.Deactivate
 
 ## HTTP request
 

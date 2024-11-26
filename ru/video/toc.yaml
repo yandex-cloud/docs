@@ -176,6 +176,8 @@ items:
                 href: api-ref/grpc/Channel/update.md
               - name: Delete
                 href: api-ref/grpc/Channel/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Channel/batchDelete.md
           - name: Episode
             items:
               - name: Overview
@@ -184,6 +186,8 @@ items:
                 href: api-ref/grpc/Episode/get.md
               - name: List
                 href: api-ref/grpc/Episode/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Episode/batchGet.md
               - name: Create
                 href: api-ref/grpc/Episode/create.md
               - name: Update
@@ -204,6 +208,24 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: Playlist
+            items:
+              - name: Overview
+                href: api-ref/grpc/Playlist/index.md
+              - name: Get
+                href: api-ref/grpc/Playlist/get.md
+              - name: List
+                href: api-ref/grpc/Playlist/list.md
+              - name: Create
+                href: api-ref/grpc/Playlist/create.md
+              - name: Update
+                href: api-ref/grpc/Playlist/update.md
+              - name: Delete
+                href: api-ref/grpc/Playlist/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Playlist/batchDelete.md
+              - name: GetPlayerURL
+                href: api-ref/grpc/Playlist/getPlayerURL.md
           - name: StreamLine
             items:
               - name: Overview
@@ -212,12 +234,16 @@ items:
                 href: api-ref/grpc/StreamLine/get.md
               - name: List
                 href: api-ref/grpc/StreamLine/list.md
+              - name: BatchGet
+                href: api-ref/grpc/StreamLine/batchGet.md
               - name: Create
                 href: api-ref/grpc/StreamLine/create.md
               - name: Update
                 href: api-ref/grpc/StreamLine/update.md
               - name: Delete
                 href: api-ref/grpc/StreamLine/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/StreamLine/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/StreamLine/performAction.md
               - name: GetStreamKey
@@ -232,18 +258,38 @@ items:
                 href: api-ref/grpc/Stream/get.md
               - name: List
                 href: api-ref/grpc/Stream/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Stream/batchGet.md
               - name: Create
                 href: api-ref/grpc/Stream/create.md
               - name: Update
                 href: api-ref/grpc/Stream/update.md
               - name: Delete
                 href: api-ref/grpc/Stream/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Stream/performAction.md
+          - name: Subtitle
+            items:
+              - name: Overview
+                href: api-ref/grpc/Subtitle/index.md
+              - name: Get
+                href: api-ref/grpc/Subtitle/get.md
+              - name: List
+                href: api-ref/grpc/Subtitle/list.md
+              - name: Create
+                href: api-ref/grpc/Subtitle/create.md
+              - name: GenerateUploadURL
+                href: api-ref/grpc/Subtitle/generateUploadURL.md
+              - name: Delete
+                href: api-ref/grpc/Subtitle/delete.md
           - name: Thumbnail
             items:
               - name: Overview
                 href: api-ref/grpc/Thumbnail/index.md
+              - name: Get
+                href: api-ref/grpc/Thumbnail/get.md
               - name: List
                 href: api-ref/grpc/Thumbnail/list.md
               - name: Create
@@ -252,6 +298,8 @@ items:
                 href: api-ref/grpc/Thumbnail/batchGenerateDownloadURLs.md
               - name: GenerateUploadURL
                 href: api-ref/grpc/Thumbnail/generateUploadURL.md
+              - name: Delete
+                href: api-ref/grpc/Thumbnail/delete.md
           - name: Video
             items:
               - name: Overview
@@ -260,12 +308,18 @@ items:
                 href: api-ref/grpc/Video/get.md
               - name: List
                 href: api-ref/grpc/Video/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Video/batchGet.md
               - name: Create
                 href: api-ref/grpc/Video/create.md
               - name: Update
                 href: api-ref/grpc/Video/update.md
+              - name: Transcode
+                href: api-ref/grpc/Video/transcode.md
               - name: Delete
                 href: api-ref/grpc/Video/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Video/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Video/performAction.md
               - name: GetPlayerURL
@@ -290,6 +344,8 @@ items:
                 href: api-ref/Channel/update.md
               - name: Delete
                 href: api-ref/Channel/delete.md
+              - name: BatchDelete
+                href: api-ref/Channel/batchDelete.md
           - name: Episode
             items:
               - name: Overview
@@ -298,6 +354,8 @@ items:
                 href: api-ref/Episode/get.md
               - name: List
                 href: api-ref/Episode/list.md
+              - name: BatchGet
+                href: api-ref/Episode/batchGet.md
               - name: Create
                 href: api-ref/Episode/create.md
               - name: Update
@@ -318,6 +376,24 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+          - name: Playlist
+            items:
+              - name: Overview
+                href: api-ref/Playlist/index.md
+              - name: Get
+                href: api-ref/Playlist/get.md
+              - name: List
+                href: api-ref/Playlist/list.md
+              - name: Create
+                href: api-ref/Playlist/create.md
+              - name: Update
+                href: api-ref/Playlist/update.md
+              - name: Delete
+                href: api-ref/Playlist/delete.md
+              - name: BatchDelete
+                href: api-ref/Playlist/batchDelete.md
+              - name: GetPlayerURL
+                href: api-ref/Playlist/getPlayerURL.md
           - name: StreamLine
             items:
               - name: Overview
@@ -326,12 +402,16 @@ items:
                 href: api-ref/StreamLine/get.md
               - name: List
                 href: api-ref/StreamLine/list.md
+              - name: BatchGet
+                href: api-ref/StreamLine/batchGet.md
               - name: Create
                 href: api-ref/StreamLine/create.md
               - name: Update
                 href: api-ref/StreamLine/update.md
               - name: Delete
                 href: api-ref/StreamLine/delete.md
+              - name: BatchDelete
+                href: api-ref/StreamLine/batchDelete.md
               - name: PerformAction
                 href: api-ref/StreamLine/performAction.md
               - name: GetStreamKey
@@ -346,18 +426,38 @@ items:
                 href: api-ref/Stream/get.md
               - name: List
                 href: api-ref/Stream/list.md
+              - name: BatchGet
+                href: api-ref/Stream/batchGet.md
               - name: Create
                 href: api-ref/Stream/create.md
               - name: Update
                 href: api-ref/Stream/update.md
               - name: Delete
                 href: api-ref/Stream/delete.md
+              - name: BatchDelete
+                href: api-ref/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/Stream/performAction.md
+          - name: Subtitle
+            items:
+              - name: Overview
+                href: api-ref/Subtitle/index.md
+              - name: Get
+                href: api-ref/Subtitle/get.md
+              - name: List
+                href: api-ref/Subtitle/list.md
+              - name: Create
+                href: api-ref/Subtitle/create.md
+              - name: GenerateUploadURL
+                href: api-ref/Subtitle/generateUploadURL.md
+              - name: Delete
+                href: api-ref/Subtitle/delete.md
           - name: Thumbnail
             items:
               - name: Overview
                 href: api-ref/Thumbnail/index.md
+              - name: Get
+                href: api-ref/Thumbnail/get.md
               - name: List
                 href: api-ref/Thumbnail/list.md
               - name: Create
@@ -366,6 +466,8 @@ items:
                 href: api-ref/Thumbnail/batchGenerateDownloadURLs.md
               - name: GenerateUploadURL
                 href: api-ref/Thumbnail/generateUploadURL.md
+              - name: Delete
+                href: api-ref/Thumbnail/delete.md
           - name: Video
             items:
               - name: Overview
@@ -374,12 +476,18 @@ items:
                 href: api-ref/Video/get.md
               - name: List
                 href: api-ref/Video/list.md
+              - name: BatchGet
+                href: api-ref/Video/batchGet.md
               - name: Create
                 href: api-ref/Video/create.md
               - name: Update
                 href: api-ref/Video/update.md
+              - name: Transcode
+                href: api-ref/Video/transcode.md
               - name: Delete
                 href: api-ref/Video/delete.md
+              - name: BatchDelete
+                href: api-ref/Video/batchDelete.md
               - name: PerformAction
                 href: api-ref/Video/performAction.md
               - name: GetPlayerURL

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/create.md
 ---
 
-# Load Testing API, REST: Agent.Create {#Create}
+# Load Testing API, REST: Agent.Create
 
 Creates an agent in the specified folder.
 

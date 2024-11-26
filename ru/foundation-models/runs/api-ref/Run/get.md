@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/get.md
 ---
 
-# Runs, REST: Run.Get {#Get}
+# Runs, REST: Run.Get
 
 Retrieve details of a specific run by its ID.
 

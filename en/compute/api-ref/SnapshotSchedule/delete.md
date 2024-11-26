@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/delete.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Delete {#Delete}
+# Compute Cloud API, REST: SnapshotSchedule.Delete
 
 Deletes the specified snapshot schedule.
 

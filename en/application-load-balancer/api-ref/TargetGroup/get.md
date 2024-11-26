@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/get.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.Get {#Get}
+# Application Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified target group.
 

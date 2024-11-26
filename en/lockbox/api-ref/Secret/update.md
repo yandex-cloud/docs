@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/update.md
 ---
 
-# Lockbox API, REST: Secret.Update {#Update}
+# Lockbox API, REST: Secret.Update
 
 Updates the specified secret.
 

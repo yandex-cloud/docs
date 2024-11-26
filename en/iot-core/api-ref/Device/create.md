@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/create.md
 ---
 
-# IoT Core Service, REST: Device.Create {#Create}
+# IoT Core Service, REST: Device.Create
 
 Creates a device in the specified registry.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/Partner/list.md
 ---
 
-# Cloud Interconnect API, REST: Partner.List {#List}
+# Cloud Interconnect API, REST: Partner.List
 
 Retrieves the list of Partner resources in the specified folder.
 

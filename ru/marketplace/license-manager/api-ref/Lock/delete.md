@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/delete.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.Delete {#Delete}
+# Yandex Cloud Marketplace License Manager, REST: Lock.Delete
 
 Unlocks the specified subscription lock.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/create.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Extension.Create {#Create}
+# Managed Service for Elasticsearch API, REST: Extension.Create
 
 Creates new extension version.
 

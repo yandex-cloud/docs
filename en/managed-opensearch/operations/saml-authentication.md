@@ -76,6 +76,10 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: SAML response parameter that stores the subject. If it is not set, the `NameID` parameter is used.
 
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime in minutes. Specify if the identity provider has not set a timeout of their own.
+
+            If there is no value or `0`, the session lifetime is unlimited (default).
+
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Shows whether to activate an authentication source after creating it.
 
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
@@ -96,6 +100,9 @@ Incorrect settings may cause the cluster to fail.
         * URL of the {{ OS }} host with the `DASHBOARDS` role, in the `dashboardsUrl` parameter.
         * (Optional) SAML response parameter that stores the roles, in the `rolesKey` parameter.
         * (Optional) SAML response parameter that stores the subject, in the `subjectKey` parameter.
+        * (Optional) Session lifetime in minutes in the `jwtDefaultExpirationTimeout` parameter. Specify if the identity provider has not set a timeout of their own.
+
+            If there is no value or `0`, the session lifetime is unlimited (default).
 
 {% endlist %}
 

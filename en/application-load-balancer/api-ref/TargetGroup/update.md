@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/update.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.Update {#Update}
+# Application Load Balancer API, REST: TargetGroup.Update
 
 Updates the specified target group.
 

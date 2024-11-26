@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/get.md
 ---
 
-# Data Proc API, gRPC: ClusterService.Get {#Get}
+# Data Proc API, gRPC: ClusterService.Get
 
 Returns the specified cluster.
 
@@ -17,13 +17,13 @@ To get the list of all available clusters, make a [ClusterService.List](/docs/da
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Data Proc cluster.
 
@@ -35,8 +35,8 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cl
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
@@ -48,16 +48,16 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cl
     }
   ],
   "config": {
-    "versionId": "string",
+    "version_id": "string",
     "hadoop": {
       "services": [
         "Service"
       ],
       "properties": "string",
-      "sshPublicKeys": [
+      "ssh_public_keys": [
         "string"
       ],
-      "initializationActions": [
+      "initialization_actions": [
         {
           "uri": "string",
           "args": [
@@ -70,18 +70,19 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cl
   },
   "health": "Health",
   "status": "Status",
-  "zoneId": "string",
-  "serviceAccountId": "string",
+  "zone_id": "string",
+  "service_account_id": "string",
   "bucket": "string",
-  "uiProxy": "bool",
-  "securityGroupIds": [
+  "ui_proxy": "bool",
+  "security_group_ids": [
     "string"
   ],
-  "hostGroupIds": [
+  "host_group_ids": [
     "string"
   ],
-  "deletionProtection": "bool",
-  "logGroupId": "string"
+  "deletion_protection": "bool",
+  "log_group_id": "string",
+  "environment": "Environment"
 }
 ```
 
@@ -92,10 +93,10 @@ A Data Proc cluster. For details about the concept, see [documentation](/docs/da
 || id | **string**
 
 ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -132,31 +133,38 @@ Cluster status.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the cluster resides. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of service account for the Data Proc manager agent. ||
 || bucket | **string**
 
 Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
-|| uiProxy | **bool**
+|| ui_proxy | **bool**
 
 Whether UI Proxy feature is enabled. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | enum **Environment**
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
@@ -180,7 +188,7 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
@@ -221,10 +229,10 @@ the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/get.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.Get {#Get}
+# Identity and Access Management API, REST: ApiKey.Get
 
 Returns the specified API key.
 

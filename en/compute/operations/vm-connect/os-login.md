@@ -17,7 +17,7 @@ description: Follow this guide to connect to a VM via {{ oslogin }}.
 
 {% note info %}
 
-Required roles:
+Roles required to connect to a VM via {{ oslogin }}:
 
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
@@ -25,7 +25,7 @@ Required roles:
 
 ## Connecting using a standard SSH client {#connect-with-ssh-client}
 
-You can connect to a VM with {{ oslogin }} access enabled using a standard SSH client either with an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or a short-lived exported SSH certificate of a user or service account.
+To connect to a VM with enabled {{ oslogin }} access, you can use a standard SSH client and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account organization profile or a short-lived SSH certificate you export for a user or service account.
 
 {% list tabs group=os_login_type %}
 
@@ -45,7 +45,7 @@ You will connect to the specified VM. If this is your first time connecting to t
 
 ## Connecting using the YC CLI {#connect-with-yc-cli}
 
-You can connect to a VM with {{ oslogin }} access enabled using the [YC CLI](../../../cli/quickstart.md) either with an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or an SSH certificate of a user or service account.
+To connect to a VM with enabled {{ oslogin }} access, you can use the [YC CLI](../../../cli/quickstart.md) and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account organization profile or an SSH certificate of a user or service account.
 
 {% list tabs group=os_login_type %}
 

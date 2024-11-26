@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/updateAccessBindings.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.UpdateAccessBindings {#UpdateAccessBindings}
+# Cloud Logging Service, REST: LogGroup.UpdateAccessBindings
 
 Updates access bindings for the specified log group.
 

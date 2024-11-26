@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/k8s/v1/managed-kubernetes/api-ref/grpc/Cluster/get.md
 ---
 
-# Managed Services for Kubernetes API, gRPC: ClusterService.Get {#Get}
+# Managed Services for Kubernetes API, gRPC: ClusterService.Get
 
 Returns the specified Kubernetes cluster.
 
@@ -17,13 +17,13 @@ To get the list of available Kubernetes cluster, make a [List](/docs/managed-kub
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Kubernetes cluster to return. ||
 |#
@@ -33,66 +33,66 @@ Required field. ID of the Kubernetes cluster to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
   "status": "Status",
   "health": "Health",
-  "networkId": "string",
+  "network_id": "string",
   "master": {
-    // Includes only one of the fields `zonalMaster`, `regionalMaster`
-    "zonalMaster": {
-      "zoneId": "string",
-      "internalV4Address": "string",
-      "externalV4Address": "string"
+    // Includes only one of the fields `zonal_master`, `regional_master`
+    "zonal_master": {
+      "zone_id": "string",
+      "internal_v4_address": "string",
+      "external_v4_address": "string"
     },
-    "regionalMaster": {
-      "regionId": "string",
-      "internalV4Address": "string",
-      "externalV4Address": "string",
-      "externalV6Address": "string"
+    "regional_master": {
+      "region_id": "string",
+      "internal_v4_address": "string",
+      "external_v4_address": "string",
+      "external_v6_address": "string"
     },
     // end of the list of possible fields
     "locations": [
       {
-        "zoneId": "string",
-        "subnetId": "string"
+        "zone_id": "string",
+        "subnet_id": "string"
       }
     ],
-    "etcdClusterSize": "int64",
+    "etcd_cluster_size": "int64",
     "version": "string",
     "endpoints": {
-      "internalV4Endpoint": "string",
-      "externalV4Endpoint": "string",
-      "externalV6Endpoint": "string"
+      "internal_v4_endpoint": "string",
+      "external_v4_endpoint": "string",
+      "external_v6_endpoint": "string"
     },
-    "masterAuth": {
-      "clusterCaCertificate": "string"
+    "master_auth": {
+      "cluster_ca_certificate": "string"
     },
-    "versionInfo": {
-      "currentVersion": "string",
-      "newRevisionAvailable": "bool",
-      "newRevisionSummary": "string",
-      "versionDeprecated": "bool"
+    "version_info": {
+      "current_version": "string",
+      "new_revision_available": "bool",
+      "new_revision_summary": "string",
+      "version_deprecated": "bool"
     },
-    "maintenancePolicy": {
-      "autoUpgrade": "bool",
-      "maintenanceWindow": {
-        // Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`
+    "maintenance_policy": {
+      "auto_upgrade": "bool",
+      "maintenance_window": {
+        // Includes only one of the fields `anytime`, `daily_maintenance_window`, `weekly_maintenance_window`
         "anytime": "AnytimeMaintenanceWindow",
-        "dailyMaintenanceWindow": {
-          "startTime": "google.type.TimeOfDay",
+        "daily_maintenance_window": {
+          "start_time": "google.type.TimeOfDay",
           "duration": "google.protobuf.Duration"
         },
-        "weeklyMaintenanceWindow": {
-          "daysOfWeek": [
+        "weekly_maintenance_window": {
+          "days_of_week": [
             {
               "days": [
                 "DayOfWeek"
               ],
-              "startTime": "google.type.TimeOfDay",
+              "start_time": "google.type.TimeOfDay",
               "duration": "google.protobuf.Duration"
             }
           ]
@@ -100,44 +100,44 @@ Required field. ID of the Kubernetes cluster to return. ||
         // end of the list of possible fields
       }
     },
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ],
-    "masterLogging": {
+    "master_logging": {
       "enabled": "bool",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
+      // Includes only one of the fields `log_group_id`, `folder_id`
+      "log_group_id": "string",
+      "folder_id": "string",
       // end of the list of possible fields
-      "auditEnabled": "bool",
-      "clusterAutoscalerEnabled": "bool",
-      "kubeApiserverEnabled": "bool",
-      "eventsEnabled": "bool"
+      "audit_enabled": "bool",
+      "cluster_autoscaler_enabled": "bool",
+      "kube_apiserver_enabled": "bool",
+      "events_enabled": "bool"
     }
   },
-  "ipAllocationPolicy": {
-    "clusterIpv4CidrBlock": "string",
-    "nodeIpv4CidrMaskSize": "int64",
-    "serviceIpv4CidrBlock": "string",
-    "clusterIpv6CidrBlock": "string",
-    "serviceIpv6CidrBlock": "string"
+  "ip_allocation_policy": {
+    "cluster_ipv4_cidr_block": "string",
+    "node_ipv4_cidr_mask_size": "int64",
+    "service_ipv4_cidr_block": "string",
+    "cluster_ipv6_cidr_block": "string",
+    "service_ipv6_cidr_block": "string"
   },
-  // Includes only one of the fields `gatewayIpv4Address`
-  "gatewayIpv4Address": "string",
+  // Includes only one of the fields `gateway_ipv4_address`
+  "gateway_ipv4_address": "string",
   // end of the list of possible fields
-  "serviceAccountId": "string",
-  "nodeServiceAccountId": "string",
-  "releaseChannel": "ReleaseChannel",
-  "networkPolicy": {
+  "service_account_id": "string",
+  "node_service_account_id": "string",
+  "release_channel": "ReleaseChannel",
+  "network_policy": {
     "provider": "Provider"
   },
-  "kmsProvider": {
-    "keyId": "string"
+  "kms_provider": {
+    "key_id": "string"
   },
-  "logGroupId": "string",
+  "log_group_id": "string",
   // Includes only one of the fields `cilium`
   "cilium": {
-    "routingMode": "RoutingMode"
+    "routing_mode": "RoutingMode"
   }
   // end of the list of possible fields
 }
@@ -150,10 +150,10 @@ A Kubernetes cluster.
 || id | **string**
 
 ID of the Kubernetes cluster. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Kubernetes cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -184,27 +184,27 @@ Health of the Kubernetes cluster.
 - `HEALTH_UNSPECIFIED`
 - `HEALTHY`: Kubernetes cluster is alive and well.
 - `UNHEALTHY`: Kubernetes cluster is inoperable. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network the Kubernetes cluster belongs to. ||
 || master | **[Master](#yandex.cloud.k8s.v1.Master)**
 
 Properties of the master for the Kubernetes cluster. ||
-|| ipAllocationPolicy | **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**
+|| ip_allocation_policy | **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**
 
 Allocation policy for IP addresses of services and pods inside the Kubernetes cluster in different availability zones. ||
-|| gatewayIpv4Address | **string**
+|| gateway_ipv4_address | **string**
 
 Gateway IPv4 address.
 
-Includes only one of the fields `gatewayIpv4Address`. ||
-|| serviceAccountId | **string**
+Includes only one of the fields `gateway_ipv4_address`. ||
+|| service_account_id | **string**
 
 Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster. ||
-|| nodeServiceAccountId | **string**
+|| node_service_account_id | **string**
 
 Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics. ||
-|| releaseChannel | enum **ReleaseChannel**
+|| release_channel | enum **ReleaseChannel**
 
 When creating a Kubernetes cluster, you should specify one of three release channels. The release channel contains several Kubernetes versions.
 Channels differ in the set of available versions, the management of auto-updates, and the updates received.
@@ -216,11 +216,11 @@ For more details see [documentation](/docs/managed-kubernetes/concepts/release-c
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
 - `STABLE`: Only updates related to bug fixes or security improvements are added. ||
-|| networkPolicy | **[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)** ||
-|| kmsProvider | **[KMSProvider](#yandex.cloud.k8s.v1.KMSProvider)**
+|| network_policy | **[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)** ||
+|| kms_provider | **[KMSProvider](#yandex.cloud.k8s.v1.KMSProvider)**
 
 KMS provider configuration. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Log group where cluster stores cluster system logs, like audit, events, or controlplane logs. ||
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
@@ -232,20 +232,20 @@ Includes only one of the fields `cilium`. ||
 
 #|
 ||Field | Description ||
-|| zonalMaster | **[ZonalMaster](#yandex.cloud.k8s.v1.ZonalMaster)**
+|| zonal_master | **[ZonalMaster](#yandex.cloud.k8s.v1.ZonalMaster)**
 
 Parameters of the availability zone for the master.
 
-Includes only one of the fields `zonalMaster`, `regionalMaster`. ||
-|| regionalMaster | **[RegionalMaster](#yandex.cloud.k8s.v1.RegionalMaster)**
+Includes only one of the fields `zonal_master`, `regional_master`. ||
+|| regional_master | **[RegionalMaster](#yandex.cloud.k8s.v1.RegionalMaster)**
 
 Parameters of the region for the master.
 
-Includes only one of the fields `zonalMaster`, `regionalMaster`. ||
+Includes only one of the fields `zonal_master`, `regional_master`. ||
 || locations[] | **[Location](#yandex.cloud.k8s.v1.Location)**
 
 Locations specification for Kubernetes control-plane (master) instances. ||
-|| etcdClusterSize | **int64**
+|| etcd_cluster_size | **int64**
 
 Number of etcd nodes in cluster. ||
 || version | **string**
@@ -255,19 +255,19 @@ Version of Kubernetes components that runs on the master. ||
 
 Endpoints of the master. Endpoints constitute of scheme and port (i.e. `https://ip-address:port`)
 and can be used by the clients to communicate with the Kubernetes API of the Kubernetes cluster. ||
-|| masterAuth | **[MasterAuth](#yandex.cloud.k8s.v1.MasterAuth)**
+|| master_auth | **[MasterAuth](#yandex.cloud.k8s.v1.MasterAuth)**
 
 Master authentication parameters are used to establish trust between the master and a client. ||
-|| versionInfo | **[VersionInfo](#yandex.cloud.k8s.v1.VersionInfo)**
+|| version_info | **[VersionInfo](#yandex.cloud.k8s.v1.VersionInfo)**
 
 Detailed information about the Kubernetes version that is running on the master. ||
-|| maintenancePolicy | **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
+|| maintenance_policy | **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
 
 Maintenance policy of the master. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 Master security groups. ||
-|| masterLogging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
+|| master_logging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
 
 Cloud Logging for master components. ||
 |#
@@ -276,13 +276,13 @@ Cloud Logging for master components. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the master resides. ||
-|| internalV4Address | **string**
+|| internal_v4_address | **string**
 
 IPv4 internal network address that is assigned to the master. ||
-|| externalV4Address | **string**
+|| external_v4_address | **string**
 
 IPv4 external network address that is assigned to the master. ||
 |#
@@ -291,16 +291,16 @@ IPv4 external network address that is assigned to the master. ||
 
 #|
 ||Field | Description ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region where the master resides. ||
-|| internalV4Address | **string**
+|| internal_v4_address | **string**
 
 IPv4 internal network address that is assigned to the master. ||
-|| externalV4Address | **string**
+|| external_v4_address | **string**
 
 IPv4 external network address that is assigned to the master. ||
-|| externalV6Address | **string**
+|| external_v6_address | **string**
 
 IPv6 external network address that is assigned to the master. ||
 |#
@@ -309,10 +309,10 @@ IPv6 external network address that is assigned to the master. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the master resides. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the VPC network's subnet where the master resides. ||
 |#
@@ -321,13 +321,13 @@ ID of the VPC network's subnet where the master resides. ||
 
 #|
 ||Field | Description ||
-|| internalV4Endpoint | **string**
+|| internal_v4_endpoint | **string**
 
 Internal endpoint that can be used to connect to the master from cloud networks. ||
-|| externalV4Endpoint | **string**
+|| external_v4_endpoint | **string**
 
 External endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). ||
-|| externalV6Endpoint | **string**
+|| external_v6_endpoint | **string**
 
 External IPv6 endpoint that can be used to access Kubernetes cluster API from the internet (outside of the cloud). ||
 |#
@@ -336,7 +336,7 @@ External IPv6 endpoint that can be used to access Kubernetes cluster API from th
 
 #|
 ||Field | Description ||
-|| clusterCaCertificate | **string**
+|| cluster_ca_certificate | **string**
 
 PEM-encoded public certificate that is the root of trust for the Kubernetes cluster. ||
 |#
@@ -345,19 +345,19 @@ PEM-encoded public certificate that is the root of trust for the Kubernetes clus
 
 #|
 ||Field | Description ||
-|| currentVersion | **string**
+|| current_version | **string**
 
 Current Kubernetes version, format: major.minor (e.g. 1.15). ||
-|| newRevisionAvailable | **bool**
+|| new_revision_available | **bool**
 
 Newer revisions may include Kubernetes patches (e.g 1.15.1 -> 1.15.2) as well
 as some internal component updates - new features or bug fixes in platform specific
 components either on the master or nodes. ||
-|| newRevisionSummary | **string**
+|| new_revision_summary | **string**
 
 Description of the changes to be applied when updating to the latest
 revision. Empty if new_revision_available is false. ||
-|| versionDeprecated | **bool**
+|| version_deprecated | **bool**
 
 The current version is on the deprecation schedule, component (master or node group)
 should be upgraded. ||
@@ -367,11 +367,11 @@ should be upgraded. ||
 
 #|
 ||Field | Description ||
-|| autoUpgrade | **bool**
+|| auto_upgrade | **bool**
 
 If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
 If set to false, automatic upgrades are disabled. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
 
 Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
 The time is set in UTC. ||
@@ -385,21 +385,21 @@ The time is set in UTC. ||
 
 Updating the master at any time.
 
-Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `daily_maintenance_window`, `weekly_maintenance_window`.
 
 Maintenance policy. ||
-|| dailyMaintenanceWindow | **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+|| daily_maintenance_window | **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
 
 Updating the master on any day during the specified time window.
 
-Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `daily_maintenance_window`, `weekly_maintenance_window`.
 
 Maintenance policy. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
 
 Updating the master on selected days during the specified time window.
 
-Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `daily_maintenance_window`, `weekly_maintenance_window`.
 
 Maintenance policy. ||
 |#
@@ -415,7 +415,7 @@ Maintenance policy. ||
 
 #|
 ||Field | Description ||
-|| startTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field. Window start time, in the UTC timezone. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -427,7 +427,7 @@ Window duration. ||
 
 #|
 ||Field | Description ||
-|| daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+|| days_of_week[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
 Days of the week and the maintenance window for these days when automatic updates are allowed. ||
 |#
@@ -448,7 +448,7 @@ Days of the week when automatic updates are allowed.
 - `FRIDAY`: The day-of-week of Friday.
 - `SATURDAY`: The day-of-week of Saturday.
 - `SUNDAY`: The day-of-week of Sunday. ||
-|| startTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| start_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field. Window start time, in the UTC timezone. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -463,30 +463,30 @@ Window duration. ||
 || enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for master components. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the log group where logs of master components should be stored.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 The destination of master components' logs. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder where logs should be stored (in default group).
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 The destination of master components' logs. ||
-|| auditEnabled | **bool**
+|| audit_enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for audit logs. ||
-|| clusterAutoscalerEnabled | **bool**
+|| cluster_autoscaler_enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for cluster-autoscaler. ||
-|| kubeApiserverEnabled | **bool**
+|| kube_apiserver_enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for kube-apiserver. ||
-|| eventsEnabled | **bool**
+|| events_enabled | **bool**
 
 Identifies whether Cloud Logging is enabled for events. ||
 |#
@@ -495,26 +495,26 @@ Identifies whether Cloud Logging is enabled for events. ||
 
 #|
 ||Field | Description ||
-|| clusterIpv4CidrBlock | **string**
+|| cluster_ipv4_cidr_block | **string**
 
 CIDR block. IP range for allocating pod addresses.
 
 It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
 set up for this CIDR blocks in node subnets. ||
-|| nodeIpv4CidrMaskSize | **int64**
+|| node_ipv4_cidr_mask_size | **int64**
 
 Size of the masks that are assigned for each node in the cluster.
 
 If not specified, 24 is used. ||
-|| serviceIpv4CidrBlock | **string**
+|| service_ipv4_cidr_block | **string**
 
 CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
 
 It should not overlap with any subnet in the network the Kubernetes cluster located in. ||
-|| clusterIpv6CidrBlock | **string**
+|| cluster_ipv6_cidr_block | **string**
 
 IPv6 range for allocating pod IP addresses. ||
-|| serviceIpv6CidrBlock | **string**
+|| service_ipv6_cidr_block | **string**
 
 IPv6 range for allocating Kubernetes service IP addresses ||
 |#
@@ -533,7 +533,7 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 KMS key ID for secrets encryption.
 To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/grpc/SymmetricKey/list#List) request. ||
@@ -543,7 +543,7 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 
 #|
 ||Field | Description ||
-|| routingMode | enum **RoutingMode**
+|| routing_mode | enum **RoutingMode**
 
 - `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||

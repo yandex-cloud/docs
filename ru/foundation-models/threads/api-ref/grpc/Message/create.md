@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Message/create.md
 ---
 
-# Threads, gRPC: MessageService.Create {#Create}
+# Threads, gRPC: MessageService.Create
 
 Create a new message.
 
@@ -15,7 +15,7 @@ Create a new message.
 
 ```json
 {
-  "threadId": "string",
+  "thread_id": "string",
   "author": {
     "id": "string",
     "role": "string"
@@ -39,7 +39,7 @@ Request to create a new message in a specific thread.
 
 #|
 ||Field | Description ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread to which the message will be added. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
@@ -110,9 +110,9 @@ Text content of the message. ||
 ```json
 {
   "id": "string",
-  "threadId": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "thread_id": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
   "author": {
     "id": "string",
     "role": "string"
@@ -138,13 +138,13 @@ Text content of the message. ||
 || id | **string**
 
 Unique identifier of the message. ||
-|| threadId | **string**
+|| thread_id | **string**
 
 ID of the thread that this message belongs to. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this message. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author2)**

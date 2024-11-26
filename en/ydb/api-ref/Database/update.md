@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/update.md
 ---
 
-# Managed Service for YDB API, REST: Database.Update {#Update}
+# Managed Service for YDB API, REST: Database.Update
 
 Modifies the specified database.
 

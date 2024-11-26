@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.Move {#Move}
+# Managed Service for MySQL API, REST: Cluster.Move
 
 Moves a cluster to a folder.
 

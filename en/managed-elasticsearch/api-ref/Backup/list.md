@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Backup/list.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Backup.List {#List}
+# Managed Service for Elasticsearch API, REST: Backup.List
 
 Returns the list of available backups for the specified Elasticsearch cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Operation/cancel.md
 ---
 
-# Data Transfer API, REST: Operation.Cancel {#Cancel}
+# Data Transfer API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

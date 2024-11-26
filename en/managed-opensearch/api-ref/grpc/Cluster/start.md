@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/start.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.Start {#Start}
+# Managed Service for OpenSearch API, gRPC: ClusterService.Start
 
 Starts the specified OpenSearch cluster.
 
@@ -15,13 +15,13 @@ Starts the specified OpenSearch cluster.
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to start.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
@@ -33,19 +33,19 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -63,107 +63,107 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-
         "plugins": [
           "string"
         ],
-        "nodeGroups": [
+        "node_groups": [
           {
             "name": "string",
             "resources": {
-              "resourcePresetId": "string",
-              "diskSize": "int64",
-              "diskTypeId": "string"
+              "resource_preset_id": "string",
+              "disk_size": "int64",
+              "disk_type_id": "string"
             },
-            "hostsCount": "int64",
-            "zoneIds": [
+            "hosts_count": "int64",
+            "zone_ids": [
               "string"
             ],
-            "subnetIds": [
+            "subnet_ids": [
               "string"
             ],
-            "assignPublicIp": "bool",
+            "assign_public_ip": "bool",
             "roles": [
               "GroupRole"
             ],
-            "diskSizeAutoscaling": {
-              "plannedUsageThreshold": "int64",
-              "emergencyUsageThreshold": "int64",
-              "diskSizeLimit": "int64"
+            "disk_size_autoscaling": {
+              "planned_usage_threshold": "int64",
+              "emergency_usage_threshold": "int64",
+              "disk_size_limit": "int64"
             }
           }
         ],
-        // Includes only one of the fields `opensearchConfigSet_2`
-        "opensearchConfigSet_2": {
-          "effectiveConfig": {
-            "maxClauseCount": "google.protobuf.Int64Value",
-            "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+        // Includes only one of the fields `opensearch_config_set_2`
+        "opensearch_config_set_2": {
+          "effective_config": {
+            "max_clause_count": "google.protobuf.Int64Value",
+            "fielddata_cache_size": "string",
+            "reindex_remote_whitelist": "string"
           },
-          "userConfig": {
-            "maxClauseCount": "google.protobuf.Int64Value",
-            "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+          "user_config": {
+            "max_clause_count": "google.protobuf.Int64Value",
+            "fielddata_cache_size": "string",
+            "reindex_remote_whitelist": "string"
           },
-          "defaultConfig": {
-            "maxClauseCount": "google.protobuf.Int64Value",
-            "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+          "default_config": {
+            "max_clause_count": "google.protobuf.Int64Value",
+            "fielddata_cache_size": "string",
+            "reindex_remote_whitelist": "string"
           }
         },
         // end of the list of possible fields
-        "keystoreSettings": [
+        "keystore_settings": [
           "string"
         ]
       },
       "dashboards": {
-        "nodeGroups": [
+        "node_groups": [
           {
             "name": "string",
             "resources": {
-              "resourcePresetId": "string",
-              "diskSize": "int64",
-              "diskTypeId": "string"
+              "resource_preset_id": "string",
+              "disk_size": "int64",
+              "disk_type_id": "string"
             },
-            "hostsCount": "int64",
-            "zoneIds": [
+            "hosts_count": "int64",
+            "zone_ids": [
               "string"
             ],
-            "subnetIds": [
+            "subnet_ids": [
               "string"
             ],
-            "assignPublicIp": "bool",
-            "diskSizeAutoscaling": {
-              "plannedUsageThreshold": "int64",
-              "emergencyUsageThreshold": "int64",
-              "diskSizeLimit": "int64"
+            "assign_public_ip": "bool",
+            "disk_size_autoscaling": {
+              "planned_usage_threshold": "int64",
+              "emergency_usage_threshold": "int64",
+              "disk_size_limit": "int64"
             }
           }
         ]
       },
       "access": {
-        "dataTransfer": "bool",
+        "data_transfer": "bool",
         "serverless": "bool"
       }
     },
-    "networkId": "string",
+    "network_id": "string",
     "health": "Health",
     "status": "Status",
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ],
-    "serviceAccountId": "string",
-    "deletionProtection": "bool",
-    "maintenanceWindow": {
-      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "service_account_id": "string",
+    "deletion_protection": "bool",
+    "maintenance_window": {
+      // Includes only one of the fields `anytime`, `weekly_maintenance_window`
       "anytime": "AnytimeMaintenanceWindow",
-      "weeklyMaintenanceWindow": {
+      "weekly_maintenance_window": {
         "day": "WeekDay",
         "hour": "int64"
       }
       // end of the list of possible fields
     },
-    "plannedOperation": {
+    "planned_operation": {
       "info": "string",
-      "delayedUntil": "google.protobuf.Timestamp",
-      "latestMaintenanceTime": "google.protobuf.Timestamp",
-      "nextMaintenanceWindowTime": "google.protobuf.Timestamp"
+      "delayed_until": "google.protobuf.Timestamp",
+      "latest_maintenance_time": "google.protobuf.Timestamp",
+      "next_maintenance_window_time": "google.protobuf.Timestamp"
     }
   }
   // end of the list of possible fields
@@ -180,13 +180,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -229,7 +229,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the OpenSearch cluster being started. ||
 |#
@@ -244,10 +244,10 @@ An OpenSearch cluster resource.
 
 ID of the OpenSearch cluster.
 This ID is assigned by the platform at the moment of cluster creation. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the OpenSearch cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the cluster was created. ||
 || name | **string**
@@ -276,7 +276,7 @@ Description of monitoring systems relevant to the OpenSearch cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.opensearch.v1.ClusterConfig)**
 
 Configuration of the OpenSearch cluster. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the cloud network that the cluster belongs to. ||
 || health | enum **Health**
@@ -299,21 +299,21 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster has stopped.
 - `STARTING`: Cluster is starting. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account used to access Object Storage. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Determines whether the cluster is protected from being deleted. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
 
 Cluster maintenance window. Should be defined by either one of the two options. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
-Maintenance operation planned at nearest `maintenanceWindow`. ||
+Maintenance operation planned at nearest `maintenance_window`. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}
@@ -362,13 +362,13 @@ The OpenSearch host group type configuration.
 || plugins[] | **string**
 
 Names of the cluster plugins. ||
-|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearch.NodeGroup)**
+|| node_groups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearch.NodeGroup)**
 
 Host groups of the OpenSearch type. ||
-|| opensearchConfigSet_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+|| opensearch_config_set_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
 
-Includes only one of the fields `opensearchConfigSet_2`. ||
-|| keystoreSettings[] | **string**
+Includes only one of the fields `opensearch_config_set_2`. ||
+|| keystore_settings[] | **string**
 
 Keystore entries names. ||
 |#
@@ -385,16 +385,16 @@ Name of the group. Must be 1-63 characters long. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the group. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of the availability zones the hosts belong to. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of the subnets that the hosts belong to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
 || roles[] | enum **GroupRole**
@@ -404,7 +404,7 @@ Roles of the host group.
 - `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -415,13 +415,13 @@ A list of computational resources allocated to a host.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
@@ -430,13 +430,13 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **int64**
+|| planned_usage_threshold | **int64**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **int64**
+|| emergency_usage_threshold | **int64**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **int64**
+|| disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -445,24 +445,24 @@ Limit on how large the storage for database instances can automatically grow, in
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+|| effective_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
 
 Required field.  ||
-|| userConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
-|| defaultConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
+|| user_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
+|| default_config | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 |#
 
 ## OpenSearchConfig2 {#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2}
 
 #|
 ||Field | Description ||
-|| maxClauseCount | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 the maximum number of allowed boolean clauses in a query ||
-|| fielddataCacheSize | **string**
+|| fielddata_cache_size | **string**
 
 the percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata ||
-|| reindexRemoteWhitelist | **string** ||
+|| reindex_remote_whitelist | **string** ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}
@@ -471,7 +471,7 @@ The Dashboards host group type configuration.
 
 #|
 ||Field | Description ||
-|| nodeGroups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.Dashboards.NodeGroup)**
+|| node_groups[] | **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.Dashboards.NodeGroup)**
 
 Host groups of the Dashboards type. ||
 |#
@@ -486,19 +486,19 @@ Name of the group. 1-63 characters long. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the group. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of the availability zones the hosts belong to. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of the subnets that the hosts belong to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -509,7 +509,7 @@ Access policy for external services.
 
 #|
 ||Field | Description ||
-|| dataTransfer | **bool**
+|| data_transfer | **bool**
 
 Determines whether the access to Data Transfer is allowed. ||
 || serverless | **bool**
@@ -527,12 +527,12 @@ An OpenSearch cluster maintenance window. Should be defined by either one of the
 
 An any-time maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**
 
 A weekly maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
 
 ## AnytimeMaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.AnytimeMaintenanceWindow}
@@ -574,13 +574,13 @@ Hour of the day in the UTC timezone. ||
 || info | **string**
 
 The description of the operation. ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Delay time for the maintenance operation. ||
-|| latestMaintenanceTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last maintenance window. ||
-|| nextMaintenanceWindowTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the next maintenance window. ||
 |#

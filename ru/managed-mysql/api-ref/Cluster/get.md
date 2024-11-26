@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.Get {#Get}
+# Managed Service for MySQL API, REST: Cluster.Get
 
 Retrieves information about a cluster.
 

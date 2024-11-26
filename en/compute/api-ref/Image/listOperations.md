@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/listOperations.md
 ---
 
-# Compute Cloud API, REST: Image.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Image.ListOperations
 
 Lists operations for the specified image.
 

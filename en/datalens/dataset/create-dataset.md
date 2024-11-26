@@ -2,14 +2,14 @@
 
 In this section, you will learn how to work with a dataset:
 
-* [{#T}](#create)
-* [{#T}](#add-data)
-* [{#T}](#links)
-* [{#T}](#create-fields)
-* [{#T}](#setup-fields)
-* [{#T}](#add-parameters)
-* [{#T}](#add-filters)
-* [{#T}](#access)
+* [Creating a dataset](#create)
+* [Adding data](#add-data)
+* [Configuring links](#links)
+* [Creating fields](#create-fields)
+* [Configuring fields](#setup-fields)
+* [Adding parameters](#add-parameters)
+* [Adding filters](#add-filters)
+* [Configuring access](#access)
 
 ## Creating a dataset {#create}
 

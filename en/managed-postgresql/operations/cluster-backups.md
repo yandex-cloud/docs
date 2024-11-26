@@ -192,7 +192,7 @@ When restored to the current state, the new cluster will match the state of:
 
        {% note info %}
 
-       If you omit the `time` parameter, the cluster will be restored to the backup completion time.
+       If you omit the `time` parameter, the cluster will be restored to the time when the backup was completed.
 
        {% endnote %}
 
@@ -301,7 +301,7 @@ When restored to the current state, the new cluster will match the state of:
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -426,7 +426,7 @@ When restored to the current state, the new cluster will match the state of:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -511,7 +511,7 @@ When restored to the current state, the new cluster will match the state of:
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-     1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure the request was successful.
+     1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
   1. To get a list of backups for all the clusters in a folder:
 
@@ -528,7 +528,7 @@ When restored to the current state, the new cluster will match the state of:
         You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-     1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
+     1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -630,7 +630,7 @@ When restored to the current state, the new cluster will match the state of:
 
      You can get the backup ID together with a [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.postgresql.v1.Backup) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -781,7 +781,7 @@ When restored to the current state, the new cluster will match the state of:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -875,7 +875,7 @@ When restored to the current state, the new cluster will match the state of:
 
         For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-    1. Add a `backup_retain_period_days` block in the `config` section to the {{ mpg-name }} cluster description.
+    1. Add a `backup_retain_period_days` block in the `config` section to the {{ mpg-name }} cluster description:
 
         ```hcl
           resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -939,7 +939,7 @@ When restored to the current state, the new cluster will match the state of:
 
        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 
 - gRPC API {#grpc-api}
@@ -1046,7 +1046,7 @@ You can only delete backups that were created manually.
 
      You can get the backup ID together with a [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

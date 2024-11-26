@@ -67,13 +67,13 @@ To set up {{ oslogin }} access to an existing VM:
 
 1. [Enable](../vm-control/vm-update.md#enable-oslogin-access) access via {{ oslogin }} on the VM.
 
-You can now connect to the VM via {{ oslogin }} using either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client). For connection, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the {{ oslogin }} profile of a {{ org-full-name }} user or service account.
+You can now connect to the VM via {{ oslogin }} using either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client). To connect, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to organization user or service account profile in {{ org-full-name }}.
 
 ## Enabling access via {{ oslogin }} {#disable-os-login}
 
 To enable access without {{ oslogin }}, the VM must contain the public part of the SSH key. If the VM was [created](../../../compute/operations/vm-create/create-linux-vm.md) without an SSH key or the key was lost, [add](../../../compute/operations/vm-connect/recovery-access.md#ssh-recovery) the key and user manually before disabling {{ oslogin }} access.
 
-To get back the ability to [connect](ssh.md) to the VM over SSH without using {{ oslogin }}:
+To be able to [connect](ssh.md) to the VM over SSH without using {{ oslogin }}:
 
 1. Disable access via {{ oslogin }}.
 

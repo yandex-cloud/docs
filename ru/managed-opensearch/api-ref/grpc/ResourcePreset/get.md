@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ResourcePresetService.Get {#Get}
+# Managed Service for OpenSearch API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
 
@@ -17,13 +17,13 @@ To get the list of available resource presets, make a [List](/docs/managed-opens
 
 ```json
 {
-  "resourcePresetId": "string"
+  "resource_preset_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
 
@@ -35,7 +35,7 @@ To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-
 ```json
 {
   "id": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ],
   "cores": "int64",
@@ -50,7 +50,7 @@ A preset of resources for hardware configuration of the OpenSearch hosts.
 || id | **string**
 
 ID of the resource preset. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of the availability zones where the resource preset is available. ||
 || cores | **int64**

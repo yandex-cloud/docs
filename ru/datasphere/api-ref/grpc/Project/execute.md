@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/execute.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.Execute {#Execute}
+# DataSphere API v2, gRPC: ProjectService.Execute
 
 Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
 
@@ -15,48 +15,48 @@ Executes code of the specified notebook using configuration defined in the proje
 
 ```json
 {
-  "projectId": "string",
-  // Includes only one of the fields `notebookId`, `cellId`
-  "notebookId": "string",
-  "cellId": "string",
+  "project_id": "string",
+  // Includes only one of the fields `notebook_id`, `cell_id`
+  "notebook_id": "string",
+  "cell_id": "string",
   // end of the list of possible fields
-  "inputVariables": "google.protobuf.Struct",
-  "outputVariableNames": [
+  "input_variables": "google.protobuf.Struct",
+  "output_variable_names": [
     "string"
   ],
   "spec": "string",
-  "sparkConnectorId": "string"
+  "spark_connector_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the project to execute notebook/cell in. ||
-|| notebookId | **string**
+|| notebook_id | **string**
 
 The path to the executable notebook in the project storage. The maximum string length is 200 characters.
 
 To get the path, right-click on the notebook in JupyterLab and select `Copy path`.
 
-Includes only one of the fields `notebookId`, `cellId`. ||
-|| cellId | **string**
+Includes only one of the fields `notebook_id`, `cell_id`. ||
+|| cell_id | **string**
 
 ID of the cell to execute.
 Deprecated
 
-Includes only one of the fields `notebookId`, `cellId`. ||
-|| inputVariables | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+Includes only one of the fields `notebook_id`, `cell_id`. ||
+|| input_variables | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Values of input variables. Input variables will be available in the project as environment variables. ||
-|| outputVariableNames[] | **string**
+|| output_variable_names[] | **string**
 
 Names of output variables. ||
 || spec | **string**
 
 Specification of the VM ||
-|| sparkConnectorId | **string**
+|| spark_connector_id | **string**
 
 ID of the Spark Connector ||
 |#
@@ -67,21 +67,21 @@ ID of the Spark Connector ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "projectId": "string",
-    // Includes only one of the fields `notebookId`, `cellId`
-    "notebookId": "string",
-    "cellId": "string"
+    "project_id": "string",
+    // Includes only one of the fields `notebook_id`, `cell_id`
+    "notebook_id": "string",
+    "cell_id": "string"
     // end of the list of possible fields
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "executionStatus": "ExecutionStatus"
+    "execution_status": "ExecutionStatus"
   }
   // end of the list of possible fields
 }
@@ -97,13 +97,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -146,26 +146,26 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project in which notebook is being executed. ||
-|| notebookId | **string**
+|| notebook_id | **string**
 
 ID of the notebook that is being executed
 
-Includes only one of the fields `notebookId`, `cellId`. ||
-|| cellId | **string**
+Includes only one of the fields `notebook_id`, `cell_id`. ||
+|| cell_id | **string**
 
 ID of the cell that is being executed
 
-Includes only one of the fields `notebookId`, `cellId`. ||
+Includes only one of the fields `notebook_id`, `cell_id`. ||
 |#
 
 ## ProjectExecutionResponse {#yandex.cloud.datasphere.v2.ProjectExecutionResponse}
 
 #|
 ||Field | Description ||
-|| executionStatus | enum **ExecutionStatus**
+|| execution_status | enum **ExecutionStatus**
 
 Execution final status.
 

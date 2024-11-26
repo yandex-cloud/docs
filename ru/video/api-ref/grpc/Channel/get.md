@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/get.md
 ---
 
-# Video API, gRPC: ChannelService.Get {#Get}
+# Video API, gRPC: ChannelService.Get
 
 Returns the specific channel.
 
@@ -15,15 +15,15 @@ Returns the specific channel.
 
 ```json
 {
-  "channelId": "string"
+  "channel_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 |#
 
 ## Channel {#yandex.cloud.video.v1.Channel}
@@ -31,11 +31,11 @@ ID of the channel. ||
 ```json
 {
   "id": "string",
-  "organizationId": "string",
+  "organization_id": "string",
   "title": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "updatedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "updated_at": "google.protobuf.Timestamp",
   "labels": "string"
 }
 ```
@@ -47,7 +47,7 @@ Root entity for content separation.
 || id | **string**
 
 ID of the channel. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization where channel should be created. ||
 || title | **string**
@@ -56,10 +56,10 @@ Channel title. ||
 || description | **string**
 
 Channel description. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when channel was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last channel update. ||
 || labels | **string**

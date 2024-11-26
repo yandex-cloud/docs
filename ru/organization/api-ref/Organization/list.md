@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/list.md
 ---
 
-# Cloud Organization API, REST: Organization.List {#List}
+# Cloud Organization API, REST: Organization.List
 
 Retrieves the list of Organization resources.
 

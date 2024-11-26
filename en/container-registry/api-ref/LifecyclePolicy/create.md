@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/create.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Create {#Create}
+# Container Registry API, REST: LifecyclePolicy.Create
 
 Creates a lifecycle policy in the specified repository.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceAccount/list.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceAccountService.List {#List}
+# Identity and Access Management API, gRPC: ServiceAccountService.List
 
 Retrieves the list of ServiceAccount resources in the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of ServiceAccount resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list service accounts in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListServiceAccountsResponse.nextPageToken](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
+results is larger than `page_size`,
+the service returns a [ListServiceAccountsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100 ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListServiceAccountsResponse.nextPageToken](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
+Page token. To get the next page of results, set `page_token`
+to the [ListServiceAccountsResponse.next_page_token](#yandex.cloud.iam.v1.ListServiceAccountsResponse)
 returned by a previous list request. ||
 || filter | **string**
 
@@ -53,34 +53,34 @@ The expression must specify:
 
 ```json
 {
-  "serviceAccounts": [
+  "service_accounts": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "lastAuthenticatedAt": "google.protobuf.Timestamp"
+      "last_authenticated_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccounts[] | **[ServiceAccount](#yandex.cloud.iam.v1.ServiceAccount)**
+|| service_accounts[] | **[ServiceAccount](#yandex.cloud.iam.v1.ServiceAccount)**
 
 List of ServiceAccount resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListServiceAccountsRequest.pageSize](#yandex.cloud.iam.v1.ListServiceAccountsRequest), use
-the `nextPageToken` as the value
-for the [ListServiceAccountsRequest.pageToken](#yandex.cloud.iam.v1.ListServiceAccountsRequest) query parameter
+is larger than [ListServiceAccountsRequest.page_size](#yandex.cloud.iam.v1.ListServiceAccountsRequest), use
+the `next_page_token` as the value
+for the [ListServiceAccountsRequest.page_token](#yandex.cloud.iam.v1.ListServiceAccountsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## ServiceAccount {#yandex.cloud.iam.v1.ServiceAccount}
@@ -92,10 +92,10 @@ A ServiceAccount resource. For more information, see [Service accounts](/docs/ia
 || id | **string**
 
 ID of the service account. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the service account belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -108,7 +108,7 @@ Description of the service account. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| lastAuthenticatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication of this service account. ||
 |#

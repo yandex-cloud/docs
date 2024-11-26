@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/llm/v1alpha/api-ref/v1alpha/grpc/Tokenizer/tokenize.md
 ---
 
-# YandexGPT API, gRPC: TokenizerService.Tokenize {#Tokenize}
+# YandexGPT API, gRPC: TokenizerService.Tokenize
 
 RPC method for tokenizing input text.
 

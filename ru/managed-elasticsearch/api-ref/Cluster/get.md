@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Get {#Get}
+# Managed Service for Elasticsearch API, REST: Cluster.Get
 
 Returns the specified Elasticsearch cluster.
 

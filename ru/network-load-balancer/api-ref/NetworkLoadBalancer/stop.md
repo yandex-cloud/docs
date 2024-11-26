@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/stop.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Stop {#Stop}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Stop
 
 Stops load balancing and health checking with the specified network load balancer.
 Changes load balancer status to `` STOPPED ``.

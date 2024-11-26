@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/get.md
 ---
 
-# Managed Service for Elasticsearch API, REST: User.Get {#Get}
+# Managed Service for Elasticsearch API, REST: User.Get
 
 Returns the specified Elasticsearch user.
 

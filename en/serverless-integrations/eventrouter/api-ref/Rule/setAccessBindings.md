@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/setAccessBindings.md
 ---
 
-# EventRouter Service, REST: Rule.SetAccessBindings {#SetAccessBindings}
+# EventRouter Service, REST: Rule.SetAccessBindings
 
 Sets access bindings for the rule.
 

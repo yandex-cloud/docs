@@ -1,10 +1,10 @@
 Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-* Select **Access via OS Login** to [connect](../../../compute/operations/vm-connect/os-login.md) and manage access to the new VM using [OS Login](../../../organization/concepts/os-login.md) in {{ org-full-name }}.
+* Select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** to [connect](../../../compute/operations/vm-connect/os-login.md) and manage access to the new VM using [{{ oslogin }}](../../../organization/concepts/os-login.md) in {{ org-full-name }}.
 
-    With OS Login, you can connect to VMs using SSH keys and SSH certificates via a standard SSH client or the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md). OS Login allows you to rotate the SSH keys used to access the VM, providing the most [secure](../../../security/domains/iaas-checklist.md#vm-security) access option.
+    With {{ oslogin }}, you can connect to VMs using SSH keys and SSH certificates via a standard SSH client or the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md). {{ oslogin }} allows you to rotate the SSH keys used to access VMs, providing the most [secure](../../../security/domains/iaas-checklist.md#vm-security) access option.
 
-* If you prefer not to use OS Login, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the following info for VM access:
+* If you prefer not to use {{ oslogin }}, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the following info for VM access:
 
     * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/delete.md
 ---
 
-# Cloud Logging Service, REST: Export.Delete {#Delete}
+# Cloud Logging Service, REST: Export.Delete
 
 Deletes the specified export.
 

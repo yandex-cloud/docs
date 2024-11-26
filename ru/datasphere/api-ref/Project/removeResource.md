@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/removeResource.md
 ---
 
-# DataSphere API v2, REST: Project.RemoveResource {#RemoveResource}
+# DataSphere API v2, REST: Project.RemoveResource
 
 Removes shared resource from project
 

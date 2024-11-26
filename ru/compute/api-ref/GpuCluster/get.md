@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/get.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Get {#Get}
+# Compute Cloud API, REST: GpuCluster.Get
 
 Returns the specified GPU cluster.
 

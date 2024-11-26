@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/Operation/cancel.md
 ---
 
-# Cloud DNS API, REST: Operation.Cancel {#Cancel}
+# Cloud DNS API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/list.md
 ---
 
-# Managed Service for PostgreSQL API, REST: User.List {#List}
+# Managed Service for PostgreSQL API, REST: User.List
 
 Retrieves the list of PostgreSQL User resources in the specified cluster.
 

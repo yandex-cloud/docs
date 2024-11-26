@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/update.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.Update {#Update}
+# Application Load Balancer API, REST: VirtualHost.Update
 
 Updates the specified virtual host of the specified HTTP router.
 

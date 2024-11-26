@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopImage/get.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopImageService.Get {#Get}
+# Cloud Desktop API, gRPC: DesktopImageService.Get
 
 Returns the specified desktop image.
 
@@ -15,13 +15,13 @@ Returns the specified desktop image.
 
 ```json
 {
-  "imageId": "string"
+  "image_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 Required field. ID of the image to get. ||
 |#
@@ -31,13 +31,13 @@ Required field. ID of the image to get. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "status": "Status",
   "name": "string",
   "labels": "string",
-  "storageSize": "int64",
-  "minDiskSize": "int64"
+  "storage_size": "int64",
+  "min_disk_size": "int64"
 }
 ```
 
@@ -48,10 +48,10 @@ A desktop image resource.
 || id | **string**
 
 ID of the image. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -68,10 +68,10 @@ Name of the image. ||
 || labels | **string**
 
 Description of the image. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 Size of the image, specified in bytes. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum disk size in bytes required to use the image. ||
 |#

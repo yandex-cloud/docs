@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/update.md
 ---
 
-# Compute Cloud API, REST: Filesystem.Update {#Update}
+# Compute Cloud API, REST: Filesystem.Update
 
 Updates the specified filesystem.
 

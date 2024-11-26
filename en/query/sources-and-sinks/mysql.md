@@ -69,7 +69,7 @@ Where:
 There are several limitations when working with {{ MY }} clusters.
 
 * {% include [!](_includes/supported_requests.md) %}
-* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/addHosts.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.AddHosts {#AddHosts}
+# Managed Service for MySQL API, REST: Cluster.AddHosts
 
 Adds new hosts in a cluster.
 

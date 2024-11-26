@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/getRestrictions.md
 ---
 
-# DataSphere API v2, REST: Community.GetRestrictions {#GetRestrictions}
+# DataSphere API v2, REST: Community.GetRestrictions
 
 Get current community restrictions.
 

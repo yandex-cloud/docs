@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/list.md
 ---
 
-# IoT Core Service, REST: Registry.List {#List}
+# IoT Core Service, REST: Registry.List
 
 Retrieves the list of registries in the specified folder.
 

@@ -18,7 +18,7 @@ To create a [VM](../../concepts/vm.md):
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-  1. (Optional) Configure the boot [disk](../../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section:
+  1. (Optional) Configure the boot [disk](../../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** section:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.

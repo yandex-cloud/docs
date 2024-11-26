@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/startRecovery.md
 ---
 
-# Cloud Backup API, REST: Backup.StartRecovery {#StartRecovery}
+# Cloud Backup API, REST: Backup.StartRecovery
 
 Start recovery process of specified backup to specific Compute Cloud instance.
 

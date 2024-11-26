@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Operation/get.md
 ---
 
-# Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Get {#Get}
+# Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Get
 
 Returns the specified Operation resource.
 

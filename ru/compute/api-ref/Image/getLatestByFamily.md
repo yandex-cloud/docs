@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/getLatestByFamily.md
 ---
 
-# Compute Cloud API, REST: Image.GetLatestByFamily {#GetLatestByFamily}
+# Compute Cloud API, REST: Image.GetLatestByFamily
 
 Returns the latest image that is part of an image family.
 

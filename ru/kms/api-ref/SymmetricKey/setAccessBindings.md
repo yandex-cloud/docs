@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/setAccessBindings.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.SetAccessBindings {#SetAccessBindings}
+# Key Management Service API, REST: SymmetricKey.SetAccessBindings
 
 Sets access bindings for the key.
 

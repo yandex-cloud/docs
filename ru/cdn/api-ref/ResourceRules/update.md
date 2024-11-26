@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/update.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Update {#Update}
+# Cloud CDN API, REST: ResourceRules.Update
 
 Update specified by id resource rule.
 

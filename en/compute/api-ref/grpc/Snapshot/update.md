@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Snapshot/update.md
 ---
 
-# Compute Cloud API, gRPC: SnapshotService.Update {#Update}
+# Compute Cloud API, gRPC: SnapshotService.Update
 
 Updates the specified snapshot.
 
@@ -17,8 +17,8 @@ Values of omitted parameters are not changed.
 
 ```json
 {
-  "snapshotId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "snapshot_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string"
@@ -27,11 +27,11 @@ Values of omitted parameters are not changed.
 
 #|
 ||Field | Description ||
-|| snapshotId | **string**
+|| snapshot_id | **string**
 
 Required field. ID of the Snapshot resource to update.
 To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/grpc/Snapshot/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Snapshot resource are going to be updated. ||
 || name | **string**
@@ -53,40 +53,40 @@ Existing set of `labels` is completely replaced by the provided set. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "snapshotId": "string"
+    "snapshot_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "storageSize": "int64",
-    "diskSize": "int64",
-    "productIds": [
+    "storage_size": "int64",
+    "disk_size": "int64",
+    "product_ids": [
       "string"
     ],
     "status": "Status",
-    "sourceDiskId": "string",
-    "hardwareGeneration": {
-      // Includes only one of the fields `legacyFeatures`, `generation2Features`
-      "legacyFeatures": {
-        "pciTopology": "PCITopology"
+    "source_disk_id": "string",
+    "hardware_generation": {
+      // Includes only one of the fields `legacy_features`, `generation2_features`
+      "legacy_features": {
+        "pci_topology": "PCITopology"
       },
-      "generation2Features": "Generation2HardwareFeatures"
+      "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
     },
-    "kmsKey": {
-      "keyId": "string",
-      "versionId": "string"
+    "kms_key": {
+      "key_id": "string",
+      "version_id": "string"
     }
   }
   // end of the list of possible fields
@@ -103,13 +103,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -152,7 +152,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| snapshotId | **string**
+|| snapshot_id | **string**
 
 ID of the Snapshot resource that is being updated. ||
 |#
@@ -166,10 +166,10 @@ A Snapshot resource. For more information, see [Snapshots](/docs/compute/concept
 || id | **string**
 
 ID of the snapshot. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the snapshot belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the snapshot. 1-63 characters long. ||
@@ -179,13 +179,13 @@ Description of the snapshot. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 Size of the snapshot, specified in bytes. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Size of the disk when the snapshot was created, specified in bytes. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -204,14 +204,14 @@ Current status of the snapshot.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
 - `DELETING`: Snapshot is being deleted. ||
-|| sourceDiskId | **string**
+|| source_disk_id | **string**
 
 ID of the source disk used to create this snapshot. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
 
 Key encryption key info. ||
 |#
@@ -225,12 +225,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -240,7 +240,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
@@ -261,10 +261,10 @@ and UEFI boot (with UEFI related features).
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of KMS symmetric key ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of KMS symmetric key ||
 |#

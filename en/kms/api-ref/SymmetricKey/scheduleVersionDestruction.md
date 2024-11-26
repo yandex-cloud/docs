@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/scheduleVersionDestruction.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.ScheduleVersionDestruction {#ScheduleVersionDestruction}
+# Key Management Service API, REST: SymmetricKey.ScheduleVersionDestruction
 
 Schedules the specified key version for destruction.
 

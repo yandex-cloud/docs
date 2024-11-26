@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/getRestrictionsMeta.md
 ---
 
-# DataSphere API v2, REST: Community.GetRestrictionsMeta {#GetRestrictionsMeta}
+# DataSphere API v2, REST: Community.GetRestrictionsMeta
 
 Get meta information about available restrictions.
 

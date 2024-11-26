@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/create.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.Create {#Create}
+# Application Load Balancer API, REST: TargetGroup.Create
 
 Creates a target group in the specified folder.
 

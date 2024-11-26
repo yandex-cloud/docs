@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/workload/oidc/workload-identity/api-ref/grpc/Federation/create.md
 ---
 
-# Federation, gRPC: FederationService.Create {#Create}
+# Federation, gRPC: FederationService.Create
 
 Creates an OIDC workload identity federation in the specified folder.
 
@@ -15,7 +15,7 @@ Creates an OIDC workload identity federation in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "disabled": "bool",
@@ -23,14 +23,14 @@ Creates an OIDC workload identity federation in the specified folder.
     "string"
   ],
   "issuer": "string",
-  "jwksUrl": "string",
+  "jwks_url": "string",
   "labels": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create an OIDC workload identity federation in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
@@ -51,7 +51,7 @@ List of trusted values for aud claim. ||
 || issuer | **string**
 
 Required field. URL of the external IdP server to be used for authentication. ||
-|| jwksUrl | **string**
+|| jwks_url | **string**
 
 Required field. URL reference to trusted keys in format of JSON Web Key Set. ||
 || labels | **string**
@@ -65,28 +65,28 @@ Resource labels as `` key:value `` pairs ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federationId": "string"
+    "federation_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "description": "string",
     "enabled": "bool",
     "audiences": [
       "string"
     ],
     "issuer": "string",
-    "jwksUrl": "string",
+    "jwks_url": "string",
     "labels": "string",
-    "createdAt": "google.protobuf.Timestamp"
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -102,13 +102,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -151,7 +151,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 ID of the OIDC workload identity federation that is being created. ||
 |#
@@ -169,7 +169,7 @@ Id of the OIDC workload identity federation. ||
 
 Name of the OIDC workload identity federation
 The name is unique within the folder. 3-63 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the OIDC workload identity federation belongs to. ||
 || description | **string**
@@ -185,13 +185,13 @@ List of trusted values for aud claim. ||
 || issuer | **string**
 
 URL of the external IdP server to be used for authentication. ||
-|| jwksUrl | **string**
+|| jwks_url | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

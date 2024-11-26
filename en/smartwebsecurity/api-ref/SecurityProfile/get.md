@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/get.md
 ---
 
-# SmartWebSecurity API, REST: SecurityProfile.Get {#Get}
+# SmartWebSecurity API, REST: SecurityProfile.Get
 
 Returns the specified SecurityProfile resource.
 

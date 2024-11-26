@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/updateAccessBindings.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.UpdateAccessBindings {#UpdateAccessBindings}
+# Key Management Service API, REST: SymmetricKey.UpdateAccessBindings
 
 Updates access bindings for the specified key.
 

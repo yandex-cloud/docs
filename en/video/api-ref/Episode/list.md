@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/list.md
 ---
 
-# Video API, REST: Episode.List {#List}
+# Video API, REST: Episode.List
 
 List episodes for stream or line.
 
@@ -68,9 +68,10 @@ Both snake_case and camelCase are supported for fields. ||
       "finishTime": "string",
       "dvrSeconds": "string",
       "visibilityStatus": "string",
-      // Includes only one of the fields `publicAccess`, `authSystemAccess`
+      // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
       "publicAccess": "object",
       "authSystemAccess": "object",
+      "signUrlAccess": "object",
       // end of the list of possible fields
       "createdAt": "string",
       "updatedAt": "string"
@@ -148,14 +149,21 @@ possible values:
 
 Episode is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Episode access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || createdAt | **string** (date-time)

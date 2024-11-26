@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/updateAccessBindings.md
 ---
 
-# DataSphere API v2, REST: Community.UpdateAccessBindings {#UpdateAccessBindings}
+# DataSphere API v2, REST: Community.UpdateAccessBindings
 
 Updates access bindings for specified community.
 

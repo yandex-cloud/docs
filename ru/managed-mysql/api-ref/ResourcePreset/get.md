@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for MySQL API, REST: ResourcePreset.Get {#Get}
+# Managed Service for MySQL API, REST: ResourcePreset.Get
 
 Retrieves information about a resource preset.
 

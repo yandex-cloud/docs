@@ -14,7 +14,7 @@ To connect to {{ yq-full-name }} from DBeaver, you will need a JDBC driver. {{ y
 
 Follow these steps to download the driver:
 1. Go to the [ydb-jdbc-driver repository](https://github.com/ydb-platform/ydb-jdbc-driver/releases).
-1. Select the latest release (tagged `Latest`) and save `ydb-jdbc-driver-shaded-<driver-version>.jar`.
+1. Select the latest release (tagged `Latest`) and save the `ydb-jdbc-driver-shaded-<driver-version>.jar` file.
 
 ### Connecting a JDBC driver to DBeaver {#dbeaver_yq}
 

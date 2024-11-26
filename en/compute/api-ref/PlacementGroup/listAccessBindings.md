@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/listAccessBindings.md
 ---
 
-# Compute Cloud API, REST: PlacementGroup.ListAccessBindings {#ListAccessBindings}
+# Compute Cloud API, REST: PlacementGroup.ListAccessBindings
 
 Lists access bindings for the placement group.
 

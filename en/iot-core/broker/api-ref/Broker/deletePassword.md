@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deletePassword.md
 ---
 
-# IoT Core Broker Service, REST: Broker.DeletePassword {#DeletePassword}
+# IoT Core Broker Service, REST: Broker.DeletePassword
 
 Deletes the specified password.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachDisk.md
 ---
 
-# Compute Cloud API, REST: Instance.AttachDisk {#AttachDisk}
+# Compute Cloud API, REST: Instance.AttachDisk
 
 Attaches the disk to the instance.
 

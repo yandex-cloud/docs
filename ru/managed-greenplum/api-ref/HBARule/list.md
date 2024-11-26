@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/list.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.List {#List}
+# Managed Service for Greenplum® API, REST: HBARule.List
 
 Retrieves a list of HBA rules for Greenplum clusters.
 

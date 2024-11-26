@@ -5,28 +5,28 @@ Pattern-based synthesis in {{ brand-voice-premium }} and {{ brand-voice-core }} 
 
 {% note warning %}
 
-Access to {{ brand-voice-premium }} and {{ brand-voice-core }} services is available on request. To get access to the technology, [fill out this form](#contact-form).
+Access to {{ brand-voice-premium }} and {{ brand-voice-core }} services is available on request. To access the technology, [fill out this form](#contact-form).
 
 {% endnote %}
 
 
 To synthesize a phrase based on a template:
 
-1. [{#T}](#prepare-template).
-1. [{#T}](#send-to-api).
+1. [Prepare an audio recording template](#prepare-template).
+1. [Send data to API v3](#send-to-api).
 
 ## Getting started {#before-you-begin}
 
 {% include [template-synthesis-before-you-begin](../../../_includes/speechkit/api-v3-template-synthesis-before.md) %}
 
-## Prepare an audio recording template {#prepare-template}
+## Prepare an audio template {#prepare-template}
 
 A template consists of a pattern phrase audio recording and its text with markup.
 
-Template parameter restrictions are as follows:
+Template parameter restrictions:
 
 * A phrase for synthesis cannot be longer than {{ tts-v3-time }} (the API limit), including the variable part. A phrase ideal for perception is under 16 seconds, as in a regular conversation.
-* Pattern length: not more than {{ tts-v3-count }} of normalized text.
+* Template length: not more than {{ tts-v3-count }} of normalized text.
 * The normalized text of the variable part must not exceed 25% of the template length. The same restriction applies to the duration of the variable part relative to the duration of the final audio.
 
 {% note warning %}
@@ -78,7 +78,7 @@ Create and run a client app to send your data to the API:
     1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code in it:
 
         ```bash
-        cd <path_to_cloudapi_directory> && \
+        cd <path_to_cloudapi_folder> && \
         mkdir output && \
         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/embedding/embeddings/api-ref/Embeddings/textEmbedding.md
 ---
 
-# Foundation Models Embedding API, REST: Embeddings.TextEmbedding {#TextEmbedding}
+# Foundation Models Embedding API, REST: Embeddings.TextEmbedding
 
 A method for obtaining embeddings from text data.
 

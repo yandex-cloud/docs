@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/update.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.Update {#Update}
+# Managed Service for ClickHouse API, REST: User.Update
 
 Updates the specified ClickHouse user.
 

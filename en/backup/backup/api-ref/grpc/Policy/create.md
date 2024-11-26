@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Policy/create.md
 ---
 
-# Cloud Backup API, gRPC: PolicyService.Create {#Create}
+# Cloud Backup API, gRPC: PolicyService.Create
 
 Create a new policy.
 
@@ -17,32 +17,32 @@ For detailed information, please see [Creating a backup policy](/docs/backup/ope
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "settings": {
     "compression": "Compression",
     "format": "Format",
-    "multiVolumeSnapshottingEnabled": "bool",
-    "preserveFileSecuritySettings": "bool",
+    "multi_volume_snapshotting_enabled": "bool",
+    "preserve_file_security_settings": "bool",
     "reattempts": {
       "enabled": "bool",
       "interval": {
         "type": "Type",
         "count": "int64"
       },
-      "maxAttempts": "int64"
+      "max_attempts": "int64"
     },
-    "silentModeEnabled": "bool",
+    "silent_mode_enabled": "bool",
     "splitting": {
       "size": "int64"
     },
-    "vmSnapshotReattempts": {
+    "vm_snapshot_reattempts": {
       "enabled": "bool",
       "interval": {
         "type": "Type",
         "count": "int64"
       },
-      "maxAttempts": "int64"
+      "max_attempts": "int64"
     },
     "vss": {
       "enabled": "bool",
@@ -51,62 +51,62 @@ For detailed information, please see [Creating a backup policy](/docs/backup/ope
     "archive": {
       "name": "string"
     },
-    "performanceWindow": {
+    "performance_window": {
       "enabled": "bool"
     },
     "retention": {
       "rules": [
         {
-          "backupSet": [
+          "backup_set": [
             "RepeatePeriod"
           ],
-          // Includes only one of the fields `maxAge`, `maxCount`
-          "maxAge": {
+          // Includes only one of the fields `max_age`, `max_count`
+          "max_age": {
             "type": "Type",
             "count": "int64"
           },
-          "maxCount": "int64"
+          "max_count": "int64"
           // end of the list of possible fields
         }
       ],
-      "beforeBackup": "bool"
+      "before_backup": "bool"
     },
     "scheduling": {
-      "backupSets": [
+      "backup_sets": [
         {
-          // Includes only one of the fields `time`, `sinceLastExecTime`
+          // Includes only one of the fields `time`, `since_last_exec_time`
           "time": {
             "weekdays": [
               "Day"
             ],
-            "repeatAt": [
+            "repeat_at": [
               {
                 "hour": "int64",
                 "minute": "int64"
               }
             ],
-            "repeatEvery": {
+            "repeat_every": {
               "type": "Type",
               "count": "int64"
             },
-            "timeFrom": {
+            "time_from": {
               "hour": "int64",
               "minute": "int64"
             },
-            "timeTo": {
+            "time_to": {
               "hour": "int64",
               "minute": "int64"
             },
             "monthdays": [
               "int64"
             ],
-            "includeLastDayOfMonth": "bool",
+            "include_last_day_of_month": "bool",
             "months": [
               "int64"
             ],
             "type": "RepeatePeriod"
           },
-          "sinceLastExecTime": {
+          "since_last_exec_time": {
             "delay": {
               "type": "Type",
               "count": "int64"
@@ -117,24 +117,24 @@ For detailed information, please see [Creating a backup policy](/docs/backup/ope
         }
       ],
       "enabled": "bool",
-      "maxParallelBackups": "int64",
-      "randMaxDelay": {
+      "max_parallel_backups": "int64",
+      "rand_max_delay": {
         "type": "Type",
         "count": "int64"
       },
       "scheme": "Scheme",
-      "weeklyBackupDay": "Day"
+      "weekly_backup_day": "Day"
     },
     "cbt": "ChangedBlockTracking",
-    "fastBackupEnabled": "bool",
-    "quiesceSnapshottingEnabled": "bool"
+    "fast_backup_enabled": "bool",
+    "quiesce_snapshotting_enabled": "bool"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. Folder ID. ||
 || name | **string**
@@ -170,22 +170,22 @@ Required field. Format of the Cyberprotect backup archive.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
 plan (policy) appends backups to the ones created by earlier product
 versions. ||
-|| multiVolumeSnapshottingEnabled | **bool**
+|| multi_volume_snapshotting_enabled | **bool**
 
 If true, snapshots of multiple volumes will be taken simultaneously. ||
-|| preserveFileSecuritySettings | **bool**
+|| preserve_file_security_settings | **bool**
 
 If true, the file security settings will be preserved. ||
 || reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
 
 Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
-|| silentModeEnabled | **bool**
+|| silent_mode_enabled | **bool**
 
 If true, a user interaction will be avoided when possible. Equals to false if value is not specified. ||
 || splitting | **[Splitting](#yandex.cloud.backup.v1.PolicySettings.Splitting)**
 
 Required field. Determines the size to split backups on. Splitting is not performed if value is not specified. ||
-|| vmSnapshotReattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+|| vm_snapshot_reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
 
 Required field. Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
 || vss | **[VolumeShadowCopyServiceSettings](#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings)**
@@ -194,7 +194,7 @@ Required field. Settings for the Volume Shadow Copy Service (VSS) provider. If n
 || archive | **[ArchiveProperties](#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties)**
 
 The archive properties. ||
-|| performanceWindow | **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow)**
+|| performance_window | **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow)**
 
 Required field. Time windows for performance limitations of backup and storage maintenance operations. ||
 || retention | **[Retention](#yandex.cloud.backup.v1.PolicySettings.Retention)**
@@ -211,10 +211,10 @@ Required field. A configuration of Changed Block Tracking (CBT).
 - `USE_IF_ENABLED`
 - `ENABLE_AND_USE`
 - `DO_NOT_USE` ||
-|| fastBackupEnabled | **bool**
+|| fast_backup_enabled | **bool**
 
 If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup. ||
-|| quiesceSnapshottingEnabled | **bool**
+|| quiesce_snapshotting_enabled | **bool**
 
 If true, a quiesced snapshot of the virtual machine will be taken. ||
 |#
@@ -229,7 +229,7 @@ If true, enables retry on errors. ||
 || interval | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
 Required field. An interval between retry attempts. ||
-|| maxAttempts | **int64**
+|| max_attempts | **int64**
 
 Max number of retry attempts. Operation will be considered as failed
 when max number of retry attempts is reached. ||
@@ -310,7 +310,7 @@ If true, the time windows will be enabled. ||
 || rules[] | **[RetentionRule](#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule)**
 
 A list of retention rules. ||
-|| beforeBackup | **bool**
+|| before_backup | **bool**
 
 If true, retention rules will be applied before backup is finished. ||
 |#
@@ -319,7 +319,7 @@ If true, retention rules will be applied before backup is finished. ||
 
 #|
 ||Field | Description ||
-|| backupSet[] | enum **RepeatePeriod**
+|| backup_set[] | enum **RepeatePeriod**
 
 A list of backup sets where rules are effective.
 
@@ -328,28 +328,28 @@ A list of backup sets where rules are effective.
 - `DAILY`
 - `WEEKLY`
 - `MONTHLY` ||
-|| maxAge | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+|| max_age | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
-Includes only one of the fields `maxAge`, `maxCount`. ||
-|| maxCount | **int64**
+Includes only one of the fields `max_age`, `max_count`. ||
+|| max_count | **int64**
 
-Includes only one of the fields `maxAge`, `maxCount`. ||
+Includes only one of the fields `max_age`, `max_count`. ||
 |#
 
 ## Scheduling {#yandex.cloud.backup.v1.PolicySettings.Scheduling}
 
 #|
 ||Field | Description ||
-|| backupSets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
+|| backup_sets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
 
 A list of schedules with backup sets that compose the whole scheme. ||
 || enabled | **bool**
 
 If true, the backup schedule will be enabled. ||
-|| maxParallelBackups | **int64**
+|| max_parallel_backups | **int64**
 
 Max number of backup processes allowed to run in parallel. Unlimited if not set. ||
-|| randMaxDelay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+|| rand_max_delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
 Required field. Configuration of the random delay between the execution of parallel tasks. ||
 || scheme | enum **Scheme**
@@ -365,7 +365,7 @@ Required field. A backup scheme. Available values: `simple`, `always_full`, `alw
 - `CUSTOM`: Custom will require to specify schedules for full, differential
 and incremental backups additionally.
 - `CDP` ||
-|| weeklyBackupDay | enum **Day**
+|| weekly_backup_day | enum **Day**
 
 Required field. A day of week to start weekly backups.
 
@@ -385,10 +385,10 @@ Required field. A day of week to start weekly backups.
 ||Field | Description ||
 || time | **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time)**
 
-Includes only one of the fields `time`, `sinceLastExecTime`. ||
-|| sinceLastExecTime | **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
+Includes only one of the fields `time`, `since_last_exec_time`. ||
+|| since_last_exec_time | **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime)**
 
-Includes only one of the fields `time`, `sinceLastExecTime`. ||
+Includes only one of the fields `time`, `since_last_exec_time`. ||
 || type | enum **Type**
 
 BackupSet type -- one of incr, full, differential or auto.
@@ -417,23 +417,23 @@ Days in a week to perform a backup.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
-|| repeatAt[] | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+|| repeat_at[] | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
 
 Time to repeat the backup. ||
-|| repeatEvery | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
+|| repeat_every | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
 Frequency of backup repetition. ||
-|| timeFrom | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+|| time_from | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
 
 The start time of the backup time interval. ||
-|| timeTo | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
+|| time_to | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay)**
 
 The end time of the backup time interval. ||
 || monthdays[] | **int64**
 
 Days in a month to perform a backup.
 Allowed values are from 1 to 31. ||
-|| includeLastDayOfMonth | **bool**
+|| include_last_day_of_month | **bool**
 
 If set to true, last day of month will activate
 the policy. ||
@@ -478,45 +478,45 @@ Required field. The interval between backups. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "policyId": "string"
+    "policy_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "enabled": "bool",
     "settings": {
       "compression": "Compression",
       "format": "Format",
-      "multiVolumeSnapshottingEnabled": "bool",
-      "preserveFileSecuritySettings": "bool",
+      "multi_volume_snapshotting_enabled": "bool",
+      "preserve_file_security_settings": "bool",
       "reattempts": {
         "enabled": "bool",
         "interval": {
           "type": "Type",
           "count": "int64"
         },
-        "maxAttempts": "int64"
+        "max_attempts": "int64"
       },
-      "silentModeEnabled": "bool",
+      "silent_mode_enabled": "bool",
       "splitting": {
         "size": "int64"
       },
-      "vmSnapshotReattempts": {
+      "vm_snapshot_reattempts": {
         "enabled": "bool",
         "interval": {
           "type": "Type",
           "count": "int64"
         },
-        "maxAttempts": "int64"
+        "max_attempts": "int64"
       },
       "vss": {
         "enabled": "bool",
@@ -525,62 +525,62 @@ Required field. The interval between backups. ||
       "archive": {
         "name": "string"
       },
-      "performanceWindow": {
+      "performance_window": {
         "enabled": "bool"
       },
       "retention": {
         "rules": [
           {
-            "backupSet": [
+            "backup_set": [
               "RepeatePeriod"
             ],
-            // Includes only one of the fields `maxAge`, `maxCount`
-            "maxAge": {
+            // Includes only one of the fields `max_age`, `max_count`
+            "max_age": {
               "type": "Type",
               "count": "int64"
             },
-            "maxCount": "int64"
+            "max_count": "int64"
             // end of the list of possible fields
           }
         ],
-        "beforeBackup": "bool"
+        "before_backup": "bool"
       },
       "scheduling": {
-        "backupSets": [
+        "backup_sets": [
           {
-            // Includes only one of the fields `time`, `sinceLastExecTime`
+            // Includes only one of the fields `time`, `since_last_exec_time`
             "time": {
               "weekdays": [
                 "Day"
               ],
-              "repeatAt": [
+              "repeat_at": [
                 {
                   "hour": "int64",
                   "minute": "int64"
                 }
               ],
-              "repeatEvery": {
+              "repeat_every": {
                 "type": "Type",
                 "count": "int64"
               },
-              "timeFrom": {
+              "time_from": {
                 "hour": "int64",
                 "minute": "int64"
               },
-              "timeTo": {
+              "time_to": {
                 "hour": "int64",
                 "minute": "int64"
               },
               "monthdays": [
                 "int64"
               ],
-              "includeLastDayOfMonth": "bool",
+              "include_last_day_of_month": "bool",
               "months": [
                 "int64"
               ],
               "type": "RepeatePeriod"
             },
-            "sinceLastExecTime": {
+            "since_last_exec_time": {
               "delay": {
                 "type": "Type",
                 "count": "int64"
@@ -591,19 +591,19 @@ Required field. The interval between backups. ||
           }
         ],
         "enabled": "bool",
-        "maxParallelBackups": "int64",
-        "randMaxDelay": {
+        "max_parallel_backups": "int64",
+        "rand_max_delay": {
           "type": "Type",
           "count": "int64"
         },
         "scheme": "Scheme",
-        "weeklyBackupDay": "Day"
+        "weekly_backup_day": "Day"
       },
       "cbt": "ChangedBlockTracking",
-      "fastBackupEnabled": "bool",
-      "quiesceSnapshottingEnabled": "bool"
+      "fast_backup_enabled": "bool",
+      "quiesce_snapshotting_enabled": "bool"
     },
-    "folderId": "string"
+    "folder_id": "string"
   }
   // end of the list of possible fields
 }
@@ -619,13 +619,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -668,7 +668,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| policyId | **string**
+|| policy_id | **string**
 
 Required field. Policy ID. ||
 |#
@@ -683,15 +683,15 @@ Required field. Policy ID. ||
 || name | **string**
 
 Required field. Policy name. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || enabled | **bool**
 
 If this field is true, it means that the policy is enabled. ||
 || settings | **[PolicySettings](#yandex.cloud.backup.v1.PolicySettings2)**
 
 Set of policy settings ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the policy belongs to. ||
 |#
@@ -721,22 +721,22 @@ Required field. Format of the Cyberprotect backup archive.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
 plan (policy) appends backups to the ones created by earlier product
 versions. ||
-|| multiVolumeSnapshottingEnabled | **bool**
+|| multi_volume_snapshotting_enabled | **bool**
 
 If true, snapshots of multiple volumes will be taken simultaneously. ||
-|| preserveFileSecuritySettings | **bool**
+|| preserve_file_security_settings | **bool**
 
 If true, the file security settings will be preserved. ||
 || reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2)**
 
 Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
-|| silentModeEnabled | **bool**
+|| silent_mode_enabled | **bool**
 
 If true, a user interaction will be avoided when possible. Equals to false if value is not specified. ||
 || splitting | **[Splitting](#yandex.cloud.backup.v1.PolicySettings.Splitting2)**
 
 Required field. Determines the size to split backups on. Splitting is not performed if value is not specified. ||
-|| vmSnapshotReattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2)**
+|| vm_snapshot_reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2)**
 
 Required field. Configuration of retries on errors during the creation of the virtual machine snapshot. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
 || vss | **[VolumeShadowCopyServiceSettings](#yandex.cloud.backup.v1.PolicySettings.VolumeShadowCopyServiceSettings2)**
@@ -745,7 +745,7 @@ Required field. Settings for the Volume Shadow Copy Service (VSS) provider. If n
 || archive | **[ArchiveProperties](#yandex.cloud.backup.v1.PolicySettings.ArchiveProperties2)**
 
 The archive properties. ||
-|| performanceWindow | **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow2)**
+|| performance_window | **[PerformanceWindow](#yandex.cloud.backup.v1.PolicySettings.PerformanceWindow2)**
 
 Required field. Time windows for performance limitations of backup and storage maintenance operations. ||
 || retention | **[Retention](#yandex.cloud.backup.v1.PolicySettings.Retention2)**
@@ -762,10 +762,10 @@ Required field. A configuration of Changed Block Tracking (CBT).
 - `USE_IF_ENABLED`
 - `ENABLE_AND_USE`
 - `DO_NOT_USE` ||
-|| fastBackupEnabled | **bool**
+|| fast_backup_enabled | **bool**
 
 If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup. ||
-|| quiesceSnapshottingEnabled | **bool**
+|| quiesce_snapshotting_enabled | **bool**
 
 If true, a quiesced snapshot of the virtual machine will be taken. ||
 |#
@@ -780,7 +780,7 @@ If true, enables retry on errors. ||
 || interval | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
 
 Required field. An interval between retry attempts. ||
-|| maxAttempts | **int64**
+|| max_attempts | **int64**
 
 Max number of retry attempts. Operation will be considered as failed
 when max number of retry attempts is reached. ||
@@ -861,7 +861,7 @@ If true, the time windows will be enabled. ||
 || rules[] | **[RetentionRule](#yandex.cloud.backup.v1.PolicySettings.Retention.RetentionRule2)**
 
 A list of retention rules. ||
-|| beforeBackup | **bool**
+|| before_backup | **bool**
 
 If true, retention rules will be applied before backup is finished. ||
 |#
@@ -870,7 +870,7 @@ If true, retention rules will be applied before backup is finished. ||
 
 #|
 ||Field | Description ||
-|| backupSet[] | enum **RepeatePeriod**
+|| backup_set[] | enum **RepeatePeriod**
 
 A list of backup sets where rules are effective.
 
@@ -879,28 +879,28 @@ A list of backup sets where rules are effective.
 - `DAILY`
 - `WEEKLY`
 - `MONTHLY` ||
-|| maxAge | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
+|| max_age | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
 
-Includes only one of the fields `maxAge`, `maxCount`. ||
-|| maxCount | **int64**
+Includes only one of the fields `max_age`, `max_count`. ||
+|| max_count | **int64**
 
-Includes only one of the fields `maxAge`, `maxCount`. ||
+Includes only one of the fields `max_age`, `max_count`. ||
 |#
 
 ## Scheduling {#yandex.cloud.backup.v1.PolicySettings.Scheduling2}
 
 #|
 ||Field | Description ||
-|| backupSets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet2)**
+|| backup_sets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet2)**
 
 A list of schedules with backup sets that compose the whole scheme. ||
 || enabled | **bool**
 
 If true, the backup schedule will be enabled. ||
-|| maxParallelBackups | **int64**
+|| max_parallel_backups | **int64**
 
 Max number of backup processes allowed to run in parallel. Unlimited if not set. ||
-|| randMaxDelay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
+|| rand_max_delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
 
 Required field. Configuration of the random delay between the execution of parallel tasks. ||
 || scheme | enum **Scheme**
@@ -916,7 +916,7 @@ Required field. A backup scheme. Available values: `simple`, `always_full`, `alw
 - `CUSTOM`: Custom will require to specify schedules for full, differential
 and incremental backups additionally.
 - `CDP` ||
-|| weeklyBackupDay | enum **Day**
+|| weekly_backup_day | enum **Day**
 
 Required field. A day of week to start weekly backups.
 
@@ -936,10 +936,10 @@ Required field. A day of week to start weekly backups.
 ||Field | Description ||
 || time | **[Time](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.Time2)**
 
-Includes only one of the fields `time`, `sinceLastExecTime`. ||
-|| sinceLastExecTime | **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime2)**
+Includes only one of the fields `time`, `since_last_exec_time`. ||
+|| since_last_exec_time | **[SinceLastExecTime](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet.SinceLastExecTime2)**
 
-Includes only one of the fields `time`, `sinceLastExecTime`. ||
+Includes only one of the fields `time`, `since_last_exec_time`. ||
 || type | enum **Type**
 
 BackupSet type -- one of incr, full, differential or auto.
@@ -968,23 +968,23 @@ Days in a week to perform a backup.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
-|| repeatAt[] | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
+|| repeat_at[] | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
 
 Time to repeat the backup. ||
-|| repeatEvery | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
+|| repeat_every | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
 
 Frequency of backup repetition. ||
-|| timeFrom | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
+|| time_from | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
 
 The start time of the backup time interval. ||
-|| timeTo | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
+|| time_to | **[TimeOfDay](#yandex.cloud.backup.v1.PolicySettings.TimeOfDay2)**
 
 The end time of the backup time interval. ||
 || monthdays[] | **int64**
 
 Days in a month to perform a backup.
 Allowed values are from 1 to 31. ||
-|| includeLastDayOfMonth | **bool**
+|| include_last_day_of_month | **bool**
 
 If set to true, last day of month will activate
 the policy. ||

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for ClickHouse API, REST: Cluster.ListBackups
 
 Retrieves the list of available backups for the specified ClickHouse cluster.
 

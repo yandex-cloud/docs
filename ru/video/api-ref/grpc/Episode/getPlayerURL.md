@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/getPlayerURL.md
 ---
 
-# Video API, gRPC: EpisodeService.GetPlayerURL {#GetPlayerURL}
+# Video API, gRPC: EpisodeService.GetPlayerURL
 
 Returns url to the player.
 
@@ -15,7 +15,7 @@ Returns url to the player.
 
 ```json
 {
-  "episodeId": "string",
+  "episode_id": "string",
   "params": {
     "mute": "bool",
     "autoplay": "bool",
@@ -26,9 +26,9 @@ Returns url to the player.
 
 #|
 ||Field | Description ||
-|| episodeId | **string**
+|| episode_id | **string**
 
-ID of the episode. ||
+Required field. ID of the episode. ||
 || params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)** ||
 |#
 
@@ -51,14 +51,14 @@ If true, a player interface will be hidden by default. ||
 
 ```json
 {
-  "playerUrl": "string",
+  "player_url": "string",
   "html": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| playerUrl | **string**
+|| player_url | **string**
 
 Direct link to the video. ||
 || html | **string**

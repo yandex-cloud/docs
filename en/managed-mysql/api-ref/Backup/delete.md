@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for MySQL API, REST: Backup.Delete {#Delete}
+# Managed Service for MySQL API, REST: Backup.Delete
 
 Deletes the specified MySQL cluster backup.
 

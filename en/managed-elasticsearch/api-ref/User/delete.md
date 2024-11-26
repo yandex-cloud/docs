@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/delete.md
 ---
 
-# Managed Service for Elasticsearch API, REST: User.Delete {#Delete}
+# Managed Service for Elasticsearch API, REST: User.Delete
 
 Deletes the specified user.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/list.md
 ---
 
-# Compute Cloud API, REST: Filesystem.List {#List}
+# Compute Cloud API, REST: Filesystem.List
 
 Lists filesystems in the specified folder.
 

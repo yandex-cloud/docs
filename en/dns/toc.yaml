@@ -77,6 +77,10 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

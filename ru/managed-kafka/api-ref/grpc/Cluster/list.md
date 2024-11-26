@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Cluster/list.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: ClusterService.List {#List}
+# Managed Service for Apache Kafka® API, gRPC: ClusterService.List
 
 Retrieves the list of Apache Kafka® clusters that belong to the specified folder.
 
@@ -15,30 +15,30 @@ Retrieves the list of Apache Kafka® clusters that belong to the specified folde
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list Apache Kafka® clusters in.
 
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClustersResponse) returned by the previous list request. ||
 || filter | **string**
 
 Filter support is not currently implemented. Any filters are ignored. ||
@@ -51,8 +51,8 @@ Filter support is not currently implemented. Any filters are ignored. ||
   "clusters": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
@@ -68,60 +68,60 @@ Filter support is not currently implemented. Any filters are ignored. ||
         "version": "string",
         "kafka": {
           "resources": {
-            "resourcePresetId": "string",
-            "diskSize": "int64",
-            "diskTypeId": "string"
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
           },
-          // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`
-          "kafkaConfig_2_8": {
-            "compressionType": "CompressionType",
-            "logFlushIntervalMessages": "google.protobuf.Int64Value",
-            "logFlushIntervalMs": "google.protobuf.Int64Value",
-            "logFlushSchedulerIntervalMs": "google.protobuf.Int64Value",
-            "logRetentionBytes": "google.protobuf.Int64Value",
-            "logRetentionHours": "google.protobuf.Int64Value",
-            "logRetentionMinutes": "google.protobuf.Int64Value",
-            "logRetentionMs": "google.protobuf.Int64Value",
-            "logSegmentBytes": "google.protobuf.Int64Value",
-            "logPreallocate": "google.protobuf.BoolValue",
-            "socketSendBufferBytes": "google.protobuf.Int64Value",
-            "socketReceiveBufferBytes": "google.protobuf.Int64Value",
-            "autoCreateTopicsEnable": "google.protobuf.BoolValue",
-            "numPartitions": "google.protobuf.Int64Value",
-            "defaultReplicationFactor": "google.protobuf.Int64Value",
-            "messageMaxBytes": "google.protobuf.Int64Value",
-            "replicaFetchMaxBytes": "google.protobuf.Int64Value",
-            "sslCipherSuites": [
+          // Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`
+          "kafka_config_2_8": {
+            "compression_type": "CompressionType",
+            "log_flush_interval_messages": "google.protobuf.Int64Value",
+            "log_flush_interval_ms": "google.protobuf.Int64Value",
+            "log_flush_scheduler_interval_ms": "google.protobuf.Int64Value",
+            "log_retention_bytes": "google.protobuf.Int64Value",
+            "log_retention_hours": "google.protobuf.Int64Value",
+            "log_retention_minutes": "google.protobuf.Int64Value",
+            "log_retention_ms": "google.protobuf.Int64Value",
+            "log_segment_bytes": "google.protobuf.Int64Value",
+            "log_preallocate": "google.protobuf.BoolValue",
+            "socket_send_buffer_bytes": "google.protobuf.Int64Value",
+            "socket_receive_buffer_bytes": "google.protobuf.Int64Value",
+            "auto_create_topics_enable": "google.protobuf.BoolValue",
+            "num_partitions": "google.protobuf.Int64Value",
+            "default_replication_factor": "google.protobuf.Int64Value",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "replica_fetch_max_bytes": "google.protobuf.Int64Value",
+            "ssl_cipher_suites": [
               "string"
             ],
-            "offsetsRetentionMinutes": "google.protobuf.Int64Value",
-            "saslEnabledMechanisms": [
+            "offsets_retention_minutes": "google.protobuf.Int64Value",
+            "sasl_enabled_mechanisms": [
               "SaslMechanism"
             ]
           },
-          "kafkaConfig_3": {
-            "compressionType": "CompressionType",
-            "logFlushIntervalMessages": "google.protobuf.Int64Value",
-            "logFlushIntervalMs": "google.protobuf.Int64Value",
-            "logFlushSchedulerIntervalMs": "google.protobuf.Int64Value",
-            "logRetentionBytes": "google.protobuf.Int64Value",
-            "logRetentionHours": "google.protobuf.Int64Value",
-            "logRetentionMinutes": "google.protobuf.Int64Value",
-            "logRetentionMs": "google.protobuf.Int64Value",
-            "logSegmentBytes": "google.protobuf.Int64Value",
-            "logPreallocate": "google.protobuf.BoolValue",
-            "socketSendBufferBytes": "google.protobuf.Int64Value",
-            "socketReceiveBufferBytes": "google.protobuf.Int64Value",
-            "autoCreateTopicsEnable": "google.protobuf.BoolValue",
-            "numPartitions": "google.protobuf.Int64Value",
-            "defaultReplicationFactor": "google.protobuf.Int64Value",
-            "messageMaxBytes": "google.protobuf.Int64Value",
-            "replicaFetchMaxBytes": "google.protobuf.Int64Value",
-            "sslCipherSuites": [
+          "kafka_config_3": {
+            "compression_type": "CompressionType",
+            "log_flush_interval_messages": "google.protobuf.Int64Value",
+            "log_flush_interval_ms": "google.protobuf.Int64Value",
+            "log_flush_scheduler_interval_ms": "google.protobuf.Int64Value",
+            "log_retention_bytes": "google.protobuf.Int64Value",
+            "log_retention_hours": "google.protobuf.Int64Value",
+            "log_retention_minutes": "google.protobuf.Int64Value",
+            "log_retention_ms": "google.protobuf.Int64Value",
+            "log_segment_bytes": "google.protobuf.Int64Value",
+            "log_preallocate": "google.protobuf.BoolValue",
+            "socket_send_buffer_bytes": "google.protobuf.Int64Value",
+            "socket_receive_buffer_bytes": "google.protobuf.Int64Value",
+            "auto_create_topics_enable": "google.protobuf.BoolValue",
+            "num_partitions": "google.protobuf.Int64Value",
+            "default_replication_factor": "google.protobuf.Int64Value",
+            "message_max_bytes": "google.protobuf.Int64Value",
+            "replica_fetch_max_bytes": "google.protobuf.Int64Value",
+            "ssl_cipher_suites": [
               "string"
             ],
-            "offsetsRetentionMinutes": "google.protobuf.Int64Value",
-            "saslEnabledMechanisms": [
+            "offsets_retention_minutes": "google.protobuf.Int64Value",
+            "sasl_enabled_mechanisms": [
               "SaslMechanism"
             ]
           }
@@ -129,63 +129,63 @@ Filter support is not currently implemented. Any filters are ignored. ||
         },
         "zookeeper": {
           "resources": {
-            "resourcePresetId": "string",
-            "diskSize": "int64",
-            "diskTypeId": "string"
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
           }
         },
-        "zoneId": [
+        "zone_id": [
           "string"
         ],
-        "brokersCount": "google.protobuf.Int64Value",
-        "assignPublicIp": "bool",
-        "unmanagedTopics": "bool",
-        "schemaRegistry": "bool",
+        "brokers_count": "google.protobuf.Int64Value",
+        "assign_public_ip": "bool",
+        "unmanaged_topics": "bool",
+        "schema_registry": "bool",
         "access": {
-          "dataTransfer": "bool"
+          "data_transfer": "bool"
         },
-        "restApiConfig": {
+        "rest_api_config": {
           "enabled": "bool"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "int64",
-          "emergencyUsageThreshold": "int64",
-          "diskSizeLimit": "int64"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "int64",
+          "emergency_usage_threshold": "int64",
+          "disk_size_limit": "int64"
         },
         "kraft": {
           "resources": {
-            "resourcePresetId": "string",
-            "diskSize": "int64",
-            "diskTypeId": "string"
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
           }
         }
       },
-      "networkId": "string",
+      "network_id": "string",
       "health": "Health",
       "status": "Status",
-      "securityGroupIds": [
+      "security_group_ids": [
         "string"
       ],
-      "hostGroupIds": [
+      "host_group_ids": [
         "string"
       ],
-      "deletionProtection": "bool",
-      "maintenanceWindow": {
-        // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "deletion_protection": "bool",
+      "maintenance_window": {
+        // Includes only one of the fields `anytime`, `weekly_maintenance_window`
         "anytime": "AnytimeMaintenanceWindow",
-        "weeklyMaintenanceWindow": {
+        "weekly_maintenance_window": {
           "day": "WeekDay",
           "hour": "int64"
         }
         // end of the list of possible fields
       },
-      "plannedOperation": {
+      "planned_operation": {
         "info": "string",
-        "delayedUntil": "google.protobuf.Timestamp"
+        "delayed_until": "google.protobuf.Timestamp"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -194,12 +194,12 @@ Filter support is not currently implemented. Any filters are ignored. ||
 || clusters[] | **[Cluster](#yandex.cloud.mdb.kafka.v1.Cluster)**
 
 List of Apache Kafka® clusters. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token that allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClustersRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListClustersRequest), use `nextPageToken` as the value for the [ListClustersRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListClustersRequest) parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+If the number of results is larger than [ListClustersRequest.page_size](#yandex.cloud.mdb.kafka.v1.ListClustersRequest), use `next_page_token` as the value for the [ListClustersRequest.page_token](#yandex.cloud.mdb.kafka.v1.ListClustersRequest) parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.kafka.v1.Cluster}
@@ -213,10 +213,10 @@ For more information, see the [Concepts](/docs/managed-kafka/concepts) section o
 
 ID of the Apache Kafka® cluster.
 This ID is assigned at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Apache Kafka® cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -245,7 +245,7 @@ Description of monitoring systems relevant to the Apache Kafka® cluster.
 
 Configuration of the Apache Kafka® cluster.
 * The field is ignored for response of List method. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the cluster belongs to. ||
 || health | enum **Health**
@@ -268,19 +268,19 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
 
 Scheduled maintenance operation. ||
 |#
@@ -315,30 +315,30 @@ Configuration and resource allocation for Kafka brokers. ||
 || zookeeper | **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
 
 Configuration and resource allocation for ZooKeeper hosts. ||
-|| zoneId[] | **string**
+|| zone_id[] | **string**
 
 IDs of availability zones where Kafka brokers reside. ||
-|| brokersCount | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| brokers_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of Kafka brokers deployed in each availability zone. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 The flag that defines whether a public IP address is assigned to the cluster.
 If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address. ||
-|| unmanagedTopics | **bool**
+|| unmanaged_topics | **bool**
 
 Allows to manage topics via AdminAPI
 Deprecated. Feature enabled permanently. ||
-|| schemaRegistry | **bool**
+|| schema_registry | **bool**
 
 Enables managed schema registry on cluster ||
 || access | **[Access](#yandex.cloud.mdb.kafka.v1.Access)**
 
 Access policy for external services. ||
-|| restApiConfig | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
+|| rest_api_config | **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
 
 Configuration of REST API. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
 
 DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
@@ -353,14 +353,14 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to Kafka brokers. ||
-|| kafkaConfig_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+|| kafka_config_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`.
 
 Kafka broker configuration. ||
-|| kafkaConfig_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+|| kafka_config_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Includes only one of the fields `kafka_config_2_8`, `kafka_config_3`.
 
 Kafka broker configuration. ||
 |#
@@ -369,14 +369,14 @@ Kafka broker configuration. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory, etc.).
 All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host. ||
 |#
@@ -387,7 +387,7 @@ Kafka version 2.8 broker configuration.
 
 #|
 ||Field | Description ||
-|| compressionType | enum **CompressionType**
+|| compression_type | enum **CompressionType**
 
 Cluster topics compression type.
 
@@ -398,80 +398,80 @@ Cluster topics compression type.
 - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
 - `COMPRESSION_TYPE_GZIP`: GZip codec.
 - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
-|| logFlushIntervalMessages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMessages](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| logFlushIntervalMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_messages](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
-If not set, the value of `logFlushSchedulerIntervalMs` is used.
+If not set, the value of `log_flush_scheduler_interval_ms` is used.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMs](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| logFlushSchedulerIntervalMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flush_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
 This check is done by the log flusher. ||
-|| logRetentionBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanupPolicy](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanup_policy](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionBytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| logRetentionHours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of hours to keep a log segment file before deleting it. ||
-|| logRetentionMinutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of minutes to keep a log segment file before deleting it.
 
-If not set, the value of `logRetentionHours` is used. ||
-|| logRetentionMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+If not set, the value of `log_retention_hours` is used. ||
+|| log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of milliseconds to keep a log segment file before deleting it.
 
-If not set, the value of `logRetentionMinutes` is used.
+If not set, the value of `log_retention_minutes` is used.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionMs](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| logSegmentBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retention_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of a single log file.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segmentBytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| logPreallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segment_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+|| log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Should pre allocate file when create new segment?
 
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
-|| socketSendBufferBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
-|| socketReceiveBufferBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
-|| autoCreateTopicsEnable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable auto creation of topic on the server ||
-|| numPartitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Default number of partitions per topic on the whole cluster ||
-|| defaultReplicationFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Default replication factor of the topic on the whole cluster ||
-|| messageMaxBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The largest record batch size allowed by Kafka. Default value: 1048588. ||
-|| replicaFetchMaxBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
-|| sslCipherSuites[] | **string**
+|| ssl_cipher_suites[] | **string**
 
 A list of cipher suites. ||
-|| offsetsRetentionMinutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
-|| saslEnabledMechanisms[] | enum **SaslMechanism**
+|| sasl_enabled_mechanisms[] | enum **SaslMechanism**
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
@@ -486,7 +486,7 @@ Kafka version 3.x broker configuration.
 
 #|
 ||Field | Description ||
-|| compressionType | enum **CompressionType**
+|| compression_type | enum **CompressionType**
 
 Cluster topics compression type.
 
@@ -497,80 +497,80 @@ Cluster topics compression type.
 - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
 - `COMPRESSION_TYPE_GZIP`: GZip codec.
 - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
-|| logFlushIntervalMessages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_flush_interval_messages | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of messages accumulated on a log partition before messages are flushed to disk.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| logFlushIntervalMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_messages](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_flush_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
-If not set, the value of `logFlushSchedulerIntervalMs` is used.
+If not set, the value of `log_flush_scheduler_interval_ms` is used.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMs](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| logFlushSchedulerIntervalMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flush_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_flush_scheduler_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
 This check is done by the log flusher. ||
-|| logRetentionBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_retention_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanupPolicy](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanup_policy](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
 This setting is helpful if you need to control the size of a log due to limited disk space.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| logRetentionHours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_retention_hours | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of hours to keep a log segment file before deleting it. ||
-|| logRetentionMinutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| log_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of minutes to keep a log segment file before deleting it.
 
-If not set, the value of `logRetentionHours` is used. ||
-|| logRetentionMs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+If not set, the value of `log_retention_hours` is used. ||
+|| log_retention_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of milliseconds to keep a log segment file before deleting it.
 
-If not set, the value of `logRetentionMinutes` is used.
+If not set, the value of `log_retention_minutes` is used.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionMs](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| logSegmentBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retention_ms](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_segment_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of a single log file.
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segmentBytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| logPreallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segment_bytes](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| log_preallocate | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Should pre allocate file when create new segment?
 
 This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/grpc/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
-|| socketSendBufferBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
-|| socketReceiveBufferBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| socket_receive_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
-|| autoCreateTopicsEnable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| auto_create_topics_enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable auto creation of topic on the server ||
-|| numPartitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| num_partitions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Default number of partitions per topic on the whole cluster ||
-|| defaultReplicationFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| default_replication_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Default replication factor of the topic on the whole cluster ||
-|| messageMaxBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| message_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The largest record batch size allowed by Kafka. Default value: 1048588. ||
-|| replicaFetchMaxBytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| replica_fetch_max_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
-|| sslCipherSuites[] | **string**
+|| ssl_cipher_suites[] | **string**
 
 A list of cipher suites. ||
-|| offsetsRetentionMinutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| offsets_retention_minutes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
-|| saslEnabledMechanisms[] | enum **SaslMechanism**
+|| sasl_enabled_mechanisms[] | enum **SaslMechanism**
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
@@ -592,7 +592,7 @@ Resources allocated to ZooKeeper hosts. ||
 
 #|
 ||Field | Description ||
-|| dataTransfer | **bool**
+|| data_transfer | **bool**
 
 Allow access for DataTransfer. ||
 |#
@@ -610,13 +610,13 @@ Is REST API enabled for this cluster. ||
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **int64**
+|| planned_usage_threshold | **int64**
 
 Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
-|| emergencyUsageThreshold | **int64**
+|| emergency_usage_threshold | **int64**
 
 Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
-|| diskSizeLimit | **int64**
+|| disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
 |#
@@ -636,10 +636,10 @@ Resources allocated to KRaft controller hosts. ||
 ||Field | Description ||
 || anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.AnytimeMaintenanceWindow)**
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
 
 ## AnytimeMaintenanceWindow {#yandex.cloud.mdb.kafka.v1.AnytimeMaintenanceWindow}
@@ -673,5 +673,5 @@ Hour of the day in UTC. ||
 #|
 ||Field | Description ||
 || info | **string** ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Operation/get.md
 ---
 
-# Lockbox API, REST: Operation.Get {#Get}
+# Lockbox API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

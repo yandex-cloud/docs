@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/list.md
 ---
 
-# Cloud Logging Service, REST: Export.List {#List}
+# Cloud Logging Service, REST: Export.List
 
 Retrieves the list of exports in the specified folder.
 

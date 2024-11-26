@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/getByInstanceAndResource.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.GetByInstanceAndResource {#GetByInstanceAndResource}
+# Yandex Cloud Marketplace License Manager, REST: Lock.GetByInstanceAndResource
 
 Returns the subscription lock for specified subscription instance and resource.
 

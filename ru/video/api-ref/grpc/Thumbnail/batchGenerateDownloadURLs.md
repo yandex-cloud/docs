@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/batchGenerateDownloadURLs.md
 ---
 
-# Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs {#BatchGenerateDownloadURLs}
+# Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs
 
 Generate urls for download images.
 
@@ -15,8 +15,8 @@ Generate urls for download images.
 
 ```json
 {
-  "channelId": "string",
-  "thumbnailIds": [
+  "channel_id": "string",
+  "thumbnail_ids": [
     "string"
   ]
 }
@@ -24,10 +24,10 @@ Generate urls for download images.
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| thumbnailIds[] | **string**
+Required field. ID of the channel. ||
+|| thumbnail_ids[] | **string**
 
 List of thumbnails IDs. ||
 |#
@@ -36,10 +36,10 @@ List of thumbnails IDs. ||
 
 ```json
 {
-  "downloadUrls": [
+  "download_urls": [
     {
-      "thumbnailId": "string",
-      "downloadUrl": "string"
+      "thumbnail_id": "string",
+      "download_url": "string"
     }
   ]
 }
@@ -47,7 +47,7 @@ List of thumbnails IDs. ||
 
 #|
 ||Field | Description ||
-|| downloadUrls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
+|| download_urls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
 
 List of download urls. ||
 |#
@@ -56,10 +56,10 @@ List of download urls. ||
 
 #|
 ||Field | Description ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| downloadUrl | **string**
+|| download_url | **string**
 
 Download url. ||
 |#

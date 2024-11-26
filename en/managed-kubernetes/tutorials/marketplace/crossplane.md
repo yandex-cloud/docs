@@ -4,8 +4,9 @@
 
 To create a {{ compute-full-name }} [VM](../../../compute/concepts/vm.md) using the [Crossplane application](/marketplace/products/yc/crossplane) installed in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster):
 
+1. [Prepare your cloud](#before-you-begin).
 1. [Create {{ managed-k8s-name }} resources](#k8s-create).
-1. [Create resources using Crossplane](#create-crossplane-res).
+1. [Create {{ yandex-cloud }} resources using Crossplane](#create-crossplane-res).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -54,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * {{ k8s }} cluster.
-        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
+        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
         * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -64,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
         * Name of the {{ managed-k8s-name }} cluster service account.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -84,102 +85,104 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Install Crossplane in the {{ k8s }} cluster](../../operations/applications/crossplane.md).
 1. [Set up a NAT gateway for the {{ k8s }} cluster node subnet](../../../vpc/operations/create-nat-gateway.md).
 
-## Create resources using Crossplane {#create-crossplane-res}
+## Create {{ yandex-cloud }} resources using Crossplane {#create-crossplane-res}
 
-1. Create the `providerconfig.yml` Crossplane manifest file:
-
-   ```yaml
-   apiVersion: yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: ProviderConfig
-   metadata:
-     name: yc-config
-   spec:
-     credentials:
-       source: Secret
-       secretRef:
-         name: yc-creds
-         namespace: <namespace_for_Crossplane>
-         key: credentials
-   ```
-
-1. Create a template manifest named `vm-instance-template.yml` with a description of the network, subnet, and the `crossplane-vm` VM all created using Crossplane:
-
-   ```yaml
-   apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Network
-   metadata:
-     name: <NET_NAME>
-     annotations:
-       crossplane.io/external-name: <NET_ID>
-   spec:
-     deletionPolicy: Orphan
-     forProvider:
-       name: <NET_NAME>
-       folderId: <FOLDER_ID>
-   ---
-   apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Subnet
-   metadata:
-     name: <SUBNET_NAME>
-     annotations:
-       crossplane.io/external-name: <SUBNET_ID>
-   spec:
-     deletionPolicy: Orphan
-     forProvider:
-       name: <SUBNET_NAME>
-       networkIdRef:
-         name: <NET_NAME>
-       v4CidrBlocks:
-         - <SUBNET_PREFIX>
-       zone: <ZONE_ID>
-       folderId: <FOLDER_ID>
-   ---
-   apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
-   kind: Instance
-   metadata:
-     name: <VM_NAME>
-   spec:
-     forProvider:
-       name: <VM_NAME>
-       platformId: standard-v2
-       zone: <ZONE_ID>
-       resources:
-         - cores: 2
-           memory: 4
-       bootDisk:
-         - initializeParams:
-             # LEMP stack
-             # yc compute image get --folder-id standard-images --name=lemp-v20220606 --format=json | jq -r .id
-             - imageId: <IMAGE_ID>
-       networkInterface:
-         - subnetIdRef:
-             name: <SUBNET_NAME>
-       folderId: <FOLDER_ID>
-   ```
-
-   Where:
-   * `ZONE_ID`: [Availability zone](../../../overview/concepts/geo-scope.md).
-   * `VM_NAME`: Name of the VM that will be created using Crossplane tools.
-   * `NET_NAME`: Name of the {{ k8s }} cluster cloud network.
-   * `SUBNET_NAME`: Name of the {{ k8s }} cluster node subnet.
-   * `SUBNET_ID`: Subnet ID.
-   * `NET_ID`: Network ID.
-   * `SUBNET_PREFIX`: Subnet CIDR.
-   * `FOLDER_ID`: Folder ID.
-   * `IMAGE_ID`: VM boot image ID. You can get it with the [list of images](../../../compute/operations/image-control/get-list.md). This example uses the [LEMP](/marketplace/products/yc/lemp) image.
-1. Apply the `providerconfig.yml` manifest:
+1. Decide what resources you want to create using Crossplane. To get a list of available resources, run the following command:
 
    ```bash
-   kubectl apply -f providerconfig.yml
+   kubectl get crd | grep yandex-cloud.jet.crossplane.io
    ```
 
-1. Apply the `vm-instance.yml` manifest:
+1. Decide the resources' parameters. To see what parameters are available for a particular resource, run this command:
 
    ```bash
-   kubectl apply -f vm-instance.yml
+   kubectl describe crd <resource_name>
    ```
 
-1. Check the state of the new resources:
+1. Create the `vm-instance-template.yml` manifest template describing the network and subnet existing in the folder as well as the new `crossplane-vm` VM you are going to create with Crossplane:
+
+    ```yaml
+    # Adding an existing network to the configuration
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Network
+    metadata:
+      name: <name_of_existing_network>
+      annotations:
+        # Point out an existing network to the provider
+        crossplane.io/external-name: <ID_of_existing_network>
+    spec:
+      # Prohibit deletion of an existing network
+      deletionPolicy: Orphan
+      forProvider:
+        name: <name_of_existing_network>
+      providerConfigRef:
+        name: default
+    ---
+    # Adding an existing subnet to the configuration
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Subnet
+    metadata:
+      name: <name_of_existing_subnet>
+      annotations:
+        # Point out an existing subnet to the provider
+        crossplane.io/external-name: <ID_of_existing_subnet>
+    spec:
+      # Prohibit deletion of an existing subnet
+      deletionPolicy: Orphan
+      forProvider:
+        name: <name_of_existing_subnet>
+        networkIdRef:
+          name: <name_of_existing_network>
+        v4CidrBlocks:
+          - <IPv4_CIDR_of_existing_subnet>
+      providerConfigRef:
+        name: default
+    ---
+    # Creating a VM instance
+    apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Instance
+    metadata:
+      name: crossplane-vm
+    spec:
+      forProvider:
+        name: crossplane-vm
+        platformId: standard-v1
+        zone: {{ region-id }}-a
+        resources:
+          - cores: 2
+            memory: 4
+        bootDisk:
+          - initializeParams:
+              - imageId: fd80bm0rh4rkepi5ksdi
+        networkInterface:
+          - subnetIdRef:
+              name: <name_of_existing_subnet>
+            # Automatically provide a public IP address to the VM
+            nat: true
+        metadata:
+          ssh-keys: "<public_SSH_key>"
+      providerConfigRef:
+        name: default
+      # Write the credentials for connection to the VM into a secret
+      writeConnectionSecretToRef:
+        name: instance-conn
+        namespace: default
+      ```
+
+   In the VM configuration section:
+   * `zone: {{ region-id }}-a`: [Availability zone](../../../overview/concepts/geo-scope.md) to deploy the VM in.
+   * `name: crossplane-vm`: Name of the VM that will be created with Crossplane.
+   * `imageId: fd80bm0rh4rkepi5ksdi`: ID of the VM's boot image. You can fetch it with a [list of images](../../../compute/operations/image-control/get-list.md). This example uses a [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) image.
+
+   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+
+1. Apply the `vm-instance-template.yml` manifest:
+
+   ```bash
+   kubectl apply -f vm-instance-template.yml
+   ```
+
+1. Check the state of the created resources:
 
    ```bash
    kubectl get network
@@ -187,17 +190,33 @@ If you no longer need the resources you created, [delete them](#clear-out).
    kubectl get instance
    ```
 
-1. Make sure the new `crossplane-vm` instance has appeared in the folder:
+1. Make sure the new `crossplane-vm` VM has appeared in the folder:
 
    ```bash
    yc compute instance list
+   ```
+
+1. To retrieve the data needed to connect to the VM from the secret, run this command:
+   
+   ```bash
+   kubectl get secret instance-conn -o json | jq -r '.data | map_values(@base64d)'
+   ```
+
+   Expected result:
+   
+   ```json
+   {
+     "external_ip": "<public_IP_address>",
+     "fqdn": "<full_domain_name>",
+     "internal_ip": "<internal_IP_address>"
+   }
    ```
 
 ## Delete the resources you created {#clear-out}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-1. Delete `crossplane-vm`:
+1. Delete the `crossplane-vm` VM:
 
    ```bash
    kubectl delete instance crossplane-vm
@@ -220,7 +239,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
      1. Delete the `k8s-cluster.tf` configuration file.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

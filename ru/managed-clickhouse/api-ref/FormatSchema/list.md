@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.List {#List}
+# Managed Service for ClickHouse API, REST: FormatSchema.List
 
 Returns a list of format schemas in a cluster.
 

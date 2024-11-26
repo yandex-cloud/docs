@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/k8s/v1/managed-kubernetes/api-ref/grpc/NodeGroup/listNodes.md
 ---
 
-# Managed Services for Kubernetes API, gRPC: NodeGroupService.ListNodes {#ListNodes}
+# Managed Services for Kubernetes API, gRPC: NodeGroupService.ListNodes
 
 Retrieves the list of nodes in the specified Kubernetes cluster.
 
@@ -15,29 +15,29 @@ Retrieves the list of nodes in the specified Kubernetes cluster.
 
 ```json
 {
-  "nodeGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "node_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| nodeGroupId | **string**
+|| node_group_id | **string**
 
 Required field. ID of the node group to list.
 To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/NodeGroup/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/NodeGroup/list#yandex.cloud.k8s.v1.ListNodeGroupsResponse)
+results is larger than `page_size`,
+the service returns a [ListNodeGroupsResponse.next_page_token](/docs/managed-kubernetes/managed-kubernetes/api-ref/grpc/NodeGroup/list#yandex.cloud.k8s.v1.ListNodeGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListNodeGroupNodesResponse.nextPageToken](#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request. ||
+[ListNodeGroupNodesResponse.next_page_token](#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request. ||
 |#
 
 ## ListNodeGroupNodesResponse {#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse}
@@ -51,28 +51,28 @@ Page token. To get the next page of results, set `page_token` to the
         "resources": {
           "memory": "int64",
           "cores": "int64",
-          "coreFraction": "int64",
+          "core_fraction": "int64",
           "gpus": "int64"
         },
         "disk": {
-          "diskTypeId": "string",
-          "diskSize": "int64"
+          "disk_type_id": "string",
+          "disk_size": "int64"
         }
       },
-      "cloudStatus": {
+      "cloud_status": {
         "id": "string",
         "status": "string",
-        "statusMessage": "string"
+        "status_message": "string"
       },
-      "kubernetesStatus": {
+      "kubernetes_status": {
         "id": "string",
         "conditions": [
           {
             "type": "string",
             "status": "string",
             "message": "string",
-            "lastHeartbeatTime": "google.protobuf.Timestamp",
-            "lastTransitionTime": "google.protobuf.Timestamp"
+            "last_heartbeat_time": "google.protobuf.Timestamp",
+            "last_transition_time": "google.protobuf.Timestamp"
           }
         ],
         "taints": [
@@ -82,16 +82,16 @@ Page token. To get the next page of results, set `page_token` to the
             "effect": "Effect"
           }
         ],
-        "attachedVolumes": [
+        "attached_volumes": [
           {
-            "driverName": "string",
-            "volumeHandle": "string"
+            "driver_name": "string",
+            "volume_handle": "string"
           }
         ]
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -100,12 +100,12 @@ Page token. To get the next page of results, set `page_token` to the
 || nodes[] | **[Node](#yandex.cloud.k8s.v1.Node)**
 
 List of nodes. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListNodeGroupNodesRequest.pageSize](#yandex.cloud.k8s.v1.ListNodeGroupNodesRequest), use
+is larger than [ListNodeGroupNodesRequest.page_size](#yandex.cloud.k8s.v1.ListNodeGroupNodesRequest), use
 the `next_page_token` as the value
-for the [ListNodeGroupNodesRequest.pageToken](#yandex.cloud.k8s.v1.ListNodeGroupNodesRequest) query parameter
+for the [ListNodeGroupNodesRequest.page_token](#yandex.cloud.k8s.v1.ListNodeGroupNodesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
 `next_page_token` to continue paging through the results. ||
 |#
@@ -132,11 +132,11 @@ is deleted (this is our bug).
 || spec | **[Spec](#yandex.cloud.k8s.v1.Node.Spec)**
 
 Node specificaion. ||
-|| cloudStatus | **[CloudStatus](#yandex.cloud.k8s.v1.Node.CloudStatus)**
+|| cloud_status | **[CloudStatus](#yandex.cloud.k8s.v1.Node.CloudStatus)**
 
 Cloud instance status.
 Not available in `MISSING` status. ||
-|| kubernetesStatus | **[KubernetesStatus](#yandex.cloud.k8s.v1.Node.KubernetesStatus)**
+|| kubernetes_status | **[KubernetesStatus](#yandex.cloud.k8s.v1.Node.KubernetesStatus)**
 
 Kubernetes node status.
 Not available in `PROVISIONING` and `NOT_CONNECTED` states. ||
@@ -166,7 +166,7 @@ Amount of memory available to the node, specified in bytes. ||
 || cores | **int64**
 
 Number of cores available to the node. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -179,10 +179,10 @@ Number of GPUs available to the node. ||
 
 #|
 ||Field | Description ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 ID of the disk type. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Size of the disk, specified in bytes. ||
 |#
@@ -199,7 +199,7 @@ Compute instance id ||
 || status | **string**
 
 IG instance status ||
-|| statusMessage | **string**
+|| status_message | **string**
 
 IG instance status message ||
 |#
@@ -220,7 +220,7 @@ More info: https://kubernetes.io/docs/concepts/nodes/node/#condition ||
 || taints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
 If specified, the node's taints. ||
-|| attachedVolumes[] | **[AttachedVolume](#yandex.cloud.k8s.v1.AttachedVolume)**
+|| attached_volumes[] | **[AttachedVolume](#yandex.cloud.k8s.v1.AttachedVolume)**
 
 List of volumes that are attached to the node. ||
 |#
@@ -238,10 +238,10 @@ Status is the status of the condition. ||
 || message | **string**
 
 Human-readable message indicating details about last transition. ||
-|| lastHeartbeatTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_heartbeat_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Last time we got an update on a given condition. ||
-|| lastTransitionTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_transition_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Last time the condition transit from one status to another. ||
 |#
@@ -276,10 +276,10 @@ AttachedVolume describes a volume attached to a node
 
 #|
 ||Field | Description ||
-|| driverName | **string**
+|| driver_name | **string**
 
 Name of the driver which has attached the volume ||
-|| volumeHandle | **string**
+|| volume_handle | **string**
 
 Volume handle (cloud disk id) ||
 |#

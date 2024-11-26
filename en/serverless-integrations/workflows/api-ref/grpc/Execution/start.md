@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/start.md
 ---
 
-# Workflows Service, gRPC: ExecutionService.Start {#Start}
+# Workflows Service, gRPC: ExecutionService.Start
 
 Starts new Workflow execution.
 
@@ -15,10 +15,10 @@ Starts new Workflow execution.
 
 ```json
 {
-  "workflowId": "string",
+  "workflow_id": "string",
   "input": {
-    // Includes only one of the fields `inputJson`
-    "inputJson": "string"
+    // Includes only one of the fields `input_json`
+    "input_json": "string"
     // end of the list of possible fields
   }
 }
@@ -26,7 +26,7 @@ Starts new Workflow execution.
 
 #|
 ||Field | Description ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 Required field. ID of the Workflow. ||
 || input | **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
@@ -38,24 +38,24 @@ Input for the Workflow execution ||
 
 #|
 ||Field | Description ||
-|| inputJson | **string**
+|| input_json | **string**
 
 JSON input data for the Workflow execution.
 
-Includes only one of the fields `inputJson`. ||
+Includes only one of the fields `input_json`. ||
 |#
 
 ## StartExecutionResponse {#yandex.cloud.serverless.workflows.v1.StartExecutionResponse}
 
 ```json
 {
-  "executionId": "string"
+  "execution_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| executionId | **string**
+|| execution_id | **string**
 
 ID of the Workflow execution. ||
 |#

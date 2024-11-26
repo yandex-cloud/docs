@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Test/list.md
 ---
 
-# Load Testing API, gRPC: TestService.List {#List}
+# Load Testing API, gRPC: TestService.List
 
 Retrieves the list of test in the specified folder.
 
@@ -15,28 +15,28 @@ Retrieves the list of test in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to list tests in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse)
+results is larger than `page_size`, the service returns a [ListTestsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListTestsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse) returned by a previous list request. ||
+[ListTestsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListTestsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters tests listed in the response.
@@ -58,11 +58,11 @@ Currently supported fields:
 - operators: `:`
 - `summary.status` [yandex.cloud.loadtesting.api.v1.test.Summary.status](#yandex.cloud.loadtesting.api.v1.test.Summary)
 - operators: `=`, `!=`, `IN`, `NOT IN`
-- `summary.is_finished` [yandex.cloud.loadtesting.api.v1.test.Summary.isFinished](#yandex.cloud.loadtesting.api.v1.test.Summary)
+- `summary.is_finished` [yandex.cloud.loadtesting.api.v1.test.Summary.is_finished](#yandex.cloud.loadtesting.api.v1.test.Summary)
 - operators: `=`
-- `summary.created_at` [yandex.cloud.loadtesting.api.v1.test.Summary.createdAt](#yandex.cloud.loadtesting.api.v1.test.Summary)
+- `summary.created_at` [yandex.cloud.loadtesting.api.v1.test.Summary.created_at](#yandex.cloud.loadtesting.api.v1.test.Summary)
 - operators: `<`, `<=`, `>`, `>=`
-- `summary.created_by` [yandex.cloud.loadtesting.api.v1.test.Summary.createdBy](#yandex.cloud.loadtesting.api.v1.test.Summary)
+- `summary.created_by` [yandex.cloud.loadtesting.api.v1.test.Summary.created_by](#yandex.cloud.loadtesting.api.v1.test.Summary)
 - operators: `=`, `!=`, `IN`, `NOT IN`
 
 Examples:
@@ -79,17 +79,17 @@ Examples:
       "id": "string",
       "configurations": [
         {
-          "configId": "string",
-          "agentSelector": {
-            // Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`
-            "agentId": "string",
-            "matchByFilter": "string",
-            "anonymousAgent": "bool"
+          "config_id": "string",
+          "agent_selector": {
+            // Includes only one of the fields `agent_id`, `match_by_filter`, `anonymous_agent`
+            "agent_id": "string",
+            "match_by_filter": "string",
+            "anonymous_agent": "bool"
             // end of the list of possible fields
           },
           "files": {
-            // Includes only one of the fields `objectStorage`
-            "objectStorage": {
+            // Includes only one of the fields `object_storage`
+            "object_storage": {
               "bucket": "string",
               "name": "string"
             }
@@ -106,47 +106,47 @@ Examples:
             "value": "string"
           }
         ],
-        "loggingLogGroupId": "string",
-        "artifactSettings": {
-          // Includes only one of the fields `objectStorageBucket`
-          "objectStorageBucket": "string",
+        "logging_log_group_id": "string",
+        "artifact_settings": {
+          // Includes only one of the fields `object_storage_bucket`
+          "object_storage_bucket": "string",
           // end of the list of possible fields
-          "isArchive": "bool",
-          "filterInclude": [
+          "is_archive": "bool",
+          "filter_include": [
             "string"
           ],
-          "filterExclude": [
+          "filter_exclude": [
             "string"
           ]
         }
       },
       "summary": {
         "status": "Status",
-        "createdAt": "google.protobuf.Timestamp",
-        "createdBy": "string",
-        "startedAt": "google.protobuf.Timestamp",
-        "finishedAt": "google.protobuf.Timestamp",
-        "isFinished": "bool",
+        "created_at": "google.protobuf.Timestamp",
+        "created_by": "string",
+        "started_at": "google.protobuf.Timestamp",
+        "finished_at": "google.protobuf.Timestamp",
+        "is_finished": "bool",
         "error": "string",
-        "imbalancePoint": {
+        "imbalance_point": {
           "at": "google.protobuf.Timestamp",
           "rps": "int64",
           "comment": "string"
         },
-        "assignedAgentId": "string",
+        "assigned_agent_id": "string",
         "artifacts": {
-          // Includes only one of the fields `objectStorage`
-          "objectStorage": {
+          // Includes only one of the fields `object_storage`
+          "object_storage": {
             "bucket": "string",
             "name": "string"
           }
           // end of the list of possible fields
         }
       },
-      "folderId": "string"
+      "folder_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -155,11 +155,11 @@ Examples:
 || tests[] | **[Test](#yandex.cloud.loadtesting.api.v1.test.Test)**
 
 List of tests in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListTestsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListTestsRequest), use `next_page_token` as the value
-for the [ListTestsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListTestsRequest) parameter in the next list request.
+the specified [ListTestsRequest.page_size](#yandex.cloud.loadtesting.api.v1.ListTestsRequest), use `next_page_token` as the value
+for the [ListTestsRequest.page_token](#yandex.cloud.loadtesting.api.v1.ListTestsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -188,7 +188,7 @@ Test meta information. Name, description, etc. ||
 || summary | **[Summary](#yandex.cloud.loadtesting.api.v1.test.Summary)**
 
 Test execution information. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the test belongs to. ||
 |#
@@ -199,10 +199,10 @@ Configuration of a test.
 
 #|
 ||Field | Description ||
-|| configId | **string**
+|| config_id | **string**
 
 ID of the config. ||
-|| agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
+|| agent_selector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
 || files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
@@ -227,21 +227,21 @@ The structure is used by service to determine on which agents a specific test sh
 
 #|
 ||Field | Description ||
-|| agentId | **string**
+|| agent_id | **string**
 
 Selection by agent ID.
 
-Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`. ||
-|| matchByFilter | **string**
+Includes only one of the fields `agent_id`, `match_by_filter`, `anonymous_agent`. ||
+|| match_by_filter | **string**
 
 Selection by filter string.
 
-Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`. ||
-|| anonymousAgent | **bool**
+Includes only one of the fields `agent_id`, `match_by_filter`, `anonymous_agent`. ||
+|| anonymous_agent | **bool**
 
 Select anonymoud (i.e. not registered) agents.
 
-Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`. ||
+Includes only one of the fields `agent_id`, `match_by_filter`, `anonymous_agent`. ||
 |#
 
 ## FilePointer {#yandex.cloud.loadtesting.api.v1.test.FilePointer}
@@ -250,11 +250,11 @@ Variant-like structure for referencing files in different sources.
 
 #|
 ||Field | Description ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
 
 Reference to a file in Object Storage.
 
-Includes only one of the fields `objectStorage`. ||
+Includes only one of the fields `object_storage`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.loadtesting.api.v1.test.ObjectStorage}
@@ -286,10 +286,10 @@ Description of the test. ||
 || tags[] | **[Tag](#yandex.cloud.loadtesting.api.v1.common.Tag)**
 
 Tags assigned to the test. ||
-|| loggingLogGroupId | **string**
+|| logging_log_group_id | **string**
 
 ID of the logging group to which test artifacts are uploaded. ||
-|| artifactSettings | **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
+|| artifact_settings | **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
 
 Settings which define where to upload test artifacts and which files should be included. ||
 |#
@@ -316,22 +316,22 @@ Defines where to upload test artifacts and which files should be included.
 
 #|
 ||Field | Description ||
-|| objectStorageBucket | **string**
+|| object_storage_bucket | **string**
 
 Name of output object storage bucket in test's folder.
 
-Includes only one of the fields `objectStorageBucket`. ||
-|| isArchive | **bool**
+Includes only one of the fields `object_storage_bucket`. ||
+|| is_archive | **bool**
 
 Setting which defines whether artifact files should be archived prior to uploading. ||
-|| filterInclude[] | **string**
+|| filter_include[] | **string**
 
 Filter strings defining which files should be included to artifacts. GLOB format.
 
 Example:
 - ['*'] - all files will be uploaded.
 - ['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded. ||
-|| filterExclude[] | **string**
+|| filter_exclude[] | **string**
 
 Filter strings defining which files should be excluded from artifacts. GLOB format.
 
@@ -367,29 +367,29 @@ Status of the test.
 
   Means that either an agent is too busy to send it, got offline, or failed without
 reporting a final status. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 UA or SA that created the test. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Test start timestamp.
 
 Empty if the test has not been started yet. ||
-|| finishedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Test finish timestamp.
 
 Empty if the test has not been finished yet. ||
-|| isFinished | **bool**
+|| is_finished | **bool**
 
 Indicates whether the test is finished. ||
 || error | **string**
 
 Error message. ||
-|| imbalancePoint | **[ImbalancePoint](#yandex.cloud.loadtesting.api.v1.test.ImbalancePoint)**
+|| imbalance_point | **[ImbalancePoint](#yandex.cloud.loadtesting.api.v1.test.ImbalancePoint)**
 
 Detected imbalance point.
 
@@ -397,7 +397,7 @@ Contains information about a state at the moment it has been
 [auto-stopped](/docs/load-testing/concepts/auto-stop).
 
 Empty if no auto-stop occured. ||
-|| assignedAgentId | **string**
+|| assigned_agent_id | **string**
 
 ID of the agent that executed the test. ||
 || artifacts | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**

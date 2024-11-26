@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/create.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Create {#Create}
+# Compute Cloud API, REST: SnapshotSchedule.Create
 
 Creates a snapshot schedule in the specified folder.
 

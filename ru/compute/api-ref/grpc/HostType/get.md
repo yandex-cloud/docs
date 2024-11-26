@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/HostType/get.md
 ---
 
-# Compute Cloud API, gRPC: HostTypeService.Get {#Get}
+# Compute Cloud API, gRPC: HostTypeService.Get
 
 Returns information about specified host type.
 
@@ -15,13 +15,13 @@ Returns information about specified host type.
 
 ```json
 {
-  "hostTypeId": "string"
+  "host_type_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| hostTypeId | **string**
+|| host_type_id | **string**
 
 Required field. ID of the host type to return.
 
@@ -36,7 +36,7 @@ To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/grpc/H
   "cores": "int64",
   "memory": "int64",
   "disks": "int64",
-  "diskSize": "int64"
+  "disk_size": "int64"
 }
 ```
 
@@ -58,7 +58,7 @@ Ammount of memory available for instances. ||
 || disks | **int64**
 
 Number of local disks available for instances ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Size of each local disk ||
 |#

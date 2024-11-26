@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/delete.md
 ---
 
-# Cloud Desktop API, REST: Desktop.Delete {#Delete}
+# Cloud Desktop API, REST: Desktop.Delete
 
 Deletes the specified desktop.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/DeviceData/publish.md
 ---
 
-# IoT Core Service, REST: DeviceData.Publish {#Publish}
+# IoT Core Service, REST: DeviceData.Publish
 
 Publishes message on behalf of specified device
 

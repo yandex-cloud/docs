@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ApiKey/listScopes.md
 ---
 
-# Identity and Access Management API, gRPC: ApiKeyService.ListScopes {#ListScopes}
+# Identity and Access Management API, gRPC: ApiKeyService.ListScopes
 
 Retrieves the list of scopes.
 
@@ -15,24 +15,24 @@ Retrieves the list of scopes.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse)
+results is larger than `page_size`,
+the service returns a [ListApiKeyScopesResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyScopesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListApiKeyScopesResponse.nextPageToken](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListApiKeyScopesResponse.next_page_token](#yandex.cloud.iam.v1.ListApiKeyScopesResponse) returned by a previous list request. ||
 |#
 
 ## ListApiKeyScopesResponse {#yandex.cloud.iam.v1.ListApiKeyScopesResponse}
@@ -42,7 +42,7 @@ Page token. To get the next page of results, set `pageToken` to the
   "scopes": [
     "string"
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -51,10 +51,10 @@ Page token. To get the next page of results, set `pageToken` to the
 || scopes[] | **string**
 
 List of scopes ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListApiKeyScopesRequest.pageSize](#yandex.cloud.iam.v1.ListApiKeyScopesRequest), use the `nextPageToken` as the value
-for the [ListApiKeyScopesRequest.pageToken](#yandex.cloud.iam.v1.ListApiKeyScopesRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListApiKeyScopesRequest.page_size](#yandex.cloud.iam.v1.ListApiKeyScopesRequest), use the `next_page_token` as the value
+for the [ListApiKeyScopesRequest.page_token](#yandex.cloud.iam.v1.ListApiKeyScopesRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#

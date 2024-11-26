@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
+  - name: Step-by-step guide
     items:
       - name: All guides
         href: operations/index.md
@@ -59,6 +59,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: postgresql_anonymizer
+            href: operations/extensions/pg_anon.md
           - name: Hunspell dictionaries for full-text search
             href: operations/extensions/hunspell.md
       - name: Logs and monitoring

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Operation/cancel.md
 ---
 
-# Billing API, REST: Operation.Cancel {#Cancel}
+# Billing API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

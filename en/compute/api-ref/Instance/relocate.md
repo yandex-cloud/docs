@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/relocate.md
 ---
 
-# Compute Cloud API, REST: Instance.Relocate {#Relocate}
+# Compute Cloud API, REST: Instance.Relocate
 
 Moves the specified instance to another availability zone
 

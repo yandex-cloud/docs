@@ -6,10 +6,11 @@ Type of limit | Value
 Number of text vectorization requests per second | 10
 **[Text generation](../foundation-models/concepts/yandexgpt/index.md)** |
 Number of concurrent generations, [synchronous mode](../foundation-models/concepts/index.md#working-mode) | 10
-Number of concurrent generations, {{ yagpt-name }} 32k model | 1
+Number of concurrent generations, [{{ gpt-pro }} 32k](../foundation-models/concepts/yandexgpt/models.md#yandexgpt-generation) | 1
 Number of requests per second, [asynchronous mode](../foundation-models/concepts/index.md#working-mode) (request) | 10
 Number of requests per second, asynchronous mode (getting a response) | 50
 Number of requests per hour, asynchronous mode (request) | 5000
+Number of requests per hour, {{ gpt-pro }} 32k, synchronous mode (request) | 100
 Number of [tokenization](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) requests per second | 50
 **[Text classification](../foundation-models/concepts/classifier/index.md)** |
 Number of text classification requests per second | 1
@@ -32,7 +33,7 @@ Maximum number of tokens per response in the [management console]({{ link-consol
 Total number of tokens in request and response, [3rd generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Total number of tokens in request and response, synchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Total number of tokens in request and response, asynchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
-Total number of tokens in request and response, {{ yagpt-name }} 32k model | 32,000
+Total number of tokens in request and response, {{ gpt-pro }} 32k | 32,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |
 Maximum [prompt](../foundation-models/concepts/index.md#prompt) length | 500 characters

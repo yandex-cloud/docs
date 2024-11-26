@@ -7,7 +7,7 @@ description: Follow this guide to create a connection to {{ CH }}.
 
 {% note info %}
 
-All data requests must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [{#T}](#ch-connection-specify) if using views or subqueries with the JOIN section in {{ datalens-short-name }}.
+All data requests must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics for {{ CH }} connections](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -28,25 +28,25 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
-     * **Cloud and folder**: Select the folder the cluster is located in.
-     * **Cluster**: Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }}** access option enabled. If you do not have an available cluster, click **Create new**.
+     * **Cloud and folder**. Select the folder the cluster is located in.
+     * **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }}** access option enabled. If you do not have an available cluster, click **Create new**.
 
        {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
-     * **Host type**: Select a host type:
+     * **Host type**. Select a host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
        * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) to connect to an available {{ CH }} cluster host.
 
-     * **Hostname**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-     * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
-     * **Username**: Specify the username for the {{ CH }} connection.
+     * **Hostname**. Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+     * **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
+     * **Username**. Specify the username for the {{ CH }} connection.
 
        {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
-     * **Password**: Enter the password for the user.
-     * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-     * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+     * **Password**. Enter the password for the user.
+     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
        Click **Check connection** to make sure the parameters are correct.
 
@@ -66,13 +66,13 @@ To create a {{ CH }} connection:
 
      Select a [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
 
-     * **Cloud and folder**: Select the folder where the connection to the cluster was created.
-     * **Connection ID**: Select one of the available connections in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
-     * **Host**: Select a host from the list of available hosts in the {{ CH }} cluster.
-     * **Port**: It is set automatically depending on the selected host.
-     * **Username**: It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**: Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-     * **Raw SQL level**: Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+     * **Cloud and folder**. Select the folder where the connection to the cluster was created.
+     * **Connection ID**. Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Host**. Select a host from the list of available hosts in the {{ CH }} cluster.
+     * **Port**. It is set automatically depending on the selected host.
+     * **Username**. It is set automatically from the selected connection data.
+     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
 

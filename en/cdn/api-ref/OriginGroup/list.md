@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/list.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.List {#List}
+# Cloud CDN API, REST: OriginGroup.List
 
 Lists origins of origin group.
 

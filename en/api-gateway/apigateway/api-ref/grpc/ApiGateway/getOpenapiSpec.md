@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/apigateway/v1/apigateway/api-ref/grpc/ApiGateway/getOpenapiSpec.md
 ---
 
-# API Gateway Service, gRPC: ApiGatewayService.GetOpenapiSpec {#GetOpenapiSpec}
+# API Gateway Service, gRPC: ApiGatewayService.GetOpenapiSpec
 
 Returns the OpenAPI specification of specified API gateway.
 
@@ -15,14 +15,14 @@ Returns the OpenAPI specification of specified API gateway.
 
 ```json
 {
-  "apiGatewayId": "string",
+  "api_gateway_id": "string",
   "format": "Format"
 }
 ```
 
 #|
 ||Field | Description ||
-|| apiGatewayId | **string**
+|| api_gateway_id | **string**
 
 Required field. ID of the API gateway to get specification from. ||
 || format | enum **Format**
@@ -38,17 +38,17 @@ Format of returned specification. Default is the original format used in [Create
 
 ```json
 {
-  "apiGatewayId": "string",
-  "openapiSpec": "string"
+  "api_gateway_id": "string",
+  "openapi_spec": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| apiGatewayId | **string**
+|| api_gateway_id | **string**
 
 ID of the API gateway. ||
-|| openapiSpec | **string**
+|| openapi_spec | **string**
 
 The text of specification, JSON or YAML. ||
 |#

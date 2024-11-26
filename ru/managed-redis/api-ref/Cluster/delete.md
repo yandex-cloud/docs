@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/delete.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.Delete {#Delete}
+# Managed Service for Redis API, REST: Cluster.Delete
 
 Deletes the specified Redis cluster.
 

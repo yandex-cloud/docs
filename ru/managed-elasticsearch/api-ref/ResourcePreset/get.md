@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for Elasticsearch API, REST: ResourcePreset.Get {#Get}
+# Managed Service for Elasticsearch API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
 

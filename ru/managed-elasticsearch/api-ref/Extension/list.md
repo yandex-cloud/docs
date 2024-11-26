@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/list.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Extension.List {#List}
+# Managed Service for Elasticsearch API, REST: Extension.List
 
 Returns the list of available extensions for the specified Elasticsearch cluster.
 

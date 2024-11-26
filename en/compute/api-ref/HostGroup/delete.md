@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/delete.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Delete {#Delete}
+# Compute Cloud API, REST: HostGroup.Delete
 
 Deletes the specified host group.
 

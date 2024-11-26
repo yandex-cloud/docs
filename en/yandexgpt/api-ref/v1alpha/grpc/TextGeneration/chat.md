@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/llm/v1alpha/api-ref/v1alpha/grpc/TextGeneration/chat.md
 ---
 
-# YandexGPT API, gRPC: TextGenerationService.Chat {#Chat}
+# YandexGPT API, gRPC: TextGenerationService.Chat
 
 RPC method for engaging in a chat conversation with the model.
 
@@ -16,13 +16,13 @@ RPC method for engaging in a chat conversation with the model.
 ```json
 {
   "model": "string",
-  "generationOptions": {
-    "partialResults": "bool",
+  "generation_options": {
+    "partial_results": "bool",
     "temperature": "google.protobuf.DoubleValue",
-    "maxTokens": "google.protobuf.Int64Value"
+    "max_tokens": "google.protobuf.Int64Value"
   },
-  // Includes only one of the fields `instructionText`
-  "instructionText": "string",
+  // Includes only one of the fields `instruction_text`
+  "instruction_text": "string",
   // end of the list of possible fields
   "messages": [
     {
@@ -41,14 +41,14 @@ Request to engage in a chat conversation with a text generation model.
 
 The name or identifier of the model to be used for the chat.
 Possible value for now: `general`. ||
-|| generationOptions | **[GenerationOptions](#yandex.cloud.ai.llm.v1alpha.GenerationOptions)**
+|| generation_options | **[GenerationOptions](#yandex.cloud.ai.llm.v1alpha.GenerationOptions)**
 
 Configuration options for text generation. ||
-|| instructionText | **string**
+|| instruction_text | **string**
 
 The text-based instruction for the conversation.
 
-Includes only one of the fields `instructionText`.
+Includes only one of the fields `instruction_text`.
 
 Text precondition or context of the request.
 For example, the instruction may be "You are a helpful assistant". ||
@@ -63,14 +63,14 @@ Defines the options for text generation.
 
 #|
 ||Field | Description ||
-|| partialResults | **bool**
+|| partial_results | **bool**
 
 Enables streaming of partially generated text. ||
 || temperature | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive).
 Lower values produce more straightforward responses, while higher values lead to increased creativity and randomness. ||
-|| maxTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum limit on the total number of tokens used for both the input prompt and the generated response.
 Must be greater than zero and not exceed 7400 tokens. ||
@@ -98,7 +98,7 @@ The text content of the message. ||
     "role": "string",
     "text": "string"
   },
-  "numTokens": "int64"
+  "num_tokens": "int64"
 }
 ```
 
@@ -109,7 +109,7 @@ Contains a model-generated response for a chat query.
 || message | **[Message](#yandex.cloud.ai.llm.v1alpha.Message2)**
 
 The assistant's message in the chat conversation. ||
-|| numTokens | **int64**
+|| num_tokens | **int64**
 
 Total number of tokens used in both the chat request and chat response. ||
 |#

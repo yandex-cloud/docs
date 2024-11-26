@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/airflow/v1/api-ref/grpc/Cluster/create.md
 ---
 
-# Managed Service for Apache Airflow™ API, gRPC: ClusterService.Create {#Create}
+# Managed Service for Apache Airflow™ API, gRPC: ClusterService.Create
 
 Creates an Apache Airflow cluster.
 
@@ -15,45 +15,45 @@ Creates an Apache Airflow cluster.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "config": {
-    "versionId": "string",
+    "version_id": "string",
     "airflow": {
       "config": "string"
     },
     "webserver": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "scheduler": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "triggerer": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "worker": {
-      "minCount": "int64",
-      "maxCount": "int64",
+      "min_count": "int64",
+      "max_count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "dependencies": {
-      "pipPackages": [
+      "pip_packages": [
         "string"
       ],
-      "debPackages": [
+      "deb_packages": [
         "string"
       ]
     },
@@ -62,37 +62,37 @@ Creates an Apache Airflow cluster.
     }
   },
   "network": {
-    "subnetIds": [
+    "subnet_ids": [
       "string"
     ],
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ]
   },
-  "codeSync": {
+  "code_sync": {
     // Includes only one of the fields `s3`
     "s3": {
       "bucket": "string"
     }
     // end of the list of possible fields
   },
-  "deletionProtection": "bool",
-  "serviceAccountId": "string",
+  "deletion_protection": "bool",
+  "service_account_id": "string",
   "logging": {
     "enabled": "bool",
-    // Includes only one of the fields `folderId`, `logGroupId`
-    "folderId": "string",
-    "logGroupId": "string",
+    // Includes only one of the fields `folder_id`, `log_group_id`
+    "folder_id": "string",
+    "log_group_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   },
-  "adminPassword": "string"
+  "admin_password": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create Apache Airflow cluster in. ||
 || name | **string**
@@ -110,20 +110,20 @@ Required field. Configuration of Apache Airflow components. ||
 || network | **[NetworkConfig](#yandex.cloud.airflow.v1.NetworkConfig)**
 
 Network related configuration options. ||
-|| codeSync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
+|| code_sync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
 
 Parameters of the location and access to the code that will be executed in the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account used to access Cloud resources.
 For more information, see [documentation](/docs/managed-airflow/concepts/impersonation). ||
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
-|| adminPassword | **string**
+|| admin_password | **string**
 
 Required field. Password of user `admin`. ||
 |#
@@ -132,7 +132,7 @@ Required field. Password of user `admin`. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of Apache that runs on the cluster. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
@@ -183,7 +183,7 @@ Resources allocated to webserver instances. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to an instance (CPU, memory etc.). ||
 |#
@@ -216,10 +216,10 @@ Resources allocated to triggerer instances. ||
 
 #|
 ||Field | Description ||
-|| minCount | **int64**
+|| min_count | **int64**
 
 The minimum number of worker instances in the cluster. ||
-|| maxCount | **int64**
+|| max_count | **int64**
 
 The maximum number of worker instances in the cluster. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
@@ -231,10 +231,10 @@ Resources allocated to worker instances. ||
 
 #|
 ||Field | Description ||
-|| pipPackages[] | **string**
+|| pip_packages[] | **string**
 
 Python packages that are installed in the cluster. ||
-|| debPackages[] | **string**
+|| deb_packages[] | **string**
 
 System packages that are installed in the cluster. ||
 |#
@@ -252,10 +252,10 @@ The setting allows to enable Lockbox Secret Backend. ||
 
 #|
 ||Field | Description ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of VPC network subnets where instances of the cluster are attached. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
 |#
@@ -285,21 +285,21 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 || enabled | **bool**
 
 Logs generated by the Airflow components are delivered to Cloud Logging. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Logs should be written to default log group for specified folder.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Logs should be written to log group resolved by ID.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -334,19 +334,19 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -358,40 +358,40 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
       }
     ],
     "config": {
-      "versionId": "string",
+      "version_id": "string",
       "airflow": {
         "config": "string"
       },
       "webserver": {
         "count": "int64",
         "resources": {
-          "resourcePresetId": "string"
+          "resource_preset_id": "string"
         }
       },
       "scheduler": {
         "count": "int64",
         "resources": {
-          "resourcePresetId": "string"
+          "resource_preset_id": "string"
         }
       },
       "triggerer": {
         "count": "int64",
         "resources": {
-          "resourcePresetId": "string"
+          "resource_preset_id": "string"
         }
       },
       "worker": {
-        "minCount": "int64",
-        "maxCount": "int64",
+        "min_count": "int64",
+        "max_count": "int64",
         "resources": {
-          "resourcePresetId": "string"
+          "resource_preset_id": "string"
         }
       },
       "dependencies": {
-        "pipPackages": [
+        "pip_packages": [
           "string"
         ],
-        "debPackages": [
+        "deb_packages": [
           "string"
         ]
       },
@@ -402,30 +402,30 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
     "health": "Health",
     "status": "Status",
     "network": {
-      "subnetIds": [
+      "subnet_ids": [
         "string"
       ],
-      "securityGroupIds": [
+      "security_group_ids": [
         "string"
       ]
     },
-    "codeSync": {
+    "code_sync": {
       // Includes only one of the fields `s3`
       "s3": {
         "bucket": "string"
       }
       // end of the list of possible fields
     },
-    "deletionProtection": "bool",
-    "webserverUrl": "string",
-    "serviceAccountId": "string",
+    "deletion_protection": "bool",
+    "webserver_url": "string",
+    "service_account_id": "string",
     "logging": {
       "enabled": "bool",
-      // Includes only one of the fields `folderId`, `logGroupId`
-      "folderId": "string",
-      "logGroupId": "string",
+      // Includes only one of the fields `folder_id`, `log_group_id`
+      "folder_id": "string",
+      "log_group_id": "string",
       // end of the list of possible fields
-      "minLevel": "Level"
+      "min_level": "Level"
     }
   }
   // end of the list of possible fields
@@ -442,13 +442,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -491,7 +491,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Airflow cluster that is being created. ||
 |#
@@ -506,10 +506,10 @@ Apache Airflow cluster.
 
 Unique ID of the Apache Airflow cluster.
 This ID is assigned by Cloud during cluster creation. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Apache Airflow cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Apache Airflow cluster was created. ||
 || name | **string**
@@ -551,16 +551,16 @@ Cluster status.
 || network | **[NetworkConfig](#yandex.cloud.airflow.v1.NetworkConfig2)**
 
 Network related configuration options. ||
-|| codeSync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig2)**
+|| code_sync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig2)**
 
 Parameters of the location and access to the code that will be executed in the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster. ||
-|| webserverUrl | **string**
+|| webserver_url | **string**
 
 Address of Apache Airflow web UI. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account used to access Cloud resources.
 For more information, see [documentation](/docs/managed-airflow/concepts/impersonation). ||
@@ -590,7 +590,7 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of Apache that runs on the cluster. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig2)**
@@ -641,7 +641,7 @@ Resources allocated to webserver instances. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to an instance (CPU, memory etc.). ||
 |#
@@ -674,10 +674,10 @@ Resources allocated to triggerer instances. ||
 
 #|
 ||Field | Description ||
-|| minCount | **int64**
+|| min_count | **int64**
 
 The minimum number of worker instances in the cluster. ||
-|| maxCount | **int64**
+|| max_count | **int64**
 
 The maximum number of worker instances in the cluster. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources2)**
@@ -689,10 +689,10 @@ Resources allocated to worker instances. ||
 
 #|
 ||Field | Description ||
-|| pipPackages[] | **string**
+|| pip_packages[] | **string**
 
 Python packages that are installed in the cluster. ||
-|| debPackages[] | **string**
+|| deb_packages[] | **string**
 
 System packages that are installed in the cluster. ||
 |#
@@ -710,10 +710,10 @@ The setting allows to enable Lockbox Secret Backend. ||
 
 #|
 ||Field | Description ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of VPC network subnets where instances of the cluster are attached. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
 |#
@@ -743,21 +743,21 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 || enabled | **bool**
 
 Logs generated by the Airflow components are delivered to Cloud Logging. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Logs should be written to default log group for specified folder.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Logs should be written to log group resolved by ID.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 

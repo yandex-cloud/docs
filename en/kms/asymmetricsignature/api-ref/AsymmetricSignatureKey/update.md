@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/update.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Update {#Update}
+# Key Management Service API, REST: AsymmetricSignatureKey.Update
 
 Updates the specified asymmetric KMS key.
 

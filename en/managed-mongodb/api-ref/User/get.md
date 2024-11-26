@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/get.md
 ---
 
-# Managed Service for MongoDB API, REST: User.Get {#Get}
+# Managed Service for MongoDB API, REST: User.Get
 
 Returns the specified MongoDB User resource.
 

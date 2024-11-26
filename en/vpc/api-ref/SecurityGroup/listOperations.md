@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/listOperations.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.ListOperations {#ListOperations}
+# Virtual Private Cloud API, REST: SecurityGroup.ListOperations
 
 Lists operations for the specified security groups.
 

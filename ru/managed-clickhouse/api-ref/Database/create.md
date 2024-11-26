@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: Database.Create {#Create}
+# Managed Service for ClickHouse API, REST: Database.Create
 
 Creates a new ClickHouse database in the specified cluster.
 

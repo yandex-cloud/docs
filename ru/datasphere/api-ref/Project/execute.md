@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/execute.md
 ---
 
-# DataSphere API v2, REST: Project.Execute {#Execute}
+# DataSphere API v2, REST: Project.Execute
 
 Executes code of the specified notebook using configuration defined in the project settings. If the default project configuration is not specified, `c1.4` is used.
 

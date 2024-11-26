@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/get.md
 ---
 
-# Managed Services for Kubernetes API, REST: NodeGroup.Get {#Get}
+# Managed Services for Kubernetes API, REST: NodeGroup.Get
 
 Returns the specified node group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Operation/cancel.md
 ---
 
-# Managed Service for MySQL API, REST: Operation.Cancel {#Cancel}
+# Managed Service for MySQL API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

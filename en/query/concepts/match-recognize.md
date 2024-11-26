@@ -1,6 +1,6 @@
 # Data pattern processing
 
-A **data pattern** is a combination of events, as well as conditions and correlations between these events, used to track various regularities and detect events. Pattern searching is used for analyzing and monitoring event streams in real time, enabling prompt response to changes and making crucial decisions. In data analysis systems, a data pattern builds a rule by which the system figures out whether the incoming event stream meets certain criteria, thus triggering some actions or notifications.
+A **data pattern** is a combination of events, as well as conditions and correlations between these events, used to track various regularities and detect events. Pattern searching is used for analyzing and monitoring event streams in real time, enabling prompt response to changes and making crucial decisions. In data analysis systems, a data pattern builds a rule by which the system determines whether the incoming event stream meets certain criteria; this results in triggering specific actions or notifications.
 
 Here is a hands-on example of pattern processing in a data stream produced by an IoT device, where pressing its buttons triggers certain events. Let's assume you need to find and process the following sequence of button clicks: `button 1`, `button 2`, and `button 3`. The data is transmitted as JSON strings, which are distributed across the `ts` and `button` columns of `input_stream` using [data bindings](glossary.md#binding).
 
@@ -63,7 +63,7 @@ Here is a brief description of the SQL syntax elements of the `MATCH_RECOGNIZE` 
 DEFINE <variable_1> AS <expression_1>[, <variable_2> AS <expression_2>, ...]
 ```
 
-`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions.  For example, one can use such expressions as `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
+`DEFINE` declares variables that are searched for in the input data. Variables are names of SQL expressions computed over the input data. SQL expressions in `DEFINE` have the same meaning as search expressions in a `WHERE` SQL clause. For example, the `button = 1` expression searches for all rows that contain the `button` column with the `1` value. Any SQL expressions that can be used to perform a search, including aggregation functions like `LAST` or `FIRST`, can act as conditions. such as `button > 2 AND zone_id < 12` or `LAST(button) > 10`.
 
 In your SQL statements, make sure to specify the variable name for which you are searching for matches. For instance, in the following SQL command, you need to specify the variable name for which the calculation is being performed (`A`), for the `button = 1` condition:
 

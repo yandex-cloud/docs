@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Data Proc API, REST: ResourcePreset.List {#List}
+# Data Proc API, REST: ResourcePreset.List
 
 Retrieves the list of available ResourcePreset resources.
 

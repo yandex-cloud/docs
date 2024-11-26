@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/restartHosts.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.RestartHosts {#RestartHosts}
+# Managed Service for ClickHouse API, REST: Cluster.RestartHosts
 
 ## HTTP request
 

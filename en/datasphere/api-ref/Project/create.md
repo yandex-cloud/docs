@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/create.md
 ---
 
-# DataSphere API v2, REST: Project.Create {#Create}
+# DataSphere API v2, REST: Project.Create
 
 Creates a project in the specified folder.
 

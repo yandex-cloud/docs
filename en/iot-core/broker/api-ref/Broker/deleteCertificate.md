@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deleteCertificate.md
 ---
 
-# IoT Core Broker Service, REST: Broker.DeleteCertificate {#DeleteCertificate}
+# IoT Core Broker Service, REST: Broker.DeleteCertificate
 
 Deletes the specified broker certificate.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listSnapshots.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.ListSnapshots {#ListSnapshots}
+# Compute Cloud API, REST: SnapshotSchedule.ListSnapshots
 
 Retrieves the list of snapshots created by the specified snapshot schedule.
 

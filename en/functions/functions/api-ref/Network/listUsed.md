@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listUsed.md
 ---
 
-# Cloud Functions Service, REST: Network.ListUsed {#ListUsed}
+# Cloud Functions Service, REST: Network.ListUsed
 
 Retrieves the list of networks in the specified scope that are used in serverless resources.
 

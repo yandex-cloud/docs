@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/create.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.Create {#Create}
+# Identity and Access Management API, REST: ApiKey.Create
 
 Creates an API key for the specified service account.
 

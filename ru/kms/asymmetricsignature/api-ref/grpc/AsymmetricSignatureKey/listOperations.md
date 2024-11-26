@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/listOperations.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureKeyService.ListOperations {#ListOperations}
+# Key Management Service API, gRPC: AsymmetricSignatureKeyService.ListOperations
 
 Lists operations for the specified asymmetric KMS key.
 
@@ -15,29 +15,29 @@ Lists operations for the specified asymmetric KMS key.
 
 ```json
 {
-  "keyId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "key_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
 
 To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/grpc/AsymmetricSignatureKey/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListAsymmetricSignatureKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse)
+results is larger than `page_size`, the service returns a [ListAsymmetricSignatureKeyOperationsResponse.next_page_token](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListAsymmetricSignatureKeyOperationsResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListAsymmetricSignatureKeyOperationsResponse.next_page_token](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse) returned by a previous list request. ||
 |#
 
 ## ListAsymmetricSignatureKeyOperationsResponse {#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse}
@@ -48,9 +48,9 @@ Page token. To get the next page of results, set `pageToken` to the
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -59,7 +59,7 @@ Page token. To get the next page of results, set `pageToken` to the
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -68,12 +68,12 @@ Page token. To get the next page of results, set `pageToken` to the
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified key. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListAsymmetricSignatureKeyOperationsRequest.pageSize](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsRequest), use the `nextPageToken` as the value
-for the [ListAsymmetricSignatureKeyOperationsRequest.pageToken](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListAsymmetricSignatureKeyOperationsRequest.page_size](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsRequest), use the `next_page_token` as the value
+for the [ListAsymmetricSignatureKeyOperationsRequest.page_token](#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -88,13 +88,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

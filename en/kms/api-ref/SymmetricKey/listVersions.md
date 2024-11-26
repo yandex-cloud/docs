@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listVersions.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.ListVersions {#ListVersions}
+# Key Management Service API, REST: SymmetricKey.ListVersions
 
 Returns the list of versions of the specified symmetric KMS key.
 

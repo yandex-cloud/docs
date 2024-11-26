@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/create.md
 ---
 
-# Cloud DNS API, REST: DnsZone.Create {#Create}
+# Cloud DNS API, REST: DnsZone.Create
 
 Creates a DNS zone in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/delete.md
 ---
 
-# Certificate Manager API, REST: Certificate.Delete {#Delete}
+# Certificate Manager API, REST: Certificate.Delete
 
 Deletes the specified certificate.
 

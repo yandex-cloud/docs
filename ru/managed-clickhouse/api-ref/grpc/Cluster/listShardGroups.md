@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/listShardGroups.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.ListShardGroups {#ListShardGroups}
+# Managed Service for ClickHouse API, gRPC: ClusterService.ListShardGroups
 
 Retrieves a list of shard groups that belong to specified cluster.
 
@@ -15,60 +15,60 @@ Retrieves a list of shard groups that belong to specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster that the shard group belongs to.
 
 To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClusterShardGroupsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `pageToken` to the [ListClusterShardGroupsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterShardGroupsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterShardGroupsResponse {#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse}
 
 ```json
 {
-  "shardGroups": [
+  "shard_groups": [
     {
       "name": "string",
-      "clusterId": "string",
+      "cluster_id": "string",
       "description": "string",
-      "shardNames": [
+      "shard_names": [
         "string"
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| shardGroups[] | **[ShardGroup](#yandex.cloud.mdb.clickhouse.v1.ShardGroup)**
+|| shard_groups[] | **[ShardGroup](#yandex.cloud.mdb.clickhouse.v1.ShardGroup)**
 
 List of ClickHouse cluster's shard groups. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterShardGroupsRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest), use the `nextPageToken` as the value for the [ListClusterShardGroupsRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest) parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+If the number of results is larger than [ListClusterShardGroupsRequest.page_size](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest), use the `next_page_token` as the value for the [ListClusterShardGroupsRequest.page_token](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest) parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## ShardGroup {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}
@@ -78,13 +78,13 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 || name | **string**
 
 Name of the shard group. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the shard group belongs to. ||
 || description | **string**
 
 Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 List of shard names contained in the shard group. ||
 |#

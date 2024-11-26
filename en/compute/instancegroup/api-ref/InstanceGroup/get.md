@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/get.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Get {#Get}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Get
 
 Returns the specified InstanceGroup resource.
 

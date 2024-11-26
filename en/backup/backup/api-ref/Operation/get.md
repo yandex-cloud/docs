@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Operation/get.md
 ---
 
-# Cloud Backup API, REST: Operation.Get {#Get}
+# Cloud Backup API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Operation/get.md
 ---
 
-# Workflows Service, REST: Operation.Get {#Get}
+# Workflows Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

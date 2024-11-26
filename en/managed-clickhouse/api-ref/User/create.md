@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.Create {#Create}
+# Managed Service for ClickHouse API, REST: User.Create
 
 Creates a ClickHouse user in the specified cluster.
 

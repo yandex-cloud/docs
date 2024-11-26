@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Cluster/streamLogs.md
 ---
 
-# Managed Service for MySQL API, gRPC: ClusterService.StreamLogs {#StreamLogs}
+# Managed Service for MySQL API, gRPC: ClusterService.StreamLogs
 
 Retrieves a log stream for a cluster.
 
@@ -17,30 +17,30 @@ This method is similar to [ListLogs](/docs/managed-mysql/api-ref/grpc/Cluster/li
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "serviceType": "ServiceType",
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "recordToken": "string",
+  "service_type": "ServiceType",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "record_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to stream logs for.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| columnFilter[] | **string**
+|| column_filter[] | **string**
 
 Columns from the logs table to request.
 If no columns are specified, complete log records are returned. ||
-|| serviceType | enum **ServiceType**
+|| service_type | enum **ServiceType**
 
 The log type.
 
@@ -49,20 +49,20 @@ The log type.
 - `MYSQL_GENERAL`: MySQL general query log.
 - `MYSQL_SLOW_QUERY`: MySQL slow query log.
 - `MYSQL_AUDIT`: MySQL audit log. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request.
-If this field is not set, all existing log records beginning from `fromTime` will be returned first, and then the new records will be returned as they appear.
+If this field is not set, all existing log records beginning from `from_time` will be returned first, and then the new records will be returned as they appear.
 
 In essence it has `tail -f` command semantics. ||
-|| recordToken | **string**
+|| record_token | **string**
 
 Record token that can be used to control logs streaming.
 
-Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
+Set `record_token` to the [StreamLogRecord.next_record_token](#yandex.cloud.mdb.mysql.v1.StreamLogRecord), returned by the previous [ClusterService.StreamLogs](#StreamLogs) request to start streaming from the next log record. ||
 || filter | **string**
 
 A filter expression that selects clusters logs listed in the response.
@@ -82,7 +82,7 @@ Examples of a filter: `message.hostname='node1.db.cloud.yandex.net'` ||
     "timestamp": "google.protobuf.Timestamp",
     "message": "string"
   },
-  "nextRecordToken": "string"
+  "next_record_token": "string"
 }
 ```
 
@@ -93,12 +93,12 @@ A single log record in the logs stream.
 || record | **[LogRecord](#yandex.cloud.mdb.mysql.v1.LogRecord)**
 
 One of the requested log records. ||
-|| nextRecordToken | **string**
+|| next_record_token | **string**
 
 The token that can be used to continue streaming logs starting from the exact same record.
-To continue streaming, specify value of `nextRecordToken` as the [StreamClusterLogsRequest.recordToken](#yandex.cloud.mdb.mysql.v1.StreamClusterLogsRequest) value in the next [ClusterService.StreamLogs](#StreamLogs) request.
+To continue streaming, specify value of `next_record_token` as the [StreamClusterLogsRequest.record_token](#yandex.cloud.mdb.mysql.v1.StreamClusterLogsRequest) value in the next [ClusterService.StreamLogs](#StreamLogs) request.
 
-This value is interchangeable with [ListClusterLogsResponse.nextPageToken](/docs/managed-mysql/api-ref/grpc/Cluster/listLogs#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) from [ClusterService.ListLogs](/docs/managed-mysql/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
+This value is interchangeable with [ListClusterLogsResponse.next_page_token](/docs/managed-mysql/api-ref/grpc/Cluster/listLogs#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) from [ClusterService.ListLogs](/docs/managed-mysql/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
 |#
 
 ## LogRecord {#yandex.cloud.mdb.mysql.v1.LogRecord}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/disable.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Disable {#Disable}
+# Compute Cloud API, REST: SnapshotSchedule.Disable
 
 Disables the specified snapshot schedule.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/DiskPlacementGroup/update.md
 ---
 
-# Compute Cloud API, gRPC: DiskPlacementGroupService.Update {#Update}
+# Compute Cloud API, gRPC: DiskPlacementGroupService.Update
 
 Updates the specified placement group.
 
@@ -15,8 +15,8 @@ Updates the specified placement group.
 
 ```json
 {
-  "diskPlacementGroupId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "disk_placement_group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string"
@@ -25,11 +25,11 @@ Updates the specified placement group.
 
 #|
 ||Field | Description ||
-|| diskPlacementGroupId | **string**
+|| disk_placement_group_id | **string**
 
 Required field. ID of the placement group to update.
 To get the placement group ID, use an [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the DiskPlacementGroup resource are going to be updated. ||
 || name | **string**
@@ -51,27 +51,27 @@ The existing set of `labels` is completely replaced by the provided set. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "diskPlacementGroupId": "string"
+    "disk_placement_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "zoneId": "string",
+    "zone_id": "string",
     "status": "Status",
-    // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-    "spreadPlacementStrategy": "DiskSpreadPlacementStrategy",
-    "partitionPlacementStrategy": {
+    // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+    "spread_placement_strategy": "DiskSpreadPlacementStrategy",
+    "partition_placement_strategy": {
       "partitions": "int64"
     }
     // end of the list of possible fields
@@ -90,13 +90,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -139,7 +139,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| diskPlacementGroupId | **string**
+|| disk_placement_group_id | **string**
 
 ID of the placement group that is being updated. ||
 |#
@@ -151,10 +151,10 @@ ID of the placement group that is being updated. ||
 || id | **string**
 
 ID of the placement group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the placement group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -167,7 +167,7 @@ Description of the placement group. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the placement group resides. ||
 || status | enum **Status**
@@ -178,18 +178,18 @@ Current status of the placement group
 - `CREATING`
 - `READY`
 - `DELETING` ||
-|| spreadPlacementStrategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
+|| spread_placement_strategy | **[DiskSpreadPlacementStrategy](#yandex.cloud.compute.v1.DiskSpreadPlacementStrategy)**
 
 Distribute disks over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
-|| partitionPlacementStrategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
+|| partition_placement_strategy | **[DiskPartitionPlacementStrategy](#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
 
 Distribute disks over partitions.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. ||
 |#

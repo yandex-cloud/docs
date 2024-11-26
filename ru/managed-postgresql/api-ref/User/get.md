@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/get.md
 ---
 
-# Managed Service for PostgreSQL API, REST: User.Get {#Get}
+# Managed Service for PostgreSQL API, REST: User.Get
 
 Returns the specified PostgreSQL User resource.
 

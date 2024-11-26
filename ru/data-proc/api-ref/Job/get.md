@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/get.md
 ---
 
-# Data Proc API, REST: Job.Get {#Get}
+# Data Proc API, REST: Job.Get
 
 Returns the specified job.
 

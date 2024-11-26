@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/delete.md
 ---
 
-# Load Testing API, REST: Test.Delete {#Delete}
+# Load Testing API, REST: Test.Delete
 
 Deletes specified tests.
 

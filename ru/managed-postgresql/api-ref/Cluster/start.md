@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Cluster.Start {#Start}
+# Managed Service for PostgreSQL API, REST: Cluster.Start
 
 Start the specified PostgreSQL cluster.
 

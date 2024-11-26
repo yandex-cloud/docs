@@ -86,9 +86,11 @@ Versions can't be changed. Whenever you need to change the number of key-value p
           text_value: value_2
       ```
 
+      {% include [secret-content-base64-cli](../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - API {#api}
 
-    If you make a request without specifying a version, the contents of the current (latest) version is returned.
+    If you make a request without specifying a version, the response will return the contents of the current (latest) version.
 
     You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
 
@@ -105,7 +107,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
         export IAM_TOKEN=$(curl --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
         ```
 
-    1. Run the following query:
+    1. Run this request:
 
         ```
         curl \
@@ -113,6 +115,9 @@ Versions can't be changed. Whenever you need to change the number of key-value p
           --header "Authorization: Bearer ${IAM_TOKEN}" \
           https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
         ```
+
+    {% include [secret-content-base64](../_includes/lockbox/secret-content-base64.md) %}
+
 {% endlist %}
 
 You can manage secrets and their contents not only through the [management console]({{ link-console-main }}), [CLI](../cli/quickstart.md), and [API](../overview/api.md), but also using SDKs for popular programming languages. For more information, see [{#T}](./concepts/index.md#interface).

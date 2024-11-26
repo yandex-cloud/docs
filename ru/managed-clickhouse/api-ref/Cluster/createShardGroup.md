@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/createShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.CreateShardGroup {#CreateShardGroup}
+# Managed Service for ClickHouse API, REST: Cluster.CreateShardGroup
 
 Creates a new shard group in the specified cluster.
 

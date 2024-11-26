@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/setAccessBindings.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.SetAccessBindings {#SetAccessBindings}
+# Compute Cloud API, REST: GpuCluster.SetAccessBindings
 
 Sets access bindings for the GPU cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/updateMembers.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.UpdateMembers {#UpdateMembers}
+# Cloud Organization API, gRPC: GroupService.UpdateMembers
 
 Update group members.
 
@@ -15,11 +15,11 @@ Update group members.
 
 ```json
 {
-  "groupId": "string",
-  "memberDeltas": [
+  "group_id": "string",
+  "member_deltas": [
     {
       "action": "MemberAction",
-      "subjectId": "string"
+      "subject_id": "string"
     }
   ]
 }
@@ -27,11 +27,11 @@ Update group members.
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field. ID of the group to update.
 To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
-|| memberDeltas[] | **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
+|| member_deltas[] | **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
 
 Updates to group members. ||
 |#
@@ -47,7 +47,7 @@ Required field. The action that is being performed on a group member.
 - `MEMBER_ACTION_UNSPECIFIED`
 - `ADD`: Addition of a group member.
 - `REMOVE`: Removal of a group member. ||
-|| subjectId | **string**
+|| subject_id | **string**
 
 Required field. ID of the subject that is being added or removed from a group.
 
@@ -62,12 +62,12 @@ Subject type can be one of following values:
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "groupId": "string"
+    "group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -86,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -135,7 +135,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 ID of the group that is being updated. ||
 |#

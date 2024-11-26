@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Container/getRevision.md
 ---
 
-# Serverless Containers Service, gRPC: ContainerService.GetRevision {#GetRevision}
+# Serverless Containers Service, gRPC: ContainerService.GetRevision
 
 Returns the specified revision of a container.
 
@@ -17,13 +17,13 @@ To get the list of available revision, make a [ListRevisions](/docs/serverless/c
 
 ```json
 {
-  "containerRevisionId": "string"
+  "container_revision_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| containerRevisionId | **string**
+|| container_revision_id | **string**
 
 Required field. ID of the revision to return.
 
@@ -35,12 +35,12 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
 ```json
 {
   "id": "string",
-  "containerId": "string",
+  "container_id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "image": {
-    "imageUrl": "string",
-    "imageDigest": "string",
+    "image_url": "string",
+    "image_digest": "string",
     "command": {
       "command": [
         "string"
@@ -52,68 +52,68 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
       ]
     },
     "environment": "string",
-    "workingDir": "string"
+    "working_dir": "string"
   },
   "resources": {
     "memory": "int64",
     "cores": "int64",
-    "coreFraction": "int64"
+    "core_fraction": "int64"
   },
-  "executionTimeout": "google.protobuf.Duration",
+  "execution_timeout": "google.protobuf.Duration",
   "concurrency": "int64",
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   "status": "Status",
   "secrets": [
     {
       "id": "string",
-      "versionId": "string",
+      "version_id": "string",
       "key": "string",
-      // Includes only one of the fields `environmentVariable`
-      "environmentVariable": "string"
+      // Includes only one of the fields `environment_variable`
+      "environment_variable": "string"
       // end of the list of possible fields
     }
   ],
   "connectivity": {
-    "networkId": "string",
-    "subnetIds": [
+    "network_id": "string",
+    "subnet_ids": [
       "string"
     ]
   },
-  "provisionPolicy": {
-    "minInstances": "int64"
+  "provision_policy": {
+    "min_instances": "int64"
   },
-  "scalingPolicy": {
-    "zoneInstancesLimit": "int64",
-    "zoneRequestsLimit": "int64"
+  "scaling_policy": {
+    "zone_instances_limit": "int64",
+    "zone_requests_limit": "int64"
   },
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   },
-  "storageMounts": [
+  "storage_mounts": [
     {
-      "bucketId": "string",
+      "bucket_id": "string",
       "prefix": "string",
-      "readOnly": "bool",
-      "mountPointPath": "string"
+      "read_only": "bool",
+      "mount_point_path": "string"
     }
   ],
   "mounts": [
     {
-      "mountPointPath": "string",
+      "mount_point_path": "string",
       "mode": "Mode",
-      // Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
-      "objectStorage": {
-        "bucketId": "string",
+      // Includes only one of the fields `object_storage`, `ephemeral_disk_spec`
+      "object_storage": {
+        "bucket_id": "string",
         "prefix": "string"
       },
-      "ephemeralDiskSpec": {
+      "ephemeral_disk_spec": {
         "size": "int64",
-        "blockSize": "int64"
+        "block_size": "int64"
       }
       // end of the list of possible fields
     }
@@ -132,13 +132,13 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
 || id | **string**
 
 ID of the revision. ||
-|| containerId | **string**
+|| container_id | **string**
 
 ID of the container that the revision belongs to. ||
 || description | **string**
 
 Description of the revision. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the revision. ||
 || image | **[Image](#yandex.cloud.serverless.containers.v1.Image)**
@@ -147,7 +147,7 @@ Image configuration for the revision. ||
 || resources | **[Resources](#yandex.cloud.serverless.containers.v1.Resources)**
 
 Resources allocated to the revision. ||
-|| executionTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for the execution of the revision.
 
@@ -155,7 +155,7 @@ If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
 || concurrency | **int64**
 
 The number of concurrent requests allowed per container instance. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account associated with the revision. ||
 || status | enum **Status**
@@ -172,18 +172,18 @@ Yandex Lockbox secrets to be used by the revision. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
 
 Network access. If specified the revision will be attached to specified network/subnet(s). ||
-|| provisionPolicy | **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
+|| provision_policy | **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
 
 Policy for provisioning instances of the revision.
 
 The policy is only applied when the revision is ACTIVE. ||
-|| scalingPolicy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+|| scaling_policy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
 
 Policy for scaling instances of the revision. ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
 
 Options for logging from the container. ||
-|| storageMounts[] | **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
+|| storage_mounts[] | **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
 
 S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
@@ -200,10 +200,10 @@ Revision image specification.
 
 #|
 ||Field | Description ||
-|| imageUrl | **string**
+|| image_url | **string**
 
 Image URL, that is used by the revision. ||
-|| imageDigest | **string**
+|| image_digest | **string**
 
 Digest of the image. Calculated at creation time. ||
 || command | **[Command](#yandex.cloud.serverless.containers.v1.Command)**
@@ -215,7 +215,7 @@ Override for the image's CMD. ||
 || environment | **string**
 
 Additional environment for the container. ||
-|| workingDir | **string**
+|| working_dir | **string**
 
 Override for the image's WORKDIR. ||
 |#
@@ -258,7 +258,7 @@ Amount of memory available to the revision, specified in bytes, multiple of 128M
 || cores | **int64**
 
 Number of cores available to the revision. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Specifies baseline performance for a core in percent, multiple of 5%.
 Should be 100% for cores > 1. ||
@@ -273,17 +273,17 @@ Secret that is available to the container at run time.
 || id | **string**
 
 ID of Yandex Lockbox secret. ||
-|| versionId | **string**
+|| version_id | **string**
 
 ID of Yandex Lockbox secret. ||
 || key | **string**
 
 Key in secret's payload, which value to be delivered into container environment. ||
-|| environmentVariable | **string**
+|| environment_variable | **string**
 
 Environment variable in which secret's value is delivered.
 
-Includes only one of the fields `environmentVariable`. ||
+Includes only one of the fields `environment_variable`. ||
 |#
 
 ## Connectivity {#yandex.cloud.serverless.containers.v1.Connectivity}
@@ -292,10 +292,10 @@ Revision connectivity specification.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Network the revision will have access to. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 The list of subnets (from the same network) the revision can be attached to.
 
@@ -306,7 +306,7 @@ Deprecated, it is sufficient to specify only network_id, without the list of sub
 
 #|
 ||Field | Description ||
-|| minInstances | **int64**
+|| min_instances | **int64**
 
 Minimum number of guaranteed provisioned container instances for all zones
 in total. ||
@@ -316,11 +316,11 @@ in total. ||
 
 #|
 ||Field | Description ||
-|| zoneInstancesLimit | **int64**
+|| zone_instances_limit | **int64**
 
 Upper limit for instance count in each zone.
 0 means no limit. ||
-|| zoneRequestsLimit | **int64**
+|| zone_requests_limit | **int64**
 
 Upper limit of requests count in each zone.
 0 means no limit. ||
@@ -333,21 +333,21 @@ Upper limit of requests count in each zone.
 || disabled | **bool**
 
 Is logging from container disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -380,16 +380,16 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Required field. S3 bucket name for mounting. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
-|| readOnly | **bool**
+|| read_only | **bool**
 
 Is mount read only. ||
-|| mountPointPath | **string**
+|| mount_point_path | **string**
 
 Required field. Mount point path inside the container for mounting. ||
 |#
@@ -400,7 +400,7 @@ Mount contains an information about version's external storage mount
 
 #|
 ||Field | Description ||
-|| mountPointPath | **string**
+|| mount_point_path | **string**
 
 Required field. The absolute mount point path inside the container for mounting. ||
 || mode | enum **Mode**
@@ -410,18 +410,18 @@ Mount's mode
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
 
 Object storage mounts
 
-Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+Includes only one of the fields `object_storage`, `ephemeral_disk_spec`.
 
 Target mount option ||
-|| ephemeralDiskSpec | **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
+|| ephemeral_disk_spec | **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
 
 Working disk (worker-local non-shared read-write NBS disk templates)
 
-Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+Includes only one of the fields `object_storage`, `ephemeral_disk_spec`.
 
 Target mount option ||
 |#
@@ -432,7 +432,7 @@ ObjectStorage as a mount
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Required field. ObjectStorage bucket name for mounting. ||
 || prefix | **string**
@@ -449,7 +449,7 @@ Disk as a mount
 || size | **int64**
 
 The size of disk for mount in bytes ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Optional block size of disk for mount in bytes ||
 |#

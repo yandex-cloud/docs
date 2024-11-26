@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/copy.md
 ---
 
-# Cloud Desktop API, REST: DesktopImage.Copy {#Copy}
+# Cloud Desktop API, REST: DesktopImage.Copy
 
 Copies the specified image to desktop image.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/Operation/get.md
 ---
 
-# Kubernetes Marketplace, REST: Operation.Get {#Get}
+# Kubernetes Marketplace, REST: Operation.Get
 
 Returns the specified Operation resource.
 

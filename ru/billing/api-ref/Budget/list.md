@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/list.md
 ---
 
-# Billing API, REST: Budget.List {#List}
+# Billing API, REST: Budget.List
 
 Retrieves the list of budgets corresponding to the specified billing account.
 

@@ -73,7 +73,7 @@ Maximum retention period for [expired metrics](../../concepts/ttl.md) ^1^ | 60 d
 
 ^1^ A metric expires and is removed if not getting new values for 60 days. Metrics that keep getting new values are stored indefinitely.
 
-In the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** tab on the right, you can see the **{{ ui-key.yacloud_monitoring.prometheus.approved.widget-monitoring.title }}** section. Use this section to:
+Here is what you can do in the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** > Workspace > **General information** tab:
 
 * View the number of written metrics.
 * Go to the page with service [dashboards](../../concepts/visualization/dashboard) and view the number of requests, errors, and HTTP status codes per second for various endpoints.

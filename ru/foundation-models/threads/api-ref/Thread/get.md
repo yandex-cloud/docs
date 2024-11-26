@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/get.md
 ---
 
-# Threads, REST: Thread.Get {#Get}
+# Threads, REST: Thread.Get
 
 Retrieve details of a specific thread by its ID.
 

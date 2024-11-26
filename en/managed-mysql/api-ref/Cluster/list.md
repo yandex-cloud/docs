@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.List {#List}
+# Managed Service for MySQL API, REST: Cluster.List
 
 Retrieves the list of clusters in a folder.
 

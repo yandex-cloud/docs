@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Create {#Create}
+# Key Management Service API, REST: AsymmetricSignatureKey.Create
 
 control plane
 Creates an asymmetric KMS key in the specified folder.

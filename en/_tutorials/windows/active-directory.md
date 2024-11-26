@@ -115,7 +115,7 @@ To do this, in the root folder of the command line, create a file named `setpass
 
 ```powershell
 #ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your_password>" -AsPlainText -Force)
 ```
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
@@ -132,8 +132,15 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
   1. In the **Name** field, enter the VM name: `ad-vm-a`.
-  1. Select the `{{ region-id }}-a` availability zone.
-  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
+  1. Select the availability zone: `{{ region-id }}-a`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+
   1. Under **Disks**, enter 50 GB for the size of the boot [disk](../../compute/concepts/disk.md).
   1. Under **Computing resources**:
      * Select the [platform](../../compute/concepts/vm-platforms.md): **Intel Ice Lake**.
@@ -187,8 +194,15 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
   1. In the **Name** field, enter the VM name: `jump-server-vm`.
-  1. Select the `{{ region-id }}-d` availability zone.
-  1. Under **Image/boot disk selection** → **{{ marketplace-name }}** click **Show more**. In the window that opens, select the [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) image and click **Use**.
+  1. Select the availability zone: `{{ region-id }}-d`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+
   1. Under **Disks**, enter 50 GB for the size of the boot disk.
   1. Under **Computing resources**:
      * Choose a platform: Intel Ice Lake.
@@ -250,7 +264,7 @@ Active Directory VMs do not have internet access. To configure them, use the `ju
 
    Then enter the password and confirm it.
 
-   Windows restarts automatically. Reconnect to `ad-vm-a` and launch PowerShell.
+   Windows will restart automatically. Reconnect to `ad-vm-a` and launch PowerShell.
 1. Rename the default site to `{{ region-id }}-a`:
 
    ```powershell

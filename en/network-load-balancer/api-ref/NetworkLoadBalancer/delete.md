@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/delete.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Delete {#Delete}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Delete
 
 Deletes the specified network load balancer.
 

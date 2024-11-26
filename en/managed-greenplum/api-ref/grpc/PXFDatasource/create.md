@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/PXFDatasource/create.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: PXFDatasourceService.Create {#Create}
+# Managed Service for Greenplum® API, gRPC: PXFDatasourceService.Create
 
 Creates PXF datasource
 
@@ -15,14 +15,14 @@ Creates PXF datasource
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "datasource": {
     "name": "string",
     // Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`
     "s3": {
-      "accessKey": "string",
-      "secretKey": "string",
-      "fastUpload": "google.protobuf.BoolValue",
+      "access_key": "string",
+      "secret_key": "string",
+      "fast_upload": "google.protobuf.BoolValue",
       "endpoint": "string"
     },
     "jdbc": {
@@ -30,92 +30,92 @@ Creates PXF datasource
       "url": "string",
       "user": "string",
       "password": "string",
-      "statementBatchSize": "google.protobuf.Int64Value",
-      "statementFetchSize": "google.protobuf.Int64Value",
-      "statementQueryTimeout": "google.protobuf.Int64Value",
-      "poolEnabled": "google.protobuf.BoolValue",
-      "poolMaximumSize": "google.protobuf.Int64Value",
-      "poolConnectionTimeout": "google.protobuf.Int64Value",
-      "poolIdleTimeout": "google.protobuf.Int64Value",
-      "poolMinimumIdle": "google.protobuf.Int64Value"
+      "statement_batch_size": "google.protobuf.Int64Value",
+      "statement_fetch_size": "google.protobuf.Int64Value",
+      "statement_query_timeout": "google.protobuf.Int64Value",
+      "pool_enabled": "google.protobuf.BoolValue",
+      "pool_maximum_size": "google.protobuf.Int64Value",
+      "pool_connection_timeout": "google.protobuf.Int64Value",
+      "pool_idle_timeout": "google.protobuf.Int64Value",
+      "pool_minimum_idle": "google.protobuf.Int64Value"
     },
     "hdfs": {
       "core": {
-        "defaultFs": "string",
-        "securityAuthToLocal": "string"
+        "default_fs": "string",
+        "security_auth_to_local": "string"
       },
       "kerberos": {
         "enable": "google.protobuf.BoolValue",
         "primary": "string",
         "realm": "string",
-        "kdcServers": [
+        "kdc_servers": [
           "string"
         ],
-        "adminServer": "string",
-        "defaultDomain": "string",
-        "keytabBase64": "string"
+        "admin_server": "string",
+        "default_domain": "string",
+        "keytab_base64": "string"
       },
-      "userImpersonation": "google.protobuf.BoolValue",
+      "user_impersonation": "google.protobuf.BoolValue",
       "username": "string",
-      "saslConnectionRetries": "google.protobuf.Int64Value",
-      "zkHosts": [
+      "sasl_connection_retries": "google.protobuf.Int64Value",
+      "zk_hosts": [
         "string"
       ],
       "dfs": {
-        "haAutomaticFailoverEnabled": "google.protobuf.BoolValue",
-        "blockAccessTokenEnabled": "google.protobuf.BoolValue",
-        "useDatanodeHostname": "google.protobuf.BoolValue",
+        "ha_automatic_failover_enabled": "google.protobuf.BoolValue",
+        "block_access_token_enabled": "google.protobuf.BoolValue",
+        "use_datanode_hostname": "google.protobuf.BoolValue",
         "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
+          "rpc_address": "string",
+          "service_rpc_address": "string",
+          "http_address": "string",
+          "https_address": "string"
         },
         "nameservices": "string"
       },
       "yarn": {
-        "resourcemanagerHaEnabled": "google.protobuf.BoolValue",
-        "resourcemanagerHaAutoFailoverEnabled": "google.protobuf.BoolValue",
-        "resourcemanagerHaAutoFailoverEmbedded": "google.protobuf.BoolValue",
-        "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
+        "resourcemanager_ha_enabled": "google.protobuf.BoolValue",
+        "resourcemanager_ha_auto_failover_enabled": "google.protobuf.BoolValue",
+        "resourcemanager_ha_auto_failover_embedded": "google.protobuf.BoolValue",
+        "resourcemanager_cluster_id": "string",
+        "ha_rm": {
+          "resourcemanager_address": "string",
+          "resourcemanager_scheduler_address": "string",
+          "resourcemanager_resource_tracker_address": "string",
+          "resourcemanager_admin_address": "string",
+          "resourcemanager_webapp_address": "string",
+          "resourcemanager_webapp_https_address": "string"
         }
       }
     },
     "hive": {
       "core": {
-        "defaultFs": "string",
-        "securityAuthToLocal": "string"
+        "default_fs": "string",
+        "security_auth_to_local": "string"
       },
       "kerberos": {
         "enable": "google.protobuf.BoolValue",
         "primary": "string",
         "realm": "string",
-        "kdcServers": [
+        "kdc_servers": [
           "string"
         ],
-        "adminServer": "string",
-        "defaultDomain": "string",
-        "keytabBase64": "string"
+        "admin_server": "string",
+        "default_domain": "string",
+        "keytab_base64": "string"
       },
-      "userImpersonation": "google.protobuf.BoolValue",
+      "user_impersonation": "google.protobuf.BoolValue",
       "username": "string",
-      "saslConnectionRetries": "google.protobuf.Int64Value",
-      "zkHosts": [
+      "sasl_connection_retries": "google.protobuf.Int64Value",
+      "zk_hosts": [
         "string"
       ],
       "ppd": "google.protobuf.BoolValue",
-      "metastoreUris": [
+      "metastore_uris": [
         "string"
       ],
-      "metastoreKerberosPrincipal": "string",
-      "authKerberosPrincipal": "string"
+      "metastore_kerberos_principal": "string",
+      "auth_kerberos_principal": "string"
     }
     // end of the list of possible fields
   }
@@ -124,7 +124,7 @@ Creates PXF datasource
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field.  ||
 || datasource | **[PXFDatasource](#yandex.cloud.mdb.greenplum.v1.PXFDatasource)** ||
@@ -163,13 +163,13 @@ Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
 
 #|
 ||Field | Description ||
-|| accessKey | **string**
+|| access_key | **string**
 
 Public key to access S3 storage. ||
-|| secretKey | **string**
+|| secret_key | **string**
 
 Secret key to access S3 storage. ||
-|| fastUpload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
 
@@ -209,40 +209,40 @@ Username of the DB owner. ||
 || password | **string**
 
 Password of the DB owner. ||
-|| statementBatchSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to read in an external table, in a batch.
 
 The default value is `100`. ||
-|| statementFetchSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to fetch (buffer) when reading from an external table.
 
 The default value is `1000`. ||
-|| statementQueryTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
 
 The default value is `60`. ||
-|| poolEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether JDBC connection pooling is used in a server configuration. By default, it is used. ||
-|| poolMaximumSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connections to the DB backend.
 
 The default value is `5`. ||
-|| poolConnectionTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time, in milliseconds, to wait for a connection from the pool.
 
 The default value is `30000`. ||
-|| poolIdleTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
 
 The default value is `30000`. ||
-|| poolMinimumIdle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum number of idle connections maintained in the connection pool.
 
@@ -259,7 +259,7 @@ Settings of the file system and security rules. ||
 || kerberos | **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
 
 Settings of the Kerberos network authentication protocol. ||
-|| userImpersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| user_impersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
 
@@ -267,12 +267,12 @@ The authentication is disabled by default. ||
 || username | **string**
 
 Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
-|| saslConnectionRetries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
 The default value is `5`. ||
-|| zkHosts[] | **string**
+|| zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
@@ -289,10 +289,10 @@ Settings of the ResourceManager service that is responsible for tracking resourc
 
 #|
 ||Field | Description ||
-|| defaultFs | **string**
+|| default_fs | **string**
 
 URI whose scheme and authority determine the file system implementation. ||
-|| securityAuthToLocal | **string**
+|| security_auth_to_local | **string**
 
 Rules for mapping Kerberos principals to operating system user accounts. ||
 |#
@@ -310,16 +310,16 @@ Host of the primary KDC server (Key Distribution Center). ||
 || realm | **string**
 
 Kerberos realm for a Greenplum® DB. ||
-|| kdcServers[] | **string**
+|| kdc_servers[] | **string**
 
 KDC server hosts. ||
-|| adminServer | **string**
+|| admin_server | **string**
 
 Administration server host. Usually, this is the primary Kerberos server. ||
-|| defaultDomain | **string**
+|| default_domain | **string**
 
 Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain). ||
-|| keytabBase64 | **string**
+|| keytab_base64 | **string**
 
 Base64 encoded contents of the keytab file. ||
 |#
@@ -328,17 +328,17 @@ Base64 encoded contents of the keytab file. ||
 
 #|
 ||Field | Description ||
-|| haAutomaticFailoverEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| ha_automatic_failover_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether automatic failover is enabled for the high availability of the file system.
 
 The automatic failover is enabled by default. ||
-|| blockAccessTokenEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| block_access_token_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If `true`, access tokens are used as capabilities for accessing datanodes. If `false`, no access tokens are checked on accessing datanodes.
 
 The check of access tokens is enabled by default. ||
-|| useDatanodeHostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
 || namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**
@@ -355,33 +355,33 @@ Corresponds well-known HDFS client setting "dfs.nameservices" for this datasourc
 
 #|
 ||Field | Description ||
-|| rpcAddress | **string** ||
-|| serviceRpcAddress | **string** ||
-|| httpAddress | **string** ||
-|| httpsAddress | **string** ||
+|| rpc_address | **string** ||
+|| service_rpc_address | **string** ||
+|| http_address | **string** ||
+|| https_address | **string** ||
 |#
 
 ## PXFDatasourceHDFSYarn {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn}
 
 #|
 ||Field | Description ||
-|| resourcemanagerHaEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether high availability is enabled for YARN's ResourceManager services.
 
 The high availability is enabled by default. ||
-|| resourcemanagerHaAutoFailoverEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_auto_failover_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether another ResourceManager should automatically become active when the active ResourceManager has failed and does not respond.
 
 The switch of ResourceManagers is enabled by default if the high availability is enabled. ||
-|| resourcemanagerHaAutoFailoverEmbedded | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_auto_failover_embedded | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over. ||
-|| resourcemanagerClusterId | **string**
+|| resourcemanager_cluster_id | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**
+|| ha_rm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**
 
 Highly available ResourceManager service. ||
 |#
@@ -390,12 +390,12 @@ Highly available ResourceManager service. ||
 
 #|
 ||Field | Description ||
-|| resourcemanagerAddress | **string** ||
-|| resourcemanagerSchedulerAddress | **string** ||
-|| resourcemanagerResourceTrackerAddress | **string** ||
-|| resourcemanagerAdminAddress | **string** ||
-|| resourcemanagerWebappAddress | **string** ||
-|| resourcemanagerWebappHttpsAddress | **string** ||
+|| resourcemanager_address | **string** ||
+|| resourcemanager_scheduler_address | **string** ||
+|| resourcemanager_resource_tracker_address | **string** ||
+|| resourcemanager_admin_address | **string** ||
+|| resourcemanager_webapp_address | **string** ||
+|| resourcemanager_webapp_https_address | **string** ||
 |#
 
 ## PXFDatasourceHive {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive}
@@ -408,7 +408,7 @@ Settings of the file system and security rules. ||
 || kerberos | **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
 
 Settings of the Kerberos network authentication protocol. ||
-|| userImpersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| user_impersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
 
@@ -416,12 +416,12 @@ The authentication is disabled by default. ||
 || username | **string**
 
 Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
-|| saslConnectionRetries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
 The default value is `5`. ||
-|| zkHosts[] | **string**
+|| zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
@@ -431,13 +431,13 @@ Specify values in the `<address>:<port>` format. ||
 Specifies if predicate pushdown is enabled for queries on external tables.
 
 The predicate pushdown is enabled by default. ||
-|| metastoreUris[] | **string**
+|| metastore_uris[] | **string**
 
 List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs. ||
-|| metastoreKerberosPrincipal | **string**
+|| metastore_kerberos_principal | **string**
 
 Service principal for the Metastore Thrift server. ||
-|| authKerberosPrincipal | **string**
+|| auth_kerberos_principal | **string**
 
 Kerberos server principal. ||
 |#
@@ -448,13 +448,13 @@ Kerberos server principal. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "datasourceName": "string"
+    "cluster_id": "string",
+    "datasource_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -462,9 +462,9 @@ Kerberos server principal. ||
     "name": "string",
     // Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`
     "s3": {
-      "accessKey": "string",
-      "secretKey": "string",
-      "fastUpload": "google.protobuf.BoolValue",
+      "access_key": "string",
+      "secret_key": "string",
+      "fast_upload": "google.protobuf.BoolValue",
       "endpoint": "string"
     },
     "jdbc": {
@@ -472,92 +472,92 @@ Kerberos server principal. ||
       "url": "string",
       "user": "string",
       "password": "string",
-      "statementBatchSize": "google.protobuf.Int64Value",
-      "statementFetchSize": "google.protobuf.Int64Value",
-      "statementQueryTimeout": "google.protobuf.Int64Value",
-      "poolEnabled": "google.protobuf.BoolValue",
-      "poolMaximumSize": "google.protobuf.Int64Value",
-      "poolConnectionTimeout": "google.protobuf.Int64Value",
-      "poolIdleTimeout": "google.protobuf.Int64Value",
-      "poolMinimumIdle": "google.protobuf.Int64Value"
+      "statement_batch_size": "google.protobuf.Int64Value",
+      "statement_fetch_size": "google.protobuf.Int64Value",
+      "statement_query_timeout": "google.protobuf.Int64Value",
+      "pool_enabled": "google.protobuf.BoolValue",
+      "pool_maximum_size": "google.protobuf.Int64Value",
+      "pool_connection_timeout": "google.protobuf.Int64Value",
+      "pool_idle_timeout": "google.protobuf.Int64Value",
+      "pool_minimum_idle": "google.protobuf.Int64Value"
     },
     "hdfs": {
       "core": {
-        "defaultFs": "string",
-        "securityAuthToLocal": "string"
+        "default_fs": "string",
+        "security_auth_to_local": "string"
       },
       "kerberos": {
         "enable": "google.protobuf.BoolValue",
         "primary": "string",
         "realm": "string",
-        "kdcServers": [
+        "kdc_servers": [
           "string"
         ],
-        "adminServer": "string",
-        "defaultDomain": "string",
-        "keytabBase64": "string"
+        "admin_server": "string",
+        "default_domain": "string",
+        "keytab_base64": "string"
       },
-      "userImpersonation": "google.protobuf.BoolValue",
+      "user_impersonation": "google.protobuf.BoolValue",
       "username": "string",
-      "saslConnectionRetries": "google.protobuf.Int64Value",
-      "zkHosts": [
+      "sasl_connection_retries": "google.protobuf.Int64Value",
+      "zk_hosts": [
         "string"
       ],
       "dfs": {
-        "haAutomaticFailoverEnabled": "google.protobuf.BoolValue",
-        "blockAccessTokenEnabled": "google.protobuf.BoolValue",
-        "useDatanodeHostname": "google.protobuf.BoolValue",
+        "ha_automatic_failover_enabled": "google.protobuf.BoolValue",
+        "block_access_token_enabled": "google.protobuf.BoolValue",
+        "use_datanode_hostname": "google.protobuf.BoolValue",
         "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
+          "rpc_address": "string",
+          "service_rpc_address": "string",
+          "http_address": "string",
+          "https_address": "string"
         },
         "nameservices": "string"
       },
       "yarn": {
-        "resourcemanagerHaEnabled": "google.protobuf.BoolValue",
-        "resourcemanagerHaAutoFailoverEnabled": "google.protobuf.BoolValue",
-        "resourcemanagerHaAutoFailoverEmbedded": "google.protobuf.BoolValue",
-        "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
+        "resourcemanager_ha_enabled": "google.protobuf.BoolValue",
+        "resourcemanager_ha_auto_failover_enabled": "google.protobuf.BoolValue",
+        "resourcemanager_ha_auto_failover_embedded": "google.protobuf.BoolValue",
+        "resourcemanager_cluster_id": "string",
+        "ha_rm": {
+          "resourcemanager_address": "string",
+          "resourcemanager_scheduler_address": "string",
+          "resourcemanager_resource_tracker_address": "string",
+          "resourcemanager_admin_address": "string",
+          "resourcemanager_webapp_address": "string",
+          "resourcemanager_webapp_https_address": "string"
         }
       }
     },
     "hive": {
       "core": {
-        "defaultFs": "string",
-        "securityAuthToLocal": "string"
+        "default_fs": "string",
+        "security_auth_to_local": "string"
       },
       "kerberos": {
         "enable": "google.protobuf.BoolValue",
         "primary": "string",
         "realm": "string",
-        "kdcServers": [
+        "kdc_servers": [
           "string"
         ],
-        "adminServer": "string",
-        "defaultDomain": "string",
-        "keytabBase64": "string"
+        "admin_server": "string",
+        "default_domain": "string",
+        "keytab_base64": "string"
       },
-      "userImpersonation": "google.protobuf.BoolValue",
+      "user_impersonation": "google.protobuf.BoolValue",
       "username": "string",
-      "saslConnectionRetries": "google.protobuf.Int64Value",
-      "zkHosts": [
+      "sasl_connection_retries": "google.protobuf.Int64Value",
+      "zk_hosts": [
         "string"
       ],
       "ppd": "google.protobuf.BoolValue",
-      "metastoreUris": [
+      "metastore_uris": [
         "string"
       ],
-      "metastoreKerberosPrincipal": "string",
-      "authKerberosPrincipal": "string"
+      "metastore_kerberos_principal": "string",
+      "auth_kerberos_principal": "string"
     }
     // end of the list of possible fields
   }
@@ -575,13 +575,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -624,10 +624,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field.  ||
-|| datasourceName | **string**
+|| datasource_name | **string**
 
 Required field.  ||
 |#
@@ -665,13 +665,13 @@ Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
 
 #|
 ||Field | Description ||
-|| accessKey | **string**
+|| access_key | **string**
 
 Public key to access S3 storage. ||
-|| secretKey | **string**
+|| secret_key | **string**
 
 Secret key to access S3 storage. ||
-|| fastUpload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| fast_upload | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
 
@@ -711,40 +711,40 @@ Username of the DB owner. ||
 || password | **string**
 
 Password of the DB owner. ||
-|| statementBatchSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to read in an external table, in a batch.
 
 The default value is `100`. ||
-|| statementFetchSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_fetch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of rows to fetch (buffer) when reading from an external table.
 
 The default value is `1000`. ||
-|| statementQueryTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| statement_query_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
 
 The default value is `60`. ||
-|| poolEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| pool_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether JDBC connection pooling is used in a server configuration. By default, it is used. ||
-|| poolMaximumSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_maximum_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connections to the DB backend.
 
 The default value is `5`. ||
-|| poolConnectionTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time, in milliseconds, to wait for a connection from the pool.
 
 The default value is `30000`. ||
-|| poolIdleTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
 
 The default value is `30000`. ||
-|| poolMinimumIdle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_minimum_idle | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum number of idle connections maintained in the connection pool.
 
@@ -761,7 +761,7 @@ Settings of the file system and security rules. ||
 || kerberos | **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos2)**
 
 Settings of the Kerberos network authentication protocol. ||
-|| userImpersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| user_impersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
 
@@ -769,12 +769,12 @@ The authentication is disabled by default. ||
 || username | **string**
 
 Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
-|| saslConnectionRetries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
 The default value is `5`. ||
-|| zkHosts[] | **string**
+|| zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
@@ -791,10 +791,10 @@ Settings of the ResourceManager service that is responsible for tracking resourc
 
 #|
 ||Field | Description ||
-|| defaultFs | **string**
+|| default_fs | **string**
 
 URI whose scheme and authority determine the file system implementation. ||
-|| securityAuthToLocal | **string**
+|| security_auth_to_local | **string**
 
 Rules for mapping Kerberos principals to operating system user accounts. ||
 |#
@@ -812,16 +812,16 @@ Host of the primary KDC server (Key Distribution Center). ||
 || realm | **string**
 
 Kerberos realm for a Greenplum® DB. ||
-|| kdcServers[] | **string**
+|| kdc_servers[] | **string**
 
 KDC server hosts. ||
-|| adminServer | **string**
+|| admin_server | **string**
 
 Administration server host. Usually, this is the primary Kerberos server. ||
-|| defaultDomain | **string**
+|| default_domain | **string**
 
 Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain). ||
-|| keytabBase64 | **string**
+|| keytab_base64 | **string**
 
 Base64 encoded contents of the keytab file. ||
 |#
@@ -830,17 +830,17 @@ Base64 encoded contents of the keytab file. ||
 
 #|
 ||Field | Description ||
-|| haAutomaticFailoverEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| ha_automatic_failover_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether automatic failover is enabled for the high availability of the file system.
 
 The automatic failover is enabled by default. ||
-|| blockAccessTokenEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| block_access_token_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If `true`, access tokens are used as capabilities for accessing datanodes. If `false`, no access tokens are checked on accessing datanodes.
 
 The check of access tokens is enabled by default. ||
-|| useDatanodeHostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
 || namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**
@@ -857,33 +857,33 @@ Corresponds well-known HDFS client setting "dfs.nameservices" for this datasourc
 
 #|
 ||Field | Description ||
-|| rpcAddress | **string** ||
-|| serviceRpcAddress | **string** ||
-|| httpAddress | **string** ||
-|| httpsAddress | **string** ||
+|| rpc_address | **string** ||
+|| service_rpc_address | **string** ||
+|| http_address | **string** ||
+|| https_address | **string** ||
 |#
 
 ## PXFDatasourceHDFSYarn {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn2}
 
 #|
 ||Field | Description ||
-|| resourcemanagerHaEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether high availability is enabled for YARN's ResourceManager services.
 
 The high availability is enabled by default. ||
-|| resourcemanagerHaAutoFailoverEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_auto_failover_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether another ResourceManager should automatically become active when the active ResourceManager has failed and does not respond.
 
 The switch of ResourceManagers is enabled by default if the high availability is enabled. ||
-|| resourcemanagerHaAutoFailoverEmbedded | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| resourcemanager_ha_auto_failover_embedded | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over. ||
-|| resourcemanagerClusterId | **string**
+|| resourcemanager_cluster_id | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**
+|| ha_rm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**
 
 Highly available ResourceManager service. ||
 |#
@@ -892,12 +892,12 @@ Highly available ResourceManager service. ||
 
 #|
 ||Field | Description ||
-|| resourcemanagerAddress | **string** ||
-|| resourcemanagerSchedulerAddress | **string** ||
-|| resourcemanagerResourceTrackerAddress | **string** ||
-|| resourcemanagerAdminAddress | **string** ||
-|| resourcemanagerWebappAddress | **string** ||
-|| resourcemanagerWebappHttpsAddress | **string** ||
+|| resourcemanager_address | **string** ||
+|| resourcemanager_scheduler_address | **string** ||
+|| resourcemanager_resource_tracker_address | **string** ||
+|| resourcemanager_admin_address | **string** ||
+|| resourcemanager_webapp_address | **string** ||
+|| resourcemanager_webapp_https_address | **string** ||
 |#
 
 ## PXFDatasourceHive {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive2}
@@ -910,7 +910,7 @@ Settings of the file system and security rules. ||
 || kerberos | **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos2)**
 
 Settings of the Kerberos network authentication protocol. ||
-|| userImpersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| user_impersonation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
 
@@ -918,12 +918,12 @@ The authentication is disabled by default. ||
 || username | **string**
 
 Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
-|| saslConnectionRetries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| sasl_connection_retries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
 The default value is `5`. ||
-|| zkHosts[] | **string**
+|| zk_hosts[] | **string**
 
 ZooKeeper server hosts.
 
@@ -933,13 +933,13 @@ Specify values in the `<address>:<port>` format. ||
 Specifies if predicate pushdown is enabled for queries on external tables.
 
 The predicate pushdown is enabled by default. ||
-|| metastoreUris[] | **string**
+|| metastore_uris[] | **string**
 
 List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs. ||
-|| metastoreKerberosPrincipal | **string**
+|| metastore_kerberos_principal | **string**
 
 Service principal for the Metastore Thrift server. ||
-|| authKerberosPrincipal | **string**
+|| auth_kerberos_principal | **string**
 
 Kerberos server principal. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/delete.md
 ---
 
-# Data Proc API, REST: Cluster.Delete {#Delete}
+# Data Proc API, REST: Cluster.Delete
 
 Deletes the specified cluster.
 

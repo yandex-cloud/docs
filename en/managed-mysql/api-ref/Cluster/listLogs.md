@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listLogs.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.ListLogs {#ListLogs}
+# Managed Service for MySQL API, REST: Cluster.ListLogs
 
 Retrieves logs for a cluster.
 

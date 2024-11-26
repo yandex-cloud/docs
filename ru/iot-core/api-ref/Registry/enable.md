@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/enable.md
 ---
 
-# IoT Core Service, REST: Registry.Enable {#Enable}
+# IoT Core Service, REST: Registry.Enable
 
 Enables the specified registry.
 

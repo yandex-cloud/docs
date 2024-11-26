@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/getDryRunResult.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.GetDryRunResult {#GetDryRunResult}
+# Container Registry API, REST: LifecyclePolicy.GetDryRunResult
 
 Returns the dry run result of the specified lifecycle policy.
 

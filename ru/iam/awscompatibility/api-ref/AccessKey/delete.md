@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/delete.md
 ---
 
-# Access Key, REST: AccessKey.Delete {#Delete}
+# Access Key, REST: AccessKey.Delete
 
 Deletes the specified access key.
 

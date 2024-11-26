@@ -8,7 +8,7 @@ You cannot upgrade a regular cluster version to versions optimized for _1C:Enter
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, for {{ PG }}, the upgrade sequence from version 11 to 15 is: 11 → 12 → 13 → 14 → 15.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, upgrading the {{ PG }} version from 11 to 15 is performed in the following sequence: 11 → 12 → 13 → 14 → 15.
 
 You can upgrade to version 16 only using {{ data-transfer-full-name }}. To do so, [create a version 16 cluster](cluster-create.md#create-cluster) and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
@@ -148,7 +148,7 @@ Make sure this does not affect your applications:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -197,7 +197,7 @@ Make sure this does not affect your applications:
 
 {% endlist %}
 
-As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
+As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 Cluster upgrade time depends on the database size.
 

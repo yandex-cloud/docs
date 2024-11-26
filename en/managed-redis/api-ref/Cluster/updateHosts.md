@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/updateHosts.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.UpdateHosts {#UpdateHosts}
+# Managed Service for Redis API, REST: Cluster.UpdateHosts
 
 Updates the specified hosts.
 

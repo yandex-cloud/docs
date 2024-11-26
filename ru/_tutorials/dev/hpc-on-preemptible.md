@@ -37,7 +37,7 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры для решения текущих вычислительных задач:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.

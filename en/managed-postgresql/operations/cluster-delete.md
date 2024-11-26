@@ -65,7 +65,7 @@ Deleting a cluster will delete all users and DBs in that cluster, including the 
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

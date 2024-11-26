@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/update.md
 ---
 
-# Workflows Service, REST: Workflow.Update {#Update}
+# Workflows Service, REST: Workflow.Update
 
 Updates specified Workflow.
 

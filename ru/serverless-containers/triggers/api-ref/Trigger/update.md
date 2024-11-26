@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/update.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Update {#Update}
+# Cloud Functions Triggers Service, REST: Trigger.Update
 
 Updates the specified trigger.
 

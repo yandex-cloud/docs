@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/TargetGroup/get.md
 ---
 
-# Network Load Balancer API, gRPC: TargetGroupService.Get {#Get}
+# Network Load Balancer API, gRPC: TargetGroupService.Get
 
 Returns the specified TargetGroup resource.
 
@@ -15,13 +15,13 @@ Returns the specified TargetGroup resource.
 
 ```json
 {
-  "targetGroupId": "string"
+  "target_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the TargetGroup resource to return.
 To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
@@ -32,15 +32,15 @@ To get the target group ID, use a [TargetGroupService.List](/docs/network-load-b
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "regionId": "string",
+  "region_id": "string",
   "targets": [
     {
-      "subnetId": "string",
+      "subnet_id": "string",
       "address": "string"
     }
   ]
@@ -54,10 +54,10 @@ A TargetGroup resource. For more information, see [Target groups and resources](
 || id | **string**
 
 Output only. ID of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -70,7 +70,7 @@ Description of the target group. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region where the target group resides. ||
 || targets[] | **[Target](#yandex.cloud.loadbalancer.v1.Target)**
@@ -84,7 +84,7 @@ A Target resource. For more information, see [Target groups and resources](/docs
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that targets are connected to.
 All targets in the target group must be connected to the same subnet within a single availability zone. ||

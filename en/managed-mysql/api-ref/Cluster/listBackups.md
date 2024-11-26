@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for MySQL API, REST: Cluster.ListBackups
 
 Retrieves a list of backups for a cluster.
 

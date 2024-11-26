@@ -1,9 +1,9 @@
 ---
-title: Step-by-step guides for {{ mpg-full-name }}
+title: Step-by-step guide for {{ mpg-full-name }}
 description: This page provides a list of step-by-step guides for {{ mpg-name }}.
 ---
 
-# Step-by-step guides for {{ mpg-name }}
+# Step-by-step guide for {{ mpg-name }}
 
 ## Clusters {#clusters}
 
@@ -16,7 +16,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [Managing replication slots](replication-slots.md)
 * [Managing backups](cluster-backups.md)
 * [Managing disk space](storage-space.md)
-* [Upgrading the {{ PG }} version](cluster-version-update.md)
+* [{{ PG }} version upgrade](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Databases {#databases}
@@ -38,6 +38,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [Using pg_repack](./extensions/pg_repack.md)
 * [Using pgaudit](./extensions/pgaudit.md)
 * [Using pgcrypto](./extensions/pgcrypto.md)
+* [Using postgresql_anonymizer](./extensions/pg_anon.md)
 * [Using a Hunspell dictionary for full-text search](./extensions/hunspell.md)
 
 ## Logs and monitoring {#logs-and-monitoring}

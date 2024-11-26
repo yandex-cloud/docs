@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/get.md
 ---
 
-# Compute Cloud API, REST: Image.Get {#Get}
+# Compute Cloud API, REST: Image.Get
 
 Returns the specified Image resource.
 

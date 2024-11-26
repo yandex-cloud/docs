@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/update.md
 ---
 
-# EventRouter Service, REST: Connector.Update {#Update}
+# EventRouter Service, REST: Connector.Update
 
 Updates the specified connector.
 

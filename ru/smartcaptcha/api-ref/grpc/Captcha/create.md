@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/Captcha/create.md
 ---
 
-# SmartCaptcha API, gRPC: CaptchaService.Create {#Create}
+# SmartCaptcha API, gRPC: CaptchaService.Create
 
 Creates a captcha in the specified folder using the data specified in the request.
 
@@ -15,17 +15,17 @@ Creates a captcha in the specified folder using the data specified in the reques
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "allowedSites": [
+  "allowed_sites": [
     "string"
   ],
   "complexity": "CaptchaComplexity",
-  "styleJson": "string",
-  "turnOffHostnameCheck": "bool",
-  "preCheckType": "CaptchaPreCheckType",
-  "challengeType": "CaptchaChallengeType",
-  "securityRules": [
+  "style_json": "string",
+  "turn_off_hostname_check": "bool",
+  "pre_check_type": "CaptchaPreCheckType",
+  "challenge_type": "CaptchaChallengeType",
+  "security_rules": [
     {
       "name": "string",
       "priority": "int64",
@@ -34,39 +34,39 @@ Creates a captcha in the specified folder using the data specified in the reques
         "host": {
           "hosts": [
             {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
           ]
         },
         "uri": {
           "path": {
-            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-            "exactMatch": "string",
-            "exactNotMatch": "string",
-            "prefixMatch": "string",
-            "prefixNotMatch": "string",
-            "pireRegexMatch": "string",
-            "pireRegexNotMatch": "string"
+            // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+            "exact_match": "string",
+            "exact_not_match": "string",
+            "prefix_match": "string",
+            "prefix_not_match": "string",
+            "pire_regex_match": "string",
+            "pire_regex_not_match": "string"
             // end of the list of possible fields
           },
           "queries": [
             {
               "key": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
@@ -76,51 +76,51 @@ Creates a captcha in the specified folder using the data specified in the reques
           {
             "name": "string",
             "value": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             }
           }
         ],
-        "sourceIp": {
-          "ipRangesMatch": {
-            "ipRanges": [
+        "source_ip": {
+          "ip_ranges_match": {
+            "ip_ranges": [
               "string"
             ]
           },
-          "ipRangesNotMatch": {
-            "ipRanges": [
+          "ip_ranges_not_match": {
+            "ip_ranges": [
               "string"
             ]
           },
-          "geoIpMatch": {
+          "geo_ip_match": {
             "locations": [
               "string"
             ]
           },
-          "geoIpNotMatch": {
+          "geo_ip_not_match": {
             "locations": [
               "string"
             ]
           }
         }
       },
-      "overrideVariantUuid": "string"
+      "override_variant_uuid": "string"
     }
   ],
-  "deletionProtection": "bool",
-  "overrideVariants": [
+  "deletion_protection": "bool",
+  "override_variants": [
     {
       "uuid": "string",
       "description": "string",
       "complexity": "CaptchaComplexity",
-      "preCheckType": "CaptchaPreCheckType",
-      "challengeType": "CaptchaChallengeType"
+      "pre_check_type": "CaptchaPreCheckType",
+      "challenge_type": "CaptchaChallengeType"
     }
   ]
 }
@@ -128,14 +128,14 @@ Creates a captcha in the specified folder using the data specified in the reques
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a captcha in. ||
 || name | **string**
 
 Name of the captcha.
 The name must be unique within the folder. ||
-|| allowedSites[] | **string**
+|| allowed_sites[] | **string**
 
 List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
 || complexity | enum **CaptchaComplexity**
@@ -147,20 +147,20 @@ Complexity of the captcha.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
 - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| styleJson | **string**
+|| style_json | **string**
 
 JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
-|| turnOffHostnameCheck | **bool**
+|| turn_off_hostname_check | **bool**
 
 Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
-|| preCheckType | enum **CaptchaPreCheckType**
+|| pre_check_type | enum **CaptchaPreCheckType**
 
 Basic check type of the captcha.
 
 - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | enum **CaptchaChallengeType**
+|| challenge_type | enum **CaptchaChallengeType**
 
 Additional task type of the captcha.
 
@@ -168,13 +168,13 @@ Additional task type of the captcha.
 - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
 - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
 - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule)**
+|| security_rules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule)**
 
 List of security rules. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Determines whether captcha is protected from being deleted. ||
-|| overrideVariants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
+|| override_variants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
 
 List of variants to use in security_rules ||
 |#
@@ -197,7 +197,7 @@ Optional description of the rule. 0-512 characters long. ||
 || condition | **[Condition](#yandex.cloud.smartcaptcha.v1.Condition)**
 
 The condition for matching the rule. ||
-|| overrideVariantUuid | **string**
+|| override_variant_uuid | **string**
 
 Variant UUID to show in case of match the rule. Keep empty to use defaults. ||
 |#
@@ -217,7 +217,7 @@ URI where captcha placed. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher)**
 
 Captcha request headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
 
 The IP address of the requester. ||
 |#
@@ -239,24 +239,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## UriMatcher {#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher}
@@ -307,10 +307,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher}
@@ -319,7 +319,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -356,14 +356,14 @@ Complexity of the captcha.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
 - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| preCheckType | enum **CaptchaPreCheckType**
+|| pre_check_type | enum **CaptchaPreCheckType**
 
 Basic check type of the captcha.
 
 - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | enum **CaptchaChallengeType**
+|| challenge_type | enum **CaptchaChallengeType**
 
 Additional task type of the captcha.
 
@@ -379,32 +379,32 @@ Additional task type of the captcha.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "captchaId": "string"
+    "captcha_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "clientKey": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "client_key": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
-    "allowedSites": [
+    "allowed_sites": [
       "string"
     ],
     "complexity": "CaptchaComplexity",
-    "styleJson": "string",
+    "style_json": "string",
     "suspend": "bool",
-    "turnOffHostnameCheck": "bool",
-    "preCheckType": "CaptchaPreCheckType",
-    "challengeType": "CaptchaChallengeType",
-    "securityRules": [
+    "turn_off_hostname_check": "bool",
+    "pre_check_type": "CaptchaPreCheckType",
+    "challenge_type": "CaptchaChallengeType",
+    "security_rules": [
       {
         "name": "string",
         "priority": "int64",
@@ -413,39 +413,39 @@ Additional task type of the captcha.
           "host": {
             "hosts": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
           "uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -455,51 +455,51 @@ Additional task type of the captcha.
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
             }
           }
         },
-        "overrideVariantUuid": "string"
+        "override_variant_uuid": "string"
       }
     ],
-    "deletionProtection": "bool",
-    "overrideVariants": [
+    "deletion_protection": "bool",
+    "override_variants": [
       {
         "uuid": "string",
         "description": "string",
         "complexity": "CaptchaComplexity",
-        "preCheckType": "CaptchaPreCheckType",
-        "challengeType": "CaptchaChallengeType"
+        "pre_check_type": "CaptchaPreCheckType",
+        "challenge_type": "CaptchaChallengeType"
       }
     ]
   }
@@ -517,13 +517,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -566,7 +566,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| captchaId | **string**
+|| captcha_id | **string**
 
 ID of the captcha that is being created. ||
 |#
@@ -580,22 +580,22 @@ A Captcha resource.
 || id | **string**
 
 ID of the captcha. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the captcha belongs to. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the captcha belongs to. ||
-|| clientKey | **string**
+|| client_key | **string**
 
 Client key of the captcha, see [CAPTCHA keys](/docs/smartcaptcha/concepts/keys). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
 
 Name of the captcha. The name is unique within the folder. 3-63 characters long. ||
-|| allowedSites[] | **string**
+|| allowed_sites[] | **string**
 
 List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
 || complexity | enum **CaptchaComplexity**
@@ -607,23 +607,23 @@ Complexity of the captcha.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
 - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| styleJson | **string**
+|| style_json | **string**
 
 JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
 || suspend | **bool**
 
 Determines that the captcha is currently in restricted mode, see [SmartCaptcha restricted mode](/docs/smartcaptcha/concepts/restricted-mode). ||
-|| turnOffHostnameCheck | **bool**
+|| turn_off_hostname_check | **bool**
 
 Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
-|| preCheckType | enum **CaptchaPreCheckType**
+|| pre_check_type | enum **CaptchaPreCheckType**
 
 Basic check type of the captcha.
 
 - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | enum **CaptchaChallengeType**
+|| challenge_type | enum **CaptchaChallengeType**
 
 Additional task type of the captcha.
 
@@ -631,13 +631,13 @@ Additional task type of the captcha.
 - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
 - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
 - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule2)**
+|| security_rules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule2)**
 
 List of security rules. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Determines whether captcha is protected from being deleted. ||
-|| overrideVariants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant2)**
+|| override_variants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant2)**
 
 List of variants to use in security_rules ||
 |#
@@ -660,7 +660,7 @@ Optional description of the rule. 0-512 characters long. ||
 || condition | **[Condition](#yandex.cloud.smartcaptcha.v1.Condition2)**
 
 The condition for matching the rule. ||
-|| overrideVariantUuid | **string**
+|| override_variant_uuid | **string**
 
 Variant UUID to show in case of match the rule. Keep empty to use defaults. ||
 |#
@@ -680,7 +680,7 @@ URI where captcha placed. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher2)**
 
 Captcha request headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher2)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher2)**
 
 The IP address of the requester. ||
 |#
@@ -702,24 +702,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## UriMatcher {#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher2}
@@ -770,10 +770,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2}
@@ -782,7 +782,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -819,14 +819,14 @@ Complexity of the captcha.
 - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
 - `HARD`: Little chance to pass pre-check and hard advanced challenge.
 - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| preCheckType | enum **CaptchaPreCheckType**
+|| pre_check_type | enum **CaptchaPreCheckType**
 
 Basic check type of the captcha.
 
 - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
 - `CHECKBOX`: User must click the "I am not a robot" button.
 - `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | enum **CaptchaChallengeType**
+|| challenge_type | enum **CaptchaChallengeType**
 
 Additional task type of the captcha.
 

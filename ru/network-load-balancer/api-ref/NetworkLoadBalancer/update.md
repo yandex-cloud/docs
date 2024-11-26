@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/update.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Update {#Update}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Update
 
 Updates the specified network load balancer.
 

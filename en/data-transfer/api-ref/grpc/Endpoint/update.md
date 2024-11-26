@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
 ---
 
-# Data Transfer API, gRPC: EndpointService.Update {#Update}
+# Data Transfer API, gRPC: EndpointService.Update
 
 ## gRPC request
 
@@ -13,27 +13,27 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
 
 ```json
 {
-  "endpointId": "string",
+  "endpoint_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "settings": {
-    // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
-    "mysqlSource": {
+    // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
+    "mysql_source": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
-        "mdbClusterId": "string",
-        "onPremise": {
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        "mdb_cluster_id": "string",
+        "on_premise": {
           "port": "int64",
-          "subnetId": "string",
+          "subnet_id": "string",
           "hosts": [
             "string"
           ],
-          "tlsMode": {
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -48,38 +48,38 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         // end of the list of possible fields
       },
       "timezone": "string",
-      "objectTransferSettings": {
+      "object_transfer_settings": {
         "view": "ObjectTransferStage",
         "routine": "ObjectTransferStage",
         "trigger": "ObjectTransferStage",
         "tables": "ObjectTransferStage"
       },
-      "includeTablesRegex": [
+      "include_tables_regex": [
         "string"
       ],
-      "excludeTablesRegex": [
+      "exclude_tables_regex": [
         "string"
       ],
-      "securityGroups": [
+      "security_groups": [
         "string"
       ],
-      "serviceDatabase": "string"
+      "service_database": "string"
     },
-    "postgresSource": {
+    "postgres_source": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
-        "mdbClusterId": "string",
-        "onPremise": {
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        "mdb_cluster_id": "string",
+        "on_premise": {
           "port": "int64",
-          "subnetId": "string",
+          "subnet_id": "string",
           "hosts": [
             "string"
           ],
-          "tlsMode": {
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -93,21 +93,21 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         "raw": "string"
         // end of the list of possible fields
       },
-      "includeTables": [
+      "include_tables": [
         "string"
       ],
-      "excludeTables": [
+      "exclude_tables": [
         "string"
       ],
-      "slotByteLagLimit": "int64",
-      "serviceSchema": "string",
-      "objectTransferSettings": {
+      "slot_byte_lag_limit": "int64",
+      "service_schema": "string",
+      "object_transfer_settings": {
         "sequence": "ObjectTransferStage",
-        "sequenceOwnedBy": "ObjectTransferStage",
+        "sequence_owned_by": "ObjectTransferStage",
         "table": "ObjectTransferStage",
-        "primaryKey": "ObjectTransferStage",
-        "fkConstraint": "ObjectTransferStage",
-        "defaultValues": "ObjectTransferStage",
+        "primary_key": "ObjectTransferStage",
+        "fk_constraint": "ObjectTransferStage",
+        "default_values": "ObjectTransferStage",
         "constraint": "ObjectTransferStage",
         "index": "ObjectTransferStage",
         "view": "ObjectTransferStage",
@@ -118,40 +118,40 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         "collation": "ObjectTransferStage",
         "policy": "ObjectTransferStage",
         "cast": "ObjectTransferStage",
-        "materializedView": "ObjectTransferStage",
-        "sequenceSet": "ObjectTransferStage"
+        "materialized_view": "ObjectTransferStage",
+        "sequence_set": "ObjectTransferStage"
       },
-      "securityGroups": [
+      "security_groups": [
         "string"
       ]
     },
-    "ydbSource": {
+    "ydb_source": {
       "database": "string",
       "instance": "string",
       "paths": [
         "string"
       ],
-      "serviceAccountId": "string",
-      "subnetId": "string",
-      "saKeyContent": "string",
-      "securityGroups": [
+      "service_account_id": "string",
+      "subnet_id": "string",
+      "sa_key_content": "string",
+      "security_groups": [
         "string"
       ],
-      "changefeedCustomName": "string"
+      "changefeed_custom_name": "string"
     },
-    "ydsSource": {
+    "yds_source": {
       "database": "string",
       "stream": "string",
-      "serviceAccountId": "string",
-      "supportedCodecs": [
+      "service_account_id": "string",
+      "supported_codecs": [
         "YdsCompressionCodec"
       ],
       "parser": {
-        // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
-        "jsonParser": {
-          "dataSchema": {
-            // Includes only one of the fields `jsonFields`, `fields`
-            "jsonFields": "string",
+        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`
+        "json_parser": {
+          "data_schema": {
+            // Includes only one of the fields `json_fields`, `fields`
+            "json_fields": "string",
             "fields": {
               "fields": [
                 {
@@ -165,16 +165,16 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             }
             // end of the list of possible fields
           },
-          "nullKeysAllowed": "bool",
-          "addRestColumn": "bool",
-          "unescapeStringValues": "bool"
+          "null_keys_allowed": "bool",
+          "add_rest_column": "bool",
+          "unescape_string_values": "bool"
         },
-        "auditTrailsV1Parser": "AuditTrailsV1Parser",
-        "cloudLoggingParser": "CloudLoggingParser",
-        "tskvParser": {
-          "dataSchema": {
-            // Includes only one of the fields `jsonFields`, `fields`
-            "jsonFields": "string",
+        "audit_trails_v1_parser": "AuditTrailsV1Parser",
+        "cloud_logging_parser": "CloudLoggingParser",
+        "tskv_parser": {
+          "data_schema": {
+            // Includes only one of the fields `json_fields`, `fields`
+            "json_fields": "string",
             "fields": {
               "fields": [
                 {
@@ -188,34 +188,34 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             }
             // end of the list of possible fields
           },
-          "nullKeysAllowed": "bool",
-          "addRestColumn": "bool",
-          "unescapeStringValues": "bool"
+          "null_keys_allowed": "bool",
+          "add_rest_column": "bool",
+          "unescape_string_values": "bool"
         }
         // end of the list of possible fields
       },
-      "allowTtlRewind": "bool",
+      "allow_ttl_rewind": "bool",
       "endpoint": "string",
-      "subnetId": "string",
-      "securityGroups": [
+      "subnet_id": "string",
+      "security_groups": [
         "string"
       ],
       "consumer": "string"
     },
-    "kafkaSource": {
+    "kafka_source": {
       "connection": {
-        // Includes only one of the fields `clusterId`, `onPremise`
-        "clusterId": "string",
-        "onPremise": {
-          "brokerUrls": [
+        // Includes only one of the fields `cluster_id`, `on_premise`
+        "cluster_id": "string",
+        "on_premise": {
+          "broker_urls": [
             "string"
           ],
-          "subnetId": "string",
-          "tlsMode": {
+          "subnet_id": "string",
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -223,7 +223,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         // end of the list of possible fields
       },
       "auth": {
-        // Includes only one of the fields `sasl`, `noAuth`
+        // Includes only one of the fields `sasl`, `no_auth`
         "sasl": {
           "user": "string",
           "mechanism": "KafkaMechanism",
@@ -233,27 +233,27 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             // end of the list of possible fields
           }
         },
-        "noAuth": "NoAuth"
+        "no_auth": "NoAuth"
         // end of the list of possible fields
       },
-      "securityGroups": [
+      "security_groups": [
         "string"
       ],
-      "topicName": "string",
+      "topic_name": "string",
       "transformer": {
-        "cloudFunction": "string",
-        "numberOfRetries": "int64",
-        "bufferSize": "string",
-        "bufferFlushInterval": "string",
-        "invocationTimeout": "string",
-        "serviceAccountId": "string"
+        "cloud_function": "string",
+        "number_of_retries": "int64",
+        "buffer_size": "string",
+        "buffer_flush_interval": "string",
+        "invocation_timeout": "string",
+        "service_account_id": "string"
       },
       "parser": {
-        // Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`
-        "jsonParser": {
-          "dataSchema": {
-            // Includes only one of the fields `jsonFields`, `fields`
-            "jsonFields": "string",
+        // Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`
+        "json_parser": {
+          "data_schema": {
+            // Includes only one of the fields `json_fields`, `fields`
+            "json_fields": "string",
             "fields": {
               "fields": [
                 {
@@ -267,16 +267,16 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             }
             // end of the list of possible fields
           },
-          "nullKeysAllowed": "bool",
-          "addRestColumn": "bool",
-          "unescapeStringValues": "bool"
+          "null_keys_allowed": "bool",
+          "add_rest_column": "bool",
+          "unescape_string_values": "bool"
         },
-        "auditTrailsV1Parser": "AuditTrailsV1Parser",
-        "cloudLoggingParser": "CloudLoggingParser",
-        "tskvParser": {
-          "dataSchema": {
-            // Includes only one of the fields `jsonFields`, `fields`
-            "jsonFields": "string",
+        "audit_trails_v1_parser": "AuditTrailsV1Parser",
+        "cloud_logging_parser": "CloudLoggingParser",
+        "tskv_parser": {
+          "data_schema": {
+            // Includes only one of the fields `json_fields`, `fields`
+            "json_fields": "string",
             "fields": {
               "fields": [
                 {
@@ -290,33 +290,33 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             }
             // end of the list of possible fields
           },
-          "nullKeysAllowed": "bool",
-          "addRestColumn": "bool",
-          "unescapeStringValues": "bool"
+          "null_keys_allowed": "bool",
+          "add_rest_column": "bool",
+          "unescape_string_values": "bool"
         }
         // end of the list of possible fields
       },
-      "topicNames": [
+      "topic_names": [
         "string"
       ]
     },
-    "mongoSource": {
+    "mongo_source": {
       "connection": {
-        // Includes only one of the fields `connectionOptions`
-        "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
-          "mdbClusterId": "string",
-          "onPremise": {
+        // Includes only one of the fields `connection_options`
+        "connection_options": {
+          // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+          "mdb_cluster_id": "string",
+          "on_premise": {
             "hosts": [
               "string"
             ],
             "port": "int64",
-            "replicaSet": "string",
-            "tlsMode": {
+            "replica_set": "string",
+            "tls_mode": {
               // Includes only one of the fields `disabled`, `enabled`
               "disabled": "google.protobuf.Empty",
               "enabled": {
-                "caCertificate": "string"
+                "ca_certificate": "string"
               }
               // end of the list of possible fields
             }
@@ -328,34 +328,34 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             "raw": "string"
             // end of the list of possible fields
           },
-          "authSource": "string"
+          "auth_source": "string"
         }
         // end of the list of possible fields
       },
-      "subnetId": "string",
+      "subnet_id": "string",
       "collections": [
         {
-          "databaseName": "string",
-          "collectionName": "string"
+          "database_name": "string",
+          "collection_name": "string"
         }
       ],
-      "excludedCollections": [
+      "excluded_collections": [
         {
-          "databaseName": "string",
-          "collectionName": "string"
+          "database_name": "string",
+          "collection_name": "string"
         }
       ],
-      "secondaryPreferredMode": "bool",
-      "securityGroups": [
+      "secondary_preferred_mode": "bool",
+      "security_groups": [
         "string"
       ]
     },
-    "clickhouseSource": {
+    "clickhouse_source": {
       "connection": {
-        // Includes only one of the fields `connectionOptions`
-        "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
-          "onPremise": {
+        // Includes only one of the fields `connection_options`
+        "connection_options": {
+          // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+          "on_premise": {
             "shards": [
               {
                 "name": "string",
@@ -364,18 +364,18 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
                 ]
               }
             ],
-            "httpPort": "int64",
-            "nativePort": "int64",
-            "tlsMode": {
+            "http_port": "int64",
+            "native_port": "int64",
+            "tls_mode": {
               // Includes only one of the fields `disabled`, `enabled`
               "disabled": "google.protobuf.Empty",
               "enabled": {
-                "caCertificate": "string"
+                "ca_certificate": "string"
               }
               // end of the list of possible fields
             }
           },
-          "mdbClusterId": "string",
+          "mdb_cluster_id": "string",
           // end of the list of possible fields
           "user": "string",
           "password": {
@@ -387,33 +387,33 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         }
         // end of the list of possible fields
       },
-      "includeTables": [
+      "include_tables": [
         "string"
       ],
-      "excludeTables": [
+      "exclude_tables": [
         "string"
       ],
-      "subnetId": "string",
-      "securityGroups": [
+      "subnet_id": "string",
+      "security_groups": [
         "string"
       ],
-      "clickhouseClusterName": "string"
+      "clickhouse_cluster_name": "string"
     },
-    "mysqlTarget": {
+    "mysql_target": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
-        "mdbClusterId": "string",
-        "onPremise": {
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        "mdb_cluster_id": "string",
+        "on_premise": {
           "port": "int64",
-          "subnetId": "string",
+          "subnet_id": "string",
           "hosts": [
             "string"
           ],
-          "tlsMode": {
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -427,30 +427,30 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         "raw": "string"
         // end of the list of possible fields
       },
-      "sqlMode": "string",
-      "skipConstraintChecks": "bool",
+      "sql_mode": "string",
+      "skip_constraint_checks": "bool",
       "timezone": "string",
-      "cleanupPolicy": "CleanupPolicy",
-      "serviceDatabase": "string",
-      "securityGroups": [
+      "cleanup_policy": "CleanupPolicy",
+      "service_database": "string",
+      "security_groups": [
         "string"
       ]
     },
-    "postgresTarget": {
+    "postgres_target": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
-        "mdbClusterId": "string",
-        "onPremise": {
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        "mdb_cluster_id": "string",
+        "on_premise": {
           "port": "int64",
-          "subnetId": "string",
+          "subnet_id": "string",
           "hosts": [
             "string"
           ],
-          "tlsMode": {
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -464,17 +464,17 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         "raw": "string"
         // end of the list of possible fields
       },
-      "cleanupPolicy": "CleanupPolicy",
-      "securityGroups": [
+      "cleanup_policy": "CleanupPolicy",
+      "security_groups": [
         "string"
       ]
     },
-    "clickhouseTarget": {
+    "clickhouse_target": {
       "connection": {
-        // Includes only one of the fields `connectionOptions`
-        "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
-          "onPremise": {
+        // Includes only one of the fields `connection_options`
+        "connection_options": {
+          // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+          "on_premise": {
             "shards": [
               {
                 "name": "string",
@@ -483,18 +483,18 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
                 ]
               }
             ],
-            "httpPort": "int64",
-            "nativePort": "int64",
-            "tlsMode": {
+            "http_port": "int64",
+            "native_port": "int64",
+            "tls_mode": {
               // Includes only one of the fields `disabled`, `enabled`
               "disabled": "google.protobuf.Empty",
               "enabled": {
-                "caCertificate": "string"
+                "ca_certificate": "string"
               }
               // end of the list of possible fields
             }
           },
-          "mdbClusterId": "string",
+          "mdb_cluster_id": "string",
           // end of the list of possible fields
           "user": "string",
           "password": {
@@ -506,69 +506,69 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         }
         // end of the list of possible fields
       },
-      "subnetId": "string",
-      "altNames": [
+      "subnet_id": "string",
+      "alt_names": [
         {
-          "fromName": "string",
-          "toName": "string"
+          "from_name": "string",
+          "to_name": "string"
         }
       ],
-      "cleanupPolicy": "ClickhouseCleanupPolicy",
+      "cleanup_policy": "ClickhouseCleanupPolicy",
       "sharding": {
-        // Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`
-        "columnValueHash": {
-          "columnName": "string"
+        // Includes only one of the fields `column_value_hash`, `custom_mapping`, `transfer_id`, `round_robin`
+        "column_value_hash": {
+          "column_name": "string"
         },
-        "customMapping": {
-          "columnName": "string",
+        "custom_mapping": {
+          "column_name": "string",
           "mapping": [
             {
-              "columnValue": {
-                // Includes only one of the fields `stringValue`
-                "stringValue": "string"
+              "column_value": {
+                // Includes only one of the fields `string_value`
+                "string_value": "string"
                 // end of the list of possible fields
               },
-              "shardName": "string"
+              "shard_name": "string"
             }
           ]
         },
-        "transferId": "google.protobuf.Empty",
-        "roundRobin": "google.protobuf.Empty"
+        "transfer_id": "google.protobuf.Empty",
+        "round_robin": "google.protobuf.Empty"
         // end of the list of possible fields
       },
-      "clickhouseClusterName": "string",
-      "securityGroups": [
+      "clickhouse_cluster_name": "string",
+      "security_groups": [
         "string"
       ]
     },
-    "ydbTarget": {
+    "ydb_target": {
       "database": "string",
       "instance": "string",
       "path": "string",
-      "serviceAccountId": "string",
-      "cleanupPolicy": "YdbCleanupPolicy",
-      "subnetId": "string",
-      "saKeyContent": "string",
-      "securityGroups": [
+      "service_account_id": "string",
+      "cleanup_policy": "YdbCleanupPolicy",
+      "subnet_id": "string",
+      "sa_key_content": "string",
+      "security_groups": [
         "string"
       ],
-      "isTableColumnOriented": "bool",
-      "defaultCompression": "YdbDefaultCompression"
+      "is_table_column_oriented": "bool",
+      "default_compression": "YdbDefaultCompression"
     },
-    "kafkaTarget": {
+    "kafka_target": {
       "connection": {
-        // Includes only one of the fields `clusterId`, `onPremise`
-        "clusterId": "string",
-        "onPremise": {
-          "brokerUrls": [
+        // Includes only one of the fields `cluster_id`, `on_premise`
+        "cluster_id": "string",
+        "on_premise": {
+          "broker_urls": [
             "string"
           ],
-          "subnetId": "string",
-          "tlsMode": {
+          "subnet_id": "string",
+          "tls_mode": {
             // Includes only one of the fields `disabled`, `enabled`
             "disabled": "google.protobuf.Empty",
             "enabled": {
-              "caCertificate": "string"
+              "ca_certificate": "string"
             }
             // end of the list of possible fields
           }
@@ -576,7 +576,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         // end of the list of possible fields
       },
       "auth": {
-        // Includes only one of the fields `sasl`, `noAuth`
+        // Includes only one of the fields `sasl`, `no_auth`
         "sasl": {
           "user": "string",
           "mechanism": "KafkaMechanism",
@@ -586,27 +586,27 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             // end of the list of possible fields
           }
         },
-        "noAuth": "NoAuth"
+        "no_auth": "NoAuth"
         // end of the list of possible fields
       },
-      "securityGroups": [
+      "security_groups": [
         "string"
       ],
-      "topicSettings": {
-        // Includes only one of the fields `topic`, `topicPrefix`
+      "topic_settings": {
+        // Includes only one of the fields `topic`, `topic_prefix`
         "topic": {
-          "topicName": "string",
-          "saveTxOrder": "bool"
+          "topic_name": "string",
+          "save_tx_order": "bool"
         },
-        "topicPrefix": "string"
+        "topic_prefix": "string"
         // end of the list of possible fields
       },
       "serializer": {
-        // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
-        "serializerAuto": "SerializerAuto",
-        "serializerJson": "SerializerJSON",
-        "serializerDebezium": {
-          "serializerParameters": [
+        // Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`
+        "serializer_auto": "SerializerAuto",
+        "serializer_json": "SerializerJSON",
+        "serializer_debezium": {
+          "serializer_parameters": [
             {
               "key": "string",
               "value": "string"
@@ -616,23 +616,23 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         // end of the list of possible fields
       }
     },
-    "mongoTarget": {
+    "mongo_target": {
       "connection": {
-        // Includes only one of the fields `connectionOptions`
-        "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
-          "mdbClusterId": "string",
-          "onPremise": {
+        // Includes only one of the fields `connection_options`
+        "connection_options": {
+          // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+          "mdb_cluster_id": "string",
+          "on_premise": {
             "hosts": [
               "string"
             ],
             "port": "int64",
-            "replicaSet": "string",
-            "tlsMode": {
+            "replica_set": "string",
+            "tls_mode": {
               // Includes only one of the fields `disabled`, `enabled`
               "disabled": "google.protobuf.Empty",
               "enabled": {
-                "caCertificate": "string"
+                "ca_certificate": "string"
               }
               // end of the list of possible fields
             }
@@ -644,19 +644,19 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
             "raw": "string"
             // end of the list of possible fields
           },
-          "authSource": "string"
+          "auth_source": "string"
         }
         // end of the list of possible fields
       },
       "database": "string",
-      "cleanupPolicy": "CleanupPolicy",
-      "subnetId": "string",
-      "securityGroups": [
+      "cleanup_policy": "CleanupPolicy",
+      "subnet_id": "string",
+      "security_groups": [
         "string"
       ]
     },
-    "metrikaSource": {
-      "counterIds": [
+    "metrika_source": {
+      "counter_ids": [
         "int64"
       ],
       "token": {
@@ -673,17 +673,17 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         }
       ]
     },
-    "ydsTarget": {
+    "yds_target": {
       "database": "string",
       "stream": "string",
-      "serviceAccountId": "string",
-      "saveTxOrder": "bool",
+      "service_account_id": "string",
+      "save_tx_order": "bool",
       "serializer": {
-        // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
-        "serializerAuto": "SerializerAuto",
-        "serializerJson": "SerializerJSON",
-        "serializerDebezium": {
-          "serializerParameters": [
+        // Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`
+        "serializer_auto": "SerializerAuto",
+        "serializer_json": "SerializerJSON",
+        "serializer_debezium": {
+          "serializer_parameters": [
             {
               "key": "string",
               "value": "string"
@@ -693,20 +693,20 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/update.md
         // end of the list of possible fields
       },
       "endpoint": "string",
-      "subnetId": "string",
-      "securityGroups": [
+      "subnet_id": "string",
+      "security_groups": [
         "string"
       ]
     }
     // end of the list of possible fields
   },
-  "updateMask": "google.protobuf.FieldMask"
+  "update_mask": "google.protobuf.FieldMask"
 }
 ```
 
 #|
 ||Field | Description ||
-|| endpointId | **string**
+|| endpoint_id | **string**
 
 Identifier of the endpoint to be updated. ||
 || name | **string**
@@ -719,7 +719,7 @@ The new description for the endpoint. ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
 The new endpoint name. Must be unique within the folder. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask specifying endpoint fields to be updated. Semantics for this field is
 described here:
@@ -732,51 +732,51 @@ the new value replaces the old one instead of being appended to the old one. ||
 
 #|
 ||Field | Description ||
-|| mysqlSource | **[MysqlSource](#yandex.cloud.datatransfer.v1.endpoint.MysqlSource)**
+|| mysql_source | **[MysqlSource](#yandex.cloud.datatransfer.v1.endpoint.MysqlSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| postgresSource | **[PostgresSource](#yandex.cloud.datatransfer.v1.endpoint.PostgresSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| postgres_source | **[PostgresSource](#yandex.cloud.datatransfer.v1.endpoint.PostgresSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| ydbSource | **[YdbSource](#yandex.cloud.datatransfer.v1.endpoint.YdbSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| ydb_source | **[YdbSource](#yandex.cloud.datatransfer.v1.endpoint.YdbSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| ydsSource | **[YDSSource](#yandex.cloud.datatransfer.v1.endpoint.YDSSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| yds_source | **[YDSSource](#yandex.cloud.datatransfer.v1.endpoint.YDSSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| kafkaSource | **[KafkaSource](#yandex.cloud.datatransfer.v1.endpoint.KafkaSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| kafka_source | **[KafkaSource](#yandex.cloud.datatransfer.v1.endpoint.KafkaSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| mongoSource | **[MongoSource](#yandex.cloud.datatransfer.v1.endpoint.MongoSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| mongo_source | **[MongoSource](#yandex.cloud.datatransfer.v1.endpoint.MongoSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| clickhouseSource | **[ClickhouseSource](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| clickhouse_source | **[ClickhouseSource](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| mysqlTarget | **[MysqlTarget](#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| mysql_target | **[MysqlTarget](#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| postgresTarget | **[PostgresTarget](#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| postgres_target | **[PostgresTarget](#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| clickhouseTarget | **[ClickhouseTarget](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| clickhouse_target | **[ClickhouseTarget](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| ydbTarget | **[YdbTarget](#yandex.cloud.datatransfer.v1.endpoint.YdbTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| ydb_target | **[YdbTarget](#yandex.cloud.datatransfer.v1.endpoint.YdbTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| kafkaTarget | **[KafkaTarget](#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| kafka_target | **[KafkaTarget](#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| mongoTarget | **[MongoTarget](#yandex.cloud.datatransfer.v1.endpoint.MongoTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| mongo_target | **[MongoTarget](#yandex.cloud.datatransfer.v1.endpoint.MongoTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| metrikaSource | **[MetrikaSource](#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| metrika_source | **[MetrikaSource](#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
-|| ydsTarget | **[YDSTarget](#yandex.cloud.datatransfer.v1.endpoint.YDSTarget)**
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
+|| yds_target | **[YDSTarget](#yandex.cloud.datatransfer.v1.endpoint.YDSTarget)**
 
-Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`. ||
+Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`. ||
 |#
 
 ## MysqlSource {#yandex.cloud.datatransfer.v1.endpoint.MysqlSource}
@@ -804,17 +804,17 @@ Database timezone
 
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
-|| objectTransferSettings | **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
+|| object_transfer_settings | **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
 
 Schema migration
 
 Select database objects to be transferred during activation or deactivation. ||
-|| includeTablesRegex[] | **string** ||
-|| excludeTablesRegex[] | **string** ||
-|| securityGroups[] | **string**
+|| include_tables_regex[] | **string** ||
+|| exclude_tables_regex[] | **string** ||
+|| security_groups[] | **string**
 
 Security groups ||
-|| serviceDatabase | **string**
+|| service_database | **string**
 
 Database for service tables
 
@@ -826,16 +826,16 @@ __tm_gtid_keeper). ||
 
 #|
 ||Field | Description ||
-|| mdbClusterId | **string**
+|| mdb_cluster_id | **string**
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
-|| onPremise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+|| on_premise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -845,11 +845,11 @@ Includes only one of the fields `mdbClusterId`, `onPremise`. ||
 || port | **int64**
 
 Database port ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
 || hosts[] | **string** ||
-|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
 
 TLS settings for server connection. Disabled by default. ||
 |#
@@ -870,7 +870,7 @@ Includes only one of the fields `disabled`, `enabled`. ||
 
 #|
 ||Field | Description ||
-|| caCertificate | **string**
+|| ca_certificate | **string**
 
 CA certificate
 
@@ -948,30 +948,30 @@ User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
-|| includeTables[] | **string**
+|| include_tables[] | **string**
 
 Included tables
 
 If none or empty list is presented, all tables are replicated. Full table name
 with schema. Can contain schema_name.* patterns. ||
-|| excludeTables[] | **string**
+|| exclude_tables[] | **string**
 
 Excluded tables
 
 If none or empty list is presented, all tables are replicated. Full table name
 with schema. Can contain schema_name.* patterns. ||
-|| slotByteLagLimit | **int64**
+|| slot_byte_lag_limit | **int64**
 
 Maximum lag of replication slot (in bytes); after exceeding this limit
 replication will be aborted. ||
-|| serviceSchema | **string**
+|| service_schema | **string**
 
 Database schema for service tables (__consumer_keeper,
 __data_transfer_mole_finder). Default is public ||
-|| objectTransferSettings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
+|| object_transfer_settings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
 
 Select database objects to be transferred during activation or deactivation. ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -980,16 +980,16 @@ Security groups ||
 
 #|
 ||Field | Description ||
-|| mdbClusterId | **string**
+|| mdb_cluster_id | **string**
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
-|| onPremise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+|| on_premise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -999,11 +999,11 @@ Includes only one of the fields `mdbClusterId`, `onPremise`. ||
 || port | **int64**
 
 Will be used if the cluster ID is not specified. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
 || hosts[] | **string** ||
-|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
 
 TLS settings for server connection. Disabled by default. ||
 |#
@@ -1022,7 +1022,7 @@ CREATE SEQUENCE ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| sequenceOwnedBy | enum **ObjectTransferStage**
+|| sequence_owned_by | enum **ObjectTransferStage**
 
 Owned sequences
 
@@ -1042,7 +1042,7 @@ CREATE TABLE ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| primaryKey | enum **ObjectTransferStage**
+|| primary_key | enum **ObjectTransferStage**
 
 Primary keys
 
@@ -1052,7 +1052,7 @@ ALTER TABLE ... ADD PRIMARY KEY ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| fkConstraint | enum **ObjectTransferStage**
+|| fk_constraint | enum **ObjectTransferStage**
 
 Foreign keys
 
@@ -1062,7 +1062,7 @@ ALTER TABLE ... ADD FOREIGN KEY ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| defaultValues | enum **ObjectTransferStage**
+|| default_values | enum **ObjectTransferStage**
 
 Default values
 
@@ -1172,7 +1172,7 @@ CREATE CAST ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| materializedView | enum **ObjectTransferStage**
+|| materialized_view | enum **ObjectTransferStage**
 
 Materialized views
 
@@ -1182,7 +1182,7 @@ CREATE MATERIALIZED VIEW ...
 - `BEFORE_DATA`: Before data transfer
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
-|| sequenceSet | enum **ObjectTransferStage**
+|| sequence_set | enum **ObjectTransferStage**
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -1201,17 +1201,17 @@ Path in YDB where to store tables ||
 
 Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 ||
 || paths[] | **string** ||
-|| serviceAccountId | **string** ||
-|| subnetId | **string**
+|| service_account_id | **string** ||
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
-|| saKeyContent | **string**
+|| sa_key_content | **string**
 
 Authorization Key ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
-|| changefeedCustomName | **string**
+|| changefeed_custom_name | **string**
 
 Pre-created change feed ||
 |#
@@ -1226,10 +1226,10 @@ Database ||
 || stream | **string**
 
 Stream ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 SA which has read access to the stream. ||
-|| supportedCodecs[] | enum **YdsCompressionCodec**
+|| supported_codecs[] | enum **YdsCompressionCodec**
 
 Compression codec
 
@@ -1240,7 +1240,7 @@ Compression codec
 || parser | **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
 
 Data parsing rules ||
-|| allowTtlRewind | **bool**
+|| allow_ttl_rewind | **bool**
 
 Should continue working, if consumer read lag exceed TTL of topic
 False: stop the transfer in error state, if detected lost data. True: continue
@@ -1248,10 +1248,10 @@ working with losing part of data ||
 || endpoint | **string**
 
 for dedicated db ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 || consumer | **string**
@@ -1263,32 +1263,32 @@ for important streams ||
 
 #|
 ||Field | Description ||
-|| jsonParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+|| json_parser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
-|| auditTrailsV1Parser | **[AuditTrailsV1Parser](#yandex.cloud.datatransfer.v1.endpoint.AuditTrailsV1Parser)**
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+|| audit_trails_v1_parser | **[AuditTrailsV1Parser](#yandex.cloud.datatransfer.v1.endpoint.AuditTrailsV1Parser)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
-|| cloudLoggingParser | **[CloudLoggingParser](#yandex.cloud.datatransfer.v1.endpoint.CloudLoggingParser)**
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+|| cloud_logging_parser | **[CloudLoggingParser](#yandex.cloud.datatransfer.v1.endpoint.CloudLoggingParser)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
-|| tskvParser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
+|| tskv_parser | **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
 
-Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`. ||
+Includes only one of the fields `json_parser`, `audit_trails_v1_parser`, `cloud_logging_parser`, `tskv_parser`. ||
 |#
 
 ## GenericParserCommon {#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon}
 
 #|
 ||Field | Description ||
-|| dataSchema | **[DataSchema](#yandex.cloud.datatransfer.v1.endpoint.DataSchema)** ||
-|| nullKeysAllowed | **bool**
+|| data_schema | **[DataSchema](#yandex.cloud.datatransfer.v1.endpoint.DataSchema)** ||
+|| null_keys_allowed | **bool**
 
 Allow null keys, if no - null keys will be putted to unparsed data ||
-|| addRestColumn | **bool**
+|| add_rest_column | **bool**
 
 Will add _rest column for all unknown fields ||
-|| unescapeStringValues | **bool**
+|| unescape_string_values | **bool**
 
 Unescape string values ||
 |#
@@ -1297,12 +1297,12 @@ Unescape string values ||
 
 #|
 ||Field | Description ||
-|| jsonFields | **string**
+|| json_fields | **string**
 
-Includes only one of the fields `jsonFields`, `fields`. ||
+Includes only one of the fields `json_fields`, `fields`. ||
 || fields | **[FieldList](#yandex.cloud.datatransfer.v1.endpoint.FieldList)**
 
-Includes only one of the fields `jsonFields`, `fields`. ||
+Includes only one of the fields `json_fields`, `fields`. ||
 |#
 
 ## FieldList {#yandex.cloud.datatransfer.v1.endpoint.FieldList}
@@ -1365,10 +1365,10 @@ Connection settings ||
 || auth | **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
 
 Authentication settings ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
-|| topicName | **string**
+|| topic_name | **string**
 
 Full source topic name
 Deprecated in favor of topic names ||
@@ -1378,7 +1378,7 @@ Data transformation rules ||
 || parser | **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
 
 Data parsing rules ||
-|| topicNames[] | **string**
+|| topic_names[] | **string**
 
 List of topic names to read ||
 |#
@@ -1387,29 +1387,29 @@ List of topic names to read ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Managed Service for Kafka cluster ID
 
-Includes only one of the fields `clusterId`, `onPremise`. ||
-|| onPremise | **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
+Includes only one of the fields `cluster_id`, `on_premise`. ||
+|| on_premise | **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
 
 Connection options for on-premise Kafka
 
-Includes only one of the fields `clusterId`, `onPremise`. ||
+Includes only one of the fields `cluster_id`, `on_premise`. ||
 |#
 
 ## OnPremiseKafka {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka}
 
 #|
 ||Field | Description ||
-|| brokerUrls[] | **string**
+|| broker_urls[] | **string**
 
 Kafka broker URLs ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
-|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
 
 TLS settings for broker connection. Disabled by default. ||
 |#
@@ -1422,12 +1422,12 @@ TLS settings for broker connection. Disabled by default. ||
 
 Authentication with SASL
 
-Includes only one of the fields `sasl`, `noAuth`. ||
-|| noAuth | **[NoAuth](#yandex.cloud.datatransfer.v1.endpoint.NoAuth)**
+Includes only one of the fields `sasl`, `no_auth`. ||
+|| no_auth | **[NoAuth](#yandex.cloud.datatransfer.v1.endpoint.NoAuth)**
 
 No authentication
 
-Includes only one of the fields `sasl`, `noAuth`. ||
+Includes only one of the fields `sasl`, `no_auth`. ||
 |#
 
 ## KafkaSaslSecurity {#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity}
@@ -1462,22 +1462,22 @@ No authentication
 
 #|
 ||Field | Description ||
-|| cloudFunction | **string**
+|| cloud_function | **string**
 
 Cloud function ||
-|| numberOfRetries | **int64**
+|| number_of_retries | **int64**
 
 Number of retries ||
-|| bufferSize | **string**
+|| buffer_size | **string**
 
 Buffer size for function ||
-|| bufferFlushInterval | **string**
+|| buffer_flush_interval | **string**
 
 Flush interval ||
-|| invocationTimeout | **string**
+|| invocation_timeout | **string**
 
 Invocation timeout ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account ||
 |#
@@ -1487,19 +1487,19 @@ Service account ||
 #|
 ||Field | Description ||
 || connection | **[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)** ||
-|| subnetId | **string** ||
+|| subnet_id | **string** ||
 || collections[] | **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
 
 List of collections for replication. Empty list implies replication of all
 tables on the deployment. Allowed to use * as collection name. ||
-|| excludedCollections[] | **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
+|| excluded_collections[] | **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
 
 List of forbidden collections for replication. Allowed to use * as collection
 name for forbid all collections of concrete schema. ||
-|| secondaryPreferredMode | **bool**
+|| secondary_preferred_mode | **bool**
 
 Read mode for mongo client ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -1508,28 +1508,28 @@ Security groups ||
 
 #|
 ||Field | Description ||
-|| connectionOptions | **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
+|| connection_options | **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
 
-Includes only one of the fields `connectionOptions`. ||
+Includes only one of the fields `connection_options`. ||
 |#
 
 ## MongoConnectionOptions {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions}
 
 #|
 ||Field | Description ||
-|| mdbClusterId | **string**
+|| mdb_cluster_id | **string**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
-|| onPremise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+|| on_premise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
 || user | **string**
 
 User name ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for user ||
-|| authSource | **string**
+|| auth_source | **string**
 
 Database name associated with the credentials ||
 |#
@@ -1540,16 +1540,16 @@ Database name associated with the credentials ||
 ||Field | Description ||
 || hosts[] | **string** ||
 || port | **int64** ||
-|| replicaSet | **string** ||
-|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|| replica_set | **string** ||
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
 |#
 
 ## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
 
 #|
 ||Field | Description ||
-|| databaseName | **string** ||
-|| collectionName | **string** ||
+|| database_name | **string** ||
+|| collection_name | **string** ||
 |#
 
 ## ClickhouseSource {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource}
@@ -1557,17 +1557,17 @@ Database name associated with the credentials ||
 #|
 ||Field | Description ||
 || connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
-|| includeTables[] | **string**
+|| include_tables[] | **string**
 
 While list of tables for replication. If none or empty list is presented - will
 replicate all tables. Can contain * patterns. ||
-|| excludeTables[] | **string**
+|| exclude_tables[] | **string**
 
 Exclude list of tables for replication. If none or empty list is presented -
 will replicate all tables. Can contain * patterns. ||
-|| subnetId | **string** ||
-|| securityGroups[] | **string** ||
-|| clickhouseClusterName | **string**
+|| subnet_id | **string** ||
+|| security_groups[] | **string** ||
+|| clickhouse_cluster_name | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
 ShardGroup. ||
@@ -1577,21 +1577,21 @@ ShardGroup. ||
 
 #|
 ||Field | Description ||
-|| connectionOptions | **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
+|| connection_options | **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
 
-Includes only one of the fields `connectionOptions`. ||
+Includes only one of the fields `connection_options`. ||
 |#
 
 ## ClickhouseConnectionOptions {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions}
 
 #|
 ||Field | Description ||
-|| onPremise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
+|| on_premise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
-|| mdbClusterId | **string**
+Includes only one of the fields `on_premise`, `mdb_cluster_id`. ||
+|| mdb_cluster_id | **string**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `on_premise`, `mdb_cluster_id`. ||
 || user | **string** ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || database | **string**
@@ -1604,9 +1604,9 @@ Database ||
 #|
 ||Field | Description ||
 || shards[] | **[ClickhouseShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard)** ||
-|| httpPort | **int64** ||
-|| nativePort | **int64** ||
-|| tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|| http_port | **int64** ||
+|| native_port | **int64** ||
+|| tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
 |#
 
 ## ClickhouseShard {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard}
@@ -1637,10 +1637,10 @@ User for database access. ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
-|| sqlMode | **string**
+|| sql_mode | **string**
 
 Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION. ||
-|| skipConstraintChecks | **bool**
+|| skip_constraint_checks | **bool**
 
 Disable constraints checks
 
@@ -1653,7 +1653,7 @@ Database timezone
 
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
-|| cleanupPolicy | enum **CleanupPolicy**
+|| cleanup_policy | enum **CleanupPolicy**
 
 Cleanup policy
 
@@ -1664,12 +1664,12 @@ DISABLED.
 - `DISABLED`: Don't cleanup
 - `DROP`: Drop
 - `TRUNCATE`: Truncate ||
-|| serviceDatabase | **string**
+|| service_database | **string**
 
 Database schema for service table
 
 Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper). ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -1690,7 +1690,7 @@ User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
-|| cleanupPolicy | enum **CleanupPolicy**
+|| cleanup_policy | enum **CleanupPolicy**
 
 Cleanup policy for activate, reactivate and reupload processes. Default is
 truncate.
@@ -1699,7 +1699,7 @@ truncate.
 - `DISABLED`: Don't cleanup
 - `DROP`: Drop
 - `TRUNCATE`: Truncate ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -1709,32 +1709,32 @@ Security groups ||
 #|
 ||Field | Description ||
 || connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
-|| subnetId | **string** ||
-|| altNames[] | **[AltName](#yandex.cloud.datatransfer.v1.endpoint.AltName)**
+|| subnet_id | **string** ||
+|| alt_names[] | **[AltName](#yandex.cloud.datatransfer.v1.endpoint.AltName)**
 
 Alternative table names in target ||
-|| cleanupPolicy | enum **ClickhouseCleanupPolicy**
+|| cleanup_policy | enum **ClickhouseCleanupPolicy**
 
 - `CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED`
 - `CLICKHOUSE_CLEANUP_POLICY_DISABLED`
 - `CLICKHOUSE_CLEANUP_POLICY_DROP`
 - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
 || sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
-|| clickhouseClusterName | **string**
+|| clickhouse_cluster_name | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
 ShardGroup. ||
-|| securityGroups[] | **string** ||
+|| security_groups[] | **string** ||
 |#
 
 ## AltName {#yandex.cloud.datatransfer.v1.endpoint.AltName}
 
 #|
 ||Field | Description ||
-|| fromName | **string**
+|| from_name | **string**
 
 Source table name ||
-|| toName | **string**
+|| to_name | **string**
 
 Target table name ||
 |#
@@ -1743,32 +1743,32 @@ Target table name ||
 
 #|
 ||Field | Description ||
-|| columnValueHash | **[ColumnValueHash](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash)**
+|| column_value_hash | **[ColumnValueHash](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash)**
 
-Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`. ||
-|| customMapping | **[ColumnValueMapping](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping)**
+Includes only one of the fields `column_value_hash`, `custom_mapping`, `transfer_id`, `round_robin`. ||
+|| custom_mapping | **[ColumnValueMapping](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping)**
 
-Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`. ||
-|| transferId | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+Includes only one of the fields `column_value_hash`, `custom_mapping`, `transfer_id`, `round_robin`. ||
+|| transfer_id | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
 
-Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`. ||
-|| roundRobin | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+Includes only one of the fields `column_value_hash`, `custom_mapping`, `transfer_id`, `round_robin`. ||
+|| round_robin | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
 
-Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`, `roundRobin`. ||
+Includes only one of the fields `column_value_hash`, `custom_mapping`, `transfer_id`, `round_robin`. ||
 |#
 
 ## ColumnValueHash {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash}
 
 #|
 ||Field | Description ||
-|| columnName | **string** ||
+|| column_name | **string** ||
 |#
 
 ## ColumnValueMapping {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping}
 
 #|
 ||Field | Description ||
-|| columnName | **string** ||
+|| column_name | **string** ||
 || mapping[] | **[ValueToShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping.ValueToShard)** ||
 |#
 
@@ -1776,17 +1776,17 @@ Includes only one of the fields `columnValueHash`, `customMapping`, `transferId`
 
 #|
 ||Field | Description ||
-|| columnValue | **[ColumnValue](#yandex.cloud.datatransfer.v1.endpoint.ColumnValue)** ||
-|| shardName | **string** ||
+|| column_value | **[ColumnValue](#yandex.cloud.datatransfer.v1.endpoint.ColumnValue)** ||
+|| shard_name | **string** ||
 |#
 
 ## ColumnValue {#yandex.cloud.datatransfer.v1.endpoint.ColumnValue}
 
 #|
 ||Field | Description ||
-|| stringValue | **string**
+|| string_value | **string**
 
-Includes only one of the fields `stringValue`. ||
+Includes only one of the fields `string_value`. ||
 |#
 
 ## YdbTarget {#yandex.cloud.datatransfer.v1.endpoint.YdbTarget}
@@ -1802,28 +1802,28 @@ Instance of YDB. example: ydb-ru-prestable.yandex.net:2135 ||
 || path | **string**
 
 Path extension for database, each table will be layouted into this path ||
-|| serviceAccountId | **string** ||
-|| cleanupPolicy | enum **YdbCleanupPolicy**
+|| service_account_id | **string** ||
+|| cleanup_policy | enum **YdbCleanupPolicy**
 
 Cleanup policy
 
 - `YDB_CLEANUP_POLICY_UNSPECIFIED`
 - `YDB_CLEANUP_POLICY_DISABLED`
 - `YDB_CLEANUP_POLICY_DROP` ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
-|| saKeyContent | **string**
+|| sa_key_content | **string**
 
 SA content ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
-|| isTableColumnOriented | **bool**
+|| is_table_column_oriented | **bool**
 
 Should create column-oriented table (OLAP). By default it creates row-oriented
 (OLTP) ||
-|| defaultCompression | enum **YdbDefaultCompression**
+|| default_compression | enum **YdbDefaultCompression**
 
 Compression that will be used for default columns family on YDB table creation
 
@@ -1842,10 +1842,10 @@ Connection settings ||
 || auth | **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
 
 Authentication settings ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
-|| topicSettings | **[KafkaTargetTopicSettings](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings)**
+|| topic_settings | **[KafkaTargetTopicSettings](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings)**
 
 Target topic settings ||
 || serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
@@ -1861,25 +1861,25 @@ Data serialization format settings ||
 
 Full topic name
 
-Includes only one of the fields `topic`, `topicPrefix`. ||
-|| topicPrefix | **string**
+Includes only one of the fields `topic`, `topic_prefix`. ||
+|| topic_prefix | **string**
 
 Topic prefix
 
 Analogue of the Debezium setting database.server.name.
 Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
 
-Includes only one of the fields `topic`, `topicPrefix`. ||
+Includes only one of the fields `topic`, `topic_prefix`. ||
 |#
 
 ## KafkaTargetTopic {#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopic}
 
 #|
 ||Field | Description ||
-|| topicName | **string**
+|| topic_name | **string**
 
 Topic name ||
-|| saveTxOrder | **bool**
+|| save_tx_order | **bool**
 
 Save transactions order
 Not to split events queue into separate per-table queues. ||
@@ -1891,21 +1891,21 @@ Data serialization format
 
 #|
 ||Field | Description ||
-|| serializerAuto | **[SerializerAuto](#yandex.cloud.datatransfer.v1.endpoint.SerializerAuto)**
+|| serializer_auto | **[SerializerAuto](#yandex.cloud.datatransfer.v1.endpoint.SerializerAuto)**
 
 Select the serialization format automatically
 
-Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
-|| serializerJson | **[SerializerJSON](#yandex.cloud.datatransfer.v1.endpoint.SerializerJSON)**
+Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`. ||
+|| serializer_json | **[SerializerJSON](#yandex.cloud.datatransfer.v1.endpoint.SerializerJSON)**
 
 Serialize data in json format
 
-Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
-|| serializerDebezium | **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
+Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`. ||
+|| serializer_debezium | **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
 
 Serialize data in debezium format
 
-Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`. ||
+Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`. ||
 |#
 
 ## SerializerAuto {#yandex.cloud.datatransfer.v1.endpoint.SerializerAuto}
@@ -1926,7 +1926,7 @@ Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerD
 
 #|
 ||Field | Description ||
-|| serializerParameters[] | **[DebeziumSerializerParameter](#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter)**
+|| serializer_parameters[] | **[DebeziumSerializerParameter](#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter)**
 
 Settings of sterilization parameters as key-value pairs ||
 |#
@@ -1951,14 +1951,14 @@ Value of the serializer parameter ||
 || database | **string**
 
 Database name ||
-|| cleanupPolicy | enum **CleanupPolicy**
+|| cleanup_policy | enum **CleanupPolicy**
 
 - `CLEANUP_POLICY_UNSPECIFIED`
 - `DISABLED`: Don't cleanup
 - `DROP`: Drop
 - `TRUNCATE`: Truncate ||
-|| subnetId | **string** ||
-|| securityGroups[] | **string**
+|| subnet_id | **string** ||
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -1967,7 +1967,7 @@ Security groups ||
 
 #|
 ||Field | Description ||
-|| counterIds[] | **int64** ||
+|| counter_ids[] | **int64** ||
 || token | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || streams[] | **[MetrikaStream](#yandex.cloud.datatransfer.v1.endpoint.MetrikaStream)** ||
 |#
@@ -1995,10 +1995,10 @@ Database ||
 || stream | **string**
 
 Stream ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 SA which has read access to the stream. ||
-|| saveTxOrder | **bool**
+|| save_tx_order | **bool**
 
 Save transaction order
 Not to split events queue into separate per-table queues.
@@ -2009,10 +2009,10 @@ Data serialization format ||
 || endpoint | **string**
 
 for dedicated db ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Network interface for endpoint. If none will assume public ipv4 ||
-|| securityGroups[] | **string**
+|| security_groups[] | **string**
 
 Security groups ||
 |#
@@ -2023,9 +2023,9 @@ Security groups ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -2045,13 +2045,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

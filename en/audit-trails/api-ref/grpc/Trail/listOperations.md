@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/audittrails/v1/api-ref/grpc/Trail/listOperations.md
 ---
 
-# Audit Trails API, gRPC: TrailService.ListOperations {#ListOperations}
+# Audit Trails API, gRPC: TrailService.ListOperations
 
 Lists operations for the specified trail.
 
@@ -15,24 +15,24 @@ Lists operations for the specified trail.
 
 ```json
 {
-  "trailId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "trail_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| trailId | **string**
+|| trail_id | **string**
 
 Required field. ID of the trail to get operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
+results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.next_page_token](#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListTrailOperationsRequest.next_page_token] returned by a previous list request. ||
@@ -46,9 +46,9 @@ Page token. To get the next page of results, set `page_token` to the
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -57,7 +57,7 @@ Page token. To get the next page of results, set `page_token` to the
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -66,7 +66,7 @@ Page token. To get the next page of results, set `page_token` to the
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified trail. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
 is larger than [ListTrailOperationsResponse.page_size], use the `next_page_token` as the value
@@ -86,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

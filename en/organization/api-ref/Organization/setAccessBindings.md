@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/setAccessBindings.md
 ---
 
-# Cloud Organization API, REST: Organization.SetAccessBindings {#SetAccessBindings}
+# Cloud Organization API, REST: Organization.SetAccessBindings
 
 Sets access bindings for the specified organization.
 

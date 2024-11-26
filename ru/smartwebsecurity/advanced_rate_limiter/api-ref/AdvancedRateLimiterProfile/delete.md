@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md
 ---
 
-# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Delete {#Delete}
+# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Delete
 
 Deletes the specified ARL profile.
 

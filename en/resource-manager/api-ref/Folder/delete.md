@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/delete.md
 ---
 
-# Resource Manager API, REST: Folder.Delete {#Delete}
+# Resource Manager API, REST: Folder.Delete
 
 Deletes the specified folder.
 

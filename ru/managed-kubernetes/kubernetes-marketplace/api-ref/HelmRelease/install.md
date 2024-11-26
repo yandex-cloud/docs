@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/install.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.Install {#Install}
+# Kubernetes Marketplace, REST: HelmRelease.Install
 
 Installs helm release into specified Kubernetes Cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.Create {#Create}
+# Managed Service for MongoDB API, REST: Cluster.Create
 
 Creates a MongoDB cluster in the specified folder.
 

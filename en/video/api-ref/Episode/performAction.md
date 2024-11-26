@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/performAction.md
 ---
 
-# Video API, REST: Episode.PerformAction {#PerformAction}
+# Video API, REST: Episode.PerformAction
 
 Perform an action on the episode.
 
@@ -77,9 +77,10 @@ Includes only one of the fields `publish`, `unpublish`. ||
     "finishTime": "string",
     "dvrSeconds": "string",
     "visibilityStatus": "string",
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
+    // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
     "publicAccess": "object",
     "authSystemAccess": "object",
+    "signUrlAccess": "object",
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string"
@@ -241,14 +242,21 @@ possible values:
 
 Episode is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Episode access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || createdAt | **string** (date-time)

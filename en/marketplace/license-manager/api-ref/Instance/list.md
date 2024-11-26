@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Instance/list.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Instance.List {#List}
+# Yandex Cloud Marketplace License Manager, REST: Instance.List
 
 Retrieves the list of subscription instances in the specified folder.
 

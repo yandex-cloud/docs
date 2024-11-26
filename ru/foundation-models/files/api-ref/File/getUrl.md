@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/getUrl.md
 ---
 
-# Files API, REST: File.GetUrl {#GetUrl}
+# Files API, REST: File.GetUrl
 
 Retrieve a URL for accessing or downloading a specific file.
 

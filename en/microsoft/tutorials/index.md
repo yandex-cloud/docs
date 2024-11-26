@@ -5,8 +5,10 @@ description: This page provides a list of tutorials for Microsoft products.
 
 # Tutorials for using Microsoft products in {{ yandex-cloud }}
 
-
-
-* [Using personal licenses for Microsoft products](../byol.md)
-* [{#T}](./secure-password-script.md)
-
+* [{#T}](../byol.md)
+* [{#T}](secure-password-script.md)
+* [{#T}](active-directory.md)
+* [{#T}](exchange.md)
+* [{#T}](rds.md)
+* [{#T}](rds-gw.md)
+* [{#T}](mssql-alwayson-lb.md)

@@ -1,8 +1,8 @@
-# Cloud infrastructure segmentation with Check Point Next-Generation Firewall 
+# Cloud infrastructure segmentation with Check Point next-generation firewall
 
-This guide describes how to deploy a secure network infrastructure based on Check Point Next-Generation Firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing services are placed and the MGMT segment hosts resources used to manage the cloud infrastructure. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
+This guide describes how to deploy a secure network infrastructure based on the Check Point next-generation firewall solution. The infrastructure comprises three segments, each hosting an isolated set of resources grouped by function. For example, the dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is where public-facing applications are placed; whereas the MGMT segment hosts the cloud infrastructure management resources. The segments communicate with each other via a virtual [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), which provides end-to-end protection and traffic control across the segments.
 
-If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
+If you need to ensure NGFW fault tolerance and high availability of the deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
 
 The solution has the following basic segments (folders):
 
@@ -10,9 +10,9 @@ The solution has the following basic segments (folders):
 * The **mgmt** folder is used to manage the cloud infrastructure and host internal resources. It includes VMs for infrastructure protection and network segmentation into security zones (fw), a VM of the centralized firewall management server (mgmt-server), and a VM with [WireGuard VPN](https://www.wireguard.com/) configured for secure access to the management segment over a VPN (jump-vm).
 * The **dmz** folder enables you to publish applications with public access from the internet.
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint).
+For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint). 
 
-To deploy a secure network infrastructure based on Check Point Next-Generation Firewall:
+To deploy a secure network infrastructure based on the Check Point next-generation firewall:
 
 1. [Prepare your cloud](#prepare-cloud).
 1. [Prepare the environment](#prepare-environment).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Next-Generation Firewall {#next-generation-firewall}
 
-[{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses the [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software) solution. Its features include:
+[{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software). Its features include:
 * Firewall, NAT, IPS, antivirus, and anti-bot protect services.
 * Application layer granular traffic control, session logging.
 * Centralized security management with Check Point Security Management.
@@ -85,7 +85,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 ## Prepare the environment {#prepare-environment}
 
 The tutorial uses Windows software and the [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
+The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/). 
 
 ### Configure WSL {#setup-wsl}
 
@@ -105,7 +105,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    ```
 
 1. If WSL is not installed, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
-1. In addition, you can install on WSL a familiar Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview).
+1. In addition, you can install a familiar Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview), on top of WSL.
 
 1. To make the installed distribution the default system, run:
    
@@ -121,7 +121,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 
 {% note info %}
 
-All the steps described below are completed in the Linux terminal.
+All steps described below are completed in the Linux terminal.
 
 {% endnote %}
 
@@ -148,7 +148,7 @@ All the steps described below are completed in the Linux terminal.
          1. Click the **Access permissions** tab.
          1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
          1. Click **Edit roles**.
-         1. Click **Add role** in the dialog box that opens and select the `admin` role.
+         1. Click **Add role** in the dialog box that opens and select the `admin` role. 
 
 - CLI {#cli}
 
@@ -169,8 +169,8 @@ All the steps described below are completed in the Linux terminal.
          Result:
 
          ```text
-         id: ajehr0to1g8bh0la8c8r
-         folder_id: b1gv87ssvu497lpgjh5o
+         id: ajehr0to1g8b********
+         folder_id: b1gv87ssvu49********
          created_at: "2024-01-04T09:03:11.665153755Z"
          name: sa-terraform
          ```
@@ -207,7 +207,7 @@ All the steps described below are completed in the Linux terminal.
 
 1. Install {{ TF }}:
 
-   1. Go to the root directory:
+   1. Go to the root folder:
 
       ```bash
       cd ~
@@ -233,7 +233,7 @@ All the steps described below are completed in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the folder with the executable to the `PATH` variable:
+   1. Add the path to the folder with the executable to the `PATH` variable: 
       
       ```bash
       export PATH=$PATH:~/terraform
@@ -307,8 +307,8 @@ All the steps described below are completed in the Linux terminal.
          Result:
          
          ```text
-         id: aje8nn871qo4a8bbopvb
-         service_account_id: ajehr0to1g8bh0la8c8r
+         id: aje8nn871qo4********
+         service_account_id: ajehr0to1g8b********
          created_at: "2023-03-04T09:16:43.479156798Z"
          key_algorithm: RSA_2048
          ```
@@ -330,7 +330,7 @@ All the steps described below are completed in the Linux terminal.
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>
+         yc config set folder-id <folder_ID>  
          ```
 
          Where:
@@ -377,23 +377,23 @@ All the steps described below are completed in the Linux terminal.
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Name<br>name | Needs<br>editing | Description | Type | Example |
+   | Parameter<br>name | Needs<br>editing | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
-   | `az_name` | - | Yandex Cloud <a href="https://yandex.cloud/en/docs/overview/concepts/geo-scope">availability zone</a> to host your resources | `string` | `{{ region-id }}-d` |
-   | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` | `["mgmt", "public", "dmz"]` |
+   | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
+   | `az_name` | - | Yandex Cloud <a href="https://yandex.cloud/en/docs/overview/concepts/geo-scope">availability zone</a> to host your resources. | `string` | `{{ region-id }}-d` |
+   | `security_segment_names` | - | List of segment names. The first segment is for the management resources, the second, for the resources with public internet access, the third, for the DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefix in `subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | List of subnet prefixes as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for outside internet connection | `number` | `80` |
-   | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as public_app_port or a different one. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs/subnets trusted to access the jump VM. Used in the incoming rule of the `jump-vm` security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Username for connecting to `jump-vm` over SSH | `string` | `admin` |
-   | `wg_port` | - | UDP port for incoming traffic as indicated in the `jump-vm` WireGuard settings | `number` | `51820` |
+   | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs or subnets trusted to access the jump VM. Used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Username for connecting to jump VM over SSH. | `string` | `admin` |
+   | `wg_port` | - | UDP port for inbound traffic as indicated in the Jump VM WireGuard settings. | `number` | `51820` |
 
    {% endcut %}
 
    {% note warning %}
 
-   We recommend specifying additional segments in advance if you may need them later on, since a cloud-based NGFW VM does not support adding new network interfaces after it is created.
+   We recommend specifying additional segments in advance if you may need them later on, as a cloud-based NGFW VM does not support adding new network interfaces after it is created. 
 
    {% endnote %}
 
@@ -425,20 +425,20 @@ All the steps described below are completed in the Linux terminal.
 
 1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this information by running the `terraform output` command:
 
-   {% cut "Viewing information on deployed resources" %}
+   {% cut "Expand to view the information on deployed resources" %}
 
    | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
-   | `dmz-web-server_ip_address` | DMZ web server IP for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall. | `10.160.1.100` |
-   | `fw-mgmt-server_ip_address` | Firewall management server IP | `192.168.1.100` |
-   | `fw_gaia_portal_mgmt-server_password` | Default password for the initial connection to the firewall management server IP over HTTPS | `admin` |
-   | `fw_mgmt_ip_address` | Firewall IP in the management network | `192.168.1.10` |
-   | `fw_public_ip_address` | Public firewall IP | `D.D.D.D` |
-   | `fw_sic-password` | One-time password for adding a firewall to the firewall management server | The `terraform output` command does not return this variable. To view its value run `terraform output fw_sic-password`. |
-   | `fw_smartconsole_mgmt-server_password` | Password for connecting to the firewall management server via Check Point's SmartConsole GUI application. | The `terraform output` command does not return this variable. To view its value run `terraform output fw_smartconsole_mgmt-server_password`. |
-   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to `jump-vm` | `./jump-vm-wg.conf` |
+   | `dmz-web-server_ip_address` | DMZ web server IP address for publishing a test application from the DMZ segment. Used for configuring destination NAT on a firewall. | `10.160.1.100` |
+   | `fw-mgmt-server_ip_address` | Firewall management server IP address. | `192.168.1.100` |
+   | `fw_gaia_portal_mgmt-server_password` | Default password for the initial connection to the firewall management server IP address over HTTPS. | `admin` |
+   | `fw_mgmt_ip_address` | Firewall IP address in the management network. | `192.168.1.10` |
+   | `fw_public_ip_address` | Public firewall IP address. | `D.D.D.D` |
+   | `fw_sic-password` | One-time password for adding a firewall to the firewall management server | The `terraform output` command does not return this variable. To view its value, run `terraform output fw_sic-password`. |
+   | `fw_smartconsole_mgmt-server_password` | Password for connecting to the firewall management server through the Check Point SmartConsole GUI. | The `terraform output` command does not return this variable. To view its value run `terraform output fw_smartconsole_mgmt-server_password`. |
+   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to the jump VM. | `./jump-vm-wg.conf` |
    | `jump-vm_public_ip_address_jump-vm` | Jump VM public IP | `E.E.E.E` |
-   | `path_for_private_ssh_key` | File with a private key used to connect to VMs over SSH (jump VM, firewalls, management server, DMZ web server) | `./pt_key.pem` |
+   | `path_for_private_ssh_key` | File with a private key used to connect to VMs over SSH (jump VM, firewalls, management server, and DMZ web server) | `./pt_key.pem` |
    
    {% endcut %}
 
@@ -446,7 +446,7 @@ All the steps described below are completed in the Linux terminal.
 
 This guide describes how to configure firewalls with basic access control and NAT policies required for performance testing but insufficient for [production deployment](#deployment-requirements).
 
-Learn more about Check Point capabilities and configuration with our free course, [A Deep Dive into Network Security](https://yandex.cloud/ru/training/network-security).
+Learn more about Check Point features and configuration with our free course, [Deep Dive into Network Security](https://yandex.cloud/ru/training/network-security).
 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 
@@ -486,10 +486,10 @@ To set up the VPN tunnel:
 
 ### Run SmartConsole {#setup-smartconsole}
 
-To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point) solution, install and run the SmartConsole GUI client:
+To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point) solution, install and run the SmartConsole GUI client: 
 
-1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
-1. Sign in using the `admin` username and the `admin` password.
+1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser. 
+1. Sign in with `admin` for username and `admin` for password. 
 1. In the Gaia Portal interface that opens, download the SmartConsole GUI client. To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole access password:
@@ -498,7 +498,7 @@ To manage and set up the [Check Point](https://en.wikipedia.org/wiki/Check_Point
    terraform output fw_smartconsole_mgmt-server_password
    ```
 
-1. Open SmartConsole and sign in with the `admin` username, `192.168.1.100` management server IP address, and SmartConsole password.
+1. Open SmartConsole and sign in with `admin` for username, `192.168.1.100` for the management server IP, and your SmartConsole password.
 
 ### Add the firewall gateway {#add-gateway}
 
@@ -518,20 +518,20 @@ Add the FW firewall gateway to the management server using the Wizard:
    ```
 
 1. In the **One-time password** field, type the previously obtained password.
-1. Click **Next** and **Finish**.
+1. Click **Next**, and then **Finish**.
 
 ### Configure the FW gateway network interfaces {#setup-gateways-fw}
 
 Configure the `eth0` network interface:
 
-1. In the **Gateways & Servers** tab, open the FW gateway setup dialog. To to this, double-click on the added FW in the list.
-1. In the **Network Management** tab, the **Topology** table, select the `eth0` interface, click **Edit** and then click **Modify...** in the window that opens.
+1. In the **Gateways & Servers** tab, open the FW gateway setup dialog. To do this, double-click the added FW in the list.
+1. In the **Topology** table within the **Network Management** tab, select the `eth0` interface, click **Edit**, and then click **Modify...** in the window that opens.
 1. Under **Security Zone**, activate **Specify Security Zone** and select **InternalZone**.
 
 In the same way, configure the `eth1` and `eth2` network interfaces:
 
 1. For the `eth1` interface, specify **ExternalZone** under **Security Zone**.
-1. For the `eth2` interface, in the **Leads To** section select **Override** and enable **Interface leads to DMZ**. Under **Security Zone**, set **DMZZone**.
+1. For the `eth2` interface, in the **Leads To** section, select **Override** and enable **Interface leads to DMZ**. Under **Security Zone**, set **DMZZone**.
 
 | Interface | IPv4 address/mask | Leads To | Security Zone | Anti Spoofing |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
@@ -551,7 +551,7 @@ In the same way, configure the `eth1` and `eth2` network interfaces:
 
    For the DMZ network, set up Automatic Hide NAT to hide the addresses of internet-facing VMs hosted in the DMZ segment behind the IP address of the FW gateway in the public segment. To do this:
       1. In the `dmz` network editing dialog box, go to the **NAT** tab.
-      1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list and enable **Hide behind the gateway**.
+      1. Activate **Add automatic address translation rules**, select **Hide** from the drop-down list, and enable **Hide behind the gateway**.
 
 1. In the **Objects** drop-down list at the top left, select **New Host...** and create hosts named `dmz-web-server` and `FW-public-IP` with the following data:
 
@@ -580,30 +580,30 @@ In the same way, add the other basic rules from the table below to test the fire
 | No | Name | Source | Destination | VPN | Services & Applications | Action | Track | Install On |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | 1 | Web-server port forwarding on FW | Any | FW-public-IP | Any | http | Accept | Log | Policy Targets (All gateways) |
-| 2 | FW management | mgmt | FW, mgmt-server | Any | https, ssh | Accept | Log | Policy Targets (All gateways) |
+| 2 | FW management | mgmt | FW, mgmt-server | Any | https, ssh | Accept | Log | Policy Targets (All gateways)  |
 | 3 | Stealth | Any | FW, mgmt-server | Any | Any | Drop | Log | Policy Targets (All gateways) |
 | 4 | mgmt to DMZ | mgmt | dmz | Any | Any | Accept | Log | Policy Targets (All gateways) |
 | 5 | mgmt to public | mgmt | public | Any | Any | Accept | Log | Policy Targets (All gateways) |
 | 6 | ping from dmz to internet | dmz | ExternalZone | Any | icmp-reguests (Group) | Accept | Log | Policy Targets (All gateways) |
 | 7 | Cleanup rule | Any | Any | Any | Any | Drop | Log | Policy Targets (All gateways) |
 
-{% cut "Description of Access Control - Policy rules" %}
+{% cut "Description the access management policy rules" %}
 
 | Number | Name | Description |
 | ----------- | ----------- | ----------- |
-| 1 | Web-server port forwarding on FW | Allows external internet access to the IP address of a public segment firewall on TCP port 80 |
-| 2 | FW management | Allows access to firewalls and the firewall management server from the MGMT segment for management tasks |
-| 3 | Stealth | Denies access to firewalls and the firewall management server from other segments |
-| 4 | mgmt to DMZ | Allows access from the MGMT segment to DMZ for management tasks |
-| 5 | mgmt to public | Allows access from MGMT to the public segment for management tasks |
-| 6 | ping from dmz to internet | Allows outbound ICMP packets from the DMZ segment to the internet for performance testing |
-| 7 | Cleanup rule | Denies access to other traffic |
+| 1 | Web-server port forwarding on FW | Allows external internet access to the IP address of a public segment firewall on TCP port 80 | 
+| 2 | FW management | Allows access to firewalls and the firewall management server from the MGMT segment for management tasks. |
+| 3 | Stealth | Denies access to firewalls and the firewall management server from other segments. |
+| 4 | mgmt to DMZ | Allows access from the MGMT segment to DMZ for management tasks. |
+| 5 | mgmt to public | Allows access from MGMT to the public segment for management tasks. |
+| 6 | ping from dmz to internet | Allows outbound ICMP packets from the DMZ segment to the Internet for performance testing. |
+| 7 | Cleanup rule | Denies access to other traffic. |
 
 {% endcut %}
 
 ### Set up a static NAT table {#setup-static-nat}
 
-Destination NAT routes user requests to the application's web server in the DMZ segment.
+The destination NAT routes user requests to the application's web server in the DMZ segment.
 
 It will translate the destination IP address to the web server IP and the destination port to TCP port 8080 in the headers of packets with user requests sent to a DMZ application.
 
@@ -627,7 +627,7 @@ To set up the NAT tables of the FW gateway:
 
 1. Click **Install Policy** at the top left of the screen.
 1. In the dialog box that opens, click **Publish & Install**.
-1. In the next dialog, click **Install** and wait for the process to finish.
+1. In the next dialog, click **Install** and wait for the process to complete.
 
 ## Test the solution {#test-functionality}
 
@@ -660,20 +660,20 @@ To set up the NAT tables of the FW gateway:
    The command must run according to the `ping from dmz to internet` rule that allows traffic.
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that `jump-vm` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command:
+   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command: 
 
    ```bash
    ping 192.168.1.101
    ```
 
-   The command must fail according to the `Cleanup rule` that prohibits traffic.
+   This command must fail according to the `Cleanup rule` that prohibits traffic.
 
 1. In SmartConsole, open the `LOGS & MONITOR` section; in the `Logs` tab, find the entries made during testing to see which security rules and actions were applied to the traffic.
 
 ## Requirements for production deployment {#deployment-requirements}
 
 * If you need to ensure NGFW fault tolerance and high availability of deployed applications, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
-* Make sure to change the passwords sent in the `check-init...yaml` files via the metadata service:
+* Make sure to change the passwords provided in `check-init...yaml` files via the metadata service:
    * SIC password for connecting the firewall and the firewall management server.
    * Check Point SmartConsole password.
    * Admin user password for the firewall management server. You can change this password in Gaia Portal.

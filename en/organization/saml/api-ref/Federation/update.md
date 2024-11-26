@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/update.md
 ---
 
-# SAML Federation API, REST: Federation.Update {#Update}
+# SAML Federation API, REST: Federation.Update
 
 Updates the specified federation.
 

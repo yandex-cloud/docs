@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/get.md
 ---
 
-# Load Testing API, REST: Test.Get {#Get}
+# Load Testing API, REST: Test.Get
 
 Returns the specified test.
 

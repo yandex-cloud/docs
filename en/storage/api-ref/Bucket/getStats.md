@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/getStats.md
 ---
 
-# Object Storage API, REST: Bucket.GetStats {#GetStats}
+# Object Storage API, REST: Bucket.GetStats
 
 Returns the statistics for the specified bucket.
 

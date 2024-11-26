@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/delete.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Delete {#Delete}
+# Cloud Organization API, REST: UserSshKey.Delete
 
 ## HTTP request
 

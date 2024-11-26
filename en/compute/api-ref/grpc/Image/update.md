@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Image/update.md
 ---
 
-# Compute Cloud API, gRPC: ImageService.Update {#Update}
+# Compute Cloud API, gRPC: ImageService.Update
 
 Updates the specified image.
 
@@ -15,22 +15,22 @@ Updates the specified image.
 
 ```json
 {
-  "imageId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "image_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "minDiskSize": "int64",
+  "min_disk_size": "int64",
   "labels": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 Required field. ID of the Image resource to update.
 To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Image resource are going to be updated. ||
 || name | **string**
@@ -39,7 +39,7 @@ Name of the image. ||
 || description | **string**
 
 Description of the image. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum size of the disk that can be created from this image.
 Specified in bytes. Should be more than the volume of source data and more than the virtual disk size. ||
@@ -56,26 +56,26 @@ Existing set of `labels` is completely replaced by the provided set. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "imageId": "string"
+    "image_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "family": "string",
-    "storageSize": "int64",
-    "minDiskSize": "int64",
-    "productIds": [
+    "storage_size": "int64",
+    "min_disk_size": "int64",
+    "product_ids": [
       "string"
     ],
     "status": "Status",
@@ -83,17 +83,17 @@ Existing set of `labels` is completely replaced by the provided set. ||
       "type": "Type"
     },
     "pooled": "bool",
-    "hardwareGeneration": {
-      // Includes only one of the fields `legacyFeatures`, `generation2Features`
-      "legacyFeatures": {
-        "pciTopology": "PCITopology"
+    "hardware_generation": {
+      // Includes only one of the fields `legacy_features`, `generation2_features`
+      "legacy_features": {
+        "pci_topology": "PCITopology"
       },
-      "generation2Features": "Generation2HardwareFeatures"
+      "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
     },
-    "kmsKey": {
-      "keyId": "string",
-      "versionId": "string"
+    "kms_key": {
+      "key_id": "string",
+      "version_id": "string"
     }
   }
   // end of the list of possible fields
@@ -110,13 +110,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -159,7 +159,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 ID of the Image resource that is being updated. ||
 |#
@@ -173,10 +173,10 @@ An Image resource.
 || id | **string**
 
 ID of the image. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the image. 1-63 characters long. ||
@@ -193,13 +193,13 @@ The name of the image family to which this image belongs.
 You can get the most recent image from a family by using
 the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/api-ref/grpc/Image/getLatestByFamily#GetLatestByFamily) request
 and create the disk from this image. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 The size of the image, specified in bytes. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum size of the disk which will be created from this image. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -224,11 +224,11 @@ Operating system that is contained in the image. ||
 || pooled | **bool**
 
 When true, indicates there is an image pool for fast creation disks from the image. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
 
 Key encryption key info. ||
 |#
@@ -257,12 +257,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -272,7 +272,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
@@ -293,10 +293,10 @@ and UEFI boot (with UEFI related features).
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of KMS symmetric key ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of KMS symmetric key ||
 |#

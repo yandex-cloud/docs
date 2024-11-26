@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/S3/deactivate.md
 ---
 
-# DataSphere API v2, REST: S3.Deactivate {#Deactivate}
+# DataSphere API v2, REST: S3.Deactivate
 
 Deactivates shared s3 for project
 

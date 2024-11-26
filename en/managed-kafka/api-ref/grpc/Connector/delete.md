@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Connector/delete.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: ConnectorService.Delete {#Delete}
+# Managed Service for Apache Kafka® API, gRPC: ConnectorService.Delete
 
 Deletes an Apache Kafka® connector.
 
@@ -15,19 +15,19 @@ Deletes an Apache Kafka® connector.
 
 ```json
 {
-  "clusterId": "string",
-  "connectorName": "string"
+  "cluster_id": "string",
+  "connector_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster to delete the connector from.
 
 To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
-|| connectorName | **string**
+|| connector_name | **string**
 
 Required field. Name of the connector to delete.
 
@@ -40,13 +40,13 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/grp
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "connectorName": "string"
+    "cluster_id": "string",
+    "connector_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -65,13 +65,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -114,10 +114,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Kafka® cluster the connector is being deleted from. ||
-|| connectorName | **string**
+|| connector_name | **string**
 
 Name of the Apache Kafka® connector that is being deleted. ||
 |#

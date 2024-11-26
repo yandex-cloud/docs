@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/updateAccessBindings.md
 ---
 
-# API Gateway Service, REST: ApiGateway.UpdateAccessBindings {#UpdateAccessBindings}
+# API Gateway Service, REST: ApiGateway.UpdateAccessBindings
 
 Updates access bindings for the specified API gateway.
 

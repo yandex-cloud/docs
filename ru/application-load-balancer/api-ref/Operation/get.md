@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/Operation/get.md
 ---
 
-# Application Load Balancer API, REST: Operation.Get {#Get}
+# Application Load Balancer API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

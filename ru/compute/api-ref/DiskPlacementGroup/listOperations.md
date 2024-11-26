@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/listOperations.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.ListOperations {#ListOperations}
+# Compute Cloud API, REST: DiskPlacementGroup.ListOperations
 
 Lists operations for the specified placement group.
 

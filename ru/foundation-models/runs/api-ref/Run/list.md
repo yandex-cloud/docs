@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/list.md
 ---
 
-# Runs, REST: Run.List {#List}
+# Runs, REST: Run.List
 
 List runs in a specific folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.List {#List}
+# Managed Service for OpenSearch API, REST: Cluster.List
 
 Retrieves the list of OpenSearch clusters that belong to the specified folder.
 

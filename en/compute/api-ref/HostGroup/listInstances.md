@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/listInstances.md
 ---
 
-# Compute Cloud API, REST: HostGroup.ListInstances {#ListInstances}
+# Compute Cloud API, REST: HostGroup.ListInstances
 
 Lists instances that belongs to the specified host group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Backup.Delete {#Delete}
+# Managed Service for PostgreSQL API, REST: Backup.Delete
 
 Deletes the specified PostgreSQL cluster backup.
 

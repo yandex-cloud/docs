@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/createVersion.md
 ---
 
-# Cloud Functions Service, REST: Function.CreateVersion {#CreateVersion}
+# Cloud Functions Service, REST: Function.CreateVersion
 
 Creates a version for the specified function.
 

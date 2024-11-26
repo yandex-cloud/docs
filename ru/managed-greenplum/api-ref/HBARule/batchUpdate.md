@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/batchUpdate.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.BatchUpdate {#BatchUpdate}
+# Managed Service for Greenplum® API, REST: HBARule.BatchUpdate
 
 Modifies all HBA rules for the specified Greenplum cluster.
 

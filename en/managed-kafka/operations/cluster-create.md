@@ -12,7 +12,19 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% endnote %}
 
-{% include [mkf-zk-hosts](../../_includes/mdb/mkf-zk-hosts.md) %}
+## Differences in cluster configuration with {{ ZK }} and {{ kraft-name }} protocol {#zk-vs-kraft}
+
+If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster. 
+
+Сlusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) ({{ kraft-short-name }} for short). It is used instead of {{ ZK }} to store metadata.
+
+When creating a cluster with the {{ kraft-short-name }} protocol, the following configuration restrictions apply:
+  * You can create a cluster with only one or three [availability zones](../../overview/concepts/geo-scope.md).
+  * Limited number of broker hosts:
+    * If you select one availability zone, you can create one or three broker hosts.
+    * If you select three availability zones, you can only create one broker host.
+
+For more information about the differences in cluster configurations with {{ ZK }} and {{ kraft-short-name }}, see [Resource relationships in {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
 ## Getting started {#before-you-begin}
 
@@ -23,11 +35,13 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 
-## Creating a cluster with {{ KF }} 3.5 or lower {#create-cluster}
+## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+  To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
@@ -37,10 +51,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
-     1. Select {{ KF }} version 3.5 or lower.
+     1. Select the {{ KF }} version.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
 
-     The host class defines the technical specifications of the [VMs](../../compute/concepts/vm.md) that {{ KF }} brokers will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+     The host class defines the technical specifications of [VMs](../../compute/concepts/vm.md) the {{ KF }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
      When you [change the host class](cluster-update.md#change-brokers) for a {{ mkf-name }} cluster, the specifications of all existing instances also change.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -56,18 +70,20 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * Select the storage size to use for data.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached: 
+  1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger an increase in storage size when reached:
 
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
-     
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and brokers in the future.
+     1. Select one or more availability zones to place your {{ KF }} broker hosts in.
+        If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and broker hosts later on.
+        For clusters with {{ KF }} version 3.6 and higher, you can select only one or three availability zones.
      1. Select a [network](../../vpc/concepts/network.md#network).
      1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone in question.
 
         {% note info %}
 
-        For a {{ mkf-name }} cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three [{{ ZK }} hosts](../concepts/index.md), one in each availability zone. For more information, see [Resource relationships in the service](../concepts/index.md).
+        For a cluster with {{ KF }} version 3.5 or lower that has multiple broker hosts, specify subnets in each availability zone, even if you plan to place broker hosts only in some of them. These subnets are required to host three [{{ ZK }}](../concepts/index.md) hosts, one in each availability zone. For more information, see [Resource relationships in the service](../concepts/index.md).
 
         {% endnote %}
 
@@ -79,6 +95,13 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      1. Specify the number of {{ KF }} broker hosts to be located in each of the selected availability zones.
 
         When choosing the number of hosts, keep in mind that:
+        * In {{ KF }} versions 3.6 and higher the [number of broker hosts depends](#zk-vs-kraft) on the selected availability zones:
+        
+           * One availability zone: one or three broker hosts. To use three broker hosts, enable the **{{ ui-key.yacloud.kafka.field_kraft-combined-mode }}** setting.
+           * Three availability zones: one broker host.
+
+           You cannot set the number of broker hosts manually.
+
         * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
 
 
@@ -86,15 +109,15 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
 
         * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
-        * Adding more than one host to the {{ mkf-name }} cluster automatically adds three {{ ZK }} hosts.
+        * Adding more than one host to a cluster with {{ KF }} version 3.5 or lower will automatically add three {{ ZK }} hosts.
 
 
-     1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }} cluster.
+     1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }}cluster.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-  1. If you specify several broker hosts, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
+  1. If you are creating a cluster with {{ KF }} version 3.5 or lower and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) intended for each of the selected availability zones.
   1. Configure additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -108,6 +131,12 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% note warning %}
+
+  When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
+
+  {% endnote %}
 
   To create a {{ mkf-name }} cluster:
 
@@ -127,7 +156,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --version <version> \
         --network-name <network_name> \
         --subnet-ids <subnet_IDs> \
-        --brokers-count <number_of_brokers_in_zone> \
+        --zone-ids <availability_zones> \
+        --brokers-count <number_of_broker_hosts_in_zone> \
         --resource-preset <host_class> \
         --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <storage_size_in_GB> \
@@ -140,10 +170,18 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Where:
 
      * `--environment`: Cluster environment, `prestable` or `production`.
-     * `--version`: {{ KF }} version, {{ versions.cli.str-without-latest }}.
+     * `--version`: {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6.
+     * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone.
+
+        For [clusters with {{ KF }} version 3.6 and higher](#zk-vs-kraft), only the following configurations are available:
+
+        * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`
+        * `--zone-ids=<one_availability_zone> --brokers-count=1`;
+        * `--zone-ids=<one_availability_zone> --brokers-count=3`.
+
      * `--resource-preset`: [Host class](../concepts/instance-types.md).
      * `--disk-type`: [Disk type](../concepts/storage.md).
-  
+
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -203,6 +241,12 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
+  {% note warning %}
+
+  When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
+
+  {% endnote %}
+
   To create a {{ mkf-name }} cluster:
   1. In the configuration file, describe the resources you are creating:
      * {{ mkf-name }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
@@ -225,9 +269,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        deletion_protection = <deletion_protection>
 
        config {
-         assign_public_ip = "<public_access>"
-         brokers_count    = <number_of_brokers>
          version          = "<version>"
+         zones            = ["<availability_zones>"]
+         brokers_count    = <number_of_broker_hosts>
+         assign_public_ip = "<public_access>"
          schema_registry  = "<data_schema_management>"
          kafka {
            resources {
@@ -237,10 +282,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
            }
            kafka_config {}
          }
-
-         zones = [
-           "<availability_zones>"
-         ]
        }
      }
 
@@ -262,11 +303,18 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
+     * `version`: {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6.        
+     * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
+
+       If you are creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), specify one of the available configurations:
+
+       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`
+       * `zones = ["<one_availability_zone>"] brokers_count = 1`;
+       * `zones = ["<one_availability_zone>"] brokers_count = 3`.
+
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
-     * `version`: {{ KF }} version, {{ versions.tf.str-without-latest }}.
      * `schema_registry`: Managing data schemas, `true` or `false`.
-
 
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -281,7 +329,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }}](../concepts/network.md#hostname) cluster hosts will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
@@ -289,10 +337,24 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
 - API {#api}
 
+  {% note warning %}
+
+  When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
+
+  {% endnote %}
+
   To create a {{ mkf-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+
   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mkf-name }} cluster, in the `folderId` parameter.
   * {{ mkf-name }} cluster name in the `name` parameter.
-  * {{ KF }} version ({{ versions.cli.str-without-latest }}) in the `configSpec.version` parameter.
+  * `PRESTABLE` or `PRODUCTION` cluster environment in the `environment` parameter.
+  * {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6 in the `configSpec.version` parameter.
+  * Availability zones in the `configSpec.zoneId` parameter.
+    When creating a [cluster with {{ KF }} version 3.6 and higher](#zk-vs-kraft), you can specify only one or three availability zones.
+  * Number of broker hosts in the `configSpec.brokersCount` parameter.
+    When creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), you can specify only one or three broker hosts:
+      * If three availability zones are specified in the `configSpec.zoneId` parameter, set the number of broker hosts to `1`.
+      * If one availability zone is specified in the `configSpec.zoneId` parameter, set the number of broker hosts to `1` or `3`.
 
 
   * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
@@ -320,252 +382,41 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
 {% endlist %}
 
-## Creating a cluster with {{ KF }} 3.6 or higher {#higher-version}
-
-{{ mkf-name }} clusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) (for short, {{ kraft-short-name }}). It is used instead of {{ ZK }} to store metadata.
-
-You can create a cluster with {{ kraft-short-name }} only using a specific configuration and not in all {{ yandex-cloud }} interfaces. That is why the cluster creation process is different for {{ KF }} 3.6 or higher.
-
-{% note warning %}
-
-When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
-
-{% endnote %}
+To make sure the cluster created with {{ KF }} version 3.6 or higher uses the {{ kraft-short-name }} protocol, get information about the cluster hosts:
 
 {% list tabs group=instructions %}
 
-* CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To create a {{ mkf-name }} cluster:
-
-  1. View the description of the create {{ mkf-name }} cluster CLI command:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create --help
-     ```
-
-  1. Specify the {{ mkf-name }} cluster parameters in the create command (the example below does not list all possible parameters):
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        --name <cluster_name> \
-        --environment prestable \
-        --version 3.6 \
-        --network-name <network_name> \
-        --subnet-ids <subnet_IDs> \
-        --zone-ids <availability_zones> \
-        --brokers-count <number_of_brokers_in_zone> \
-        --resource-preset <host_class> \
-        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
-        --disk-size <storage_size_in_GB> \
-        --assign-public-ip <public_access> \
-        --security-group-ids <list_of_security_group_IDs> \
-        --deletion-protection
-     ```
-
-     Where:
-
-     * `--environment`: `prestable` cluster environment. Only this environment supports {{ KF }} 3.6.
-     * `--version`: {{ KF }} version, {{ versions.cli.latest }}.
-     * `--zone-ids` and `--brokers-count`: Availability zones and number of brokers per zone. Specify one of the available configurations:
-
-       * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`
-       * `--zone-ids=<one_availability_zone> --brokers-count=3`
-
-     * `--resource-preset`: [Host class](../concepts/instance-types.md).
-     * `--disk-type`: [Disk type](../concepts/storage.md).
-
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-     * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
-
-        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-     {% note tip %}
-
-     You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
-
-     {% endnote %}
-
-  1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled {{ mkf-name }} clusters), provide the required value in the `--maintenance-window` parameter when creating your cluster:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --maintenance-window type=<maintenance_type>,`
-                            `day=<day_of_week>,`
-                            `hour=<hour>
-     ```
-
-     Where `type` is the maintenance type:
-
-     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-
-  1. To prevent the cluster disk space from running out, create a cluster that will [increase the storage space automatically](../concepts/storage.md#auto-rescale).
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_bytes>,`
-                               `planned-usage-threshold=<scheduled_increase_percentage>,`
-                               `emergency-usage-threshold=<immediate_increase_percentage>
-     ```
-
-     {% include [description-of-parameters](../../_includes/mdb/mkf/disk-auto-scaling.md) %}
-
-     {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-
-
-  1. To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--host-group-ids` parameter when creating the cluster:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster create \
-        ...
-        --host-group-ids <dedicated_host_group_IDs>
-     ```
-
-     {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-* {{ TF }} {#tf}
-
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-
-  {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-  To create a {{ mkf-name }} cluster:
-
-  1. In the configuration file, describe the resources you are creating:
-
-     * {{ mkf-name }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
-
-     * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
-
-     * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
-
-     Here is an example of the configuration file structure:
-
-     ```hcl
-     resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
-       environment         = "PRESTABLE"
-       name                = "<cluster_name>"
-       network_id          = "<network_ID>"
-       subnet_ids          = ["<subnet_IDs>"]
-       security_group_ids  = ["<security_group_IDs>"]
-       deletion_protection = <deletion_protection>
-
-       config {
-         version          = "3.6"
-         zones            = ["<availability_zones>"]
-         brokers_count    = <number_of_brokers>
-         assign_public_ip = "<public_access>"
-         schema_registry  = "<data_schema_management>"
-         kafka {
-           resources {
-             disk_size          = <storage_size_in_GB>
-             disk_type_id       = "<disk_type>"
-             resource_preset_id = "<host_class>"
-           }
-           kafka_config {}
-         }
-       }
-     }
-
-     resource "yandex_vpc_network" "<network_name>" {
-       name = "<network_name>"
-     }
-
-     resource "yandex_vpc_subnet" "<subnet_name>" {
-       name           = "<subnet_name>"
-       zone           = "<availability_zone>"
-       network_id     = "<network_ID>"
-       v4_cidr_blocks = ["<range>"]
-     }
-     ```
-
-     Where:
-
-     * `environment`: `PRESTABLE` cluster environment. Only this environment supports {{ KF }} 3.6.
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
-     * `version`: {{ KF }} version, {{ versions.tf.latest }}.
-     * `zones` and `brokers_count`: Availability zones and number of brokers per zone. Specify one of the available configurations:
-
-       * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`
-       * `zones = ["<one_availability_zone>"] brokers_count = 3`
-
-     * `assign_public_ip`: Public access to the cluster, `true` or `false`.
-     * `schema_registry`: Managing data schemas, `true` or `false`.
-
-     {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-     {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
-
-  1. Make sure the settings are correct.
-
-     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-
-  1. Create a {{ mkf-name }} cluster.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     After this, all required resources will be created in the specified folder, and the [FQDNs of the {{ mkf-name }} cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
-
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
-
-  {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
-
-* API {#api}
-
-  To create a {{ mkf-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
-
-  * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mkf-name }} cluster, in the `folderId` parameter.
-  * {{ mkf-name }} cluster name in the `name` parameter.
-  * `PRESTABLE` cluster environment in the `environment` parameter.
-  * {{ KF }} version 3.6 in the `configSpec.version` parameter.
-  * Availability zones in the `configSpec.zoneId` parameter. You can specify either one or three availability zones.
-  * Number of broker hosts in the `configSpec.brokersCount` parameter. If you specify one availability zone, set the number of brokers to three. In case of three availability zones, set the number of brokers to one.
-
-
-  * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
-
-
-  * [Maintenance window](../concepts/maintenance.md) settings (including for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
-  * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
-
-    {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
-
-  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
-
-
-
-  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
-
-  {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
-
-
-  To prevent the cluster disk space from running out, create a cluster that will [increase the storage space automatically](../concepts/storage.md#auto-rescale). For this, provide the following in the request:
-
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
-
-  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
-{% endlist %}
-
-To make sure that the created cluster is using the {{ kraft-short-name }} protocol, get information about the cluster hosts:
-
-{% list tabs group=instructions %}
-
-* Management console {#console}
+- Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of the cluster you created.
   1. In the left-hand panel, select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To get a list of {{ mkf-name }} cluster hosts:
+
+  1. See the description of the CLI command to get a list of {{ mkf-name }} cluster hosts:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list-hosts --help
+     ```
+  1. Get a list of cluster hosts:
+
+     ```bash
+     {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
+     ```
+
+- API {#api}
+
+  To get a list of {{ mkf-name }} cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the request.
+
+  To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -573,9 +424,9 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ KF }} cluster copy:
+To create a {{ KF }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -598,7 +449,7 @@ To create an {{ KF }} cluster copy:
         export KAFKA_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ KF }} cluster into the {{ TF }} configuration:
 
@@ -664,7 +515,7 @@ To create an {{ KF }} cluster copy:
   * Subnet ID: `{{ subnet-id }}`.
   * Security group: `{{ security-group }}`.
   * Host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
-  * Number of brokers: 1.
+  * With one broker host.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
   * Public access: Allowed.
   * Protection against accidental {{ mkf-name }} cluster deletion: Enabled.
@@ -706,7 +557,7 @@ To create an {{ KF }} cluster copy:
 
 
   * Host class: `{{ host-class }}`, availability zone: `{{ region-id }}-a`.
-  * Number of brokers: 1.
+  * With one broker host.
   * Network SSD storage (`{{ disk-type-example }}`): 10 GB.
   * Public access: Allowed.
   * Protection against accidental {{ mkf-name }} cluster deletion: Enabled.

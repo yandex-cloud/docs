@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/listOperations.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.ListOperations {#ListOperations}
+# IoT Core Service, gRPC: RegistryService.ListOperations
 
 Lists operations for the specified registry.
 
@@ -15,28 +15,28 @@ Lists operations for the specified registry.
 
 ```json
 {
-  "registryId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "registry_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse)
+results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegistryOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse) returned by a previous list request. ||
+[ListRegistryOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -51,9 +51,9 @@ Currently you can use filtering only on [Registry.name](/docs/iot-core/api-ref/g
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -62,7 +62,7 @@ Currently you can use filtering only on [Registry.name](/docs/iot-core/api-ref/g
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,11 +71,11 @@ Currently you can use filtering only on [Registry.name](/docs/iot-core/api-ref/g
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified registry. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListRegistryOperationsRequest.pageSize](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest), use `next_page_token` as the value
-for the [ListRegistryOperationsRequest.pageToken](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest) parameter in the next list request.
+the specified [ListRegistryOperationsRequest.page_size](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest), use `next_page_token` as the value
+for the [ListRegistryOperationsRequest.page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -92,13 +92,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

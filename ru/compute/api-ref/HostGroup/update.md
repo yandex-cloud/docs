@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/update.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Update {#Update}
+# Compute Cloud API, REST: HostGroup.Update
 
 Updates the specified host group.
 

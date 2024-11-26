@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/saml/api-ref/grpc/Certificate/update.md
 ---
 
-# Identity and Access Management SAML API, gRPC: CertificateService.Update {#Update}
+# Identity and Access Management SAML API, gRPC: CertificateService.Update
 
 Updates the specified certificate.
 
@@ -15,8 +15,8 @@ Updates the specified certificate.
 
 ```json
 {
-  "certificateId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "certificate_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "data": "string"
@@ -25,11 +25,11 @@ Updates the specified certificate.
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate to update.
 To get the certificate ID, make a [CertificateService.List](/docs/iam/api-ref/grpc/Certificate/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the certificate are going to be updated. ||
 || name | **string**
@@ -50,21 +50,21 @@ Certificate data in PEM format. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "certificateId": "string"
+    "certificate_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "federationId": "string",
+    "federation_id": "string",
     "name": "string",
     "description": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "data": "string"
   }
   // end of the list of possible fields
@@ -81,13 +81,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -130,7 +130,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate that is being updated. ||
 |#
@@ -144,7 +144,7 @@ A certificate.
 || id | **string**
 
 Required field. ID of the certificate. ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation that the certificate belongs to. ||
 || name | **string**
@@ -153,7 +153,7 @@ Name of the certificate. ||
 || description | **string**
 
 Description of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || data | **string**

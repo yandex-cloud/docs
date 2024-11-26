@@ -10,8 +10,8 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to lease a server in.
-  1. In the list of services, select **{{ baremetal-name }}**.
-  1. Click **Order server**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the server will be leased in.
   1. Select the [pool](../../concepts/servers.md#server-pools) the server will be leased from.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
@@ -43,7 +43,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
         If you do not have a subnet, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.action-create-subnetwork }}** and create one:
 
         * In the window that opens, enter a name and description for your subnet.
-        * Click **Create subnet**.
+        * Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, choose a method for public IP address assignment:
 
@@ -57,6 +57,6 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
      1. (Optional) Add **{{ ui-key.yacloud.baremetal.field_description }}** to the server.
      1. (Optional) Set **{{ ui-key.yacloud.component.label-set.label_labels }}**.
   
-  1. Click **Order server**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}

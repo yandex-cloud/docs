@@ -3,11 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/LoadBalancer/removeSniMatch.md
 ---
 
-# Application Load Balancer API, gRPC: LoadBalancerService.RemoveSniMatch {#RemoveSniMatch}
+# Application Load Balancer API, gRPC: LoadBalancerService.RemoveSniMatch
 
 Deletes the specified SNI handler.
 
-This request does not allow to delete [TlsListener.defaultHandler](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener).
+This request does not allow to delete [TlsListener.default_handler](/docs/application-load-balancer/api-ref/grpc/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener).
 
 ## gRPC request
 
@@ -17,21 +17,21 @@ This request does not allow to delete [TlsListener.defaultHandler](/docs/applica
 
 ```json
 {
-  "loadBalancerId": "string",
-  "listenerName": "string",
-  "sniMatchName": "string"
+  "load_balancer_id": "string",
+  "listener_name": "string",
+  "sni_match_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 Required field. ID of the application load balancer to remove the SNI handler from. ||
-|| listenerName | **string**
+|| listener_name | **string**
 
 Required field. Name of the listener te remove the SNI handler from. ||
-|| sniMatchName | **string**
+|| sni_match_name | **string**
 
 Required field. Name of the SNI handler to remove. ||
 |#
@@ -42,14 +42,14 @@ Required field. Name of the SNI handler to remove. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "loadBalancerId": "string",
-    "listenerName": "string",
-    "sniMatchName": "string"
+    "load_balancer_id": "string",
+    "listener_name": "string",
+    "sni_match_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -68,13 +68,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -117,13 +117,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 ID of the application load balancer that the SNI handler is being removed from. ||
-|| listenerName | **string**
+|| listener_name | **string**
 
 Name of the listener that the SNI handler is being removed from. ||
-|| sniMatchName | **string**
+|| sni_match_name | **string**
 
 Name of the SNI handler that is being removed. ||
 |#

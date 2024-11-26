@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/move.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Move {#Move}
+# Virtual Private Cloud API, REST: RouteTable.Move
 
 Move route table to another folder.
 

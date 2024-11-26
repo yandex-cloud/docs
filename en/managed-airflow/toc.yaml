@@ -21,8 +21,6 @@ items:
         href: operations/upload-dags.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
-      - name: Viewing operations with clusters
-        href: operations/operation-logs.md
   - name: Tutorials
     items:
       - name: All tutorials

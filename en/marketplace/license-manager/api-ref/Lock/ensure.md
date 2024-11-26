@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/ensure.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.Ensure {#Ensure}
+# Yandex Cloud Marketplace License Manager, REST: Lock.Ensure
 
 Checks if the she specified subscription is already locked to the specified resource.
 If it is not locked, locks the subscription to the resource.

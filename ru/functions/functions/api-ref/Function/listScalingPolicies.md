@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listScalingPolicies.md
 ---
 
-# Cloud Functions Service, REST: Function.ListScalingPolicies {#ListScalingPolicies}
+# Cloud Functions Service, REST: Function.ListScalingPolicies
 
 Lists existing scaling policies for specified function
 

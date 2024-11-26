@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/get.md
 ---
 
-# EventRouter Service, REST: Bus.Get {#Get}
+# EventRouter Service, REST: Bus.Get
 
 Returns the specified bus.
 To get the list of all available buses, make a [List](/docs/functions/eventrouter/api-ref/Bus/list#List) request.

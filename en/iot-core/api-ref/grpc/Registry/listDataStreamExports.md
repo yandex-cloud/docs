@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/listDataStreamExports.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.ListDataStreamExports {#ListDataStreamExports}
+# IoT Core Service, gRPC: RegistryService.ListDataStreamExports
 
 Retrieves the list of YDS exports for the specified registry.
 
@@ -15,13 +15,13 @@ Retrieves the list of YDS exports for the specified registry.
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to list YDS exports in.
 
@@ -32,16 +32,16 @@ To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/R
 
 ```json
 {
-  "dataStreamExports": [
+  "data_stream_exports": [
     {
       "id": "string",
       "name": "string",
-      "registryId": "string",
-      "mqttTopicFilter": "string",
+      "registry_id": "string",
+      "mqtt_topic_filter": "string",
       "database": "string",
       "stream": "string",
-      "serviceAccountId": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "service_account_id": "string",
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -49,7 +49,7 @@ To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/R
 
 #|
 ||Field | Description ||
-|| dataStreamExports[] | **[DataStreamExport](#yandex.cloud.iot.devices.v1.DataStreamExport)**
+|| data_stream_exports[] | **[DataStreamExport](#yandex.cloud.iot.devices.v1.DataStreamExport)**
 
 List of YDS exports for the specified registry. ||
 |#
@@ -66,10 +66,10 @@ ID of the YDS export. ||
 || name | **string**
 
 Name of the YDS export. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the YDS export belongs to. ||
-|| mqttTopicFilter | **string**
+|| mqtt_topic_filter | **string**
 
 MQTT topic whose messages export to YDS. ||
 || database | **string**
@@ -78,10 +78,10 @@ YDS database. ||
 || stream | **string**
 
 YDS stream name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to write to data stream. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

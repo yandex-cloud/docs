@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/move.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Move {#Move}
+# Virtual Private Cloud API, REST: SecurityGroup.Move
 
 Moves security groups to another folder.
 

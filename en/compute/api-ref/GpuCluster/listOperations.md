@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/listOperations.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.ListOperations {#ListOperations}
+# Compute Cloud API, REST: GpuCluster.ListOperations
 
 Lists operations for the specified GPU cluster.
 

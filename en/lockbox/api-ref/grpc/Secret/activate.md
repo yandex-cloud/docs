@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/lockbox/v1/api-ref/grpc/Secret/activate.md
 ---
 
-# Lockbox API, gRPC: SecretService.Activate {#Activate}
+# Lockbox API, gRPC: SecretService.Activate
 
 Activates the specified secret.
 
@@ -15,13 +15,13 @@ Activates the specified secret.
 
 ```json
 {
-  "secretId": "string"
+  "secret_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| secretId | **string**
+|| secret_id | **string**
 
 Required field. ID of the secret to be activated. ||
 |#
@@ -32,58 +32,58 @@ Required field. ID of the secret to be activated. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "secretId": "string"
+    "secret_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "kmsKeyId": "string",
+    "kms_key_id": "string",
     "status": "Status",
-    "currentVersion": {
+    "current_version": {
       "id": "string",
-      "secretId": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "destroyAt": "google.protobuf.Timestamp",
+      "secret_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "destroy_at": "google.protobuf.Timestamp",
       "description": "string",
       "status": "Status",
-      "payloadEntryKeys": [
+      "payload_entry_keys": [
         "string"
       ],
-      // Includes only one of the fields `passwordPayloadSpecification`
-      "passwordPayloadSpecification": {
-        "passwordKey": "string",
+      // Includes only one of the fields `password_payload_specification`
+      "password_payload_specification": {
+        "password_key": "string",
         "length": "int64",
-        "includeUppercase": "google.protobuf.BoolValue",
-        "includeLowercase": "google.protobuf.BoolValue",
-        "includeDigits": "google.protobuf.BoolValue",
-        "includePunctuation": "google.protobuf.BoolValue",
-        "includedPunctuation": "string",
-        "excludedPunctuation": "string"
+        "include_uppercase": "google.protobuf.BoolValue",
+        "include_lowercase": "google.protobuf.BoolValue",
+        "include_digits": "google.protobuf.BoolValue",
+        "include_punctuation": "google.protobuf.BoolValue",
+        "included_punctuation": "string",
+        "excluded_punctuation": "string"
       }
       // end of the list of possible fields
     },
-    "deletionProtection": "bool",
-    // Includes only one of the fields `passwordPayloadSpecification`
-    "passwordPayloadSpecification": {
-      "passwordKey": "string",
+    "deletion_protection": "bool",
+    // Includes only one of the fields `password_payload_specification`
+    "password_payload_specification": {
+      "password_key": "string",
       "length": "int64",
-      "includeUppercase": "google.protobuf.BoolValue",
-      "includeLowercase": "google.protobuf.BoolValue",
-      "includeDigits": "google.protobuf.BoolValue",
-      "includePunctuation": "google.protobuf.BoolValue",
-      "includedPunctuation": "string",
-      "excludedPunctuation": "string"
+      "include_uppercase": "google.protobuf.BoolValue",
+      "include_lowercase": "google.protobuf.BoolValue",
+      "include_digits": "google.protobuf.BoolValue",
+      "include_punctuation": "google.protobuf.BoolValue",
+      "included_punctuation": "string",
+      "excluded_punctuation": "string"
     }
     // end of the list of possible fields
   }
@@ -101,13 +101,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -150,7 +150,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| secretId | **string**
+|| secret_id | **string**
 
 ID of the secret being activated. ||
 |#
@@ -164,10 +164,10 @@ A secret that may contain several versions of the payload.
 || id | **string**
 
 ID of the secret. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the secret belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -179,7 +179,7 @@ Description of the secret. ||
 || labels | **string**
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
-|| kmsKeyId | **string**
+|| kms_key_id | **string**
 
 Optional ID of the KMS key will be used to encrypt and decrypt the secret. ||
 || status | enum **Status**
@@ -194,15 +194,15 @@ Status of the secret.
 - `INACTIVE`: The secret is inactive and unusable.
 
   Can be set to ACTIVE using the [SecretService.Deactivate](/docs/lockbox/api-ref/grpc/Secret/deactivate#Deactivate) method. ||
-|| currentVersion | **[Version](#yandex.cloud.lockbox.v1.Version)**
+|| current_version | **[Version](#yandex.cloud.lockbox.v1.Version)**
 
 Current (i.e. the `latest`) version of the secret. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the secret. ||
-|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+|| password_payload_specification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
 
-Includes only one of the fields `passwordPayloadSpecification`. ||
+Includes only one of the fields `password_payload_specification`. ||
 |#
 
 ## Version {#yandex.cloud.lockbox.v1.Version}
@@ -212,13 +212,13 @@ Includes only one of the fields `passwordPayloadSpecification`. ||
 || id | **string**
 
 ID of the version. ||
-|| secretId | **string**
+|| secret_id | **string**
 
 ID of the secret that the version belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the version was created. ||
-|| destroyAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the version is going to be destroyed. Empty unless the status
 is `SCHEDULED_FOR_DESTRUCTION`. ||
@@ -232,45 +232,45 @@ Status of the secret.
 - `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and the secret payload can be accessed.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
-is specified in the `Version.destroyAt` field.
+is specified in the `Version.destroy_at` field.
 - `DESTROYED`: The version is destroyed and cannot be recovered. ||
-|| payloadEntryKeys[] | **string**
+|| payload_entry_keys[] | **string**
 
 Keys of the entries contained in the version payload. ||
-|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+|| password_payload_specification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
 
-Includes only one of the fields `passwordPayloadSpecification`. ||
+Includes only one of the fields `password_payload_specification`. ||
 |#
 
 ## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
 
 #|
 ||Field | Description ||
-|| passwordKey | **string**
+|| password_key | **string**
 
 Required field. key of the entry to store generated password value ||
 || length | **int64**
 
 password length; by default, a reasonable length will be decided ||
-|| includeUppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 whether at least one A..Z character is included in the password, true by default ||
-|| includeLowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 whether at least one a..z character is included in the password, true by default ||
-|| includeDigits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 whether at least one 0..9 character is included in the password, true by default ||
-|| includePunctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 whether at least one punctuation character is included in the password, true by default
 punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
-|| includedPunctuation | **string**
+|| included_punctuation | **string**
 
 If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
 a string of specific punctuation characters to use (at most, all the 32) ||
-|| excludedPunctuation | **string**
+|| excluded_punctuation | **string**
 
 a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) ||
 |#

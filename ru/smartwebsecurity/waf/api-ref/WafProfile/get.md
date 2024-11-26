@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/get.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.Get {#Get}
+# SmartWebSecurity WAF API, REST: WafProfile.Get
 
 Returns the specified WafProfile resource.
 

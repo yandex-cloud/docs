@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/update.md
 ---
 
-# Compute Cloud API, REST: Image.Update {#Update}
+# Compute Cloud API, REST: Image.Update
 
 Updates the specified image.
 

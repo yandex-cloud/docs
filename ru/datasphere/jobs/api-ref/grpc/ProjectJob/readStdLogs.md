@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/readStdLogs.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.ReadStdLogs {#ReadStdLogs}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.ReadStdLogs
 
 Returns stream of job logs.
 
@@ -15,14 +15,14 @@ Returns stream of job logs.
 
 ```json
 {
-  "jobId": "string",
+  "job_id": "string",
   "offset": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| jobId | **string**
+|| job_id | **string**
 
 ID of the job. ||
 || offset | **int64**

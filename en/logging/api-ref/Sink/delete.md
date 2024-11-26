@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/delete.md
 ---
 
-# Cloud Logging Service, REST: Sink.Delete {#Delete}
+# Cloud Logging Service, REST: Sink.Delete
 
 Deletes the specified sink.
 

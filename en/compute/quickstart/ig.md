@@ -34,7 +34,7 @@ To create an instance group:
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the base instance.
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image.
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+   * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
      * Select the [disk type](../../compute/concepts/disk.md#disks_types).
      * Specify the disk size.
      * (Optional) Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}** to add more disks.

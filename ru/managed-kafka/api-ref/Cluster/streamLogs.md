@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for Apache Kafka® API, REST: Cluster.StreamLogs
 
 Same as [ListLogs](/docs/managed-kafka/api-ref/Cluster/listLogs#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.
 

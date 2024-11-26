@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getRestrictions.md
 ---
 
-# DataSphere API v2, REST: Project.GetRestrictions {#GetRestrictions}
+# DataSphere API v2, REST: Project.GetRestrictions
 
 Get current project restrictions.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/update.md
 ---
 
-# Audit Trails API, REST: Trail.Update {#Update}
+# Audit Trails API, REST: Trail.Update
 
 Updates the specified trail.
 

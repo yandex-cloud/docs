@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/list.md
 ---
 
-# EventRouter Service, REST: Rule.List {#List}
+# EventRouter Service, REST: Rule.List
 
 Retrieves the list of rules in the specified folder.
 

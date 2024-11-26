@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/create.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.Create {#Create}
+# Identity and Access Management SAML API, REST: Federation.Create
 
 Creates a federation in the specified folder.
 

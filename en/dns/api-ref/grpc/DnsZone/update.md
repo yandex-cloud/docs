@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/update.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.Update {#Update}
+# Cloud DNS API, gRPC: DnsZoneService.Update
 
 Updates the specified DNS zone.
 
@@ -15,29 +15,29 @@ Updates the specified DNS zone.
 
 ```json
 {
-  "dnsZoneId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "dns_zone_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "privateVisibility": {
-    "networkIds": [
+  "private_visibility": {
+    "network_ids": [
       "string"
     ]
   },
-  "publicVisibility": "PublicVisibility",
-  "deletionProtection": "bool"
+  "public_visibility": "PublicVisibility",
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone to update.
 
 To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/grpc/DnsZone/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask specifying which fields of the DNS zone resource are going to be updated. ||
 || name | **string**
@@ -56,13 +56,13 @@ to add or remove a label:
 1. Get the current set of labels with a [DnsZoneService.Get](/docs/dns/api-ref/grpc/DnsZone/get#Get) request.
 2. Add or remove a label in this set.
 3. Send the new set in this field. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
+|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
 
 Change network IDs for private visibility. ||
-|| publicVisibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
+|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
 
 Public visibility configuration. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Prevents accidental zone removal. ||
 |#
@@ -73,7 +73,7 @@ Configuration for privately visible zones.
 
 #|
 ||Field | Description ||
-|| networkIds[] | **string**
+|| network_ids[] | **string**
 
 Network IDs. ||
 |#
@@ -93,30 +93,30 @@ Configuration for publicly visible zones.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "dnsZoneId": "string"
+    "dns_zone_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "zone": "string",
-    "privateVisibility": {
-      "networkIds": [
+    "private_visibility": {
+      "network_ids": [
         "string"
       ]
     },
-    "publicVisibility": "PublicVisibility",
-    "deletionProtection": "bool"
+    "public_visibility": "PublicVisibility",
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -132,13 +132,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -181,7 +181,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone that is being updated. ||
 |#
@@ -195,10 +195,10 @@ A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dn
 || id | **string**
 
 ID of the DNS zone. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the DNS zone belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -214,15 +214,15 @@ DNS zone labels as `key:value` pairs. ||
 || zone | **string**
 
 DNS zone suffix. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
+|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
 
 Privately visible zone settings.
 Specifies whether records within the zone are visible from a VPC networks only. ||
-|| publicVisibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility2)**
+|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility2)**
 
 Publicly visible zone settings.
 Indicates whether records within the zone are publicly visible. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Prevents accidental zone removal. ||
 |#
@@ -233,7 +233,7 @@ Configuration for privately visible zones.
 
 #|
 ||Field | Description ||
-|| networkIds[] | **string**
+|| network_ids[] | **string**
 
 Network IDs. ||
 |#

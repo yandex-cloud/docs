@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/updateHosts.md
 ---
 
-# Managed Service for MongoDB API, gRPC: ClusterService.UpdateHosts {#UpdateHosts}
+# Managed Service for MongoDB API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified parameters for the host.
 
@@ -15,15 +15,15 @@ Updates the specified parameters for the host.
 
 ```json
 {
-  "clusterId": "string",
-  "updateHostSpecs": [
+  "cluster_id": "string",
+  "update_host_specs": [
     {
-      "hostName": "string",
+      "host_name": "string",
       "hidden": "google.protobuf.BoolValue",
-      "secondaryDelaySecs": "google.protobuf.Int64Value",
+      "secondary_delay_secs": "google.protobuf.Int64Value",
       "priority": "google.protobuf.DoubleValue",
-      "assignPublicIp": "bool",
-      "updateMask": "google.protobuf.FieldMask",
+      "assign_public_ip": "bool",
+      "update_mask": "google.protobuf.FieldMask",
       "tags": "string"
     }
   ]
@@ -32,11 +32,11 @@ Updates the specified parameters for the host.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to update hosts from.
 To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
-|| updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
+|| update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
 
 New configurations to apply to hosts of a Managed Service for MongoDB cluster. ||
 |#
@@ -45,7 +45,7 @@ New configurations to apply to hosts of a Managed Service for MongoDB cluster. |
 
 #|
 ||Field | Description ||
-|| hostName | **string**
+|| host_name | **string**
 
 Required field. Host to be updated. Specify the [host FQDN](https://yandex.cloud/en/docs/managed-mongodb/operations/connect/#fqdn). ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
@@ -53,7 +53,7 @@ Required field. Host to be updated. Specify the [host FQDN](https://yandex.cloud
 Determines if the host is a hidden replica set member.
 
 Such members cannot become primary in a replica set, and they are invisible to client applications. However, hidden members can participate in elections of the primary host. For more information, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/core/replica-set-hidden-member/). ||
-|| secondaryDelaySecs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| secondary_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The time, in seconds, by which the given replica set member lags behind the primary host. ||
 || priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
@@ -61,10 +61,10 @@ The time, in seconds, by which the given replica set member lags behind the prim
 Priority of the host to be elected as the primary in the replica set.
 
 The minimum value is `0` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether the host should get a public IP address after the update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the MongoDB host should be updated. ||
 || tags | **string**
@@ -78,13 +78,13 @@ Host tag list that contains key-value pairs for the given replica set member. Fo
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "hostNames": [
+    "cluster_id": "string",
+    "host_names": [
       "string"
     ]
   },
@@ -105,13 +105,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -154,10 +154,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the MongoDB cluster to update host from. ||
-|| hostNames[] | **string**
+|| host_names[] | **string**
 
 Name of host that are being updated. ||
 |#

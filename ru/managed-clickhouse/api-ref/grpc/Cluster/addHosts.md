@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/addHosts.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.AddHosts {#AddHosts}
+# Managed Service for ClickHouse API, gRPC: ClusterService.AddHosts
 
 Creates new hosts for a cluster.
 
@@ -15,30 +15,30 @@ Creates new hosts for a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "hostSpecs": [
+  "cluster_id": "string",
+  "host_specs": [
     {
-      "zoneId": "string",
+      "zone_id": "string",
       "type": "Type",
-      "subnetId": "string",
-      "assignPublicIp": "bool",
-      "shardName": "string"
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
+      "shard_name": "string"
     }
   ],
-  "copySchema": "google.protobuf.BoolValue"
+  "copy_schema": "google.protobuf.BoolValue"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to add hosts to.
 To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
+|| host_specs[] | **[HostSpec](#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
 
 Configurations for ClickHouse hosts that should be added to the cluster. ||
-|| copySchema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| copy_schema | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether to copy schema to new ClickHouse hosts from replicas. ||
 |#
@@ -47,7 +47,7 @@ Whether to copy schema to new ClickHouse hosts from replicas. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
@@ -58,22 +58,22 @@ Required field. Type of the host to be deployed.
 - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
 - `ZOOKEEPER`: ZooKeeper host. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the [Cluster.networkId](/docs/managed-clickhouse/api-ref/grpc/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Cluster) field. ||
-|| assignPublicIp | **bool**
+The ID of the network is set in the [Cluster.network_id](/docs/managed-clickhouse/api-ref/grpc/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Cluster) field. ||
+|| assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
 
 After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
-a public IP to a host without one, recreate the host with `assignPublicIp` set as needed.
+a public IP to a host without one, recreate the host with `assign_public_ip` set as needed.
 
 Possible values:
 * false - don't assign a public IP to the host.
 * true - the host should have a public IP address. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 Name of the shard that the host is assigned to. ||
 |#
@@ -84,13 +84,13 @@ Name of the shard that the host is assigned to. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "hostNames": [
+    "cluster_id": "string",
+    "host_names": [
       "string"
     ]
   },
@@ -111,13 +111,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -160,10 +160,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster to which the hosts are being added. ||
-|| hostNames[] | **string**
+|| host_names[] | **string**
 
 Names of hosts that are being added to the cluster. ||
 |#

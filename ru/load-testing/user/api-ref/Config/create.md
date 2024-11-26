@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/create.md
 ---
 
-# Load Testing API, REST: Config.Create {#Create}
+# Load Testing API, REST: Config.Create
 
 Creates a test config in the specified folder.
 

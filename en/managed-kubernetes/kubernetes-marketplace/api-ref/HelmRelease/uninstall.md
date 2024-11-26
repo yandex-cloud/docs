@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.Uninstall {#Uninstall}
+# Kubernetes Marketplace, REST: HelmRelease.Uninstall
 
 Uninstalls helm release.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/setAccessBindings.md
 ---
 
-# Compute Cloud API, REST: HostGroup.SetAccessBindings {#SetAccessBindings}
+# Compute Cloud API, REST: HostGroup.SetAccessBindings
 
 Sets access bindings for the host group.
 

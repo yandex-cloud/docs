@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/delete.md
 ---
 
-# SmartCaptcha API, REST: Captcha.Delete {#Delete}
+# SmartCaptcha API, REST: Captcha.Delete
 
 Deletes the specified captcha.
 

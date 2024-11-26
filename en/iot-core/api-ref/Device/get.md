@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/get.md
 ---
 
-# IoT Core Service, REST: Device.Get {#Get}
+# IoT Core Service, REST: Device.Get
 
 Returns the specified device.
 

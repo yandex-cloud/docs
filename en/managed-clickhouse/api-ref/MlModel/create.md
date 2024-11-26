@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: MlModel.Create {#Create}
+# Managed Service for ClickHouse API, REST: MlModel.Create
 
 Creates a machine learning model in the specified cluster.
 

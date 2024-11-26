@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/list.md
 ---
 
-# Load Testing API, REST: Test.List {#List}
+# Load Testing API, REST: Test.List
 
 Retrieves the list of test in the specified folder.
 

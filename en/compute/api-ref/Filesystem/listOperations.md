@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/listOperations.md
 ---
 
-# Compute Cloud API, REST: Filesystem.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Filesystem.ListOperations
 
 Lists operations for the specified filesystem.
 

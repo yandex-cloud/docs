@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/deleteHosts.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.DeleteHosts {#DeleteHosts}
+# Managed Service for Elasticsearch API, REST: Cluster.DeleteHosts
 
 Deletes specified hosts from the specified Elasticsearch cluster.
 

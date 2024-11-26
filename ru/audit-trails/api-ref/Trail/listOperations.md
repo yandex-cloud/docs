@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/listOperations.md
 ---
 
-# Audit Trails API, REST: Trail.ListOperations {#ListOperations}
+# Audit Trails API, REST: Trail.ListOperations
 
 Lists operations for the specified trail.
 

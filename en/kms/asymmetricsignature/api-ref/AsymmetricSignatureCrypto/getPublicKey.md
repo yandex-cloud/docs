@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/getPublicKey.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureCrypto.GetPublicKey {#GetPublicKey}
+# Key Management Service API, REST: AsymmetricSignatureCrypto.GetPublicKey
 
 Gets value of public key.
 

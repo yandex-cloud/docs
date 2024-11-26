@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/setAccessBindings.md
 ---
 
-# Key Management Service API, REST: AsymmetricEncryptionKey.SetAccessBindings {#SetAccessBindings}
+# Key Management Service API, REST: AsymmetricEncryptionKey.SetAccessBindings
 
 Sets access bindings for the key.
 

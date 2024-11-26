@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/get.md
 ---
 
-# Workload Identity, REST: FederatedCredential.Get {#Get}
+# Workload Identity, REST: FederatedCredential.Get
 
 Returns the specified federated credential.
 

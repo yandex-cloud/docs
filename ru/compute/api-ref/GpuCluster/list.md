@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/list.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.List {#List}
+# Compute Cloud API, REST: GpuCluster.List
 
 Retrieves the list of GPU clusters in the specified folder.
 

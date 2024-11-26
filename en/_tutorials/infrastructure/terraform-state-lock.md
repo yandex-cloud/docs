@@ -6,7 +6,9 @@ description: When working with {{ TF }} in the cloud, you need to ensure that mu
 # Locking {{ TF }} states using {{ ydb-full-name }}
 
 
-{{ yandex-cloud }} supports [infrastructure management through {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
+
+To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
 When multiple users try to access the same state from {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
 
@@ -22,8 +24,6 @@ To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {
 1. [Check whether the state is locked](#check-state-lock).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
-{{ TF }} and its providers are distributed under the [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Prepare your cloud {#before-you-begin}
 
@@ -127,7 +127,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
      ```
 
    - PowerShell {#powershell}
-   
+
     ```powershell
     $Env:AWS_ACCESS_KEY_ID="<key_ID>"
     $Env:AWS_SECRET_ACCESS_KEY="<secret_key>"
@@ -150,7 +150,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        endpoints = {
          s3       = "https://{{ s3-storage-host }}"
          dynamodb = "<DB_Document_API_endpoint>"
-
+       }
        bucket            = "<bucket_name>"
        region            = "{{ region-id }}"
        key               = "<path_to_state_file_in_bucket>/<state_file_name>.tfstate"
@@ -187,7 +187,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
 
 In this example, you will create a VM named `terraform-vm` connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
 
-The VM will have 2 cores and 4 GB RAM. It will be automatically assigned a public and a [private IP address](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
+This VM instance will have 2 cores and 4 GB RAM. It will be automatically assigned a public and a [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
 1. Save the following configuration as a separate `example-vm.tf` file in the folder with the backend configuration file:
 
    ```hcl

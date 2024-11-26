@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.DeleteDashboardsNodeGroup {#DeleteDashboardsNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.DeleteDashboardsNodeGroup
 
 Deletes a Dashboards type host group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/deleteExternalDictionary.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.DeleteExternalDictionary {#DeleteExternalDictionary}
+# Managed Service for ClickHouse API, REST: Cluster.DeleteExternalDictionary
 
 Deletes the specified external dictionary.
 

@@ -1,4 +1,4 @@
-title: Yandex Data Proc
+title: Yandex Data Processing
 href: index.yaml
 items:
   - name: Getting started
@@ -124,8 +124,8 @@ items:
               - name: Shared use of tables through {{ metastore-name }}
                 href: tutorials/dataproc-to-dataproc.md
               - name: >-
-                  Transferring data between {{ dataproc-name }} clusters using
-                  {{ metastore-name }}
+                  Transferring metadata between {{ dataproc-name }} clusters
+                  using {{ metastore-name }}
                 href: tutorials/metastore-import.md
           - name: Exchanging data with {{ mch-name }}
             href: tutorials/exchange-data-with-mch.md

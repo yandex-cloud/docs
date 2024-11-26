@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/update.md
 ---
 
-# Cloud Functions Service, REST: Function.Update {#Update}
+# Cloud Functions Service, REST: Function.Update
 
 Updates the specified function.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/TextGeneration/completion.md
 ---
 
-# Foundation Models Text Generation API, REST: TextGeneration.Completion {#Completion}
+# Foundation Models Text Generation API, REST: TextGeneration.Completion
 
 A method for generating text completions in [synchronous mode](/docs/foundation-models/concepts/#working-mode).
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/revokePermission.md
 ---
 
-# Managed Service for MySQL API, REST: User.RevokePermission {#RevokePermission}
+# Managed Service for MySQL API, REST: User.RevokePermission
 
 Revokes permission to access a database from a user in a cluster.
 

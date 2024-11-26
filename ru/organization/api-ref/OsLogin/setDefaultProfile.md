@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/setDefaultProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.SetDefaultProfile {#SetDefaultProfile}
+# Cloud Organization API, REST: OsLogin.SetDefaultProfile
 
 Sets a profile as a default for the subject assigned to this profile
 

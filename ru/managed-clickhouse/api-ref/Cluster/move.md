@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.Move {#Move}
+# Managed Service for ClickHouse API, REST: Cluster.Move
 
 Moves a ClickHouse cluster to the specified folder.
 

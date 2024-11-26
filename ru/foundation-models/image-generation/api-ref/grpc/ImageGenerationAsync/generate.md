@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/image_generation/image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
 ---
 
-# Foundation Models Image Generation API, gRPC: ImageGenerationAsyncService.Generate {#Generate}
+# Foundation Models Image Generation API, gRPC: ImageGenerationAsyncService.Generate
 
 A method for generating an image based on a textual description.
 
@@ -15,19 +15,19 @@ A method for generating an image based on a textual description.
 
 ```json
 {
-  "modelUri": "string",
+  "model_uri": "string",
   "messages": [
     {
       "text": "string",
       "weight": "double"
     }
   ],
-  "generationOptions": {
-    "mimeType": "string",
+  "generation_options": {
+    "mime_type": "string",
     "seed": "int64",
-    "aspectRatio": {
-      "widthRatio": "int64",
-      "heightRatio": "int64"
+    "aspect_ratio": {
+      "width_ratio": "int64",
+      "height_ratio": "int64"
     }
   }
 }
@@ -39,13 +39,13 @@ For examples of usage, see [step-by-step guide](/docs/foundation-models/operatio
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [model URI](/docs/foundation-models/concepts/yandexart/models) to be used for image generation. ||
 || messages[] | **[Message](#yandex.cloud.ai.foundation_models.v1.image_generation.Message)**
 
 A list of messages representing the context for the image generation model. ||
-|| generationOptions | **[ImageGenerationOptions](#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions)**
+|| generation_options | **[ImageGenerationOptions](#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions)**
 
 Image generation options. ||
 |#
@@ -68,14 +68,14 @@ Message weight. Negative values indicate negative messages. ||
 
 #|
 ||Field | Description ||
-|| mimeType | **string**
+|| mime_type | **string**
 
 The [MIME type](https://en.wikipedia.org/wiki/Media_type) of generated image format.
 For possible specifications, see [documentation](/docs/foundation-models/concepts). ||
 || seed | **int64**
 
 Seed for image generation. It serves as a starting point for image generation from noise. ||
-|| aspectRatio | **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
+|| aspect_ratio | **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
 
 Aspect ratio of generated image. ||
 |#
@@ -84,10 +84,10 @@ Aspect ratio of generated image. ||
 
 #|
 ||Field | Description ||
-|| widthRatio | **int64**
+|| width_ratio | **int64**
 
 Weight of width in image. ||
-|| heightRatio | **int64**
+|| height_ratio | **int64**
 
 Weight of height in image. ||
 |#
@@ -98,16 +98,16 @@ Weight of height in image. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "image": "bytes",
-    "modelVersion": "string"
+    "model_version": "string"
   }
   // end of the list of possible fields
 }
@@ -123,13 +123,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -177,7 +177,7 @@ Response containing generated image.
 || image | **bytes**
 
 The image is serialized as an array of bytes encoded in [Base64](https://en.wikipedia.org/wiki/Base64). ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 The model version changes with each new releases. ||
 |#

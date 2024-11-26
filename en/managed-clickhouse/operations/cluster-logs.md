@@ -17,7 +17,7 @@
 
     A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-    If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -56,17 +56,92 @@
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get cluster logs, use the [listLogs](../api-ref/Cluster/listLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) gRPC API call, and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-    * `CLICKHOUSE` in the `serviceType` parameter.
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:logs' \
+            --url-query serviceType=CLICKHOUSE \
+            --url-query columnFilter=<list_of_columns_for_data_output> \
+            --url-query fromTime=<time_range_left_boundary> \
+            --url-query toTime=<time_range_right_boundary>
+        ```
+
+        Where:
+
+        * `serviceType`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
+        * `columnFilter`: List of columns for data output:
+
+            {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
+
+            {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
+        {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
+
+        * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+
+    1. View the [server response](../api-ref/Cluster/listLogs.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "service_type" : "CLICKHOUSE",
+                    "column_filter": [<list_of_columns_for_data_output>],
+                    "from_time": "<time_range_left_boundary>" \
+                    "to_time": "<time_range_right_boundary>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.ListLogs
+        ```
+
+        Where:
+
+        * `service_type`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
+        * `column_filter`: List of columns for data output:
+
+            {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
+
+            {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
+        {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
+
+        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+
+    1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.clickhouse.v1.ListClusterLogsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -88,17 +163,110 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-ch }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get a cluster log stream, use the [streamLogs](../api-ref/Cluster/streamLogs.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) gRPC API call, and provide in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+    1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-    * `CLICKHOUSE` in the `serviceType` parameter.
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:stream_logs' \
+            --url-query serviceType=CLICKHOUSE \
+            --url-query columnFilter=<list_of_columns_for_data_output> \
+            --url-query fromTime=<time_range_left_boundary> \
+            --url-query toTime=<time_range_right_boundary> \
+            --url-query filter=<log_filter>
+        ```
+
+        Where:
+
+        * `serviceType`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
+        * `columnFilter`: List of columns for data output:
+
+            {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
+
+            {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
+        {% include [from-time-rest](../../_includes/mdb/api/from-time-rest.md) %}
+
+        * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
+
+            {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
+
+        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+
+            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
+
+            {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
+
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+
+    1. View the [server response](../api-ref/Cluster/streamLogs.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "service_type" : "CLICKHOUSE",
+                    "column_filter": [<list_of_columns_for_data_output>],
+                    "from_time": "<time_range_left_boundary>",
+                    "to_time": "<time_range_right_boundary>",
+                    "filter": "<log_filter>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.StreamLogs
+        ```
+
+        Where:
+
+        * `service_type`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
+        * `column_filter`: List of columns for data output:
+
+            {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
+
+            {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
+        {% include [from-time-grpc](../../_includes/mdb/api/from-time-grpc.md) %}
+
+        * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+
+            {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
+
+        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+
+            {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
+
+            For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
+
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+
+    1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) to make sure the request was successful.
 
 {% endlist %}
 

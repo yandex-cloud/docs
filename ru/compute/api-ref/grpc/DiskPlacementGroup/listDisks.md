@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/DiskPlacementGroup/listDisks.md
 ---
 
-# Compute Cloud API, gRPC: DiskPlacementGroupService.ListDisks {#ListDisks}
+# Compute Cloud API, gRPC: DiskPlacementGroupService.ListDisks
 
 Lists disks for the specified placement group.
 
@@ -15,28 +15,28 @@ Lists disks for the specified placement group.
 
 ```json
 {
-  "diskPlacementGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "disk_placement_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| diskPlacementGroupId | **string**
+|| disk_placement_group_id | **string**
 
 Required field. ID of the placement group to list disks for.
 To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/grpc/DiskPlacementGroup/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
+results is larger than `page_size`,
+the service returns a [ListDiskPlacementGroupDisksResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListDiskPlacementGroupDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
+set `page_token` to the [ListDiskPlacementGroupDisksResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
 returned by a previous list request. ||
 |#
 
@@ -47,45 +47,45 @@ returned by a previous list request. ||
   "disks": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "typeId": "string",
-      "zoneId": "string",
+      "type_id": "string",
+      "zone_id": "string",
       "size": "int64",
-      "blockSize": "int64",
-      "productIds": [
+      "block_size": "int64",
+      "product_ids": [
         "string"
       ],
       "status": "Status",
-      // Includes only one of the fields `sourceImageId`, `sourceSnapshotId`
-      "sourceImageId": "string",
-      "sourceSnapshotId": "string",
+      // Includes only one of the fields `source_image_id`, `source_snapshot_id`
+      "source_image_id": "string",
+      "source_snapshot_id": "string",
       // end of the list of possible fields
-      "instanceIds": [
+      "instance_ids": [
         "string"
       ],
-      "diskPlacementPolicy": {
-        "placementGroupId": "string",
-        "placementGroupPartition": "int64"
+      "disk_placement_policy": {
+        "placement_group_id": "string",
+        "placement_group_partition": "int64"
       },
-      "hardwareGeneration": {
-        // Includes only one of the fields `legacyFeatures`, `generation2Features`
-        "legacyFeatures": {
-          "pciTopology": "PCITopology"
+      "hardware_generation": {
+        // Includes only one of the fields `legacy_features`, `generation2_features`
+        "legacy_features": {
+          "pci_topology": "PCITopology"
         },
-        "generation2Features": "Generation2HardwareFeatures"
+        "generation2_features": "Generation2HardwareFeatures"
         // end of the list of possible fields
       },
-      "kmsKey": {
-        "keyId": "string",
-        "versionId": "string"
+      "kms_key": {
+        "key_id": "string",
+        "version_id": "string"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -94,14 +94,14 @@ returned by a previous list request. ||
 || disks[] | **[Disk](#yandex.cloud.compute.v1.Disk)**
 
 Lists disks for the specified placement group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is more than [ListDiskPlacementGroupDisksRequest.pageSize](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksRequest), use
-`nextPageToken` as the value
-for the [ListDiskPlacementGroupDisksRequest.pageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksRequest) query parameter
+is more than [ListDiskPlacementGroupDisksRequest.page_size](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksRequest), use
+`next_page_token` as the value
+for the [ListDiskPlacementGroupDisksRequest.page_token](#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Disk {#yandex.cloud.compute.v1.Disk}
@@ -113,10 +113,10 @@ A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
 || id | **string**
 
 ID of the disk. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the disk belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the disk. 1-63 characters long. ||
@@ -126,19 +126,19 @@ Description of the disk. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of the disk type. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the disk resides. ||
 || size | **int64**
 
 Size of the disk, specified in bytes. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size of the disk, specified in bytes. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -157,27 +157,27 @@ Current status of the disk.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
 - `DELETING`: Disk is being deleted. ||
-|| sourceImageId | **string**
+|| source_image_id | **string**
 
 ID of the image that was used for disk creation.
 
-Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
-|| sourceSnapshotId | **string**
+Includes only one of the fields `source_image_id`, `source_snapshot_id`. ||
+|| source_snapshot_id | **string**
 
 ID of the snapshot that was used for disk creation.
 
-Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
-|| instanceIds[] | **string**
+Includes only one of the fields `source_image_id`, `source_snapshot_id`. ||
+|| instance_ids[] | **string**
 
 Array of instances to which the disk is attached. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+|| disk_placement_policy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
 
 Placement policy configuration. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
 
 Key encryption key info. ||
 |#
@@ -186,10 +186,10 @@ Key encryption key info. ||
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| placementGroupPartition | **int64** ||
+|| placement_group_partition | **int64** ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -201,12 +201,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -216,7 +216,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
@@ -237,10 +237,10 @@ and UEFI boot (with UEFI related features).
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of KMS symmetric key ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of KMS symmetric key ||
 |#

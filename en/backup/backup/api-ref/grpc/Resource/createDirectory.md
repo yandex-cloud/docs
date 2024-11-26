@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/createDirectory.md
 ---
 
-# Cloud Backup API, gRPC: ResourceService.CreateDirectory {#CreateDirectory}
+# Cloud Backup API, gRPC: ResourceService.CreateDirectory
 
 CreateDirectory creates new directory by requested path.
 
@@ -15,18 +15,18 @@ CreateDirectory creates new directory by requested path.
 
 ```json
 {
-  "folderId": "string",
-  "computeInstanceId": "string",
+  "folder_id": "string",
+  "compute_instance_id": "string",
   "path": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. Folder ID. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
 || path | **string**
@@ -40,12 +40,12 @@ Required field. Path to create directory in. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "computeInstanceId": "string",
+    "compute_instance_id": "string",
     "path": "string"
   },
   // Includes only one of the fields `error`, `response`
@@ -65,13 +65,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -114,7 +114,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
 || path | **string**

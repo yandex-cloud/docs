@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/RouteTable/update.md
 ---
 
-# Virtual Private Cloud API, gRPC: RouteTableService.Update {#Update}
+# Virtual Private Cloud API, gRPC: RouteTableService.Update
 
 Updates the specified route table.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -16,19 +16,19 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 
 ```json
 {
-  "routeTableId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "route_table_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "staticRoutes": [
+  "static_routes": [
     {
-      // Includes only one of the fields `destinationPrefix`
-      "destinationPrefix": "string",
+      // Includes only one of the fields `destination_prefix`
+      "destination_prefix": "string",
       // end of the list of possible fields
-      // Includes only one of the fields `nextHopAddress`, `gatewayId`
-      "nextHopAddress": "string",
-      "gatewayId": "string",
+      // Includes only one of the fields `next_hop_address`, `gateway_id`
+      "next_hop_address": "string",
+      "gateway_id": "string",
       // end of the list of possible fields
       "labels": "string"
     }
@@ -38,10 +38,10 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 
 #|
 ||Field | Description ||
-|| routeTableId | **string**
+|| route_table_id | **string**
 
 Required field. ID of the RouteTable resource to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the RouteTable resource are going to be updated. ||
 || name | **string**
@@ -54,7 +54,7 @@ Description of the route table. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. ||
-|| staticRoutes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
+|| static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
 
 List of static routes. ||
 |#
@@ -65,21 +65,21 @@ A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/conc
 
 #|
 ||Field | Description ||
-|| destinationPrefix | **string**
+|| destination_prefix | **string**
 
 Destination subnet in CIDR notation
 
-Includes only one of the fields `destinationPrefix`. ||
-|| nextHopAddress | **string**
+Includes only one of the fields `destination_prefix`. ||
+|| next_hop_address | **string**
 
 Next hop IP address
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| gatewayId | **string**
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
+|| gateway_id | **string**
 
 Next hop gateway id
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
@@ -91,31 +91,31 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "routeTableId": "string"
+    "route_table_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "networkId": "string",
-    "staticRoutes": [
+    "network_id": "string",
+    "static_routes": [
       {
-        // Includes only one of the fields `destinationPrefix`
-        "destinationPrefix": "string",
+        // Includes only one of the fields `destination_prefix`
+        "destination_prefix": "string",
         // end of the list of possible fields
-        // Includes only one of the fields `nextHopAddress`, `gatewayId`
-        "nextHopAddress": "string",
-        "gatewayId": "string",
+        // Includes only one of the fields `next_hop_address`, `gateway_id`
+        "next_hop_address": "string",
+        "gateway_id": "string",
         // end of the list of possible fields
         "labels": "string"
       }
@@ -135,13 +135,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -184,7 +184,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| routeTableId | **string**
+|| route_table_id | **string**
 
 ID of the RouteTable resource that is being updated. ||
 |#
@@ -198,10 +198,10 @@ A RouteTable resource. For more information, see [Static Routes](/docs/vpc/conce
 || id | **string**
 
 ID of the route table. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the route table belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -219,10 +219,10 @@ No more than 64 per resource.
 The string length in characters for each key must be 1-63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network the route table belongs to. ||
-|| staticRoutes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute2)**
+|| static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute2)**
 
 List of static routes. ||
 |#
@@ -233,21 +233,21 @@ A StaticRoute resource. For more information, see [Static Routes](/docs/vpc/conc
 
 #|
 ||Field | Description ||
-|| destinationPrefix | **string**
+|| destination_prefix | **string**
 
 Destination subnet in CIDR notation
 
-Includes only one of the fields `destinationPrefix`. ||
-|| nextHopAddress | **string**
+Includes only one of the fields `destination_prefix`. ||
+|| next_hop_address | **string**
 
 Next hop IP address
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| gatewayId | **string**
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
+|| gateway_id | **string**
 
 Next hop gateway id
 
-Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
+Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||

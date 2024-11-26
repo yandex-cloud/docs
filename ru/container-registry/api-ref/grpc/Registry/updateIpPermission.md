@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/updateIpPermission.md
 ---
 
-# Container Registry API, gRPC: RegistryService.UpdateIpPermission {#UpdateIpPermission}
+# Container Registry API, gRPC: RegistryService.UpdateIpPermission
 
 Update ip permissions for the specified registry.
 
@@ -15,11 +15,11 @@ Update ip permissions for the specified registry.
 
 ```json
 {
-  "registryId": "string",
-  "ipPermissionDeltas": [
+  "registry_id": "string",
+  "ip_permission_deltas": [
     {
       "action": "IpPermissionAction",
-      "ipPermission": {
+      "ip_permission": {
         "action": "Action",
         "ip": "string"
       }
@@ -30,10 +30,10 @@ Update ip permissions for the specified registry.
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry for which ip permissions are being updated. ||
-|| ipPermissionDeltas[] | **[IpPermissionDelta](#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
+|| ip_permission_deltas[] | **[IpPermissionDelta](#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
 
 Updates to IP permissions. ||
 |#
@@ -49,7 +49,7 @@ Required field. The action that is being performed on an ip permission.
 - `IP_PERMISSION_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an ip permission.
 - `REMOVE`: Removal of an ip permission. ||
-|| ipPermission | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
+|| ip_permission | **[IpPermission](#yandex.cloud.containerregistry.v1.IpPermission)**
 
 Required field. Ip permission. ||
 |#
@@ -72,12 +72,12 @@ Required field. Ip permission. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "registryId": "string"
+    "registry_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -96,13 +96,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -145,7 +145,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that ip permission is being updated. ||
 |#

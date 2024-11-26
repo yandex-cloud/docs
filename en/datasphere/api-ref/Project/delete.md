@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/delete.md
 ---
 
-# DataSphere API v2, REST: Project.Delete {#Delete}
+# DataSphere API v2, REST: Project.Delete
 
 Deletes the specified project.
 

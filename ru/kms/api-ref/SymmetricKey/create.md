@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/create.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Create {#Create}
+# Key Management Service API, REST: SymmetricKey.Create
 
 Creates a symmetric KMS key in the specified folder.
 

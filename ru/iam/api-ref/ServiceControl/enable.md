@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/enable.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.Enable {#Enable}
+# Identity and Access Management API, REST: ServiceControl.Enable
 
 Enable a service in the specified resource container.
 

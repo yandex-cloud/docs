@@ -12,6 +12,8 @@ In this tutorial, you will configure your own application health checks using th
 
 You can view health check results in the [management console]({{ link-console-main }}).
 
+{% include [alb-custom-hc-enabling](../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+
 To deploy an application in a {{ managed-k8s-name }} cluster, configure access to it, and set up health checks via {{ alb-name }}:
 1. [Prepare your cloud](#before-begin).
 1. [Create a Docker image](#docker-image).

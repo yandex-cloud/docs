@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/delete.md
 ---
 
-# Managed Service for MySQL API, REST: Database.Delete {#Delete}
+# Managed Service for MySQL API, REST: Database.Delete
 
 Deletes a database from a cluster.
 

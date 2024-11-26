@@ -3,7 +3,7 @@ title: How to create a {{ MY }} cluster
 description: Follow this guide to create a {{ MY }} cluster with a single or multiple DB hosts.
 ---
 
-# Creating an {{ MY }} cluster
+# Creating a {{ MY }} cluster
 
 
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
@@ -285,7 +285,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
-     * To set the [backup](../concepts/backup.md) start time, add the `backup_window_start` section to the {{ mmy-name }} cluster description:
+     * To set the [backup](../concepts/backup.md) start time, add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
        ```hcl
        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -317,7 +317,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        The possible values range from `7` to `60`. The default value is `7`.
 
-     * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
+     * To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add a `performance_diagnostics` block to your {{ mmy-name }} cluster description:
 
        ```hcl
        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -490,7 +490,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -650,7 +650,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ MY }} cluster copy:
+To create a {{ MY }} cluster copy:
 
 {% list tabs group=instructions %}
 

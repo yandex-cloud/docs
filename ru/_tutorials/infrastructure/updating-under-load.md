@@ -173,7 +173,7 @@
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** укажите `nginx`.
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
           * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
           * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.disk-form.field_size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `for-load`.
@@ -455,7 +455,7 @@
   1. Нажмите на имя группы ВМ `group-for-load`.
   1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите новый размер диска — `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите новый размер диска — `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. В блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** поэтапно отобразятся изменения размера диска для всех ВМ группы.

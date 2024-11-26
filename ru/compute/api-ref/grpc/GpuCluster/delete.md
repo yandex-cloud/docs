@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/GpuCluster/delete.md
 ---
 
-# Compute Cloud API, gRPC: GpuClusterService.Delete {#Delete}
+# Compute Cloud API, gRPC: GpuClusterService.Delete
 
 Deletes the specified GPU cluster.
 
@@ -17,13 +17,13 @@ GPU cluster can be deleted only if it doesn't have any instances associated with
 
 ```json
 {
-  "gpuClusterId": "string"
+  "gpu_cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 ID of the GPU cluster to delete.
 
@@ -36,12 +36,12 @@ To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/g
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "gpuClusterId": "string"
+    "gpu_cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -60,13 +60,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -109,7 +109,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 ID of the GPU cluster that is being deleted. ||
 |#

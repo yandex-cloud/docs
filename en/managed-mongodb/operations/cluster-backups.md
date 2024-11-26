@@ -324,7 +324,7 @@ When restored to the current state, the new cluster will match the state of:
 
         For a complete list of available {{ MG }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-    1. Add a `backup_retain_period_days` block in the `cluster_config` section to the {{ MG }} cluster description.
+    1. Add a `backup_retain_period_days` block in the `cluster_config` section to the {{ MG }} cluster description:
 
         ```hcl
           resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {

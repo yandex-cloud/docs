@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/create.md
 ---
 
-# Video API, REST: Thumbnail.Create {#Create}
+# Video API, REST: Thumbnail.Create
 
 Create thumbnail.
 

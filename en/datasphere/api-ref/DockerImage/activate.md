@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/DockerImage/activate.md
 ---
 
-# DataSphere API v2, REST: DockerImage.Activate {#Activate}
+# DataSphere API v2, REST: DockerImage.Activate
 
 Activates shared docker image in project
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/create.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Create {#Create}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Create
 
 Creates a network load balancer in the specified folder using the data specified in the request.
 

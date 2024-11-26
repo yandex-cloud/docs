@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.Move {#Move}
+# Managed Service for Redis API, REST: Cluster.Move
 
 Moves a Redis cluster to the specified folder.
 
@@ -366,7 +366,9 @@ Required field. ID of the destination folder. ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -395,7 +397,9 @@ Required field. ID of the destination folder. ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -424,7 +428,9 @@ Required field. ID of the destination folder. ||
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1224,6 +1230,12 @@ Allows to turn before switchover in RDSync ||
 || allowDataLoss | **boolean**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| useLuajit | **boolean**
+
+Use JIT for lua scripts and functions ||
+|| ioThreadsAllowed | **boolean**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

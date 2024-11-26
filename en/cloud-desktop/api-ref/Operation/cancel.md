@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Operation/cancel.md
 ---
 
-# Cloud Desktop API, REST: Operation.Cancel {#Cancel}
+# Cloud Desktop API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

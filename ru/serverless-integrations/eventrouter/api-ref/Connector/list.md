@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/list.md
 ---
 
-# EventRouter Service, REST: Connector.List {#List}
+# EventRouter Service, REST: Connector.List
 
 Retrieves the list of connectors in the specified folder.
 

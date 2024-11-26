@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/get.md
 ---
 
-# Cloud DNS API, REST: DnsZone.Get {#Get}
+# Cloud DNS API, REST: DnsZone.Get
 
 Returns the specified DNS zone.
 

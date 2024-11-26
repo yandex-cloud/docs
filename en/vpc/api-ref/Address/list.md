@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/list.md
 ---
 
-# Virtual Private Cloud API, REST: Address.List {#List}
+# Virtual Private Cloud API, REST: Address.List
 
 Retrieves the list of Address resources in the specified folder.
 

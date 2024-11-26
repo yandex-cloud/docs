@@ -16,7 +16,7 @@ In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [e
 
 Prices are applied differently depending on the cluster status:
 
-* For a `Running` cluster, you pay for both the computing resources and your storage size.
+* For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -35,7 +35,7 @@ The {{ mkf-name }} usage cost is based on:
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see the [Prices](#prices) section.
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
 
@@ -63,9 +63,9 @@ The minimum billing unit is one minute (for example, 1.5 minutes of host operati
 You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-    For Intel Cascade Lake: In increments of 100 GB.
+    * For Intel Cascade Lake: In increments of 100 GB.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
-* You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
+* You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -73,9 +73,9 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ KF }} broker hosts**: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
-* **{{ ZK }} hosts** (created automatically): Three hosts of the `b3-c1-m4` class: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM. 
+* **{{ ZK }} hosts** (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM. 
 * **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
 
 #### Standard hosts {#example-standard-hosts}
@@ -128,7 +128,7 @@ The price of fast local storage also depends on host type.
 
 {% list tabs %}
 
-- Costs per hour
+- Prices per hour
 
   {% include [usd-hosts-standard-hour](../_pricing/managed-kafka/usd-hosts-standard-hour.md) %}
 

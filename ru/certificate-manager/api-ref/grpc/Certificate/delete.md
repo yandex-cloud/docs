@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/Certificate/delete.md
 ---
 
-# Certificate Manager API, gRPC: CertificateService.Delete {#Delete}
+# Certificate Manager API, gRPC: CertificateService.Delete
 
 Deletes the specified certificate.
 
@@ -15,13 +15,13 @@ Deletes the specified certificate.
 
 ```json
 {
-  "certificateId": "string"
+  "certificate_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 Required field. ID of the certificate to be deleted. ||
 |#
@@ -32,19 +32,19 @@ Required field. ID of the certificate to be deleted. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "certificateId": "string"
+    "certificate_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -56,34 +56,34 @@ Required field. ID of the certificate to be deleted. ||
     "issuer": "string",
     "subject": "string",
     "serial": "string",
-    "updatedAt": "google.protobuf.Timestamp",
-    "issuedAt": "google.protobuf.Timestamp",
-    "notAfter": "google.protobuf.Timestamp",
-    "notBefore": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
+    "issued_at": "google.protobuf.Timestamp",
+    "not_after": "google.protobuf.Timestamp",
+    "not_before": "google.protobuf.Timestamp",
     "challenges": [
       {
         "domain": "string",
         "type": "ChallengeType",
-        "createdAt": "google.protobuf.Timestamp",
-        "updatedAt": "google.protobuf.Timestamp",
+        "created_at": "google.protobuf.Timestamp",
+        "updated_at": "google.protobuf.Timestamp",
         "status": "Status",
         "message": "string",
         "error": "string",
-        // Includes only one of the fields `dnsChallenge`, `httpChallenge`
-        "dnsChallenge": {
+        // Includes only one of the fields `dns_challenge`, `http_challenge`
+        "dns_challenge": {
           "name": "string",
           "type": "string",
           "value": "string"
         },
-        "httpChallenge": {
+        "http_challenge": {
           "url": "string",
           "content": "string"
         }
         // end of the list of possible fields
       }
     ],
-    "deletionProtection": "bool",
-    "incompleteChain": "bool"
+    "deletion_protection": "bool",
+    "incomplete_chain": "bool"
   }
   // end of the list of possible fields
 }
@@ -99,13 +99,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -148,7 +148,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate being deleted. ||
 |#
@@ -162,10 +162,10 @@ A certificate. For details about the concept, see [documentation](/docs/certific
 || id | **string**
 
 ID of the certificate. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the certificate belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -208,25 +208,25 @@ Status of the certificate.
 || serial | **string**
 
 Serial number of the certificate. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the certificate is updated. ||
-|| issuedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the certificate is issued. ||
-|| notAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time after which the certificate is not valid. ||
-|| notBefore | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time before which the certificate is not valid. ||
 || challenges[] | **[Challenge](#yandex.cloud.certificatemanager.v1.Challenge)**
 
 Domains validation challenges of the certificate. Used only for managed certificates. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that protects deletion of the certificate ||
-|| incompleteChain | **bool**
+|| incomplete_chain | **bool**
 
 Mark imported certificates without uploaded chain or with chain which not lead to root certificate ||
 |#
@@ -247,10 +247,10 @@ Type of the challenge.
 - `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the challenge is created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the challenge is updated. ||
 || status | enum **Status**
@@ -268,18 +268,18 @@ Description of the challenge. ||
 || error | **string**
 
 Error of the challenge. ||
-|| dnsChallenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
+|| dns_challenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
 
 DNS-record.
 
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
+Includes only one of the fields `dns_challenge`, `http_challenge`.
 
 Data of the challenge. ||
-|| httpChallenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
+|| http_challenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
 
 HTTP-file.
 
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
+Includes only one of the fields `dns_challenge`, `http_challenge`.
 
 Data of the challenge. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/listOperations.md
 ---
 
-# Cloud Logging Service, REST: Sink.ListOperations {#ListOperations}
+# Cloud Logging Service, REST: Sink.ListOperations
 
 Lists operations for the specified sink.
 

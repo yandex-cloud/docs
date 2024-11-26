@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/get.md
 ---
 
-# SmartCaptcha API, REST: Captcha.Get {#Get}
+# SmartCaptcha API, REST: Captcha.Get
 
 Returns the specified Captcha resource.
 

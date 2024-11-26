@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/setHTTPSConfig.md
 ---
 
-# Object Storage API, gRPC: BucketService.SetHTTPSConfig {#SetHTTPSConfig}
+# Object Storage API, gRPC: BucketService.SetHTTPSConfig
 
 Updates the HTTPS configuration for the specified bucket.
 
@@ -18,13 +18,13 @@ The updated configuration could take up to 30 minutes to apply to the bucket.
 ```json
 {
   "name": "string",
-  // Includes only one of the fields `selfManaged`, `certificateManager`
-  "selfManaged": {
-    "certificatePem": "string",
-    "privateKeyPem": "string"
+  // Includes only one of the fields `self_managed`, `certificate_manager`
+  "self_managed": {
+    "certificate_pem": "string",
+    "private_key_pem": "string"
   },
-  "certificateManager": {
-    "certificateId": "string"
+  "certificate_manager": {
+    "certificate_id": "string"
   }
   // end of the list of possible fields
 }
@@ -35,23 +35,23 @@ The updated configuration could take up to 30 minutes to apply to the bucket.
 || name | **string**
 
 Required field. Name of the bucket to update the HTTPS configuration for. ||
-|| selfManaged | **[SelfManagedHTTPSConfigParams](#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
+|| self_managed | **[SelfManagedHTTPSConfigParams](#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
 
 Your TLS certificate, uploaded directly.
 
 Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
 
-Includes only one of the fields `selfManaged`, `certificateManager`.
+Includes only one of the fields `self_managed`, `certificate_manager`.
 
 HTTPS configuration parameters. ||
-|| certificateManager | **[CertificateManagerHTTPSConfigParams](#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
+|| certificate_manager | **[CertificateManagerHTTPSConfigParams](#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
 
 TLS certificate from Certificate Manager.
 
 To create a certificate in Certificate Manager, make a
 [yandex.cloud.certificatemanager.v1.CertificateService.Create](/docs/certificate-manager/api-ref/grpc/Certificate/create#Create) request.
 
-Includes only one of the fields `selfManaged`, `certificateManager`.
+Includes only one of the fields `self_managed`, `certificate_manager`.
 
 HTTPS configuration parameters. ||
 |#
@@ -60,10 +60,10 @@ HTTPS configuration parameters. ||
 
 #|
 ||Field | Description ||
-|| certificatePem | **string**
+|| certificate_pem | **string**
 
 [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate. ||
-|| privateKeyPem | **string**
+|| private_key_pem | **string**
 
 [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate. ||
 |#
@@ -74,7 +74,7 @@ A resource for a TLS certificate from Certificate Manager.
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate.
 
@@ -88,9 +88,9 @@ request. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
     "name": "string"
@@ -99,15 +99,15 @@ request. ||
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "sourceType": "SourceType",
+    "source_type": "SourceType",
     "issuer": "google.protobuf.StringValue",
     "subject": "google.protobuf.StringValue",
-    "dnsNames": [
+    "dns_names": [
       "string"
     ],
-    "notBefore": "google.protobuf.Timestamp",
-    "notAfter": "google.protobuf.Timestamp",
-    "certificateId": "string"
+    "not_before": "google.protobuf.Timestamp",
+    "not_after": "google.protobuf.Timestamp",
+    "certificate_id": "string"
   }
   // end of the list of possible fields
 }
@@ -123,13 +123,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -186,7 +186,7 @@ A resource for HTTPS configuration of a bucket.
 || name | **string**
 
 Name of the bucket. ||
-|| sourceType | enum **SourceType**
+|| source_type | enum **SourceType**
 
 Type of TLS certificate source.
 
@@ -199,16 +199,16 @@ Issuer of the TLS certificate. ||
 || subject | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Subject of the TLS certificate. ||
-|| dnsNames[] | **string**
+|| dns_names[] | **string**
 
 List of DNS names of the TLS certificate (Subject Alternative Name field). ||
-|| notBefore | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start of the TLS certificate validity period (Not Before field). ||
-|| notAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End of the TLS certificate validity period (Not After field) ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the TLS certificate in Certificate Manager.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/create.md
 ---
 
-# Cloud CDN API, REST: Origin.Create {#Create}
+# Cloud CDN API, REST: Origin.Create
 
 Creates origin inside origin group.
 

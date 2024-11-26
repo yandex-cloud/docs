@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for YDB API, REST: Backup.Delete {#Delete}
+# Managed Service for YDB API, REST: Backup.Delete
 
 Deletes the specified backup.
 

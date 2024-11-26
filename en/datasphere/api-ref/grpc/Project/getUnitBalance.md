@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/getUnitBalance.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.GetUnitBalance {#GetUnitBalance}
+# DataSphere API v2, gRPC: ProjectService.GetUnitBalance
 
 Returns the unit balance of the specified project.
 
@@ -15,13 +15,13 @@ Returns the unit balance of the specified project.
 
 ```json
 {
-  "projectId": "string"
+  "project_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the project to return the unit balance for. ||
 |#
@@ -30,13 +30,13 @@ Required field. ID of the project to return the unit balance for. ||
 
 ```json
 {
-  "unitBalance": "google.protobuf.Int64Value"
+  "unit_balance": "google.protobuf.Int64Value"
 }
 ```
 
 #|
 ||Field | Description ||
-|| unitBalance | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| unit_balance | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of units available to the project. ||
 |#

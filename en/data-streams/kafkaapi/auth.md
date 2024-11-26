@@ -2,9 +2,9 @@
 
 ## Endpoint {#endpoint}
 
-The Kafka API endpoint is displayed in the [management console]({{ link-console-main }}) on the data stream page under the **Overview** tab in the **Kafka API endpoint** field.
+The Kafka API endpoint is displayed in the [management console]({{ link-console-main }}) in the **Kafka API endpoint** field on the **Overview** tab on the data stream page.
 
-The endpoint has the following format: `<FQDN_YDB>:PORT`, e.g., `ydb-01.serverless.yandexcloud.net:9093`.
+The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.serverless.yandexcloud.net:9093`.
 
 ## Prerequisites {#requirements}
 
@@ -12,8 +12,8 @@ To authenticate, take these steps:
 
 1. [Create a service account](../../iam/operations/sa/create).
 1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa):
-   * `ydb.kafkaApi.client` and `ydb.viewer` to read data from the data stream.
-   * `ydb.kafkaApi.client` and `ydb.editor` to write data to the data stream.
+   * For reading from a data stream: `ydb.kafkaApi.client` and `ydb.viewer`.
+   * For writing to a data stream: `ydb.kafkaApi.client` and `ydb.editor`.
 1. [Create an API key](../../iam/operations/api-key/create) with the `yc.ydb.topics.manage` scope.
 
 
@@ -23,7 +23,7 @@ The Kafka API uses the [SASL_SSL/PLAIN](https://docs.confluent.io/platform/curre
 
 The following parameters are required:
 
-* `<database>`: Database path. To view the database path, in the [management console]({{ link-console-main }}), go to the data stream page and open the **Overview** tab. The path is specified in the **Endpoint** field after `database=`.
+* `<database>`: Database path. The database path is displayed in the [management console]({{ link-console-main }}) after `database=` in the **Endpoint** field on the **Overview** tab.
 
     For example, in the `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}` endpoint, `{{ ydb.path-serverless }}` is the database path.
 
@@ -31,7 +31,7 @@ The following parameters are required:
 
 Parameters used for authentication when reading and writing messages:
 
-* `<sasl.username>` = `@<database>` (Note that you need to add `@` before the database path.)
+* `<sasl.username>` = `@<database>` (Note that you need to put `@` before the path to the database)
 * `<sasl.password>` = `<api-key>`
 
 ## Example of writing and reading a message {#example}

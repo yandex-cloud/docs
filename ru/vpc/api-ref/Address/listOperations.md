@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/listOperations.md
 ---
 
-# Virtual Private Cloud API, REST: Address.ListOperations {#ListOperations}
+# Virtual Private Cloud API, REST: Address.ListOperations
 
 List operations for the specified address.
 

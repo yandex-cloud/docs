@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/create.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.Create {#Create}
+# Application Load Balancer API, REST: VirtualHost.Create
 
 Creates a virtual host in the specified HTTP router.
 

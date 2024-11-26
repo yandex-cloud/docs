@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.Update {#Update}
+# Managed Service for ClickHouse API, REST: Cluster.Update
 
 Updates the specified ClickHouse cluster.
 

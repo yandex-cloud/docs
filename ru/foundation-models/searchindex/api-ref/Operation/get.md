@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/Operation/get.md
 ---
 
-# Search Index, REST: Operation.Get {#Get}
+# Search Index, REST: Operation.Get
 
 Returns the specified Operation resource.
 

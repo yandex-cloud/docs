@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Cluster/rescheduleMaintenance.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: ClusterService.RescheduleMaintenance {#RescheduleMaintenance}
+# Managed Service for Elasticsearch API, gRPC: ClusterService.RescheduleMaintenance
 
 Reschedule planned maintenance operation.
 
@@ -15,18 +15,18 @@ Reschedule planned maintenance operation.
 
 ```json
 {
-  "clusterId": "string",
-  "rescheduleType": "RescheduleType",
-  "delayedUntil": "google.protobuf.Timestamp"
+  "cluster_id": "string",
+  "reschedule_type": "RescheduleType",
+  "delayed_until": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. Required. ID of the Elasticsearch cluster to maintenance reschedule. ||
-|| rescheduleType | enum **RescheduleType**
+|| reschedule_type | enum **RescheduleType**
 
 Required field. Required. The type of reschedule request.
 
@@ -34,7 +34,7 @@ Required field. Required. The type of reschedule request.
 - `IMMEDIATE`
 - `NEXT_AVAILABLE_WINDOW`
 - `SPECIFIC_TIME` ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled. ||
 |#
@@ -45,20 +45,20 @@ The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time sch
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "delayedUntil": "google.protobuf.Timestamp"
+    "cluster_id": "string",
+    "delayed_until": "google.protobuf.Timestamp"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -73,40 +73,40 @@ The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time sch
     "config": {
       "version": "string",
       "elasticsearch": {
-        "dataNode": {
-          // Includes only one of the fields `elasticsearchConfigSet_7`
-          "elasticsearchConfigSet_7": {
-            "effectiveConfig": {
-              "maxClauseCount": "google.protobuf.Int64Value",
-              "fielddataCacheSize": "string",
-              "reindexRemoteWhitelist": "string",
-              "reindexSslCaPath": "string"
+        "data_node": {
+          // Includes only one of the fields `elasticsearch_config_set_7`
+          "elasticsearch_config_set_7": {
+            "effective_config": {
+              "max_clause_count": "google.protobuf.Int64Value",
+              "fielddata_cache_size": "string",
+              "reindex_remote_whitelist": "string",
+              "reindex_ssl_ca_path": "string"
             },
-            "userConfig": {
-              "maxClauseCount": "google.protobuf.Int64Value",
-              "fielddataCacheSize": "string",
-              "reindexRemoteWhitelist": "string",
-              "reindexSslCaPath": "string"
+            "user_config": {
+              "max_clause_count": "google.protobuf.Int64Value",
+              "fielddata_cache_size": "string",
+              "reindex_remote_whitelist": "string",
+              "reindex_ssl_ca_path": "string"
             },
-            "defaultConfig": {
-              "maxClauseCount": "google.protobuf.Int64Value",
-              "fielddataCacheSize": "string",
-              "reindexRemoteWhitelist": "string",
-              "reindexSslCaPath": "string"
+            "default_config": {
+              "max_clause_count": "google.protobuf.Int64Value",
+              "fielddata_cache_size": "string",
+              "reindex_remote_whitelist": "string",
+              "reindex_ssl_ca_path": "string"
             }
           },
           // end of the list of possible fields
           "resources": {
-            "resourcePresetId": "string",
-            "diskSize": "int64",
-            "diskTypeId": "string"
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
           }
         },
-        "masterNode": {
+        "master_node": {
           "resources": {
-            "resourcePresetId": "string",
-            "diskSize": "int64",
-            "diskTypeId": "string"
+            "resource_preset_id": "string",
+            "disk_size": "int64",
+            "disk_type_id": "string"
           }
         },
         "plugins": [
@@ -115,26 +115,26 @@ The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time sch
       },
       "edition": "string"
     },
-    "networkId": "string",
+    "network_id": "string",
     "health": "Health",
     "status": "Status",
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ],
-    "serviceAccountId": "string",
-    "deletionProtection": "bool",
-    "maintenanceWindow": {
-      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "service_account_id": "string",
+    "deletion_protection": "bool",
+    "maintenance_window": {
+      // Includes only one of the fields `anytime`, `weekly_maintenance_window`
       "anytime": "AnytimeMaintenanceWindow",
-      "weeklyMaintenanceWindow": {
+      "weekly_maintenance_window": {
         "day": "WeekDay",
         "hour": "int64"
       }
       // end of the list of possible fields
     },
-    "plannedOperation": {
+    "planned_operation": {
       "info": "string",
-      "delayedUntil": "google.protobuf.Timestamp"
+      "delayed_until": "google.protobuf.Timestamp"
     }
   }
   // end of the list of possible fields
@@ -151,13 +151,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -200,10 +200,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required. ID of the Elasticsearch cluster. ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required. New time of the planned maintenance. Can be in the past for rescheduled to "IMMEDIATE". ||
 |#
@@ -219,10 +219,10 @@ For more information, see the [Concepts](/docs/managed-elasticsearch/concepts) s
 
 ID of the Elasticsearch cluster.
 This ID is assigned at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Elasticsearch cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -249,7 +249,7 @@ Description of monitoring systems relevant to the Elasticsearch cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.elasticsearch.v1.ClusterConfig)**
 
 Configuration of the Elasticsearch cluster. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the cluster belongs to. ||
 || health | enum **Health**
@@ -272,19 +272,19 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account used for access to Object Storage. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.elasticsearch.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.elasticsearch.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.elasticsearch.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.elasticsearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest maintenance_window. ||
 |#
@@ -325,10 +325,10 @@ ElasticSearch edition. ||
 
 #|
 ||Field | Description ||
-|| dataNode | **[DataNode](#yandex.cloud.mdb.elasticsearch.v1.Elasticsearch.DataNode)**
+|| data_node | **[DataNode](#yandex.cloud.mdb.elasticsearch.v1.Elasticsearch.DataNode)**
 
 Configuration and resource allocation for Elasticsearch data nodes. ||
-|| masterNode | **[MasterNode](#yandex.cloud.mdb.elasticsearch.v1.Elasticsearch.MasterNode)**
+|| master_node | **[MasterNode](#yandex.cloud.mdb.elasticsearch.v1.Elasticsearch.MasterNode)**
 
 Configuration and resource allocation for Elasticsearch master nodes. ||
 || plugins[] | **string**
@@ -340,11 +340,11 @@ Cluster wide plugins ||
 
 #|
 ||Field | Description ||
-|| elasticsearchConfigSet_7 | **[ElasticsearchConfigSet7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfigSet7)**
+|| elasticsearch_config_set_7 | **[ElasticsearchConfigSet7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfigSet7)**
 
 Elasticsearch 7.x data node configuration.
 
-Includes only one of the fields `elasticsearchConfigSet_7`. ||
+Includes only one of the fields `elasticsearch_config_set_7`. ||
 || resources | **[Resources](#yandex.cloud.mdb.elasticsearch.v1.Resources)**
 
 Resources allocated to Elasticsearch data nodes. ||
@@ -356,13 +356,13 @@ Elasticsearch 7.x data node configuration.
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
+|| effective_config | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
 
-Required field. Effective settings for an Elasticsearch cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
+Required field. Effective settings for an Elasticsearch cluster (a combination of settings defined in `user_config` and `default_config`). ||
+|| user_config | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
 
 User-defined settings for an Elasticsearch cluster. ||
-|| defaultConfig | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
+|| default_config | **[ElasticsearchConfig7](#yandex.cloud.mdb.elasticsearch.v1.config.ElasticsearchConfig7)**
 
 Default settings for an Elasticsearch cluster. ||
 |#
@@ -377,7 +377,7 @@ Any options that are not listed here are not supported.
 
 #|
 ||Field | Description ||
-|| maxClauseCount | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of clauses a boolean query can contain.
 
@@ -387,7 +387,7 @@ It affects not only Elasticsearch's `bool` query, but many other queries that ar
 Default value: `1024`.
 
 See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html). ||
-|| fielddataCacheSize | **string**
+|| fielddata_cache_size | **string**
 
 The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.
 
@@ -397,12 +397,12 @@ Building the field data cache for a field can be an expensive operations, so its
 Default value: unbounded.
 
 See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html). ||
-|| reindexRemoteWhitelist | **string**
+|| reindex_remote_whitelist | **string**
 
 Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
 It can be set to a comma delimited list of allowed remote host and port combinations.
 Scheme is ignored, only the host and port are used. ||
-|| reindexSslCaPath | **string**
+|| reindex_ssl_ca_path | **string**
 
 List of paths to PEM encoded certificate files that should be trusted.
 
@@ -415,14 +415,14 @@ Computational resources.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage). ||
@@ -443,10 +443,10 @@ Resources allocated to Elasticsearch master nodes. ||
 ||Field | Description ||
 || anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.elasticsearch.v1.AnytimeMaintenanceWindow)**
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.elasticsearch.v1.WeeklyMaintenanceWindow)**
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.elasticsearch.v1.WeeklyMaintenanceWindow)**
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
 
 ## AnytimeMaintenanceWindow {#yandex.cloud.mdb.elasticsearch.v1.AnytimeMaintenanceWindow}
@@ -480,5 +480,5 @@ Hour of the day in UTC. ||
 #|
 ||Field | Description ||
 || info | **string** ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

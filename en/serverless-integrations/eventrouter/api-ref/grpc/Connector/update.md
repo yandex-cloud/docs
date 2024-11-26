@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Connector/update.md
 ---
 
-# EventRouter Service, gRPC: ConnectorService.Update {#Update}
+# EventRouter Service, gRPC: ConnectorService.Update
 
 Updates the specified connector.
 
@@ -15,21 +15,21 @@ Updates the specified connector.
 
 ```json
 {
-  "connectorId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "connector_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "deletionProtection": "bool"
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| connectorId | **string**
+|| connector_id | **string**
 
 Required field. ID of the connector to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the connector are going to be updated. ||
 || name | **string**
@@ -41,7 +41,7 @@ New description of the connector. ||
 || labels | **string**
 
 New labels of the connector. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 New flag that disallow deletion of the connector. ||
 |#
@@ -52,42 +52,42 @@ New flag that disallow deletion of the connector. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "connectorId": "string"
+    "connector_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "busId": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "bus_id": "string",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "source": {
-      // Includes only one of the fields `dataStream`, `messageQueue`
-      "dataStream": {
+      // Includes only one of the fields `data_stream`, `message_queue`
+      "data_stream": {
         "database": "string",
-        "streamName": "string",
+        "stream_name": "string",
         "consumer": "string",
-        "serviceAccountId": "string"
+        "service_account_id": "string"
       },
-      "messageQueue": {
-        "queueArn": "string",
-        "serviceAccountId": "string",
-        "visibilityTimeout": "google.protobuf.Duration",
-        "batchSize": "int64",
-        "pollingTimeout": "google.protobuf.Duration"
+      "message_queue": {
+        "queue_arn": "string",
+        "service_account_id": "string",
+        "visibility_timeout": "google.protobuf.Duration",
+        "batch_size": "int64",
+        "polling_timeout": "google.protobuf.Duration"
       }
       // end of the list of possible fields
     },
-    "deletionProtection": "bool",
+    "deletion_protection": "bool",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -104,13 +104,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -153,7 +153,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| connectorId | **string**
+|| connector_id | **string**
 
 Required field. ID of the connector that is being updated. ||
 |#
@@ -165,16 +165,16 @@ Required field. ID of the connector that is being updated. ||
 || id | **string**
 
 ID of the connector. ||
-|| busId | **string**
+|| bus_id | **string**
 
 ID of the bus that the connector belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the connector resides in. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the connector resides in. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -189,7 +189,7 @@ Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
 
 Source of the connector. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion protection. ||
 || status | enum **Status**
@@ -210,12 +210,12 @@ Status of the connector.
 
 #|
 ||Field | Description ||
-|| dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
+|| data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
-|| messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
+Includes only one of the fields `data_stream`, `message_queue`. ||
+|| message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `data_stream`, `message_queue`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -226,13 +226,13 @@ Includes only one of the fields `dataStream`, `messageQueue`. ||
 
 Required field. Stream database.
 example: /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6******** ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Required field. Stream name, absolute or relative. ||
 || consumer | **string**
 
 Required field. Consumer name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has read permission on the stream. ||
 |#
@@ -241,20 +241,20 @@ Required field. Service account which has read permission on the stream. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 Required field. Queue ARN.
 Example: yrn:yc:ymq:ru-central1:aoe***:test ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has read access to the queue. ||
-|| visibilityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| visibility_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue visibility timeout override. ||
-|| batchSize | **int64**
+|| batch_size | **int64**
 
 Batch size for polling. ||
-|| pollingTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| polling_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue polling timeout. ||
 |#

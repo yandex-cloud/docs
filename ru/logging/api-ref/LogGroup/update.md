@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/update.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.Update {#Update}
+# Cloud Logging Service, REST: LogGroup.Update
 
 Updates the specified log group.
 

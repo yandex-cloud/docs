@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/create.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.Create {#Create}
+# Application Load Balancer API, REST: HttpRouter.Create
 
 Creates an HTTP router in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/list.md
 ---
 
-# Cloud DNS API, REST: DnsZone.List {#List}
+# Cloud DNS API, REST: DnsZone.List
 
 Retrieves the list of DNS zones in the specified folder.
 

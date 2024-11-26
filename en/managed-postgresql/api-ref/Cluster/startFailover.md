@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/startFailover.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Cluster.StartFailover {#StartFailover}
+# Managed Service for PostgreSQL API, REST: Cluster.StartFailover
 
 Start a manual failover on the specified PostgreSQL cluster.
 

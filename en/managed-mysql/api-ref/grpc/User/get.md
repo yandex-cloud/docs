@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/User/get.md
 ---
 
-# Managed Service for MySQL API, gRPC: UserService.Get {#Get}
+# Managed Service for MySQL API, gRPC: UserService.Get
 
 Retrieves information about the specified user.
 
@@ -15,19 +15,19 @@ Retrieves information about the specified user.
 
 ```json
 {
-  "clusterId": "string",
-  "userName": "string"
+  "cluster_id": "string",
+  "user_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster the user belongs to.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| userName | **string**
+|| user_name | **string**
 
 Required field. Name of the user to return information about.
 
@@ -39,25 +39,25 @@ To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/grpc/Use
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "permissions": [
     {
-      "databaseName": "string",
+      "database_name": "string",
       "roles": [
         "Privilege"
       ]
     }
   ],
-  "globalPermissions": [
+  "global_permissions": [
     "GlobalPermission"
   ],
-  "connectionLimits": {
-    "maxQuestionsPerHour": "google.protobuf.Int64Value",
-    "maxUpdatesPerHour": "google.protobuf.Int64Value",
-    "maxConnectionsPerHour": "google.protobuf.Int64Value",
-    "maxUserConnections": "google.protobuf.Int64Value"
+  "connection_limits": {
+    "max_questions_per_hour": "google.protobuf.Int64Value",
+    "max_updates_per_hour": "google.protobuf.Int64Value",
+    "max_connections_per_hour": "google.protobuf.Int64Value",
+    "max_user_connections": "google.protobuf.Int64Value"
   },
-  "authenticationPlugin": "AuthPlugin"
+  "authentication_plugin": "AuthPlugin"
 }
 ```
 
@@ -70,13 +70,13 @@ See [the documentation](/docs/managed-mysql/operations/cluster-users) for detail
 || name | **string**
 
 Name of the user. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster the user belongs to. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
 
 Set of permissions granted to the user. ||
-|| globalPermissions[] | enum **GlobalPermission**
+|| global_permissions[] | enum **GlobalPermission**
 
 Set of global permissions to grant to the user.
 
@@ -95,10 +95,10 @@ The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
 The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
-|| connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
+|| connection_limits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of user connection limits. ||
-|| authenticationPlugin | enum **AuthPlugin**
+|| authentication_plugin | enum **AuthPlugin**
 
 User authentication plugin.
 
@@ -112,7 +112,7 @@ User authentication plugin.
 
 #|
 ||Field | Description ||
-|| databaseName | **string**
+|| database_name | **string**
 
 Name of the database that the permission grants access to. ||
 || roles[] | enum **Privilege**
@@ -151,16 +151,16 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
 #|
 ||Field | Description ||
-|| maxQuestionsPerHour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_questions_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of user questions per hour. ||
-|| maxUpdatesPerHour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_updates_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of user updates per hour. ||
-|| maxConnectionsPerHour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of simultaneous client connections per hour. ||
-|| maxUserConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
 |#

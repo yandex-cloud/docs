@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/delete.md
 ---
 
-# IoT Core Service, REST: Registry.Delete {#Delete}
+# IoT Core Service, REST: Registry.Delete
 
 Deletes the specified registry.
 

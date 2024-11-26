@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/attachTargetGroup.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.AttachTargetGroup {#AttachTargetGroup}
+# Network Load Balancer API, REST: NetworkLoadBalancer.AttachTargetGroup
 
 Attaches a target group to the specified network load balancer.
 

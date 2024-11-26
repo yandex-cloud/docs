@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/stop.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Stop {#Stop}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Stop
 
 Stops the specified instance group.
 

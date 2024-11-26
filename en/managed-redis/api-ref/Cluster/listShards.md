@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/listShards.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.ListShards {#ListShards}
+# Managed Service for Redis API, REST: Cluster.ListShards
 
 Retrieves a list of shards.
 

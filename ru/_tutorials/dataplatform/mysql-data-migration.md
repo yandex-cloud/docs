@@ -61,7 +61,7 @@
 
     1. (Опционально) [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) на базе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) со следующими параметрами:
 
-        * **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}** — достаточный для хранения распакованного и нераспакованного дампов.
+        * **{{ ui-key.yacloud.compute.instances.create.section_storages }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}** — достаточный для хранения распакованного и нераспакованного дампов.
 
             Рекомендуется использовать объем в два или более раза превышающий суммарный объем дампа и архива с ним.
 

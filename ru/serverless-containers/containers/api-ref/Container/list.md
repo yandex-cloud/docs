@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/list.md
 ---
 
-# Serverless Containers Service, REST: Container.List {#List}
+# Serverless Containers Service, REST: Container.List
 
 Retrieves the list of containers in the specified folder.
 

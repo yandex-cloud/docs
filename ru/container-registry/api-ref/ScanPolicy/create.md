@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/create.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Create {#Create}
+# Container Registry API, REST: ScanPolicy.Create
 
 Creates a scan policy for the specified registry.
 

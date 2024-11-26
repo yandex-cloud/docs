@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/listOperations.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.ListOperations {#ListOperations}
+# Managed Service for MongoDB API, REST: Cluster.ListOperations
 
 Retrieves the list of Operation resources for the specified cluster.
 

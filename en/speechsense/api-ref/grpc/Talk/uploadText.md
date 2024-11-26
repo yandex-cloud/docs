@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/uploadText.md
 ---
 
-# Talk Analytics API, gRPC: TalkService.UploadText {#UploadText}
+# Talk Analytics API, gRPC: TalkService.UploadText
 
 rpc for uploading text talk document
 
@@ -16,7 +16,7 @@ rpc for uploading text talk document
 ```json
 {
   "metadata": {
-    "connectionId": "string",
+    "connection_id": "string",
     "fields": "string",
     "users": [
       {
@@ -26,10 +26,10 @@ rpc for uploading text talk document
       }
     ]
   },
-  "textContent": {
+  "text_content": {
     "messages": [
       {
-        "userId": "string",
+        "user_id": "string",
         "timestamp": "google.protobuf.Timestamp",
         // Includes only one of the fields `text`
         "text": {
@@ -47,14 +47,14 @@ request to create text based dialog
 #|
 ||Field | Description ||
 || metadata | **[TalkMetadata](#yandex.cloud.speechsense.v1.TalkMetadata)** ||
-|| textContent | **[TextContent](#yandex.cloud.speechsense.v1.TextContent)** ||
+|| text_content | **[TextContent](#yandex.cloud.speechsense.v1.TextContent)** ||
 |#
 
 ## TalkMetadata {#yandex.cloud.speechsense.v1.TalkMetadata}
 
 #|
 ||Field | Description ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 id of connection this talk belongs too ||
 || fields | **string**
@@ -90,7 +90,7 @@ per user specific metadata ||
 
 #|
 ||Field | Description ||
-|| userId | **string** ||
+|| user_id | **string** ||
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || text | **[TextPayload](#yandex.cloud.speechsense.v1.TextPayload)**
 
@@ -108,13 +108,13 @@ Includes only one of the fields `text`. ||
 
 ```json
 {
-  "talkId": "string"
+  "talk_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| talkId | **string**
+|| talk_id | **string**
 
 id of created talk document ||
 |#

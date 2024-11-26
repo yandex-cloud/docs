@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/get.md
 ---
 
-# AI Assistants API, REST: Assistant.Get {#Get}
+# AI Assistants API, REST: Assistant.Get
 
 Retrieve details of a specific assistant by its ID.
 

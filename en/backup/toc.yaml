@@ -7,6 +7,8 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Activating the service
+        href: operations/activate-service.md
       - name: VM in {{ backup-name }}
         items:
           - name: Creating and connecting a Linux VM
@@ -15,10 +17,14 @@ items:
             href: operations/create-vm-windows.md
           - name: Connecting a Linux VM
             href: operations/connect-vm-linux.md
+          - name: Connecting a Linux VM with {{ oslogin }}
+            href: operations/connect-vm-oslogin-linux.md
           - name: Connecting a Windows VM
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Updating a Linux VM connection with {{ oslogin }}
+            href: operations/refresh-connection-oslogin-linux.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
       - name: Backup policies

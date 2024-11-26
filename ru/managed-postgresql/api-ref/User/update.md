@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/update.md
 ---
 
-# Managed Service for PostgreSQL API, REST: User.Update {#Update}
+# Managed Service for PostgreSQL API, REST: User.Update
 
 Updates the specified PostgreSQL user.
 

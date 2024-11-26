@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/listAccessBindings.md
 ---
 
-# EventRouter Service, REST: Bus.ListAccessBindings {#ListAccessBindings}
+# EventRouter Service, REST: Bus.ListAccessBindings
 
 Lists existing access bindings for the specified bus.
 

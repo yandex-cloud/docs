@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateAuthSettings.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.UpdateAuthSettings {#UpdateAuthSettings}
+# Managed Service for OpenSearch API, REST: Cluster.UpdateAuthSettings
 
 Updates auth settings for specified cluster.
 

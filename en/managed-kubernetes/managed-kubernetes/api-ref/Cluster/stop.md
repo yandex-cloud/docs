@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/stop.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Stop {#Stop}
+# Managed Services for Kubernetes API, REST: Cluster.Stop
 
 Stops the specified Kubernetes cluster.
 

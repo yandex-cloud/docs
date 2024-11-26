@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/updateRoute.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.UpdateRoute {#UpdateRoute}
+# Application Load Balancer API, REST: VirtualHost.UpdateRoute
 
 Updates the specified route of the specified virtual host.
 

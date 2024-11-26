@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Operation/get.md
 ---
 
-# Identity and Access Management API, REST: Operation.Get {#Get}
+# Identity and Access Management API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

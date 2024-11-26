@@ -11,7 +11,7 @@ With {{ TF }}, you can create and modify {{ ydb-short-name }} databases, as well
 
 If you modify the database state via the configuration file and then change something else using the management console or CLI, {{ TF }} will remain unaware of these changes until you run the `terraform plan` or `terraform refresh` commands. These commands will force {{ TF }} to check the current state of the resources against what is written in the state file. However, this does not mean that {{ TF }} will automatically accept new changes and update the state file. The reason is that the next time you run the `terraform apply` command, {{ TF }} will try to bring the resources to the state described in your configuration file, which can overwrite or delete your external changes. Therefore, to avoid conflicts between {{ ydb-short-name }} state updates, you should use the single point of access, i.e., the configuration file.
 
-The `yandex_ydb` provider enables you to connect Terraform to {{ ydb-short-name }}, and the [yc](../../cli/quickstart.md) console client is used for authentication.
+Terraform connects to {{ ydb-short-name }} via the `yandex_ydb` provider, and authentication is enabled by the [yc](../../cli/quickstart.md) console client.
 
 This section contains the following guides:
 1. [Obtaining authentication data](credentials.md).
@@ -19,7 +19,7 @@ This section contains the following guides:
 1. [Creating configuration files and connecting to {{ ydb-short-name }}](configure.md).
 1. [Creating and editing parameters of a serverless database](serverless-database.md).
 1. [Creating and editing parameters of a dedicated database](dedicated-database.md).
-1. [Creating row-based tables in a database](row-tables.md).
+1. [Creating row-oriented tables in a database](row-tables.md).
 1. [Creating a table changefeed](cdc.md).
 1. [Creating secondary indexes in row-oriented tables](row-tables-secondary-index.md).
 1. [Creating topics](topic.md).
@@ -36,7 +36,7 @@ The following {{ TF }} provider resources are supported for {{ ydb-name }}:
 | [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic) | [Topic]({{ ydb.docs }}/concepts/topic) |
 | [yandex_ydb_table]({{ tf-provider-resources-link }}/ydb_table) | [Table]({{ ydb.docs }}/concepts/datamodel/table) |
 | [yandex_ydb_table_changefeed]({{ tf-provider-resources-link }}/ydb_table_changefeed) | [Change Data Capture]({{ ydb.docs }}/concepts/cdc) |
-| `yandex_ydb_table_index` | [Secondary table index]({{ ydb.docs }}/concepts/secondary_indexes) |
+| `yandex_ydb_table_index` | [Table secondary index]({{ ydb.docs }}/concepts/secondary_indexes) |
 
 ## Data sources {#data-sources}
 

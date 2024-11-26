@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/addListener.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.AddListener {#AddListener}
+# Network Load Balancer API, REST: NetworkLoadBalancer.AddListener
 
 Adds a listener to the specified network load balancer.
 

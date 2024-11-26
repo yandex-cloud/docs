@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/listOperations.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.ListOperations {#ListOperations}
+# Managed Service for Elasticsearch API, REST: Cluster.ListOperations
 
 Retrieves the list of operations for the specified Elasticsearch cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/listOperations.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.ListOperations {#ListOperations}
+# Cloud Organization API, gRPC: GroupService.ListOperations
 
 Lists operations for the specified group.
 
@@ -15,27 +15,27 @@ Lists operations for the specified group.
 
 ```json
 {
-  "groupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "group_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field. ID of the Group resource to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListGroupOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
+results is larger than `page_size`, the service returns a [ListGroupOperationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken`
-to the [ListGroupOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
+Page token. Set `page_token`
+to the [ListGroupOperationsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupOperationsResponse)
 returned by a previous list request to get the next page of results. ||
 |#
 
@@ -47,9 +47,9 @@ returned by a previous list request to get the next page of results. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -58,7 +58,7 @@ returned by a previous list request to get the next page of results. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,12 +67,12 @@ returned by a previous list request to get the next page of results. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListGroupOperationsRequest.pageSize](#yandex.cloud.organizationmanager.v1.ListGroupOperationsRequest), use the `nextPageToken` as the value
-for the [ListGroupOperationsRequest.pageToken](#yandex.cloud.organizationmanager.v1.ListGroupOperationsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListGroupOperationsRequest.page_size](#yandex.cloud.organizationmanager.v1.ListGroupOperationsRequest), use the `next_page_token` as the value
+for the [ListGroupOperationsRequest.page_token](#yandex.cloud.organizationmanager.v1.ListGroupOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -87,13 +87,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

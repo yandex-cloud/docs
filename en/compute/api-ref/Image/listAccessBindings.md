@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/listAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Image.ListAccessBindings {#ListAccessBindings}
+# Compute Cloud API, REST: Image.ListAccessBindings
 
 Lists access bindings for the image.
 

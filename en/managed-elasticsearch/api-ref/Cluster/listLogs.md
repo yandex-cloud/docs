@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/listLogs.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.ListLogs {#ListLogs}
+# Managed Service for Elasticsearch API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified Elasticsearch cluster.
 

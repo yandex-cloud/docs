@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Operation/get.md
 ---
 
-# Serverless Containers Service, REST: Operation.Get {#Get}
+# Serverless Containers Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

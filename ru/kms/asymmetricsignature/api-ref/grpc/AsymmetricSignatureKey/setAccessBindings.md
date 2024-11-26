@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/setAccessBindings.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureKeyService.SetAccessBindings {#SetAccessBindings}
+# Key Management Service API, gRPC: AsymmetricSignatureKeyService.SetAccessBindings
 
 Sets access bindings for the key.
 
@@ -15,10 +15,10 @@ Sets access bindings for the key.
 
 ```json
 {
-  "resourceId": "string",
-  "accessBindings": [
+  "resource_id": "string",
+  "access_bindings": [
     {
-      "roleId": "string",
+      "role_id": "string",
       "subject": {
         "id": "string",
         "type": "string"
@@ -30,12 +30,12 @@ Sets access bindings for the key.
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field. ID of the resource for which access bindings are being set.
 
 To get the resource ID, use a corresponding List request. ||
-|| accessBindings[] | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
+|| access_bindings[] | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
 
 Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). ||
 |#
@@ -44,7 +44,7 @@ Access bindings to be set. For more information, see [Access Bindings](/docs/iam
 
 #|
 ||Field | Description ||
-|| roleId | **string**
+|| role_id | **string**
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
@@ -92,12 +92,12 @@ For more information, see [Subject to which the role is assigned](/docs/iam/conc
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "resourceId": "string"
+    "resource_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -116,13 +116,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -165,7 +165,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of the resource for which access bindings are being set. ||
 |#

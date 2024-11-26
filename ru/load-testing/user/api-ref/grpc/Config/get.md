@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Config/get.md
 ---
 
-# Load Testing API, gRPC: ConfigService.Get {#Get}
+# Load Testing API, gRPC: ConfigService.Get
 
 Returns the specified config.
 
@@ -17,13 +17,13 @@ To get the list of all available configs, make a [List](/docs/load-testing/user/
 
 ```json
 {
-  "configId": "string"
+  "config_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| configId | **string**
+|| config_id | **string**
 
 ID of the config to return. ||
 |#
@@ -33,11 +33,11 @@ ID of the config to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "yamlString": "string",
+  "folder_id": "string",
+  "yaml_string": "string",
   "name": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string"
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string"
 }
 ```
 
@@ -48,19 +48,19 @@ Test config.
 || id | **string**
 
 ID of the test config. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the config belongs to. ||
-|| yamlString | **string**
+|| yaml_string | **string**
 
 Config content in YAML format. ||
 || name | **string**
 
 Name of the config. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 UA or SA that created the config. ||
 |#

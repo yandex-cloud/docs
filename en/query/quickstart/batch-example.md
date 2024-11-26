@@ -6,10 +6,10 @@ As a result, you will build a frequency distribution of ride duration vs. ride c
 
 To run this example:
 
-1. [{#T}](#before-you-begin)
-1. [{#T}](#create-binding)
-1. [{#T}](#run-query)
-1. [{#T}](#check-result)
+1. [Get things ready](#before-you-begin).
+1. [Connect to the data](#create-binding).
+1. [Run the query](#run-query).
+1. [Review the result](#check-result).
 
 {% note info %}
 
@@ -19,11 +19,11 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have a directory yet, [create one](../../resource-manager/operations/folder/create.md).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 
-## Create a data binding {#create-binding}
+## Connect to the data {#create-binding}
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 

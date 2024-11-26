@@ -25,7 +25,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 ## Prepare a test target {#target-prepare}
 
-In this example, we will test a service with the `172.17.0.10` [internal IP address](../../vpc/concepts/address.md#internal-addresses) in the same [subnet](../../vpc/concepts/network.md#subnet) as the agent.
+In this example, we will test a service with [internal IP address](../../vpc/concepts/address.md#internal-addresses) `172.17.0.10` in the same [subnet](../../vpc/concepts/network.md#subnet) as the agent.
 
 Make sure the service is accessed over HTTPS using the default port: `443`.
 
@@ -33,7 +33,7 @@ You can also use {{ load-testing-name }} for load testing of a service that is p
 
 For a public service, allow incoming HTTPS traffic on port `443`.
 
-For a service whose subnet and security group differ from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
+For a service whose subnet and security group is different from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `443` in the security group where the test target is located.
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -61,7 +61,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ## Prepare a file with test data {#test-file}
 
-1. Generate payloads in a `users.csv` file:
+1. Generate test data in the `users.csv` file:
 
    ```csv
    user_id,name,pass
@@ -143,13 +143,13 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
    }
    ```
 
-   This `test_scenario` script describes the `auth_req` and `order_req` requests. You can provide arguments to a request to set the number of its runs and the delay time between them. In this example, `order_req(3, 100)` means that `order_req` will run three times with an interval of 100 milliseconds.
+   This script named `test_scenario` describes the requests named `auth_req` and `order_req`: You can provide arguments to a request to set the number of its runs and the delay time between them. In this example, `order_req(3, 100)` means that `order_req` will run three times with an interval of 100 milliseconds.
 
    The `min_waiting_time` parameter defines the minimum script execution time in milliseconds. If a script is completed faster, the remaining time will be appended to the script as a delay.
 
-   The script features the `variables` variable source containing the `auth_path` and `order_path` variables. Their values are used to specify the request `uri`.
+   The script features a variable source called `variables` containing the `auth_path` and `order_path` variables. Their values are used to specify `uri` in requests.
 
-   Also, the script includes the `users` variable source referring to the data from the external `users.csv` file. To work with an array of users, the script employs a preprocessor with the following modifiers:
+   Also, the script includes the `users` variable source which uses the data from the external `users.csv` file. To work with an array of users, the script employs a preprocessor with the following modifiers:
    * `next` to get the next array element.
    * `last` to get the last array element.
    * `rand` to get a random array element.
@@ -159,7 +159,7 @@ In your test script, specify a sequence of HTTP requests to run during testing. 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
-1. Under **Attached files**, click **Select files** and select the `users.csv` and `payload.hcl` files you previously saved.
+1. Under **Attached files**, click **Select files** and select the `users.csv` and `payload.hcl` files you saved earlier.
 1. Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**, select the **{{ ui-key.yacloud.load-testing.label_settings-type-config }}** configuration method.
 
 1. In the configuration input field, specify the testing thread settings in `yaml` format:

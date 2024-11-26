@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.ListHosts {#ListHosts}
+# Managed Service for OpenSearch API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for the specified cluster.
 
@@ -15,27 +15,27 @@ Retrieves a list of hosts for the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster.
 To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns
-a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns
+a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
+Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)
 returned by the previous list request. ||
 |#
 
@@ -46,17 +46,17 @@ returned by the previous list request. ||
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "type": "Type",
       "health": "Health",
-      "subnetId": "string",
-      "assignPublicIp": "bool",
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
       "system": {
         "cpu": {
           "timestamp": "int64",
@@ -73,13 +73,13 @@ returned by the previous list request. ||
           "total": "int64"
         }
       },
-      "nodeGroup": "string",
+      "node_group": "string",
       "roles": [
         "GroupRole"
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -88,14 +88,14 @@ returned by the previous list request. ||
 || hosts[] | **[Host](#yandex.cloud.mdb.opensearch.v1.Host)**
 
 Requested list of hosts for the cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest), use the `nextPageToken`
-as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest) query parameter in the next list request.
+If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest), use the `next_page_token`
+as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest) query parameter in the next list request.
 
-Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.opensearch.v1.Host}
@@ -111,10 +111,10 @@ Required. Name of the OpenSearch host.
 The host name is assigned by the platform at creation time and cannot be changed.
 
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required. ID of the OpenSearch cluster. The ID is assigned by the platform at creation time. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone the OpenSearch host belongs to. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
@@ -135,16 +135,16 @@ Aggregated health of the host. If the field has default value, it is not returne
 - `ALIVE`: The host is performing all its functions normally.
 - `DEAD`: The host is inoperable and cannot perform any of its essential functions.
 - `DEGRADED`: The host is working below capacity or not fully functional. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the host. ||
 || system | **[SystemMetrics](#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics)**
 
 Resources used by the host. ||
-|| nodeGroup | **string**
+|| node_group | **string**
 
 Name of the host group that the host belongs to. ||
 || roles[] | enum **GroupRole**
@@ -162,13 +162,13 @@ A list of computational resources allocated to a host.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#

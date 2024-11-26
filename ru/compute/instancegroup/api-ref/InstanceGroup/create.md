@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/create.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Create {#Create}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Create
 
 Creates an instance group in the specified folder.
 This method starts an operation that can be cancelled by another operation.

@@ -23,7 +23,7 @@ description: This section contains {{ backup-name }} release notes.
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
   * [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
   * [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
-* Added support for images with OS Login:
+* Added support for images with {{ oslogin }}:
   * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
   * [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/deleteVersion.md
 ---
 
-# Cloud Functions Service, REST: Function.DeleteVersion {#DeleteVersion}
+# Cloud Functions Service, REST: Function.DeleteVersion
 
 Deletes the specified version of a function.
 

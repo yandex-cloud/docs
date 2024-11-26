@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/create.md
 ---
 
-# Video API, REST: StreamLine.Create {#Create}
+# Video API, REST: StreamLine.Create
 
 Create stream line.
 
@@ -48,10 +48,10 @@ POST https://video.{{ api-host }}/video/v1/streamLines
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || title | **string**
 
-Line title. ||
+Required field. Line title. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
@@ -122,7 +122,7 @@ Line type. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTMP streaming server. ||
+Required field. URL of a RTMP streaming server. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -131,7 +131,7 @@ URL of a RTMP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a SRT streaming server. ||
+Required field. URL of a SRT streaming server. ||
 |#
 
 ## TCPPullParams {#yandex.cloud.video.v1.TCPPullParams}
@@ -140,7 +140,7 @@ URL of a SRT streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a TCP streaming server. ||
+Required field. URL of a TCP streaming server. ||
 |#
 
 ## RTSPPullParams {#yandex.cloud.video.v1.RTSPPullParams}
@@ -149,7 +149,7 @@ URL of a TCP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTSP streaming server. ||
+Required field. URL of a RTSP streaming server. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

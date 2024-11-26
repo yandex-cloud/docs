@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listRouteTables.md
 ---
 
-# Virtual Private Cloud API, REST: Network.ListRouteTables {#ListRouteTables}
+# Virtual Private Cloud API, REST: Network.ListRouteTables
 
 Lists route tables from the specified network.
 

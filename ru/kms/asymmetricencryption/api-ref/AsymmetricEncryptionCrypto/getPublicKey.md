@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/getPublicKey.md
 ---
 
-# Key Management Service API, REST: AsymmetricEncryptionCrypto.GetPublicKey {#GetPublicKey}
+# Key Management Service API, REST: AsymmetricEncryptionCrypto.GetPublicKey
 
 Gets value of public key.
 

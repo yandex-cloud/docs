@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/apigateway/v1/apigateway/api-ref/grpc/ApiGateway/create.md
 ---
 
-# API Gateway Service, gRPC: ApiGatewayService.Create {#Create}
+# API Gateway Service, gRPC: ApiGatewayService.Create
 
 Creates an API gateway in the specified folder.
 
@@ -15,53 +15,53 @@ Creates an API gateway in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `openapiSpec`
-  "openapiSpec": "string",
+  // Includes only one of the fields `openapi_spec`
+  "openapi_spec": "string",
   // end of the list of possible fields
   "connectivity": {
-    "networkId": "string",
-    "subnetId": [
+    "network_id": "string",
+    "subnet_id": [
       "string"
     ]
   },
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   },
   "variables": {
-    // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-    "stringValue": "string",
-    "intValue": "int64",
-    "doubleValue": "double",
-    "boolValue": "bool"
+    // Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`
+    "string_value": "string",
+    "int_value": "int64",
+    "double_value": "double",
+    "bool_value": "bool"
     // end of the list of possible fields
   },
   "canary": {
     "weight": "int64",
     "variables": {
-      // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-      "stringValue": "string",
-      "intValue": "int64",
-      "doubleValue": "double",
-      "boolValue": "bool"
+      // Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`
+      "string_value": "string",
+      "int_value": "int64",
+      "double_value": "double",
+      "bool_value": "bool"
       // end of the list of possible fields
     }
   },
-  "executionTimeout": "google.protobuf.Duration"
+  "execution_timeout": "google.protobuf.Duration"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create an API gateway in.
 
@@ -76,17 +76,17 @@ Description of the API gateway. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. ||
-|| openapiSpec | **string**
+|| openapi_spec | **string**
 
 The text of specification, JSON or YAML.
 
-Includes only one of the fields `openapiSpec`.
+Includes only one of the fields `openapi_spec`.
 
 OpenAPI specification of API gateway. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.apigateway.v1.Connectivity)**
 
 Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
 
 Options for logging from the API gateway. ||
 || variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
@@ -95,7 +95,7 @@ Values of variables defined in the specification. ||
 || canary | **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
 
 Canary release of the gateway. ||
-|| executionTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for gateway call execution ||
 |#
@@ -106,11 +106,11 @@ Gateway connectivity specification.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Network the gateway will have access to.
 It's essential to specify network with subnets in all availability zones. ||
-|| subnetId[] | **string**
+|| subnet_id[] | **string**
 
 Complete list of subnets (from the same network) the gateway can be attached to.
 It's essential to specify at least one subnet for each availability zones. ||
@@ -123,21 +123,21 @@ It's essential to specify at least one subnet for each availability zones. ||
 || disabled | **bool**
 
 Is logging from API gateway disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -170,24 +170,24 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 
 #|
 ||Field | Description ||
-|| stringValue | **string**
+|| string_value | **string**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-
-Variable value that can has only primitive type ||
-|| intValue | **int64**
-
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
-|| doubleValue | **double**
+|| int_value | **int64**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
-|| boolValue | **bool**
+|| double_value | **double**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
+
+Variable value that can has only primitive type ||
+|| bool_value | **bool**
+
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
 |#
@@ -210,67 +210,67 @@ Values specification variables, associated with canary. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "apiGatewayId": "string"
+    "api_gateway_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "status": "Status",
     "domain": "string",
-    "logGroupId": "string",
-    "attachedDomains": [
+    "log_group_id": "string",
+    "attached_domains": [
       {
-        "domainId": "string",
-        "certificateId": "string",
+        "domain_id": "string",
+        "certificate_id": "string",
         "enabled": "bool",
         "domain": "string"
       }
     ],
     "connectivity": {
-      "networkId": "string",
-      "subnetId": [
+      "network_id": "string",
+      "subnet_id": [
         "string"
       ]
     },
-    "logOptions": {
+    "log_options": {
       "disabled": "bool",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
+      // Includes only one of the fields `log_group_id`, `folder_id`
+      "log_group_id": "string",
+      "folder_id": "string",
       // end of the list of possible fields
-      "minLevel": "Level"
+      "min_level": "Level"
     },
     "variables": {
-      // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-      "stringValue": "string",
-      "intValue": "int64",
-      "doubleValue": "double",
-      "boolValue": "bool"
+      // Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`
+      "string_value": "string",
+      "int_value": "int64",
+      "double_value": "double",
+      "bool_value": "bool"
       // end of the list of possible fields
     },
     "canary": {
       "weight": "int64",
       "variables": {
-        // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-        "stringValue": "string",
-        "intValue": "int64",
-        "doubleValue": "double",
-        "boolValue": "bool"
+        // Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`
+        "string_value": "string",
+        "int_value": "int64",
+        "double_value": "double",
+        "bool_value": "bool"
         // end of the list of possible fields
       }
     },
-    "executionTimeout": "google.protobuf.Duration"
+    "execution_timeout": "google.protobuf.Duration"
   }
   // end of the list of possible fields
 }
@@ -286,13 +286,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -335,7 +335,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| apiGatewayId | **string**
+|| api_gateway_id | **string**
 
 ID of the API gateway that is being created. ||
 |#
@@ -347,10 +347,10 @@ ID of the API gateway that is being created. ||
 || id | **string**
 
 ID of the API gateway. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the API gateway belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the API-gateway. ||
 || name | **string**
@@ -375,16 +375,16 @@ Status of the API gateway.
 || domain | **string**
 
 Default domain for the API gateway. Generated at creation time. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the log group for the API gateway. ||
-|| attachedDomains[] | **[AttachedDomain](#yandex.cloud.serverless.apigateway.v1.AttachedDomain)**
+|| attached_domains[] | **[AttachedDomain](#yandex.cloud.serverless.apigateway.v1.AttachedDomain)**
 
 List of domains attached to API gateway. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.apigateway.v1.Connectivity2)**
 
 Network access. If specified the gateway will be attached to specified network/subnet(s). ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions2)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions2)**
 
 Options for logging from the API gateway. ||
 || variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput2)**
@@ -393,7 +393,7 @@ Values of variables defined in the specification. ||
 || canary | **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary2)**
 
 Canary release of the gateway. ||
-|| executionTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for gateway call execution ||
 |#
@@ -402,10 +402,10 @@ Timeout for gateway call execution ||
 
 #|
 ||Field | Description ||
-|| domainId | **string**
+|| domain_id | **string**
 
 ID of the domain. ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the domain certificate. ||
 || enabled | **bool**
@@ -422,11 +422,11 @@ Gateway connectivity specification.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Network the gateway will have access to.
 It's essential to specify network with subnets in all availability zones. ||
-|| subnetId[] | **string**
+|| subnet_id[] | **string**
 
 Complete list of subnets (from the same network) the gateway can be attached to.
 It's essential to specify at least one subnet for each availability zones. ||
@@ -439,21 +439,21 @@ It's essential to specify at least one subnet for each availability zones. ||
 || disabled | **bool**
 
 Is logging from API gateway disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -486,24 +486,24 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 
 #|
 ||Field | Description ||
-|| stringValue | **string**
+|| string_value | **string**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
-
-Variable value that can has only primitive type ||
-|| intValue | **int64**
-
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
-|| doubleValue | **double**
+|| int_value | **int64**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
-|| boolValue | **bool**
+|| double_value | **double**
 
-Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`.
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
+
+Variable value that can has only primitive type ||
+|| bool_value | **bool**
+
+Includes only one of the fields `string_value`, `int_value`, `double_value`, `bool_value`.
 
 Variable value that can has only primitive type ||
 |#

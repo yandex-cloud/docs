@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/removeOneToOneNat.md
 ---
 
-# Compute Cloud API, REST: Instance.RemoveOneToOneNat {#RemoveOneToOneNat}
+# Compute Cloud API, REST: Instance.RemoveOneToOneNat
 
 Removes One-to-one NAT from the network interface.
 

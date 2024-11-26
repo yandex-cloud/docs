@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listConnectedResources.md
 ---
 
-# Cloud Functions Service, REST: Network.ListConnectedResources {#ListConnectedResources}
+# Cloud Functions Service, REST: Network.ListConnectedResources
 
 Retrieves the list of serverless resources connected to any network from the specified scope.
 

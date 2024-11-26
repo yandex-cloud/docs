@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/search.md
 ---
 
-# Talk Analytics API, gRPC: TalkService.Search {#Search}
+# Talk Analytics API, gRPC: TalkService.Search
 
 rpc for searching talks. will return ids only
 
@@ -15,67 +15,67 @@ rpc for searching talks. will return ids only
 
 ```json
 {
-  "organizationId": "string",
-  "spaceId": "string",
-  "connectionId": "string",
-  "projectId": "string",
+  "organization_id": "string",
+  "space_id": "string",
+  "connection_id": "string",
+  "project_id": "string",
   "filters": [
     {
       "key": "string",
-      // Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`
-      "anyMatch": {
+      // Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`
+      "any_match": {
         "values": [
           "string"
         ]
       },
-      "intRange": {
-        "fromValue": "google.protobuf.Int64Value",
-        "toValue": "google.protobuf.Int64Value",
-        "boundsInclusive": {
-          "fromInclusive": "bool",
-          "toInclusive": "bool"
+      "int_range": {
+        "from_value": "google.protobuf.Int64Value",
+        "to_value": "google.protobuf.Int64Value",
+        "bounds_inclusive": {
+          "from_inclusive": "bool",
+          "to_inclusive": "bool"
         }
       },
-      "doubleRange": {
-        "fromValue": "google.protobuf.DoubleValue",
-        "toValue": "google.protobuf.DoubleValue",
-        "boundsInclusive": {
-          "fromInclusive": "bool",
-          "toInclusive": "bool"
+      "double_range": {
+        "from_value": "google.protobuf.DoubleValue",
+        "to_value": "google.protobuf.DoubleValue",
+        "bounds_inclusive": {
+          "from_inclusive": "bool",
+          "to_inclusive": "bool"
         }
       },
-      "dateRange": {
-        "fromValue": "google.protobuf.Timestamp",
-        "toValue": "google.protobuf.Timestamp",
-        "boundsInclusive": {
-          "fromInclusive": "bool",
-          "toInclusive": "bool"
+      "date_range": {
+        "from_value": "google.protobuf.Timestamp",
+        "to_value": "google.protobuf.Timestamp",
+        "bounds_inclusive": {
+          "from_inclusive": "bool",
+          "to_inclusive": "bool"
         }
       },
-      "durationRange": {
-        "fromValue": "google.protobuf.Duration",
-        "toValue": "google.protobuf.Duration",
-        "boundsInclusive": {
-          "fromInclusive": "bool",
-          "toInclusive": "bool"
+      "duration_range": {
+        "from_value": "google.protobuf.Duration",
+        "to_value": "google.protobuf.Duration",
+        "bounds_inclusive": {
+          "from_inclusive": "bool",
+          "to_inclusive": "bool"
         }
       },
-      "booleanMatch": {
+      "boolean_match": {
         "value": "bool"
       },
       // end of the list of possible fields
       "inverse": "bool",
-      "channelNumber": "google.protobuf.Int64Value"
+      "channel_number": "google.protobuf.Int64Value"
     }
   ],
   "query": {
     "text": "string",
     "inverse": "bool",
-    "channelNumber": "google.protobuf.Int64Value"
+    "channel_number": "google.protobuf.Int64Value"
   },
-  "pageSize": "int64",
-  "pageToken": "string",
-  "sortData": {
+  "page_size": "int64",
+  "page_token": "string",
+  "sort_data": {
     "fields": [
       {
         "field": "string",
@@ -89,16 +89,16 @@ rpc for searching talks. will return ids only
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 id of organization ||
-|| spaceId | **string**
+|| space_id | **string**
 
 id of space ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 id of connection ||
-|| projectId | **string**
+|| project_id | **string**
 
 id of project ||
 || filters[] | **[Filter](#yandex.cloud.speechsense.v1.Filter)**
@@ -107,13 +107,13 @@ metadata keys filters (user and system) ||
 || query | **[Query](#yandex.cloud.speechsense.v1.Query)**
 
 Full-text search query ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 page size, from 1 to 1000, default 100 ||
-|| pageToken | **string**
+|| page_token | **string**
 
 next page token, if page is not first ||
-|| sortData | **[SortData](#yandex.cloud.speechsense.v1.SortData)**
+|| sort_data | **[SortData](#yandex.cloud.speechsense.v1.SortData)**
 
 talks sorting options ||
 |#
@@ -125,38 +125,38 @@ talks sorting options ||
 || key | **string**
 
 metadata key (user.some_key / system.created_at / analysis.speechkit.duration) ||
-|| anyMatch | **[AnyMatchFilter](#yandex.cloud.speechsense.v1.AnyMatchFilter)**
+|| any_match | **[AnyMatchFilter](#yandex.cloud.speechsense.v1.AnyMatchFilter)**
 
 find talk matched by any text filters
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
-|| intRange | **[IntRangeFilter](#yandex.cloud.speechsense.v1.IntRangeFilter)**
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
+|| int_range | **[IntRangeFilter](#yandex.cloud.speechsense.v1.IntRangeFilter)**
 
 find talks with value from int range
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
-|| doubleRange | **[DoubleRangeFilter](#yandex.cloud.speechsense.v1.DoubleRangeFilter)**
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
+|| double_range | **[DoubleRangeFilter](#yandex.cloud.speechsense.v1.DoubleRangeFilter)**
 
 find talks with value from double range
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
-|| dateRange | **[DateRangeFilter](#yandex.cloud.speechsense.v1.DateRangeFilter)**
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
+|| date_range | **[DateRangeFilter](#yandex.cloud.speechsense.v1.DateRangeFilter)**
 
 find talks with value from date range
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
-|| durationRange | **[DurationRangeFilter](#yandex.cloud.speechsense.v1.DurationRangeFilter)**
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
+|| duration_range | **[DurationRangeFilter](#yandex.cloud.speechsense.v1.DurationRangeFilter)**
 
 find talks with value from duration range
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
-|| booleanMatch | **[BooleanFilter](#yandex.cloud.speechsense.v1.BooleanFilter)**
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
+|| boolean_match | **[BooleanFilter](#yandex.cloud.speechsense.v1.BooleanFilter)**
 
 find talks with value equals boolean
 
-Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`. ||
+Includes only one of the fields `any_match`, `int_range`, `double_range`, `date_range`, `duration_range`, `boolean_match`. ||
 || inverse | **bool** ||
-|| channelNumber | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| channel_number | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 channel number to apply filter for, starting with 0. applies to all channels if not specified ||
 |#
@@ -174,9 +174,9 @@ values list to match with "OR" operator ||
 
 #|
 ||Field | Description ||
-|| fromValue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| toValue | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| boundsInclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
+|| from_value | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| to_value | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| bounds_inclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
 |#
 
 ## BoundsInclusive {#yandex.cloud.speechsense.v1.BoundsInclusive}
@@ -185,10 +185,10 @@ indicates whether to include range boundaries
 
 #|
 ||Field | Description ||
-|| fromInclusive | **bool**
+|| from_inclusive | **bool**
 
 include from bound ||
-|| toInclusive | **bool**
+|| to_inclusive | **bool**
 
 include to bound ||
 |#
@@ -197,27 +197,27 @@ include to bound ||
 
 #|
 ||Field | Description ||
-|| fromValue | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)** ||
-|| toValue | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)** ||
-|| boundsInclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
+|| from_value | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)** ||
+|| to_value | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)** ||
+|| bounds_inclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
 |#
 
 ## DateRangeFilter {#yandex.cloud.speechsense.v1.DateRangeFilter}
 
 #|
 ||Field | Description ||
-|| fromValue | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| toValue | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| boundsInclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
+|| from_value | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| to_value | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| bounds_inclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
 |#
 
 ## DurationRangeFilter {#yandex.cloud.speechsense.v1.DurationRangeFilter}
 
 #|
 ||Field | Description ||
-|| fromValue | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| toValue | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
-|| boundsInclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
+|| from_value | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| to_value | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
+|| bounds_inclusive | **[BoundsInclusive](#yandex.cloud.speechsense.v1.BoundsInclusive)** ||
 |#
 
 ## BooleanFilter {#yandex.cloud.speechsense.v1.BooleanFilter}
@@ -235,7 +235,7 @@ include to bound ||
 || inverse | **bool**
 
 should or should NOT match ||
-|| channelNumber | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| channel_number | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 id of channel to search ("1", "2", ..., any channel if not set) ||
 |#
@@ -270,23 +270,23 @@ number of field in comparing order (sort by key1 (position = 0), then key2 (posi
 
 ```json
 {
-  "talkIds": [
+  "talk_ids": [
     "string"
   ],
-  "talksCount": "int64",
-  "nextPageToken": "string"
+  "talks_count": "int64",
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| talkIds[] | **string**
+|| talk_ids[] | **string**
 
 page results entries ||
-|| talksCount | **int64**
+|| talks_count | **int64**
 
 total documents matched ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 page token for next request ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/updateFromYaml.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.UpdateFromYaml {#UpdateFromYaml}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.UpdateFromYaml
 
 Updates the specified instance group from a YAML file.
 This method starts an operation that can be cancelled by another operation.

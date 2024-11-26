@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/get.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Get {#Get}
+# Cloud CDN API, REST: ResourceRules.Get
 
 Get specified by id resource rule.
 

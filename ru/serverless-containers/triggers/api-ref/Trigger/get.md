@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/get.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Get {#Get}
+# Cloud Functions Triggers Service, REST: Trigger.Get
 
 Returns the specified trigger.
 

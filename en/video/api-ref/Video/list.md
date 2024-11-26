@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Video/list.md
 ---
 
-# Video API, REST: Video.List {#List}
+# Video API, REST: Video.List
 
 List videos for channel.
 
@@ -19,7 +19,7 @@ GET https://video.{{ api-host }}/video/v1/videos
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || pageSize | **string** (int64)
 
 The maximum number of the results per page to return. Default value: 100. ||
@@ -59,14 +59,19 @@ Both snake_case and camelCase are supported for fields. ||
       "status": "string",
       "duration": "string",
       "visibilityStatus": "string",
+      "autoTranscode": "string",
+      "subtitleIds": [
+        "string"
+      ],
       // Includes only one of the fields `tusd`
       "tusd": {
         "url": "string"
       },
       // end of the list of possible fields
-      // Includes only one of the fields `publicAccess`, `authSystemAccess`
+      // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
       "publicAccess": "object",
       "authSystemAccess": "object",
+      "signUrlAccess": "object",
       // end of the list of possible fields
       "createdAt": "string",
       "updatedAt": "string",
@@ -123,6 +128,18 @@ Video visibility status.
 - `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
 - `PUBLISHED`: Video is published and available for viewing.
 - `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
+|| autoTranscode | **enum** (AutoTranscode)
+
+Auto start transcoding.
+If set to ENABLE, transcoding process is initiated automatically after video upload.
+If set to DISABLE, manual "Transcode()" call is required instead.
+
+- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
+- `ENABLE`: Enable auto transcoding.
+- `DISABLE`: Disable auto transcoding. ||
+|| subtitleIds[] | **string**
+
+IDs of active video subtitles. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
 Upload video using the tus protocol.
@@ -134,14 +151,21 @@ Source type. ||
 
 Video is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Video access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 || createdAt | **string** (date-time)

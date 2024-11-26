@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/delete.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Delete {#Delete}
+# Virtual Private Cloud API, REST: RouteTable.Delete
 
 Deletes the specified route table.
 

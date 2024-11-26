@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/bindBillableObject.md
 ---
 
-# Billing API, REST: BillingAccount.BindBillableObject {#BindBillableObject}
+# Billing API, REST: BillingAccount.BindBillableObject
 
 Binds billable object to the specified billing account.
 

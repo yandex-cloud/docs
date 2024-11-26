@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/delete.md
 ---
 
-# AI Assistants API, REST: Assistant.Delete {#Delete}
+# AI Assistants API, REST: Assistant.Delete
 
 Delete an assistant by its ID.
 

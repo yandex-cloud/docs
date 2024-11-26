@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/create.md
 ---
 
-# Application Load Balancer API, REST: BackendGroup.Create {#Create}
+# Application Load Balancer API, REST: BackendGroup.Create
 
 Creates a backend group in the specified folder.
 
@@ -68,7 +68,10 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
             "http": {
               "host": "string",
               "path": "string",
-              "useHttp2": "boolean"
+              "useHttp2": "boolean",
+              "expectedStatuses": [
+                "string"
+              ]
             },
             "grpc": {
               "serviceName": "string"
@@ -156,7 +159,10 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
             "http": {
               "host": "string",
               "path": "string",
-              "useHttp2": "boolean"
+              "useHttp2": "boolean",
+              "expectedStatuses": [
+                "string"
+              ]
             },
             "grpc": {
               "serviceName": "string"
@@ -243,7 +249,10 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
             "http": {
               "host": "string",
               "path": "string",
-              "useHttp2": "boolean"
+              "useHttp2": "boolean",
+              "expectedStatuses": [
+                "string"
+              ]
             },
             "grpc": {
               "serviceName": "string"
@@ -272,7 +281,8 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
             // end of the list of possible fields
           }
         },
-        "enableProxyProtocol": "boolean"
+        "enableProxyProtocol": "boolean",
+        "keepConnectionsOnHostHealthFailure": "boolean"
       }
     ],
     // Includes only one of the fields `connection`
@@ -687,6 +697,10 @@ or value for the HTTP/2 `:path` pseudo-header. ||
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expectedStatuses[] | **string** (int64)
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck}
@@ -968,6 +982,10 @@ If not specified, the load balancer establishes unencrypted TCP connections with
 || enableProxyProtocol | **boolean**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1046,7 +1064,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -1134,7 +1155,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -1221,7 +1245,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -1250,7 +1277,8 @@ If set, proxy protocol will be enabled for this backend. ||
               // end of the list of possible fields
             }
           },
-          "enableProxyProtocol": "boolean"
+          "enableProxyProtocol": "boolean",
+          "keepConnectionsOnHostHealthFailure": "boolean"
         }
       ],
       // Includes only one of the fields `connection`
@@ -1779,6 +1807,10 @@ or value for the HTTP/2 `:path` pseudo-header. ||
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expectedStatuses[] | **string** (int64)
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck2}
@@ -2060,4 +2092,8 @@ If not specified, the load balancer establishes unencrypted TCP connections with
 || enableProxyProtocol | **boolean**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#

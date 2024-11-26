@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Report/getTable.md
 ---
 
-# Load Testing API, REST: Report.GetTable {#GetTable}
+# Load Testing API, REST: Report.GetTable
 
 Returns a report table for the specified test.
 

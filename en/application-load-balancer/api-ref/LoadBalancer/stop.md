@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/stop.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Stop {#Stop}
+# Application Load Balancer API, REST: LoadBalancer.Stop
 
 Stops the specified application load balancer.
 

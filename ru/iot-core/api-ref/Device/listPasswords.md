@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/listPasswords.md
 ---
 
-# IoT Core Service, REST: Device.ListPasswords {#ListPasswords}
+# IoT Core Service, REST: Device.ListPasswords
 
 Retrieves the list of passwords for the specified device.
 

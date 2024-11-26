@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/updateNetworkInterface.md
 ---
 
-# Compute Cloud API, REST: Instance.UpdateNetworkInterface {#UpdateNetworkInterface}
+# Compute Cloud API, REST: Instance.UpdateNetworkInterface
 
 Updates the specified instance network interface.
 

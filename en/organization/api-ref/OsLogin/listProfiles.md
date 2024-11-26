@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/listProfiles.md
 ---
 
-# Cloud Organization API, REST: OsLogin.ListProfiles {#ListProfiles}
+# Cloud Organization API, REST: OsLogin.ListProfiles
 
 ## HTTP request
 

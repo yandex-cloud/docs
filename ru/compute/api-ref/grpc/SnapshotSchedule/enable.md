@@ -3,12 +3,12 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/SnapshotSchedule/enable.md
 ---
 
-# Compute Cloud API, gRPC: SnapshotScheduleService.Enable {#Enable}
+# Compute Cloud API, gRPC: SnapshotScheduleService.Enable
 
 Enables the specified snapshot schedule.
 
 The [SnapshotSchedule.status](#yandex.cloud.compute.v1.SnapshotSchedule) is changed to `ACTIVE`: new disk snapshots will be created, old ones deleted
-(if [SnapshotSchedule.retentionPolicy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retentionPolicy) is specified).
+(if [SnapshotSchedule.retention_policy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retention_policy) is specified).
 
 ## gRPC request
 
@@ -18,13 +18,13 @@ The [SnapshotSchedule.status](#yandex.cloud.compute.v1.SnapshotSchedule) is chan
 
 ```json
 {
-  "snapshotScheduleId": "string"
+  "snapshot_schedule_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| snapshotScheduleId | **string**
+|| snapshot_schedule_id | **string**
 
 ID of the snapshot schedule to enable.
 
@@ -37,32 +37,32 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "snapshotScheduleId": "string"
+    "snapshot_schedule_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "status": "Status",
-    "schedulePolicy": {
-      "startAt": "google.protobuf.Timestamp",
+    "schedule_policy": {
+      "start_at": "google.protobuf.Timestamp",
       "expression": "string"
     },
-    // Includes only one of the fields `retentionPeriod`, `snapshotCount`
-    "retentionPeriod": "google.protobuf.Duration",
-    "snapshotCount": "int64",
+    // Includes only one of the fields `retention_period`, `snapshot_count`
+    "retention_period": "google.protobuf.Duration",
+    "snapshot_count": "int64",
     // end of the list of possible fields
-    "snapshotSpec": {
+    "snapshot_spec": {
       "description": "string",
       "labels": "string"
     }
@@ -81,13 +81,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -130,7 +130,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| snapshotScheduleId | **string**
+|| snapshot_schedule_id | **string**
 
 ID of the snapshot schedule that is being enabled. ||
 |#
@@ -144,10 +144,10 @@ A snapshot schedule. For details about the concept, see [documentation](/docs/co
 || id | **string**
 
 ID of the snapshot schedule. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the snapshot schedule belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -168,31 +168,31 @@ Status of the snapshot schedule.
 - `STATUS_UNSPECIFIED`
 - `CREATING`: The snapshot schedule is being created.
 - `ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted
-(if [SnapshotSchedule.retentionPolicy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retentionPolicy) is specified).
+(if [SnapshotSchedule.retention_policy](/docs/compute/api-ref/grpc/Disk/listSnapshotSchedules#yandex.cloud.compute.v1.SnapshotSchedule.retention_policy) is specified).
 - `INACTIVE`: The schedule is interrupted, snapshots won't be created or deleted.
 - `DELETING`: The schedule is being deleted.
 - `UPDATING`: Changes are being made to snapshot schedule settings or a list of attached disks. ||
-|| schedulePolicy | **[SchedulePolicy](#yandex.cloud.compute.v1.SchedulePolicy)**
+|| schedule_policy | **[SchedulePolicy](#yandex.cloud.compute.v1.SchedulePolicy)**
 
 Frequency settings of the snapshot schedule. ||
-|| retentionPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is
 automatically deleted.
 
-Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+Includes only one of the fields `retention_period`, `snapshot_count`.
 
 Retention policy of the snapshot schedule. ||
-|| snapshotCount | **int64**
+|| snapshot_count | **int64**
 
 Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this
 number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted
 after the sixth one is created, the second is deleted after the seventh one is created, and so on.
 
-Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+Includes only one of the fields `retention_period`, `snapshot_count`.
 
 Retention policy of the snapshot schedule. ||
-|| snapshotSpec | **[SnapshotSpec](#yandex.cloud.compute.v1.SnapshotSpec)**
+|| snapshot_spec | **[SnapshotSpec](#yandex.cloud.compute.v1.SnapshotSpec)**
 
 Attributes of snapshots created by the snapshot schedule. ||
 |#
@@ -203,7 +203,7 @@ A resource for frequency settings of a snapshot schedule.
 
 #|
 ||Field | Description ||
-|| startAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for creating the first snapshot. ||
 || expression | **string**

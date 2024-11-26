@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/revoke.md
 ---
 
-# Cloud Backup API, REST: Policy.Revoke {#Revoke}
+# Cloud Backup API, REST: Policy.Revoke
 
 Revoke policy from Compute Cloud instance.
 

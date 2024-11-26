@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Start {#Start}
+# Managed Service for OpenSearch API, REST: Cluster.Start
 
 Starts the specified OpenSearch cluster.
 

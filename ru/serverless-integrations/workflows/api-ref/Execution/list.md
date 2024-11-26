@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/list.md
 ---
 
-# Workflows Service, REST: Execution.List {#List}
+# Workflows Service, REST: Execution.List
 
 Retrieves list of Workflow executions.
 

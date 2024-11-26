@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Cloud/list.md
 ---
 
-# Resource Manager API, gRPC: CloudService.List {#List}
+# Resource Manager API, gRPC: CloudService.List
 
 Retrieves the list of Cloud resources.
 
@@ -15,26 +15,26 @@ Retrieves the list of Cloud resources.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "organizationId": "string"
+  "organization_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListCloudsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudsResponse)
+results is larger than `page_size`,
+the service returns a [ListCloudsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListCloudsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken`
-to the [ListCloudsResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListCloudsResponse)
+Page token. Set `page_token`
+to the [ListCloudsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListCloudsResponse)
 returned by a previous list request to get the next page of results. ||
 || filter | **string**
 
@@ -43,7 +43,7 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on the [Cloud.name](#yandex.cloud.resourcemanager.v1.Cloud) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization to list clouds in.
 To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
@@ -56,14 +56,14 @@ To get the organization ID, use a [yandex.cloud.organizationmanager.v1.Organizat
   "clouds": [
     {
       "id": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "organizationId": "string",
+      "organization_id": "string",
       "labels": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -72,14 +72,14 @@ To get the organization ID, use a [yandex.cloud.organizationmanager.v1.Organizat
 || clouds[] | **[Cloud](#yandex.cloud.resourcemanager.v1.Cloud)**
 
 List of Cloud resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListCloudsRequest.pageSize](#yandex.cloud.resourcemanager.v1.ListCloudsRequest), use
-the `nextPageToken` as the value
-for the [ListCloudsRequest.pageToken](#yandex.cloud.resourcemanager.v1.ListCloudsRequest) query parameter
+is larger than [ListCloudsRequest.page_size](#yandex.cloud.resourcemanager.v1.ListCloudsRequest), use
+the `next_page_token` as the value
+for the [ListCloudsRequest.page_token](#yandex.cloud.resourcemanager.v1.ListCloudsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Cloud {#yandex.cloud.resourcemanager.v1.Cloud}
@@ -91,7 +91,7 @@ A Cloud resource. For more information, see [Cloud](/docs/resource-manager/conce
 || id | **string**
 
 ID of the cloud. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -100,7 +100,7 @@ Name of the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the cloud. 0-256 characters long. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the cloud belongs to. ||
 || labels | **string**

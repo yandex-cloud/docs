@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/RefreshToken/revoke.md
 ---
 
-# Identity and Access Management API, gRPC: RefreshTokenService.Revoke {#Revoke}
+# Identity and Access Management API, gRPC: RefreshTokenService.Revoke
 
 Revoke Refresh Tokens. Several Refresh Tokens can be revoked by one request.
 
@@ -15,13 +15,13 @@ Revoke Refresh Tokens. Several Refresh Tokens can be revoked by one request.
 
 ```json
 {
-  // Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`
-  "refreshTokenId": "string",
-  "refreshToken": "string",
-  "revokeFilter": {
-    "clientId": "string",
-    "subjectId": "string",
-    "clientInstanceInfo": "string"
+  // Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`
+  "refresh_token_id": "string",
+  "refresh_token": "string",
+  "revoke_filter": {
+    "client_id": "string",
+    "subject_id": "string",
+    "client_instance_info": "string"
   }
   // end of the list of possible fields
 }
@@ -32,21 +32,21 @@ If none of the parameters refresh_token_id, refresh_token, or revoke_filter are 
 
 #|
 ||Field | Description ||
-|| refreshTokenId | **string**
+|| refresh_token_id | **string**
 
 Identifier of the Refresh Token to be revoked.
 
-Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`. ||
-|| refreshToken | **string**
+Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`. ||
+|| refresh_token | **string**
 
 The Refresh Token to be revoked.
 
-Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`. ||
-|| revokeFilter | **[RevokeFilter](#yandex.cloud.iam.v1.RevokeFilter)**
+Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`. ||
+|| revoke_filter | **[RevokeFilter](#yandex.cloud.iam.v1.RevokeFilter)**
 
 The filter for revoking Refresh Token
 
-Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`. ||
+Includes only one of the fields `refresh_token_id`, `refresh_token`, `revoke_filter`. ||
 |#
 
 ## RevokeFilter {#yandex.cloud.iam.v1.RevokeFilter}
@@ -57,14 +57,14 @@ When multiple fields are provided, they are combined using a logical AND operati
 
 #|
 ||Field | Description ||
-|| clientId | **string**
+|| client_id | **string**
 
 The OAuth client identifier for which the Refresh Token was issued. ||
-|| subjectId | **string**
+|| subject_id | **string**
 
 The subject identifier for whom the Refresh Token was issued.
 If not specified, it defaults to the subject that made the request. ||
-|| clientInstanceInfo | **string**
+|| client_instance_info | **string**
 
 Information about the app for which the Refresh Token was issued. ||
 |#
@@ -75,20 +75,20 @@ Information about the app for which the Refresh Token was issued. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "subjectId": "string",
-    "refreshTokenIds": [
+    "subject_id": "string",
+    "refresh_token_ids": [
       "string"
     ]
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "refreshTokenIds": [
+    "refresh_token_ids": [
       "string"
     ]
   }
@@ -106,13 +106,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -155,8 +155,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| subjectId | **string** ||
-|| refreshTokenIds[] | **string**
+|| subject_id | **string** ||
+|| refresh_token_ids[] | **string**
 
 Id of revoked Refresh Tokens. ||
 |#
@@ -165,7 +165,7 @@ Id of revoked Refresh Tokens. ||
 
 #|
 ||Field | Description ||
-|| refreshTokenIds[] | **string**
+|| refresh_token_ids[] | **string**
 
 Id of revoked Refresh Tokens. ||
 |#

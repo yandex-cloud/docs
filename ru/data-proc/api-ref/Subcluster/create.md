@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/create.md
 ---
 
-# Data Proc API, REST: Subcluster.Create {#Create}
+# Data Proc API, REST: Subcluster.Create
 
 Creates a subcluster in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/restart.md
 ---
 
-# Compute Cloud API, REST: Instance.Restart {#Restart}
+# Compute Cloud API, REST: Instance.Restart
 
 Restarts the running instance.
 

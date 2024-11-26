@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PublicConnection/list.md
 ---
 
-# Cloud Interconnect API, REST: PublicConnection.List {#List}
+# Cloud Interconnect API, REST: PublicConnection.List
 
 Retrieves the list of PublicConnection resources in the specified folder.
 

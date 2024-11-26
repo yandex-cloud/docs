@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/getManifests.md
 ---
 
-# Video API, gRPC: EpisodeService.GetManifests {#GetManifests}
+# Video API, gRPC: EpisodeService.GetManifests
 
 Returns manifest urls.
 
@@ -15,15 +15,15 @@ Returns manifest urls.
 
 ```json
 {
-  "episodeId": "string"
+  "episode_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| episodeId | **string**
+|| episode_id | **string**
 
-ID of the episode. ||
+Required field. ID of the episode. ||
 |#
 
 ## GetEpisodeManifestsResponse {#yandex.cloud.video.v1.GetEpisodeManifestsResponse}

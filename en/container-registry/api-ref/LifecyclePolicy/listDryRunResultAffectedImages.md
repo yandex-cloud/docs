@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.ListDryRunResultAffectedImages {#ListDryRunResultAffectedImages}
+# Container Registry API, REST: LifecyclePolicy.ListDryRunResultAffectedImages
 
 Retrieves the list of the affected images.
 

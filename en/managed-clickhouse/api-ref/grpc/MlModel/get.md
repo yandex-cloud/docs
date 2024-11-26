@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/MlModel/get.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: MlModelService.Get {#Get}
+# Managed Service for ClickHouse API, gRPC: MlModelService.Get
 
 Returns the specified machine learning model.
 
@@ -17,17 +17,17 @@ To get the list of all available models, make a [List](/docs/managed-clickhouse/
 
 ```json
 {
-  "clusterId": "string",
-  "mlModelName": "string"
+  "cluster_id": "string",
+  "ml_model_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster that the model belongs to. ||
-|| mlModelName | **string**
+|| ml_model_name | **string**
 
 Required field. Name of the model to return.
 
@@ -39,7 +39,7 @@ To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-re
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "type": "MlModelType",
   "uri": "string"
 }
@@ -50,7 +50,7 @@ To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-re
 || name | **string**
 
 Name of the the model. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the model belongs to. ||
 || type | enum **MlModelType**

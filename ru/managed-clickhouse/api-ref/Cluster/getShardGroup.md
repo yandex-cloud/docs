@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/getShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.GetShardGroup {#GetShardGroup}
+# Managed Service for ClickHouse API, REST: Cluster.GetShardGroup
 
 Returns the specified shard group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/create.md
 ---
 
-# Billing API, REST: Budget.Create {#Create}
+# Billing API, REST: Budget.Create
 
 Creates a budget for the specified billing account.
 

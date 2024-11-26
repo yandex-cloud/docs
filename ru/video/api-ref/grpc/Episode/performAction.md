@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/performAction.md
 ---
 
-# Video API, gRPC: EpisodeService.PerformAction {#PerformAction}
+# Video API, gRPC: EpisodeService.PerformAction
 
 Perform an action on the episode.
 
@@ -15,7 +15,7 @@ Perform an action on the episode.
 
 ```json
 {
-  "episodeId": "string",
+  "episode_id": "string",
   // Includes only one of the fields `publish`, `unpublish`
   "publish": "PublishEpisodeAction",
   "unpublish": "UnpublishEpisodeAction"
@@ -25,9 +25,9 @@ Perform an action on the episode.
 
 #|
 ||Field | Description ||
-|| episodeId | **string**
+|| episode_id | **string**
 
-ID of the episode. ||
+Required field. ID of the episode. ||
 || publish | **[PublishEpisodeAction](#yandex.cloud.video.v1.PublishEpisodeAction)**
 
 Includes only one of the fields `publish`, `unpublish`. ||
@@ -56,32 +56,33 @@ Includes only one of the fields `publish`, `unpublish`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "episodeId": "string"
+    "episode_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "streamId": "string",
-    "lineId": "string",
+    "stream_id": "string",
+    "line_id": "string",
     "title": "string",
     "description": "string",
-    "thumbnailId": "string",
-    "startTime": "google.protobuf.Timestamp",
-    "finishTime": "google.protobuf.Timestamp",
-    "dvrSeconds": "int64",
-    "visibilityStatus": "VisibilityStatus",
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
-    "publicAccess": "EpisodePublicAccessRights",
-    "authSystemAccess": "EpisodeAuthSystemAccessRights",
+    "thumbnail_id": "string",
+    "start_time": "google.protobuf.Timestamp",
+    "finish_time": "google.protobuf.Timestamp",
+    "dvr_seconds": "int64",
+    "visibility_status": "VisibilityStatus",
+    // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+    "public_access": "EpisodePublicAccessRights",
+    "auth_system_access": "EpisodeAuthSystemAccessRights",
+    "sign_url_access": "EpisodeSignURLAccessRights",
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp"
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -97,13 +98,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -146,7 +147,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| episodeId | **string**
+|| episode_id | **string**
 
 ID of the episode. ||
 |#
@@ -158,10 +159,10 @@ ID of the episode. ||
 || id | **string**
 
 ID of the episode. ||
-|| streamId | **string**
+|| stream_id | **string**
 
 ID of the stream. Optional, empty if the episode is linked to the line ||
-|| lineId | **string**
+|| line_id | **string**
 
 ID of the line. Optional, empty if the episode is linked to the stream ||
 || title | **string**
@@ -170,45 +171,52 @@ Channel title. ||
 || description | **string**
 
 Channel description. ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Episode start time. ||
-|| finishTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Episode finish time. ||
-|| dvrSeconds | **int64**
+|| dvr_seconds | **int64**
 
 Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
 
 possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
-|| visibilityStatus | enum **VisibilityStatus**
+|| visibility_status | enum **VisibilityStatus**
 
 - `VISIBILITY_STATUS_UNSPECIFIED`
 - `PUBLISHED`
 - `UNPUBLISHED` ||
-|| publicAccess | **[EpisodePublicAccessRights](#yandex.cloud.video.v1.EpisodePublicAccessRights)**
+|| public_access | **[EpisodePublicAccessRights](#yandex.cloud.video.v1.EpisodePublicAccessRights)**
 
 Episode is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
 
 Episode access rights. ||
-|| authSystemAccess | **[EpisodeAuthSystemAccessRights](#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights)**
+|| auth_system_access | **[EpisodeAuthSystemAccessRights](#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights)**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
 
 Episode access rights. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| sign_url_access | **[EpisodeSignURLAccessRights](#yandex.cloud.video.v1.EpisodeSignURLAccessRights)**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+
+Episode access rights. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when episode was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last episode update. ||
 |#
@@ -221,6 +229,13 @@ Time of last episode update. ||
 |#
 
 ## EpisodeAuthSystemAccessRights {#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## EpisodeSignURLAccessRights {#yandex.cloud.video.v1.EpisodeSignURLAccessRights}
 
 #|
 ||Field | Description ||

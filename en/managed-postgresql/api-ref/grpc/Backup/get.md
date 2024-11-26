@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for PostgreSQL API, gRPC: BackupService.Get {#Get}
+# Managed Service for PostgreSQL API, gRPC: BackupService.Get
 
 Returns the specified PostgreSQL Backup resource.
 
@@ -17,13 +17,13 @@ To get the list of available PostgreSQL Backup resources, make a [List](/docs/ma
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. ID of the backup to return information about.
 To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-postgresql/api-ref/grpc/Cluster/listBackups#ListBackups) request. ||
@@ -34,14 +34,14 @@ To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-postgresq
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "sourceClusterId": "string",
-  "startedAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "source_cluster_id": "string",
+  "started_at": "google.protobuf.Timestamp",
   "size": "int64",
   "type": "BackupCreationType",
   "method": "BackupMethod",
-  "journalSize": "int64",
+  "journal_size": "int64",
   "status": "BackupStatus"
 }
 ```
@@ -54,17 +54,17 @@ the [Developer's Guide](/docs/managed-postgresql/concepts/backup).
 || id | **string**
 
 Required. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was completed). ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the PostgreSQL cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
 || size | **int64**
@@ -84,7 +84,7 @@ Method of backup creation
 - `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) PostgreSQL backup ||
-|| journalSize | **int64**
+|| journal_size | **int64**
 
 Size of the journal associated with backup, in bytes ||
 || status | enum **BackupStatus**

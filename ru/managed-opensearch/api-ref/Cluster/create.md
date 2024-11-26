@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Create {#Create}
+# Managed Service for OpenSearch API, REST: Cluster.Create
 
 Creates an OpenSearch cluster in the specified folder.
 

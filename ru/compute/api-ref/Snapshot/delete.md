@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/delete.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Delete {#Delete}
+# Compute Cloud API, REST: Snapshot.Delete
 
 Deletes the specified snapshot.
 

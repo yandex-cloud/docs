@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 
-# Translate API v2, REST: Translation.ListLanguages {#ListLanguages}
+# Translate API v2, REST: Translation.ListLanguages
 
 Retrieves the list of supported languages.
 

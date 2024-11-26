@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/listOperations.md
 ---
 
-# EventRouter Service, REST: Connector.ListOperations {#ListOperations}
+# EventRouter Service, REST: Connector.ListOperations
 
 Lists operations for the specified connector.
 

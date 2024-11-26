@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Export/get.md
 ---
 
-# Cloud Logging Service, gRPC: ExportService.Get {#Get}
+# Cloud Logging Service, gRPC: ExportService.Get
 
 Returns the specified export.
 
@@ -17,13 +17,13 @@ To get the list of all available exports, make a [List](/docs/logging/api-ref/gr
 
 ```json
 {
-  "exportId": "string"
+  "export_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| exportId | **string**
+|| export_id | **string**
 
 Required field. ID of the export to return.
 
@@ -35,22 +35,22 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/grpc/Export
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "cloudId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "cloud_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "groupId": "string",
-  "sinkId": "string",
+  "group_id": "string",
+  "sink_id": "string",
   "params": {
-    "resourceTypes": [
+    "resource_types": [
       "string"
     ],
-    "resourceIds": [
+    "resource_ids": [
       "string"
     ],
-    "streamNames": [
+    "stream_names": [
       "string"
     ],
     "levels": [
@@ -66,13 +66,13 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/grpc/Export
 || id | **string**
 
 Export ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Export folder ID. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Export cloud ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Export creation time. ||
 || name | **string**
@@ -84,10 +84,10 @@ Export description. ||
 || labels | **string**
 
 Export lables. ||
-|| groupId | **string**
+|| group_id | **string**
 
 Group logs are exported from. ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 Sink logs are exported to. ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
@@ -99,9 +99,9 @@ Parameters of logs filtration. ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resource_types[] | **string** ||
+|| resource_ids[] | **string** ||
+|| stream_names[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.

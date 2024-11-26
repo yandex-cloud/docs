@@ -5,7 +5,7 @@ description:
     href="https://yandex.cloud/docs/overview/concepts/launch-stages">стадии
     Preview</a></em>.
   - >-
-    {{ cr-full-name }} — сервис для управле:ния сетевыми топологиями гибридного
+    {{ cr-full-name }} — сервис для управления сетевыми топологиями гибридного
     облака в {{ yandex-cloud }}.  
   - >-
     Инфраструктура Yandex Cloud <a

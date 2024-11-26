@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Operation/get.md
 ---
 
-# Managed Service for MongoDB API, REST: Operation.Get {#Get}
+# Managed Service for MongoDB API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

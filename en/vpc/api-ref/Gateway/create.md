@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/create.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Create {#Create}
+# Virtual Private Cloud API, REST: Gateway.Create
 
 Creates a gateway in the specified folder.
 

@@ -82,7 +82,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
   1. Run the command for creating hosts.
 
-     Specify one or more `--host` parameters in the command, one for each host to be created.
+     Specify one or more `--host` parameters in the command, one for each new host.
 
      The command for creating a single host looks like this:
 
@@ -105,7 +105,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
      {{ mch-name }} will run the operation for creating hosts.
 
 
-     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}
@@ -113,9 +113,9 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. Add one or more `host` sections to the {{ mch-name }} cluster description, one for each host to be created.
+  1. Add one or more `host` blocks to the {{ mch-name }} cluster description, one for each new host.
 
-     A single `host` section looks like this:
+     A single `host` block looks like this:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -170,7 +170,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
                         { ... },
                         { <similar_settings_for_new_host_N> }
                       ],
-                      "copySchema": <copying_a_data_schema>
+                      "copySchema": <data_schema_copying>
                     }'
         ```
 
@@ -181,11 +181,12 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
             * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
             * `zoneId`: Availability zone.
             * `subnetId`: Subnet ID.
+            * `shardName`: Shard name.
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
         * `copySchema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -220,7 +221,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
                         { ... },
                         { <similar_settings_for_new_host_N> }
                     ],
-                    "copy_schema": <enabling_or_disabling_copying_the_data_schema>
+                    "copy_schema": <data_schema_copying_enabled or_not>
                 }' \
             {{ api-host-mdb }}:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
@@ -233,13 +234,14 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
             * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
             * `zone_id`: Availability zone.
             * `subnet_id`: Subnet ID.
+            * `shard_name`: Shard name.
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
         * `copy_schema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -264,7 +266,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
   To change the parameters of the cluster host:
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -282,7 +284,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
     --assign-public-ip=<public_access_to_host>
   ```
 
-  Where `assign-public-ip` is internet access to the host via a public IP address, `true` or `false`.
+  Where `assign-public-ip` is the Internet access to the host via a public IP address, `true` or `false`.
 
   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -292,7 +294,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-  1. Add or edit the `assign_public_ip` parameter in the host's `host` section.
+  1. In the host, use the `host` section to add or edit the `assign_public_ip` parameter.
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -346,14 +348,14 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
         Where `updateHostSpecs[]` is a list of hosts to change and their parameters. Its individual elements have the following structure:
 
-        * `hostName`: Host name that you can request with a [list of hosts in the cluster](#list-hosts).
+        * `hostName`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here only one parameter is specified: `assignPublicIp`.
+            Here we specified just a single parameter, `assignPublicIp`.
 
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -395,16 +397,16 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
         Where `update_host_specs[]` is a list of hosts to change and their parameters. Its individual elements have the following structure:
 
-        * `host_name`: Host name that you can request with a [list of hosts in the cluster](#list-hosts).
+        * `host_name`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here only one parameter is specified: `assign_public_ip`.
+            Here we specified just a single parameter, `assign_public_ip`.
 
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -438,7 +440,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -453,7 +455,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
   ```bash
   {{ yc-mdb-ch }} hosts delete --cluster-name=<cluster_name> \
     <host_name>
-
+     
   ```
 
   You can request the host names with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -463,7 +465,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. In the {{ mch-name }} cluster description, delete one or more `host` sections of the `CLICKHOUSE` type.
+  1. In the {{ mch-name }} cluster description, delete one or more `host` blocks of the `CLICKHOUSE` type.
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -499,7 +501,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
         Where `hostNames` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -532,9 +534,9 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
         Where `host_names` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

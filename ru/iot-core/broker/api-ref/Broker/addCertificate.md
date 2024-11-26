@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/addCertificate.md
 ---
 
-# IoT Core Broker Service, REST: Broker.AddCertificate {#AddCertificate}
+# IoT Core Broker Service, REST: Broker.AddCertificate
 
 Adds a certificate.
 

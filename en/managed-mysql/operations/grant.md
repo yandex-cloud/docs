@@ -144,7 +144,7 @@ You can manage user permissions at the level of an individual database by updati
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-users).
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

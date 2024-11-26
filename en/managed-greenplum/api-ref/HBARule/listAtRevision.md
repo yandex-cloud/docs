@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/listAtRevision.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.ListAtRevision {#ListAtRevision}
+# Managed Service for Greenplum® API, REST: HBARule.ListAtRevision
 
 Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 

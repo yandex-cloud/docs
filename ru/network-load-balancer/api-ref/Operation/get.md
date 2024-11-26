@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/Operation/get.md
 ---
 
-# Network Load Balancer API, REST: Operation.Get {#Get}
+# Network Load Balancer API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

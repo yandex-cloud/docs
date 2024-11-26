@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/SshCertificate/generate.md
 ---
 
-# Cloud Organization API, gRPC: SshCertificateService.Generate {#Generate}
+# Cloud Organization API, gRPC: SshCertificateService.Generate
 
 Members of an organization can generate certificates for themselves
 Signing certificates for other users requires a special permission
@@ -16,39 +16,39 @@ Signing certificates for other users requires a special permission
 
 ```json
 {
-  // Includes only one of the fields `cloudId`, `organizationId`
-  "cloudId": "string",
-  "organizationId": "string",
+  // Includes only one of the fields `cloud_id`, `organization_id`
+  "cloud_id": "string",
+  "organization_id": "string",
   // end of the list of possible fields
-  // Includes only one of the fields `subjectId`, `osLogin`
-  "subjectId": "string",
-  "osLogin": "string",
+  // Includes only one of the fields `subject_id`, `os_login`
+  "subject_id": "string",
+  "os_login": "string",
   // end of the list of possible fields
-  "publicKey": "string"
+  "public_key": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 the cloud must be attached to an organization
 
-Includes only one of the fields `cloudId`, `organizationId`. ||
-|| organizationId | **string**
+Includes only one of the fields `cloud_id`, `organization_id`. ||
+|| organization_id | **string**
 
-Includes only one of the fields `cloudId`, `organizationId`. ||
-|| subjectId | **string**
+Includes only one of the fields `cloud_id`, `organization_id`. ||
+|| subject_id | **string**
 
 specify subject to generate certificate for default login
 
-Includes only one of the fields `subjectId`, `osLogin`. ||
-|| osLogin | **string**
+Includes only one of the fields `subject_id`, `os_login`. ||
+|| os_login | **string**
 
 specify os_login for a specific login
 
-Includes only one of the fields `subjectId`, `osLogin`. ||
-|| publicKey | **string**
+Includes only one of the fields `subject_id`, `os_login`. ||
+|| public_key | **string**
 
 Required field.  ||
 |#
@@ -57,13 +57,13 @@ Required field.  ||
 
 ```json
 {
-  "signedCertificate": "string"
+  "signed_certificate": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| signedCertificate | **string**
+|| signed_certificate | **string**
 
 as per specification https://cvsweb.openbsd.org/src/usr.bin/ssh/PROTOCOL.certkeys?annotate=HEAD ||
 |#

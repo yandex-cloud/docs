@@ -7,7 +7,7 @@
       * In the **{{ ui-key.yacloud.common.name }}** field, enter a name for your VM, e.g., `bitrixwebsite`.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-a`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [Ubuntu 20.04 lts](/marketplace/products/yc/ubuntu-22-04-lts) as the operating system image.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` and set the size to `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` and set the size to `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and configure as follows:
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

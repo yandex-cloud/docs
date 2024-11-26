@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/searchapi/v2/api-ref/Operation/cancel.md
 ---
 
-# Web Search API, REST: Operation.Cancel {#Cancel}
+# Web Search API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/get.md
 ---
 
-# Container Registry API, REST: Image.Get {#Get}
+# Container Registry API, REST: Image.Get
 
 Returns the specified Image resource.
 

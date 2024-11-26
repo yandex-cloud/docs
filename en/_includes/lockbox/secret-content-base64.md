@@ -1,0 +1,1 @@
+If a file is used as the confidential value, the returned secret content will be [Base64 encoded](https://{{ lang }}.wikipedia.org/wiki/Base64). To decode the file, use the [base64 Python module](https://docs.python.org/3/library/base64.html) or other suitable tools.

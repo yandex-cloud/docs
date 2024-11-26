@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: ClusterService.ListHosts {#ListHosts}
+# Managed Service for Apache Kafka® API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for the specified Apache Kafka® cluster.
 
@@ -15,29 +15,29 @@ Retrieves a list of hosts for the specified Apache Kafka® cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster.
 
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse}
@@ -47,20 +47,20 @@ To get the next page of results, set `pageToken` to the [ListClusterHostsRespons
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
       "role": "Role",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "health": "Health",
-      "subnetId": "string",
-      "assignPublicIp": "bool"
+      "subnet_id": "string",
+      "assign_public_ip": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -69,12 +69,12 @@ To get the next page of results, set `pageToken` to the [ListClusterHostsRespons
 || hosts[] | **[Host](#yandex.cloud.mdb.kafka.v1.Host)**
 
 List of hosts. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token that allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.kafka.v1.ListClusterHostsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.kafka.v1.Host}
@@ -86,10 +86,10 @@ Cluster host metadata.
 || name | **string**
 
 Name of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Kafka® cluster. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides. ||
 || role | enum **Role**
@@ -110,10 +110,10 @@ Aggregated host health data. If the field has default value, it is not returned 
 - `ALIVE`: The host is performing all its functions normally.
 - `DEAD`: The host is inoperable and cannot perform any of its essential functions.
 - `DEGRADED`: The host is degraded and can perform only some of its essential functions. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet the host resides in. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 The flag that defines whether a public IP address is assigned to the node.
 
@@ -124,14 +124,14 @@ If the value is `true`, then this node is available on the Internet via it's pub
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory, etc.).
 All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host. ||
 |#

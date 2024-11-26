@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/listOperations.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.ListOperations {#ListOperations}
+# Identity and Access Management SAML API, REST: Certificate.ListOperations
 
 Lists operations for the specified certificate.
 

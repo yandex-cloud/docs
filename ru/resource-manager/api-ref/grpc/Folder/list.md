@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Folder/list.md
 ---
 
-# Resource Manager API, gRPC: FolderService.List {#List}
+# Resource Manager API, gRPC: FolderService.List
 
 Retrieves the list of Folder resources in the specified cloud.
 
@@ -15,30 +15,30 @@ Retrieves the list of Folder resources in the specified cloud.
 
 ```json
 {
-  "cloudId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "cloud_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Required field. ID of the cloud to list folders in.
 To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+results is larger than `page_size`,
+the service returns a [ListFoldersResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken`
-to the [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+Page token. Set `page_token`
+to the [ListFoldersResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
 returned by a previous list request to get the next page of results. ||
 || filter | **string**
 
@@ -56,15 +56,15 @@ The expression must specify:
   "folders": [
     {
       "id": "string",
-      "cloudId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "cloud_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -73,14 +73,14 @@ The expression must specify:
 || folders[] | **[Folder](#yandex.cloud.resourcemanager.v1.Folder)**
 
 List of Folder resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListFoldersRequest.pageSize](#yandex.cloud.resourcemanager.v1.ListFoldersRequest), use
-the `nextPageToken` as the value
-for the [ListFoldersRequest.pageToken](#yandex.cloud.resourcemanager.v1.ListFoldersRequest) query parameter
+is larger than [ListFoldersRequest.page_size](#yandex.cloud.resourcemanager.v1.ListFoldersRequest), use
+the `next_page_token` as the value
+for the [ListFoldersRequest.page_token](#yandex.cloud.resourcemanager.v1.ListFoldersRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Folder {#yandex.cloud.resourcemanager.v1.Folder}
@@ -92,10 +92,10 @@ A Folder resource. For more information, see [Folder](/docs/resource-manager/con
 || id | **string**
 
 ID of the folder. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the folder belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**

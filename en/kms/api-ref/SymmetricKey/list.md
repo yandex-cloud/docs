@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/list.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.List {#List}
+# Key Management Service API, REST: SymmetricKey.List
 
 Returns the list of symmetric KMS keys in the specified folder.
 

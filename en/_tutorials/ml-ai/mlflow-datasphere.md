@@ -132,7 +132,7 @@ To create a key pair:
      * Enter the VM name, e.g., `mlflow-vm`.
      * Select the availability zone: `{{ region-id }}-a`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_disk }}** tab and configure the boot disk:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** tab and configure the boot disk:
      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

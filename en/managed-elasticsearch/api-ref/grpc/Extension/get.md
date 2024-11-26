@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Extension/get.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: ExtensionService.Get {#Get}
+# Managed Service for Elasticsearch API, gRPC: ExtensionService.Get
 
 Returns the specified extension of Elasticsearch cluster.
 
@@ -15,17 +15,17 @@ Returns the specified extension of Elasticsearch cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "extensionId": "string"
+  "cluster_id": "string",
+  "extension_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster. ||
-|| extensionId | **string**
+|| extension_id | **string**
 
 Required field. ID of the extension to return. ||
 |#
@@ -36,7 +36,7 @@ Required field. ID of the extension to return. ||
 {
   "name": "string",
   "id": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "version": "int64",
   "active": "bool"
 }
@@ -50,7 +50,7 @@ Name of the extension. ||
 || id | **string**
 
 Unique ID of the extension. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Elasticsearch cluster the extension belongs to. ||
 || version | **int64**

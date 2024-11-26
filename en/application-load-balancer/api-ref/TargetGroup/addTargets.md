@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.AddTargets {#AddTargets}
+# Application Load Balancer API, REST: TargetGroup.AddTargets
 
 Adds targets to the specified target group.
 

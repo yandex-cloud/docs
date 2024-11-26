@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/get.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Get {#Get}
+# Container Registry API, REST: ScanPolicy.Get
 
 Returns the specified scan policy.
 

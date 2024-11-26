@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/removeCidrBlocks.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks {#RemoveCidrBlocks}
+# Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks
 
 Removes CIDR blocks from the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

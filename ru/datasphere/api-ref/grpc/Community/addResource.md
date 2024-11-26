@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Community/addResource.md
 ---
 
-# DataSphere API v2, gRPC: CommunityService.AddResource {#AddResource}
+# DataSphere API v2, gRPC: CommunityService.AddResource
 
 Adds shared resource to community
 
@@ -15,18 +15,18 @@ Adds shared resource to community
 
 ```json
 {
-  "communityId": "string",
-  "resourceType": "ResourceType",
-  "resourceId": "string"
+  "community_id": "string",
+  "resource_type": "ResourceType",
+  "resource_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| communityId | **string**
+|| community_id | **string**
 
 Required field.  ||
-|| resourceType | enum **ResourceType**
+|| resource_type | enum **ResourceType**
 
 Required field. 
 
@@ -37,7 +37,7 @@ Required field.
 - `RESOURCE_TYPE_S3`
 - `RESOURCE_TYPE_NODE`
 - `RESOURCE_TYPE_ALIAS` ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field.  ||
 |#
@@ -48,9 +48,9 @@ Required field.  ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -70,13 +70,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

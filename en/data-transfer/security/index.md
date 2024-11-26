@@ -62,11 +62,11 @@ To use the service, log in to the management console with a [Yandex account](../
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the projects are being created. With the `viewer` role, you can only view the list of the projects and the contents of uploaded files.
 
 To create or edit an endpoint of a managed database, you need the service or primitive [`viewer` role](../../iam/roles-reference.md#viewer) assigned for the folder hosting a cluster of this managed database.
 
-You can always assign a role offering more permissions than the one specified. For example, assign the `admin` role instead of `editor`.
+You can always assign a role offering more permissions than the one specified. For example, you can assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

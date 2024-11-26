@@ -6,12 +6,12 @@
 
 In this section, you will learn how to work with a report:
 
-* [{#T}](#create-report)
-* [{#T}](#report-pages)
-* [{#T}](#report-widget-settings)
-* [{#T}](#report-settings)
-* [{#T}](#page-settings)
-* [{#T}](#report-export)
+* [Creating a report](#create-report)
+* [Adding, moving, or deleting pages](#report-pages)
+* [Configuring widgets](#report-widget-settings)
+* [Configuring a report](#report-settings)
+* [Configuring pages](#page-settings)
+* [Exporting a report](#report-export)
 
 ## Creating a report {#create-report}
 

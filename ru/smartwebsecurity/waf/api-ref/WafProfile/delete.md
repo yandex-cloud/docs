@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/delete.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.Delete {#Delete}
+# SmartWebSecurity WAF API, REST: WafProfile.Delete
 
 Deletes the specified WAF profile.
 

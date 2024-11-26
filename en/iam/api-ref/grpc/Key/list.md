@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/Key/list.md
 ---
 
-# Identity and Access Management API, gRPC: KeyService.List {#List}
+# Identity and Access Management API, gRPC: KeyService.List
 
 Retrieves the list of Key resources for the specified service account.
 
@@ -16,9 +16,9 @@ Retrieves the list of Key resources for the specified service account.
 ```json
 {
   "format": "KeyFormat",
-  "serviceAccountId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "service_account_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
@@ -29,22 +29,22 @@ Retrieves the list of Key resources for the specified service account.
 Output format of the key.
 
 - `PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account to list key pairs for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
 If not specified, it defaults to the subject that made the request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListKeysResponse.nextPageToken](#yandex.cloud.iam.v1.ListKeysResponse)
+results is larger than `page_size`,
+the service returns a [ListKeysResponse.next_page_token](#yandex.cloud.iam.v1.ListKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListKeysResponse.nextPageToken](#yandex.cloud.iam.v1.ListKeysResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListKeysResponse.next_page_token](#yandex.cloud.iam.v1.ListKeysResponse) returned by a previous list request. ||
 |#
 
 ## ListKeysResponse {#yandex.cloud.iam.v1.ListKeysResponse}
@@ -54,18 +54,18 @@ Page token. To get the next page of results, set `pageToken` to the
   "keys": [
     {
       "id": "string",
-      // Includes only one of the fields `userAccountId`, `serviceAccountId`
-      "userAccountId": "string",
-      "serviceAccountId": "string",
+      // Includes only one of the fields `user_account_id`, `service_account_id`
+      "user_account_id": "string",
+      "service_account_id": "string",
       // end of the list of possible fields
-      "createdAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
       "description": "string",
-      "keyAlgorithm": "Algorithm",
-      "publicKey": "string",
-      "lastUsedAt": "google.protobuf.Timestamp"
+      "key_algorithm": "Algorithm",
+      "public_key": "string",
+      "last_used_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -74,14 +74,14 @@ Page token. To get the next page of results, set `pageToken` to the
 || keys[] | **[Key](#yandex.cloud.iam.v1.Key)**
 
 List of Key resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListKeysRequest.pageSize](#yandex.cloud.iam.v1.ListKeysRequest), use
-the `nextPageToken` as the value
-for the [ListKeysRequest.pageToken](#yandex.cloud.iam.v1.ListKeysRequest) query parameter
+is larger than [ListKeysRequest.page_size](#yandex.cloud.iam.v1.ListKeysRequest), use
+the `next_page_token` as the value
+for the [ListKeysRequest.page_token](#yandex.cloud.iam.v1.ListKeysRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Key {#yandex.cloud.iam.v1.Key}
@@ -93,33 +93,33 @@ A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/a
 || id | **string**
 
 ID of the Key resource. ||
-|| userAccountId | **string**
+|| user_account_id | **string**
 
 ID of the user account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| serviceAccountId | **string**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| service_account_id | **string**
 
 ID of the service account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the Key resource. 0-256 characters long. ||
-|| keyAlgorithm | enum **Algorithm**
+|| key_algorithm | enum **Algorithm**
 
 An algorithm used to generate a key pair of the Key resource.
 
 - `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
-|| publicKey | **string**
+|| public_key | **string**
 
 A public key of the Key resource. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last use of this key. ||
 |#

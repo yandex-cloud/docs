@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/create.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.Create {#Create}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.Create
 
 Creates job.
 
@@ -15,83 +15,83 @@ Creates job.
 
 ```json
 {
-  "projectId": "string",
-  "jobParameters": {
-    "inputFiles": [
+  "project_id": "string",
+  "job_parameters": {
+    "input_files": [
       {
         "desc": {
           "path": "string",
           "var": "string"
         },
         "sha256": "string",
-        "sizeBytes": "int64",
-        "compressionType": "FileCompressionType"
+        "size_bytes": "int64",
+        "compression_type": "FileCompressionType"
       }
     ],
-    "outputFiles": [
+    "output_files": [
       {
         "path": "string",
         "var": "string"
       }
     ],
-    "s3MountIds": [
+    "s3_mount_ids": [
       "string"
     ],
-    "datasetIds": [
+    "dataset_ids": [
       "string"
     ],
     "cmd": "string",
     "env": {
       "vars": "string",
-      // Includes only one of the fields `dockerImageResourceId`, `dockerImageSpec`
-      "dockerImageResourceId": "string",
-      "dockerImageSpec": {
-        "imageUrl": "string",
+      // Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`
+      "docker_image_resource_id": "string",
+      "docker_image_spec": {
+        "image_url": "string",
         "username": "string",
-        // Includes only one of the fields `passwordPlainText`, `passwordDsSecretName`
-        "passwordPlainText": "string",
-        "passwordDsSecretName": "string"
+        // Includes only one of the fields `password_plain_text`, `password_ds_secret_name`
+        "password_plain_text": "string",
+        "password_ds_secret_name": "string"
         // end of the list of possible fields
       },
       // end of the list of possible fields
-      "pythonEnv": {
-        "condaYaml": "string",
-        "localModules": [
+      "python_env": {
+        "conda_yaml": "string",
+        "local_modules": [
           {
             "desc": {
               "path": "string",
               "var": "string"
             },
             "sha256": "string",
-            "sizeBytes": "int64",
-            "compressionType": "FileCompressionType"
+            "size_bytes": "int64",
+            "compression_type": "FileCompressionType"
           }
         ],
-        "pythonVersion": "string",
+        "python_version": "string",
         "requirements": [
           "string"
         ],
-        "pipOptions": {
-          "indexUrl": "string",
-          "extraIndexUrls": [
+        "pip_options": {
+          "index_url": "string",
+          "extra_index_urls": [
             "string"
           ],
-          "trustedHosts": [
+          "trusted_hosts": [
             "string"
           ],
-          "noDeps": "bool"
+          "no_deps": "bool"
         }
       }
     },
-    "attachProjectDisk": "bool",
-    "cloudInstanceTypes": [
+    "attach_project_disk": "bool",
+    "cloud_instance_types": [
       {
         "name": "string"
       }
     ],
-    "extendedWorkingStorage": {
+    "extended_working_storage": {
       "type": "StorageType",
-      "sizeGb": "int64"
+      "size_gb": "int64"
     },
     "arguments": [
       {
@@ -99,16 +99,16 @@ Creates job.
         "value": "string"
       }
     ],
-    "outputDatasets": [
+    "output_datasets": [
       {
         "name": "string",
         "description": "string",
         "labels": "string",
-        "sizeGb": "int64",
+        "size_gb": "int64",
         "var": "string"
       }
     ],
-    "gracefulShutdownParameters": {
+    "graceful_shutdown_parameters": {
       "timeout": "google.protobuf.Duration",
       "signal": "int64"
     }
@@ -116,16 +116,16 @@ Creates job.
   "config": "string",
   "name": "string",
   "desc": "string",
-  "dataTtl": "google.protobuf.Duration"
+  "data_ttl": "google.protobuf.Duration"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project. ||
-|| jobParameters | **[JobParameters](#yandex.cloud.datasphere.v2.jobs.JobParameters)**
+|| job_parameters | **[JobParameters](#yandex.cloud.datasphere.v2.jobs.JobParameters)**
 
 Parameters of the job. ||
 || config | **string**
@@ -137,7 +137,7 @@ Name of the job. ||
 || desc | **string**
 
 Description of the job. ||
-|| dataTtl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| data_ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Job data TTL. ||
 |#
@@ -148,16 +148,16 @@ Job parameters.
 
 #|
 ||Field | Description ||
-|| inputFiles[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)**
+|| input_files[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)**
 
 List of input files. ||
-|| outputFiles[] | **[FileDesc](#yandex.cloud.datasphere.v2.jobs.FileDesc)**
+|| output_files[] | **[FileDesc](#yandex.cloud.datasphere.v2.jobs.FileDesc)**
 
 List of output files descriptions. ||
-|| s3MountIds[] | **string**
+|| s3_mount_ids[] | **string**
 
 List of DataSphere S3 mount ids. ||
-|| datasetIds[] | **string**
+|| dataset_ids[] | **string**
 
 List of DataSphere dataset ids. ||
 || cmd | **string**
@@ -166,22 +166,22 @@ Job run command. ||
 || env | **[Environment](#yandex.cloud.datasphere.v2.jobs.Environment)**
 
 Job environment description. ||
-|| attachProjectDisk | **bool**
+|| attach_project_disk | **bool**
 
 Should project disk be attached to VM. ||
-|| cloudInstanceTypes[] | **[CloudInstanceType](#yandex.cloud.datasphere.v2.jobs.CloudInstanceType)**
+|| cloud_instance_types[] | **[CloudInstanceType](#yandex.cloud.datasphere.v2.jobs.CloudInstanceType)**
 
 VM specification. ||
-|| extendedWorkingStorage | **[ExtendedWorkingStorage](#yandex.cloud.datasphere.v2.jobs.ExtendedWorkingStorage)**
+|| extended_working_storage | **[ExtendedWorkingStorage](#yandex.cloud.datasphere.v2.jobs.ExtendedWorkingStorage)**
 
 Extended working storage configuration. ||
 || arguments[] | **[Argument](#yandex.cloud.datasphere.v2.jobs.Argument)**
 
 List of literal arguments. ||
-|| outputDatasets[] | **[OutputDatasetDesc](#yandex.cloud.datasphere.v2.jobs.OutputDatasetDesc)**
+|| output_datasets[] | **[OutputDatasetDesc](#yandex.cloud.datasphere.v2.jobs.OutputDatasetDesc)**
 
 List of DataSets descriptions to create. ||
-|| gracefulShutdownParameters | **[GracefulShutdownParameters](#yandex.cloud.datasphere.v2.jobs.GracefulShutdownParameters)**
+|| graceful_shutdown_parameters | **[GracefulShutdownParameters](#yandex.cloud.datasphere.v2.jobs.GracefulShutdownParameters)**
 
 Graceful shutdown settings. ||
 |#
@@ -194,10 +194,10 @@ Graceful shutdown settings. ||
 || sha256 | **string**
 
 SHA256 of the file. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 File size in bytes. ||
-|| compressionType | enum **FileCompressionType**
+|| compression_type | enum **FileCompressionType**
 
 File compression info
 
@@ -225,39 +225,39 @@ Variable to use in cmd substitution. ||
 || vars | **string**
 
 Environment variables. ||
-|| dockerImageResourceId | **string**
+|| docker_image_resource_id | **string**
 
 DS docker image id.
 
-Includes only one of the fields `dockerImageResourceId`, `dockerImageSpec`. ||
-|| dockerImageSpec | **[DockerImageSpec](#yandex.cloud.datasphere.v2.jobs.DockerImageSpec)**
+Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`. ||
+|| docker_image_spec | **[DockerImageSpec](#yandex.cloud.datasphere.v2.jobs.DockerImageSpec)**
 
-Includes only one of the fields `dockerImageResourceId`, `dockerImageSpec`. ||
-|| pythonEnv | **[PythonEnv](#yandex.cloud.datasphere.v2.jobs.PythonEnv)** ||
+Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`. ||
+|| python_env | **[PythonEnv](#yandex.cloud.datasphere.v2.jobs.PythonEnv)** ||
 |#
 
 ## DockerImageSpec {#yandex.cloud.datasphere.v2.jobs.DockerImageSpec}
 
 #|
 ||Field | Description ||
-|| imageUrl | **string**
+|| image_url | **string**
 
 Docker image URL. ||
 || username | **string**
 
 Username for container registry. ||
-|| passwordPlainText | **string**
+|| password_plain_text | **string**
 
 Plaintext password.
 
-Includes only one of the fields `passwordPlainText`, `passwordDsSecretName`.
+Includes only one of the fields `password_plain_text`, `password_ds_secret_name`.
 
 Password for container registry. ||
-|| passwordDsSecretName | **string**
+|| password_ds_secret_name | **string**
 
 ID of DataSphere secret containing password.
 
-Includes only one of the fields `passwordPlainText`, `passwordDsSecretName`.
+Includes only one of the fields `password_plain_text`, `password_ds_secret_name`.
 
 Password for container registry. ||
 |#
@@ -266,19 +266,19 @@ Password for container registry. ||
 
 #|
 ||Field | Description ||
-|| condaYaml | **string**
+|| conda_yaml | **string**
 
 Conda YAML. ||
-|| localModules[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)**
+|| local_modules[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)**
 
 List of local modules descriptions. ||
-|| pythonVersion | **string**
+|| python_version | **string**
 
 Python version reduced to major.minor ||
 || requirements[] | **string**
 
 List of pip requirements ||
-|| pipOptions | **[PipOptions](#yandex.cloud.datasphere.v2.jobs.PipOptions)**
+|| pip_options | **[PipOptions](#yandex.cloud.datasphere.v2.jobs.PipOptions)**
 
 Pip install options ||
 |#
@@ -287,16 +287,16 @@ Pip install options ||
 
 #|
 ||Field | Description ||
-|| indexUrl | **string**
+|| index_url | **string**
 
 --index-url option ||
-|| extraIndexUrls[] | **string**
+|| extra_index_urls[] | **string**
 
 --extra-index-urls option ||
-|| trustedHosts[] | **string**
+|| trusted_hosts[] | **string**
 
 --trusted-hosts option ||
-|| noDeps | **bool**
+|| no_deps | **bool**
 
 --no-deps option ||
 |#
@@ -320,7 +320,7 @@ Extended working storage configuration.
 
 - `STORAGE_TYPE_UNSPECIFIED`
 - `SSD` ||
-|| sizeGb | **int64** ||
+|| size_gb | **int64** ||
 |#
 
 ## Argument {#yandex.cloud.datasphere.v2.jobs.Argument}
@@ -342,7 +342,7 @@ Name to create dataset with ||
 
 Description to show in UI ||
 || labels | **string** ||
-|| sizeGb | **int64**
+|| size_gb | **int64**
 
 Size of dataset to create ||
 || var | **string**
@@ -366,19 +366,19 @@ default 15 (SIGTERM) ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "projectId": "string",
-    "jobId": "string"
+    "project_id": "string",
+    "job_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "jobId": "string",
-    "uploadFiles": [
+    "job_id": "string",
+    "upload_files": [
       {
         "file": {
           "desc": {
@@ -386,8 +386,8 @@ default 15 (SIGTERM) ||
             "var": "string"
           },
           "sha256": "string",
-          "sizeBytes": "int64",
-          "compressionType": "FileCompressionType"
+          "size_bytes": "int64",
+          "compression_type": "FileCompressionType"
         },
         "url": "string"
       }
@@ -407,13 +407,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -456,10 +456,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project. ||
-|| jobId | **string**
+|| job_id | **string**
 
 Job ID. ||
 |#
@@ -468,10 +468,10 @@ Job ID. ||
 
 #|
 ||Field | Description ||
-|| jobId | **string**
+|| job_id | **string**
 
 ID of the job. ||
-|| uploadFiles[] | **[StorageFile](#yandex.cloud.datasphere.v2.jobs.StorageFile)**
+|| upload_files[] | **[StorageFile](#yandex.cloud.datasphere.v2.jobs.StorageFile)**
 
 Files to upload with their presigned URLs for upload. ||
 |#
@@ -494,10 +494,10 @@ File URL. ||
 || sha256 | **string**
 
 SHA256 of the file. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 File size in bytes. ||
-|| compressionType | enum **FileCompressionType**
+|| compression_type | enum **FileCompressionType**
 
 File compression info
 

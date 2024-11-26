@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/list.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.List {#List}
+# Kubernetes Marketplace, REST: HelmRelease.List
 
 Retrieves the list of Helm releases in the specified Kubernetes Cluster.
 

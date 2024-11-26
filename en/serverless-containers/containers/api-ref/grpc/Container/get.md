@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Container/get.md
 ---
 
-# Serverless Containers Service, gRPC: ContainerService.Get {#Get}
+# Serverless Containers Service, gRPC: ContainerService.Get
 
 Returns the specified container.
 
@@ -17,13 +17,13 @@ To get the list of all available containers, make a [List](/docs/serverless/cont
 
 ```json
 {
-  "containerId": "string"
+  "container_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to return.
 
@@ -35,8 +35,8 @@ To get a container ID make a [ContainerService.List](/docs/serverless/containers
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
@@ -50,10 +50,10 @@ To get a container ID make a [ContainerService.List](/docs/serverless/containers
 || id | **string**
 
 ID of the container. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the container belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the container. ||
 || name | **string**

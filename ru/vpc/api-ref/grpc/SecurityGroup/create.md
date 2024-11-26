@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/SecurityGroup/create.md
 ---
 
-# Virtual Private Cloud API, gRPC: SecurityGroupService.Create {#Create}
+# Virtual Private Cloud API, gRPC: SecurityGroupService.Create
 
 Creates a security group in the specified folder and network.
 
@@ -15,35 +15,35 @@ Creates a security group in the specified folder and network.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "networkId": "string",
-  "ruleSpecs": [
+  "network_id": "string",
+  "rule_specs": [
     {
       "description": "string",
       "labels": "string",
       "direction": "Direction",
       "ports": {
-        "fromPort": "int64",
-        "toPort": "int64"
+        "from_port": "int64",
+        "to_port": "int64"
       },
-      // Includes only one of the fields `protocolName`, `protocolNumber`
-      "protocolName": "string",
-      "protocolNumber": "int64",
+      // Includes only one of the fields `protocol_name`, `protocol_number`
+      "protocol_name": "string",
+      "protocol_number": "int64",
       // end of the list of possible fields
-      // Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`
-      "cidrBlocks": {
-        "v4CidrBlocks": [
+      // Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`
+      "cidr_blocks": {
+        "v4_cidr_blocks": [
           "string"
         ],
-        "v6CidrBlocks": [
+        "v6_cidr_blocks": [
           "string"
         ]
       },
-      "securityGroupId": "string",
-      "predefinedTarget": "string"
+      "security_group_id": "string",
+      "predefined_target": "string"
       // end of the list of possible fields
     }
   ]
@@ -52,7 +52,7 @@ Creates a security group in the specified folder and network.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder for this request to create a security group in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
@@ -66,10 +66,10 @@ Description of the security group. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the Network to create security group for. ||
-|| ruleSpecs[] | **[SecurityGroupRuleSpec](#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+|| rule_specs[] | **[SecurityGroupRuleSpec](#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
 
 Security rules specifications. ||
 |#
@@ -94,47 +94,47 @@ Required field. The direction of network traffic allowed by this rule.
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
 
 The range of ports that allow traffic to pass through. Null value means any port. ||
-|| protocolName | **string**
+|| protocol_name | **string**
 
 Protocol name.
 
-Includes only one of the fields `protocolName`, `protocolNumber`.
+Includes only one of the fields `protocol_name`, `protocol_number`.
 
 Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 Null value means any protocol. ||
-|| protocolNumber | **int64**
+|| protocol_number | **int64**
 
 Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 
-Includes only one of the fields `protocolName`, `protocolNumber`.
+Includes only one of the fields `protocol_name`, `protocol_number`.
 
 Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
 Null value means any protocol. ||
-|| cidrBlocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
+|| cidr_blocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| securityGroupId | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| security_group_id | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| predefinedTarget | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| predefined_target | **string**
 
 Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange}
 
 #|
 ||Field | Description ||
-|| fromPort | **int64**
+|| from_port | **int64**
 
 The lowest port in the range. ||
-|| toPort | **int64**
+|| to_port | **int64**
 
 The highest port in the range. ||
 |#
@@ -143,10 +143,10 @@ The highest port in the range. ||
 
 #|
 ||Field | Description ||
-|| v4CidrBlocks[] | **string**
+|| v4_cidr_blocks[] | **string**
 
 IPv4 CIDR blocks to allow traffic to. ||
-|| v6CidrBlocks[] | **string**
+|| v6_cidr_blocks[] | **string**
 
 IPv6 CIDR blocks to allow traffic to. ||
 |#
@@ -157,23 +157,23 @@ IPv6 CIDR blocks to allow traffic to. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "securityGroupId": "string"
+    "security_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "networkId": "string",
+    "network_id": "string",
     "status": "Status",
     "rules": [
       {
@@ -182,26 +182,26 @@ IPv6 CIDR blocks to allow traffic to. ||
         "labels": "string",
         "direction": "Direction",
         "ports": {
-          "fromPort": "int64",
-          "toPort": "int64"
+          "from_port": "int64",
+          "to_port": "int64"
         },
-        "protocolName": "string",
-        "protocolNumber": "int64",
-        // Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`
-        "cidrBlocks": {
-          "v4CidrBlocks": [
+        "protocol_name": "string",
+        "protocol_number": "int64",
+        // Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`
+        "cidr_blocks": {
+          "v4_cidr_blocks": [
             "string"
           ],
-          "v6CidrBlocks": [
+          "v6_cidr_blocks": [
             "string"
           ]
         },
-        "securityGroupId": "string",
-        "predefinedTarget": "string"
+        "security_group_id": "string",
+        "predefined_target": "string"
         // end of the list of possible fields
       }
     ],
-    "defaultForNetwork": "bool"
+    "default_for_network": "bool"
   }
   // end of the list of possible fields
 }
@@ -217,13 +217,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -266,7 +266,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| securityGroupId | **string**
+|| security_group_id | **string**
 
 ID of the security group that is being created. ||
 |#
@@ -278,10 +278,10 @@ ID of the security group that is being created. ||
 || id | **string**
 
 ID of the security group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the security group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -300,7 +300,7 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_./\\@0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_./\\@0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the security group belongs to. ||
 || status | enum **Status**
@@ -315,7 +315,7 @@ Security group status.
 || rules[] | **[SecurityGroupRule](#yandex.cloud.vpc.v1.SecurityGroupRule)**
 
 List of the security group rules. ||
-|| defaultForNetwork | **bool**
+|| default_for_network | **bool**
 
 Flag that indicates that the security group is the default for the network. ||
 |#
@@ -343,38 +343,38 @@ Required field. The direction of network traffic allowed by this rule.
 || ports | **[PortRange](#yandex.cloud.vpc.v1.PortRange2)**
 
 The range of ports that allow traffic to pass through. Null value means any. ||
-|| protocolName | **string**
+|| protocol_name | **string**
 
 Protocol name. Null value means any protocol.
 Values from [IANA](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| protocolNumber | **int64**
+|| protocol_number | **int64**
 
 Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml). ||
-|| cidrBlocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks2)**
+|| cidr_blocks | **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks2)**
 
 CIDR blocks to allow to recieve or send traffic.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| securityGroupId | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| security_group_id | **string**
 
 ID of the security group to add rule to.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
-|| predefinedTarget | **string**
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
+|| predefined_target | **string**
 
 Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
 
-Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`. ||
+Includes only one of the fields `cidr_blocks`, `security_group_id`, `predefined_target`. ||
 |#
 
 ## PortRange {#yandex.cloud.vpc.v1.PortRange2}
 
 #|
 ||Field | Description ||
-|| fromPort | **int64**
+|| from_port | **int64**
 
 The lowest port in the range. ||
-|| toPort | **int64**
+|| to_port | **int64**
 
 The highest port in the range. ||
 |#
@@ -383,10 +383,10 @@ The highest port in the range. ||
 
 #|
 ||Field | Description ||
-|| v4CidrBlocks[] | **string**
+|| v4_cidr_blocks[] | **string**
 
 IPv4 CIDR blocks to allow traffic to. ||
-|| v6CidrBlocks[] | **string**
+|| v6_cidr_blocks[] | **string**
 
 IPv6 CIDR blocks to allow traffic to. ||
 |#

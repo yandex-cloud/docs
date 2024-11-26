@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Dataset/deactivate.md
 ---
 
-# DataSphere API v2, REST: Dataset.Deactivate {#Deactivate}
+# DataSphere API v2, REST: Dataset.Deactivate
 
 Deactivates shared dataset for project
 

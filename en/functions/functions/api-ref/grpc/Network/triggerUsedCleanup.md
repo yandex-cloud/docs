@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Network/triggerUsedCleanup.md
 ---
 
-# Cloud Functions Service, gRPC: NetworkService.TriggerUsedCleanup {#TriggerUsedCleanup}
+# Cloud Functions Service, gRPC: NetworkService.TriggerUsedCleanup
 
 Forces obsolete used network to start cleanup process as soon as possible.
 Invocation does not wait for start or end of the cleanup process.
@@ -17,13 +17,13 @@ Second invocation with the same network does nothing until network is completely
 
 ```json
 {
-  "networkId": "string"
+  "network_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the obsolete network to start the cleanup process for. ||
 |#
@@ -32,13 +32,13 @@ Required field. ID of the obsolete network to start the cleanup process for. ||
 
 ```json
 {
-  "networkCleanupTime": "google.protobuf.Timestamp"
+  "network_cleanup_time": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkCleanupTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| network_cleanup_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when cleanup of the specified network will be started. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/storage/v1/api-ref/grpc/Bucket/update.md
 ---
 
-# Object Storage API, gRPC: BucketService.Update {#Update}
+# Object Storage API, gRPC: BucketService.Update
 
 Updates the specified bucket.
 
@@ -19,72 +19,72 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
 ```json
 {
   "name": "string",
-  "updateMask": "google.protobuf.FieldMask",
-  "anonymousAccessFlags": {
+  "update_mask": "google.protobuf.FieldMask",
+  "anonymous_access_flags": {
     "read": "google.protobuf.BoolValue",
     "list": "google.protobuf.BoolValue",
-    "configRead": "google.protobuf.BoolValue"
+    "config_read": "google.protobuf.BoolValue"
   },
-  "defaultStorageClass": "string",
-  "maxSize": "int64",
+  "default_storage_class": "string",
+  "max_size": "int64",
   "cors": [
     {
       "id": "string",
-      "allowedMethods": [
+      "allowed_methods": [
         "Method"
       ],
-      "allowedHeaders": [
+      "allowed_headers": [
         "string"
       ],
-      "allowedOrigins": [
+      "allowed_origins": [
         "string"
       ],
-      "exposeHeaders": [
+      "expose_headers": [
         "string"
       ],
-      "maxAgeSeconds": "google.protobuf.Int64Value"
+      "max_age_seconds": "google.protobuf.Int64Value"
     }
   ],
-  "websiteSettings": {
+  "website_settings": {
     "index": "string",
     "error": "string",
-    "redirectAllRequests": {
+    "redirect_all_requests": {
       "protocol": "Protocol",
       "hostname": "string"
     },
-    "routingRules": [
+    "routing_rules": [
       {
         "condition": {
-          "httpErrorCodeReturnedEquals": "string",
-          "keyPrefixEquals": "string"
+          "http_error_code_returned_equals": "string",
+          "key_prefix_equals": "string"
         },
         "redirect": {
           "hostname": "string",
-          "httpRedirectCode": "string",
+          "http_redirect_code": "string",
           "protocol": "Protocol",
-          "replaceKeyPrefixWith": "string",
-          "replaceKeyWith": "string"
+          "replace_key_prefix_with": "string",
+          "replace_key_with": "string"
         }
       }
     ]
   },
   "versioning": "Versioning",
-  "lifecycleRules": [
+  "lifecycle_rules": [
     {
       "id": "google.protobuf.StringValue",
       "enabled": "bool",
       "filter": {
         "prefix": "string",
-        "objectSizeGreaterThan": "google.protobuf.Int64Value",
-        "objectSizeLessThan": "google.protobuf.Int64Value",
+        "object_size_greater_than": "google.protobuf.Int64Value",
+        "object_size_less_than": "google.protobuf.Int64Value",
         "tag": {
           "key": "string",
           "value": "string"
         },
-        "andOperator": {
+        "and_operator": {
           "prefix": "string",
-          "objectSizeGreaterThan": "google.protobuf.Int64Value",
-          "objectSizeLessThan": "google.protobuf.Int64Value",
+          "object_size_greater_than": "google.protobuf.Int64Value",
+          "object_size_less_than": "google.protobuf.Int64Value",
           "tag": [
             {
               "key": "string",
@@ -96,29 +96,29 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
       "expiration": {
         "date": "google.protobuf.Timestamp",
         "days": "google.protobuf.Int64Value",
-        "expiredObjectDeleteMarker": "google.protobuf.BoolValue"
+        "expired_object_delete_marker": "google.protobuf.BoolValue"
       },
       "transitions": [
         {
           "date": "google.protobuf.Timestamp",
           "days": "google.protobuf.Int64Value",
-          "storageClass": "string"
+          "storage_class": "string"
         }
       ],
-      "abortIncompleteMultipartUpload": {
-        "daysAfterExpiration": "google.protobuf.Int64Value"
+      "abort_incomplete_multipart_upload": {
+        "days_after_expiration": "google.protobuf.Int64Value"
       },
-      "noncurrentExpiration": {
-        "noncurrentDays": "google.protobuf.Int64Value"
+      "noncurrent_expiration": {
+        "noncurrent_days": "google.protobuf.Int64Value"
       },
-      "noncurrentTransitions": [
+      "noncurrent_transitions": [
         {
-          "noncurrentDays": "google.protobuf.Int64Value",
-          "storageClass": "string"
+          "noncurrent_days": "google.protobuf.Int64Value",
+          "storage_class": "string"
         }
       ],
-      "noncurrentDeleteMarkers": {
-        "noncurrentDays": "google.protobuf.Int64Value"
+      "noncurrent_delete_markers": {
+        "noncurrent_days": "google.protobuf.Int64Value"
       }
     }
   ],
@@ -127,8 +127,8 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
     "grants": [
       {
         "permission": "Permission",
-        "grantType": "GrantType",
-        "granteeId": "string"
+        "grant_type": "GrantType",
+        "grantee_id": "string"
       }
     ]
   },
@@ -138,9 +138,9 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
       "value": "string"
     }
   ],
-  "objectLock": {
+  "object_lock": {
     "status": "ObjectLockStatus",
-    "defaultRetention": {
+    "default_retention": {
       "mode": "Mode",
       // Includes only one of the fields `days`, `years`
       "days": "int64",
@@ -151,8 +151,8 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
   "encryption": {
     "rules": [
       {
-        "kmsMasterKeyId": "string",
-        "sseAlgorithm": "string"
+        "kms_master_key_id": "string",
+        "sse_algorithm": "string"
       }
     ]
   }
@@ -168,20 +168,20 @@ Required field. Name of the bucket to update.
 The name cannot be updated.
 
 To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/grpc/Bucket/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Update mask that specifies which attributes of the bucket should be updated.
 Use * for full update. ||
-|| anonymousAccessFlags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
+|| anonymous_access_flags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
 
 Flags for configuring public (anonymous) access to the bucket's content and settings.
 For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). ||
-|| defaultStorageClass | **string**
+|| default_storage_class | **string**
 
 Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
 (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
 For details, see [documentation](/docs/storage/concepts/storage-class). ||
-|| maxSize | **int64**
+|| max_size | **int64**
 
 Maximum size of the bucket, in bytes.
 For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). ||
@@ -189,7 +189,7 @@ For details, see [documentation](/docs/storage/operations/buckets/limit-max-volu
 
 List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
 For details, see [documentation](/docs/storage/concepts/cors). ||
-|| websiteSettings | **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings)**
+|| website_settings | **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings)**
 
 Configuration for hosting a static website in the bucket.
 For details, see [documentation](/docs/storage/concepts/hosting). ||
@@ -215,7 +215,7 @@ them.
 versioning was suspended are still versioned and keep their version IDs.
 
   To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. ||
-|| lifecycleRules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
+|| lifecycle_rules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
 
 List of object lifecycle rules for the bucket.
 For details, see [documentation](/docs/storage/concepts/lifecycles). ||
@@ -231,7 +231,7 @@ For details, see [documentation](/docs/storage/concepts/acl). ||
 
 List of tags for the bucket.
 For details, see [documentation](/docs/resource-manager/concepts/labels). ||
-|| objectLock | **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock)**
+|| object_lock | **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock)**
 
 Configuration for object lock on the bucket.
 For details about the concept, see [documentation](/docs/storage/concepts/object-lock). ||
@@ -251,7 +251,7 @@ Specifies whether public (anonymous) access to read objects in the bucket is ena
 || list | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to the list of objects in the bucket is enabled. ||
-|| configRead | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| config_read | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
 [static website hosting](/docs/storage/concepts/hosting), and
@@ -268,7 +268,7 @@ For details about the concept, see [documentation](/docs/storage/concepts/cors).
 || id | **string**
 
 ID of the CORS rule. ||
-|| allowedMethods[] | enum **Method**
+|| allowed_methods[] | enum **Method**
 
 List of HTTP methods allowed by the CORS rule.
 
@@ -283,7 +283,7 @@ the list of the allowed methods. If there is a match, all the allowed methods ar
 - `METHOD_POST`: HTTP `POST` method.
 - `METHOD_PUT`: HTTP `PUT` method.
 - `METHOD_DELETE`: HTTP `DELETE` method. ||
-|| allowedHeaders[] | **string**
+|| allowed_headers[] | **string**
 
 List of HTTP headers allowed by the CORS rule.
 
@@ -294,16 +294,16 @@ the list of the allowed headers. If there is a match, the specified headers that
 
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `x-amz-*` value will allow all Amazon S3-compatible headers. ||
-|| allowedOrigins[] | **string**
+|| allowed_origins[] | **string**
 
 List of request origins allowed by the CORS rule.
 
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`. ||
-|| exposeHeaders[] | **string**
+|| expose_headers[] | **string**
 
 List of headers contained in responses to CORS requests that can be accessed by applications. ||
-|| maxAgeSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_age_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time in seconds that a client can cache the response to a CORS-preflight request as identified by the
 object requested, the HTTP method, and the origin. ||
@@ -317,19 +317,19 @@ object requested, the HTTP method, and the origin. ||
 
 Key of the index page object that is returned when a response is made to the root of the website.
 
-Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+Either `index` or `redirect_all_requests` must be specified in order for the bucket to host a static website.
 
 If specified, the index page object must be located in the root of the bucket. ||
 || error | **string**
 
 Key of the error page object that is returned when an error occurs. ||
-|| redirectAllRequests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
+|| redirect_all_requests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
 
 Configuration for redirecting all requests sent to the website.
 
-Either `redirectAllRequests` or `index` must be specified in order for the bucket to host a static website.
-If `redirectAllRequests` is specified, it must be the only field in [Bucket.websiteSettings](#yandex.cloud.storage.v1.Bucket). ||
-|| routingRules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
+Either `redirect_all_requests` or `index` must be specified in order for the bucket to host a static website.
+If `redirect_all_requests` is specified, it must be the only field in [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket). ||
+|| routing_rules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
 
 List of redirect rules. ||
 |#
@@ -370,10 +370,10 @@ Redirect instructions. ||
 
 #|
 ||Field | Description ||
-|| httpErrorCodeReturnedEquals | **string**
+|| http_error_code_returned_equals | **string**
 
 HTTP status code (number only) that must match for the redirect to apply. ||
-|| keyPrefixEquals | **string**
+|| key_prefix_equals | **string**
 
 Prefix of the object key from which requests are redirected. ||
 |#
@@ -385,7 +385,7 @@ Prefix of the object key from which requests are redirected. ||
 || hostname | **string**
 
 Hostname of the redirect URI. ||
-|| httpRedirectCode | **string**
+|| http_redirect_code | **string**
 
 HTTP status code of the redirect response.
 
@@ -397,16 +397,16 @@ Scheme of the redirect URI.
 - `PROTOCOL_UNSPECIFIED`
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
-|| replaceKeyPrefixWith | **string**
+|| replace_key_prefix_with | **string**
 
-Substitution for the prefix of the object key specified in [Condition.keyPrefixEquals](#yandex.cloud.storage.v1.WebsiteSettings.Condition).
+Substitution for the prefix of the object key specified in [Condition.key_prefix_equals](#yandex.cloud.storage.v1.WebsiteSettings.Condition).
 
-At most one of `replaceKeyPrefixWith` and `replaceKeyWith` can be specified. ||
-|| replaceKeyWith | **string**
+At most one of `replace_key_prefix_with` and `replace_key_with` can be specified. ||
+|| replace_key_with | **string**
 
 New object key.
 
-At most one of `replaceKeyWith` and `replaceKeyPrefixWith` can be specified. ||
+At most one of `replace_key_with` and `replace_key_prefix_with` can be specified. ||
 |#
 
 ## LifecycleRule {#yandex.cloud.storage.v1.LifecycleRule}
@@ -454,22 +454,22 @@ specified storage class.
 
 For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
 (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
-|| abortIncompleteMultipartUpload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+|| abort_incomplete_multipart_upload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
 
 Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). ||
-|| noncurrentExpiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+|| noncurrent_expiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
 
 Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is
 `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
 
 At expiration, the non-current version of the object is deleted and cannot be recovered. ||
-|| noncurrentTransitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+|| noncurrent_transitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
 
 List of transition rules for non-current versions of objects in a bucket with versioning enabled
 ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
 
 At transition, the non-current version of the object is transitioned to the specified storage class. ||
-|| noncurrentDeleteMarkers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+|| noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
 
 Expiration rule for non-current delete markers of an objects in a bucket with versioning
 enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
@@ -485,16 +485,16 @@ At expiration, the non-current delete marker of the object is deleted and cannot
 || prefix | **string**
 
 Key prefix that the object must have in order for the rule to apply. ||
-|| objectSizeGreaterThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size that the object must be greater. ||
-|| objectSizeLessThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size that the object must be less t. ||
 || tag | **[Tag](#yandex.cloud.storage.v1.Tag)**
 
 Tags that the object's tag set must have for the rule to apply. ||
-|| andOperator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+|| and_operator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
 
 Apply a logical AND to all of the predicates configured inside the And operator. ||
 |#
@@ -516,8 +516,8 @@ Value of the bucket tag. ||
 #|
 ||Field | Description ||
 || prefix | **string** ||
-|| objectSizeGreaterThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| objectSizeLessThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
 || tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)** ||
 |#
 
@@ -532,18 +532,18 @@ Specific date of object expiration.
 The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
 immediately.
 
-Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified. ||
+Exactly one of `date`, `days`, and `expired_object_delete_marker` fields can be specified. ||
 || days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the creation or modification of the object, after which an object expires.
 
-Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified. ||
-|| expiredObjectDeleteMarker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+Exactly one of `days`, `date`, and `expired_object_delete_marker` fields can be specified. ||
+|| expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
 delete marker) is removed at the object's expiration.
 
-Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified. ||
+Exactly one of `expired_object_delete_marker`, `date`, and `days` fields can be specified. ||
 |#
 
 ## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition}
@@ -574,7 +574,7 @@ Time period, in number of days from the creation or modification of the object, 
 transitioned.
 
 At most one of `days` and `date` fields can be specified. ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Required field. Storage class to which an object is transitioned from standard storage.
 
@@ -586,7 +586,7 @@ to standard storage and transitions to or from ice storage are not allowed. ||
 
 #|
 ||Field | Description ||
-|| daysAfterExpiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
 aborted. ||
@@ -596,7 +596,7 @@ aborted. ||
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
@@ -611,11 +611,11 @@ At transition, the non-current version of the object is transitioned to the spec
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version is transitioned. ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 
@@ -627,7 +627,7 @@ to standard storage and transitions to or from ice storage are not allowed. ||
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of a delete marker was classified as non-current, after which
 the delete marker expires. ||
@@ -675,14 +675,14 @@ S3-compatible HTTP API.
 
   Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
 Amazon S3-compatible HTTP API. ||
-|| grantType | enum **GrantType**
+|| grant_type | enum **GrantType**
 
 Required field. The grantee type for the grant.
 
 - `GRANT_TYPE_UNSPECIFIED`
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
-  For this grantee type, you need to specify the user ID in `Bucket.acl.grants.granteeId` field. To get user ID, see
+  For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
 [instruction](/docs/iam/operations/users/get).
 
   Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
@@ -698,9 +698,9 @@ resource via signed (authenticated) or unsigned (anonymous) requests.
 
   Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
 ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API). ||
-|| granteeId | **string**
+|| grantee_id | **string**
 
-ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`. ||
+ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`. ||
 |#
 
 ## ObjectLock {#yandex.cloud.storage.v1.ObjectLock}
@@ -715,7 +715,7 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 - `OBJECT_LOCK_STATUS_UNSPECIFIED`
 - `OBJECT_LOCK_STATUS_DISABLED`
 - `OBJECT_LOCK_STATUS_ENABLED` ||
-|| defaultRetention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)** ||
+|| default_retention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)** ||
 |#
 
 ## DefaultRetention {#yandex.cloud.storage.v1.ObjectLock.DefaultRetention}
@@ -752,8 +752,8 @@ Includes only one of the fields `days`, `years`. ||
 
 #|
 ||Field | Description ||
-|| kmsMasterKeyId | **string** ||
-|| sseAlgorithm | **string** ||
+|| kms_master_key_id | **string** ||
+|| sse_algorithm | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -762,9 +762,9 @@ Includes only one of the fields `days`, `years`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
     "name": "string"
@@ -774,83 +774,83 @@ Includes only one of the fields `days`, `years`. ||
   "response": {
     "id": "string",
     "name": "string",
-    "folderId": "string",
-    "anonymousAccessFlags": {
+    "folder_id": "string",
+    "anonymous_access_flags": {
       "read": "google.protobuf.BoolValue",
       "list": "google.protobuf.BoolValue",
-      "configRead": "google.protobuf.BoolValue"
+      "config_read": "google.protobuf.BoolValue"
     },
-    "defaultStorageClass": "string",
+    "default_storage_class": "string",
     "versioning": "Versioning",
-    "maxSize": "int64",
+    "max_size": "int64",
     "policy": "google.protobuf.Struct",
     "acl": {
       "grants": [
         {
           "permission": "Permission",
-          "grantType": "GrantType",
-          "granteeId": "string"
+          "grant_type": "GrantType",
+          "grantee_id": "string"
         }
       ]
     },
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "cors": [
       {
         "id": "string",
-        "allowedMethods": [
+        "allowed_methods": [
           "Method"
         ],
-        "allowedHeaders": [
+        "allowed_headers": [
           "string"
         ],
-        "allowedOrigins": [
+        "allowed_origins": [
           "string"
         ],
-        "exposeHeaders": [
+        "expose_headers": [
           "string"
         ],
-        "maxAgeSeconds": "google.protobuf.Int64Value"
+        "max_age_seconds": "google.protobuf.Int64Value"
       }
     ],
-    "websiteSettings": {
+    "website_settings": {
       "index": "string",
       "error": "string",
-      "redirectAllRequests": {
+      "redirect_all_requests": {
         "protocol": "Protocol",
         "hostname": "string"
       },
-      "routingRules": [
+      "routing_rules": [
         {
           "condition": {
-            "httpErrorCodeReturnedEquals": "string",
-            "keyPrefixEquals": "string"
+            "http_error_code_returned_equals": "string",
+            "key_prefix_equals": "string"
           },
           "redirect": {
             "hostname": "string",
-            "httpRedirectCode": "string",
+            "http_redirect_code": "string",
             "protocol": "Protocol",
-            "replaceKeyPrefixWith": "string",
-            "replaceKeyWith": "string"
+            "replace_key_prefix_with": "string",
+            "replace_key_with": "string"
           }
         }
       ]
     },
-    "lifecycleRules": [
+    "lifecycle_rules": [
       {
         "id": "google.protobuf.StringValue",
         "enabled": "bool",
         "filter": {
           "prefix": "string",
-          "objectSizeGreaterThan": "google.protobuf.Int64Value",
-          "objectSizeLessThan": "google.protobuf.Int64Value",
+          "object_size_greater_than": "google.protobuf.Int64Value",
+          "object_size_less_than": "google.protobuf.Int64Value",
           "tag": {
             "key": "string",
             "value": "string"
           },
-          "andOperator": {
+          "and_operator": {
             "prefix": "string",
-            "objectSizeGreaterThan": "google.protobuf.Int64Value",
-            "objectSizeLessThan": "google.protobuf.Int64Value",
+            "object_size_greater_than": "google.protobuf.Int64Value",
+            "object_size_less_than": "google.protobuf.Int64Value",
             "tag": [
               {
                 "key": "string",
@@ -862,29 +862,29 @@ Includes only one of the fields `days`, `years`. ||
         "expiration": {
           "date": "google.protobuf.Timestamp",
           "days": "google.protobuf.Int64Value",
-          "expiredObjectDeleteMarker": "google.protobuf.BoolValue"
+          "expired_object_delete_marker": "google.protobuf.BoolValue"
         },
         "transitions": [
           {
             "date": "google.protobuf.Timestamp",
             "days": "google.protobuf.Int64Value",
-            "storageClass": "string"
+            "storage_class": "string"
           }
         ],
-        "abortIncompleteMultipartUpload": {
-          "daysAfterExpiration": "google.protobuf.Int64Value"
+        "abort_incomplete_multipart_upload": {
+          "days_after_expiration": "google.protobuf.Int64Value"
         },
-        "noncurrentExpiration": {
-          "noncurrentDays": "google.protobuf.Int64Value"
+        "noncurrent_expiration": {
+          "noncurrent_days": "google.protobuf.Int64Value"
         },
-        "noncurrentTransitions": [
+        "noncurrent_transitions": [
           {
-            "noncurrentDays": "google.protobuf.Int64Value",
-            "storageClass": "string"
+            "noncurrent_days": "google.protobuf.Int64Value",
+            "storage_class": "string"
           }
         ],
-        "noncurrentDeleteMarkers": {
-          "noncurrentDays": "google.protobuf.Int64Value"
+        "noncurrent_delete_markers": {
+          "noncurrent_days": "google.protobuf.Int64Value"
         }
       }
     ],
@@ -894,9 +894,9 @@ Includes only one of the fields `days`, `years`. ||
         "value": "string"
       }
     ],
-    "objectLock": {
+    "object_lock": {
       "status": "ObjectLockStatus",
-      "defaultRetention": {
+      "default_retention": {
         "mode": "Mode",
         // Includes only one of the fields `days`, `years`
         "days": "int64",
@@ -907,8 +907,8 @@ Includes only one of the fields `days`, `years`. ||
     "encryption": {
       "rules": [
         {
-          "kmsMasterKeyId": "string",
-          "sseAlgorithm": "string"
+          "kms_master_key_id": "string",
+          "sse_algorithm": "string"
         }
       ]
     }
@@ -927,13 +927,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -997,14 +997,14 @@ Name of the bucket.
 
 The name is unique within the platform. For naming limitations and rules, see
 [documentation](/docs/storage/concepts/bucket#naming). ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the bucket belongs to. ||
-|| anonymousAccessFlags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags2)**
+|| anonymous_access_flags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags2)**
 
 Flags for configuring public (anonymous) access to the bucket's content and settings.
 For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). ||
-|| defaultStorageClass | **string**
+|| default_storage_class | **string**
 
 Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
 (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
@@ -1031,7 +1031,7 @@ them.
 versioning was suspended are still versioned and keep their version IDs.
 
   To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. ||
-|| maxSize | **int64**
+|| max_size | **int64**
 
 Maximum size of the bucket, in bytes.
 For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). ||
@@ -1043,18 +1043,18 @@ For details, see [documentation](/docs/storage/concepts/policy). ||
 
 Access control list (ACL) of the bucket.
 For details, see [documentation](/docs/storage/concepts/acl). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || cors[] | **[CorsRule](#yandex.cloud.storage.v1.CorsRule2)**
 
 List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
 For details, see [documentation](/docs/storage/concepts/cors). ||
-|| websiteSettings | **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings2)**
+|| website_settings | **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings2)**
 
 Configuration for hosting a static website in the bucket.
 For details, see [documentation](/docs/storage/concepts/hosting). ||
-|| lifecycleRules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule2)**
+|| lifecycle_rules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule2)**
 
 List of object lifecycle rules for the bucket.
 For details, see [documentation](/docs/storage/concepts/lifecycles). ||
@@ -1062,7 +1062,7 @@ For details, see [documentation](/docs/storage/concepts/lifecycles). ||
 
 List of tags for the bucket.
 For details, see [documentation](/docs/resource-manager/concepts/labels). ||
-|| objectLock | **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock2)**
+|| object_lock | **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock2)**
 
 Configuration for object lock on the bucket.
 For details about the concept, see [documentation](/docs/storage/concepts/object-lock). ||
@@ -1082,7 +1082,7 @@ Specifies whether public (anonymous) access to read objects in the bucket is ena
 || list | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to the list of objects in the bucket is enabled. ||
-|| configRead | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| config_read | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether public (anonymous) access to read [CORS](/docs/storage/concepts/cors),
 [static website hosting](/docs/storage/concepts/hosting), and
@@ -1131,14 +1131,14 @@ S3-compatible HTTP API.
 
   Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
 Amazon S3-compatible HTTP API. ||
-|| grantType | enum **GrantType**
+|| grant_type | enum **GrantType**
 
 Required field. The grantee type for the grant.
 
 - `GRANT_TYPE_UNSPECIFIED`
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
 
-  For this grantee type, you need to specify the user ID in `Bucket.acl.grants.granteeId` field. To get user ID, see
+  For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
 [instruction](/docs/iam/operations/users/get).
 
   Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
@@ -1154,9 +1154,9 @@ resource via signed (authenticated) or unsigned (anonymous) requests.
 
   Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
 ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API). ||
-|| granteeId | **string**
+|| grantee_id | **string**
 
-ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`. ||
+ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`. ||
 |#
 
 ## CorsRule {#yandex.cloud.storage.v1.CorsRule2}
@@ -1169,7 +1169,7 @@ For details about the concept, see [documentation](/docs/storage/concepts/cors).
 || id | **string**
 
 ID of the CORS rule. ||
-|| allowedMethods[] | enum **Method**
+|| allowed_methods[] | enum **Method**
 
 List of HTTP methods allowed by the CORS rule.
 
@@ -1184,7 +1184,7 @@ the list of the allowed methods. If there is a match, all the allowed methods ar
 - `METHOD_POST`: HTTP `POST` method.
 - `METHOD_PUT`: HTTP `PUT` method.
 - `METHOD_DELETE`: HTTP `DELETE` method. ||
-|| allowedHeaders[] | **string**
+|| allowed_headers[] | **string**
 
 List of HTTP headers allowed by the CORS rule.
 
@@ -1195,16 +1195,16 @@ the list of the allowed headers. If there is a match, the specified headers that
 
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `x-amz-*` value will allow all Amazon S3-compatible headers. ||
-|| allowedOrigins[] | **string**
+|| allowed_origins[] | **string**
 
 List of request origins allowed by the CORS rule.
 
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`. ||
-|| exposeHeaders[] | **string**
+|| expose_headers[] | **string**
 
 List of headers contained in responses to CORS requests that can be accessed by applications. ||
-|| maxAgeSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_age_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time in seconds that a client can cache the response to a CORS-preflight request as identified by the
 object requested, the HTTP method, and the origin. ||
@@ -1218,19 +1218,19 @@ object requested, the HTTP method, and the origin. ||
 
 Key of the index page object that is returned when a response is made to the root of the website.
 
-Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+Either `index` or `redirect_all_requests` must be specified in order for the bucket to host a static website.
 
 If specified, the index page object must be located in the root of the bucket. ||
 || error | **string**
 
 Key of the error page object that is returned when an error occurs. ||
-|| redirectAllRequests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme2)**
+|| redirect_all_requests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme2)**
 
 Configuration for redirecting all requests sent to the website.
 
-Either `redirectAllRequests` or `index` must be specified in order for the bucket to host a static website.
-If `redirectAllRequests` is specified, it must be the only field in [Bucket.websiteSettings](#yandex.cloud.storage.v1.Bucket). ||
-|| routingRules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule2)**
+Either `redirect_all_requests` or `index` must be specified in order for the bucket to host a static website.
+If `redirect_all_requests` is specified, it must be the only field in [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket). ||
+|| routing_rules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule2)**
 
 List of redirect rules. ||
 |#
@@ -1271,10 +1271,10 @@ Redirect instructions. ||
 
 #|
 ||Field | Description ||
-|| httpErrorCodeReturnedEquals | **string**
+|| http_error_code_returned_equals | **string**
 
 HTTP status code (number only) that must match for the redirect to apply. ||
-|| keyPrefixEquals | **string**
+|| key_prefix_equals | **string**
 
 Prefix of the object key from which requests are redirected. ||
 |#
@@ -1286,7 +1286,7 @@ Prefix of the object key from which requests are redirected. ||
 || hostname | **string**
 
 Hostname of the redirect URI. ||
-|| httpRedirectCode | **string**
+|| http_redirect_code | **string**
 
 HTTP status code of the redirect response.
 
@@ -1298,16 +1298,16 @@ Scheme of the redirect URI.
 - `PROTOCOL_UNSPECIFIED`
 - `PROTOCOL_HTTP`: `http` scheme.
 - `PROTOCOL_HTTPS`: `https` scheme. ||
-|| replaceKeyPrefixWith | **string**
+|| replace_key_prefix_with | **string**
 
-Substitution for the prefix of the object key specified in [Condition.keyPrefixEquals](#yandex.cloud.storage.v1.WebsiteSettings.Condition2).
+Substitution for the prefix of the object key specified in [Condition.key_prefix_equals](#yandex.cloud.storage.v1.WebsiteSettings.Condition2).
 
-At most one of `replaceKeyPrefixWith` and `replaceKeyWith` can be specified. ||
-|| replaceKeyWith | **string**
+At most one of `replace_key_prefix_with` and `replace_key_with` can be specified. ||
+|| replace_key_with | **string**
 
 New object key.
 
-At most one of `replaceKeyWith` and `replaceKeyPrefixWith` can be specified. ||
+At most one of `replace_key_with` and `replace_key_prefix_with` can be specified. ||
 |#
 
 ## LifecycleRule {#yandex.cloud.storage.v1.LifecycleRule2}
@@ -1355,22 +1355,22 @@ specified storage class.
 
 For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
 (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
-|| abortIncompleteMultipartUpload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays2)**
+|| abort_incomplete_multipart_upload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays2)**
 
 Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). ||
-|| noncurrentExpiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration2)**
+|| noncurrent_expiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration2)**
 
 Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is
 `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
 
 At expiration, the non-current version of the object is deleted and cannot be recovered. ||
-|| noncurrentTransitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition2)**
+|| noncurrent_transitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition2)**
 
 List of transition rules for non-current versions of objects in a bucket with versioning enabled
 ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
 
 At transition, the non-current version of the object is transitioned to the specified storage class. ||
-|| noncurrentDeleteMarkers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers2)**
+|| noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers2)**
 
 Expiration rule for non-current delete markers of an objects in a bucket with versioning
 enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
@@ -1386,16 +1386,16 @@ At expiration, the non-current delete marker of the object is deleted and cannot
 || prefix | **string**
 
 Key prefix that the object must have in order for the rule to apply. ||
-|| objectSizeGreaterThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size that the object must be greater. ||
-|| objectSizeLessThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size that the object must be less t. ||
 || tag | **[Tag](#yandex.cloud.storage.v1.Tag2)**
 
 Tags that the object's tag set must have for the rule to apply. ||
-|| andOperator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And2)**
+|| and_operator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And2)**
 
 Apply a logical AND to all of the predicates configured inside the And operator. ||
 |#
@@ -1417,8 +1417,8 @@ Value of the bucket tag. ||
 #|
 ||Field | Description ||
 || prefix | **string** ||
-|| objectSizeGreaterThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
-|| objectSizeLessThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)** ||
 || tag[] | **[Tag](#yandex.cloud.storage.v1.Tag2)** ||
 |#
 
@@ -1433,18 +1433,18 @@ Specific date of object expiration.
 The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
 immediately.
 
-Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified. ||
+Exactly one of `date`, `days`, and `expired_object_delete_marker` fields can be specified. ||
 || days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the creation or modification of the object, after which an object expires.
 
-Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified. ||
-|| expiredObjectDeleteMarker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+Exactly one of `days`, `date`, and `expired_object_delete_marker` fields can be specified. ||
+|| expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
 delete marker) is removed at the object's expiration.
 
-Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified. ||
+Exactly one of `expired_object_delete_marker`, `date`, and `days` fields can be specified. ||
 |#
 
 ## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition2}
@@ -1475,7 +1475,7 @@ Time period, in number of days from the creation or modification of the object, 
 transitioned.
 
 At most one of `days` and `date` fields can be specified. ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Required field. Storage class to which an object is transitioned from standard storage.
 
@@ -1487,7 +1487,7 @@ to standard storage and transitions to or from ice storage are not allowed. ||
 
 #|
 ||Field | Description ||
-|| daysAfterExpiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
 aborted. ||
@@ -1497,7 +1497,7 @@ aborted. ||
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
@@ -1512,11 +1512,11 @@ At transition, the non-current version of the object is transitioned to the spec
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version is transitioned. ||
-|| storageClass | **string**
+|| storage_class | **string**
 
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 
@@ -1528,7 +1528,7 @@ to standard storage and transitions to or from ice storage are not allowed. ||
 
 #|
 ||Field | Description ||
-|| noncurrentDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days since the version of a delete marker was classified as non-current, after which
 the delete marker expires. ||
@@ -1546,7 +1546,7 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 - `OBJECT_LOCK_STATUS_UNSPECIFIED`
 - `OBJECT_LOCK_STATUS_DISABLED`
 - `OBJECT_LOCK_STATUS_ENABLED` ||
-|| defaultRetention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention2)** ||
+|| default_retention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention2)** ||
 |#
 
 ## DefaultRetention {#yandex.cloud.storage.v1.ObjectLock.DefaultRetention2}
@@ -1583,6 +1583,6 @@ Includes only one of the fields `days`, `years`. ||
 
 #|
 ||Field | Description ||
-|| kmsMasterKeyId | **string** ||
-|| sseAlgorithm | **string** ||
+|| kms_master_key_id | **string** ||
+|| sse_algorithm | **string** ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/list.md
 ---
 
-# Video API, REST: Channel.List {#List}
+# Video API, REST: Channel.List
 
 List channels for organization.
 
@@ -19,7 +19,7 @@ GET https://video.{{ api-host }}/video/v1/channels
 ||Field | Description ||
 || organizationId | **string**
 
-ID of the organization. ||
+Required field. ID of the organization. ||
 || pageSize | **string** (int64)
 
 The maximum number of the results per page to return. Default value: 100. ||

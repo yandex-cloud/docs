@@ -188,7 +188,7 @@
 
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите **{{ ui-key.yacloud.common.description }}** шаблона.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `HDD`.
        * **{{ ui-key.yacloud.compute.disk-form.field_size }}** диска — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

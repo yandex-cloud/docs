@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/LoadBalancer/getTargetStates.md
 ---
 
-# Application Load Balancer API, gRPC: LoadBalancerService.GetTargetStates {#GetTargetStates}
+# Application Load Balancer API, gRPC: LoadBalancerService.GetTargetStates
 
 Returns the statuses of all targets of the specified backend group in all their availability zones.
 
@@ -15,21 +15,21 @@ Returns the statuses of all targets of the specified backend group in all their 
 
 ```json
 {
-  "loadBalancerId": "string",
-  "backendGroupId": "string",
-  "targetGroupId": "string"
+  "load_balancer_id": "string",
+  "backend_group_id": "string",
+  "target_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 Required field. ID of the application load balancer that the backend group is attributed to. ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. ID of the backend group that the target group is attributed to. ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the target group to get target states of. ||
 |#
@@ -38,23 +38,23 @@ Required field. ID of the target group to get target states of. ||
 
 ```json
 {
-  "targetStates": [
+  "target_states": [
     {
       "status": {
-        "zoneStatuses": [
+        "zone_statuses": [
           {
-            "zoneId": "string",
+            "zone_id": "string",
             "status": "Status",
-            "failedActiveHc": "bool"
+            "failed_active_hc": "bool"
           }
         ]
       },
       "target": {
-        // Includes only one of the fields `ipAddress`
-        "ipAddress": "string",
+        // Includes only one of the fields `ip_address`
+        "ip_address": "string",
         // end of the list of possible fields
-        "subnetId": "string",
-        "privateIpv4Address": "bool"
+        "subnet_id": "string",
+        "private_ipv4_address": "bool"
       }
     }
   ]
@@ -63,7 +63,7 @@ Required field. ID of the target group to get target states of. ||
 
 #|
 ||Field | Description ||
-|| targetStates[] | **[TargetState](#yandex.cloud.apploadbalancer.v1.TargetState)**
+|| target_states[] | **[TargetState](#yandex.cloud.apploadbalancer.v1.TargetState)**
 
 Target states of the specified target group. ||
 |#
@@ -88,7 +88,7 @@ Health of the target.
 
 #|
 ||Field | Description ||
-|| zoneStatuses[] | **[ZoneHealthcheckStatus](#yandex.cloud.apploadbalancer.v1.TargetState.ZoneHealthcheckStatus)**
+|| zone_statuses[] | **[ZoneHealthcheckStatus](#yandex.cloud.apploadbalancer.v1.TargetState.ZoneHealthcheckStatus)**
 
 Statuses of the target in its availability zones. ||
 |#
@@ -99,7 +99,7 @@ Health of the target in the availability zone.
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone. ||
 || status | enum **Status**
@@ -108,16 +108,16 @@ Status of the target in the availability zone.
 
 - `STATUS_UNSPECIFIED`
 - `HEALTHY`: All of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) are passed
-(the number depends on the [HealthCheck.healthyThreshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is ready to receive traffic.
+(the number depends on the [HealthCheck.healthy_threshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is ready to receive traffic.
 - `PARTIALLY_HEALTHY`: Some of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) failed
-(the number depends on the [HealthCheck.unhealthyThreshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting).
+(the number depends on the [HealthCheck.unhealthy_threshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting).
 The target is ready to receive traffic from the load balancer nodes which, based on their health checks,
 consider the target healthy.
 - `UNHEALTHY`: All of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) failed
-(the number depends on the [HealthCheck.unhealthyThreshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is not receiving traffic.
+(the number depends on the [HealthCheck.unhealthy_threshold](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is not receiving traffic.
 - `DRAINING`: Target is being deleted and the application load balancer is no longer sending traffic to this target.
 - `TIMEOUT` ||
-|| failedActiveHc | **bool**
+|| failed_active_hc | **bool**
 
 Indicates whether the target has been marked `UNHEALTHY` due to failing active health checks,
 which determine target statuses as configured in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend).
@@ -134,17 +134,17 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| ipAddress | **string**
+|| ip_address | **string**
 
 IP address of the target.
 
-Includes only one of the fields `ipAddress`.
+Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **bool**
+|| private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:

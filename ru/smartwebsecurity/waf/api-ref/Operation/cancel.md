@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/Operation/cancel.md
 ---
 
-# SmartWebSecurity WAF API, REST: Operation.Cancel {#Cancel}
+# SmartWebSecurity WAF API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

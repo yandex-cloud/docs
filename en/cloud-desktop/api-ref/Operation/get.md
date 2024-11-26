@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Operation/get.md
 ---
 
-# Cloud Desktop API, REST: Operation.Get {#Get}
+# Cloud Desktop API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

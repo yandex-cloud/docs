@@ -46,7 +46,7 @@ with ydb.Driver(endpoint="grpcs://grpc.yandex-query.cloud.yandex.net:2135",
 
 Where:
 * `endpoint`: Endpoint for connecting to the data source. {{ yq-full-name }} uses a fixed address, `grpcs://grpc.yandex-query.cloud.yandex.net:2135`.
-* `database`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) in which you want to run queries. You must include the `/` prefix before the folder ID.
+* `database`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you want to run queries in. You must include the `/` prefix before the folder ID.
 * `credentials`: Credentials for authentication in {{ yandex-cloud }}.
 
 ## Running a query {#query_execution}
@@ -72,7 +72,7 @@ with ydb.SessionPool(driver) as pool:
 
 {% note info %}
 
-{{ yq-full-name }} currently supports only scripting requests.
+Currently, {{ yq-full-name }} supports only scripting requests.
 
 {% endnote %}
 

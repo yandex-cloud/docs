@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/generateUploadURL.md
 ---
 
-# Video API, gRPC: ThumbnailService.GenerateUploadURL {#GenerateUploadURL}
+# Video API, gRPC: ThumbnailService.GenerateUploadURL
 
 Generate url for upload image.
 
@@ -15,28 +15,28 @@ Generate url for upload image.
 
 ```json
 {
-  "thumbnailId": "string"
+  "thumbnail_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Required field. ID of the thumbnail. ||
 |#
 
 ## GenerateThumbnailUploadURLResponse {#yandex.cloud.video.v1.GenerateThumbnailUploadURLResponse}
 
 ```json
 {
-  "uploadUrl": "string"
+  "upload_url": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| uploadUrl | **string**
+|| upload_url | **string**
 
 Upload url. ||
 |#

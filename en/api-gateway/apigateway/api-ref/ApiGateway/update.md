@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/update.md
 ---
 
-# API Gateway Service, REST: ApiGateway.Update {#Update}
+# API Gateway Service, REST: ApiGateway.Update
 
 Updates the specified API gateway.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/addListener.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.AddListener {#AddListener}
+# Application Load Balancer API, REST: LoadBalancer.AddListener
 
 Adds a listener to the specified application load balancer.
 

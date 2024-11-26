@@ -99,7 +99,7 @@
             * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+        1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
     1. To enable statistics collection when updating an existing cluster:
 
@@ -131,7 +131,7 @@
             * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -212,7 +212,7 @@
             * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, `60` to `86400` seconds.
 
-        1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation1) to make sure the request was successful.
+        1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

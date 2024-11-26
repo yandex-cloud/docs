@@ -27,4 +27,4 @@ GROUP BY
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
 * [GROUP BY]({{ ydb.docs }}/yql/reference/syntax/group_by) operator
 * [HOP](../concepts/stream-processing-windows.md) operator
-* [Data aggregation function]({{ ydb.docs }}/yql/reference/builtins/aggregation)
+* [Data aggregation functions]({{ ydb.docs }}/yql/reference/builtins/aggregation)

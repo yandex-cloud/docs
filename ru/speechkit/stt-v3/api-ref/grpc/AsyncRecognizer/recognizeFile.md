@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md
 ---
 
-# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.RecognizeFile {#RecognizeFile}
+# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.RecognizeFile
 
 ## gRPC request
 
@@ -17,35 +17,35 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/recog
   "content": "bytes",
   "uri": "string",
   // end of the list of possible fields
-  "recognitionModel": {
+  "recognition_model": {
     "model": "string",
-    "audioFormat": {
-      // Includes only one of the fields `rawAudio`, `containerAudio`
-      "rawAudio": {
-        "audioEncoding": "AudioEncoding",
-        "sampleRateHertz": "int64",
-        "audioChannelCount": "int64"
+    "audio_format": {
+      // Includes only one of the fields `raw_audio`, `container_audio`
+      "raw_audio": {
+        "audio_encoding": "AudioEncoding",
+        "sample_rate_hertz": "int64",
+        "audio_channel_count": "int64"
       },
-      "containerAudio": {
-        "containerAudioType": "ContainerAudioType"
+      "container_audio": {
+        "container_audio_type": "ContainerAudioType"
       }
       // end of the list of possible fields
     },
-    "textNormalization": {
-      "textNormalization": "TextNormalization",
-      "profanityFilter": "bool",
-      "literatureText": "bool",
-      "phoneFormattingMode": "PhoneFormattingMode"
+    "text_normalization": {
+      "text_normalization": "TextNormalization",
+      "profanity_filter": "bool",
+      "literature_text": "bool",
+      "phone_formatting_mode": "PhoneFormattingMode"
     },
-    "languageRestriction": {
-      "restrictionType": "LanguageRestrictionType",
-      "languageCode": [
+    "language_restriction": {
+      "restriction_type": "LanguageRestrictionType",
+      "language_code": [
         "string"
       ]
     },
-    "audioProcessingType": "AudioProcessingType"
+    "audio_processing_type": "AudioProcessingType"
   },
-  "recognitionClassifier": {
+  "recognition_classifier": {
     "classifiers": [
       {
         "classifier": "string",
@@ -55,15 +55,15 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/recog
       }
     ]
   },
-  "speechAnalysis": {
-    "enableSpeakerAnalysis": "bool",
-    "enableConversationAnalysis": "bool",
-    "descriptiveStatisticsQuantiles": [
+  "speech_analysis": {
+    "enable_speaker_analysis": "bool",
+    "enable_conversation_analysis": "bool",
+    "descriptive_statistics_quantiles": [
       "double"
     ]
   },
-  "speakerLabeling": {
-    "speakerLabeling": "SpeakerLabeling"
+  "speaker_labeling": {
+    "speaker_labeling": "SpeakerLabeling"
   }
 }
 ```
@@ -80,16 +80,16 @@ Includes only one of the fields `content`, `uri`. ||
 S3 data url
 
 Includes only one of the fields `content`, `uri`. ||
-|| recognitionModel | **[RecognitionModelOptions](#speechkit.stt.v3.RecognitionModelOptions)**
+|| recognition_model | **[RecognitionModelOptions](#speechkit.stt.v3.RecognitionModelOptions)**
 
 Configuration for speech recognition model. ||
-|| recognitionClassifier | **[RecognitionClassifierOptions](#speechkit.stt.v3.RecognitionClassifierOptions)**
+|| recognition_classifier | **[RecognitionClassifierOptions](#speechkit.stt.v3.RecognitionClassifierOptions)**
 
 Configuration for classifiers over speech recognition. ||
-|| speechAnalysis | **[SpeechAnalysisOptions](#speechkit.stt.v3.SpeechAnalysisOptions)**
+|| speech_analysis | **[SpeechAnalysisOptions](#speechkit.stt.v3.SpeechAnalysisOptions)**
 
 Configuration for speech analysis over speech recognition. ||
-|| speakerLabeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
+|| speaker_labeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
 
 Configuration for speaker labeling ||
 |#
@@ -102,16 +102,16 @@ Configuration for speaker labeling ||
 
 Sets the recognition model for the cloud version of SpeechKit. Possible values: 'general', 'general:rc', 'general:deprecated'.
 The model is ignored for SpeechKit Hybrid. ||
-|| audioFormat | **[AudioFormatOptions](#speechkit.stt.v3.AudioFormatOptions)**
+|| audio_format | **[AudioFormatOptions](#speechkit.stt.v3.AudioFormatOptions)**
 
 Specified input audio. ||
-|| textNormalization | **[TextNormalizationOptions](#speechkit.stt.v3.TextNormalizationOptions)**
+|| text_normalization | **[TextNormalizationOptions](#speechkit.stt.v3.TextNormalizationOptions)**
 
 Text normalization options. ||
-|| languageRestriction | **[LanguageRestrictionOptions](#speechkit.stt.v3.LanguageRestrictionOptions)**
+|| language_restriction | **[LanguageRestrictionOptions](#speechkit.stt.v3.LanguageRestrictionOptions)**
 
 Possible languages in audio. ||
-|| audioProcessingType | enum **AudioProcessingType**
+|| audio_processing_type | enum **AudioProcessingType**
 
 How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME.
 
@@ -126,16 +126,16 @@ Audio format options.
 
 #|
 ||Field | Description ||
-|| rawAudio | **[RawAudio](#speechkit.stt.v3.RawAudio)**
+|| raw_audio | **[RawAudio](#speechkit.stt.v3.RawAudio)**
 
 Audio without container.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
-|| containerAudio | **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
+Includes only one of the fields `raw_audio`, `container_audio`. ||
+|| container_audio | **[ContainerAudio](#speechkit.stt.v3.ContainerAudio)**
 
 Audio is wrapped in container.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
+Includes only one of the fields `raw_audio`, `container_audio`. ||
 |#
 
 ## RawAudio {#speechkit.stt.v3.RawAudio}
@@ -144,16 +144,16 @@ RAW Audio format spec (no container to infer type). Used in AudioFormat options.
 
 #|
 ||Field | Description ||
-|| audioEncoding | enum **AudioEncoding**
+|| audio_encoding | enum **AudioEncoding**
 
 Type of audio encoding
 
 - `AUDIO_ENCODING_UNSPECIFIED`
 - `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
-|| sampleRateHertz | **int64**
+|| sample_rate_hertz | **int64**
 
 PCM sample rate ||
-|| audioChannelCount | **int64**
+|| audio_channel_count | **int64**
 
 PCM channel count. Currently only single channel audio is supported in real-time recognition. ||
 |#
@@ -164,7 +164,7 @@ Audio with fixed type in container. Used in AudioFormat options.
 
 #|
 ||Field | Description ||
-|| containerAudioType | enum **ContainerAudioType**
+|| container_audio_type | enum **ContainerAudioType**
 
 Type of audio container.
 
@@ -180,18 +180,18 @@ Options
 
 #|
 ||Field | Description ||
-|| textNormalization | enum **TextNormalization**
+|| text_normalization | enum **TextNormalization**
 
 - `TEXT_NORMALIZATION_UNSPECIFIED`
 - `TEXT_NORMALIZATION_ENABLED`: Enable normalization
 - `TEXT_NORMALIZATION_DISABLED`: Disable normalization ||
-|| profanityFilter | **bool**
+|| profanity_filter | **bool**
 
 Profanity filter (default: false). ||
-|| literatureText | **bool**
+|| literature_text | **bool**
 
 Rewrite text in literature style (default: false). ||
-|| phoneFormattingMode | enum **PhoneFormattingMode**
+|| phone_formatting_mode | enum **PhoneFormattingMode**
 
 Define phone formatting mode
 
@@ -205,14 +205,14 @@ Type of restriction for the list of languages expected in the incoming speech st
 
 #|
 ||Field | Description ||
-|| restrictionType | enum **LanguageRestrictionType**
+|| restriction_type | enum **LanguageRestrictionType**
 
 Language restriction type
 
 - `LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED`
 - `WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.
 - `BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages. ||
-|| languageCode[] | **string**
+|| language_code[] | **string**
 
 The list of language codes to restrict recognition in the case of an auto model ||
 |#
@@ -247,13 +247,13 @@ Describes the types of responses to which the classification results will come
 
 #|
 ||Field | Description ||
-|| enableSpeakerAnalysis | **bool**
+|| enable_speaker_analysis | **bool**
 
 Analyse speech for every speaker ||
-|| enableConversationAnalysis | **bool**
+|| enable_conversation_analysis | **bool**
 
 Analyse conversation of two speakers ||
-|| descriptiveStatisticsQuantiles[] | **double**
+|| descriptive_statistics_quantiles[] | **double**
 
 Quantile levels in range (0, 1) for descriptive statistics ||
 |#
@@ -262,7 +262,7 @@ Quantile levels in range (0, 1) for descriptive statistics ||
 
 #|
 ||Field | Description ||
-|| speakerLabeling | enum **SpeakerLabeling**
+|| speaker_labeling | enum **SpeakerLabeling**
 
 Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLED.
 
@@ -277,9 +277,9 @@ Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLE
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -299,13 +299,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

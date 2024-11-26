@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/kafka/v1/api-ref/grpc/User/list.md
 ---
 
-# Managed Service for Apache Kafka® API, gRPC: UserService.List {#List}
+# Managed Service for Apache Kafka® API, gRPC: UserService.List
 
 Retrieves the list of Kafka users in the specified cluster.
 
@@ -15,29 +15,29 @@ Retrieves the list of Kafka users in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Kafka® cluster to list Kafka users in.
 
 To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request. ||
 |#
 
 ## ListUsersResponse {#yandex.cloud.mdb.kafka.v1.ListUsersResponse}
@@ -47,19 +47,19 @@ To get the next page of results, set `pageToken` to the [ListUsersResponse.nextP
   "users": [
     {
       "name": "string",
-      "clusterId": "string",
+      "cluster_id": "string",
       "permissions": [
         {
-          "topicName": "string",
+          "topic_name": "string",
           "role": "AccessRole",
-          "allowHosts": [
+          "allow_hosts": [
             "string"
           ]
         }
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -68,12 +68,12 @@ To get the next page of results, set `pageToken` to the [ListUsersResponse.nextP
 || users[] | **[User](#yandex.cloud.mdb.kafka.v1.User)**
 
 List of Kafka users. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListUsersRequest.pageSize](#yandex.cloud.mdb.kafka.v1.ListUsersRequest), use the `nextPageToken` as the value for the [ListUsersRequest.pageToken](#yandex.cloud.mdb.kafka.v1.ListUsersRequest) parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+If the number of results is larger than [ListUsersRequest.page_size](#yandex.cloud.mdb.kafka.v1.ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#yandex.cloud.mdb.kafka.v1.ListUsersRequest) parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## User {#yandex.cloud.mdb.kafka.v1.User}
@@ -86,7 +86,7 @@ For more information, see the [Operations -> Accounts](/docs/managed-kafka/opera
 || name | **string**
 
 Name of the Kafka user. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Apache Kafka® cluster the user belongs to.
 
@@ -100,7 +100,7 @@ Set of permissions granted to this user. ||
 
 #|
 ||Field | Description ||
-|| topicName | **string**
+|| topic_name | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
 
@@ -113,13 +113,13 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
-|| allowHosts[] | **string**
+|| allow_hosts[] | **string**
 
 Lists hosts allowed for this permission.
 Only ip-addresses allowed as value of single host.
 When not defined, access from any host is allowed.
 
 Bare in mind that the same host might appear in multiple permissions at the same time,
-hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission.
 If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. ||
 |#

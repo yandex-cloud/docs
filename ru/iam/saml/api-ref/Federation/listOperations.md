@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/listOperations.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.ListOperations {#ListOperations}
+# Identity and Access Management SAML API, REST: Federation.ListOperations
 
 Lists operations for the specified federation.
 

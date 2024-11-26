@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/list.md
 ---
 
-# Audit Trails API, REST: Trail.List {#List}
+# Audit Trails API, REST: Trail.List
 
 Retrieves the list of trails in the specified folder.
 

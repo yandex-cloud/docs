@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/get.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.Get {#Get}
+# Load Testing API, REST: RegressionDashboard.Get
 
 Returns the specified regression dashboard.
 

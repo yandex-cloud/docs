@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/create.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Create {#Create}
+# Cloud Organization API, REST: UserSshKey.Create
 
 ## HTTP request
 

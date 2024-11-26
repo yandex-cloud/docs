@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/addZookeeper.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.AddZookeeper {#AddZookeeper}
+# Managed Service for ClickHouse API, REST: Cluster.AddZookeeper
 
 Adds a ZooKeeper subcluster to the specified ClickHouse cluster.
 

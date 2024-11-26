@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Provider/activate.md
 ---
 
-# Cloud Backup API, REST: Provider.Activate {#Activate}
+# Cloud Backup API, REST: Provider.Activate
 
 Activate provider for specified client.
 

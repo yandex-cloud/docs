@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/RegressionDashboard/list.md
 ---
 
-# Load Testing API, gRPC: RegressionDashboardService.List {#List}
+# Load Testing API, gRPC: RegressionDashboardService.List
 
 Retrieves the list of regression dashboards in the specified folder.
 
@@ -15,28 +15,28 @@ Retrieves the list of regression dashboards in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list dashboards in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
+results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request. ||
+[ListRegressionDashboardsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters dashboards listed in the response.
@@ -69,10 +69,10 @@ Examples:
       "id": "string",
       "name": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "updatedBy": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "updated_by": "string",
       "etag": "string",
       "content": {
         "widgets": [
@@ -88,36 +88,36 @@ Examples:
               "id": "string",
               "name": "string",
               "description": "string",
-              "filterStr": "string",
-              "testCase": "string",
+              "filter_str": "string",
+              "test_case": "string",
               "kpis": [
                 {
                   "selector": {
-                    // Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`
-                    "responseTime": {
+                    // Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`
+                    "response_time": {
                       "quantile": "QuantileType"
                     },
                     "instances": {
                       "agg": "Aggregation"
                     },
-                    "imbalanceRps": "ImbalanceRps",
-                    "protocolCodesAbsolute": {
-                      "codesPatterns": [
+                    "imbalance_rps": "ImbalanceRps",
+                    "protocol_codes_absolute": {
+                      "codes_patterns": [
                         "string"
                       ]
                     },
-                    "protocolCodesRelative": {
-                      "codesPatterns": [
+                    "protocol_codes_relative": {
+                      "codes_patterns": [
                         "string"
                       ]
                     },
-                    "networkCodesAbsolute": {
-                      "codesPatterns": [
+                    "network_codes_absolute": {
+                      "codes_patterns": [
                         "string"
                       ]
                     },
-                    "networkCodesRelative": {
-                      "codesPatterns": [
+                    "network_codes_relative": {
+                      "codes_patterns": [
                         "string"
                       ]
                     }
@@ -143,7 +143,7 @@ Examples:
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -152,11 +152,11 @@ Examples:
 || dashboards[] | **[Dashboard](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)**
 
 List of dashboards in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListRegressionDashboardsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest), use `next_page_token` as the value
-for the [ListRegressionDashboardsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest) parameter in the next list request.
+the specified [ListRegressionDashboardsRequest.page_size](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest), use `next_page_token` as the value
+for the [ListRegressionDashboardsRequest.page_token](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -176,16 +176,16 @@ Name of the dashboard. ||
 || description | **string**
 
 Description of the dashboard. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Last update timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 UA or SA that created the dashboard. ||
-|| updatedBy | **string**
+|| updated_by | **string**
 
 UA or SA that updated the dashboard last time. ||
 || etag | **string**
@@ -268,10 +268,10 @@ Name of the chart. ||
 || description | **string**
 
 Description of the chart. ||
-|| filterStr | **string**
+|| filter_str | **string**
 
 Test filter selector to show KPI values for. ||
-|| testCase | **string**
+|| test_case | **string**
 
 Test case to show KPI values for. ||
 || kpis[] | **[Kpi](#yandex.cloud.loadtesting.api.v1.report.Kpi)**
@@ -299,41 +299,41 @@ KPI selector.
 
 #|
 ||Field | Description ||
-|| responseTime | **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
+|| response_time | **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
 
 Response time cummulative quantile (percentile).
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
 || instances | **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
 
 A number of instances throughout the test.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| imbalanceRps | **[ImbalanceRps](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ImbalanceRps)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| imbalance_rps | **[ImbalanceRps](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ImbalanceRps)**
 
 An RPS at the moment the test has been auto-stopped.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| protocolCodesAbsolute | **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| protocol_codes_absolute | **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
 
 A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| protocolCodesRelative | **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| protocol_codes_relative | **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
 
 A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| networkCodesAbsolute | **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| network_codes_absolute | **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
 
 A total number of requests completed with certain network codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| networkCodesRelative | **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| network_codes_relative | **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
 
 A percentage of requests completed with certain network codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
 |#
 
 ## ResponseTime {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime}
@@ -389,7 +389,7 @@ Imbalance RPS.
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Protocol (HTTP, GRPC) code patterns to match.
 
@@ -401,7 +401,7 @@ All failed HTTP responses: ['0', '4xx', '5xx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Protocol (HTTP, GRPC) code patterns to match.
 
@@ -413,7 +413,7 @@ All failed HTTP responses: ['0', '4xx', '5xx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Network code patterns to match.
 
@@ -425,7 +425,7 @@ All failed network responses: ['xx', 'xxx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Network code patterns to match.
 

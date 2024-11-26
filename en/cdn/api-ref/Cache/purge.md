@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/purge.md
 ---
 
-# Cloud CDN API, REST: Cache.Purge {#Purge}
+# Cloud CDN API, REST: Cache.Purge
 
 Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
 

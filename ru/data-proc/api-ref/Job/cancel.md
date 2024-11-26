@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 
-# Data Proc API, REST: Job.Cancel {#Cancel}
+# Data Proc API, REST: Job.Cancel
 
 Cancels the specified Dataproc job.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Talk/get.md
 ---
 
-# Talk Analytics API, REST: Talk.Get {#Get}
+# Talk Analytics API, REST: Talk.Get
 
 rpc for bulk get
 
@@ -357,6 +357,15 @@ The rest of the fields will be reset to the default. ||
             ]
           }
         ]
+      },
+      "talkState": {
+        "processingState": "string",
+        "algorithmProcessingInfos": [
+          {
+            "algorithm": "string",
+            "processingState": "string"
+          }
+        ]
       }
     }
   ]
@@ -412,6 +421,7 @@ various ml analysis results ||
 || points | **[Points](#yandex.cloud.speechsense.v1.analysis.Points)** ||
 || textClassifiers | **[TextClassifiers](#yandex.cloud.speechsense.v1.analysis.TextClassifiers)** ||
 || summarization | **[Summarization](#yandex.cloud.speechsense.v1.analysis.Summarization)** ||
+|| talkState | **[TalkState](#yandex.cloud.speechsense.v1.TalkState)** ||
 |#
 
 ## Field {#yandex.cloud.speechsense.v1.Field}
@@ -836,4 +846,40 @@ if len(count_values) = 3 - [0] value represents first third, [1] - second third,
 - `SUMMARIZATION_FIELD_TYPE_UNSPECIFIED`
 - `TEXT`
 - `TEXT_ARRAY` ||
+|#
+
+## TalkState {#yandex.cloud.speechsense.v1.TalkState}
+
+#|
+||Field | Description ||
+|| processingState | **enum** (ProcessingState)
+
+- `PROCESSING_STATE_UNSPECIFIED`
+- `PROCESSING_STATE_NOT_STARTED`
+- `PROCESSING_STATE_PROCESSING`
+- `PROCESSING_STATE_SUCCESS`
+- `PROCESSING_STATE_FAILED` ||
+|| algorithmProcessingInfos[] | **[AlgorithmProcessingInfo](#yandex.cloud.speechsense.v1.AlgorithmProcessingInfo)** ||
+|#
+
+## AlgorithmProcessingInfo {#yandex.cloud.speechsense.v1.AlgorithmProcessingInfo}
+
+#|
+||Field | Description ||
+|| algorithm | **enum** (Algorithm)
+
+- `ALGORITHM_UNSPECIFIED`
+- `ALGORITHM_SPEECHKIT`
+- `ALGORITHM_YGPT`
+- `ALGORITHM_CLASSIFIER`
+- `ALGORITHM_SUMMARIZATION`
+- `ALGORITHM_EMBEDDING`
+- `ALGORITHM_STATISTICS` ||
+|| processingState | **enum** (ProcessingState)
+
+- `PROCESSING_STATE_UNSPECIFIED`
+- `PROCESSING_STATE_NOT_STARTED`
+- `PROCESSING_STATE_PROCESSING`
+- `PROCESSING_STATE_SUCCESS`
+- `PROCESSING_STATE_FAILED` ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/listVersions.md
 ---
 
-# AI Assistants API, REST: Assistant.ListVersions {#ListVersions}
+# AI Assistants API, REST: Assistant.ListVersions
 
 Lists all versions of a specific assistant.
 

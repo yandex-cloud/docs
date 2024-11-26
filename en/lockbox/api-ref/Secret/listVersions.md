@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listVersions.md
 ---
 
-# Lockbox API, REST: Secret.ListVersions {#ListVersions}
+# Lockbox API, REST: Secret.ListVersions
 
 Retrieves the list of versions of the specified secret.
 

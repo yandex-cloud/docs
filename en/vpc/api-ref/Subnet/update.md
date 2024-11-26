@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/update.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Update {#Update}
+# Virtual Private Cloud API, REST: Subnet.Update
 
 Updates the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

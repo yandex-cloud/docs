@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/signHash.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureCryptoService.SignHash {#SignHash}
+# Key Management Service API, gRPC: AsymmetricSignatureCryptoService.SignHash
 
 Signs hash value specified KMS key.
 
@@ -15,14 +15,14 @@ Signs hash value specified KMS key.
 
 ```json
 {
-  "keyId": "string",
+  "key_id": "string",
   "hash": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the asymmetric KMS key to use for signature. ||
 || hash | **bytes**
@@ -35,14 +35,14 @@ Should be encoded with base64. ||
 
 ```json
 {
-  "keyId": "string",
+  "key_id": "string",
   "signature": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the asymmetric KMS key that was used for signature. ||
 || signature | **bytes**

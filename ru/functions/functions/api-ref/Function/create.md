@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/create.md
 ---
 
-# Cloud Functions Service, REST: Function.Create {#Create}
+# Cloud Functions Service, REST: Function.Create
 
 Creates a function in the specified folder.
 

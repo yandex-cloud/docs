@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/delete.md
 ---
 
-# Identity and Access Management API, REST: Key.Delete {#Delete}
+# Identity and Access Management API, REST: Key.Delete
 
 Deletes the specified key pair.
 

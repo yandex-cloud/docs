@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Agent/list.md
 ---
 
-# Load Testing API, gRPC: AgentService.List {#List}
+# Load Testing API, gRPC: AgentService.List
 
 Retrieves the list of agents in the specified folder.
 
@@ -15,28 +15,28 @@ Retrieves the list of agents in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list agents in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
+results is larger than `page_size`, the service returns a [ListAgentsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListAgentsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request. ||
+[ListAgentsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters agents listed in the response.
@@ -67,23 +67,23 @@ Examples:
   "agents": [
     {
       "id": "string",
-      "folderId": "string",
+      "folder_id": "string",
       "name": "string",
       "description": "string",
-      "computeInstanceId": "string",
+      "compute_instance_id": "string",
       "status": "Status",
       "errors": [
         "string"
       ],
-      "currentJobId": "string",
-      "agentVersionId": "string",
+      "current_job_id": "string",
+      "agent_version_id": "string",
       "labels": "string",
-      "logSettings": {
-        "cloudLogGroupId": "string"
+      "log_settings": {
+        "cloud_log_group_id": "string"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -92,11 +92,11 @@ Examples:
 || agents[] | **[Agent](#yandex.cloud.loadtesting.api.v1.agent.Agent)**
 
 List of agents in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListAgentsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest), use `next_page_token` as the value
-for the [ListAgentsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest) parameter in the next list request.
+the specified [ListAgentsRequest.page_size](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest), use `next_page_token` as the value
+for the [ListAgentsRequest.page_token](#yandex.cloud.loadtesting.api.v1.ListAgentsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -110,7 +110,7 @@ Load testing agent on which tests are executed.
 || id | **string**
 
 ID of the agent. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the agent belongs to. ||
 || name | **string**
@@ -119,7 +119,7 @@ Name of the agent. ||
 || description | **string**
 
 Description of the agent. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 ID of the compute instance managed by the agent.
 
@@ -148,16 +148,16 @@ Status of the agent.
 || errors[] | **string**
 
 List of errors reported by the agent. ||
-|| currentJobId | **string**
+|| current_job_id | **string**
 
 ID of the test that is currently being executed by the agent. ||
-|| agentVersionId | **string**
+|| agent_version_id | **string**
 
 Version of the agent. ||
 || labels | **string**
 
 Agent labels as `key:value` pairs. ||
-|| logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
+|| log_settings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
 
 Agent log settings ||
 |#
@@ -166,7 +166,7 @@ Agent log settings ||
 
 #|
 ||Field | Description ||
-|| cloudLogGroupId | **string**
+|| cloud_log_group_id | **string**
 
 Id of Yandex Cloud log group to upload agent logs to ||
 |#

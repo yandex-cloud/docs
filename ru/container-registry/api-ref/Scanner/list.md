@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/list.md
 ---
 
-# Container Registry API, REST: Scanner.List {#List}
+# Container Registry API, REST: Scanner.List
 
 Retrieves the list of ScanResults for specified Image.
 

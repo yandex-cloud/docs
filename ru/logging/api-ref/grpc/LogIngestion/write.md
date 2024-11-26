@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogIngestion/write.md
 ---
 
-# Cloud Logging Service, gRPC: LogIngestionService.Write {#Write}
+# Cloud Logging Service, gRPC: LogIngestionService.Write
 
 Write log entries to specified destination.
 
@@ -16,9 +16,9 @@ Write log entries to specified destination.
 ```json
 {
   "destination": {
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string"
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string"
     // end of the list of possible fields
   },
   "resource": {
@@ -30,14 +30,14 @@ Write log entries to specified destination.
       "timestamp": "google.protobuf.Timestamp",
       "level": "Level",
       "message": "string",
-      "jsonPayload": "google.protobuf.Struct",
-      "streamName": "string"
+      "json_payload": "google.protobuf.Struct",
+      "stream_name": "string"
     }
   ],
   "defaults": {
     "level": "Level",
-    "jsonPayload": "google.protobuf.Struct",
-    "streamName": "string"
+    "json_payload": "google.protobuf.Struct",
+    "stream_name": "string"
   }
 }
 ```
@@ -66,18 +66,18 @@ See [LogEntryDefaults](#yandex.cloud.logging.v1.LogEntryDefaults) for details. |
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Entry destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for the folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Entry destination. ||
 |#
@@ -135,10 +135,10 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 || message | **string**
 
 Entry text message. ||
-|| jsonPayload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+|| json_payload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Entry annotation. ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Entry stream name. ||
 |#
@@ -175,12 +175,12 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
-|| jsonPayload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+|| json_payload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Default entry annotation.
 Will be merged with entry annotation.
 Any conflict will be resolved in favor of entry own annotation. ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Entry stream name. ||
 |#

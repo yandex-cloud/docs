@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/get.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Get {#Get}
+# Virtual Private Cloud API, REST: Network.Get
 
 Returns the specified Network resource.
 

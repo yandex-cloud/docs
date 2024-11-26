@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/updateListener.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.UpdateListener {#UpdateListener}
+# Application Load Balancer API, REST: LoadBalancer.UpdateListener
 
 Updates the specified listener of the specified application load balancer.
 

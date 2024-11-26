@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/listCertificates.md
 ---
 
-# IoT Core Service, REST: Device.ListCertificates {#ListCertificates}
+# IoT Core Service, REST: Device.ListCertificates
 
 Retrieves the list of device certificates for the specified device.
 

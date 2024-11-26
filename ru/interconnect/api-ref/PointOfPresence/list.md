@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PointOfPresence/list.md
 ---
 
-# Cloud Interconnect API, REST: PointOfPresence.List {#List}
+# Cloud Interconnect API, REST: PointOfPresence.List
 
 Retrieves the list of PointOfPresence resources in the specified folder.
 

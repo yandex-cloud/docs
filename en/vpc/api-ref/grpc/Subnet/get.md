@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Subnet/get.md
 ---
 
-# Virtual Private Cloud API, gRPC: SubnetService.Get {#Get}
+# Virtual Private Cloud API, gRPC: SubnetService.Get
 
 Returns the specified Subnet resource.
 
@@ -17,13 +17,13 @@ To get the list of available Subnet resources, make a [List](/docs/vpc/api-ref/g
 
 ```json
 {
-  "subnetId": "string"
+  "subnet_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Required field. ID of the Subnet resource to return.
 To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/grpc/Subnet/list#List) request. ||
@@ -34,26 +34,26 @@ To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/grpc/Subnet/li
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "networkId": "string",
-  "zoneId": "string",
-  "v4CidrBlocks": [
+  "network_id": "string",
+  "zone_id": "string",
+  "v4_cidr_blocks": [
     "string"
   ],
-  "v6CidrBlocks": [
+  "v6_cidr_blocks": [
     "string"
   ],
-  "routeTableId": "string",
-  "dhcpOptions": {
-    "domainNameServers": [
+  "route_table_id": "string",
+  "dhcp_options": {
+    "domain_name_servers": [
       "string"
     ],
-    "domainName": "string",
-    "ntpServers": [
+    "domain_name": "string",
+    "ntp_servers": [
       "string"
     ]
   }
@@ -67,10 +67,10 @@ A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/networ
 || id | **string**
 
 ID of the subnet. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the subnet belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -89,26 +89,26 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network the subnet belongs to. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the subnet resides. ||
-|| v4CidrBlocks[] | **string**
+|| v4_cidr_blocks[] | **string**
 
 CIDR block.
 The range of internal addresses that are defined for this subnet.
 This field can be set only at Subnet resource creation time and cannot be changed.
 For example, 10.0.0.0/22 or 192.168.0.0/24.
 Minimum subnet size is /28, maximum subnet size is /16. ||
-|| v6CidrBlocks[] | **string**
+|| v6_cidr_blocks[] | **string**
 
 IPv6 not available yet. ||
-|| routeTableId | **string**
+|| route_table_id | **string**
 
 ID of route table the subnet is linked to. ||
-|| dhcpOptions | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**
+|| dhcp_options | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**
 
 DHCP options for the subnet. ||
 |#
@@ -117,13 +117,13 @@ DHCP options for the subnet. ||
 
 #|
 ||Field | Description ||
-|| domainNameServers[] | **string**
+|| domain_name_servers[] | **string**
 
 A list of DHCP servers for this subnet. ||
-|| domainName | **string**
+|| domain_name | **string**
 
 A domain name to us as a suffix when resolving host names in this subnet. ||
-|| ntpServers[] | **string**
+|| ntp_servers[] | **string**
 
 List of NTP servers for this subnet. ||
 |#

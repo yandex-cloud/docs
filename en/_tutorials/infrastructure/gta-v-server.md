@@ -70,7 +70,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-      1. Configure the boot [disk](../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**:
+      1. Configure the boot [disk](../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

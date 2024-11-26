@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/v1alpha/TextGeneration/instruct.md
 ---
 
-# YandexGPT API, REST: TextGeneration.Instruct {#Instruct}
+# YandexGPT API, REST: TextGeneration.Instruct
 
 RPC method for instructing the model to generate text.
 

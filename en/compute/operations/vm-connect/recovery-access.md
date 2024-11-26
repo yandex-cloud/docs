@@ -29,7 +29,7 @@ You can restore access to a Linux-based VM over SSH using the [serial console](#
 If you can't access the serial console, do the following to recover the public part of your SSH key:
 1. [Stop the VM](../vm-control/vm-stop-and-start.md).
 1. [Take a snaphost](../disk-control/create-snapshot.md) of the VM's boot disk.
-1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** section.
+1. [Create](../vm-create/create-from-snapshots.md) an auxiliary Linux-based VM. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, choose the OS for the boot disk. To attach a data disk to an auxiliary VM, select the previously created snapshot in the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** section.
 1. [Connect over SSH](../vm-connect/ssh.md) to the auxiliary VM and [mount the disk](../vm-control/vm-attach-disk.md#mount-disk-and-fix-uuid) you created from the snapshot.
 1. Replace the SSH key that is stored on this disk with a valid key:
    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) that stores the public part of the SSH key in the mounted partition. For example:

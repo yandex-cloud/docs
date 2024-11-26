@@ -7,8 +7,6 @@ items:
   - name: Партнерские программы
     expanded: true
     items:
-      - name: Реферальная программа
-        href: program/referral.md
       - name: Программа прямого партнерства
         items:
           - name: Обзор
@@ -17,6 +15,8 @@ items:
             href: program/var-pin-client.md
           - name: Инструменты
             href: program/var-tools.md
+      - name: Реферальная программа
+        href: program/referral.md
   - name: Специализации
     expanded: true
     items:

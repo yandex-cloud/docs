@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Start {#Start}
+# Managed Service for Elasticsearch API, REST: Cluster.Start
 
 Starts the specified Elasticsearch cluster.
 

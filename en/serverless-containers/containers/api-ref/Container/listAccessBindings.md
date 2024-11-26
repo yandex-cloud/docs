@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listAccessBindings.md
 ---
 
-# Serverless Containers Service, REST: Container.ListAccessBindings {#ListAccessBindings}
+# Serverless Containers Service, REST: Container.ListAccessBindings
 
 Lists existing access bindings for the specified container.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/create.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Create {#Create}
+# Managed Services for Kubernetes API, REST: Cluster.Create
 
 Creates a Kubernetes cluster in the specified folder.
 

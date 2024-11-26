@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/create.md
 ---
 
-# Container Registry API, REST: Registry.Create {#Create}
+# Container Registry API, REST: Registry.Create
 
 Creates a registry in the specified folder.
 

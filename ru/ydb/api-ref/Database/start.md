@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/start.md
 ---
 
-# Managed Service for YDB API, REST: Database.Start {#Start}
+# Managed Service for YDB API, REST: Database.Start
 
 Starts the specified database.
 

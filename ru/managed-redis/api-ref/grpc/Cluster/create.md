@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/create.md
 ---
 
-# Managed Service for Redis API, gRPC: ClusterService.Create {#Create}
+# Managed Service for Redis API, gRPC: ClusterService.Create
 
 Creates a Redis cluster in the specified folder.
 
@@ -15,160 +15,162 @@ Creates a Redis cluster in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "environment": "Environment",
-  "configSpec": {
+  "config_spec": {
     "version": "string",
-    // Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
-    "redisConfig_5_0": {
-      "maxmemoryPolicy": "MaxmemoryPolicy",
+    // Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`
+    "redis_config_5_0": {
+      "maxmemory_policy": "MaxmemoryPolicy",
       "timeout": "google.protobuf.Int64Value",
       "password": "string",
       "databases": "google.protobuf.Int64Value",
-      "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-      "slowlogMaxLen": "google.protobuf.Int64Value",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "slowlog_log_slower_than": "google.protobuf.Int64Value",
+      "slowlog_max_len": "google.protobuf.Int64Value",
+      "notify_keyspace_events": "string",
+      "client_output_buffer_limit_pubsub": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "client_output_buffer_limit_normal": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       }
     },
-    "redisConfig_6_0": {
-      "maxmemoryPolicy": "MaxmemoryPolicy",
+    "redis_config_6_0": {
+      "maxmemory_policy": "MaxmemoryPolicy",
       "timeout": "google.protobuf.Int64Value",
       "password": "string",
       "databases": "google.protobuf.Int64Value",
-      "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-      "slowlogMaxLen": "google.protobuf.Int64Value",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "slowlog_log_slower_than": "google.protobuf.Int64Value",
+      "slowlog_max_len": "google.protobuf.Int64Value",
+      "notify_keyspace_events": "string",
+      "client_output_buffer_limit_pubsub": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "client_output_buffer_limit_normal": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       }
     },
-    "redisConfig_6_2": {
-      "maxmemoryPolicy": "MaxmemoryPolicy",
+    "redis_config_6_2": {
+      "maxmemory_policy": "MaxmemoryPolicy",
       "timeout": "google.protobuf.Int64Value",
       "password": "string",
       "databases": "google.protobuf.Int64Value",
-      "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-      "slowlogMaxLen": "google.protobuf.Int64Value",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "slowlog_log_slower_than": "google.protobuf.Int64Value",
+      "slowlog_max_len": "google.protobuf.Int64Value",
+      "notify_keyspace_events": "string",
+      "client_output_buffer_limit_pubsub": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "client_output_buffer_limit_normal": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "maxmemoryPercent": "google.protobuf.Int64Value"
+      "maxmemory_percent": "google.protobuf.Int64Value"
     },
-    "redisConfig_7_0": {
-      "maxmemoryPolicy": "MaxmemoryPolicy",
+    "redis_config_7_0": {
+      "maxmemory_policy": "MaxmemoryPolicy",
       "timeout": "google.protobuf.Int64Value",
       "password": "string",
       "databases": "google.protobuf.Int64Value",
-      "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-      "slowlogMaxLen": "google.protobuf.Int64Value",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "slowlog_log_slower_than": "google.protobuf.Int64Value",
+      "slowlog_max_len": "google.protobuf.Int64Value",
+      "notify_keyspace_events": "string",
+      "client_output_buffer_limit_pubsub": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "client_output_buffer_limit_normal": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "maxmemoryPercent": "google.protobuf.Int64Value"
+      "maxmemory_percent": "google.protobuf.Int64Value"
     },
     // end of the list of possible fields
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     },
-    "backupWindowStart": "google.type.TimeOfDay",
+    "backup_window_start": "google.type.TimeOfDay",
     "access": {
-      "dataLens": "bool",
-      "webSql": "bool"
+      "data_lens": "bool",
+      "web_sql": "bool"
     },
     "redis": {
-      "maxmemoryPolicy": "MaxmemoryPolicy",
+      "maxmemory_policy": "MaxmemoryPolicy",
       "timeout": "google.protobuf.Int64Value",
       "password": "string",
       "databases": "google.protobuf.Int64Value",
-      "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-      "slowlogMaxLen": "google.protobuf.Int64Value",
-      "notifyKeyspaceEvents": "string",
-      "clientOutputBufferLimitPubsub": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "slowlog_log_slower_than": "google.protobuf.Int64Value",
+      "slowlog_max_len": "google.protobuf.Int64Value",
+      "notify_keyspace_events": "string",
+      "client_output_buffer_limit_pubsub": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "clientOutputBufferLimitNormal": {
-        "hardLimit": "google.protobuf.Int64Value",
-        "softLimit": "google.protobuf.Int64Value",
-        "softSeconds": "google.protobuf.Int64Value"
+      "client_output_buffer_limit_normal": {
+        "hard_limit": "google.protobuf.Int64Value",
+        "soft_limit": "google.protobuf.Int64Value",
+        "soft_seconds": "google.protobuf.Int64Value"
       },
-      "maxmemoryPercent": "google.protobuf.Int64Value",
-      "luaTimeLimit": "google.protobuf.Int64Value",
-      "replBacklogSizePercent": "google.protobuf.Int64Value",
-      "clusterRequireFullCoverage": "google.protobuf.BoolValue",
-      "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
-      "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
-      "lfuDecayTime": "google.protobuf.Int64Value",
-      "lfuLogFactor": "google.protobuf.Int64Value",
-      "turnBeforeSwitchover": "google.protobuf.BoolValue",
-      "allowDataLoss": "google.protobuf.BoolValue"
+      "maxmemory_percent": "google.protobuf.Int64Value",
+      "lua_time_limit": "google.protobuf.Int64Value",
+      "repl_backlog_size_percent": "google.protobuf.Int64Value",
+      "cluster_require_full_coverage": "google.protobuf.BoolValue",
+      "cluster_allow_reads_when_down": "google.protobuf.BoolValue",
+      "cluster_allow_pubsubshard_when_down": "google.protobuf.BoolValue",
+      "lfu_decay_time": "google.protobuf.Int64Value",
+      "lfu_log_factor": "google.protobuf.Int64Value",
+      "turn_before_switchover": "google.protobuf.BoolValue",
+      "allow_data_loss": "google.protobuf.BoolValue",
+      "use_luajit": "google.protobuf.BoolValue",
+      "io_threads_allowed": "google.protobuf.BoolValue"
     },
-    "diskSizeAutoscaling": {
-      "plannedUsageThreshold": "google.protobuf.Int64Value",
-      "emergencyUsageThreshold": "google.protobuf.Int64Value",
-      "diskSizeLimit": "google.protobuf.Int64Value"
+    "disk_size_autoscaling": {
+      "planned_usage_threshold": "google.protobuf.Int64Value",
+      "emergency_usage_threshold": "google.protobuf.Int64Value",
+      "disk_size_limit": "google.protobuf.Int64Value"
     }
   },
-  "hostSpecs": [
+  "host_specs": [
     {
-      "zoneId": "string",
-      "subnetId": "string",
-      "shardName": "string",
-      "replicaPriority": "google.protobuf.Int64Value",
-      "assignPublicIp": "bool"
+      "zone_id": "string",
+      "subnet_id": "string",
+      "shard_name": "string",
+      "replica_priority": "google.protobuf.Int64Value",
+      "assign_public_ip": "bool"
     }
   ],
-  "networkId": "string",
+  "network_id": "string",
   "sharded": "bool",
-  "securityGroupIds": [
+  "security_group_ids": [
     "string"
   ],
-  "tlsEnabled": "google.protobuf.BoolValue",
-  "deletionProtection": "bool",
-  "persistenceMode": "PersistenceMode",
-  "announceHostnames": "bool",
-  "maintenanceWindow": {
-    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+  "tls_enabled": "google.protobuf.BoolValue",
+  "deletion_protection": "bool",
+  "persistence_mode": "PersistenceMode",
+  "announce_hostnames": "bool",
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
     "anytime": "AnytimeMaintenanceWindow",
-    "weeklyMaintenanceWindow": {
+    "weekly_maintenance_window": {
       "day": "WeekDay",
       "hour": "int64"
     }
@@ -179,7 +181,7 @@ Creates a Redis cluster in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create the Redis cluster in. ||
 || name | **string**
@@ -201,37 +203,37 @@ Required field. Deployment environment of the Redis cluster.
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
 are rolled out irrespective of backward compatibility. ||
-|| configSpec | **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
+|| config_spec | **[ConfigSpec](#yandex.cloud.mdb.redis.v1.ConfigSpec)**
 
 Required field. Configuration and resources for hosts that should be created for the Redis cluster. ||
-|| hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
+|| host_specs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
 
 Individual configurations for hosts that should be created for the Redis cluster. ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network to create the cluster in. ||
 || sharded | **bool**
 
 Redis cluster mode on/off. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups ||
-|| tlsEnabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| tls_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 TLS port and functionality on\off ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| persistenceMode | enum **PersistenceMode**
+|| persistence_mode | enum **PersistenceMode**
 
 Persistence mode
 
 - `ON`: cluster persistence mode on
 - `OFF`: cluster persistence mode off ||
-|| announceHostnames | **bool**
+|| announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
 |#
@@ -243,30 +245,30 @@ Window of maintenance operations. ||
 || version | **string**
 
 Version of Redis used in the cluster. ||
-|| redisConfig_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
+|| redis_config_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
-
-Configuration of a Redis cluster. ||
-|| redisConfig_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
-
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
-|| redisConfig_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
+|| redis_config_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
-|| redisConfig_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+|| redis_config_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
+
+Configuration of a Redis cluster. ||
+|| redis_config_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
 Resources allocated to Redis hosts. ||
-|| backupWindowStart | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
@@ -275,7 +277,7 @@ Access policy to DB ||
 || redis | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig)**
 
 Unified configuration of a Redis cluster ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -287,7 +289,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -316,19 +318,19 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for clients. ||
 |#
@@ -337,13 +339,13 @@ Redis connection output buffers limits for clients. ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -355,7 +357,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -384,19 +386,19 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for clients. ||
 |#
@@ -405,13 +407,13 @@ Redis connection output buffers limits for clients. ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -423,7 +425,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -452,22 +454,22 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
 |#
@@ -476,13 +478,13 @@ Redis maxmemory percent ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -494,7 +496,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -523,22 +525,22 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
 |#
@@ -547,13 +549,13 @@ Redis maxmemory percent ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -562,14 +564,14 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
@@ -581,10 +583,10 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| dataLens | **bool**
+|| data_lens | **bool**
 
 Allow access for DataLens ||
-|| webSql | **bool**
+|| web_sql | **bool**
 
 Allow access for Web SQL. ||
 |#
@@ -596,7 +598,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -625,64 +627,70 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
-|| luaTimeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
-|| replBacklogSizePercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication backlog size as a percentage of flavor maxmemory ||
-|| clusterRequireFullCoverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether all hash slots must be covered by nodes ||
-|| clusterAllowReadsWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_allow_reads_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows read operations when cluster is down ||
-|| clusterAllowPubsubshardWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_allow_pubsubshard_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Permits Pub/Sub shard operations when cluster is down ||
-|| lfuDecayTime | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lfu_decay_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
-|| lfuLogFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Determines how the frequency counter represents key hits. ||
-|| turnBeforeSwitchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| turn_before_switchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to turn before switchover in RDSync ||
-|| allowDataLoss | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| allow_data_loss | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| use_luajit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use JIT for lua scripts and functions ||
+|| io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -691,13 +699,13 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -706,25 +714,25 @@ Limit on how large the storage for database instances can automatically grow, in
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.networkId](#yandex.cloud.mdb.redis.v1.Cluster). ||
-|| shardName | **string**
+The ID of the network is set in the field [Cluster.network_id](#yandex.cloud.mdb.redis.v1.Cluster). ||
+|| shard_name | **string**
 
 ID of the Redis shard the host belongs to.
 To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request. ||
-|| replicaPriority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A replica with a low priority number is considered better for promotion.
 A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
 Works only for non-sharded clusters. Default value is 100. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
 
@@ -743,14 +751,14 @@ A maintenance window settings.
 
 Maintenance operation can be scheduled anytime.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
 |#
@@ -791,19 +799,19 @@ Hour of the day in UTC (in `HH` format). ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -817,379 +825,385 @@ Hour of the day in UTC (in `HH` format). ||
     ],
     "config": {
       "version": "string",
-      // Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
-      "redisConfig_5_0": {
-        "effectiveConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+      // Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`
+      "redis_config_5_0": {
+        "effective_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           }
         },
-        "userConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "user_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           }
         },
-        "defaultConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "default_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          }
-        }
-      },
-      "redisConfig_6_0": {
-        "effectiveConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
-          "timeout": "google.protobuf.Int64Value",
-          "password": "string",
-          "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          }
-        },
-        "userConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
-          "timeout": "google.protobuf.Int64Value",
-          "password": "string",
-          "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          }
-        },
-        "defaultConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
-          "timeout": "google.protobuf.Int64Value",
-          "password": "string",
-          "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           }
         }
       },
-      "redisConfig_6_2": {
-        "effectiveConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+      "redis_config_6_0": {
+        "effective_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          }
         },
-        "userConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "user_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          }
         },
-        "defaultConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "default_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
-          },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          }
         }
       },
-      "redisConfig_7_0": {
-        "effectiveConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+      "redis_config_6_2": {
+        "effective_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemory_percent": "google.protobuf.Int64Value"
         },
-        "userConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "user_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemory_percent": "google.protobuf.Int64Value"
         },
-        "defaultConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "default_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value"
+          "maxmemory_percent": "google.protobuf.Int64Value"
+        }
+      },
+      "redis_config_7_0": {
+        "effective_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
+          "timeout": "google.protobuf.Int64Value",
+          "password": "string",
+          "databases": "google.protobuf.Int64Value",
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "maxmemory_percent": "google.protobuf.Int64Value"
+        },
+        "user_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
+          "timeout": "google.protobuf.Int64Value",
+          "password": "string",
+          "databases": "google.protobuf.Int64Value",
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "maxmemory_percent": "google.protobuf.Int64Value"
+        },
+        "default_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
+          "timeout": "google.protobuf.Int64Value",
+          "password": "string",
+          "databases": "google.protobuf.Int64Value",
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
+          },
+          "maxmemory_percent": "google.protobuf.Int64Value"
         }
       },
       // end of the list of possible fields
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
-      "backupWindowStart": "google.type.TimeOfDay",
+      "backup_window_start": "google.type.TimeOfDay",
       "access": {
-        "dataLens": "bool",
-        "webSql": "bool"
+        "data_lens": "bool",
+        "web_sql": "bool"
       },
       "redis": {
-        "effectiveConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "effective_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value",
-          "luaTimeLimit": "google.protobuf.Int64Value",
-          "replBacklogSizePercent": "google.protobuf.Int64Value",
-          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
-          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
-          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
-          "lfuDecayTime": "google.protobuf.Int64Value",
-          "lfuLogFactor": "google.protobuf.Int64Value",
-          "turnBeforeSwitchover": "google.protobuf.BoolValue",
-          "allowDataLoss": "google.protobuf.BoolValue"
+          "maxmemory_percent": "google.protobuf.Int64Value",
+          "lua_time_limit": "google.protobuf.Int64Value",
+          "repl_backlog_size_percent": "google.protobuf.Int64Value",
+          "cluster_require_full_coverage": "google.protobuf.BoolValue",
+          "cluster_allow_reads_when_down": "google.protobuf.BoolValue",
+          "cluster_allow_pubsubshard_when_down": "google.protobuf.BoolValue",
+          "lfu_decay_time": "google.protobuf.Int64Value",
+          "lfu_log_factor": "google.protobuf.Int64Value",
+          "turn_before_switchover": "google.protobuf.BoolValue",
+          "allow_data_loss": "google.protobuf.BoolValue",
+          "use_luajit": "google.protobuf.BoolValue",
+          "io_threads_allowed": "google.protobuf.BoolValue"
         },
-        "userConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "user_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value",
-          "luaTimeLimit": "google.protobuf.Int64Value",
-          "replBacklogSizePercent": "google.protobuf.Int64Value",
-          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
-          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
-          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
-          "lfuDecayTime": "google.protobuf.Int64Value",
-          "lfuLogFactor": "google.protobuf.Int64Value",
-          "turnBeforeSwitchover": "google.protobuf.BoolValue",
-          "allowDataLoss": "google.protobuf.BoolValue"
+          "maxmemory_percent": "google.protobuf.Int64Value",
+          "lua_time_limit": "google.protobuf.Int64Value",
+          "repl_backlog_size_percent": "google.protobuf.Int64Value",
+          "cluster_require_full_coverage": "google.protobuf.BoolValue",
+          "cluster_allow_reads_when_down": "google.protobuf.BoolValue",
+          "cluster_allow_pubsubshard_when_down": "google.protobuf.BoolValue",
+          "lfu_decay_time": "google.protobuf.Int64Value",
+          "lfu_log_factor": "google.protobuf.Int64Value",
+          "turn_before_switchover": "google.protobuf.BoolValue",
+          "allow_data_loss": "google.protobuf.BoolValue",
+          "use_luajit": "google.protobuf.BoolValue",
+          "io_threads_allowed": "google.protobuf.BoolValue"
         },
-        "defaultConfig": {
-          "maxmemoryPolicy": "MaxmemoryPolicy",
+        "default_config": {
+          "maxmemory_policy": "MaxmemoryPolicy",
           "timeout": "google.protobuf.Int64Value",
           "password": "string",
           "databases": "google.protobuf.Int64Value",
-          "slowlogLogSlowerThan": "google.protobuf.Int64Value",
-          "slowlogMaxLen": "google.protobuf.Int64Value",
-          "notifyKeyspaceEvents": "string",
-          "clientOutputBufferLimitPubsub": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "slowlog_log_slower_than": "google.protobuf.Int64Value",
+          "slowlog_max_len": "google.protobuf.Int64Value",
+          "notify_keyspace_events": "string",
+          "client_output_buffer_limit_pubsub": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "clientOutputBufferLimitNormal": {
-            "hardLimit": "google.protobuf.Int64Value",
-            "softLimit": "google.protobuf.Int64Value",
-            "softSeconds": "google.protobuf.Int64Value"
+          "client_output_buffer_limit_normal": {
+            "hard_limit": "google.protobuf.Int64Value",
+            "soft_limit": "google.protobuf.Int64Value",
+            "soft_seconds": "google.protobuf.Int64Value"
           },
-          "maxmemoryPercent": "google.protobuf.Int64Value",
-          "luaTimeLimit": "google.protobuf.Int64Value",
-          "replBacklogSizePercent": "google.protobuf.Int64Value",
-          "clusterRequireFullCoverage": "google.protobuf.BoolValue",
-          "clusterAllowReadsWhenDown": "google.protobuf.BoolValue",
-          "clusterAllowPubsubshardWhenDown": "google.protobuf.BoolValue",
-          "lfuDecayTime": "google.protobuf.Int64Value",
-          "lfuLogFactor": "google.protobuf.Int64Value",
-          "turnBeforeSwitchover": "google.protobuf.BoolValue",
-          "allowDataLoss": "google.protobuf.BoolValue"
+          "maxmemory_percent": "google.protobuf.Int64Value",
+          "lua_time_limit": "google.protobuf.Int64Value",
+          "repl_backlog_size_percent": "google.protobuf.Int64Value",
+          "cluster_require_full_coverage": "google.protobuf.BoolValue",
+          "cluster_allow_reads_when_down": "google.protobuf.BoolValue",
+          "cluster_allow_pubsubshard_when_down": "google.protobuf.BoolValue",
+          "lfu_decay_time": "google.protobuf.Int64Value",
+          "lfu_log_factor": "google.protobuf.Int64Value",
+          "turn_before_switchover": "google.protobuf.BoolValue",
+          "allow_data_loss": "google.protobuf.BoolValue",
+          "use_luajit": "google.protobuf.BoolValue",
+          "io_threads_allowed": "google.protobuf.BoolValue"
         }
       },
-      "diskSizeAutoscaling": {
-        "plannedUsageThreshold": "google.protobuf.Int64Value",
-        "emergencyUsageThreshold": "google.protobuf.Int64Value",
-        "diskSizeLimit": "google.protobuf.Int64Value"
+      "disk_size_autoscaling": {
+        "planned_usage_threshold": "google.protobuf.Int64Value",
+        "emergency_usage_threshold": "google.protobuf.Int64Value",
+        "disk_size_limit": "google.protobuf.Int64Value"
       }
     },
-    "networkId": "string",
+    "network_id": "string",
     "health": "Health",
     "status": "Status",
     "sharded": "bool",
-    "maintenanceWindow": {
-      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "maintenance_window": {
+      // Includes only one of the fields `anytime`, `weekly_maintenance_window`
       "anytime": "AnytimeMaintenanceWindow",
-      "weeklyMaintenanceWindow": {
+      "weekly_maintenance_window": {
         "day": "WeekDay",
         "hour": "int64"
       }
       // end of the list of possible fields
     },
-    "plannedOperation": {
+    "planned_operation": {
       "info": "string",
-      "delayedUntil": "google.protobuf.Timestamp"
+      "delayed_until": "google.protobuf.Timestamp"
     },
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ],
-    "tlsEnabled": "bool",
-    "deletionProtection": "bool",
-    "persistenceMode": "PersistenceMode",
-    "announceHostnames": "bool"
+    "tls_enabled": "bool",
+    "deletion_protection": "bool",
+    "persistence_mode": "PersistenceMode",
+    "announce_hostnames": "bool"
   }
   // end of the list of possible fields
 }
@@ -1205,13 +1219,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -1254,7 +1268,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Redis cluster that is being created. ||
 |#
@@ -1270,10 +1284,10 @@ the Managed Service for Redis [documentation](/docs/managed-redis/concepts/).
 
 ID of the Redis cluster.
 This ID is assigned by MDB at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Redis cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -1302,7 +1316,7 @@ Description of monitoring systems relevant to the Redis cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
 
 Configuration of the Redis cluster. ||
-|| networkId | **string** ||
+|| network_id | **string** ||
 || health | enum **Health**
 
 Aggregated cluster health.
@@ -1326,28 +1340,28 @@ Cluster status.
 || sharded | **bool**
 
 Redis cluster mode on/off. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow2)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow2)**
 
 Maintenance window for the cluster. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
 
-Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
-|| securityGroupIds[] | **string**
+Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. ||
+|| security_group_ids[] | **string**
 
 User security groups ||
-|| tlsEnabled | **bool**
+|| tls_enabled | **bool**
 
 TLS port and functionality on\off ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| persistenceMode | enum **PersistenceMode**
+|| persistence_mode | enum **PersistenceMode**
 
 Persistence mode
 
 - `ON`: cluster persistence mode on
 - `OFF`: cluster persistence mode off ||
-|| announceHostnames | **bool**
+|| announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
 |#
@@ -1374,38 +1388,38 @@ Link to the monitoring system charts for the Redis cluster. ||
 || version | **string**
 
 Version of Redis server software. ||
-|| redisConfig_5_0 | **[RedisConfigSet5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0)**
+|| redis_config_5_0 | **[RedisConfigSet5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0)**
 
 Configuration of a Redis 5.0 server.
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration for Redis servers in the cluster. ||
-|| redisConfig_6_0 | **[RedisConfigSet6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0)**
+|| redis_config_6_0 | **[RedisConfigSet6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_0)**
 
 Configuration of a Redis 6.0 server.
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration for Redis servers in the cluster. ||
-|| redisConfig_6_2 | **[RedisConfigSet6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2)**
+|| redis_config_6_2 | **[RedisConfigSet6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet6_2)**
 
 Configuration of a Redis 6.2 server.
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration for Redis servers in the cluster. ||
-|| redisConfig_7_0 | **[RedisConfigSet7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0)**
+|| redis_config_7_0 | **[RedisConfigSet7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet7_0)**
 
 Configuration of a Redis 7.0 server.
 
-Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration for Redis servers in the cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources2)**
 
 Resources allocated to Redis hosts. ||
-|| backupWindowStart | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access2)**
@@ -1414,7 +1428,7 @@ Access policy to DB ||
 || redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
 
 Unified configuration of a Redis cluster. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling settings ||
 |#
@@ -1423,14 +1437,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+|| effective_config | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
 
 Effective settings for a Redis 5.0 cluster (a combination of settings
-defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+defined in `user_config` and `default_config`). ||
+|| user_config | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
 
 User-defined settings for a Redis 5.0 cluster. ||
-|| defaultConfig | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
+|| default_config | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_02)**
 
 Default configuration for a Redis 5.0 cluster. ||
 |#
@@ -1442,7 +1456,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -1471,19 +1485,19 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for clients. ||
 |#
@@ -1492,13 +1506,13 @@ Redis connection output buffers limits for clients. ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -1507,14 +1521,14 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+|| effective_config | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
 
 Effective settings for a Redis 6.0 cluster (a combination of settings
-defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+defined in `user_config` and `default_config`). ||
+|| user_config | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
 
 User-defined settings for a Redis 6.0 cluster. ||
-|| defaultConfig | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
+|| default_config | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_02)**
 
 Default configuration for a Redis 6.0 cluster. ||
 |#
@@ -1526,7 +1540,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -1555,19 +1569,19 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for clients. ||
 |#
@@ -1576,13 +1590,13 @@ Redis connection output buffers limits for clients. ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -1591,14 +1605,14 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+|| effective_config | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
 
 Effective settings for a Redis 6.2 cluster (a combination of settings
-defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+defined in `user_config` and `default_config`). ||
+|| user_config | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
 
 User-defined settings for a Redis 6.2 cluster. ||
-|| defaultConfig | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
+|| default_config | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_22)**
 
 Default configuration for a Redis 6.2 cluster. ||
 |#
@@ -1610,7 +1624,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -1639,22 +1653,22 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
 |#
@@ -1663,13 +1677,13 @@ Redis maxmemory percent ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -1678,14 +1692,14 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+|| effective_config | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
 
 Effective settings for a Redis 7.0 cluster (a combination of settings
-defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+defined in `user_config` and `default_config`). ||
+|| user_config | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
 
 User-defined settings for a Redis 7.0 cluster. ||
-|| defaultConfig | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
+|| default_config | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_02)**
 
 Default configuration for a Redis 7.0 cluster. ||
 |#
@@ -1697,7 +1711,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -1726,22 +1740,22 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
 |#
@@ -1750,13 +1764,13 @@ Redis maxmemory percent ||
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -1765,14 +1779,14 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
@@ -1784,10 +1798,10 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| dataLens | **bool**
+|| data_lens | **bool**
 
 Allow access for DataLens ||
-|| webSql | **bool**
+|| web_sql | **bool**
 
 Allow access for Web SQL. ||
 |#
@@ -1796,14 +1810,14 @@ Allow access for Web SQL. ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+|| effective_config | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
 
 Effective settings for a Redis cluster (a combination of settings
-defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+defined in `user_config` and `default_config`). ||
+|| user_config | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
 
 User-defined settings for a Redis cluster. ||
-|| defaultConfig | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
+|| default_config | **[RedisConfig](#yandex.cloud.mdb.redis.v1.config.RedisConfig2)**
 
 Default configuration for a Redis cluster. ||
 |#
@@ -1815,7 +1829,7 @@ parameters.
 
 #|
 ||Field | Description ||
-|| maxmemoryPolicy | enum **MaxmemoryPolicy**
+|| maxmemory_policy | enum **MaxmemoryPolicy**
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
@@ -1844,64 +1858,70 @@ Authentication password. ||
 || databases | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of database buckets on a single redis-server process. ||
-|| slowlogLogSlowerThan | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_log_slower_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Threshold for logging slow requests to server in microseconds (log only slower than it). ||
-|| slowlogMaxLen | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slowlog_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max slow requests number to log. ||
-|| notifyKeyspaceEvents | **string**
+|| notify_keyspace_events | **string**
 
 String setting for pub\sub functionality. ||
-|| clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_pubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for pubsub operations. ||
-|| clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
+|| client_output_buffer_limit_normal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2)**
 
 Redis connection output buffers limits for clients. ||
-|| maxmemoryPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| maxmemory_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Redis maxmemory percent ||
-|| luaTimeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lua_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism ||
-|| replBacklogSizePercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| repl_backlog_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Replication backlog size as a percentage of flavor maxmemory ||
-|| clusterRequireFullCoverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_require_full_coverage | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether all hash slots must be covered by nodes ||
-|| clusterAllowReadsWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_allow_reads_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows read operations when cluster is down ||
-|| clusterAllowPubsubshardWhenDown | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| cluster_allow_pubsubshard_when_down | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Permits Pub/Sub shard operations when cluster is down ||
-|| lfuDecayTime | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lfu_decay_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10) ||
-|| lfuLogFactor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lfu_log_factor | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Determines how the frequency counter represents key hits. ||
-|| turnBeforeSwitchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| turn_before_switchover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows to turn before switchover in RDSync ||
-|| allowDataLoss | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| allow_data_loss | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| use_luajit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Use JIT for lua scripts and functions ||
+|| io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}
 
 #|
 ||Field | Description ||
-|| hardLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| hard_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Total limit in bytes. ||
-|| softLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit in bytes during certain time period. ||
-|| softSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| soft_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Seconds for soft limit. ||
 |#
@@ -1910,13 +1930,13 @@ Seconds for soft limit. ||
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -1931,14 +1951,14 @@ A maintenance window settings.
 
 Maintenance operation can be scheduled anytime.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow2)**
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow2)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
 |#
@@ -1982,7 +2002,7 @@ A planned maintenance operation.
 || info | **string**
 
 Information about this maintenance operation. ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||
 |#

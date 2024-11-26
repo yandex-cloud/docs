@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/update.md
 ---
 
-# Cloud CDN API, REST: RawLogs.Update {#Update}
+# Cloud CDN API, REST: RawLogs.Update
 
 ## HTTP request
 

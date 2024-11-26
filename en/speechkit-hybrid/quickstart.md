@@ -16,13 +16,13 @@ Our demo stand uses the [Cloud Billing](pricing.md#billing) licensing model; thi
 
 To deploy your {{ sk-hybrid-name }} demo stand:
 
-1. [{#T}](#get-started).
-1. [{#T}](#prepare).
-1. [{#T}](#ssh).
-1. [{#T}](#variables).
-1. [{#T}](#create-infrastructure).
-1. [{#T}](#communication-channel).
-1. [{#T}](#stt-and-tts).
+1. [Get started with {{ yandex-cloud }}](#get-started).
+1. [Install additional dependencies](#prepare).
+1. [Prepare the SSH keys](#ssh).
+1. [Add variables for the {{ TF }} configuration](#variables).
+1. [Create the infrastructure using {{ TF }}](#create-infrastructure).
+1. [Set up a permanent communication channel with the {{ yandex-cloud }} server](#communication-channel).
+1. [Perform load testing for speech recognition and synthesis](#stt-and-tts).
 
 In case of errors, use our [debugging guide](quickstart-debugging.md).
 
@@ -34,26 +34,26 @@ In case of errors, use our [debugging guide](quickstart-debugging.md).
    * [How to sign up as a business](../getting-started/legal-entity/registration.md)
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}.
-1. Create a directory in the management console. It will contain your resources:
+1. Create a folder in the management console. It will contain your resources:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Create](../iam/operations/sa/create.md) the `sk-hybrid-example` service account.
+1. [Create a service account](../iam/operations/sa/create.md) named `sk-hybrid-example`.
 
    The service account allows you to flexibly configure access permissions. For more information about the service account, see [{#T}](../iam/concepts/users/service-accounts.md).
 
 1. [Assign the following roles to the service account](../iam/operations/sa/assign-role-for-sa.md):
 
-   * `compute.editor`: To create the {{ yandex-cloud }} VM.
+   * `compute.editor`: To create a {{ yandex-cloud }} VM.
    * `container-registry.images.puller`: To work with Docker images in the [{{ container-registry-full-name }}](../container-registry/index.yaml) registry.
    * `iam.serviceAccounts.keyAdmin`: To create an [API key](../iam/concepts/authorization/api-key.md) for authorization in {{ billing-name }}.
 
-1. [Create an API key.](../iam/operations/api-key/create.md)
+1. [Create an API key](../iam/operations/api-key/create.md).
 
    Save the ID and the secret part of the key. You cannot request them later.
 
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) in {{ container-registry-name }}.
-1. Provide the registry ID to the [{{ speechkit-name }} team]({{ link-console-support }}). The required containers and images will appear in your registry.
+1. [Send]({{ link-console-support }}) the registry ID to the {{ speechkit-name }} team. The required containers and images will appear in your registry.
 
 ## Install additional dependencies {#prepare}
 
@@ -100,7 +100,7 @@ You will need the SSH keys for authentication when connecting to the {{ yandex-c
 
 ## Add variables for the {{ TF }} configuration {#variables}
 
-The `terraform.tfvars.template` file is located in the `yc-speechkit-hybrid-deployment` repository directory. It is a {{ TF }} template by which environment variables are set. These variables are provided to the YC CLI and {{ TF }} when running commands.
+The `yc-speechkit-hybrid-deployment` repository directory contains the `terraform.tfvars.template` file. It is a {{ TF }} template by which environment variables are set. These variables are provided to the YC CLI and {{ TF }} when running commands.
 
 To set variables for the {{ TF }} configuration, perform the following steps on the local machine:
 
@@ -110,12 +110,12 @@ To set variables for the {{ TF }} configuration, perform the following steps on 
    cp ./terraform.tfvars.template ./terraform.tfvars
    ```
 
-1. Specify the variable values in the `terraform.tfvars` file:
+1. In the `terraform.tfvars` file, specify the values of the following variables:
 
-   * `CR_REGISTRY_ID`: {{ container-registry-name }} registry ID
-   * `BILLING_STATIC_API_KEY`: Secret part of the API key
+   * `CR_REGISTRY_ID`: {{ container-registry-name }} registry ID.
+   * `BILLING_STATIC_API_KEY`: Secret part of the API key.
 
-1. Optionally, add the `NODES_GPU_INTERRUPTIBLE = false` variable.
+1. (Optional) Add the `NODES_GPU_INTERRUPTIBLE = false` variable.
 
    The {{ TF }} configuration in the repository assumes creating an [interruptible VM](../compute/concepts/preemptible-vm.md). You can disable interrupting using the `NODES_GPU_INTERRUPTIBLE` variable. Its default value is `true`, and it is specified in the `variables.tf` file in the `yc-speechkit-hybrid-deployment` repository.
 
@@ -139,7 +139,7 @@ To create the infrastructure, perform the following steps on the local machine:
 - {{ TF }} {#tf}
 
    1. In the terminal, go to the `yc-speechkit-hybrid-deployment` repository directory.
-   1. [Get](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) the `sk-hybrid-example` service account authentication details. You can add the data to environment variables or specify this data in the `main.tf` file, in the `provider "yandex"` section.
+   1. [Get](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) the `sk-hybrid-example` service account authentication credentials You can add the data to environment variables or specify this data in the `main.tf` file under `provider "yandex"`.
    1. [Configure and initialize the {{ TF }} providers](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
       The repository uses the `main.tf` file as a configuration file with provider settings, so there is no need to recreate such a file.
@@ -160,7 +160,7 @@ To create the infrastructure, perform the following steps on the local machine:
 
 ## Set up a permanent communication channel with the {{ yandex-cloud }} server {#communication-channel}
 
-To work according to the Cloud Billing licensing model, ensure network connectivity between the {{ billing-name }} `billing.datasphere.yandexcloud.net:443` node and the VM on which the {{ sk-hybrid-name }} service is deployed. To check the node for availability:
+To work according to the Cloud Billing licensing model, ensure network connectivity between the {{ billing-name }} `billing.datasphere.yandexcloud.net:443` node and the VM on which {{ sk-hybrid-name }} is deployed. To check the node for availability:
 
 1. On the local machine, get the public IP address of the created VM:
 
@@ -250,16 +250,16 @@ To perform load testing:
    Where:
 
    * `ENVOY_HOST`: IP address of the speech synthesis service.
-   * `ENVOY_TTS_PORT`: Port of the speech synthesis service (`9080` by default).
+   * `ENVOY_TTS_PORT`: Port of the synthesis service (`9080` by default).
    * `RPS`: Number of speech synthesis requests per second.
 
 1. Wait a few minutes while speech recognition and synthesis are performed.
 1. Look at the test results in the container logs:
 
-   * `docker logs stt-tools`: For speech recognition.
-   * `docker logs tts-tools`: For speech synthesis.
+   * `docker logs stt-tools` for speech recognition.
+   * `docker logs tts-tools` for speech synthesis.
 
-   Until the `Load finished. Ready to serve requests on 0.0.0.0:17001` line appears in the logs, the speech recognition and synthesis services will not respond to requests. This may take from 2 to 10 minutes.
+   Until the `Load finished. Ready to serve requests on 0.0.0.0:17001` line appears in the logs, the speech recognition and synthesis services will not respond to requests. You may need to wait from 2 to 10 minutes.
 
    Next, the logs will show a message that the [Envoy](architecture.md) component has started listening to port `8080` for speech recognition and port `9080` for speech synthesis. This means {{ sk-hybrid-name }} is running and ready to serve client requests.
 
@@ -267,5 +267,5 @@ To perform load testing:
 
    During load testing, the `docker run` commands will not respond to the **Ctrl** + **C** interrupt signals. If you want to stop the containers from running, run the following command:
 
-   * `docker stop stt-tools`: For speech recognition.
-   * `docker stop tts-tools`: For speech synthesis.
+   * `docker stop stt-tools` for speech recognition.
+   * `docker stop tts-tools` for speech synthesis.

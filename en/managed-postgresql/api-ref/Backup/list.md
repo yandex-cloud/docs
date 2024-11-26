@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Backup/list.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Backup.List {#List}
+# Managed Service for PostgreSQL API, REST: Backup.List
 
 Retrieves the list of Backup resources available for the specified folder.
 

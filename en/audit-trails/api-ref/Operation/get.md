@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Operation/get.md
 ---
 
-# Audit Trails API, REST: Operation.Get {#Get}
+# Audit Trails API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

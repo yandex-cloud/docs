@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Operation/get.md
 ---
 
-# Virtual Private Cloud API, REST: Operation.Get {#Get}
+# Virtual Private Cloud API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

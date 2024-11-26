@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Auth/addProviders.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: AuthService.AddProviders {#AddProviders}
+# Managed Service for Elasticsearch API, gRPC: AuthService.AddProviders
 
 Adds new auth providers to Elasticsearch cluster.
 
@@ -15,7 +15,7 @@ Adds new auth providers to Elasticsearch cluster.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "providers": [
     {
       "type": "Type",
@@ -28,15 +28,15 @@ Adds new auth providers to Elasticsearch cluster.
       "icon": "string",
       // Includes only one of the fields `saml`
       "saml": {
-        "idpEntityId": "string",
-        "idpMetadataFile": "bytes",
-        "spEntityId": "string",
-        "kibanaUrl": "string",
-        "attributePrincipal": "string",
-        "attributeGroups": "string",
-        "attributeName": "string",
-        "attributeEmail": "string",
-        "attributeDn": "string"
+        "idp_entity_id": "string",
+        "idp_metadata_file": "bytes",
+        "sp_entity_id": "string",
+        "kibana_url": "string",
+        "attribute_principal": "string",
+        "attribute_groups": "string",
+        "attribute_name": "string",
+        "attribute_email": "string",
+        "attribute_dn": "string"
       }
       // end of the list of possible fields
     }
@@ -46,7 +46,7 @@ Adds new auth providers to Elasticsearch cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. Required. ID of the ElasticSearch cluster. ||
 || providers[] | **[AuthProvider](#yandex.cloud.mdb.elasticsearch.v1.AuthProvider)**
@@ -81,15 +81,15 @@ Includes only one of the fields `saml`. ||
 
 #|
 ||Field | Description ||
-|| idpEntityId | **string** ||
-|| idpMetadataFile | **bytes** ||
-|| spEntityId | **string** ||
-|| kibanaUrl | **string** ||
-|| attributePrincipal | **string** ||
-|| attributeGroups | **string** ||
-|| attributeName | **string** ||
-|| attributeEmail | **string** ||
-|| attributeDn | **string** ||
+|| idp_entity_id | **string** ||
+|| idp_metadata_file | **bytes** ||
+|| sp_entity_id | **string** ||
+|| kibana_url | **string** ||
+|| attribute_principal | **string** ||
+|| attribute_groups | **string** ||
+|| attribute_name | **string** ||
+|| attribute_email | **string** ||
+|| attribute_dn | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -98,12 +98,12 @@ Includes only one of the fields `saml`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
+    "cluster_id": "string",
     "names": [
       "string"
     ]
@@ -123,15 +123,15 @@ Includes only one of the fields `saml`. ||
         "icon": "string",
         // Includes only one of the fields `saml`
         "saml": {
-          "idpEntityId": "string",
-          "idpMetadataFile": "bytes",
-          "spEntityId": "string",
-          "kibanaUrl": "string",
-          "attributePrincipal": "string",
-          "attributeGroups": "string",
-          "attributeName": "string",
-          "attributeEmail": "string",
-          "attributeDn": "string"
+          "idp_entity_id": "string",
+          "idp_metadata_file": "bytes",
+          "sp_entity_id": "string",
+          "kibana_url": "string",
+          "attribute_principal": "string",
+          "attribute_groups": "string",
+          "attribute_name": "string",
+          "attribute_email": "string",
+          "attribute_dn": "string"
         }
         // end of the list of possible fields
       }
@@ -151,13 +151,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -200,7 +200,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ElasticSearch cluster. ||
 || names[] | **string**
@@ -242,13 +242,13 @@ Includes only one of the fields `saml`. ||
 
 #|
 ||Field | Description ||
-|| idpEntityId | **string** ||
-|| idpMetadataFile | **bytes** ||
-|| spEntityId | **string** ||
-|| kibanaUrl | **string** ||
-|| attributePrincipal | **string** ||
-|| attributeGroups | **string** ||
-|| attributeName | **string** ||
-|| attributeEmail | **string** ||
-|| attributeDn | **string** ||
+|| idp_entity_id | **string** ||
+|| idp_metadata_file | **bytes** ||
+|| sp_entity_id | **string** ||
+|| kibana_url | **string** ||
+|| attribute_principal | **string** ||
+|| attribute_groups | **string** ||
+|| attribute_name | **string** ||
+|| attribute_email | **string** ||
+|| attribute_dn | **string** ||
 |#

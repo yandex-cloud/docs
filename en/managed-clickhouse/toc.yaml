@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step guides
+  - name: Step-by-step guide
     items:
       - name: All guides
         href: operations/index.md
@@ -141,6 +141,32 @@ items:
           Copying data from {{ mos-name }} to {{ mch-name }} using {{
           data-transfer-full-name }}
         href: tutorials/opensearch-to-clickhouse.md
+      - name: Entering data into storage systems
+        href: tutorials/data-ingestion.md
+      - name: Using parameters
+        href: tutorials/data-from-ch-with-parameters.md
+      - name: Examples of creating QL charts
+        href: tutorials/data-from-ch-to-sql-chart.md
+      - name: >-
+          Web analytics with funnels and cohorts calculated based on Yandex
+          Metrica data
+        href: tutorials/data-from-metrica-yc-visualization.md
+      - name: 'AppMetrica: direct connection'
+        href: tutorials/data-from-appmetrica-visualization.md
+      - name: 'AppMetrica: data export, post-processing, and visualization'
+        href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: '{{ tracker-full-name }}: data export and visualization'
+        href: tutorials/data-from-tracker.md
+      - name: Retail chain's dashboard based on a {{ CH }} DB
+        href: tutorials/data-from-ch-visualization.md
+      - name: >-
+          Analyzing sales and locations of pizzerias based on data from the {{
+          CH }} database and Marketplace
+        href: tutorials/data-from-ch-to-geolayers-visualization.md
+      - name: >-
+          Geocoding with the Yandex Maps API for data visualization in {{
+          datalens-short-name }}
+        href: tutorials/data-from-ch-geocoder.md
   - name: Concepts
     items:
       - name: Resource relationships

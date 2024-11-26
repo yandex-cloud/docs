@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/setRestrictions.md
 ---
 
-# DataSphere API v2, REST: Community.SetRestrictions {#SetRestrictions}
+# DataSphere API v2, REST: Community.SetRestrictions
 
 Set community restrictions.
 

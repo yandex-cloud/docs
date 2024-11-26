@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/get.md
 ---
 
-# Video API, REST: Stream.Get {#Get}
+# Video API, REST: Stream.Get
 
 Returns the specific stream.
 

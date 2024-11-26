@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Operation/get.md
 ---
 
-# Managed Service for Redis API, REST: Operation.Get {#Get}
+# Managed Service for Redis API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

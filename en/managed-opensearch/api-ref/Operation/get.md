@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Operation/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: Operation.Get {#Get}
+# Managed Service for OpenSearch API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

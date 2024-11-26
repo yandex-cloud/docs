@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/list.md
 ---
 
-# Certificate Manager API, REST: Certificate.List {#List}
+# Certificate Manager API, REST: Certificate.List
 
 Returns the list of certificates in the specified folder.
 

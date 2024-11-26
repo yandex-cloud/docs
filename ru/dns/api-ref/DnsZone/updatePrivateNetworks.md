@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updatePrivateNetworks.md
 ---
 
-# Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks {#UpdatePrivateNetworks}
+# Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks
 
 Atomically updates zone private networks
 

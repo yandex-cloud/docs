@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/update.md
 ---
 
-# Cloud Logging Service, REST: Export.Update {#Update}
+# Cloud Logging Service, REST: Export.Update
 
 Updates the specified export.
 

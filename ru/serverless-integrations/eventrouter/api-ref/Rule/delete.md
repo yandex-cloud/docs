@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/delete.md
 ---
 
-# EventRouter Service, REST: Rule.Delete {#Delete}
+# EventRouter Service, REST: Rule.Delete
 
 Deletes the specified rule.
 

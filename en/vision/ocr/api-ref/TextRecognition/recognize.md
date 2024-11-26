@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognition/recognize.md
 ---
 
-# Vision OCR API, REST: TextRecognition.Recognize {#Recognize}
+# Vision OCR API, REST: TextRecognition.Recognize
 
 To send the image for text recognition.
 

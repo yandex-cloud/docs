@@ -1,4 +1,4 @@
-* **Gp add column inherits table setting** {{ tag-con }} {{ tag-api }} {#setting-gp-add-column-inherits-table-setting}
+* **Gp add column inherits table setting**{#setting-gp-add-column-inherits-table-setting} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     This setting controls whether to apply the data compression parameters (`compresstype`, `compresslevel`, and `blocksize`) specified for the [AOCO table](../../../managed-greenplum/concepts/tables.md) when adding a column.
 
@@ -6,7 +6,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
 
-* **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-api }}
+* **Gp workfile compression**{#setting-gp-workfile-compression} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     This setting determines whether temporary files created on the disk during a hash connection or hash aggregation will be compressed.
 
@@ -14,7 +14,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
-* **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum amount of disk space (in bytes) the temporary files of an active query can occupy in every segment.
 
@@ -22,7 +22,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
-* **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum number of temporary files the service creates in a segment to process a single query. If the limit is exceeded, the query will be canceled.
 
@@ -30,7 +30,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
-* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-api }}
+* **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum amount of disk space (in bytes) the temporary files of all active queries can occupy in every segment.
 
@@ -42,7 +42,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
-* **Log connections** {{ tag-con }} {#setting-log-connections}
+* **Log connections**{#setting-log-connections} {{ tag-con }}
 
     This setting controls whether to log a string detailing each successful connection to the {{ GP }} server.
 
@@ -50,7 +50,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections).
 
-* **Log disconnections** {{ tag-con }} {#setting-log-disconnections}
+* **Log disconnections**{#setting-log-disconnections} {{ tag-con }}
 
     This setting controls whether to log session completion. If the setting is enabled, after each completed client session, a string with the session duration is output to the log.
 
@@ -58,7 +58,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections).
 
-* **Log error verbosity** {{ tag-con }} {#setting-log-error-verbosity}
+* **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }}
 
     This setting controls the amount of detail written to the {{ GP }} log for each message. Log detail levels in ascending order of verbosity:
 
@@ -68,7 +68,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity).
 
-* **Log hostname** {{ tag-con }} {#setting-log-hostname}
+* **Log hostname**{#setting-log-hostname} {{ tag-con }}
 
     This setting controls whether to output the host name of the {{ GP }} database master server to the connection log. If the setting is enabled, the IP address and host name are logged. If the setting is disabled, only the IP address is logged.
 
@@ -76,7 +76,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname).
 
-* **Log min duration statement** {{ tag-con }} {#setting-log-min-duration-statement}
+* **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }}
 
     This setting specifies the minimum command duration required to log the command (in milliseconds).
 
@@ -86,7 +86,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
 
-* **Log min messages** {{ tag-con }} {#setting-log-min-messages}
+* **Log min messages**{#setting-log-min-messages} {{ tag-con }}
 
     This setting defines the logging level in {{ GP }}. All messages of the selected severity level (or higher) are logged. Possible values (in ascending order of severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
@@ -96,7 +96,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
-* **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }}
+* **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Filter for SQL commands that will be written to the {{ GP }} log:
 
@@ -111,7 +111,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
 
-* **Log statement stats** {{ tag-con }} {#setting-log-statement-stat}
+* **Log statement stats**{#setting-log-statement-stat} {{ tag-con }}
 
     This setting controls whether to log query statistics (parsing, scheduling, execution).
 
@@ -119,7 +119,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats).
 
-* **Master shared buffers** {{ tag-con }} {#setting-master-shared-buffers}
+* **Master shared buffers**{#setting-master-shared-buffers} {{ tag-con }}
 
     The amount of memory the {{ GP }} master host uses for shared memory buffers (in bytes).
 
@@ -139,7 +139,7 @@
 
     {% endnote %}
 
-* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }}
+* **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum number of concurrent connections to the master host.
 
@@ -149,7 +149,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
-* **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }}
+* **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum number of transactions that can be in the [prepared state]({{ pg.docs.org }}/current/sql-prepare-transaction.html) at the same time.
 
@@ -159,7 +159,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
-* **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }}
+* **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum [write-ahead log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) file size in bytes allowed for replication.
 
@@ -171,7 +171,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
-* **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-api }}
+* **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     The maximum amount of memory (in bytes) allocated for query processing.
 
@@ -179,7 +179,7 @@
 
     For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).
 
-* **Segment shared buffers** {{ tag-con }} {#setting-segment-shared-buffers}
+* **Segment shared buffers**{#setting-segment-shared-buffers} {{ tag-con }}
 
     The amount of memory the {{ GP }} segment hosts use for shared memory buffers (in bytes).
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PublicConnection/get.md
 ---
 
-# Cloud Interconnect API, REST: PublicConnection.Get {#Get}
+# Cloud Interconnect API, REST: PublicConnection.Get
 
 Returns the specified PublicConnection resource.
 

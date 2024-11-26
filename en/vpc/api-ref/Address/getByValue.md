@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/getByValue.md
 ---
 
-# Virtual Private Cloud API, REST: Address.GetByValue {#GetByValue}
+# Virtual Private Cloud API, REST: Address.GetByValue
 
 Returns the specified Address resource by a given value.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/listOperations.md
 ---
 
-# Application Load Balancer API, REST: BackendGroup.ListOperations {#ListOperations}
+# Application Load Balancer API, REST: BackendGroup.ListOperations
 
 Lists operations for the specified backend group.
 

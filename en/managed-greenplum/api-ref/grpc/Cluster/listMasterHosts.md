@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/Cluster/listMasterHosts.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: ClusterService.ListMasterHosts {#ListMasterHosts}
+# Managed Service for Greenplum® API, gRPC: ClusterService.ListMasterHosts
 
 Retrieves a list of master hosts for the specified cluster.
 
@@ -15,27 +15,27 @@ Retrieves a list of master hosts for the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Greenplum® cluster.
 
 To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse}
@@ -45,20 +45,20 @@ Page token. To get the next page of results, set `pageToken` to the [ListCluster
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
       "type": "Type",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "health": "Health",
-      "subnetId": "string",
-      "assignPublicIp": "bool"
+      "subnet_id": "string",
+      "assign_public_ip": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,13 +67,13 @@ Page token. To get the next page of results, set `pageToken` to the [ListCluster
 || hosts[] | **[Host](#yandex.cloud.mdb.greenplum.v1.Host)**
 
 Requested list of hosts for the cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest) query parameter in the next list request.
+If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest), use the `next_page_token` as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest) query parameter in the next list request.
 
-Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.greenplum.v1.Host}
@@ -89,10 +89,10 @@ Required field. Name of the Greenplum® host.
 The host name is assigned by the platform at creation time and cannot be changed.
 
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Greenplum® cluster. The ID is assigned by the platform at creation time. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone the Greenplum® host belongs to. ||
 || type | enum **Type**
@@ -115,10 +115,10 @@ Aggregated health of the host. If the field has default value, it is not returne
 - `DEAD`: The host is inoperable and cannot perform any of its essential functions.
 - `DEGRADED`: The host is working below capacity or not fully functional.
 - `UNBALANCED`: One or more segments are not in the preferred role. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the host. ||
 |#
@@ -127,15 +127,15 @@ Determines whether a public IP is assigned to the host. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host.
 
 Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#

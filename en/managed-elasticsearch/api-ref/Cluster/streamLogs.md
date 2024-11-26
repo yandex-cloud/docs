@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for Elasticsearch API, REST: Cluster.StreamLogs
 
 Same as [ListLogs](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
 

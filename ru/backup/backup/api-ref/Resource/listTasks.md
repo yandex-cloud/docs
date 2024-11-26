@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/listTasks.md
 ---
 
-# Cloud Backup API, REST: Resource.ListTasks {#ListTasks}
+# Cloud Backup API, REST: Resource.ListTasks
 
 List tasks of resources.
 

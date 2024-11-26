@@ -53,11 +53,11 @@ In this guide, the Check Point CloudGuard IaaS solution is configured with basic
 
 The infrastructure support cost includes:
 
-* Fee for continuously running VMs (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
-* Fee for using {{ alb-name }} (see [{{ alb-full-name }}](../../application-load-balancer/pricing.md) pricing).
-* Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md) pricing).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
-* Fee for using functions (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using {{ alb-name }} (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing)](../../network-load-balancer/pricing.md).
+* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for using the [CheckPoint NGFW](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
 
@@ -293,7 +293,7 @@ All steps described below are completed in the Linux terminal.
       }
       ```
 
-      For more information about setting up mirrors, see the [{{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration) documentation.
+      For more information about setting up mirrors, see the [{{ TF }} documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 

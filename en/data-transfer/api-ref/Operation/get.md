@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Operation/get.md
 ---
 
-# Data Transfer API, REST: Operation.Get {#Get}
+# Data Transfer API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

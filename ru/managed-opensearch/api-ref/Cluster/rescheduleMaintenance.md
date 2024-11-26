@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.RescheduleMaintenance {#RescheduleMaintenance}
+# Managed Service for OpenSearch API, REST: Cluster.RescheduleMaintenance
 
 Reschedules a planned maintenance operation.
 

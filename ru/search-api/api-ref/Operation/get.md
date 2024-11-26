@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/searchapi/v2/api-ref/Operation/get.md
 ---
 
-# Web Search API, REST: Operation.Get {#Get}
+# Web Search API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

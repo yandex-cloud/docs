@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/stop.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Stop {#Stop}
+# Managed Service for OpenSearch API, REST: Cluster.Stop
 
 Stops the specified OpenSearch cluster.
 

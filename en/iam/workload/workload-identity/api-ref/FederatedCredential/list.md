@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/list.md
 ---
 
-# Workload Identity, REST: FederatedCredential.List {#List}
+# Workload Identity, REST: FederatedCredential.List
 
 Retrieves the list of federated credentials for the specified service account.
 

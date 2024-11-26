@@ -37,7 +37,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
   1. Configure the [partitioning]({{ ydb.docs }}/concepts/datamodel) policy:
      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-none }}`: The table is not partitioned.
      * `{{ ui-key.yacloud.ydb.table.form.value_partitions-uniform }}`: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **{{ ui-key.yacloud.ydb.table.form.field_uniform-partitions }}** field.
-     * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}`: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
+     * `{{ ui-key.yacloud.ydb.table.form.value_partitions-explicit }}`: Allows you to explicitly specify values for keys that will act as boundaries for initial table partitioning. To add another boundary value, click **{{ ui-key.yacloud.ydb.table.form.button_add-split-point }}**.
   1. Configure automatic partitioning:
      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-size }}**: If enabled, a partition is split into two when a certain data size is reached.
      * **{{ ui-key.yacloud.ydb.table.form.field_autopartition-by-load }}**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
@@ -48,7 +48,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
      * **{{ ui-key.yacloud.ydb.table.form.field_key-bloom-filter }}**: If enabled, YDB uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
-  To create row-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
+  To create row-oriented tables, you can also use the [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table) command.
 
 
 - {{ TF }} {#tf}
@@ -79,7 +79,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
      * Column **{{ ui-key.yacloud.ydb.table.form.column_name }}**. Must be unique within the table.
      * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
      * **{{ ui-key.yacloud.ydb.table.form.column_shard }}**: Simple primary key that consists of one attribute. {{ ydb-short-name }} uses the partition key value as an input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
-     * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key, but must contain different values for the sort key.
+     * **{{ ui-key.yacloud.ydb.table.form.column_sort }}**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key but must contain different values for the sort key.
   1. Click **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
 
 - {{ TF }} {#tf}
@@ -146,7 +146,7 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
 {% endlist %}
 
-To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
+To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table) command.
 
 ## Deleting a table {#drop-table}
 
@@ -185,7 +185,7 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
 {% endlist %}
 
 
-To edit row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table) [YQL]({{ ydb.docs }}/yql/reference/) command.
+To delete row-oriented tables, you can also use the [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table) command.
 
 ## Creating and deleting directories {#directories}
 

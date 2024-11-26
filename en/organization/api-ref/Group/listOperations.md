@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/listOperations.md
 ---
 
-# Cloud Organization API, REST: Group.ListOperations {#ListOperations}
+# Cloud Organization API, REST: Group.ListOperations
 
 Lists operations for the specified group.
 

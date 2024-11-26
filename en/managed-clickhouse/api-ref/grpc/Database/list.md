@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Database/list.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: DatabaseService.List {#List}
+# Managed Service for ClickHouse API, gRPC: DatabaseService.List
 
 Retrieves the list of ClickHouse Database resources in the specified cluster.
 
@@ -15,26 +15,26 @@ Retrieves the list of ClickHouse Database resources in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to list databases in.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
+results is larger than `page_size`, the service returns a [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token.  to get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
+Page token.  to get the next page of results, set `page_token` to the [ListDatabasesResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
 returned by the previous list request. ||
 |#
 
@@ -45,10 +45,10 @@ returned by the previous list request. ||
   "databases": [
     {
       "name": "string",
-      "clusterId": "string"
+      "cluster_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -57,12 +57,12 @@ returned by the previous list request. ||
 || databases[] | **[Database](#yandex.cloud.mdb.clickhouse.v1.Database)**
 
 List of ClickHouse databases. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListDatabasesRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesRequest), use the `nextPageToken` as the value
-for the [ListDatabasesRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesRequest) parameter in the next list request. Each subsequent
-list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListDatabasesRequest.page_size](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesRequest), use the `next_page_token` as the value
+for the [ListDatabasesRequest.page_token](#yandex.cloud.mdb.clickhouse.v1.ListDatabasesRequest) parameter in the next list request. Each subsequent
+list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Database {#yandex.cloud.mdb.clickhouse.v1.Database}
@@ -75,7 +75,7 @@ A ClickHouse Database resource. For more information, see the
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
 |#

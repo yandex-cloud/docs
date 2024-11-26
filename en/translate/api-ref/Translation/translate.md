@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/translate.md
 ---
 
-# Translate API v2, REST: Translation.Translate {#Translate}
+# Translate API v2, REST: Translation.Translate
 
 Translates the text to the specified language.
 

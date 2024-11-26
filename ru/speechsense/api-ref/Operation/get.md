@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Operation/get.md
 ---
 
-# Talk Analytics API, REST: Operation.Get {#Get}
+# Talk Analytics API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

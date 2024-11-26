@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/getTargetStates.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.GetTargetStates {#GetTargetStates}
+# Application Load Balancer API, REST: LoadBalancer.GetTargetStates
 
 Returns the statuses of all targets of the specified backend group in all their availability zones.
 

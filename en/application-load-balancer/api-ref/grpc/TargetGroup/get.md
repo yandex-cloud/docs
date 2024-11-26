@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/TargetGroup/get.md
 ---
 
-# Application Load Balancer API, gRPC: TargetGroupService.Get {#Get}
+# Application Load Balancer API, gRPC: TargetGroupService.Get
 
 Returns the specified target group.
 
@@ -17,13 +17,13 @@ To get the list of all available target groups, make a [List](/docs/application-
 
 ```json
 {
-  "targetGroupId": "string"
+  "target_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the target group to return.
 
@@ -37,18 +37,18 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
   "id": "string",
   "name": "string",
   "description": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "labels": "string",
   "targets": [
     {
-      // Includes only one of the fields `ipAddress`
-      "ipAddress": "string",
+      // Includes only one of the fields `ip_address`
+      "ip_address": "string",
       // end of the list of possible fields
-      "subnetId": "string",
-      "privateIpv4Address": "bool"
+      "subnet_id": "string",
+      "private_ipv4_address": "bool"
     }
   ],
-  "createdAt": "google.protobuf.Timestamp"
+  "created_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -66,7 +66,7 @@ Name of the target group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
 || labels | **string**
@@ -76,7 +76,7 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 List of targets in the target group. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#
@@ -88,17 +88,17 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| ipAddress | **string**
+|| ip_address | **string**
 
 IP address of the target.
 
-Includes only one of the fields `ipAddress`.
+Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **bool**
+|| private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/PlacementGroup/get.md
 ---
 
-# Compute Cloud API, gRPC: PlacementGroupService.Get {#Get}
+# Compute Cloud API, gRPC: PlacementGroupService.Get
 
 Returns the specified placement group.
 
@@ -17,13 +17,13 @@ To get the list of all available placement groups, make a [List](/docs/compute/a
 
 ```json
 {
-  "placementGroupId": "string"
+  "placement_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 ID of the placement group to return.
 
@@ -35,14 +35,14 @@ To get a placement group ID make a [PlacementGroupService.List](/docs/compute/ap
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-  "spreadPlacementStrategy": "SpreadPlacementStrategy",
-  "partitionPlacementStrategy": {
+  // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+  "spread_placement_strategy": "SpreadPlacementStrategy",
+  "partition_placement_strategy": {
     "partitions": "int64"
   }
   // end of the list of possible fields
@@ -54,10 +54,10 @@ To get a placement group ID make a [PlacementGroupService.List](/docs/compute/ap
 || id | **string**
 
 ID of the placement group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the placement group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -70,18 +70,18 @@ Description of the placement group. 0-256 characters long. ||
 || labels | **string**
 
 Placement group labels as `key:value` pairs. ||
-|| spreadPlacementStrategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**
+|| spread_placement_strategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**
 
 Anti-affinity placement strategy (`spread`). Instances are distributed
 over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
 field containing approriate structure. ||
-|| partitionPlacementStrategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
+|| partition_placement_strategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
 field containing approriate structure. ||

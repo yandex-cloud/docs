@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/delete.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Delete {#Delete}
+# Compute Cloud API, REST: DiskPlacementGroup.Delete
 
 Deletes the specified placement group.
 

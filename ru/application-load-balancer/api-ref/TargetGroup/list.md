@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/list.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.List {#List}
+# Application Load Balancer API, REST: TargetGroup.List
 
 Lists target groups in the specified folder.
 

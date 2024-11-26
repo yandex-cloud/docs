@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/delete.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Delete {#Delete}
+# Key Management Service API, REST: SymmetricKey.Delete
 
 Deletes the specified symmetric KMS key. This action also automatically schedules
 the destruction of all of the key's versions in 72 hours.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/get.md
 ---
 
-# Cloud Functions Service, REST: Function.Get {#Get}
+# Cloud Functions Service, REST: Function.Get
 
 Returns the specified function.
 

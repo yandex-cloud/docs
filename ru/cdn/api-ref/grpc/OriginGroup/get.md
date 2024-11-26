@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/OriginGroup/get.md
 ---
 
-# Cloud CDN API, gRPC: OriginGroupService.Get {#Get}
+# Cloud CDN API, gRPC: OriginGroupService.Get
 
 Gets origin group with specified origin group id.
 
@@ -15,17 +15,17 @@ Gets origin group with specified origin group id.
 
 ```json
 {
-  "folderId": "string",
-  "originGroupId": "int64"
+  "folder_id": "string",
+  "origin_group_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the origin group belongs to. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the origin group to return.
 
@@ -37,13 +37,13 @@ To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grp
 ```json
 {
   "id": "int64",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "useNext": "bool",
+  "use_next": "bool",
   "origins": [
     {
       "id": "int64",
-      "originGroupId": "int64",
+      "origin_group_id": "int64",
       "source": "string",
       "enabled": "bool",
       "backup": "bool",
@@ -75,13 +75,13 @@ Origin group parameters. For details about the concept, see [documentation](/doc
 || id | **int64**
 
 ID of the origin group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the origin group belongs to. ||
 || name | **string**
 
 Name of the origin group. ||
-|| useNext | **bool**
+|| use_next | **bool**
 
 This option have two possible conditions:
 true - the option is active. In case the origin responds with 4XX or 5XX codes,
@@ -101,7 +101,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**

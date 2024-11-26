@@ -1,4 +1,4 @@
-# Creating an {{ GP }} cluster
+# Creating a {{ GP }} cluster
 
 
 A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
@@ -53,11 +53,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         You cannot disable this option after you save your cluster settings.
 
 
-        {% note info %}
-
-        This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is free of charge.
-
-        {% endnote %}
+        {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
     1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [Users and roles](../concepts/cluster-users.md).
@@ -411,7 +407,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ GP }} cluster copy:
+To create a {{ GP }} cluster copy:
 
 {% list tabs group=instructions %}
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/create.md
 ---
 
-# Video API, gRPC: StreamLineService.Create {#Create}
+# Video API, gRPC: StreamLineService.Create
 
 Create stream line.
 
@@ -15,101 +15,101 @@ Create stream line.
 
 ```json
 {
-  "channelId": "string",
+  "channel_id": "string",
   "title": "string",
-  "thumbnailId": "string",
+  "thumbnail_id": "string",
   "labels": "string",
-  // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
-  "rtmpPush": "RTMPPushParams",
-  "srtPush": "SRTPushParams",
-  "rtmpPull": {
+  // Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`
+  "rtmp_push": "RTMPPushParams",
+  "srt_push": "SRTPushParams",
+  "rtmp_pull": {
     "url": "string"
   },
-  "srtPull": {
+  "srt_pull": {
     "url": "string"
   },
-  "tcpPull": {
+  "tcp_pull": {
     "url": "string"
   },
-  "rtspPull": {
+  "rtsp_pull": {
     "url": "string"
   },
   // end of the list of possible fields
-  // Includes only one of the fields `manualLine`, `autoLine`
-  "manualLine": "ManualLineParams",
-  "autoLine": "AutoLineParams"
+  // Includes only one of the fields `manual_line`, `auto_line`
+  "manual_line": "ManualLineParams",
+  "auto_line": "AutoLineParams"
   // end of the list of possible fields
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || title | **string**
 
-Line title. ||
-|| thumbnailId | **string**
+Required field. Line title. ||
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
 || labels | **string**
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
-|| rtmpPush | **[RTMPPushParams](#yandex.cloud.video.v1.RTMPPushParams)**
+|| rtmp_push | **[RTMPPushParams](#yandex.cloud.video.v1.RTMPPushParams)**
 
 RTMP push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| srtPush | **[SRTPushParams](#yandex.cloud.video.v1.SRTPushParams)**
+|| srt_push | **[SRTPushParams](#yandex.cloud.video.v1.SRTPushParams)**
 
 SRT push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| rtmpPull | **[RTMPPullParams](#yandex.cloud.video.v1.RTMPPullParams)**
+|| rtmp_pull | **[RTMPPullParams](#yandex.cloud.video.v1.RTMPPullParams)**
 
 RTMP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| srtPull | **[SRTPullParams](#yandex.cloud.video.v1.SRTPullParams)**
+|| srt_pull | **[SRTPullParams](#yandex.cloud.video.v1.SRTPullParams)**
 
 SRT pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| tcpPull | **[TCPPullParams](#yandex.cloud.video.v1.TCPPullParams)**
+|| tcp_pull | **[TCPPullParams](#yandex.cloud.video.v1.TCPPullParams)**
 
 TCP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| rtspPull | **[RTSPPullParams](#yandex.cloud.video.v1.RTSPPullParams)**
+|| rtsp_pull | **[RTSPPullParams](#yandex.cloud.video.v1.RTSPPullParams)**
 
 RTSP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| manualLine | **[ManualLineParams](#yandex.cloud.video.v1.ManualLineParams)**
+|| manual_line | **[ManualLineParams](#yandex.cloud.video.v1.ManualLineParams)**
 
 Manual control of stream.
 
-Includes only one of the fields `manualLine`, `autoLine`.
+Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
-|| autoLine | **[AutoLineParams](#yandex.cloud.video.v1.AutoLineParams)**
+|| auto_line | **[AutoLineParams](#yandex.cloud.video.v1.AutoLineParams)**
 
 Automatic control of stream.
 
-Includes only one of the fields `manualLine`, `autoLine`.
+Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
 |#
@@ -134,7 +134,7 @@ Line type. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTMP streaming server. ||
+Required field. URL of a RTMP streaming server. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -143,7 +143,7 @@ URL of a RTMP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a SRT streaming server. ||
+Required field. URL of a SRT streaming server. ||
 |#
 
 ## TCPPullParams {#yandex.cloud.video.v1.TCPPullParams}
@@ -152,7 +152,7 @@ URL of a SRT streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a TCP streaming server. ||
+Required field. URL of a TCP streaming server. ||
 |#
 
 ## RTSPPullParams {#yandex.cloud.video.v1.RTSPPullParams}
@@ -161,7 +161,7 @@ URL of a TCP streaming server. ||
 ||Field | Description ||
 || url | **string**
 
-URL of a RTSP streaming server. ||
+Required field. URL of a RTSP streaming server. ||
 |#
 
 ## ManualLineParams {#yandex.cloud.video.v1.ManualLineParams}
@@ -184,48 +184,48 @@ URL of a RTSP streaming server. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "streamLineId": "string"
+    "stream_line_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "channelId": "string",
+    "channel_id": "string",
     "title": "string",
-    "thumbnailId": "string",
-    // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
-    "rtmpPush": {
+    "thumbnail_id": "string",
+    // Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`
+    "rtmp_push": {
       "url": "string"
     },
-    "srtPush": {
+    "srt_push": {
       "url": "string"
     },
-    "rtmpPull": {
+    "rtmp_pull": {
       "url": "string"
     },
-    "srtPull": {
+    "srt_pull": {
       "url": "string"
     },
-    "tcpPull": {
+    "tcp_pull": {
       "url": "string"
     },
-    "rtspPull": {
+    "rtsp_pull": {
       "url": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `manualLine`, `autoLine`
-    "manualLine": "ManualLine",
-    "autoLine": {
+    // Includes only one of the fields `manual_line`, `auto_line`
+    "manual_line": "ManualLine",
+    "auto_line": {
       "status": "AutoLineStatus"
     },
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "labels": "string"
   }
   // end of the list of possible fields
@@ -242,13 +242,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -291,7 +291,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| streamLineId | **string**
+|| stream_line_id | **string**
 
 ID of the line. ||
 |#
@@ -305,75 +305,75 @@ Entity that is responsible for the incoming video signal settings.
 || id | **string**
 
 ID of the line. ||
-|| channelId | **string**
+|| channel_id | **string**
 
 ID of the channel where the line was created. ||
 || title | **string**
 
 Line title. ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
+|| rtmp_push | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
 RTMP push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
+|| srt_push | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
 
 SRT push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
+|| rtmp_pull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
 RTMP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
+|| srt_pull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
 
 SRT pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| tcpPull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
+|| tcp_pull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
 
 TCP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| rtspPull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
+|| rtsp_pull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
 
 RTSP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`.
 
 Video signal settings. ||
-|| manualLine | **[ManualLine](#yandex.cloud.video.v1.ManualLine)**
+|| manual_line | **[ManualLine](#yandex.cloud.video.v1.ManualLine)**
 
 Manual control of stream.
 
-Includes only one of the fields `manualLine`, `autoLine`.
+Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
-|| autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
+|| auto_line | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
 Automatic control of stream.
 
-Includes only one of the fields `manualLine`, `autoLine`.
+Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when line was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last line update. ||
 || labels | **string**

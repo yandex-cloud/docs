@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/Database/create.md
 ---
 
-# Managed Service for PostgreSQL API, gRPC: DatabaseService.Create {#Create}
+# Managed Service for PostgreSQL API, gRPC: DatabaseService.Create
 
 Creates a new PostgreSQL database in the specified cluster.
 
@@ -15,31 +15,31 @@ Creates a new PostgreSQL database in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "databaseSpec": {
+  "cluster_id": "string",
+  "database_spec": {
     "name": "string",
     "owner": "string",
-    "lcCollate": "string",
-    "lcCtype": "string",
+    "lc_collate": "string",
+    "lc_ctype": "string",
     "extensions": [
       {
         "name": "string",
         "version": "string"
       }
     ],
-    "templateDb": "string",
-    "deletionProtection": "google.protobuf.BoolValue"
+    "template_db": "string",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster to create a database in.
 To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
-|| databaseSpec | **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
+|| database_spec | **[DatabaseSpec](#yandex.cloud.mdb.postgresql.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
 |#
@@ -55,21 +55,21 @@ Required field. Name of the PostgreSQL database. 1-63 characters long. ||
 
 Required field. Name of the user to be assigned as the owner of the database.
 To get the list of available PostgreSQL users, make a [UserService.List](/docs/managed-postgresql/api-ref/grpc/User/list#List) request. ||
-|| lcCollate | **string**
+|| lc_collate | **string**
 
 POSIX locale for string sorting order.
 Can only be set at creation time. ||
-|| lcCtype | **string**
+|| lc_ctype | **string**
 
 POSIX locale for character classification.
 Can only be set at creation time. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions to be enabled for the database. ||
-|| templateDb | **string**
+|| template_db | **string**
 
 Name of the PostgreSQL database template. ||
-|| deletionProtection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the database
 
@@ -95,30 +95,30 @@ Version of the extension. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "databaseName": "string"
+    "cluster_id": "string",
+    "database_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "owner": "string",
-    "lcCollate": "string",
-    "lcCtype": "string",
+    "lc_collate": "string",
+    "lc_ctype": "string",
     "extensions": [
       {
         "name": "string",
         "version": "string"
       }
     ],
-    "templateDb": "string",
-    "deletionProtection": "google.protobuf.BoolValue"
+    "template_db": "string",
+    "deletion_protection": "google.protobuf.BoolValue"
   }
   // end of the list of possible fields
 }
@@ -134,13 +134,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -183,10 +183,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the PostgreSQL cluster where a database is being created. ||
-|| databaseName | **string**
+|| database_name | **string**
 
 Name of the PostgreSQL database that is being created. ||
 |#
@@ -201,27 +201,27 @@ the [Developer's Guide](/docs/managed-postgresql/concepts).
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the PostgreSQL cluster that the database belongs to. ||
 || owner | **string**
 
 Name of the user assigned as the owner of the database. ||
-|| lcCollate | **string**
+|| lc_collate | **string**
 
 POSIX locale for string sorting order.
 Can only be set at creation time. ||
-|| lcCtype | **string**
+|| lc_ctype | **string**
 
 POSIX locale for character classification.
 Can only be set at creation time. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension2)**
 
 PostgreSQL extensions enabled for the database. ||
-|| templateDb | **string**
+|| template_db | **string**
 
 Name of the database template. ||
-|| deletionProtection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the database
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/upsert.md
 ---
 
-# Container Registry API, REST: Repository.Upsert {#Upsert}
+# Container Registry API, REST: Repository.Upsert
 
 Upserts a repository in the specified registry.
 

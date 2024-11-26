@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listAccessBindings.md
 ---
 
-# Lockbox API, REST: Secret.ListAccessBindings {#ListAccessBindings}
+# Lockbox API, REST: Secret.ListAccessBindings
 
 Lists existing access bindings for the specified secret.
 

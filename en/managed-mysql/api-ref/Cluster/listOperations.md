@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listOperations.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.ListOperations {#ListOperations}
+# Managed Service for MySQL API, REST: Cluster.ListOperations
 
 Retrieves a list of operations for a cluster.
 

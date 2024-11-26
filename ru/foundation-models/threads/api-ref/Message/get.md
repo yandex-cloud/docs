@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/get.md
 ---
 
-# Threads, REST: Message.Get {#Get}
+# Threads, REST: Message.Get
 
 Retrieve details of a specific message by its ID.
 

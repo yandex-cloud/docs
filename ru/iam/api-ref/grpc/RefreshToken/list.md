@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/RefreshToken/list.md
 ---
 
-# Identity and Access Management API, gRPC: RefreshTokenService.List {#List}
+# Identity and Access Management API, gRPC: RefreshTokenService.List
 
 List subjects Refresh Tokens.
 
@@ -15,35 +15,35 @@ List subjects Refresh Tokens.
 
 ```json
 {
-  "subjectId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "subject_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| subjectId | **string** ||
-|| pageSize | **int64**
+|| subject_id | **string** ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
+results is larger than `page_size`,
+the service returns a [ListRefreshTokensResponse.next_page_token](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListRefreshTokensResponse.nextPageToken](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
+Page token. To get the next page of results, set `page_token`
+to the [ListRefreshTokensResponse.next_page_token](#yandex.cloud.iam.v1.ListRefreshTokensResponse)
 returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters refresh tokens listed in the response.
 
 The expression must specify:
-1. The field name. Currently you can use filtering only on [RefreshToken.clientInstanceInfo](#yandex.cloud.iam.v1.RefreshToken), [RefreshToken.clientId](#yandex.cloud.iam.v1.RefreshToken) or [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken) fields.
-2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken).
+1. The field name. Currently you can use filtering only on [RefreshToken.client_instance_info](#yandex.cloud.iam.v1.RefreshToken), [RefreshToken.client_id](#yandex.cloud.iam.v1.RefreshToken) or [RefreshToken.protection_level](#yandex.cloud.iam.v1.RefreshToken) fields.
+2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protection_level](#yandex.cloud.iam.v1.RefreshToken).
 3. The value. The value must be in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-zA-Z][_-a-zA-Z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_level IN ("INSECURE_KEY_DPOP", "SECURE_KEY_DPOP")`. ||
 |#
@@ -52,35 +52,35 @@ Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_l
 
 ```json
 {
-  "refreshTokens": [
+  "refresh_tokens": [
     {
       "id": "string",
-      "clientInstanceInfo": "string",
-      "clientId": "string",
-      "subjectId": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "expiresAt": "google.protobuf.Timestamp",
-      "lastUsedAt": "google.protobuf.Timestamp",
-      "protectionLevel": "ProtectionLevel"
+      "client_instance_info": "string",
+      "client_id": "string",
+      "subject_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "expires_at": "google.protobuf.Timestamp",
+      "last_used_at": "google.protobuf.Timestamp",
+      "protection_level": "ProtectionLevel"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| refreshTokens[] | **[RefreshToken](#yandex.cloud.iam.v1.RefreshToken)**
+|| refresh_tokens[] | **[RefreshToken](#yandex.cloud.iam.v1.RefreshToken)**
 
 List of Refresh Tokens ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
 is larger than [ListRefreshTokensForSubjectRequest.page_size], use
-the `nextPageToken` as the value
+the `next_page_token` as the value
 for the [ListRefreshTokensForSubjectRequest.page_token] query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## RefreshToken {#yandex.cloud.iam.v1.RefreshToken}
@@ -90,25 +90,25 @@ in the next list request. Each subsequent list request will have its own
 || id | **string**
 
 Refresh Token id. ||
-|| clientInstanceInfo | **string**
+|| client_instance_info | **string**
 
 Information about the app for which the Refresh Token was issued. ||
-|| clientId | **string**
+|| client_id | **string**
 
 The OAuth client identifier for which the Refresh Token was issued. ||
-|| subjectId | **string**
+|| subject_id | **string**
 
 The subject identifier for whom the Refresh Token was issued. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Refresh token creation time. ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Refresh token expiration time. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication using this Refresh Token. ||
-|| protectionLevel | enum **ProtectionLevel**
+|| protection_level | enum **ProtectionLevel**
 
 Protection level of the refresh token.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/getSettings.md
 ---
 
-# Cloud Organization API, REST: OsLogin.GetSettings {#GetSettings}
+# Cloud Organization API, REST: OsLogin.GetSettings
 
 OsLogin settings
 

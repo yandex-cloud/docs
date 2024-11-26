@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Operation/cancel.md
 ---
 
-# Cloud Organization API, REST: Operation.Cancel {#Cancel}
+# Cloud Organization API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

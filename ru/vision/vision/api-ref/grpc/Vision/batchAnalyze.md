@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/vision/v1/vision/api-ref/grpc/Vision/batchAnalyze.md
 ---
 
-# Vision API, gRPC: VisionService.BatchAnalyze {#BatchAnalyze}
+# Vision API, gRPC: VisionService.BatchAnalyze
 
 Analyzes a batch of images and returns results with annotations.
 
@@ -15,7 +15,7 @@ Analyzes a batch of images and returns results with annotations.
 
 ```json
 {
-  "analyzeSpecs": [
+  "analyze_specs": [
     {
       // Includes only one of the fields `content`, `signature`
       "content": "bytes",
@@ -24,12 +24,12 @@ Analyzes a batch of images and returns results with annotations.
       "features": [
         {
           "type": "Type",
-          // Includes only one of the fields `classificationConfig`, `textDetectionConfig`
-          "classificationConfig": {
+          // Includes only one of the fields `classification_config`, `text_detection_config`
+          "classification_config": {
             "model": "string"
           },
-          "textDetectionConfig": {
-            "languageCodes": [
+          "text_detection_config": {
+            "language_codes": [
               "string"
             ],
             "model": "string"
@@ -37,16 +37,16 @@ Analyzes a batch of images and returns results with annotations.
           // end of the list of possible fields
         }
       ],
-      "mimeType": "string"
+      "mime_type": "string"
     }
   ],
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| analyzeSpecs[] | **[AnalyzeSpec](#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
+|| analyze_specs[] | **[AnalyzeSpec](#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
 
 A list of specifications. Each specification contains the file to analyze and features to use for analysis.
 
@@ -54,7 +54,7 @@ Restrictions:
 * Supported file formats: `JPEG`, `PNG`.
 * Maximum file size: 1 MB.
 * Image size should not exceed 20M pixels (length x width). ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to which you have access.
 Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
@@ -79,7 +79,7 @@ Includes only one of the fields `content`, `signature`. ||
 Requested features to use for analysis.
 
 Max count of requested features for one file is 8. ||
-|| mimeType | **string**
+|| mime_type | **string**
 
 [MIME type](https://en.wikipedia.org/wiki/Media_type) of content (for example, `` application/pdf ``). ||
 |#
@@ -97,16 +97,16 @@ Type of requested feature.
 - `CLASSIFICATION`: Classification feature.
 - `FACE_DETECTION`: Face detection feature.
 - `IMAGE_COPY_SEARCH`: Image copy search. ||
-|| classificationConfig | **[FeatureClassificationConfig](#yandex.cloud.ai.vision.v1.FeatureClassificationConfig)**
+|| classification_config | **[FeatureClassificationConfig](#yandex.cloud.ai.vision.v1.FeatureClassificationConfig)**
 
 Required for the `CLASSIFICATION` type. Specifies configuration for the classification feature.
 
-Includes only one of the fields `classificationConfig`, `textDetectionConfig`. ||
-|| textDetectionConfig | **[FeatureTextDetectionConfig](#yandex.cloud.ai.vision.v1.FeatureTextDetectionConfig)**
+Includes only one of the fields `classification_config`, `text_detection_config`. ||
+|| text_detection_config | **[FeatureTextDetectionConfig](#yandex.cloud.ai.vision.v1.FeatureTextDetectionConfig)**
 
 Required for the `TEXT_DETECTION` type. Specifies configuration for the text detection (OCR) feature.
 
-Includes only one of the fields `classificationConfig`, `textDetectionConfig`. ||
+Includes only one of the fields `classification_config`, `text_detection_config`. ||
 |#
 
 ## FeatureClassificationConfig {#yandex.cloud.ai.vision.v1.FeatureClassificationConfig}
@@ -122,7 +122,7 @@ Model to use for image classification. ||
 
 #|
 ||Field | Description ||
-|| languageCodes[] | **string**
+|| language_codes[] | **string**
 
 List of the languages to recognize text.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). ||
@@ -142,15 +142,15 @@ Possible values:
     {
       "results": [
         {
-          // Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`
-          "textDetection": {
+          // Includes only one of the fields `text_detection`, `classification`, `face_detection`, `image_copy_search`
+          "text_detection": {
             "pages": [
               {
                 "width": "int64",
                 "height": "int64",
                 "blocks": [
                   {
-                    "boundingBox": {
+                    "bounding_box": {
                       "vertices": [
                         {
                           "x": "int64",
@@ -160,7 +160,7 @@ Possible values:
                     },
                     "lines": [
                       {
-                        "boundingBox": {
+                        "bounding_box": {
                           "vertices": [
                             {
                               "x": "int64",
@@ -170,7 +170,7 @@ Possible values:
                         },
                         "words": [
                           {
-                            "boundingBox": {
+                            "bounding_box": {
                               "vertices": [
                                 {
                                   "x": "int64",
@@ -182,11 +182,11 @@ Possible values:
                             "confidence": "double",
                             "languages": [
                               {
-                                "languageCode": "string",
+                                "language_code": "string",
                                 "confidence": "double"
                               }
                             ],
-                            "entityIndex": "int64"
+                            "entity_index": "int64"
                           }
                         ],
                         "confidence": "double"
@@ -211,10 +211,10 @@ Possible values:
               }
             ]
           },
-          "faceDetection": {
+          "face_detection": {
             "faces": [
               {
-                "boundingBox": {
+                "bounding_box": {
                   "vertices": [
                     {
                       "x": "int64",
@@ -225,12 +225,12 @@ Possible values:
               }
             ]
           },
-          "imageCopySearch": {
-            "copyCount": "int64",
-            "topResults": [
+          "image_copy_search": {
+            "copy_count": "int64",
+            "top_results": [
               {
-                "imageUrl": "string",
-                "pageUrl": "string",
+                "image_url": "string",
+                "page_url": "string",
                 "title": "string",
                 "description": "string"
               }
@@ -271,26 +271,26 @@ The error result of the operation in case of failure or cancellation. ||
 
 #|
 ||Field | Description ||
-|| textDetection | **[TextAnnotation](#yandex.cloud.ai.vision.v1.TextAnnotation)**
+|| text_detection | **[TextAnnotation](#yandex.cloud.ai.vision.v1.TextAnnotation)**
 
 Text detection (OCR) result.
 
-Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+Includes only one of the fields `text_detection`, `classification`, `face_detection`, `image_copy_search`. ||
 || classification | **[ClassAnnotation](#yandex.cloud.ai.vision.v1.ClassAnnotation)**
 
 Classification result.
 
-Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
-|| faceDetection | **[FaceAnnotation](#yandex.cloud.ai.vision.v1.FaceAnnotation)**
+Includes only one of the fields `text_detection`, `classification`, `face_detection`, `image_copy_search`. ||
+|| face_detection | **[FaceAnnotation](#yandex.cloud.ai.vision.v1.FaceAnnotation)**
 
 Face detection result.
 
-Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
-|| imageCopySearch | **[ImageCopySearchAnnotation](#yandex.cloud.ai.vision.v1.ImageCopySearchAnnotation)**
+Includes only one of the fields `text_detection`, `classification`, `face_detection`, `image_copy_search`. ||
+|| image_copy_search | **[ImageCopySearchAnnotation](#yandex.cloud.ai.vision.v1.ImageCopySearchAnnotation)**
 
 Image Copy Search result.
 
-Includes only one of the fields `textDetection`, `classification`, `faceDetection`, `imageCopySearch`. ||
+Includes only one of the fields `text_detection`, `classification`, `face_detection`, `image_copy_search`. ||
 || error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
 
 The error result of the operation in case of failure or cancellation. ||
@@ -329,7 +329,7 @@ Recognized entities ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
 
 Area on the page where the text block is located. ||
 || lines[] | **[Line](#yandex.cloud.ai.vision.v1.Line)**
@@ -362,7 +362,7 @@ Y coordinate in pixels. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
 
 Area on the page where the line is located. ||
 || words[] | **[Word](#yandex.cloud.ai.vision.v1.Word)**
@@ -377,7 +377,7 @@ Confidence of the OCR results for the line. Range [0, 1]. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
 
 Area on the page where the word is located. ||
 || text | **string**
@@ -389,7 +389,7 @@ Confidence of the OCR results for the word. Range [0, 1]. ||
 || languages[] | **[DetectedLanguage](#yandex.cloud.ai.vision.v1.Word.DetectedLanguage)**
 
 A list of detected languages together with confidence. ||
-|| entityIndex | **int64**
+|| entity_index | **int64**
 
 Id of recognized word in entities array ||
 |#
@@ -398,7 +398,7 @@ Id of recognized word in entities array ||
 
 #|
 ||Field | Description ||
-|| languageCode | **string**
+|| language_code | **string**
 
 Detected language code. ||
 || confidence | **double**
@@ -455,7 +455,7 @@ An array of detected faces for the specified image. ||
 
 #|
 ||Field | Description ||
-|| boundingBox | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
+|| bounding_box | **[Polygon](#yandex.cloud.ai.vision.v1.Polygon)**
 
 Area on the image where the face is located. ||
 |#
@@ -464,10 +464,10 @@ Area on the image where the face is located. ||
 
 #|
 ||Field | Description ||
-|| copyCount | **int64**
+|| copy_count | **int64**
 
 Number of image copies ||
-|| topResults[] | **[CopyMatch](#yandex.cloud.ai.vision.v1.CopyMatch)**
+|| top_results[] | **[CopyMatch](#yandex.cloud.ai.vision.v1.CopyMatch)**
 
 Top relevance result of image copy search ||
 |#
@@ -476,10 +476,10 @@ Top relevance result of image copy search ||
 
 #|
 ||Field | Description ||
-|| imageUrl | **string**
+|| image_url | **string**
 
 url of image ||
-|| pageUrl | **string**
+|| page_url | **string**
 
 url of page that contains image ||
 || title | **string**

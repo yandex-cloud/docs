@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Operation/cancel.md
 ---
 
-# SAML Federation API, REST: Operation.Cancel {#Cancel}
+# SAML Federation API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/list.md
 ---
 
-# Video API, gRPC: ChannelService.List {#List}
+# Video API, gRPC: ChannelService.List
 
 List channels for organization.
 
@@ -15,26 +15,26 @@ List channels for organization.
 
 ```json
 {
-  "organizationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
-  "orderBy": "string",
+  "organization_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
+  "order_by": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
-ID of the organization. ||
-|| pageSize | **int64**
+Required field. ID of the organization. ||
+|| page_size | **int64**
 
 The maximum number of the results per page to return. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token for getting the next page of the result. ||
-|| orderBy | **string**
+|| order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
@@ -58,15 +58,15 @@ Both snake_case and camelCase are supported for fields. ||
   "channels": [
     {
       "id": "string",
-      "organizationId": "string",
+      "organization_id": "string",
       "title": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "labels": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -75,7 +75,7 @@ Both snake_case and camelCase are supported for fields. ||
 || channels[] | **[Channel](#yandex.cloud.video.v1.Channel)**
 
 List of channels for specific organization. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page. ||
 |#
@@ -89,7 +89,7 @@ Root entity for content separation.
 || id | **string**
 
 ID of the channel. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization where channel should be created. ||
 || title | **string**
@@ -98,10 +98,10 @@ Channel title. ||
 || description | **string**
 
 Channel description. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when channel was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last channel update. ||
 || labels | **string**

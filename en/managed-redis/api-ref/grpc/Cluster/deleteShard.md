@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/deleteShard.md
 ---
 
-# Managed Service for Redis API, gRPC: ClusterService.DeleteShard {#DeleteShard}
+# Managed Service for Redis API, gRPC: ClusterService.DeleteShard
 
 Deletes the specified shard.
 
@@ -15,18 +15,18 @@ Deletes the specified shard.
 
 ```json
 {
-  "clusterId": "string",
-  "shardName": "string"
+  "cluster_id": "string",
+  "shard_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Redis cluster the shard belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 Required field. Name of the Redis shard to delete.
 To get the shard name use a [ClusterService.ListShards](/docs/managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request. ||
@@ -38,13 +38,13 @@ To get the shard name use a [ClusterService.ListShards](/docs/managed-redis/api-
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "shardName": "string"
+    "cluster_id": "string",
+    "shard_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -63,13 +63,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -112,10 +112,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Redis cluster the shard belongs to. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 Name of the Redis shard that is being deleted. ||
 |#

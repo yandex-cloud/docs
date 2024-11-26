@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/listOperations.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.ListOperations {#ListOperations}
+# Network Load Balancer API, REST: TargetGroup.ListOperations
 
 Lists operations for the specified target group.
 

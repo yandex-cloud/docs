@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/get.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.Get {#Get}
+# Identity and Access Management API, REST: ServiceControl.Get
 
 Returns the Service information in the specified resource container.
 

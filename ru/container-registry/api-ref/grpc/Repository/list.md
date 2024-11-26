@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Repository/list.md
 ---
 
-# Container Registry API, gRPC: RepositoryService.List {#List}
+# Container Registry API, gRPC: RepositoryService.List
 
 Retrieves the list of Repository resources in the specified registry.
 
@@ -15,40 +15,40 @@ Retrieves the list of Repository resources in the specified registry.
 
 ```json
 {
-  "registryId": "string",
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "registry_id": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry to list repositories in.
 
 To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/grpc/Registry/list#List) request. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to list registries in.
 
-`folderId` is ignored if a [ListImagesRequest.registryId](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
+`folder_id` is ignored if a [ListImagesRequest.registry_id](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
 
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse)
+results is larger than `page_size`,
+the service returns a [ListRepositoriesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListRepositoriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListRepositoriesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListRepositoriesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -56,7 +56,7 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Repository.name](#yandex.cloud.containerregistry.v1.Repository) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
-|| orderBy | **string** ||
+|| order_by | **string** ||
 |#
 
 ## ListRepositoriesResponse {#yandex.cloud.containerregistry.v1.ListRepositoriesResponse}
@@ -69,7 +69,7 @@ The expression must specify:
       "id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -78,14 +78,14 @@ The expression must specify:
 || repositories[] | **[Repository](#yandex.cloud.containerregistry.v1.Repository)**
 
 List of Repository resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListRepositoriesRequest.pageSize](#yandex.cloud.containerregistry.v1.ListRepositoriesRequest), use
-the `nextPageToken` as the value
-for the [ListRepositoriesRequest.pageToken](#yandex.cloud.containerregistry.v1.ListRepositoriesRequest) query parameter
+is larger than [ListRepositoriesRequest.page_size](#yandex.cloud.containerregistry.v1.ListRepositoriesRequest), use
+the `next_page_token` as the value
+for the [ListRepositoriesRequest.page_token](#yandex.cloud.containerregistry.v1.ListRepositoriesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Repository {#yandex.cloud.containerregistry.v1.Repository}

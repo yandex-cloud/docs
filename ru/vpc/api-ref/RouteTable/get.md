@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/get.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Get {#Get}
+# Virtual Private Cloud API, REST: RouteTable.Get
 
 Returns the specified RouteTable resource.
 

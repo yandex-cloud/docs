@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/update.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Topic.Update {#Update}
+# Managed Service for Apache Kafka® API, REST: Topic.Update
 
 Updates the specified Kafka topic.
 

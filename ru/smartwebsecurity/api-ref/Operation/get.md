@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/Operation/get.md
 ---
 
-# SmartWebSecurity API, REST: Operation.Get {#Get}
+# SmartWebSecurity API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

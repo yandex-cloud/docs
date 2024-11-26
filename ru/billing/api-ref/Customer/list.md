@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/list.md
 ---
 
-# Billing API, REST: Customer.List {#List}
+# Billing API, REST: Customer.List
 
 Retrieves the list of customers associated with the specified reseller.
 

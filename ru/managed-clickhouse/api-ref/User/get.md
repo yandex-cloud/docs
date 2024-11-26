@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/get.md
 ---
 
-# Managed Service for ClickHouse API, REST: User.Get {#Get}
+# Managed Service for ClickHouse API, REST: User.Get
 
 Returns the specified ClickHouse User resource.
 

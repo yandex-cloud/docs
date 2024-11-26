@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Cloud/delete.md
 ---
 
-# Resource Manager API, gRPC: CloudService.Delete {#Delete}
+# Resource Manager API, gRPC: CloudService.Delete
 
 Deletes the specified cloud.
 
@@ -15,25 +15,25 @@ Deletes the specified cloud.
 
 ```json
 {
-  "cloudId": "string",
-  "deleteAfter": "google.protobuf.Timestamp"
+  "cloud_id": "string",
+  "delete_after": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Required field. ID of the cloud to delete.
 To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request. ||
-|| deleteAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The timestamp after which the process of deleting the cloud should begin.
 Until this timestamp, the cloud goes into the PENDING_DELETION state and all resources in this
 cloud are stopped. In this state, it is possible to cancel the delete operation without any loss.
 After this timestamp, the status of the cloud will become DELETING and the process of deleting
-all the resources  of the cloud will be started. If `deleteAfter` is not specified it will be
-(now + 24 hours). To initiate an immediate deletion `deleteAfter` must be <= now. ||
+all the resources  of the cloud will be started. If `delete_after` is not specified it will be
+(now + 24 hours). To initiate an immediate deletion `delete_after` must be <= now. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -42,15 +42,15 @@ all the resources  of the cloud will be started. If `deleteAfter` is not specifi
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "cloudId": "string",
-    "deleteAfter": "google.protobuf.Timestamp",
-    "cancelledBy": "string",
-    "cancelledAt": "google.protobuf.Timestamp"
+    "cloud_id": "string",
+    "delete_after": "google.protobuf.Timestamp",
+    "cancelled_by": "string",
+    "cancelled_at": "google.protobuf.Timestamp"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -69,13 +69,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -118,14 +118,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that is being deleted. ||
-|| deleteAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delete_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The timestamp after which the process of deleting the cloud should begin. ||
-|| cancelledBy | **string**
+|| cancelled_by | **string**
 
 Information about operation cancellation ||
-|| cancelledAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| cancelled_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

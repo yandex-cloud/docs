@@ -7,7 +7,7 @@ description: You can create backups and restore clusters from existing MySQL bac
 
 You can create backups and restore clusters from existing backups, including point-in-time recovery. For more information, see [Backups](../concepts/backup.md).
 
-{{ mmy-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
+{{ mmy-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Getting a list of backups {#list-backups}
 
@@ -65,7 +65,7 @@ You can create backups and restore clusters from existing backups, including poi
 
           You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-      1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
   1. To get a list of backups for all the clusters in a folder:
 
@@ -83,7 +83,7 @@ You can create backups and restore clusters from existing backups, including poi
           You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-      1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -185,7 +185,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       You can get the backup ID together with a [list of backups](#list-backups).
 
-  1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -268,7 +268,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -583,7 +583,7 @@ For a new cluster, you should set all the parameters that are required at creati
           --data "@body.json"
       ```
 
-  1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -697,7 +697,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-  1. Add a `backup_window_start` section to the {{ mmy-name }} cluster description:
+  1. Add a `backup_window_start` block to the {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -772,7 +772,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -866,7 +866,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
         For a complete list of available {{ mmy-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-    1. To set a retention period for automatic backups, add to the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
+    1. To set a retention period for automatic backups, add a `backup_retain_period_days` block to the {{ mmy-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -923,7 +923,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 
 - gRPC API {#grpc-api}
@@ -1037,7 +1037,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/updateHosts.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

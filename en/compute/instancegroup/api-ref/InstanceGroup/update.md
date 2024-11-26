@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/update.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Update {#Update}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Update
 
 Updates the specified instance group.
 This method starts an operation that can be cancelled by another operation.

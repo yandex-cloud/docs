@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/list.md
 ---
 
-# DataSphere API v2, REST: Project.List {#List}
+# DataSphere API v2, REST: Project.List
 
 Lists projects for the specified community.
 

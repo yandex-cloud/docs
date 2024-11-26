@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/listOperations.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.ListOperations {#ListOperations}
+# Virtual Private Cloud API, REST: PrivateEndpoint.ListOperations
 
 List operations for the specified private endpoint.
 

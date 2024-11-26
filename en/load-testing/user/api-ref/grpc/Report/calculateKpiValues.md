@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Report/calculateKpiValues.md
 ---
 
-# Load Testing API, gRPC: ReportService.CalculateKpiValues {#CalculateKpiValues}
+# Load Testing API, gRPC: ReportService.CalculateKpiValues
 
 Returns a list of KPI values for tests matching the specified filter.
 
@@ -15,36 +15,36 @@ Returns a list of KPI values for tests matching the specified filter.
 
 ```json
 {
-  "folderId": "string",
-  "testFilter": "string",
-  "testCase": "string",
+  "folder_id": "string",
+  "test_filter": "string",
+  "test_case": "string",
   "kpi": {
     "selector": {
-      // Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`
-      "responseTime": {
+      // Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`
+      "response_time": {
         "quantile": "QuantileType"
       },
       "instances": {
         "agg": "Aggregation"
       },
-      "imbalanceRps": "ImbalanceRps",
-      "protocolCodesAbsolute": {
-        "codesPatterns": [
+      "imbalance_rps": "ImbalanceRps",
+      "protocol_codes_absolute": {
+        "codes_patterns": [
           "string"
         ]
       },
-      "protocolCodesRelative": {
-        "codesPatterns": [
+      "protocol_codes_relative": {
+        "codes_patterns": [
           "string"
         ]
       },
-      "networkCodesAbsolute": {
-        "codesPatterns": [
+      "network_codes_absolute": {
+        "codes_patterns": [
           "string"
         ]
       },
-      "networkCodesRelative": {
-        "codesPatterns": [
+      "network_codes_relative": {
+        "codes_patterns": [
           "string"
         ]
       }
@@ -60,13 +60,13 @@ Returns a list of KPI values for tests matching the specified filter.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder containing tests. ||
-|| testFilter | **string**
+|| test_filter | **string**
 
 Required field. Test filter selector to calculate KPI values for. ||
-|| testCase | **string**
+|| test_case | **string**
 
 Test case to calculate KPI values for.
 
@@ -96,41 +96,41 @@ KPI selector.
 
 #|
 ||Field | Description ||
-|| responseTime | **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
+|| response_time | **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
 
 Response time cummulative quantile (percentile).
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
 || instances | **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
 
 A number of instances throughout the test.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| imbalanceRps | **[ImbalanceRps](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ImbalanceRps)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| imbalance_rps | **[ImbalanceRps](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ImbalanceRps)**
 
 An RPS at the moment the test has been auto-stopped.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| protocolCodesAbsolute | **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| protocol_codes_absolute | **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
 
 A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| protocolCodesRelative | **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| protocol_codes_relative | **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
 
 A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| networkCodesAbsolute | **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| network_codes_absolute | **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
 
 A total number of requests completed with certain network codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
-|| networkCodesRelative | **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
+|| network_codes_relative | **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
 
 A percentage of requests completed with certain network codes.
 
-Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`. ||
+Includes only one of the fields `response_time`, `instances`, `imbalance_rps`, `protocol_codes_absolute`, `protocol_codes_relative`, `network_codes_absolute`, `network_codes_relative`. ||
 |#
 
 ## ResponseTime {#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime}
@@ -186,7 +186,7 @@ Imbalance RPS.
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Protocol (HTTP, GRPC) code patterns to match.
 
@@ -198,7 +198,7 @@ All failed HTTP responses: ['0', '4xx', '5xx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Protocol (HTTP, GRPC) code patterns to match.
 
@@ -210,7 +210,7 @@ All failed HTTP responses: ['0', '4xx', '5xx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Network code patterns to match.
 
@@ -222,7 +222,7 @@ All failed network responses: ['xx', 'xxx']. ||
 
 #|
 ||Field | Description ||
-|| codesPatterns[] | **string**
+|| codes_patterns[] | **string**
 
 Network code patterns to match.
 
@@ -256,12 +256,12 @@ Rule: actual (</<=/>/>=) reference
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "values": [
     {
-      "testId": "string",
+      "test_id": "string",
       "value": "double",
-      "isOk": "bool"
+      "is_ok": "bool"
     }
   ]
 }
@@ -269,7 +269,7 @@ Rule: actual (</<=/>/>=) reference
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder. ||
 || values[] | **[KpiValue](#yandex.cloud.loadtesting.api.v1.report.KpiValue)**
@@ -283,13 +283,13 @@ An actual value of test's KPI.
 
 #|
 ||Field | Description ||
-|| testId | **string**
+|| test_id | **string**
 
 ID of a test. ||
 || value | **double**
 
 Value of KPI. ||
-|| isOk | **bool**
+|| is_ok | **bool**
 
 A flag indicating whether the value satisfies KPI threshold condition. ||
 |#

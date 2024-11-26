@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/createShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.CreateShardGroup {#CreateShardGroup}
+# Managed Service for ClickHouse API, gRPC: ClusterService.CreateShardGroup
 
 Creates a new shard group in the specified cluster.
 
@@ -15,10 +15,10 @@ Creates a new shard group in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "shardGroupName": "string",
+  "cluster_id": "string",
+  "shard_group_name": "string",
   "description": "string",
-  "shardNames": [
+  "shard_names": [
     "string"
   ]
 }
@@ -26,18 +26,18 @@ Creates a new shard group in the specified cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to add a shard group to.
 
 To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| shardGroupName | **string**
+|| shard_group_name | **string**
 
 Required field. Name for the new shard group. ||
 || description | **string**
 
 Description of the new shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 List of shard names that should be put into the new group.
 
@@ -50,21 +50,21 @@ To get the list, make a [ClusterService.ListShardGroups](/docs/managed-clickhous
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "shardGroupName": "string"
+    "cluster_id": "string",
+    "shard_group_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "description": "string",
-    "shardNames": [
+    "shard_names": [
       "string"
     ]
   }
@@ -82,13 +82,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -131,10 +131,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster to add a shard group to. ||
-|| shardGroupName | **string**
+|| shard_group_name | **string**
 
 Name of the shard group that is being added. ||
 |#
@@ -146,13 +146,13 @@ Name of the shard group that is being added. ||
 || name | **string**
 
 Name of the shard group. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the shard group belongs to. ||
 || description | **string**
 
 Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 List of shard names contained in the shard group. ||
 |#

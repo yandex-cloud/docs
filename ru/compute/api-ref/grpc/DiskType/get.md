@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/DiskType/get.md
 ---
 
-# Compute Cloud API, gRPC: DiskTypeService.Get {#Get}
+# Compute Cloud API, gRPC: DiskTypeService.Get
 
 Returns the information about specified disk type.
 
@@ -17,13 +17,13 @@ To get the list of available disk types, make a [List](/docs/compute/api-ref/grp
 
 ```json
 {
-  "diskTypeId": "string"
+  "disk_type_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Required field. ID of the disk type to return information about.
 To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request. ||
@@ -35,7 +35,7 @@ To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/grpc/
 {
   "id": "string",
   "description": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ]
 }
@@ -49,7 +49,7 @@ ID of the disk type. ||
 || description | **string**
 
 Description of the disk type. 0-256 characters long. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 Array of availability zones where the disk type is available. ||
 |#

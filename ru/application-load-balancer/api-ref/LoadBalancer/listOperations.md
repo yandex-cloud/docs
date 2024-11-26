@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/listOperations.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.ListOperations {#ListOperations}
+# Application Load Balancer API, REST: LoadBalancer.ListOperations
 
 Lists operations for the specified application load balancer.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/list.md
 ---
 
-# Data Transfer API, REST: Endpoint.List {#List}
+# Data Transfer API, REST: Endpoint.List
 
 ## HTTP request
 

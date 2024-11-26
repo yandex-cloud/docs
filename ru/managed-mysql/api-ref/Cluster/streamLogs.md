@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for MySQL API, REST: Cluster.StreamLogs
 
 Retrieves a log stream for a cluster.
 

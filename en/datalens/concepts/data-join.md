@@ -11,17 +11,17 @@ description: When creating a dashboard in {{ datalens-full-name }}, you might wa
 
 You can use different data joining methods:
 
-* [{#T}](#dataset-join)
+* [Dataset level](#dataset-join)
 
-  * [{#T}](#ui-join)
-  * [{#T}](#sql-join)
+  * [Adding tables](#ui-join)
+  * [SQL query](#sql-join)
 
-* [{#T}](#chart-join)
+* [Chart level](#chart-join)
 
-  * [{#T}](#sql-chart)
-  * [{#T}](#datasets-chart)
+  * [QL chart](#sql-chart)
+  * [Multi-dataset charts](#datasets-chart)
 
-* [{#T}](#selector-join)
+* [Selector link level](#selector-join)
 
 ### Dataset level {#dataset-join}
 
@@ -146,7 +146,7 @@ Let's look at examples of query optimization using different datasets for a sour
 
 {% cut "INNER JOIN of two tables" %}
 
-A dataset is based on the `Employees` and `Departments` tables joined with [INNER JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join).
+A dataset is based on the `Employees` and `Departments` tables joined with an [INNER JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join).
 
 ![image](../../_assets/datalens/concepts/joins/case-1-link.png)
 
@@ -162,7 +162,7 @@ Now let's create a chart that will only contain fields from the `Employees` tabl
 
 {% cut "LEFT/RIGHT JOIN of two tables" %}
 
-A dataset is based on the `Bonuses` and `Employees` tables joined with [LEFT JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join). The `Bonuses` table is used in full, while only those values which are present in the `Bonuses` table are selected from the `Employees` table.
+A dataset is based on the `Bonuses` and `Employees` tables joined with a [LEFT JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join). The `Bonuses` table is used in full, while only those values which are present in the `Bonuses` table are selected from the `Employees` table.
 
 ![image](../../_assets/datalens/concepts/joins/case-2-link.png)
 
@@ -174,7 +174,7 @@ Next, let's only leave the `Employees` table fields in the chart. In this case, 
 
 ![image](../../_assets/datalens/concepts/joins/case-2-chart-opt.png)
 
-Optimization for RIGHT JOIN(https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join) works the same way.
+Optimization for a [RIGHT JOIN](https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join) works the same way.
 
 {% endcut %}
 

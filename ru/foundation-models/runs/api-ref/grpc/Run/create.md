@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/runs/api-ref/grpc/Run/create.md
 ---
 
-# Runs, gRPC: RunService.Create {#Create}
+# Runs, gRPC: RunService.Create
 
 Create a new run for a given assistant and thread.
 
@@ -15,10 +15,10 @@ Create a new run for a given assistant and thread.
 
 ```json
 {
-  "assistantId": "string",
-  "threadId": "string",
+  "assistant_id": "string",
+  "thread_id": "string",
   "labels": "string",
-  "additionalMessages": [
+  "additional_messages": [
     {
       "author": {
         "id": "string",
@@ -38,11 +38,11 @@ Create a new run for a given assistant and thread.
       }
     }
   ],
-  "customPromptTruncationOptions": {
-    "maxPromptTokens": "google.protobuf.Int64Value"
+  "custom_prompt_truncation_options": {
+    "max_prompt_tokens": "google.protobuf.Int64Value"
   },
-  "customCompletionOptions": {
-    "maxTokens": "google.protobuf.Int64Value",
+  "custom_completion_options": {
+    "max_tokens": "google.protobuf.Int64Value",
     "temperature": "google.protobuf.DoubleValue"
   },
   "stream": "bool"
@@ -53,23 +53,23 @@ Request message for creating a new run.
 
 #|
 ||Field | Description ||
-|| assistantId | **string**
+|| assistant_id | **string**
 
 Required field. ID of the assistant for which the run is being created ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread associated with the run. ||
 || labels | **string**
 
 Set of key-value pairs to label the run. ||
-|| additionalMessages[] | **[MessageData](#yandex.cloud.ai.assistants.v1.threads.MessageData)**
+|| additional_messages[] | **[MessageData](#yandex.cloud.ai.assistants.v1.threads.MessageData)**
 
 Additional messages that will be written to the thread before the run starts. ||
-|| customPromptTruncationOptions | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
+|| custom_prompt_truncation_options | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
 
 Configuration options for truncating the prompt when the token count exceeds a specified limit.
 If specified, these options will override the assistant's prompt truncation settings for this run. ||
-|| customCompletionOptions | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions)**
+|| custom_completion_options | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions)**
 
 Configuration options for completion generation.
 If specified, these options will override the assistant's completion settings for this run. ||
@@ -153,7 +153,7 @@ Defines the options for truncating thread messages within a prompt.
 
 #|
 ||Field | Description ||
-|| maxPromptTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prompt_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
@@ -166,7 +166,7 @@ Defines the options for completion generation.
 
 #|
 ||Field | Description ||
-|| maxTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||
@@ -182,23 +182,23 @@ Default temperature: 0.3 ||
 ```json
 {
   "id": "string",
-  "assistantId": "string",
-  "threadId": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "assistant_id": "string",
+  "thread_id": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
   "labels": "string",
   "state": {
     "status": "RunStatus",
-    // Includes only one of the fields `error`, `completedMessage`
+    // Includes only one of the fields `error`, `completed_message`
     "error": {
       "code": "int64",
       "message": "string"
     },
-    "completedMessage": {
+    "completed_message": {
       "id": "string",
-      "threadId": "string",
-      "createdBy": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "thread_id": "string",
+      "created_by": "string",
+      "created_at": "google.protobuf.Timestamp",
       "author": {
         "id": "string",
         "role": "string"
@@ -220,15 +220,15 @@ Default temperature: 0.3 ||
     // end of the list of possible fields
   },
   "usage": {
-    "promptTokens": "int64",
-    "completionTokens": "int64",
-    "totalTokens": "int64"
+    "prompt_tokens": "int64",
+    "completion_tokens": "int64",
+    "total_tokens": "int64"
   },
-  "customPromptTruncationOptions": {
-    "maxPromptTokens": "google.protobuf.Int64Value"
+  "custom_prompt_truncation_options": {
+    "max_prompt_tokens": "google.protobuf.Int64Value"
   },
-  "customCompletionOptions": {
-    "maxTokens": "google.protobuf.Int64Value",
+  "custom_completion_options": {
+    "max_tokens": "google.protobuf.Int64Value",
     "temperature": "google.protobuf.DoubleValue"
   }
 }
@@ -241,16 +241,16 @@ Represents a run of an assistant over a specific thread of messages.
 || id | **string**
 
 Unique identifier of the run. ||
-|| assistantId | **string**
+|| assistant_id | **string**
 
 Identifier for the assistant that is being run. ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Identifier for the thread of messages that this run is associated with. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this run. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the run was created. ||
 || labels | **string**
@@ -262,11 +262,11 @@ Current state of the run, including its status and any associated data. ||
 || usage | **[ContentUsage](#yandex.cloud.ai.assistants.v1.runs.ContentUsage)**
 
 Information about the content usage during the run, such as the number of [tokens](/docs/foundation-models/concepts/yandexgpt/tokens) used by the completion model. ||
-|| customPromptTruncationOptions | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions2)**
+|| custom_prompt_truncation_options | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions2)**
 
 Configuration options for truncating the prompt when the token count exceeds a specified limit.
 If specified, these options will override the assistant's prompt truncation settings for this run. ||
-|| customCompletionOptions | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions2)**
+|| custom_completion_options | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions2)**
 
 Configuration options for completion generation.
 If specified, these options will override the assistant's completion settings for this run. ||
@@ -291,14 +291,14 @@ Current status of a run.
 
 Error information if a run has failed.
 
-Includes only one of the fields `error`, `completedMessage`.
+Includes only one of the fields `error`, `completed_message`.
 
 Oneof field to capture additional data depending on the state of a run. ||
-|| completedMessage | **[Message](#yandex.cloud.ai.assistants.v1.threads.Message)**
+|| completed_message | **[Message](#yandex.cloud.ai.assistants.v1.threads.Message)**
 
 Final message generated by an assistant if a run has completed successfully.
 
-Includes only one of the fields `error`, `completedMessage`.
+Includes only one of the fields `error`, `completed_message`.
 
 Oneof field to capture additional data depending on the state of a run. ||
 |#
@@ -318,13 +318,13 @@ Oneof field to capture additional data depending on the state of a run. ||
 || id | **string**
 
 Unique identifier of the message. ||
-|| threadId | **string**
+|| thread_id | **string**
 
 ID of the thread that this message belongs to. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this message. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author2)**
@@ -403,13 +403,13 @@ Represents the content usage during a run, such as the number of [tokens](/docs/
 
 #|
 ||Field | Description ||
-|| promptTokens | **int64**
+|| prompt_tokens | **int64**
 
 The number of tokens used in the prompt. ||
-|| completionTokens | **int64**
+|| completion_tokens | **int64**
 
 The number of tokens used in the completion response. ||
-|| totalTokens | **int64**
+|| total_tokens | **int64**
 
 The total number of tokens used (prompt + completion). ||
 |#
@@ -420,7 +420,7 @@ Defines the options for truncating thread messages within a prompt.
 
 #|
 ||Field | Description ||
-|| maxPromptTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prompt_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
@@ -433,7 +433,7 @@ Defines the options for completion generation.
 
 #|
 ||Field | Description ||
-|| maxTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||

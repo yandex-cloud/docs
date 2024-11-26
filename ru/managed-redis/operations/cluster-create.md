@@ -192,7 +192,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-      * `websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+      * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
 
       * `--backup-window-start` — время начала резервного копирования в формате `ЧЧ:ММ:СС`.
@@ -315,21 +315,271 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать кластер {{ RD }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
-  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  * Имя кластера в параметре `name`.
-  * Идентификаторы групп безопасности в параметре `securityGroupIds`.
-  * Флаг `tlsEnabled=true` для создания кластера с поддержкой шифрованных SSL-соединений.
-  * Флаг `announceHostnames`, который определяет, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting) — `true` или `false`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  * Настройки публичного доступа к хостам в параметре `hostSpecs[].assignPublicIp`.
-  * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `configSpec.access.dataTransfer`.
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-  Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в теле запроса не менее двух хостов на шард.
+
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "configSpec": {
+            "version": "<версия_{{ RD }}>",
+            "resources": {
+              "resourcePresetId": "<класс_хостов>",
+              "diskSize": "<размер_хранилища_в_байтах>",
+              "diskTypeId": "<тип_диска>"
+            },
+            "access": {
+              "webSql": <доступ_из_{{ websql-name }}>
+            },
+            "redis": {
+              "password": "<пароль_пользователя>"
+            }
+          },
+          "hostSpecs": [
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "shardName": "<название_шарда>",
+              "replicaPriority": "<приоритет_хоста>",
+              "assignPublicIp": <публичный_доступ_к_хосту_кластера>
+            },
+            { <аналогичный_набор_настроек_для_хоста_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ],
+          "networkId": "<идентификатор_сети>",
+          "sharded": <шардирование_кластера>,
+          "securityGroupIds": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "tlsEnabled": <поддержка_шифрованных_TLS-соединений>,
+          "deletionProtection": <защита_от_удаления_кластера>,
+          "announceHostnames": <использование_FQDN_вместо_IP-адресов>
+        }
+        ```
+
+
+
+
+        Где:
+
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+        * `configSpec` — настройки кластера:
+
+            * `version` — версия {{ RD }}.
+            * `resources` — ресурсы кластера:
+
+                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                * `diskSize` — размер диска в байтах;
+                * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+
+            * `access.webSql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.
+
+
+            * `redis.password` — пароль пользователя.
+
+        * `hostSpecs` — параметры хоста:
+
+            * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+            * `shardName` — название шарда для хоста. Этот параметр используется, только если для параметра `sharded` указано значение `true`.
+            * `replicaPriority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+            * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tlsEnabled` указано значение `true`.
+
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+        * `sharded` — [шардирование кластера](../concepts/sharding.md): `true` или `false`.
+
+            {% note warning %}
+
+            Отключить шардирование в кластере, для которого оно включено, невозможно. При необходимости можно создать нешардированный кластер и позже [включить в нем шардирование](../operations/update.md#enable-sharding).
+
+            {% endnote %}
+
+            Если вы создаете шардированный кластер с типом диска `local-ssd`, укажите не менее двух хостов на шард, добавив нужное количество блоков `hostSpecs`.
+
+
+        * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+        * `tlsEnabled` — поддержка шифрованных TLS-соединений с кластером: `true` или `false`.
+
+            {% note warning %}
+
+            Включить шифрование соединений можно только при создании нового кластера. Отключить шифрование в кластере, для которого оно включено, невозможно.
+
+            {% endnote %}
+
+        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+
+            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+        * `announceHostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
+
+            {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "config_spec": {
+            "version": "<версия_{{ RD }}>",
+            "resources": {
+              "resource_preset_id": "<класс_хостов>",
+              "disk_size": "<размер_хранилища_в_байтах>",
+              "disk_type_id": "<тип_диска>"
+            },
+            "access": {
+              "web_sql": <доступ_из_{{ websql-name }}>
+            },
+            "redis": {
+              "password": "<пароль_пользователя>"
+            }
+          },
+          "host_specs": [
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "shard_name": "<название_шарда>",
+              "replica_priority": "<приоритет_хоста>",
+              "assign_public_ip": <публичный_доступ_к_хосту_кластера>
+            },
+            { <аналогичный_набор_настроек_для_хоста_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ],
+          "network_id": "<идентификатор_сети>",
+          "sharded": <шардирование_кластера>,
+          "security_group_ids": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "tls_enabled": <поддержка_шифрованных_TLS-соединений>,
+          "deletion_protection": <защита_от_удаления_кластера>,
+          "announce_hostnames": <использование_FQDN_вместо_IP-адресов>
+        }
+        ```
+
+
+
+
+        Где:
+
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
+        * `config_spec` — настройки кластера:
+
+            * `version` — версия {{ RD }}.
+            * `resources` — ресурсы кластера:
+
+                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                * `disk_size` — размер диска в байтах;
+                * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+
+            * `access.web_sql` — доступ к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса [{{ websql-full-name }}](../../websql/index.yaml): `true` или `false`.
+
+
+            * `redis.password` — пароль пользователя.
+
+        * `host_specs` — параметры хоста:
+
+            * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+            * `shard_name` — название шарда для хоста. Этот параметр используется, только если для параметра `sharded` указано значение `true`.
+            * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+            * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если для параметра `tls_enabled` указано значение `true`.
+
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+        * `sharded` — [шардирование кластера](../concepts/sharding.md): `true` или `false`.
+
+            {% note warning %}
+
+            Отключить шардирование в кластере, для которого оно включено, невозможно. При необходимости можно создать нешардированный кластер и позже [включить в нем шардирование](update.md#enable-sharding).
+
+            {% endnote %}
+
+            Если вы создаете шардированный кластер с типом диска `local-ssd`, укажите не менее двух хостов на шард, добавив нужное количество блоков `host_specs`.
+
+
+        * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+        * `tls_enabled` — поддержка шифрованных TLS-соединений с кластером: `true` или `false`.
+
+            {% note warning %}
+
+            Включить шифрование соединений можно только при создании нового кластера. Отключить шифрование в кластере, для которого оно включено, невозможно.
+
+            {% endnote %}
+
+        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+
+            Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
+
+        * `announce_hostnames` — [использование FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
+
+            {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Create \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

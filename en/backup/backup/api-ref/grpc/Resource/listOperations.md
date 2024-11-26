@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/listOperations.md
 ---
 
-# Cloud Backup API, gRPC: ResourceService.ListOperations {#ListOperations}
+# Cloud Backup API, gRPC: ResourceService.ListOperations
 
 ListOperations return all operations in backup service for given instance
 
@@ -15,21 +15,21 @@ ListOperations return all operations in backup service for given instance
 
 ```json
 {
-  "computeInstanceId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "compute_instance_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Required field. Compute Cloud instance ID. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 Number of results per page. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Token for the results page. ||
 |#
@@ -42,9 +42,9 @@ Token for the results page. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -53,7 +53,7 @@ Token for the results page. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -62,7 +62,7 @@ Token for the results page. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified instance. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for the next results page. ||
 |#
@@ -79,13 +79,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

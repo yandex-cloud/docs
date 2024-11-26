@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Instance/update.md
 ---
 
-# Compute Cloud API, gRPC: InstanceService.Update {#Update}
+# Compute Cloud API, gRPC: InstanceService.Update
 
 Updates the specified instance.
 
@@ -15,32 +15,32 @@ Updates the specified instance.
 
 ```json
 {
-  "instanceId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "instance_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "platformId": "string",
-  "resourcesSpec": {
+  "platform_id": "string",
+  "resources_spec": {
     "memory": "int64",
     "cores": "int64",
-    "coreFraction": "int64",
+    "core_fraction": "int64",
     "gpus": "int64"
   },
   "metadata": "string",
-  "metadataOptions": {
-    "gceHttpEndpoint": "MetadataOption",
-    "awsV1HttpEndpoint": "MetadataOption",
-    "gceHttpToken": "MetadataOption",
-    "awsV1HttpToken": "MetadataOption"
+  "metadata_options": {
+    "gce_http_endpoint": "MetadataOption",
+    "aws_v1_http_endpoint": "MetadataOption",
+    "gce_http_token": "MetadataOption",
+    "aws_v1_http_token": "MetadataOption"
   },
-  "serviceAccountId": "string",
-  "networkSettings": {
+  "service_account_id": "string",
+  "network_settings": {
     "type": "Type"
   },
-  "placementPolicy": {
-    "placementGroupId": "string",
-    "hostAffinityRules": [
+  "placement_policy": {
+    "placement_group_id": "string",
+    "host_affinity_rules": [
       {
         "key": "string",
         "op": "Operator",
@@ -49,26 +49,26 @@ Updates the specified instance.
         ]
       }
     ],
-    "placementGroupPartition": "int64"
+    "placement_group_partition": "int64"
   },
-  "schedulingPolicy": {
+  "scheduling_policy": {
     "preemptible": "bool"
   },
-  "maintenancePolicy": "MaintenancePolicy",
-  "maintenanceGracePeriod": "google.protobuf.Duration",
-  "serialPortSettings": {
-    "sshAuthorization": "SSHAuthorization"
+  "maintenance_policy": "MaintenancePolicy",
+  "maintenance_grace_period": "google.protobuf.Duration",
+  "serial_port_settings": {
+    "ssh_authorization": "SSHAuthorization"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 Required field. ID of the Instance resource to update.
 To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/grpc/Instance/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Instance resource are going to be updated. ||
 || name | **string**
@@ -82,15 +82,15 @@ Description of the instance. ||
 Resource labels as `key:value` pairs.
 
 Existing set of `labels` is completely replaced by the provided set. ||
-|| platformId | **string**
+|| platform_id | **string**
 
 ID of the hardware platform configuration for the instance.
-This field affects the available values in `resourcesSpec` field.
+This field affects the available values in `resources_spec` field.
 
 Platforms allows you to create various types of instances: with a large amount of memory,
 with a large number of cores, with a burstable performance.
 For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
 
 Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
@@ -106,33 +106,33 @@ The values must be 256 KB or less.
 
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](/docs/compute/concepts/vm-metadata). ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
+|| metadata_options | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
 
 Options allow user to configure access to instance's metadata ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
-|| networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
+|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings)**
 
 Network settings. ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)**
+|| placement_policy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy)**
 
 Placement policy configuration. ||
-|| schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy)**
+|| scheduling_policy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy)**
 
 Scheduling policy configuration. ||
-|| maintenancePolicy | enum **MaintenancePolicy**
+|| maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events
 
 - `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| maintenanceGracePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Time between notification via metadata service and maintenance ||
-|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
+|| serial_port_settings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
 
 Serial port settings ||
 |#
@@ -147,7 +147,7 @@ Required field. The amount of memory available to the instance, specified in byt
 || cores | **int64**
 
 Required field. The number of cores available to the instance. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
@@ -163,28 +163,28 @@ The number of GPUs available to the instance. ||
 
 #|
 ||Field | Description ||
-|| gceHttpEndpoint | enum **MetadataOption**
+|| gce_http_endpoint | enum **MetadataOption**
 
 Enabled access to GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpEndpoint | enum **MetadataOption**
+|| aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| gceHttpToken | enum **MetadataOption**
+|| gce_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpToken | enum **MetadataOption**
+|| aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
@@ -211,13 +211,13 @@ Network Type
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+|| host_affinity_rules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
 
 List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
-|| placementGroupPartition | **int64**
+|| placement_group_partition | **int64**
 
 Placement group partition ||
 |#
@@ -256,7 +256,7 @@ True for short-lived compute instances. For more information, see [Preemptible V
 
 #|
 ||Field | Description ||
-|| sshAuthorization | enum **SSHAuthorization**
+|| ssh_authorization | enum **SSHAuthorization**
 
 Authentication and authorization in serial console when using SSH protocol
 
@@ -271,138 +271,138 @@ Authentication and authorization in serial console when using SSH protocol
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "instanceId": "string"
+    "instance_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "zoneId": "string",
-    "platformId": "string",
+    "zone_id": "string",
+    "platform_id": "string",
     "resources": {
       "memory": "int64",
       "cores": "int64",
-      "coreFraction": "int64",
+      "core_fraction": "int64",
       "gpus": "int64"
     },
     "status": "Status",
     "metadata": "string",
-    "metadataOptions": {
-      "gceHttpEndpoint": "MetadataOption",
-      "awsV1HttpEndpoint": "MetadataOption",
-      "gceHttpToken": "MetadataOption",
-      "awsV1HttpToken": "MetadataOption"
+    "metadata_options": {
+      "gce_http_endpoint": "MetadataOption",
+      "aws_v1_http_endpoint": "MetadataOption",
+      "gce_http_token": "MetadataOption",
+      "aws_v1_http_token": "MetadataOption"
     },
-    "bootDisk": {
+    "boot_disk": {
       "mode": "Mode",
-      "deviceName": "string",
-      "autoDelete": "bool",
-      "diskId": "string"
+      "device_name": "string",
+      "auto_delete": "bool",
+      "disk_id": "string"
     },
-    "secondaryDisks": [
+    "secondary_disks": [
       {
         "mode": "Mode",
-        "deviceName": "string",
-        "autoDelete": "bool",
-        "diskId": "string"
+        "device_name": "string",
+        "auto_delete": "bool",
+        "disk_id": "string"
       }
     ],
-    "localDisks": [
+    "local_disks": [
       {
         "size": "int64",
-        "deviceName": "string"
+        "device_name": "string"
       }
     ],
     "filesystems": [
       {
         "mode": "Mode",
-        "deviceName": "string",
-        "filesystemId": "string"
+        "device_name": "string",
+        "filesystem_id": "string"
       }
     ],
-    "networkInterfaces": [
+    "network_interfaces": [
       {
         "index": "string",
-        "macAddress": "string",
-        "subnetId": "string",
-        "primaryV4Address": {
+        "mac_address": "string",
+        "subnet_id": "string",
+        "primary_v4_address": {
           "address": "string",
-          "oneToOneNat": {
+          "one_to_one_nat": {
             "address": "string",
-            "ipVersion": "IpVersion",
-            "dnsRecords": [
+            "ip_version": "IpVersion",
+            "dns_records": [
               {
                 "fqdn": "string",
-                "dnsZoneId": "string",
+                "dns_zone_id": "string",
                 "ttl": "int64",
                 "ptr": "bool"
               }
             ]
           },
-          "dnsRecords": [
+          "dns_records": [
             {
               "fqdn": "string",
-              "dnsZoneId": "string",
+              "dns_zone_id": "string",
               "ttl": "int64",
               "ptr": "bool"
             }
           ]
         },
-        "primaryV6Address": {
+        "primary_v6_address": {
           "address": "string",
-          "oneToOneNat": {
+          "one_to_one_nat": {
             "address": "string",
-            "ipVersion": "IpVersion",
-            "dnsRecords": [
+            "ip_version": "IpVersion",
+            "dns_records": [
               {
                 "fqdn": "string",
-                "dnsZoneId": "string",
+                "dns_zone_id": "string",
                 "ttl": "int64",
                 "ptr": "bool"
               }
             ]
           },
-          "dnsRecords": [
+          "dns_records": [
             {
               "fqdn": "string",
-              "dnsZoneId": "string",
+              "dns_zone_id": "string",
               "ttl": "int64",
               "ptr": "bool"
             }
           ]
         },
-        "securityGroupIds": [
+        "security_group_ids": [
           "string"
         ]
       }
     ],
-    "serialPortSettings": {
-      "sshAuthorization": "SSHAuthorization"
+    "serial_port_settings": {
+      "ssh_authorization": "SSHAuthorization"
     },
-    "gpuSettings": {
-      "gpuClusterId": "string"
+    "gpu_settings": {
+      "gpu_cluster_id": "string"
     },
     "fqdn": "string",
-    "schedulingPolicy": {
+    "scheduling_policy": {
       "preemptible": "bool"
     },
-    "serviceAccountId": "string",
-    "networkSettings": {
+    "service_account_id": "string",
+    "network_settings": {
       "type": "Type"
     },
-    "placementPolicy": {
-      "placementGroupId": "string",
-      "hostAffinityRules": [
+    "placement_policy": {
+      "placement_group_id": "string",
+      "host_affinity_rules": [
         {
           "key": "string",
           "op": "Operator",
@@ -411,18 +411,18 @@ Authentication and authorization in serial console when using SSH protocol
           ]
         }
       ],
-      "placementGroupPartition": "int64"
+      "placement_group_partition": "int64"
     },
-    "hostGroupId": "string",
-    "hostId": "string",
-    "maintenancePolicy": "MaintenancePolicy",
-    "maintenanceGracePeriod": "google.protobuf.Duration",
-    "hardwareGeneration": {
-      // Includes only one of the fields `legacyFeatures`, `generation2Features`
-      "legacyFeatures": {
-        "pciTopology": "PCITopology"
+    "host_group_id": "string",
+    "host_id": "string",
+    "maintenance_policy": "MaintenancePolicy",
+    "maintenance_grace_period": "google.protobuf.Duration",
+    "hardware_generation": {
+      // Includes only one of the fields `legacy_features`, `generation2_features`
+      "legacy_features": {
+        "pci_topology": "PCITopology"
       },
-      "generation2Features": "Generation2HardwareFeatures"
+      "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
     }
   }
@@ -440,13 +440,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -489,7 +489,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 ID of the Instance resource that is being updated. ||
 |#
@@ -503,10 +503,10 @@ An Instance resource. For more information, see [Instances](/docs/compute/concep
 || id | **string**
 
 ID of the instance. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the instance belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the instance. 1-63 characters long. ||
@@ -516,10 +516,10 @@ Description of the instance. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the instance resides. ||
-|| platformId | **string**
+|| platform_id | **string**
 
 ID of the hardware platform configuration for the instance. ||
 || resources | **[Resources](#yandex.cloud.compute.v1.Resources)**
@@ -546,28 +546,28 @@ The metadata `key:value` pairs assigned to this instance. This includes custom m
 
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](/docs/compute/concepts/vm-metadata). ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions2)**
+|| metadata_options | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions2)**
 
 Options allow user to configure access to instance's metadata ||
-|| bootDisk | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
+|| boot_disk | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
 
 Boot disk that is attached to the instance. ||
-|| secondaryDisks[] | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
+|| secondary_disks[] | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
 
 Array of secondary disks that are attached to the instance. ||
-|| localDisks[] | **[AttachedLocalDisk](#yandex.cloud.compute.v1.AttachedLocalDisk)**
+|| local_disks[] | **[AttachedLocalDisk](#yandex.cloud.compute.v1.AttachedLocalDisk)**
 
 Array of local disks that are attached to the instance. ||
 || filesystems[] | **[AttachedFilesystem](#yandex.cloud.compute.v1.AttachedFilesystem)**
 
 Array of filesystems that are attached to the instance. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.compute.v1.NetworkInterface)**
+|| network_interfaces[] | **[NetworkInterface](#yandex.cloud.compute.v1.NetworkInterface)**
 
 Array of network interfaces that are attached to the instance. ||
-|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings2)**
+|| serial_port_settings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings2)**
 
 Serial port settings ||
-|| gpuSettings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
+|| gpu_settings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
 
 GPU settings ||
 || fqdn | **string**
@@ -575,36 +575,36 @@ GPU settings ||
 A domain name of the instance. FQDN is defined by the server
 in the format `<hostname>.<region_id>.internal` when the instance is created.
 If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. ||
-|| schedulingPolicy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy2)**
+|| scheduling_policy | **[SchedulingPolicy](#yandex.cloud.compute.v1.SchedulingPolicy2)**
 
 Scheduling policy configuration. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
-|| networkSettings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings2)**
+|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.NetworkSettings2)**
 
 Network Settings ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy2)**
+|| placement_policy | **[PlacementPolicy](#yandex.cloud.compute.v1.PlacementPolicy2)**
 
 Placement policy configuration. ||
-|| hostGroupId | **string**
+|| host_group_id | **string**
 
 ID of the dedicated host group that the instance belongs to. ||
-|| hostId | **string**
+|| host_id | **string**
 
 ID of the dedicated host that the instance belongs to. ||
-|| maintenancePolicy | enum **MaintenancePolicy**
+|| maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events
 
 - `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| maintenanceGracePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| maintenance_grace_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Time between notification via metadata service and maintenance ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
 |#
@@ -619,7 +619,7 @@ The amount of memory available to the instance, specified in bytes. ||
 || cores | **int64**
 
 The number of cores available to the instance. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -632,28 +632,28 @@ The number of GPUs available to the instance. ||
 
 #|
 ||Field | Description ||
-|| gceHttpEndpoint | enum **MetadataOption**
+|| gce_http_endpoint | enum **MetadataOption**
 
 Enabled access to GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpEndpoint | enum **MetadataOption**
+|| aws_v1_http_endpoint | enum **MetadataOption**
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| gceHttpToken | enum **MetadataOption**
+|| gce_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with GCE flavored metadata
 
 - `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
-|| awsV1HttpToken | enum **MetadataOption**
+|| aws_v1_http_token | enum **MetadataOption**
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
@@ -673,16 +673,16 @@ Access mode to the Disk resource.
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
-|| autoDelete | **bool**
+|| auto_delete | **bool**
 
 Specifies whether the disk will be auto-deleted when the instance is deleted. ||
-|| diskId | **string**
+|| disk_id | **string**
 
 ID of the disk that is attached to the instance. ||
 |#
@@ -694,7 +694,7 @@ ID of the disk that is attached to the instance. ||
 || size | **int64**
 
 Size of the disk, specified in bytes. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
@@ -713,13 +713,13 @@ Access mode to the filesystem.
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
+|| device_name | **string**
 
 Name of the device representing the filesystem on the instance.
 
 The name should be used for referencing the filesystem from within the instance
 when it's being mounted, resized etc. ||
-|| filesystemId | **string**
+|| filesystem_id | **string**
 
 ID of the filesystem that is attached to the instance. ||
 |#
@@ -731,19 +731,19 @@ ID of the filesystem that is attached to the instance. ||
 || index | **string**
 
 The index of the network interface, will be generated by the server, 0,1,2... etc if not specified. ||
-|| macAddress | **string**
+|| mac_address | **string**
 
 MAC address that is assigned to the network interface. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet. ||
-|| primaryV4Address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
+|| primary_v4_address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
 
 Primary IPv4 address that is assigned to the instance for this network interface. ||
-|| primaryV6Address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
+|| primary_v6_address | **[PrimaryAddress](#yandex.cloud.compute.v1.PrimaryAddress)**
 
 Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 ID's of security groups attached to the interface ||
 |#
@@ -755,10 +755,10 @@ ID's of security groups attached to the interface ||
 || address | **string**
 
 An IPv4 internal network address that is assigned to the instance for this network interface. ||
-|| oneToOneNat | **[OneToOneNat](#yandex.cloud.compute.v1.OneToOneNat)**
+|| one_to_one_nat | **[OneToOneNat](#yandex.cloud.compute.v1.OneToOneNat)**
 
 One-to-one NAT configuration. If missing, NAT has not been set up. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
+|| dns_records[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
 
 Internal DNS configuration ||
 |#
@@ -770,14 +770,14 @@ Internal DNS configuration ||
 || address | **string**
 
 An external IP address associated with this instance. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version for the external IP address.
 
 - `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.0.2.235.
 - `IPV6`: IPv6 address. Not available yet. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
+|| dns_records[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
 
 External DNS configuration ||
 |#
@@ -790,7 +790,7 @@ External DNS configuration ||
 
 Name of the A/AAAA record as specified when creating the instance.
 Note that if `fqdn' has no trailing '.', it is specified relative to the zone (@see dns_zone_id). ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 DNS zone id for the record (optional, if not set, some private zone is used). ||
 || ttl | **int64**
@@ -805,7 +805,7 @@ When true, indicates there is a corresponding auto-created PTR DNS record. ||
 
 #|
 ||Field | Description ||
-|| sshAuthorization | enum **SSHAuthorization**
+|| ssh_authorization | enum **SSHAuthorization**
 
 Authentication and authorization in serial console when using SSH protocol
 
@@ -818,7 +818,7 @@ Authentication and authorization in serial console when using SSH protocol
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 Attach instance to specified GPU cluster. ||
 |#
@@ -850,13 +850,13 @@ Network Type
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule2)**
+|| host_affinity_rules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule2)**
 
 List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
-|| placementGroupPartition | **int64**
+|| placement_group_partition | **int64**
 
 Placement group partition ||
 |#
@@ -891,12 +891,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -906,7 +906,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
 - `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
