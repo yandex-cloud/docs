@@ -10,9 +10,9 @@ In both cases, we use a reference stored in {{ objstorage-name }} to filter our 
 
 To run this example:
 
-1. [{#T}](#before-you-begin)
-1. [{#T}](#batch)
-1. [{#T}](#stream)
+1. [Get things ready](#before-you-begin).
+1. [Analyze the data from {{ objstorage-name }}](#batch).
+1. [Analyze the streaming data from {{ yds-name }}](#stream).
 
 {% note info %}
 
@@ -22,10 +22,10 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have a directory yet, [create one](../../resource-manager/operations/folder/create.md).
-1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
+1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
 
 ## Analyze the data from {{ objstorage-name }} {#batch}
@@ -84,16 +84,16 @@ To run this example:
 
 Once the analytical query is complete, you will see the result: distribution of taxi ride costs in specific locations.
 
-| # | time | PULocationID | total_amount |
+| #  | time | PULocationID | total_amount |
 | --- | --- | --- | --- |
-| 1 | 2017-12-31T22:24:00.000000Z | 120 | 7.54 |
-| 2 | 2018-01-01T00:13:00.000000Z | 120 | 48.8 |
-| 3 | 2018-01-01T03:25:00.000000Z | 120 | 30.8 |
-| 4 | 2018-01-01T11:29:00.000000Z | 120 | 32.88 |
-| 5 | 2018-01-01T15:13:00.000000Z | 120 | 9.8 |
-| 6 | 2018-01-01T22:03:00.000000Z | 120 | 14.8 |
-| 7 | 2018-01-02T19:28:00.000000Z | 120 | 7.3 |
-| 8 | 2018-01-03T10:17:00.000000Z | 120 | 81.3 |
+| 1  | 2017-12-31T22:24:00.000000Z | 120 | 7.54  |
+| 2  | 2018-01-01T00:13:00.000000Z | 120 | 48.8  |
+| 3  | 2018-01-01T03:25:00.000000Z | 120 | 30.8  |
+| 4  | 2018-01-01T11:29:00.000000Z | 120 | 32.88 |
+| 5  | 2018-01-01T15:13:00.000000Z | 120 | 9.8   |
+| 6  | 2018-01-01T22:03:00.000000Z | 120 | 14.8  |
+| 7  | 2018-01-02T19:28:00.000000Z | 120 | 7.3   |
+| 8  | 2018-01-03T10:17:00.000000Z | 120 | 81.3  |
 
 ## Analyze the {{ yds-name }} streaming data {#stream}
 
@@ -154,16 +154,16 @@ Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.
 
 ### Review the result {#stream-check-result}
 
-Once you run the query to the streaming data, you will see the result: the total cost of rides (`total_amount`) in specific `PULocationID` locations after the query ran.
+Once you run the query to the streaming data, you will see the result with the total cost of rides (`total_amount`) in specific `PULocationID` locations taken after running the query.
 
-| # | PULocationID | time | total_amount |
+| #  | PULocationID | time | total_amount |
 | --- | --- | --- | --- |
-| 1 | 125 | 2022-02-15T12:03:00.000000Z | 1275.4084 |
-| 2 | 129 | 2022-02-15T12:03:00.000000Z | 1073.0449 |
-| 3 | 126 | 2022-02-15T12:03:00.000000Z | 202.85883 |
-| 4 | 121 | 2022-02-15T12:03:00.000000Z | 636.8784 |
-| 5 | 124 | 2022-02-15T12:03:00.000000Z | 923.87805 |
-| 6 | 127 | 2022-02-15T12:04:00.000000Z | 2105.3125 |
+| 1  | 125 | 2022-02-15T12:03:00.000000Z | 1275.4084 |
+| 2  | 129 | 2022-02-15T12:03:00.000000Z | 1073.0449 |
+| 3  | 126 | 2022-02-15T12:03:00.000000Z | 202.85883 |
+| 4  | 121 | 2022-02-15T12:03:00.000000Z | 636.8784  |
+| 5  | 124 | 2022-02-15T12:03:00.000000Z | 923.87805 |
+| 6  | 127 | 2022-02-15T12:04:00.000000Z | 2105.3125 |
 | ... |
 
 ## See also {#see-also}

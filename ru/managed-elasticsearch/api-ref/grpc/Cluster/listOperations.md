@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Cluster/listOperations.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: ClusterService.ListOperations {#ListOperations}
+# Managed Service for Elasticsearch API, gRPC: ClusterService.ListOperations
 
 Retrieves the list of operations for the specified Elasticsearch cluster.
 
@@ -15,29 +15,29 @@ Retrieves the list of operations for the specified Elasticsearch cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Elasticsearch cluster to list operations for.
 
 To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListClusterOperationsResponse.next_page_token](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterOperationsResponse {#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsResponse}
@@ -48,9 +48,9 @@ To get the next page of results, set `page_token` to the [ListClusterOperationsR
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -59,7 +59,7 @@ To get the next page of results, set `page_token` to the [ListClusterOperationsR
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -68,11 +68,11 @@ To get the next page of results, set `page_token` to the [ListClusterOperationsR
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified Elasticsearch cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token that allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterOperationsRequest.pageSize](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.pageToken](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsRequest) query parameter in the next list request.
+If the number of results is larger than [ListClusterOperationsRequest.page_size](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsRequest), use the `next_page_token` as the value for the [ListClusterOperationsRequest.page_token](#yandex.cloud.mdb.elasticsearch.v1.ListClusterOperationsRequest) query parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -88,13 +88,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

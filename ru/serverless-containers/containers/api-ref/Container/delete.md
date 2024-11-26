@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/delete.md
 ---
 
-# Serverless Containers Service, REST: Container.Delete {#Delete}
+# Serverless Containers Service, REST: Container.Delete
 
 Deletes the specified container.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/list.md
 ---
 
-# Compute Cloud API, REST: Instance.List {#List}
+# Compute Cloud API, REST: Instance.List
 
 Retrieves the list of Instance resources in the specified folder.
 

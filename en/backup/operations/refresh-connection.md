@@ -1,3 +1,8 @@
+---
+title: How to update a VM connection to {{ backup-full-name }}
+description: Follow this guide to update a VM connection to {{ backup-name }}.
+---
+
 # Updating a VM connection to {{ backup-name }}
 
 {% note info %}
@@ -5,6 +10,7 @@
 If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
 
 * [Connecting a Linux VM](connect-vm-linux.md)
+* [Connecting a Linux VM with OS Login](connect-vm-oslogin-linux.md)
 * [Connecting a Windows VM](connect-vm-windows.md)
 
 {% endnote %}

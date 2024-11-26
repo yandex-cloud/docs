@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.AddTargets {#AddTargets}
+# Network Load Balancer API, REST: TargetGroup.AddTargets
 
 Adds targets to the target group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/update.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.Update {#Update}
+# Managed Service for Greenplum® API, REST: HBARule.Update
 
 Update specified HBA rule for the specified Greenplum cluster without changind it order.
 

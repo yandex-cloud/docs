@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/list.md
 ---
 
-# Resource Manager API, REST: Cloud.List {#List}
+# Resource Manager API, REST: Cloud.List
 
 Retrieves the list of Cloud resources.
 

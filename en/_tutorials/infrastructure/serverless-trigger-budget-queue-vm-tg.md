@@ -101,7 +101,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           Where:
 
           * `<folder_name>`: Name of your folder in {{ yandex-cloud }}.
-          * `<service_account_ID>`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the service account.
+          * `<service_account_ID>`: Previously saved service account [ID](../../iam/operations/sa/get-id.md).
 
           Result:
 
@@ -135,10 +135,10 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. In the [management console]({{ link-console-main }}), select your folder.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-      1. Select the `service-account-for-budget` service account from the list that opens.
+      1. In the list that opens, select the `service-account-for-budget` service account.
       1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. If required, specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-      1. Save the ID and private key.
+      1. Save the ID and secret key.
 
           {% note alert %}
 
@@ -265,7 +265,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, specify:
-      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`.
+      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`.  
       * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`.
 
       Leave the other parameters unchanged.
@@ -356,7 +356,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
               * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                   * `FOLDER_ID` : ID of the folder to stop the VMs in.
-                  * `TAG`: `target-for-stop`
+                  * `TAG`: `target-for-stop`.
                   * `AWS_ACCESS_KEY_ID`: Static access key ID value saved previously.
                   * `AWS_ACCESS_KEY_ID`: Private key value of the static access key saved previously.
                   * `BUDGET_QUEUE_URL`: Previously saved value of the `budget-queue` URL .
@@ -445,7 +445,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - API {#api}
 
-     To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+      To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
 
       To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
@@ -467,7 +467,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and the `vm-budget` budget you created previously.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and the `vm-budget` budget you created earlier.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `budget-trigger-handler` function and specify the `service-account-for-budget` service account. It will be used to invoke the function.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
@@ -534,7 +534,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         Alright, a new bot. How are we going to call it? Please choose a name for your bot.
         ```
 
-    1. In the next message, enter the name of the bot you are creating, e.g., `YC VM budget informer`. This is the name users will see when communicating with the bot.
+    1. In the next message, enter a name for the bot you are creating, e.g., `YC VM budget informer`. This is the name users will see when communicating with the bot.
 
         Result:
 
@@ -542,7 +542,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         Good. Now let's choose a username for your bot. It must end in `bot`. Like this, for example: TetrisBot or tetris_bot.
         ```
 
-    1. Specify a username for the bot you are creating, e.g., `YCVMBudgetInformerBot`. You can use the user name to search for the bot in Telegram. The name must end with `...Bot` or `..._bot`. As a result, you will get a token for the HTTP API.
+    1. Specify a username for the bot you are creating, e.g., `YCVMBudgetInformerBot`. You can use the username to search for the bot in Telegram. The name must end with `...Bot` or `..._bot`. As a result, you will get a token for the HTTP API.
 
         Result:
 
@@ -694,9 +694,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - API {#api}
 
-     To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
+      To create a function, use the [create](../../functions/functions/api-ref/Function/create.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call.
 
-     To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+      To create a function version, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
     {% endlist %}
 
@@ -781,7 +781,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -874,7 +874,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 {% endlist %}
 
-Similarly, create two more VM instances: `target-instance-2` and `target-instance-3`. For the last VM, set the `target-for-stop` label to `false`.
+Similarly, create two more VMs: `target-instance-2` and `target-instance-3`. For the last VM, set the `target-for-stop` label to `false`.
 
 
 ## Make sure the trigger stops VMs and sends Telegram notifications {#test}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/get.md
 ---
 
-# Workflows Service, REST: Workflow.Get {#Get}
+# Workflows Service, REST: Workflow.Get
 
 Retrieves specified Workflow.
 

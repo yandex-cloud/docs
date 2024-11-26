@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/delete.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Delete {#Delete}
+# Key Management Service API, REST: AsymmetricSignatureKey.Delete
 
 Deletes the specified asymmetric KMS key. This action also automatically schedules
 the destruction of all of the key's versions in 72 hours.

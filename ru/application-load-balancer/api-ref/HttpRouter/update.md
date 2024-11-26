@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/update.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.Update {#Update}
+# Application Load Balancer API, REST: HttpRouter.Update
 
 Updates the specified HTTP router.
 

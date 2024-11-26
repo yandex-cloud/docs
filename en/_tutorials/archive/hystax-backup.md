@@ -54,7 +54,7 @@ Hystax Acura Backup will run under a [service account](../../iam/concepts/users/
 
 ### Configure network traffic permissions {#network-settings}
 
-Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group).
+Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). 
 
 [Add](../../vpc/operations/security-group-update.md#add-rule) the following rules to it:
 
@@ -120,7 +120,7 @@ To create a VM with recommended configuration and a boot disk from the Hystax Ac
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -134,11 +134,11 @@ To create a VM with recommended configuration and a boot disk from the Hystax Ac
 
       Save the availability zone ID. You will need it later.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the `8 vCPU` configuration and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the configuration with `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the new VM or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
@@ -285,7 +285,7 @@ VMs are created with a public dynamic IP. Since a VM with Hystax Acura Backup ma
 
    {% endnote %}
 
-   By default, a Hystax Acura VM has a self-signed certificate installed.
+   By default, a Hystax Acura VM has a self-signed certificate installed. 
 
 1. On the page that opens, fill out the following fields:
    * **Organization**: Name of your organization.
@@ -395,7 +395,7 @@ The DR plan includes a VM description and the network settings. The plan determi
   1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
   1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for an instance group by clicking ![image](../../_assets/console-icons/ellipsis.svg) in the group header.
   1. In the **Name** field, enter `Plan-1`.
-  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
+  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:  
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet's [CIDR](../../vpc/concepts/network.md#subnet).
   1. Expand the VM description and edit the **Flavor name** field with parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `3-8-16-100`.
@@ -413,9 +413,8 @@ The DR plan includes a VM description and the network settings. The plan determi
   1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
   1. Click **Add DR Plan**.
   1. In the **Name** field, enter `Plan-1`.
-  1. Under **Devices & Ranks**, click ![image](../../_assets/console-icons/ellipsis.svg). In the menu that opens, click **Add machine**. Select an instance group, such as `Default`. Select the VM to add to the DR plan. Repeat the steps for all VMs to recover.
-  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:  
-      * In the **Subnet ID** field, enter the subnet ID.
+  1. Under **Devices & Ranks**, click ![image](../../_assets/console-icons/ellipsis.svg). In the menu that opens, click **Add machine**. Select a VM group, e.g., `Default`. Select the VM to add to the DR plan. Repeat the steps for all VMs to recover.
+  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
       * In the **CIDR** field, specify the subnet's [CIDR](../../vpc/concepts/network.md#subnet).
   1. Expand the VM description and edit the **Flavor name** field with parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `3-8-16-100`.
       
@@ -458,4 +457,4 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
 1. [Delete the bucket](../../storage/operations/buckets/delete.md).
 1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
-1. [Delete](../../vpc/operations/address-delete.md) the public static IP you reserved.
+1. [Delete](../../vpc/operations/address-delete.md) the public static IP you reserved. 

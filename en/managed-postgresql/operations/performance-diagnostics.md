@@ -89,7 +89,7 @@ For information on how to identify and troubleshoot cluster performance problems
         * `sessionsSamplingInterval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statementsSamplingInterval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
-     1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+     1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
   1. To enable statistics collection when updating an existing cluster:
 
@@ -121,7 +121,7 @@ For information on how to identify and troubleshoot cluster performance problems
         * `sessionsSamplingInterval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statementsSamplingInterval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
-     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

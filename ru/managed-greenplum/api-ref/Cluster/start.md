@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.Start {#Start}
+# Managed Service for Greenplum® API, REST: Cluster.Start
 
 Starts the specified Greenplum® cluster.
 

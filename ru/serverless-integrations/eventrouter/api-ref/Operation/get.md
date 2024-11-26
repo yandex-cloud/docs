@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Operation/get.md
 ---
 
-# EventRouter Service, REST: Operation.Get {#Get}
+# EventRouter Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/User/list.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: UserService.List {#List}
+# Managed Service for Elasticsearch API, gRPC: UserService.List
 
 Retrieves the list of Elasticsearch users in the specified cluster.
 
@@ -15,29 +15,29 @@ Retrieves the list of Elasticsearch users in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Elasticsearch cluster to list Elasticsearch users in.
 
 To get the cluster ID, use a [ClusterService.List](/docs/managed-elasticsearch/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListUsersResponse.next_page_token](#yandex.cloud.mdb.elasticsearch.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
+|| page_token | **string**
 
 Page token.
 
-To get the next page of results, set `page_token` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.elasticsearch.v1.ListUsersResponse) returned by the previous list request. ||
+To get the next page of results, set `page_token` to the [ListUsersResponse.next_page_token](#yandex.cloud.mdb.elasticsearch.v1.ListUsersResponse) returned by the previous list request. ||
 |#
 
 ## ListUsersResponse {#yandex.cloud.mdb.elasticsearch.v1.ListUsersResponse}
@@ -47,10 +47,10 @@ To get the next page of results, set `page_token` to the [ListUsersResponse.next
   "users": [
     {
       "name": "string",
-      "clusterId": "string"
+      "cluster_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -59,11 +59,11 @@ To get the next page of results, set `page_token` to the [ListUsersResponse.next
 || users[] | **[User](#yandex.cloud.mdb.elasticsearch.v1.User)**
 
 List of Elasticsearch users. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListUsersRequest.pageSize](#yandex.cloud.mdb.elasticsearch.v1.ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.pageToken](#yandex.cloud.mdb.elasticsearch.v1.ListUsersRequest) parameter in the next list request.
+If the number of results is larger than [ListUsersRequest.page_size](#yandex.cloud.mdb.elasticsearch.v1.ListUsersRequest), use the `next_page_token` as the value for the [ListUsersRequest.page_token](#yandex.cloud.mdb.elasticsearch.v1.ListUsersRequest) parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -76,7 +76,7 @@ An Elasticsearch user.
 || name | **string**
 
 Name of the Elasticsearch user. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Elasticsearch cluster the user belongs to. ||
 |#

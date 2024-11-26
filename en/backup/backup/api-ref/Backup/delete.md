@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/delete.md
 ---
 
-# Cloud Backup API, REST: Backup.Delete {#Delete}
+# Cloud Backup API, REST: Backup.Delete
 
 Delete specific backup.
 

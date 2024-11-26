@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/getStreamKey.md
 ---
 
-# Video API, gRPC: StreamLineService.GetStreamKey {#GetStreamKey}
+# Video API, gRPC: StreamLineService.GetStreamKey
 
 Returns unique stream key.
 
@@ -15,15 +15,15 @@ Returns unique stream key.
 
 ```json
 {
-  "streamLineId": "string"
+  "stream_line_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| streamLineId | **string**
+|| stream_line_id | **string**
 
-ID of the line. ||
+Required field. ID of the line. ||
 |#
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}

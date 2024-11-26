@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/Operation/get.md
 ---
 
-# SmartWebSecurity WAF API, REST: Operation.Get {#Get}
+# SmartWebSecurity WAF API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

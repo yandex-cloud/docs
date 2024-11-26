@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostType/get.md
 ---
 
-# Compute Cloud API, REST: HostType.Get {#Get}
+# Compute Cloud API, REST: HostType.Get
 
 Returns information about specified host type.
 

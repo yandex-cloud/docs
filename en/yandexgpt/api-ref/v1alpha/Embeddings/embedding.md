@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/v1alpha/Embeddings/embedding.md
 ---
 
-# YandexGPT API, REST: Embeddings.Embedding {#Embedding}
+# YandexGPT API, REST: Embeddings.Embedding
 
 RPC method to obtain embeddings for input text data.
 

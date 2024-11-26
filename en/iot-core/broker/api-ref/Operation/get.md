@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Operation/get.md
 ---
 
-# IoT Core Broker Service, REST: Operation.Get {#Get}
+# IoT Core Broker Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

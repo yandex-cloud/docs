@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/setAccessBindings.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.SetAccessBindings {#SetAccessBindings}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.SetAccessBindings
 
 Sets access bindings for the specified instance group.
 

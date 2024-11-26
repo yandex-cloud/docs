@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Message/get.md
 ---
 
-# Threads, gRPC: MessageService.Get {#Get}
+# Threads, gRPC: MessageService.Get
 
 Retrieve details of a specific message by its ID.
 
@@ -15,8 +15,8 @@ Retrieve details of a specific message by its ID.
 
 ```json
 {
-  "threadId": "string",
-  "messageId": "string"
+  "thread_id": "string",
+  "message_id": "string"
 }
 ```
 
@@ -24,10 +24,10 @@ Request message for retrieving a message from a thread.
 
 #|
 ||Field | Description ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread that contains the message. ||
-|| messageId | **string**
+|| message_id | **string**
 
 Required field. ID of the message to retrieve. ||
 |#
@@ -37,9 +37,9 @@ Required field. ID of the message to retrieve. ||
 ```json
 {
   "id": "string",
-  "threadId": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "thread_id": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
   "author": {
     "id": "string",
     "role": "string"
@@ -65,13 +65,13 @@ Required field. ID of the message to retrieve. ||
 || id | **string**
 
 Unique identifier of the message. ||
-|| threadId | **string**
+|| thread_id | **string**
 
 ID of the thread that this message belongs to. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this message. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**

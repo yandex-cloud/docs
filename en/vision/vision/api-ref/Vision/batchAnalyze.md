@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/batchAnalyze.md
 ---
 
-# Vision API, REST: Vision.BatchAnalyze {#BatchAnalyze}
+# Vision API, REST: Vision.BatchAnalyze
 
 Analyzes a batch of images and returns results with annotations.
 

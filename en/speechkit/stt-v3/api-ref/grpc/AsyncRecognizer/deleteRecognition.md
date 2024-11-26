@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/deleteRecognition.md
 ---
 
-# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.DeleteRecognition {#DeleteRecognition}
+# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.DeleteRecognition
 
 ## gRPC request
 
@@ -13,13 +13,13 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/delet
 
 ```json
 {
-  "operationId": "string"
+  "operation_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| operationId | **string** ||
+|| operation_id | **string** ||
 |#
 
 ## google.protobuf.Empty {#google.protobuf.Empty}

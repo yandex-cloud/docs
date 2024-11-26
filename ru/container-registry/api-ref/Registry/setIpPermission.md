@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/setIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.SetIpPermission {#SetIpPermission}
+# Container Registry API, REST: Registry.SetIpPermission
 
 Set ip permissions for the specified registry.
 

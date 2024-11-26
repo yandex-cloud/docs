@@ -6,11 +6,11 @@ As a result, you will get the total cost of the first ten rides since the strea
 
 To run this example:
 
-1. [{#T}](#before-you-begin)
-1. [{#T}](#create-datastream)
-1. [{#T}](#configure-generation)
-1. [{#T}](#run-query)
-1. [{#T}](#check-result)
+1. [Get things ready](#before-you-begin).
+1. [Create a data stream](#create-datastream).
+1. [Set up data generation](#configure-generation).
+1. [Run the query](#run-query).
+1. [Review the result](#check-result).
 
 {% note info %}
 
@@ -20,11 +20,11 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If you are not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-1. If you do not have a directory yet, [create one](../../resource-manager/operations/folder/create.md).
-1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
-1. Data streams use {{ ydb-full-name }}. [Create](../../ydb/quickstart.md#serverless) a serverless database.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
+1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
+1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
 
 ## Create a data stream {#create-datastream}
 
@@ -62,11 +62,11 @@ Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.
 
 ## Review the result {#check-result}
 
-Once the query is completed, you'll see the following results: the total cost (`total_amount`) of the first 10 rides made after the query ran.
+Once the query is completed, you will see the result with the total cost (`total_amount`) of the first 10 rides taken after running the query.
 
-| # | time | ride_count | total_amount |
+| #  | time | ride_count | total_amount |
 | --- | --- | --- | --- |
-| 1 | 2022-11-28T16:05:00.000000Z | 10 | 5675.542679843059 |
+| 1  | 2022-11-28T16:05:00.000000Z | 10 | 5675.542679843059 |
 
 ## See also {#see-also}
 

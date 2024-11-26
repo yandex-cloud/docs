@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/get.md
 ---
 
-# Container Registry API, REST: Scanner.Get {#Get}
+# Container Registry API, REST: Scanner.Get
 
 Returns the specified ScanResult resource.
 

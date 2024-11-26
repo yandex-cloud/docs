@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/list.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.List {#List}
+# Cloud CDN API, REST: ResourceRules.List
 
 List all rules for specified resource.
 

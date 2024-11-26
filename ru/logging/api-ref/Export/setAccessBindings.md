@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/setAccessBindings.md
 ---
 
-# Cloud Logging Service, REST: Export.SetAccessBindings {#SetAccessBindings}
+# Cloud Logging Service, REST: Export.SetAccessBindings
 
 Sets access bindings for the specified export.
 

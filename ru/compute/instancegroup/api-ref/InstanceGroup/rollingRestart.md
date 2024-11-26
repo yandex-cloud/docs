@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/rollingRestart.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.RollingRestart {#RollingRestart}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.RollingRestart
 
 Performs rolling restart of specified instances for the specified instance group.
 Rolling restart does restart of instances respecting all group policies.

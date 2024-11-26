@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/simulateMaintenanceEvent.md
 ---
 
-# Compute Cloud API, REST: Instance.SimulateMaintenanceEvent {#SimulateMaintenanceEvent}
+# Compute Cloud API, REST: Instance.SimulateMaintenanceEvent
 
 ## HTTP request
 

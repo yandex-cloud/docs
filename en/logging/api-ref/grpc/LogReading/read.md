@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogReading/read.md
 ---
 
-# Cloud Logging Service, gRPC: LogReadingService.Read {#Read}
+# Cloud Logging Service, gRPC: LogReadingService.Read
 
 Read log entries from the specified log group.
 
@@ -15,14 +15,14 @@ Read log entries from the specified log group.
 
 ```json
 {
-  // Includes only one of the fields `pageToken`, `criteria`
-  "pageToken": "string",
+  // Includes only one of the fields `page_token`, `criteria`
+  "page_token": "string",
   "criteria": {
-    "logGroupId": "string",
-    "resourceTypes": [
+    "log_group_id": "string",
+    "resource_types": [
       "string"
     ],
-    "resourceIds": [
+    "resource_ids": [
       "string"
     ],
     "since": "google.protobuf.Timestamp",
@@ -31,11 +31,11 @@ Read log entries from the specified log group.
       "Level"
     ],
     "filter": "string",
-    "streamNames": [
+    "stream_names": [
       "string"
     ],
-    "pageSize": "int64",
-    "maxResponseSize": "int64"
+    "page_size": "int64",
+    "max_response_size": "int64"
   }
   // end of the list of possible fields
 }
@@ -43,12 +43,12 @@ Read log entries from the specified log group.
 
 #|
 ||Field | Description ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ReadResponse.nextPageToken](#yandex.cloud.logging.v1.ReadResponse) or [ReadResponse.previousPageToken](#yandex.cloud.logging.v1.ReadResponse) returned by a previous read request.
+[ReadResponse.next_page_token](#yandex.cloud.logging.v1.ReadResponse) or [ReadResponse.previous_page_token](#yandex.cloud.logging.v1.ReadResponse) returned by a previous read request.
 
-Includes only one of the fields `pageToken`, `criteria`.
+Includes only one of the fields `page_token`, `criteria`.
 
 Read selector. ||
 || criteria | **[Criteria](#yandex.cloud.logging.v1.Criteria)**
@@ -57,7 +57,7 @@ Read criteria.
 
 See [Criteria](#yandex.cloud.logging.v1.Criteria) for details.
 
-Includes only one of the fields `pageToken`, `criteria`.
+Includes only one of the fields `page_token`, `criteria`.
 
 Read selector. ||
 |#
@@ -68,17 +68,17 @@ Read criteria. Should be used in initial [ReadRequest](#yandex.cloud.logging.v1.
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Required field. ID of the log group to return.
 
 To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/grpc/LogGroup/list#List) request. ||
-|| resourceTypes[] | **string**
+|| resource_types[] | **string**
 
 List of resource types to limit log entries to.
 
 Empty list disables filter. ||
-|| resourceIds[] | **string**
+|| resource_ids[] | **string**
 
 List of resource IDs to limit log entries to.
 
@@ -119,15 +119,15 @@ Empty list disables filter.
 || filter | **string**
 
 Filter expression. For details about filtering, see [documentation](/docs/logging/concepts/filter). ||
-|| streamNames[] | **string**
+|| stream_names[] | **string**
 
 List of stream names to limit log entries to.
 
 Empty list disables filter. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. ||
-|| maxResponseSize | **int64**
+|| max_response_size | **int64**
 
 Limits response to maximum size in bytes. Prevents gRPC resource exhaustion.
 
@@ -138,7 +138,7 @@ Default value for max response size is 3.5 MiB ||
 
 ```json
 {
-  "logGroupId": "string",
+  "log_group_id": "string",
   "entries": [
     {
       "uid": "string",
@@ -147,41 +147,41 @@ Default value for max response size is 3.5 MiB ||
         "id": "string"
       },
       "timestamp": "google.protobuf.Timestamp",
-      "ingestedAt": "google.protobuf.Timestamp",
-      "savedAt": "google.protobuf.Timestamp",
+      "ingested_at": "google.protobuf.Timestamp",
+      "saved_at": "google.protobuf.Timestamp",
       "level": "Level",
       "message": "string",
-      "jsonPayload": "google.protobuf.Struct",
-      "streamName": "string"
+      "json_payload": "google.protobuf.Struct",
+      "stream_name": "string"
     }
   ],
-  "nextPageToken": "string",
-  "previousPageToken": "string"
+  "next_page_token": "string",
+  "previous_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Log group ID the read was performed from. ||
 || entries[] | **[LogEntry](#yandex.cloud.logging.v1.LogEntry)**
 
 List of matching log entries. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the log entries.
 
 After getting log entries initially with [Criteria](#yandex.cloud.logging.v1.Criteria), you can use `next_page_token` as the value
-for the [ReadRequest.pageToken](#yandex.cloud.logging.v1.ReadRequest) parameter in the next read request.
+for the [ReadRequest.page_token](#yandex.cloud.logging.v1.ReadRequest) parameter in the next read request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
-|| previousPageToken | **string**
+|| previous_page_token | **string**
 
 Token for getting the previous page of the log entries.
 
 After getting log entries initially with [Criteria](#yandex.cloud.logging.v1.Criteria), you can use `previous_page_token` as the value
-for the [ReadRequest.pageToken](#yandex.cloud.logging.v1.ReadRequest) parameter in the next read request.
+for the [ReadRequest.page_token](#yandex.cloud.logging.v1.ReadRequest) parameter in the next read request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -204,10 +204,10 @@ Also may be provided by the user. ||
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the entry. ||
-|| ingestedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| ingested_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Entry ingestion time observed by [LogIngestionService](/docs/logging/api-ref/grpc/LogIngestion/). ||
-|| savedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| saved_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Entry save time.
 
@@ -242,10 +242,10 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 || message | **string**
 
 Entry text message. ||
-|| jsonPayload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+|| json_payload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Entry annotation. ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Entry stream name. ||
 |#

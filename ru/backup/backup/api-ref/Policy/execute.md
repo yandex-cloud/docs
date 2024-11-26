@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/execute.md
 ---
 
-# Cloud Backup API, REST: Policy.Execute {#Execute}
+# Cloud Backup API, REST: Policy.Execute
 
 Run policy on specific Compute Cloud instance. That will create backup
 according selected policy. In order to perform this action, policy should be

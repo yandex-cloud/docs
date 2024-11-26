@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Instance/list.md
 ---
 
-# Yandex Cloud Marketplace License Manager, gRPC: InstanceService.List {#List}
+# Yandex Cloud Marketplace License Manager, gRPC: InstanceService.List
 
 Retrieves the list of subscription instances in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of subscription instances in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the subscription instance belongs to. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListInstancesResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse)
+results is larger than `page_size`, the service returns a [ListInstancesResponse.next_page_token](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListInstancesResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse) returned by a previous list request. ||
+[ListInstancesResponse.next_page_token](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters subscription instances listed in the response.
@@ -47,7 +47,7 @@ The expression must specify:
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `name="my-subscription-instance"`. ||
-|| orderBy | **string**
+|| order_by | **string**
 
 Sorting order for the list of subscription instances. ||
 |#
@@ -59,45 +59,45 @@ Sorting order for the list of subscription instances. ||
   "instances": [
     {
       "id": "string",
-      "cloudId": "string",
-      "folderId": "string",
-      "templateId": "string",
-      "templateVersionId": "string",
+      "cloud_id": "string",
+      "folder_id": "string",
+      "template_id": "string",
+      "template_version_id": "string",
       "description": "string",
-      "startTime": "google.protobuf.Timestamp",
-      "endTime": "google.protobuf.Timestamp",
-      "createdAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
+      "start_time": "google.protobuf.Timestamp",
+      "end_time": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "state": "State",
       "locks": [
         {
           "id": "string",
-          "instanceId": "string",
-          "resourceId": "string",
-          "startTime": "google.protobuf.Timestamp",
-          "endTime": "google.protobuf.Timestamp",
-          "createdAt": "google.protobuf.Timestamp",
-          "updatedAt": "google.protobuf.Timestamp",
+          "instance_id": "string",
+          "resource_id": "string",
+          "start_time": "google.protobuf.Timestamp",
+          "end_time": "google.protobuf.Timestamp",
+          "created_at": "google.protobuf.Timestamp",
+          "updated_at": "google.protobuf.Timestamp",
           "state": "State",
-          "templateId": "string"
+          "template_id": "string"
         }
       ],
-      "licenseTemplate": {
+      "license_template": {
         "id": "string",
-        "versionId": "string",
+        "version_id": "string",
         "name": "string",
-        "publisherId": "string",
-        "productId": "string",
-        "tariffId": "string",
-        "licenseSkuId": "string",
+        "publisher_id": "string",
+        "product_id": "string",
+        "tariff_id": "string",
+        "license_sku_id": "string",
         "period": "string",
-        "createdAt": "google.protobuf.Timestamp",
-        "updatedAt": "google.protobuf.Timestamp",
+        "created_at": "google.protobuf.Timestamp",
+        "updated_at": "google.protobuf.Timestamp",
         "state": "State"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -106,11 +106,11 @@ Sorting order for the list of subscription instances. ||
 || instances[] | **[Instance](#yandex.cloud.marketplace.licensemanager.v1.Instance)**
 
 List of subscription instances. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListInstancesRequest.pageSize](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesRequest), use `next_page_token` as the value
-for the [ListInstancesRequest.pageToken](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesRequest) parameter in the next list request.
+the specified [ListInstancesRequest.page_size](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesRequest), use `next_page_token` as the value
+for the [ListInstancesRequest.page_token](#yandex.cloud.marketplace.licensemanager.v1.ListInstancesRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -122,31 +122,31 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 || id | **string**
 
 ID of the subscription instance. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the subscription instance belongs to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the subscription instance belongs to. ||
-|| templateId | **string**
+|| template_id | **string**
 
 ID of the subscription template that was used to create subscription instance. ||
-|| templateVersionId | **string**
+|| template_version_id | **string**
 
 ID of the version of subscription template. ||
 || description | **string**
 
 Description of the subscription instance. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the start of the subscription. ||
-|| endTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the end of the subscription. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Update timestamp. ||
 || state | enum **State**
@@ -163,7 +163,7 @@ Subscription state.
 || locks[] | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)**
 
 List of subscription locks. ||
-|| licenseTemplate | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
+|| license_template | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
 
 Subscription template. ||
 |#
@@ -175,22 +175,22 @@ Subscription template. ||
 || id | **string**
 
 ID of the subscription lock. ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 ID of the subscription instance. ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of the resource. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the start of the subscription lock. ||
-|| endTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the end of the subscription lock. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Update timestamp. ||
 || state | enum **State**
@@ -201,7 +201,7 @@ Subscription lock state.
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
-|| templateId | **string**
+|| template_id | **string**
 
 ID of the subscription template. ||
 |#
@@ -213,31 +213,31 @@ ID of the subscription template. ||
 || id | **string**
 
 ID of the subscription template. ||
-|| versionId | **string**
+|| version_id | **string**
 
 Version of the subscription template. ||
 || name | **string**
 
 Name of the subscription template. ||
-|| publisherId | **string**
+|| publisher_id | **string**
 
 ID of publisher. ||
-|| productId | **string**
+|| product_id | **string**
 
 ID of product. ||
-|| tariffId | **string**
+|| tariff_id | **string**
 
 ID of tariff. ||
-|| licenseSkuId | **string**
+|| license_sku_id | **string**
 
 ID of subscription SKU. ||
 || period | **string**
 
 Subscription period. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Update timestamp. ||
 || state | enum **State**

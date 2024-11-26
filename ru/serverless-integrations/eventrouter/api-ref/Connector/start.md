@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/start.md
 ---
 
-# EventRouter Service, REST: Connector.Start {#Start}
+# EventRouter Service, REST: Connector.Start
 
 Starts the specified connector.
 

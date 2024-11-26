@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for Greenplum® API, REST: Cluster.StreamLogs
 
 Same as [ListLogs](/docs/managed-greenplum/api-ref/Cluster/listLogs#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.
 

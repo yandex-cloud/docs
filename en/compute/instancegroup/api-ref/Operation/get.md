@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/Operation/get.md
 ---
 
-# Compute Cloud Instance Groups API, REST: Operation.Get {#Get}
+# Compute Cloud Instance Groups API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -53,7 +53,7 @@ You can get detailed information about each {{ dataproc-name }} cluster.
 
 - API {#api}
 
-    Use the [get](../api-ref/Cluster/get.md) API method and include the cluster ID in the `clusterId` request parameter.
+    Use the [get](../api-ref/Cluster/get.md) API method and provide the cluster ID in the `clusterId` request parameter.
 
     You can get the cluster ID with a [list of clusters in the folder](#list).
 
@@ -95,11 +95,11 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
   Result:
 
   ```text
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
-  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |       DESCRIPTION        |
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
-  | c9q2n4s13p5v******** | 2024-08-06 06:19:47 | ajej2i98kcjd******** | 2024-08-06 06:21:36 | DONE   | Create Data Proc cluster |
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |          DESCRIPTION           |
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  | c9q2n4s13p5v******** | 2024-08-06 06:19:47 | ajej2i98kcjd******** | 2024-08-06 06:21:36 | DONE   | Create Data Processing cluster |
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
   You can get the cluster ID and name with a [list of clusters in the folder](#list).
@@ -114,7 +114,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   ```text
   - id: c9q2n4s13p5v********
-    description: Create Data Proc cluster
+    description: Create Data Processing cluster
     created_at: "2024-08-06T06:19:47.755364Z"
     created_by: ajej2i98kcjd********
     modified_at: "2024-08-06T06:21:36.095300Z"
@@ -137,8 +137,8 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
 ### Getting detailed information about an operation {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the cluster.
-1. Copy the ID of the operation.
+1. [Get a list of operations](#get-operations) for a cluster.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
    {% list tabs group=instructions %}
@@ -159,7 +159,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
      ```text
      id: c9q2n4s13p5v********
-     description: Create Data Proc cluster
+     description: Create Data Processing cluster
      created_at: "2024-08-06T06:19:47.755364Z"
      created_by: ajej2i98kcjd********
      modified_at: "2024-08-06T06:21:36.095300Z"

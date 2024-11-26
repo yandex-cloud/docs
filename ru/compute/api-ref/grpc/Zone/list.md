@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Zone/list.md
 ---
 
-# Compute Cloud API, gRPC: ZoneService.List {#List}
+# Compute Cloud API, gRPC: ZoneService.List
 
 Retrieves the list of availability zones.
 
@@ -15,23 +15,23 @@ Retrieves the list of availability zones.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
+results is larger than `page_size`,
+the service returns a [ListZonesResponse.next_page_token](#yandex.cloud.compute.v1.ListZonesResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListZonesResponse.next_page_token](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request. ||
 |#
 
 ## ListZonesResponse {#yandex.cloud.compute.v1.ListZonesResponse}
@@ -41,11 +41,11 @@ Page token. To get the next page of results, set `pageToken` to the
   "zones": [
     {
       "id": "string",
-      "regionId": "string",
+      "region_id": "string",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -54,14 +54,14 @@ Page token. To get the next page of results, set `pageToken` to the
 || zones[] | **[Zone](#yandex.cloud.compute.v1.Zone)**
 
 List of availability zones. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListZonesRequest.pageSize](#yandex.cloud.compute.v1.ListZonesRequest), use
-the [ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) as the value
-for the [ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) query parameter
+is larger than [ListZonesRequest.page_size](#yandex.cloud.compute.v1.ListZonesRequest), use
+the [ListZonesRequest.page_token](#yandex.cloud.compute.v1.ListZonesRequest) as the value
+for the [ListZonesRequest.page_token](#yandex.cloud.compute.v1.ListZonesRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-[ListZonesRequest.pageToken](#yandex.cloud.compute.v1.ListZonesRequest) to continue paging through the results. ||
+[ListZonesRequest.page_token](#yandex.cloud.compute.v1.ListZonesRequest) to continue paging through the results. ||
 |#
 
 ## Zone {#yandex.cloud.compute.v1.Zone}
@@ -73,7 +73,7 @@ Availability zone. For more information, see [Availability zones](/docs/overview
 || id | **string**
 
 ID of the zone. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region. ||
 || status | enum **Status**

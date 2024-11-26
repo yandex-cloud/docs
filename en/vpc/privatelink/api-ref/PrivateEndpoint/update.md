@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/update.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.Update {#Update}
+# Virtual Private Cloud API, REST: PrivateEndpoint.Update
 
 Updates the specified private endpoint.
 

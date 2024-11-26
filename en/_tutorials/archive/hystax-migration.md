@@ -79,7 +79,7 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -90,9 +90,9 @@ Create a VM with a boot disk from the [Hystax Acura Live Migration to {{ yandex-
       * In the public image list, select [Hystax Acura Live Cloud Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the configuration with `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
@@ -274,7 +274,7 @@ As soon as the VMs you are replicating switch to `Synced`, you can create a migr
 1. Click **Add Migration plan**.
 1. Enter the migration plan name: `YC Migration`.
 1. Under **Devices & Ranks**, click ![options](../../_assets/options.svg). In the menu that opens, click **Add machine**, pick the VM group you need, and select the VM you want to add to the migration plan. Repeat the steps for all VMs to migrate.
-1. In the **Subnet ID** and the **CIDR** fields, specify the ID and the CIDR of the subnet the VMs will be connected to following the migration.
+1. In the **Subnet ID** and the **CIDR** fields, specify the ID and CIDR of the subnet the VMs will be connected to following the migration.
 1. Expand the device description and edit the **Flavor name** field (the new VM's parameters) as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `2-8-16-100`.
 1. In the **Port ip** field, enter a new VM IP from the current subnet.
 1. Click **Save**.

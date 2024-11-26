@@ -43,6 +43,6 @@
 | Network HDD storage | {{ sku|USD|mdb.cluster.network-hdd.opensearch|month|string }} |
 | Non-replicated SSD storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |
 | Network SSD storage | {{ sku|USD|mdb.cluster.network-nvme.opensearch|month|string }} |
-| High-performance SSD storage | $0.174240 |
+| High-performance SSD storage | {{ sku|USD|mdb.cluster.network-ssd-io-m3.opensearch|month|string }} |
 | Local SSD storage | {{ sku|USD|mdb.cluster.local-nvme.opensearch|month|string }} |
-| Backups beyond the storage size | $0.015360 |
+| Backups beyond the storage size | {{ sku|USD|mdb.cluster.opensearch.backup|month|string }} |

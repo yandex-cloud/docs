@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Tokenizer/tokenizeCompletion.md
 ---
 
-# Foundation Models Text Generation API, REST: Tokenizer.TokenizeCompletion {#TokenizeCompletion}
+# Foundation Models Text Generation API, REST: Tokenizer.TokenizeCompletion
 
 RPC method for tokenizing content of CompletionRequest
 

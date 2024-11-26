@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/resume.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Resume {#Resume}
+# Cloud Functions Triggers Service, REST: Trigger.Resume
 
 Restarts the specified trigger.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/Broker/listPasswords.md
 ---
 
-# IoT Core Broker Service, gRPC: BrokerService.ListPasswords {#ListPasswords}
+# IoT Core Broker Service, gRPC: BrokerService.ListPasswords
 
 Retrieves the list of passwords for the specified broker.
 
@@ -15,13 +15,13 @@ Retrieves the list of passwords for the specified broker.
 
 ```json
 {
-  "brokerId": "string"
+  "broker_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the broker to list passwords in.
 
@@ -34,9 +34,9 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grp
 {
   "passwords": [
     {
-      "brokerId": "string",
+      "broker_id": "string",
       "id": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -55,13 +55,13 @@ A broker password.
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 ID of the broker that the password belongs to. ||
 || id | **string**
 
 ID of the password. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

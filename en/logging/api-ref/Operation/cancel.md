@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Operation/cancel.md
 ---
 
-# Cloud Logging Service, REST: Operation.Cancel {#Cancel}
+# Cloud Logging Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

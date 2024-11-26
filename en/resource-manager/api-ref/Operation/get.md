@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Operation/get.md
 ---
 
-# Resource Manager API, REST: Operation.Get {#Get}
+# Resource Manager API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

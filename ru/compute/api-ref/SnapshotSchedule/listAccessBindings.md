@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listAccessBindings.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.ListAccessBindings {#ListAccessBindings}
+# Compute Cloud API, REST: SnapshotSchedule.ListAccessBindings
 
 Lists access bindings for the snapshot schedule.
 

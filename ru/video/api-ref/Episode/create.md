@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/create.md
 ---
 
-# Video API, REST: Episode.Create {#Create}
+# Video API, REST: Episode.Create
 
 Create episode.
 
@@ -27,9 +27,10 @@ POST https://video.{{ api-host }}/video/v1/episodes
   "startTime": "string",
   "finishTime": "string",
   "dvrSeconds": "string",
-  // Includes only one of the fields `publicAccess`, `authSystemAccess`
+  // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
   "publicAccess": "object",
-  "authSystemAccess": "object"
+  "authSystemAccess": "object",
+  "signUrlAccess": "object"
   // end of the list of possible fields
 }
 ```
@@ -48,7 +49,7 @@ ID of the line.
 Includes only one of the fields `streamId`, `lineId`. ||
 || title | **string**
 
-Episode title. ||
+Required field. Episode title. ||
 || description | **string**
 
 Episode description. ||
@@ -86,14 +87,21 @@ possible values:
 
 Episode is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Episode access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 |#
@@ -132,9 +140,10 @@ Episode access rights. ||
     "finishTime": "string",
     "dvrSeconds": "string",
     "visibilityStatus": "string",
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
+    // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
     "publicAccess": "object",
     "authSystemAccess": "object",
+    "signUrlAccess": "object",
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string"
@@ -296,14 +305,21 @@ possible values:
 
 Episode is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Episode access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Episode access rights. ||
 || createdAt | **string** (date-time)

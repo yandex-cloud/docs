@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/delete.md
 ---
 
-# Workflows Service, REST: Workflow.Delete {#Delete}
+# Workflows Service, REST: Workflow.Delete
 
 Deletes specified Workflow.
 

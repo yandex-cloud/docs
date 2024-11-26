@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/get.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.Get {#Get}
+# Cloud CDN API, REST: OriginGroup.Get
 
 Gets origin group with specified origin group id.
 

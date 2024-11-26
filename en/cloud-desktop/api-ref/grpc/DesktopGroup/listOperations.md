@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopGroup/listOperations.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopGroupService.ListOperations {#ListOperations}
+# Cloud Desktop API, gRPC: DesktopGroupService.ListOperations
 
 Returns list of the operations for the specified desktop group.
 
@@ -15,29 +15,29 @@ Returns list of the operations for the specified desktop group.
 
 ```json
 {
-  "desktopGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "desktop_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopGroupId | **string**
+|| desktop_group_id | **string**
 
 Required field. ID of the desktop group. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
+results is larger than `page_size`,
+the service returns a [ListDesktopGroupOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopGroupOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListDesktopGroupOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
@@ -52,9 +52,9 @@ The default sorting order is ascending. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -63,7 +63,7 @@ The default sorting order is ascending. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -72,14 +72,14 @@ The default sorting order is ascending. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified desktop group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListDesktopGroupOperationsRequest.pageSize](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsRequest), use
-the `nextPageToken` as the value
-for the [ListDesktopGroupOperationsRequest.pageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsRequest) query parameter
+is larger than [ListDesktopGroupOperationsRequest.page_size](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsRequest), use
+the `next_page_token` as the value
+for the [ListDesktopGroupOperationsRequest.page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -94,13 +94,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

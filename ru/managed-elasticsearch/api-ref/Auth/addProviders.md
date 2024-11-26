@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/addProviders.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Auth.AddProviders {#AddProviders}
+# Managed Service for Elasticsearch API, REST: Auth.AddProviders
 
 Adds new auth providers to Elasticsearch cluster.
 

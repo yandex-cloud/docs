@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/create.md
 ---
 
-# Runs, REST: Run.Create {#Create}
+# Runs, REST: Run.Create
 
 Create a new run for a given assistant and thread.
 

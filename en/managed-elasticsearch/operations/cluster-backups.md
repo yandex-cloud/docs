@@ -255,7 +255,7 @@ When creating a new cluster, set all required parameters.
 
 
             * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify if two or more subnets are created in the selected availability zone.
-            * `assign-public-ip`: Flag to set if [public access](../concepts/network.md#public-access-to-a-host) to the host is required. It can be either `true` or `false`.
+            * `assign-public-ip`: Flag indicating that the host requires [public access](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
 
             * `type`: [Host role](../concepts/hosts-roles.md): `datanode` or `masternode`.

@@ -35,12 +35,25 @@ For your internet service to run, you need two static public IP addresses: one t
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-    1. Enter the VM name: `web-node-a`.
-    1. Select the `{{ region-id }}-a` availability zone.
+    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Drupal](https://yandex.cloud/en/marketplace/products/f2e90bncf96u25a9cirp) image.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `subnet-a`. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
-    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
+    1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+        * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `subnet-a`.
+        * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the information required to access the VM:
+
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+
+            {% note alert %}
+
+            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+
+            {% endnote %}
+
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name: `web-node-a`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
     1. Do the same for the `web-node-b` and `web-node-d` VMs. Create the VMs in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones and connect them to `subnet-b` and `subnet-d`, respectively.
 
@@ -54,14 +67,27 @@ To provide secure access to your resources, create an IPSec instance.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-    1. Enter the VM name: `vpc`.
-    1. Select the `{{ region-id }}-a` availability zone.
+    1. In the [management console]({{ link-console-main }}), open your folder and click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**. Select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [IPSec instance](https://yandex.cloud/en/marketplace/products/f2e70ohdvsd0jgp2302j) image.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `subnet-a`. Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, select a reserved IP address from the list.
-    1. In the **{{ ui-key.yacloud.compute.instances.create.section_access }}** field, enter the login and SSH key to access the VM.
+    1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+        * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-a`.
+        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the reserved IP address from the list.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the information required to access the VM:
+
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+
+            {% note alert %}
+
+            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+
+            {% endnote %}
+
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name: `vpc`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    
+
 {% endlist %}
 
 ## Configure VPN routing {#vpn-routing}
@@ -112,7 +138,7 @@ To distribute traffic between network segments, create security groups and set u
 
 ### Create a security group for a VPN {#create-vpn-sg}
 
-For a VPN to work properly, enable receiving and transmitting traffic to UDP ports `500` and `4500` from an external network. This is required for using the IPSec tunnel. You also need to allow traffic between the subnets of your virtual network and the network on the remote site.
+For a VPN to work properly, enable receiving and transmitting traffic to UDP ports `500` and `4500` from an external network. This is required for using the IPSec tunnel. You also need to allow traffic between the subnets of your virtual network and the network at the remote site.
 
 {% list tabs group=instructions %}
 
@@ -121,7 +147,7 @@ For a VPN to work properly, enable receiving and transmitting traffic to UDP por
     1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to create a security group.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-    1. Enter the security group name: `vpn-sg`.
+    1. Enter a name for the security group: `vpn-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.
     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules: 
        1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab.
@@ -236,7 +262,7 @@ Test the infrastructure and make sure that traffic to the internet service VMs o
 1. On your computer, run `curl <Network_load_balancer_public_IP_address>` once again. Make sure the Drupal homepage HTML code is returned in response.
 1. Delete the test security group.
 
-##  Delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
 To stop paying for the deployed resources, delete the [VMs](../../compute/operations/vm-control/vm-delete.md) and the [load balancer](../../network-load-balancer/operations/load-balancer-delete.md) you created: 
 * `vpn`

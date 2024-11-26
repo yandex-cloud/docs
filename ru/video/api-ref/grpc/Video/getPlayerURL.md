@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/getPlayerURL.md
 ---
 
-# Video API, gRPC: VideoService.GetPlayerURL {#GetPlayerURL}
+# Video API, gRPC: VideoService.GetPlayerURL
 
 Returns url to the player.
 
@@ -15,7 +15,7 @@ Returns url to the player.
 
 ```json
 {
-  "videoId": "string",
+  "video_id": "string",
   "params": {
     "mute": "bool",
     "autoplay": "bool",
@@ -26,9 +26,9 @@ Returns url to the player.
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
-ID of the video. ||
+Required field. ID of the video. ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)** ||
 |#
 
@@ -51,14 +51,14 @@ If true, a player interface will be hidden by default. ||
 
 ```json
 {
-  "playerUrl": "string",
+  "player_url": "string",
   "html": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| playerUrl | **string**
+|| player_url | **string**
 
 Direct link to the video. ||
 || html | **string**

@@ -1,4 +1,0 @@
-* `configSpec.cloudStorage.dataCacheEnabled`: Allows you to cache files in cluster storage. This setting is enabled by default (set to `true`).
-* `configSpec.cloudStorage.dataCacheMaxSize`: Sets the maximum cache size (in bytes) allocated in cluster storage for files. The default value is `1073741824` (1 GB).
-* `configSpec.cloudStorage.moveFactor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum one is `1`, and the default one is `0.01`.
-* `configSpec.cloudStorage.preferNotToMerge`: Disables [data part merges]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storage. To disable merges, set it to `true`. To keep merges enabled, set the parameter to `false` or do not provide it in your API request when creating a cluster.

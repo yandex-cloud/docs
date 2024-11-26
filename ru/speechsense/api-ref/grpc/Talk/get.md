@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/get.md
 ---
 
-# Talk Analytics API, gRPC: TalkService.Get {#Get}
+# Talk Analytics API, gRPC: TalkService.Get
 
 rpc for bulk get
 
@@ -15,36 +15,36 @@ rpc for bulk get
 
 ```json
 {
-  "organizationId": "string",
-  "spaceId": "string",
-  "connectionId": "string",
-  "projectId": "string",
-  "talkIds": [
+  "organization_id": "string",
+  "space_id": "string",
+  "connection_id": "string",
+  "project_id": "string",
+  "talk_ids": [
     "string"
   ],
-  "resultsMask": "google.protobuf.FieldMask"
+  "results_mask": "google.protobuf.FieldMask"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 id of organization ||
-|| spaceId | **string**
+|| space_id | **string**
 
 id of space ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 id of connection to search data ||
-|| projectId | **string**
+|| project_id | **string**
 
 id of project to search data ||
-|| talkIds[] | **string**
+|| talk_ids[] | **string**
 
 ids of talks to return. Requesting too many talks may result in "message exceeds maximum size" error.
 Up to 100 of talks per request is recommended. ||
-|| resultsMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| results_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 All types of analysis will be returned if not set. ||
 |#
@@ -56,17 +56,17 @@ All types of analysis will be returned if not set. ||
   "talk": [
     {
       "id": "string",
-      "organizationId": "string",
-      "spaceId": "string",
-      "connectionId": "string",
-      "projectIds": [
+      "organization_id": "string",
+      "space_id": "string",
+      "connection_id": "string",
+      "project_ids": [
         "string"
       ],
-      "createdBy": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "modifiedBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
-      "talkFields": [
+      "created_by": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "modified_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
+      "talk_fields": [
         {
           "name": "string",
           "value": "string",
@@ -76,36 +76,36 @@ All types of analysis will be returned if not set. ||
       "transcription": {
         "phrases": [
           {
-            "channelNumber": "int64",
-            "startTimeMs": "int64",
-            "endTimeMs": "int64",
+            "channel_number": "int64",
+            "start_time_ms": "int64",
+            "end_time_ms": "int64",
             "phrase": {
               "text": "string",
               "language": "string",
-              "normalizedText": "string",
+              "normalized_text": "string",
               "words": [
                 {
                   "word": "string",
-                  "startTimeMs": "int64",
-                  "endTimeMs": "int64"
+                  "start_time_ms": "int64",
+                  "end_time_ms": "int64"
                 }
               ]
             },
             "statistics": {
               "statistics": {
-                "speakerTag": "string",
-                "speechBoundaries": {
-                  "startTimeMs": "int64",
-                  "endTimeMs": "int64",
-                  "durationSeconds": "int64"
+                "speaker_tag": "string",
+                "speech_boundaries": {
+                  "start_time_ms": "int64",
+                  "end_time_ms": "int64",
+                  "duration_seconds": "int64"
                 },
-                "totalSpeechMs": "int64",
-                "speechRatio": "double",
-                "totalSilenceMs": "int64",
-                "silenceRatio": "double",
-                "wordsCount": "int64",
-                "lettersCount": "int64",
-                "wordsPerSecond": {
+                "total_speech_ms": "int64",
+                "speech_ratio": "double",
+                "total_silence_ms": "int64",
+                "silence_ratio": "double",
+                "words_count": "int64",
+                "letters_count": "int64",
+                "words_per_second": {
                   "min": "double",
                   "max": "double",
                   "mean": "double",
@@ -117,7 +117,7 @@ All types of analysis will be returned if not set. ||
                     }
                   ]
                 },
-                "lettersPerSecond": {
+                "letters_per_second": {
                   "min": "double",
                   "max": "double",
                   "mean": "double",
@@ -133,8 +133,8 @@ All types of analysis will be returned if not set. ||
             },
             "classifiers": [
               {
-                "startTimeMs": "int64",
-                "endTimeMs": "int64",
+                "start_time_ms": "int64",
+                "end_time_ms": "int64",
                 "classifier": "string",
                 "highlights": [
                   {
@@ -153,24 +153,24 @@ All types of analysis will be returned if not set. ||
             ]
           }
         ],
-        "algorithmsMetadata": [
+        "algorithms_metadata": [
           {
-            "createdTaskDate": "google.protobuf.Timestamp",
-            "completedTaskDate": "google.protobuf.Timestamp",
+            "created_task_date": "google.protobuf.Timestamp",
+            "completed_task_date": "google.protobuf.Timestamp",
             "error": {
               "code": "string",
               "message": "string"
             },
-            "traceId": "string",
+            "trace_id": "string",
             "name": "string"
           }
         ]
       },
-      "speechStatistics": {
-        "totalSimultaneousSpeechDurationSeconds": "int64",
-        "totalSimultaneousSpeechDurationMs": "int64",
-        "totalSimultaneousSpeechRatio": "double",
-        "simultaneousSpeechDurationEstimation": {
+      "speech_statistics": {
+        "total_simultaneous_speech_duration_seconds": "int64",
+        "total_simultaneous_speech_duration_ms": "int64",
+        "total_simultaneous_speech_ratio": "double",
+        "simultaneous_speech_duration_estimation": {
           "min": "double",
           "max": "double",
           "mean": "double",
@@ -183,10 +183,10 @@ All types of analysis will be returned if not set. ||
           ]
         }
       },
-      "silenceStatistics": {
-        "totalSimultaneousSilenceDurationMs": "int64",
-        "totalSimultaneousSilenceRatio": "double",
-        "simultaneousSilenceDurationEstimation": {
+      "silence_statistics": {
+        "total_simultaneous_silence_duration_ms": "int64",
+        "total_simultaneous_silence_ratio": "double",
+        "simultaneous_silence_duration_estimation": {
           "min": "double",
           "max": "double",
           "mean": "double",
@@ -198,48 +198,48 @@ All types of analysis will be returned if not set. ||
             }
           ]
         },
-        "totalSimultaneousSilenceDurationSeconds": "int64"
+        "total_simultaneous_silence_duration_seconds": "int64"
       },
-      "interruptsStatistics": {
-        "speakerInterrupts": [
+      "interrupts_statistics": {
+        "speaker_interrupts": [
           {
-            "speakerTag": "string",
-            "interruptsCount": "int64",
-            "interruptsDurationMs": "int64",
+            "speaker_tag": "string",
+            "interrupts_count": "int64",
+            "interrupts_duration_ms": "int64",
             "interrupts": [
               {
-                "startTimeMs": "int64",
-                "endTimeMs": "int64",
-                "durationSeconds": "int64"
+                "start_time_ms": "int64",
+                "end_time_ms": "int64",
+                "duration_seconds": "int64"
               }
             ],
-            "interruptsDurationSeconds": "int64"
+            "interrupts_duration_seconds": "int64"
           }
         ]
       },
-      "conversationStatistics": {
-        "conversationBoundaries": {
-          "startTimeMs": "int64",
-          "endTimeMs": "int64",
-          "durationSeconds": "int64"
+      "conversation_statistics": {
+        "conversation_boundaries": {
+          "start_time_ms": "int64",
+          "end_time_ms": "int64",
+          "duration_seconds": "int64"
         },
-        "speakerStatistics": [
+        "speaker_statistics": [
           {
-            "speakerTag": "string",
-            "completeStatistics": {
-              "speakerTag": "string",
-              "speechBoundaries": {
-                "startTimeMs": "int64",
-                "endTimeMs": "int64",
-                "durationSeconds": "int64"
+            "speaker_tag": "string",
+            "complete_statistics": {
+              "speaker_tag": "string",
+              "speech_boundaries": {
+                "start_time_ms": "int64",
+                "end_time_ms": "int64",
+                "duration_seconds": "int64"
               },
-              "totalSpeechMs": "int64",
-              "speechRatio": "double",
-              "totalSilenceMs": "int64",
-              "silenceRatio": "double",
-              "wordsCount": "int64",
-              "lettersCount": "int64",
-              "wordsPerSecond": {
+              "total_speech_ms": "int64",
+              "speech_ratio": "double",
+              "total_silence_ms": "int64",
+              "silence_ratio": "double",
+              "words_count": "int64",
+              "letters_count": "int64",
+              "words_per_second": {
                 "min": "double",
                 "max": "double",
                 "mean": "double",
@@ -251,7 +251,7 @@ All types of analysis will be returned if not set. ||
                   }
                 ]
               },
-              "lettersPerSecond": {
+              "letters_per_second": {
                 "min": "double",
                 "max": "double",
                 "mean": "double",
@@ -264,7 +264,7 @@ All types of analysis will be returned if not set. ||
                 ]
               }
             },
-            "wordsPerUtterance": {
+            "words_per_utterance": {
               "min": "double",
               "max": "double",
               "mean": "double",
@@ -276,7 +276,7 @@ All types of analysis will be returned if not set. ||
                 }
               ]
             },
-            "lettersPerUtterance": {
+            "letters_per_utterance": {
               "min": "double",
               "max": "double",
               "mean": "double",
@@ -288,8 +288,8 @@ All types of analysis will be returned if not set. ||
                 }
               ]
             },
-            "utteranceCount": "int64",
-            "utteranceDurationEstimation": {
+            "utterance_count": "int64",
+            "utterance_duration_estimation": {
               "min": "double",
               "max": "double",
               "mean": "double",
@@ -313,17 +313,17 @@ All types of analysis will be returned if not set. ||
           }
         ]
       },
-      "textClassifiers": {
-        "classificationResult": [
+      "text_classifiers": {
+        "classification_result": [
           {
             "classifier": "string",
-            "classifierStatistics": [
+            "classifier_statistics": [
               {
-                "channelNumber": "google.protobuf.Int64Value",
-                "totalCount": "int64",
+                "channel_number": "google.protobuf.Int64Value",
+                "total_count": "int64",
                 "histograms": [
                   {
-                    "countValues": [
+                    "count_values": [
                       "int64"
                     ]
                   }
@@ -346,6 +346,15 @@ All types of analysis will be returned if not set. ||
             ]
           }
         ]
+      },
+      "talk_state": {
+        "processing_state": "ProcessingState",
+        "algorithm_processing_infos": [
+          {
+            "algorithm": "Algorithm",
+            "processing_state": "ProcessingState"
+          }
+        ]
       }
     }
   ]
@@ -364,29 +373,30 @@ All types of analysis will be returned if not set. ||
 || id | **string**
 
 talk id ||
-|| organizationId | **string** ||
-|| spaceId | **string** ||
-|| connectionId | **string** ||
-|| projectIds[] | **string** ||
-|| createdBy | **string**
+|| organization_id | **string** ||
+|| space_id | **string** ||
+|| connection_id | **string** ||
+|| project_ids[] | **string** ||
+|| created_by | **string**
 
 audition info ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| modifiedBy | **string** ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| talkFields[] | **[Field](#yandex.cloud.speechsense.v1.Field)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| modified_by | **string** ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| talk_fields[] | **[Field](#yandex.cloud.speechsense.v1.Field)**
 
 key-value representation of talk fields with values ||
 || transcription | **[Transcription](#yandex.cloud.speechsense.v1.analysis.Transcription)**
 
 various ml analysis results ||
-|| speechStatistics | **[SpeechStatistics](#yandex.cloud.speechsense.v1.analysis.SpeechStatistics)** ||
-|| silenceStatistics | **[SilenceStatistics](#yandex.cloud.speechsense.v1.analysis.SilenceStatistics)** ||
-|| interruptsStatistics | **[InterruptsStatistics](#yandex.cloud.speechsense.v1.analysis.InterruptsStatistics)** ||
-|| conversationStatistics | **[ConversationStatistics](#yandex.cloud.speechsense.v1.analysis.ConversationStatistics)** ||
+|| speech_statistics | **[SpeechStatistics](#yandex.cloud.speechsense.v1.analysis.SpeechStatistics)** ||
+|| silence_statistics | **[SilenceStatistics](#yandex.cloud.speechsense.v1.analysis.SilenceStatistics)** ||
+|| interrupts_statistics | **[InterruptsStatistics](#yandex.cloud.speechsense.v1.analysis.InterruptsStatistics)** ||
+|| conversation_statistics | **[ConversationStatistics](#yandex.cloud.speechsense.v1.analysis.ConversationStatistics)** ||
 || points | **[Points](#yandex.cloud.speechsense.v1.analysis.Points)** ||
-|| textClassifiers | **[TextClassifiers](#yandex.cloud.speechsense.v1.analysis.TextClassifiers)** ||
+|| text_classifiers | **[TextClassifiers](#yandex.cloud.speechsense.v1.analysis.TextClassifiers)** ||
 || summarization | **[Summarization](#yandex.cloud.speechsense.v1.analysis.Summarization)** ||
+|| talk_state | **[TalkState](#yandex.cloud.speechsense.v1.TalkState)** ||
 |#
 
 ## Field {#yandex.cloud.speechsense.v1.Field}
@@ -419,7 +429,7 @@ field type
 #|
 ||Field | Description ||
 || phrases[] | **[Phrase](#yandex.cloud.speechsense.v1.analysis.Phrase)** ||
-|| algorithmsMetadata[] | **[AlgorithmMetadata](#yandex.cloud.speechsense.v1.analysis.AlgorithmMetadata)**
+|| algorithms_metadata[] | **[AlgorithmMetadata](#yandex.cloud.speechsense.v1.analysis.AlgorithmMetadata)**
 
 Their might be several algorithms that work on talk transcription. For example: speechkit and translator
 So there might be other fields here for tracing ||
@@ -429,9 +439,9 @@ So there might be other fields here for tracing ||
 
 #|
 ||Field | Description ||
-|| channelNumber | **int64** ||
-|| startTimeMs | **int64** ||
-|| endTimeMs | **int64** ||
+|| channel_number | **int64** ||
+|| start_time_ms | **int64** ||
+|| end_time_ms | **int64** ||
 || phrase | **[PhraseText](#yandex.cloud.speechsense.v1.analysis.PhraseText)** ||
 || statistics | **[PhraseStatistics](#yandex.cloud.speechsense.v1.analysis.PhraseStatistics)** ||
 || classifiers[] | **[RecognitionClassifierResult](#yandex.cloud.speechsense.v1.analysis.RecognitionClassifierResult)** ||
@@ -443,7 +453,7 @@ So there might be other fields here for tracing ||
 ||Field | Description ||
 || text | **string** ||
 || language | **string** ||
-|| normalizedText | **string** ||
+|| normalized_text | **string** ||
 || words[] | **[Word](#yandex.cloud.speechsense.v1.analysis.Word)** ||
 |#
 
@@ -452,8 +462,8 @@ So there might be other fields here for tracing ||
 #|
 ||Field | Description ||
 || word | **string** ||
-|| startTimeMs | **int64** ||
-|| endTimeMs | **int64** ||
+|| start_time_ms | **int64** ||
+|| end_time_ms | **int64** ||
 |#
 
 ## PhraseStatistics {#yandex.cloud.speechsense.v1.analysis.PhraseStatistics}
@@ -467,32 +477,32 @@ So there might be other fields here for tracing ||
 
 #|
 ||Field | Description ||
-|| speakerTag | **string** ||
-|| speechBoundaries | **[AudioSegmentBoundaries](#yandex.cloud.speechsense.v1.analysis.AudioSegmentBoundaries)**
+|| speaker_tag | **string** ||
+|| speech_boundaries | **[AudioSegmentBoundaries](#yandex.cloud.speechsense.v1.analysis.AudioSegmentBoundaries)**
 
 Audio segment boundaries ||
-|| totalSpeechMs | **int64**
+|| total_speech_ms | **int64**
 
 Total speech duration ||
-|| speechRatio | **double**
+|| speech_ratio | **double**
 
 Speech ratio within audio segment ||
-|| totalSilenceMs | **int64**
+|| total_silence_ms | **int64**
 
 Total silence duration ||
-|| silenceRatio | **double**
+|| silence_ratio | **double**
 
 Silence ratio within audio segment ||
-|| wordsCount | **int64**
+|| words_count | **int64**
 
 Number of words in recognized speech ||
-|| lettersCount | **int64**
+|| letters_count | **int64**
 
 Number of letters in recognized speech ||
-|| wordsPerSecond | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| words_per_second | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for words per second distribution ||
-|| lettersPerSecond | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| letters_per_second | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for letters per second distribution ||
 |#
@@ -501,13 +511,13 @@ Descriptive statistics for letters per second distribution ||
 
 #|
 ||Field | Description ||
-|| startTimeMs | **int64**
+|| start_time_ms | **int64**
 
 Audio segment start time ||
-|| endTimeMs | **int64**
+|| end_time_ms | **int64**
 
 Audio segment end time ||
-|| durationSeconds | **int64**
+|| duration_seconds | **int64**
 
 Duration in seconds ||
 |#
@@ -549,10 +559,10 @@ Quantile value ||
 
 #|
 ||Field | Description ||
-|| startTimeMs | **int64**
+|| start_time_ms | **int64**
 
 Start time of the audio segment used for classification ||
-|| endTimeMs | **int64**
+|| end_time_ms | **int64**
 
 End time of the audio segment used for classification ||
 || classifier | **string**
@@ -597,10 +607,10 @@ The prediction confidence ||
 
 #|
 ||Field | Description ||
-|| createdTaskDate | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| completedTaskDate | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_task_date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| completed_task_date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || error | **[Error](#yandex.cloud.speechsense.v1.analysis.Error)** ||
-|| traceId | **string** ||
+|| trace_id | **string** ||
 || name | **string** ||
 |#
 
@@ -616,16 +626,16 @@ The prediction confidence ||
 
 #|
 ||Field | Description ||
-|| totalSimultaneousSpeechDurationSeconds | **int64**
+|| total_simultaneous_speech_duration_seconds | **int64**
 
 Total simultaneous speech duration in seconds ||
-|| totalSimultaneousSpeechDurationMs | **int64**
+|| total_simultaneous_speech_duration_ms | **int64**
 
 Total simultaneous speech duration in ms ||
-|| totalSimultaneousSpeechRatio | **double**
+|| total_simultaneous_speech_ratio | **double**
 
 Simultaneous speech ratio within audio segment ||
-|| simultaneousSpeechDurationEstimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| simultaneous_speech_duration_estimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for simultaneous speech duration distribution ||
 |#
@@ -634,21 +644,21 @@ Descriptive statistics for simultaneous speech duration distribution ||
 
 #|
 ||Field | Description ||
-|| totalSimultaneousSilenceDurationMs | **int64** ||
-|| totalSimultaneousSilenceRatio | **double**
+|| total_simultaneous_silence_duration_ms | **int64** ||
+|| total_simultaneous_silence_ratio | **double**
 
 Simultaneous silence ratio within audio segment ||
-|| simultaneousSilenceDurationEstimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| simultaneous_silence_duration_estimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for simultaneous silence duration distribution ||
-|| totalSimultaneousSilenceDurationSeconds | **int64** ||
+|| total_simultaneous_silence_duration_seconds | **int64** ||
 |#
 
 ## InterruptsStatistics {#yandex.cloud.speechsense.v1.analysis.InterruptsStatistics}
 
 #|
 ||Field | Description ||
-|| speakerInterrupts[] | **[InterruptsEvaluation](#yandex.cloud.speechsense.v1.analysis.InterruptsEvaluation)**
+|| speaker_interrupts[] | **[InterruptsEvaluation](#yandex.cloud.speechsense.v1.analysis.InterruptsEvaluation)**
 
 Interrupts description for every speaker ||
 |#
@@ -657,19 +667,19 @@ Interrupts description for every speaker ||
 
 #|
 ||Field | Description ||
-|| speakerTag | **string**
+|| speaker_tag | **string**
 
 Speaker tag ||
-|| interruptsCount | **int64**
+|| interrupts_count | **int64**
 
 Number of interrupts made by the speaker ||
-|| interruptsDurationMs | **int64**
+|| interrupts_duration_ms | **int64**
 
 Total duration of all interrupts ||
 || interrupts[] | **[AudioSegmentBoundaries](#yandex.cloud.speechsense.v1.analysis.AudioSegmentBoundaries)**
 
 Boundaries for every interrupt ||
-|| interruptsDurationSeconds | **int64**
+|| interrupts_duration_seconds | **int64**
 
 Total duration of all interrupts in seconds ||
 |#
@@ -678,10 +688,10 @@ Total duration of all interrupts in seconds ||
 
 #|
 ||Field | Description ||
-|| conversationBoundaries | **[AudioSegmentBoundaries](#yandex.cloud.speechsense.v1.analysis.AudioSegmentBoundaries)**
+|| conversation_boundaries | **[AudioSegmentBoundaries](#yandex.cloud.speechsense.v1.analysis.AudioSegmentBoundaries)**
 
 Audio segment boundaries ||
-|| speakerStatistics[] | **[SpeakerStatistics](#yandex.cloud.speechsense.v1.analysis.SpeakerStatistics)**
+|| speaker_statistics[] | **[SpeakerStatistics](#yandex.cloud.speechsense.v1.analysis.SpeakerStatistics)**
 
 Average statistics for each speaker ||
 |#
@@ -690,22 +700,22 @@ Average statistics for each speaker ||
 
 #|
 ||Field | Description ||
-|| speakerTag | **string**
+|| speaker_tag | **string**
 
 Speaker tag ||
-|| completeStatistics | **[UtteranceStatistics](#yandex.cloud.speechsense.v1.analysis.UtteranceStatistics)**
+|| complete_statistics | **[UtteranceStatistics](#yandex.cloud.speechsense.v1.analysis.UtteranceStatistics)**
 
 analysis of all phrases in format of single utterance ||
-|| wordsPerUtterance | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| words_per_utterance | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for words per utterance distribution ||
-|| lettersPerUtterance | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| letters_per_utterance | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for letters per utterance distribution ||
-|| utteranceCount | **int64**
+|| utterance_count | **int64**
 
 Number of utterances ||
-|| utteranceDurationEstimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
+|| utterance_duration_estimation | **[DescriptiveStatistics](#yandex.cloud.speechsense.v1.analysis.DescriptiveStatistics)**
 
 Descriptive statistics for utterance duration distribution ||
 |#
@@ -730,7 +740,7 @@ Descriptive statistics for utterance duration distribution ||
 
 #|
 ||Field | Description ||
-|| classificationResult[] | **[ClassificationResult](#yandex.cloud.speechsense.v1.analysis.ClassificationResult)** ||
+|| classification_result[] | **[ClassificationResult](#yandex.cloud.speechsense.v1.analysis.ClassificationResult)** ||
 |#
 
 ## ClassificationResult {#yandex.cloud.speechsense.v1.analysis.ClassificationResult}
@@ -740,7 +750,7 @@ Descriptive statistics for utterance duration distribution ||
 || classifier | **string**
 
 Classifier name ||
-|| classifierStatistics[] | **[ClassifierStatistics](#yandex.cloud.speechsense.v1.analysis.ClassifierStatistics)**
+|| classifier_statistics[] | **[ClassifierStatistics](#yandex.cloud.speechsense.v1.analysis.ClassifierStatistics)**
 
 Classifier statistics ||
 |#
@@ -749,10 +759,10 @@ Classifier statistics ||
 
 #|
 ||Field | Description ||
-|| channelNumber | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| channel_number | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Channel number, null for whole talk ||
-|| totalCount | **int64**
+|| total_count | **int64**
 
 classifier total count ||
 || histograms[] | **[Histogram](#yandex.cloud.speechsense.v1.analysis.Histogram)**
@@ -764,7 +774,7 @@ Represents various histograms build on top of classifiers ||
 
 #|
 ||Field | Description ||
-|| countValues[] | **int64**
+|| count_values[] | **int64**
 
 histogram count values. For example:
 if len(count_values) = 2, it means that histogram is 50/50,
@@ -797,4 +807,40 @@ if len(count_values) = 3 - [0] value represents first third, [1] - second third,
 - `SUMMARIZATION_FIELD_TYPE_UNSPECIFIED`
 - `TEXT`
 - `TEXT_ARRAY` ||
+|#
+
+## TalkState {#yandex.cloud.speechsense.v1.TalkState}
+
+#|
+||Field | Description ||
+|| processing_state | enum **ProcessingState**
+
+- `PROCESSING_STATE_UNSPECIFIED`
+- `PROCESSING_STATE_NOT_STARTED`
+- `PROCESSING_STATE_PROCESSING`
+- `PROCESSING_STATE_SUCCESS`
+- `PROCESSING_STATE_FAILED` ||
+|| algorithm_processing_infos[] | **[AlgorithmProcessingInfo](#yandex.cloud.speechsense.v1.AlgorithmProcessingInfo)** ||
+|#
+
+## AlgorithmProcessingInfo {#yandex.cloud.speechsense.v1.AlgorithmProcessingInfo}
+
+#|
+||Field | Description ||
+|| algorithm | enum **Algorithm**
+
+- `ALGORITHM_UNSPECIFIED`
+- `ALGORITHM_SPEECHKIT`
+- `ALGORITHM_YGPT`
+- `ALGORITHM_CLASSIFIER`
+- `ALGORITHM_SUMMARIZATION`
+- `ALGORITHM_EMBEDDING`
+- `ALGORITHM_STATISTICS` ||
+|| processing_state | enum **ProcessingState**
+
+- `PROCESSING_STATE_UNSPECIFIED`
+- `PROCESSING_STATE_NOT_STARTED`
+- `PROCESSING_STATE_PROCESSING`
+- `PROCESSING_STATE_SUCCESS`
+- `PROCESSING_STATE_FAILED` ||
 |#

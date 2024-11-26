@@ -17,3 +17,7 @@ Pools are infrastructurally separate data center modules physically hosting the 
 | Region        | Availability zone | Pools                               |
 |---------------|------------------|------------------------------------|
 | `{{ region-id }}` | `{{ region-id }}-m`  | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
+
+#### See also {#see-also}
+
+* [{#T}](../../backup/tutorials/backup-baremetal.md)

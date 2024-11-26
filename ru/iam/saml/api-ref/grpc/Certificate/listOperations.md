@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/saml/api-ref/grpc/Certificate/listOperations.md
 ---
 
-# Identity and Access Management SAML API, gRPC: CertificateService.ListOperations {#ListOperations}
+# Identity and Access Management SAML API, gRPC: CertificateService.ListOperations
 
 Lists operations for the specified certificate.
 
@@ -15,27 +15,27 @@ Lists operations for the specified certificate.
 
 ```json
 {
-  "certificateId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "certificate_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.saml.ListCertificateOperationsResponse)
+results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.next_page_token](#yandex.cloud.iam.v1.saml.ListCertificateOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.saml.ListCertificateOperationsResponse)
+Page token. To get the next page of results, set `page_token`
+to the [ListCertificateOperationsResponse.next_page_token](#yandex.cloud.iam.v1.saml.ListCertificateOperationsResponse)
 returned by a previous list request. ||
 |#
 
@@ -47,9 +47,9 @@ returned by a previous list request. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -58,7 +58,7 @@ returned by a previous list request. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,12 +67,12 @@ returned by a previous list request. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified certificate. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListCertificateOperationsRequest.pageSize](#yandex.cloud.iam.v1.saml.ListCertificateOperationsRequest), use the `nextPageToken` as the value
-for the [ListCertificateOperationsRequest.pageToken](#yandex.cloud.iam.v1.saml.ListCertificateOperationsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListCertificateOperationsRequest.page_size](#yandex.cloud.iam.v1.saml.ListCertificateOperationsRequest), use the `next_page_token` as the value
+for the [ListCertificateOperationsRequest.page_token](#yandex.cloud.iam.v1.saml.ListCertificateOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -87,13 +87,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

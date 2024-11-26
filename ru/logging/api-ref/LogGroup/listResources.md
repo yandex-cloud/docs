@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listResources.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.ListResources {#ListResources}
+# Cloud Logging Service, REST: LogGroup.ListResources
 
 Retrieves the resources (type and IDs) in the specified log group.
 

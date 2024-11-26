@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/list.md
 ---
 
-# Container Registry API, REST: Image.List {#List}
+# Container Registry API, REST: Image.List
 
 Retrieves the list of Image resources in the specified registry or repository.
 

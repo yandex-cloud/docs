@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for Redis API, REST: ResourcePreset.Get {#Get}
+# Managed Service for Redis API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
 

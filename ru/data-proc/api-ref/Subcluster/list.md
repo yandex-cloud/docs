@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/list.md
 ---
 
-# Data Proc API, REST: Subcluster.List {#List}
+# Data Proc API, REST: Subcluster.List
 
 Retrieves a list of subclusters in the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/files/v1/files/api-ref/grpc/File/delete.md
 ---
 
-# Files API, gRPC: FileService.Delete {#Delete}
+# Files API, gRPC: FileService.Delete
 
 Delete a file by its ID.
 
@@ -15,7 +15,7 @@ Delete a file by its ID.
 
 ```json
 {
-  "fileId": "string"
+  "file_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for deleting a file by ID.
 
 #|
 ||Field | Description ||
-|| fileId | **string**
+|| file_id | **string**
 
 Required field. ID of the file to delete. ||
 |#

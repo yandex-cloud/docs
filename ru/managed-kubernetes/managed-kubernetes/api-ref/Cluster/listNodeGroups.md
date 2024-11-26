@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/listNodeGroups.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.ListNodeGroups {#ListNodeGroups}
+# Managed Services for Kubernetes API, REST: Cluster.ListNodeGroups
 
 Lists nodegroup for the specified Kubernetes cluster.
 

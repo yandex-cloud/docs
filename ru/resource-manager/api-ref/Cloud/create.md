@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/create.md
 ---
 
-# Resource Manager API, REST: Cloud.Create {#Create}
+# Resource Manager API, REST: Cloud.Create
 
 Creates a cloud in the specified organization.
 

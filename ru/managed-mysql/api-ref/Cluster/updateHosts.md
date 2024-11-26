@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/updateHosts.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.UpdateHosts {#UpdateHosts}
+# Managed Service for MySQL API, REST: Cluster.UpdateHosts
 
 Updates the specified hosts.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/removeTargets.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.RemoveTargets {#RemoveTargets}
+# Network Load Balancer API, REST: TargetGroup.RemoveTargets
 
 Removes targets from the target group.
 

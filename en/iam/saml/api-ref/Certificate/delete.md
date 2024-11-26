@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/delete.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.Delete {#Delete}
+# Identity and Access Management SAML API, REST: Certificate.Delete
 
 Deletes the specified certificate.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/listIpPermission.md
 ---
 
-# Container Registry API, gRPC: RegistryService.ListIpPermission {#ListIpPermission}
+# Container Registry API, gRPC: RegistryService.ListIpPermission
 
 List ip permissions for the specified registry.
 
@@ -15,13 +15,13 @@ List ip permissions for the specified registry.
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the Registry to return ip permission list. ||
 |#

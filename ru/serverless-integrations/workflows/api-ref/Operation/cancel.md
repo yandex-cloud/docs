@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Operation/cancel.md
 ---
 
-# Workflows Service, REST: Operation.Cancel {#Cancel}
+# Workflows Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

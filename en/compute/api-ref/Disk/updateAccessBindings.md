@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/updateAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Disk.UpdateAccessBindings {#UpdateAccessBindings}
+# Compute Cloud API, REST: Disk.UpdateAccessBindings
 
 Updates access bindings for the disk.
 

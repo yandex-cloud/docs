@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/text_classification/text-classification/api-ref/grpc/TextClassification/fewShotClassify.md
 ---
 
-# Foundation Models Text Classification API, gRPC: TextClassificationService.FewShotClassify {#FewShotClassify}
+# Foundation Models Text Classification API, gRPC: TextClassificationService.FewShotClassify
 
 RPC method for binary and multi-class classification.
 
@@ -18,8 +18,8 @@ with optional examples.
 
 ```json
 {
-  "modelUri": "string",
-  "taskDescription": "string",
+  "model_uri": "string",
+  "task_description": "string",
   "labels": [
     "string"
   ],
@@ -38,10 +38,10 @@ For examples of usage, see [step-by-step guides](/docs/operations/classifier/rea
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [URI](/docs/foundation-models/concepts/classifier/models) of the classifier model. ||
-|| taskDescription | **string**
+|| task_description | **string**
 
 Text description of the classification task. ||
 || labels[] | **string**
@@ -81,7 +81,7 @@ Expected label for a given text. ||
       "confidence": "double"
     }
   ],
-  "modelVersion": "string"
+  "model_version": "string"
 }
 ```
 
@@ -93,7 +93,7 @@ Response containing classifier predictions.
 
 The classification results with the `confidence`` values
 for the probability of classifying the request text into each class. ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 The model version changes with each new releases. ||
 |#

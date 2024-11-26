@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/stats.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.Stats {#Stats}
+# Cloud Logging Service, REST: LogGroup.Stats
 
 Returns stats for the specified log group.
 

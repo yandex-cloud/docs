@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/get.md
 ---
 
-# Audit Trails API, REST: Trail.Get {#Get}
+# Audit Trails API, REST: Trail.Get
 
 Returns the specified trail.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/RegistryData/publish.md
 ---
 
-# IoT Core Service, gRPC: RegistryDataService.Publish {#Publish}
+# IoT Core Service, gRPC: RegistryDataService.Publish
 
 Publishes message on behalf of specified registry
 
@@ -15,7 +15,7 @@ Publishes message on behalf of specified registry
 
 ```json
 {
-  "registryId": "string",
+  "registry_id": "string",
   "topic": "string",
   "data": "bytes"
 }
@@ -23,7 +23,7 @@ Publishes message on behalf of specified registry
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of registry publishing message ||
 || topic | **string**

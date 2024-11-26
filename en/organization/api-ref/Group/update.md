@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/update.md
 ---
 
-# Cloud Organization API, REST: Group.Update {#Update}
+# Cloud Organization API, REST: Group.Update
 
 Updates the specified group.
 

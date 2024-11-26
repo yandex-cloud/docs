@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/listAccessBindings.md
 ---
 
-# Cloud Logging Service, REST: Sink.ListAccessBindings {#ListAccessBindings}
+# Cloud Logging Service, REST: Sink.ListAccessBindings
 
 Lists existing access bindings for the specified sink.
 

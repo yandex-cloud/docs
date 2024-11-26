@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listSecurityGroups.md
 ---
 
-# Virtual Private Cloud API, REST: Network.ListSecurityGroups {#ListSecurityGroups}
+# Virtual Private Cloud API, REST: Network.ListSecurityGroups
 
 Lists security groups from the specified network.
 

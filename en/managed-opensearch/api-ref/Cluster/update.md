@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Update {#Update}
+# Managed Service for OpenSearch API, REST: Cluster.Update
 
 Updates the specified OpenSearch cluster.
 

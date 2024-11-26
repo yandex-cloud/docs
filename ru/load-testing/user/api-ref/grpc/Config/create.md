@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Config/create.md
 ---
 
-# Load Testing API, gRPC: ConfigService.Create {#Create}
+# Load Testing API, gRPC: ConfigService.Create
 
 Creates a test config in the specified folder.
 
@@ -15,9 +15,9 @@ Creates a test config in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  // Includes only one of the fields `yamlString`
-  "yamlString": "string",
+  "folder_id": "string",
+  // Includes only one of the fields `yaml_string`
+  "yaml_string": "string",
   // end of the list of possible fields
   "name": "string"
 }
@@ -25,14 +25,14 @@ Creates a test config in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a config in. ||
-|| yamlString | **string**
+|| yaml_string | **string**
 
 Config content provided as a string in YAML format.
 
-Includes only one of the fields `yamlString`.
+Includes only one of the fields `yaml_string`.
 
 Config content. ||
 || name | **string**
@@ -46,22 +46,22 @@ Name of the config. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "configId": "string"
+    "config_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "yamlString": "string",
+    "folder_id": "string",
+    "yaml_string": "string",
     "name": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "createdBy": "string"
+    "created_at": "google.protobuf.Timestamp",
+    "created_by": "string"
   }
   // end of the list of possible fields
 }
@@ -77,13 +77,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -126,7 +126,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| configId | **string**
+|| config_id | **string**
 
 ID of the config that is being created. ||
 |#
@@ -140,19 +140,19 @@ Test config.
 || id | **string**
 
 ID of the test config. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the config belongs to. ||
-|| yamlString | **string**
+|| yaml_string | **string**
 
 Config content in YAML format. ||
 || name | **string**
 
 Name of the config. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 UA or SA that created the config. ||
 |#

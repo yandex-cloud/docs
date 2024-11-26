@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/RuleSetDescriptor/get.md
 ---
 
-# SmartWebSecurity WAF API, REST: RuleSetDescriptor.Get {#Get}
+# SmartWebSecurity WAF API, REST: RuleSetDescriptor.Get
 
 Returns the specified RuleSetDescriptor resource.
 

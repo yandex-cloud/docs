@@ -39,7 +39,7 @@ The cost for maintaining a {{ GL }} server includes:
 1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `gitlab`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, select a 20 GB [SSD](../../compute/concepts/disk.md#disks_types).
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select a 20 GB [SSD](../../compute/concepts/disk.md#disks_types).
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs and the amount of RAM.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/getRdpFile.md
 ---
 
-# Cloud Desktop API, REST: Desktop.GetRdpFile {#GetRdpFile}
+# Cloud Desktop API, REST: Desktop.GetRdpFile
 
 Returns a RDP file for the specified desktop.
 

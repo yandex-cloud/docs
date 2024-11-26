@@ -7,27 +7,40 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ## Current version {#latest-release}
 
+### Version 0.138.0 (06/11/24) {#version0.138.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* The `yc compute connect-to-serial-port` command now explicitly checks the instance metadata for the `serial-port-enable` and `enable-oslogin` flags.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* The `yc cic point-of-presence get` and `yc cic partner get` commands now only work with IDs without flags.
+* Fixed the output format of the `list` command for `trunk-connection`, `private-connection`, and `public-connection` in {{ interconnect-name }} and for `routing-instance` in Cloud Router: some fields were removed with display formats revised.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.137.0 (01/11/24) {#version0.137.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ interconnect-name }} {#interconnect}
 
-* Fixed the way the `get` commands run without parameters in {{ interconnect-name }} and Cloud Router.
-* Fixed the format of the `list` commands' output in {{ interconnect-name }} and Cloud Router: now a table is returned.
+* Fixed the `get` commands without parameters in {{ interconnect-name }} and Cloud Router.
+* Fixed the output format of the `list` commands in {{ interconnect-name }} and Cloud Router: now a table is returned.
 
 ##### {{ objstorage-name }} {#object-storage}
 
-* Added the `yc storage s3api get-object-retention` and `yc storage s3api put-object-retention` commands to read and change the temporary lock.
-* Added the `yc storage s3api get-object-legal-hold` and `yc storage s3api put-object-legal-hold` commands to read and change the indefinite lock (legal hold).
+* Added the `yc storage s3api get-object-retention` and `yc storage s3api put-object-retention` commands to read and modify object temporary lock (retention).
+* Added the `yc storage s3api get-object-legal-hold` and `yc storage s3api put-object-legal-hold` commands to read and change object indefinite lock (legal hold).
 
 ##### Managed database services {#managed-db}
 
 **{{ mpg-name }}**
 
-* Added the `17` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 17.
-
-## Previous releases {#previous-releases}
+* Added the `17` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. You can now create a version 17 {{ PG }} cluster.
 
 ### Version 0.136.0 (21/10/24) {#version0.136.0}
 
@@ -44,7 +57,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 ##### {{ er-name }} {#eventrouter}
 
 * Added parameter validation for the `yc serverless eventrouter` command.
-* Fixed an error when running `yc serverless eventrouter put-event`.
+* Fixed an error with the `yc serverless eventrouter put-event` command.
 
 ##### {{ objstorage-name }} {#object-storage}
 
@@ -67,7 +80,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 **{{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}**
 
-* Clarified the description of the `--disk-size` parameters; by default, disk size is specified in GB.
+* Clarified the description of the `--disk-size` parameters. By default, the disk size is specified in GB.
 
 ### Version 0.135.0 (07/10/24) {#version0.135.0}
 
@@ -131,9 +144,9 @@ description: This page provides a list of YC CLI releases and updates rolled out
 ##### {{ backup-name }} {#backup}
 
 * Added the following commands:
-  * `yc backup agent install`: Installing a backup agent and connecting a VM with OS Login to {{ backup-name }}.
-  * `yc backup agent reinstall`: Re-installing a backup agent for a VM with OS Login.
-  * `yc backup agent debug-info`: Getting backup agent installation logs for a VM with OS Login.
+  * `yc backup agent install`: Installing a backup agent and connecting a VM with {{ oslogin }} installed to {{ backup-name }}.
+  * `yc backup agent reinstall`: Re-installing a backup agent for a VM with {{ oslogin }} installed.
+  * `yc backup agent debug-info`: Getting backup agent installation logs for a VM with {{ oslogin }} installed.
   * `yc backup provider activate`: Activating the service and connecting to a backup provider.
 
 * When running commands, a {{ backup-name }} activation check is now performed on the folder.
@@ -217,7 +230,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 **{{ mgp-name }}**
 
 * To the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing you to access the cluster from {{ yq-full-name }}.
-* To the `yc managed-greenplum cluster [ create | update ]` commands, added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters allowing you to manage {{ mgp-name }} background processes.
+* To the `yc managed-greenplum cluster [ create | update ]` commands, added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters which can be used to manage the {{ mgp-name }} background processes.
 
 **{{ maf-name }}**
 
@@ -485,7 +498,7 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 
 ##### {{ org-name }} {#organization}
 
-* Added the `yc organization-manager oslogin profile` group of commands for managing OS Login user profiles.
+* Added the `yc organization-manager oslogin profile` group of commands for managing {{ oslogin }} user profiles.
 * Fixed the `--expires-at` flag for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, `5h` now supplies a value in the future.
 
 ### Version 0.124.0 (22/04/24) {#version0.124.0}
@@ -569,7 +582,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ org-name }} {#organization}
 
-* Added the `yc organization-manager oslogin` group of commands for managing OS Login settings and custom SSH keys.
+* Added the `yc organization-manager oslogin` group of commands for managing {{ oslogin }} settings and custom SSH keys.
 
 ##### {{ container-registry-name }} {#container-registry}
 
@@ -596,7 +609,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ compute-name }}
 
-* The `yc compute connect-to-serial-port` command supports authorization through OS Login.
+* The `yc compute connect-to-serial-port` command supports authorization through {{ oslogin }}.
 
 ##### {{ at-name }}
 
@@ -832,7 +845,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 ##### {{ compute-name }} {#compute}
 
 * Added support for the `--network-interface` parameter in the `yc compute instance relocate` command.
-* Added the `yc compute ssh` command group to connect to a VM using a certificate issued using OS Login and to export this certificate. OS Login is used to provide users with SSH access to VMs through {{ iam-short-name }}.
+* Added the `yc compute ssh` command group to connect to a VM using a certificate issued using {{ oslogin }} and to export this certificate. {{ oslogin }} is used to provide users with access to the VM via SSH through {{ iam-short-name }}.
 
 ##### {{ mpg-name }}
 
@@ -903,7 +916,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 **{{ mmg-name }}**
 
-* You can now create sharded clusters. If a configuration contains the appropriate host types, a cluster will be created automatically.
+* You can now create sharded clusters. If the configuration contains the relevant host types, a cluster will be created automatically.
 * Added the `--performance-diagnostics` parameter to the `yc mongodb cluster create`, `yc mongodb cluster update`, and `yc mongodb cluster restore` commands.
 
 **{{ mpg-name }}**
@@ -911,7 +924,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 * Added the `yc managed-postgresql backup delete` command for deleting manual backups.
 * Added the following flags to the `yc managed-postgresql cluster update` command:
   * `--disk-size-autoscaling`: To manage the automatic disk size expansion service settings.
-  * `--yandexquery-access`: To enable cluster access from {{ yq-full-name }}.
+  * `--yandexquery-access`: To allow access to the cluster from {{ yq-full-name }}.
 
 **{{ mch-name }}**
 
@@ -1690,7 +1703,7 @@ Added commands for {{ mgp-name }} primary support:
 * Added the following flags to the `yc managed-clickhouse cluster update` command:
 
 
-  * `--yandexquery-access`: To enable cluster access from {{ yq-full-name }}.
+  * `--yandexquery-access`: To allow access to the cluster from {{ yq-full-name }}.
 
 
 **{{ mmy-name }}**
@@ -1728,7 +1741,7 @@ Added commands for {{ mgp-name }} primary support:
   * `yc managed-redis cluster create`
   * `yc managed-redis cluster restore`
   * `yc managed-redis cluster update`
-
+  
   The last command also got the `--force` flag required when disabling cluster persistence.
 
 **{{ mch-name }}**
@@ -1789,7 +1802,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ dataproc-name }} {#dataproc}
 
-* Added the command: `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
+* Added the `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
 
   Now you can cancel unfinished jobs.
 
@@ -3217,7 +3230,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* When updating YC CLI, the current version to be installed is now displayed.
+* When updating the YC CLI, the version currently being installed is now displayed.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 

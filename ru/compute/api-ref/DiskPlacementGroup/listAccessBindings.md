@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/listAccessBindings.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.ListAccessBindings {#ListAccessBindings}
+# Compute Cloud API, REST: DiskPlacementGroup.ListAccessBindings
 
 Lists access bindings for the disk placement group.
 

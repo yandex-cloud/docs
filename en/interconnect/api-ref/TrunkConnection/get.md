@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/get.md
 ---
 
-# Cloud Interconnect API, REST: TrunkConnection.Get {#Get}
+# Cloud Interconnect API, REST: TrunkConnection.Get
 
 Returns the specified TrunkConnection resource.
 

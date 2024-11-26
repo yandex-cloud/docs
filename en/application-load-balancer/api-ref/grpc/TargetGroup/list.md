@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/TargetGroup/list.md
 ---
 
-# Application Load Balancer API, gRPC: TargetGroupService.List {#List}
+# Application Load Balancer API, gRPC: TargetGroupService.List
 
 Lists target groups in the specified folder.
 
@@ -15,30 +15,30 @@ Lists target groups in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list target groups in.
 
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse)
+results is larger than `page_size`, the service returns a [ListTargetGroupsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTargetGroupsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
+[ListTargetGroupsResponse.next_page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters target groups listed in the response.
@@ -54,39 +54,39 @@ Example of a filter: `name=my-target-group`. ||
 
 ```json
 {
-  "targetGroups": [
+  "target_groups": [
     {
       "id": "string",
       "name": "string",
       "description": "string",
-      "folderId": "string",
+      "folder_id": "string",
       "labels": "string",
       "targets": [
         {
-          // Includes only one of the fields `ipAddress`
-          "ipAddress": "string",
+          // Includes only one of the fields `ip_address`
+          "ip_address": "string",
           // end of the list of possible fields
-          "subnetId": "string",
-          "privateIpv4Address": "bool"
+          "subnet_id": "string",
+          "private_ipv4_address": "bool"
         }
       ],
-      "createdAt": "google.protobuf.Timestamp"
+      "created_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| targetGroups[] | **[TargetGroup](#yandex.cloud.apploadbalancer.v1.TargetGroup)**
+|| target_groups[] | **[TargetGroup](#yandex.cloud.apploadbalancer.v1.TargetGroup)**
 
 List of target groups in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListTargetGroupsRequest.pageSize](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest), use `next_page_token` as the value
-for the [ListTargetGroupsRequest.pageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest) parameter in the next list request.
+the specified [ListTargetGroupsRequest.page_size](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest), use `next_page_token` as the value
+for the [ListTargetGroupsRequest.page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -107,7 +107,7 @@ Name of the target group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
 || labels | **string**
@@ -117,7 +117,7 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 List of targets in the target group. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#
@@ -129,17 +129,17 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| ipAddress | **string**
+|| ip_address | **string**
 
 IP address of the target.
 
-Includes only one of the fields `ipAddress`.
+Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **bool**
+|| private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:

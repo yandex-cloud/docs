@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/get.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.Get {#Get}
+# DataSphere API v2, gRPC: ProjectService.Get
 
 Returns the specified project.
 
@@ -15,13 +15,13 @@ Returns the specified project.
 
 ```json
 {
-  "projectId": "string"
+  "project_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the Project resource to return.
 To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/grpc/Project/list#List) request. ||
@@ -32,30 +32,30 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/gr
 ```json
 {
   "id": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "createdById": "string",
+  "created_by_id": "string",
   "settings": {
-    "serviceAccountId": "string",
-    "subnetId": "string",
-    "dataProcClusterId": "string",
-    "securityGroupIds": [
+    "service_account_id": "string",
+    "subnet_id": "string",
+    "data_proc_cluster_id": "string",
+    "security_group_ids": [
       "string"
     ],
-    "earlyAccess": "bool",
+    "early_access": "bool",
     "ide": "Ide",
-    "defaultFolderId": "string",
-    "staleExecTimeoutMode": "StaleExecutionTimeoutMode",
-    "vmInactivityTimeout": "google.protobuf.Duration",
-    "defaultDedicatedSpec": "string"
+    "default_folder_id": "string",
+    "stale_exec_timeout_mode": "StaleExecutionTimeoutMode",
+    "vm_inactivity_timeout": "google.protobuf.Duration",
+    "default_dedicated_spec": "string"
   },
   "limits": {
-    "maxUnitsPerHour": "google.protobuf.Int64Value",
-    "maxUnitsPerExecution": "google.protobuf.Int64Value"
+    "max_units_per_hour": "google.protobuf.Int64Value",
+    "max_units_per_execution": "google.protobuf.Int64Value"
   },
-  "communityId": "string"
+  "community_id": "string"
 }
 ```
 
@@ -66,7 +66,7 @@ A Project resource.
 || id | **string**
 
 ID of the project. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the project. 1-63 characters long. ||
@@ -74,14 +74,14 @@ Name of the project. 1-63 characters long. ||
 
 Description of the project. 0-256 characters long. ||
 || labels | **string** ||
-|| createdById | **string** ||
+|| created_by_id | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 
 Settings of the project. ||
 || limits | **[Limits](#yandex.cloud.datasphere.v2.Project.Limits)**
 
 Limits of the project. ||
-|| communityId | **string**
+|| community_id | **string**
 
 ID of the community that the project belongs to. ||
 |#
@@ -90,20 +90,20 @@ ID of the community that the project belongs to. ||
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account, on whose behalf all operations with clusters will be performed. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet where the DataProc cluster resides.
 Currently only subnets created in the availability zone ru-central1-a are supported. ||
-|| dataProcClusterId | **string**
+|| data_proc_cluster_id | **string**
 
 ID of the DataProc cluster. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 Network interfaces security groups. ||
-|| earlyAccess | **bool**
+|| early_access | **bool**
 
 Is early access preview enabled for the project. ||
 || ide | enum **Ide**
@@ -112,10 +112,10 @@ Project IDE.
 
 - `IDE_UNSPECIFIED`
 - `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
-|| defaultFolderId | **string**
+|| default_folder_id | **string**
 
 Default project folder ID. ||
-|| staleExecTimeoutMode | enum **StaleExecutionTimeoutMode**
+|| stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**
 
 Timeout to automatically stop stale executions.
 
@@ -123,10 +123,10 @@ Timeout to automatically stop stale executions.
 - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
 - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
 - `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||
-|| vmInactivityTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for VM deallocation. ||
-|| defaultDedicatedSpec | **string**
+|| default_dedicated_spec | **string**
 
 Default VM configuration for DEDICATED mode. ||
 |#
@@ -135,10 +135,10 @@ Default VM configuration for DEDICATED mode. ||
 
 #|
 ||Field | Description ||
-|| maxUnitsPerHour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of units that can be spent per hour. ||
-|| maxUnitsPerExecution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of units that can be spent on the one execution. ||
 |#

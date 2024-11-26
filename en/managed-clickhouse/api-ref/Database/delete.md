@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/delete.md
 ---
 
-# Managed Service for ClickHouse API, REST: Database.Delete {#Delete}
+# Managed Service for ClickHouse API, REST: Database.Delete
 
 Deletes the specified ClickHouse database.
 

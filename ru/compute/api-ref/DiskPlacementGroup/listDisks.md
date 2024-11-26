@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/listDisks.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.ListDisks {#ListDisks}
+# Compute Cloud API, REST: DiskPlacementGroup.ListDisks
 
 Lists disks for the specified placement group.
 

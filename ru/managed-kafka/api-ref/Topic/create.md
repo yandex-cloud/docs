@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/create.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Topic.Create {#Create}
+# Managed Service for Apache Kafka® API, REST: Topic.Create
 
 Creates a new Kafka topic in the specified cluster.
 

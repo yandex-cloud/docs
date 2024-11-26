@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/update.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Extension.Update {#Update}
+# Managed Service for Elasticsearch API, REST: Extension.Update
 
 Updates the specified extension.
 

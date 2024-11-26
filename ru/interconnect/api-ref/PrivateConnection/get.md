@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/get.md
 ---
 
-# Cloud Interconnect API, REST: PrivateConnection.Get {#Get}
+# Cloud Interconnect API, REST: PrivateConnection.Get
 
 Returns the specified PrivateConnection resource.
 

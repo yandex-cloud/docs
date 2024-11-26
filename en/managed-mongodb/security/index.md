@@ -64,7 +64,6 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
 
-
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
@@ -77,7 +76,7 @@ To use the service, you need the [{{ roles.mmg.editor }} role](../../iam/concept
 
 To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmg.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mmg.admin }}` instead of `{{ roles.mmg.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mmg.admin }}` role instead of `{{ roles.mmg.editor }}`.
 
 ## What's next {#whats-next}
 

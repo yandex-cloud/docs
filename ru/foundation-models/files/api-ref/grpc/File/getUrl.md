@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/files/v1/files/api-ref/grpc/File/getUrl.md
 ---
 
-# Files API, gRPC: FileService.GetUrl {#GetUrl}
+# Files API, gRPC: FileService.GetUrl
 
 Retrieve a URL for accessing or downloading a specific file.
 
@@ -15,7 +15,7 @@ Retrieve a URL for accessing or downloading a specific file.
 
 ```json
 {
-  "fileId": "string"
+  "file_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for retrieving the URL of a specific file.
 
 #|
 ||Field | Description ||
-|| fileId | **string**
+|| file_id | **string**
 
 Required field. ID of the file which the URL is requested. ||
 |#

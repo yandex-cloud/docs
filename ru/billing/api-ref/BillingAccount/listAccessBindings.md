@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/listAccessBindings.md
 ---
 
-# Billing API, REST: BillingAccount.ListAccessBindings {#ListAccessBindings}
+# Billing API, REST: BillingAccount.ListAccessBindings
 
 Lists access bindings for the specified billing account.
 

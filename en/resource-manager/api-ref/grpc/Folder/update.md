@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Folder/update.md
 ---
 
-# Resource Manager API, gRPC: FolderService.Update {#Update}
+# Resource Manager API, gRPC: FolderService.Update
 
 Updates the specified folder.
 
@@ -15,8 +15,8 @@ Updates the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "folder_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string"
@@ -25,11 +25,11 @@ Updates the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the Folder resource to update.
 To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Folder resource are going to be updated. ||
 || name | **string**
@@ -50,19 +50,19 @@ Resource labels as `` key:value `` pairs. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "folderId": "string"
+    "folder_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -82,13 +82,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -131,7 +131,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the Folder resource that is being updated. ||
 |#
@@ -145,10 +145,10 @@ A Folder resource. For more information, see [Folder](/docs/resource-manager/con
 || id | **string**
 
 ID of the folder. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the folder belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**

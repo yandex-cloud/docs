@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/list.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.List {#List}
+# Network Load Balancer API, REST: TargetGroup.List
 
 Retrieves the list of TargetGroup resources in the specified folder.
 

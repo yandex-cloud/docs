@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/get.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Get {#Get}
+# Compute Cloud API, REST: DiskPlacementGroup.Get
 
 Returns the specified placement group.
 

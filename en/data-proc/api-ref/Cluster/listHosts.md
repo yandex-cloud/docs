@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Data Proc API, REST: Cluster.ListHosts {#ListHosts}
+# Data Proc API, REST: Cluster.ListHosts
 
 Retrieves the list of hosts in the specified cluster.
 

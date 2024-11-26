@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: PXFDatasource.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: PXFDatasource.Delete
 
 Delete PXF datasource
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Sku/list.md
 ---
 
-# Billing API, REST: Sku.List {#List}
+# Billing API, REST: Sku.List
 
 Retrieves the list of SKUs.
 

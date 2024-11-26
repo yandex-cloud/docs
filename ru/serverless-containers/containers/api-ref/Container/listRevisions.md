@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/listRevisions.md
 ---
 
-# Serverless Containers Service, REST: Container.ListRevisions {#ListRevisions}
+# Serverless Containers Service, REST: Container.ListRevisions
 
 Retrieves the list of revisions for the specified container, or of all container revisions
 in the specified folder.

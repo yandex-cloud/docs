@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md
 ---
 
-# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Create {#Create}
+# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Create
 
 Creates a ARL profile in the specified folder using the data specified in the request.
 

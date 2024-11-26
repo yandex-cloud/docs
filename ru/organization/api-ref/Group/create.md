@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/create.md
 ---
 
-# Cloud Organization API, REST: Group.Create {#Create}
+# Cloud Organization API, REST: Group.Create
 
 Creates a group in the specified organization.
 

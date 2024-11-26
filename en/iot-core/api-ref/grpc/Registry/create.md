@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/create.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.Create {#Create}
+# IoT Core Service, gRPC: RegistryService.Create
 
 Creates a registry in the specified folder.
 
@@ -15,30 +15,30 @@ Creates a registry in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "certificates": [
     {
-      "certificateData": "string"
+      "certificate_data": "string"
     }
   ],
   "password": "string",
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a registry in.
 
@@ -60,7 +60,7 @@ Registry certificates. ||
 Registry passwords.
 
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
 
 Options for logging registry events ||
 |#
@@ -71,7 +71,7 @@ Specification of a registry certificate.
 
 #|
 ||Field | Description ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the registry certificate. ||
 |#
@@ -83,21 +83,21 @@ Public part of the registry certificate. ||
 || disabled | **bool**
 
 Is logging from registry disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -132,31 +132,31 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "registryId": "string"
+    "registry_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "status": "Status",
-    "logGroupId": "string",
-    "logOptions": {
+    "log_group_id": "string",
+    "log_options": {
       "disabled": "bool",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
+      // Includes only one of the fields `log_group_id`, `folder_id`
+      "log_group_id": "string",
+      "folder_id": "string",
       // end of the list of possible fields
-      "minLevel": "Level"
+      "min_level": "Level"
     }
   }
   // end of the list of possible fields
@@ -173,13 +173,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -222,7 +222,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that is being created. ||
 |#
@@ -236,10 +236,10 @@ A registry. For more information, see [Registry](/docs/iot-core/concepts/index#r
 || id | **string**
 
 ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -260,10 +260,10 @@ Status of the registry.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted.
 - `DISABLED`: Registry is disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the logs group for the specified registry. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions2)**
+|| log_options | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions2)**
 
 Options for logging registry events ||
 |#
@@ -275,21 +275,21 @@ Options for logging registry events ||
 || disabled | **bool**
 
 Is logging from registry disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 

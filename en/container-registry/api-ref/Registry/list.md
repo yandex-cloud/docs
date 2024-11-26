@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/list.md
 ---
 
-# Container Registry API, REST: Registry.List {#List}
+# Container Registry API, REST: Registry.List
 
 Retrieves the list of Registry resources in the specified folder.
 

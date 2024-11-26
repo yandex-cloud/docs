@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/listHosts.md
 ---
 
-# Compute Cloud API, REST: HostGroup.ListHosts {#ListHosts}
+# Compute Cloud API, REST: HostGroup.ListHosts
 
 Lists hosts that belongs to the specified host group.
 

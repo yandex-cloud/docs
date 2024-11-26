@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Folder/get.md
 ---
 
-# Resource Manager API, gRPC: FolderService.Get {#Get}
+# Resource Manager API, gRPC: FolderService.Get
 
 Returns the specified Folder resource.
 
@@ -17,13 +17,13 @@ To get the list of available Folder resources, make a [List](/docs/resource-mana
 
 ```json
 {
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the Folder resource to return.
 To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
@@ -34,8 +34,8 @@ To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/
 ```json
 {
   "id": "string",
-  "cloudId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "cloud_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
@@ -50,10 +50,10 @@ A Folder resource. For more information, see [Folder](/docs/resource-manager/con
 || id | **string**
 
 ID of the folder. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the folder belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**

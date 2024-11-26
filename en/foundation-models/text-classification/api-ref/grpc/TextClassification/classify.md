@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/text_classification/text-classification/api-ref/grpc/TextClassification/classify.md
 ---
 
-# Foundation Models Text Classification API, gRPC: TextClassificationService.Classify {#Classify}
+# Foundation Models Text Classification API, gRPC: TextClassificationService.Classify
 
 RPC method to classify text with tuned model.
 
@@ -18,7 +18,7 @@ must be specified during model tuning and are not provided in the request.
 
 ```json
 {
-  "modelUri": "string",
+  "model_uri": "string",
   "text": "string"
 }
 ```
@@ -32,7 +32,7 @@ For examples of usage, see [step-by-step guides](/docs/operations/classifier/add
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [URI](/docs/foundation-models/concepts/classifier/models) of your tuned classifier model. ||
 || text | **string**
@@ -50,7 +50,7 @@ Text for classification. ||
       "confidence": "double"
     }
   ],
-  "modelVersion": "string"
+  "model_version": "string"
 }
 ```
 
@@ -62,7 +62,7 @@ Response with classifier predictions.
 
 The classification results with the `confidence`` values
 for the probability of classifying the request text into each class. ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 The model version changes with each new releases. ||
 |#

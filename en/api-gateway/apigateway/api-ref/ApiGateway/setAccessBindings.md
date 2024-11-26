@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/setAccessBindings.md
 ---
 
-# API Gateway Service, REST: ApiGateway.SetAccessBindings {#SetAccessBindings}
+# API Gateway Service, REST: ApiGateway.SetAccessBindings
 
 Sets access bindings for the specified API gateway.
 

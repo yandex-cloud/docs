@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/list.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.List {#List}
+# Network Load Balancer API, REST: NetworkLoadBalancer.List
 
 Retrieves the list of NetworkLoadBalancer resources in the specified folder.
 

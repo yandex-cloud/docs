@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Backup/list.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: BackupService.List {#List}
+# Managed Service for OpenSearch API, gRPC: BackupService.List
 
 Returns the list of available backups for the specified OpenSearch cluster.
 
@@ -15,29 +15,29 @@ Returns the list of available backups for the specified OpenSearch cluster.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list backups in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned.
 
-If the number of available results is larger than `pageSize`, the service returns
-a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
+If the number of available results is larger than `page_size`, the service returns
+a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
 in subsequent list requests.
 
 Default value is 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
+The page token. To get the next page of results, set `page_token` to the [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
 returned by the previous list request. ||
 |#
 
@@ -48,19 +48,19 @@ returned by the previous list request. ||
   "backups": [
     {
       "id": "string",
-      "folderId": "string",
-      "sourceClusterId": "string",
-      "startedAt": "google.protobuf.Timestamp",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "source_cluster_id": "string",
+      "started_at": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
       "indices": [
         "string"
       ],
-      "opensearchVersion": "string",
-      "sizeBytes": "int64",
-      "indicesTotal": "int64"
+      "opensearch_version": "string",
+      "size_bytes": "int64",
+      "indices_total": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -69,14 +69,14 @@ returned by the previous list request. ||
 || backups[] | **[Backup](#yandex.cloud.mdb.opensearch.v1.Backup)**
 
 Requested list of backups. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for a list request.
 
-If the number of results is larger than [ListBackupsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListBackupsRequest) specified in the request,
-use the `nextPageToken` as the value for the [ListBackupsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsRequest) parameter in the next list request.
+If the number of results is larger than [ListBackupsRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListBackupsRequest) specified in the request,
+use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListBackupsRequest) parameter in the next list request.
 
-Each subsequent ListBackups request has its own `nextPageToken` to continue paging through the results. ||
+Each subsequent ListBackups request has its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Backup {#yandex.cloud.mdb.opensearch.v1.Backup}
@@ -86,28 +86,28 @@ Each subsequent ListBackups request has its own `nextPageToken` to continue pagi
 || id | **string**
 
 Required. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the OpenSearch cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was started. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the backup operation was completed. ||
 || indices[] | **string**
 
 Names of indices in the backup. ||
-|| opensearchVersion | **string**
+|| opensearch_version | **string**
 
 OpenSearch version used to create the backup. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 Size of the backup in bytes. ||
-|| indicesTotal | **int64**
+|| indices_total | **int64**
 
 The number of indices in the backup. ||
 |#

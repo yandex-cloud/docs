@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/audittrails/v1/api-ref/grpc/Trail/delete.md
 ---
 
-# Audit Trails API, gRPC: TrailService.Delete {#Delete}
+# Audit Trails API, gRPC: TrailService.Delete
 
 Deletes the specified trail.
 
@@ -15,13 +15,13 @@ Deletes the specified trail.
 
 ```json
 {
-  "trailId": "string"
+  "trail_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| trailId | **string**
+|| trail_id | **string**
 
 Required field. ID of the trail to be deleted. ||
 |#
@@ -32,12 +32,12 @@ Required field. ID of the trail to be deleted. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "trailId": "string"
+    "trail_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -56,13 +56,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -105,7 +105,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| trailId | **string**
+|| trail_id | **string**
 
 ID of the trail that is being deleted ||
 |#

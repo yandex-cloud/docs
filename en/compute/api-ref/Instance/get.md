@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/get.md
 ---
 
-# Compute Cloud API, REST: Instance.Get {#Get}
+# Compute Cloud API, REST: Instance.Get
 
 Returns the specified Instance resource.
 

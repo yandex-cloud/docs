@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Agent/get.md
 ---
 
-# Load Testing API, gRPC: AgentService.Get {#Get}
+# Load Testing API, gRPC: AgentService.Get
 
 Returns the specified agent.
 
@@ -17,13 +17,13 @@ To get the list of all available agents, make a [List](/docs/load-testing/user/a
 
 ```json
 {
-  "agentId": "string"
+  "agent_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| agentId | **string**
+|| agent_id | **string**
 
 ID of the agent to return. ||
 |#
@@ -33,19 +33,19 @@ ID of the agent to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "computeInstanceId": "string",
+  "compute_instance_id": "string",
   "status": "Status",
   "errors": [
     "string"
   ],
-  "currentJobId": "string",
-  "agentVersionId": "string",
+  "current_job_id": "string",
+  "agent_version_id": "string",
   "labels": "string",
-  "logSettings": {
-    "cloudLogGroupId": "string"
+  "log_settings": {
+    "cloud_log_group_id": "string"
   }
 }
 ```
@@ -57,7 +57,7 @@ Load testing agent on which tests are executed.
 || id | **string**
 
 ID of the agent. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the agent belongs to. ||
 || name | **string**
@@ -66,7 +66,7 @@ Name of the agent. ||
 || description | **string**
 
 Description of the agent. ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 ID of the compute instance managed by the agent.
 
@@ -95,16 +95,16 @@ Status of the agent.
 || errors[] | **string**
 
 List of errors reported by the agent. ||
-|| currentJobId | **string**
+|| current_job_id | **string**
 
 ID of the test that is currently being executed by the agent. ||
-|| agentVersionId | **string**
+|| agent_version_id | **string**
 
 Version of the agent. ||
 || labels | **string**
 
 Agent labels as `key:value` pairs. ||
-|| logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
+|| log_settings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
 
 Agent log settings ||
 |#
@@ -113,7 +113,7 @@ Agent log settings ||
 
 #|
 ||Field | Description ||
-|| cloudLogGroupId | **string**
+|| cloud_log_group_id | **string**
 
 Id of Yandex Cloud log group to upload agent logs to ||
 |#

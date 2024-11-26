@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/listOperations.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.ListOperations {#ListOperations}
+# Cloud Functions Triggers Service, REST: Trigger.ListOperations
 
 Lists operations for the specified trigger.
 

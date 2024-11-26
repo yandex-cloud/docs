@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listPasswords.md
 ---
 
-# IoT Core Broker Service, REST: Broker.ListPasswords {#ListPasswords}
+# IoT Core Broker Service, REST: Broker.ListPasswords
 
 Retrieves the list of passwords for the specified broker.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/open.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.Open {#Open}
+# DataSphere API v2, gRPC: ProjectService.Open
 
 Opens the specified project.
 
@@ -15,13 +15,13 @@ Opens the specified project.
 
 ```json
 {
-  "projectId": "string"
+  "project_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the Project resource to open.
 To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/grpc/Project/list#List) request. ||
@@ -33,19 +33,19 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/gr
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "projectId": "string",
+    "project_id": "string",
     "status": "OpenProjectStatus"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "projectUrl": "string",
-    "sessionToken": "string"
+    "project_url": "string",
+    "session_token": "string"
   }
   // end of the list of possible fields
 }
@@ -61,13 +61,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -110,7 +110,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project that is being opened. ||
 || status | enum **OpenProjectStatus**
@@ -130,13 +130,13 @@ Project opening status.
 
 #|
 ||Field | Description ||
-|| projectUrl | **string**
+|| project_url | **string**
 
 URL of the project that is being opened.
-Make GET request to `projectUrl` with sessionToken query parameter equals to `sessionToken`
-or POST request to `projectUrl` with sessionToken body parameter equals to `sessionToken`
+Make GET request to `project_url` with sessionToken query parameter equals to `session_token`
+or POST request to `project_url` with sessionToken body parameter equals to `session_token`
 to fetch DataSphere web interface. ||
-|| sessionToken | **string**
+|| session_token | **string**
 
 Session token of the project that is being opened. ||
 |#

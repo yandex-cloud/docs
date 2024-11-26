@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/stepdownHosts.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.StepdownHosts {#StepdownHosts}
+# Managed Service for MongoDB API, REST: Cluster.StepdownHosts
 
 Stepdown hosts.
 

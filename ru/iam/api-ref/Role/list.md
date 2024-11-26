@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Role/list.md
 ---
 
-# Identity and Access Management API, REST: Role.List {#List}
+# Identity and Access Management API, REST: Role.List
 
 Retrieves the list of Role resources.
 

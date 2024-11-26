@@ -64,6 +64,29 @@ You pay for the following:
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **{{ MY }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
+
+Cost calculation for {{ MY }} hosts:
+
+
+
+
+{% include [usd-mysql-host](../_pricing_examples/managed-mysql/usd-host.md) %}
+
+
+Calculation for the storage cost and total cost:
+
+
+
+
+{% include [usd-mysql-storage](../_pricing_examples/managed-mysql/usd-storage.md) %}
+
+
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -73,7 +96,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

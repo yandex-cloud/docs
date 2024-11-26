@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/rollingRecreate.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.RollingRecreate {#RollingRecreate}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.RollingRecreate
 
 Performs rolling recreate of specified instances for the specified instance group.
 Rolling recreate does recreate of instance VMs respecting all group policies.

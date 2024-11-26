@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/listActivated.md
 ---
 
-# Cloud CDN API, REST: Provider.ListActivated {#ListActivated}
+# Cloud CDN API, REST: Provider.ListActivated
 
 List activated providers for specified client.
 

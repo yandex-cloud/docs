@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Version/list.md
 ---
 
-# Managed Services for Kubernetes API, REST: Version.List {#List}
+# Managed Services for Kubernetes API, REST: Version.List
 
 Retrieves the list of versions in the specified release channel.
 

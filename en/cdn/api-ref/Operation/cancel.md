@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Operation/cancel.md
 ---
 
-# Cloud CDN API, REST: Operation.Cancel {#Cancel}
+# Cloud CDN API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

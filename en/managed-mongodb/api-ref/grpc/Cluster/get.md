@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/get.md
 ---
 
-# Managed Service for MongoDB API, gRPC: ClusterService.Get {#Get}
+# Managed Service for MongoDB API, gRPC: ClusterService.Get
 
 Returns the specified MongoDB Cluster resource.
 
@@ -17,13 +17,13 @@ To get the list of available MongoDB Cluster resources, make a [List](/docs/mana
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the MongoDB Cluster resource to return.
 To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
@@ -34,8 +34,8 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
@@ -49,699 +49,699 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
   ],
   "config": {
     "version": "string",
-    "featureCompatibilityVersion": "string",
-    // Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`
+    "feature_compatibility_version": "string",
+    // Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`
     "mongodb_3_6": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
                 "enabled": "google.protobuf.BoolValue",
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
                 "enabled": "google.protobuf.BoolValue",
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
                 "enabled": "google.protobuf.BoolValue",
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     "mongodb_4_0": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     "mongodb_4_2": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -749,9 +749,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -759,9 +759,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -771,21 +771,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -793,9 +793,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -803,9 +803,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -814,252 +814,252 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     "mongodb_4_4": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1067,9 +1067,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1077,9 +1077,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1089,21 +1089,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1111,9 +1111,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1121,9 +1121,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1132,255 +1132,255 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     "mongodb_5_0": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1388,9 +1388,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1398,9 +1398,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1410,21 +1410,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1432,9 +1432,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1442,9 +1442,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1453,255 +1453,255 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     "mongodb_6_0": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
                 ]
               }
             },
-            "setParameter": {
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1709,9 +1709,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1719,9 +1719,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1731,21 +1731,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1753,9 +1753,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1763,9 +1763,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1774,95 +1774,95 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
-    "mongodb_4_4Enterprise": {
+    "mongodb_4_4_enterprise": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1870,47 +1870,47 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1918,47 +1918,47 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -1966,102 +1966,102 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2069,9 +2069,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2079,9 +2079,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2091,21 +2091,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2113,9 +2113,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2123,9 +2123,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2134,95 +2134,95 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
-    "mongodb_5_0Enterprise": {
+    "mongodb_5_0_enterprise": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2230,49 +2230,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2280,49 +2280,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2330,104 +2330,104 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2435,9 +2435,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2445,9 +2445,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2457,21 +2457,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2479,9 +2479,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2489,9 +2489,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2500,95 +2500,95 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
-    "mongodb_6_0Enterprise": {
+    "mongodb_6_0_enterprise": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2596,49 +2596,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2646,49 +2646,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2696,104 +2696,104 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2801,9 +2801,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2811,9 +2811,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2823,21 +2823,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2845,9 +2845,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2855,9 +2855,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2866,105 +2866,105 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     },
     // end of the list of possible fields
-    "backupWindowStart": "google.type.TimeOfDay",
-    "backupRetainPeriodDays": "google.protobuf.Int64Value",
-    "performanceDiagnostics": {
-      "profilingEnabled": "bool"
+    "backup_window_start": "google.type.TimeOfDay",
+    "backup_retain_period_days": "google.protobuf.Int64Value",
+    "performance_diagnostics": {
+      "profiling_enabled": "bool"
     },
     "access": {
-      "dataLens": "bool",
-      "dataTransfer": "bool"
+      "data_lens": "bool",
+      "data_transfer": "bool"
     },
-    "mongodbConfig": {
+    "mongodb_config": {
       "mongod": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -2972,49 +2972,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3022,49 +3022,49 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 },
-                "collectionConfig": {
-                  "blockCompressor": "Compressor"
+                "collection_config": {
+                  "block_compressor": "Compressor"
                 },
-                "indexConfig": {
-                  "prefixCompression": "google.protobuf.BoolValue"
+                "index_config": {
+                  "prefix_compression": "google.protobuf.BoolValue"
                 }
               },
               "journal": {
-                "commitInterval": "google.protobuf.Int64Value"
+                "commit_interval": "google.protobuf.Int64Value"
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value",
-              "slowOpSampleRate": "google.protobuf.DoubleValue"
+              "slow_op_threshold": "google.protobuf.Int64Value",
+              "slow_op_sample_rate": "google.protobuf.DoubleValue"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3072,104 +3072,104 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             },
             "security": {
-              "enableEncryption": "google.protobuf.BoolValue",
+              "enable_encryption": "google.protobuf.BoolValue",
               "kmip": {
-                "serverName": "string",
+                "server_name": "string",
                 "port": "google.protobuf.Int64Value",
-                "serverCa": "string",
-                "clientCertificate": "string",
-                "keyIdentifier": "string"
+                "server_ca": "string",
+                "client_certificate": "string",
+                "key_identifier": "string"
               }
             },
-            "auditLog": {
+            "audit_log": {
               "filter": "string",
-              "runtimeConfiguration": "google.protobuf.BoolValue"
+              "runtime_configuration": "google.protobuf.BoolValue"
             },
-            "setParameter": {
-              "auditAuthorizationSuccess": "google.protobuf.BoolValue",
-              "enableFlowControl": "google.protobuf.BoolValue",
-              "minSnapshotHistoryWindowInSeconds": "google.protobuf.Int64Value"
+            "set_parameter": {
+              "audit_authorization_success": "google.protobuf.BoolValue",
+              "enable_flow_control": "google.protobuf.BoolValue",
+              "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongocfg": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongos": {
         "config": {
-          "effectiveConfig": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3177,9 +3177,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3187,9 +3187,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3199,21 +3199,21 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       },
       "mongoinfra": {
-        "configMongos": {
-          "effectiveConfig": {
+        "config_mongos": {
+          "effective_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3221,9 +3221,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "userConfig": {
+          "user_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3231,9 +3231,9 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
               }
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value",
+              "max_incoming_connections": "google.protobuf.Int64Value",
               "compression": {
                 "compressors": [
                   "Compressor"
@@ -3242,90 +3242,90 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
             }
           }
         },
-        "configMongocfg": {
-          "effectiveConfig": {
+        "config_mongocfg": {
+          "effective_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "userConfig": {
+          "user_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           },
-          "defaultConfig": {
+          "default_config": {
             "storage": {
-              "wiredTiger": {
-                "engineConfig": {
-                  "cacheSizeGb": "google.protobuf.DoubleValue"
+              "wired_tiger": {
+                "engine_config": {
+                  "cache_size_gb": "google.protobuf.DoubleValue"
                 }
               }
             },
-            "operationProfiling": {
+            "operation_profiling": {
               "mode": "Mode",
-              "slowOpThreshold": "google.protobuf.Int64Value"
+              "slow_op_threshold": "google.protobuf.Int64Value"
             },
             "net": {
-              "maxIncomingConnections": "google.protobuf.Int64Value"
+              "max_incoming_connections": "google.protobuf.Int64Value"
             }
           }
         },
         "resources": {
-          "resourcePresetId": "string",
-          "diskSize": "int64",
-          "diskTypeId": "string"
+          "resource_preset_id": "string",
+          "disk_size": "int64",
+          "disk_type_id": "string"
         },
-        "diskSizeAutoscaling": {
-          "plannedUsageThreshold": "google.protobuf.Int64Value",
-          "emergencyUsageThreshold": "google.protobuf.Int64Value",
-          "diskSizeLimit": "google.protobuf.Int64Value"
+        "disk_size_autoscaling": {
+          "planned_usage_threshold": "google.protobuf.Int64Value",
+          "emergency_usage_threshold": "google.protobuf.Int64Value",
+          "disk_size_limit": "google.protobuf.Int64Value"
         }
       }
     }
   },
-  "networkId": "string",
+  "network_id": "string",
   "health": "Health",
   "status": "Status",
   "sharded": "bool",
-  "maintenanceWindow": {
-    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
     "anytime": "AnytimeMaintenanceWindow",
-    "weeklyMaintenanceWindow": {
+    "weekly_maintenance_window": {
       "day": "WeekDay",
       "hour": "int64"
     }
     // end of the list of possible fields
   },
-  "plannedOperation": {
+  "planned_operation": {
     "info": "string",
-    "delayedUntil": "google.protobuf.Timestamp"
+    "delayed_until": "google.protobuf.Timestamp"
   },
-  "securityGroupIds": [
+  "security_group_ids": [
     "string"
   ],
-  "deletionProtection": "bool"
+  "deletion_protection": "bool"
 }
 ```
 
@@ -3337,10 +3337,10 @@ A managed MongoDB cluster. For more information, see the [documentation](/docs/m
 
 ID of the MongoDB cluster.
 This ID is assigned by MDB at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the MongoDB cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -3368,7 +3368,7 @@ Description of monitoring systems relevant to the MongoDB cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.mongodb.v1.ClusterConfig)**
 
 Configuration of the MongoDB cluster. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the cluster belongs to. ||
 || health | enum **Health**
@@ -3394,16 +3394,16 @@ Current state of the cluster.
 || sharded | **bool**
 
 Indicates current sharding status of the cluster. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow)**
 
 Maintenance window for the cluster. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.mongodb.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.mongodb.v1.MaintenanceOperation)**
 
-Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
-|| securityGroupIds[] | **string**
+Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. ||
+|| security_group_ids[] | **string**
 
 User security groups ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
 |#
@@ -3432,7 +3432,7 @@ Link to the monitoring system charts for the MongoDB cluster. ||
 || version | **string**
 
 Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`, `4.4-enterprise`, `5.0`, `5.0-enterprise`, `6.0`, `6.0-enterprise`, `7.0`, `7.0-enterprise`. ||
-|| featureCompatibilityVersion | **string**
+|| feature_compatibility_version | **string**
 
 MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
@@ -3447,78 +3447,78 @@ Possible values:
 
 Configuration and resource allocation for a MongoDB 3.6 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_0 | **[Mongodb4_0](#yandex.cloud.mdb.mongodb.v1.Mongodb4_0)**
 
 Configuration and resource allocation for a MongoDB 4.0 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_2 | **[Mongodb4_2](#yandex.cloud.mdb.mongodb.v1.Mongodb4_2)**
 
 Configuration and resource allocation for a MongoDB 4.2 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
 || mongodb_4_4 | **[Mongodb4_4](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4)**
 
 Configuration and resource allocation for a MongoDB 4.4 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
 || mongodb_5_0 | **[Mongodb5_0](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0)**
 
 Configuration and resource allocation for a MongoDB 5.0 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
 || mongodb_6_0 | **[Mongodb6_0](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0)**
 
 Configuration and resource allocation for a MongoDB 6.0 cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
-|| mongodb_4_4Enterprise | **[Mongodb4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise)**
+|| mongodb_4_4_enterprise | **[Mongodb4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb4_4_enterprise)**
 
 Configuration and resource allocation for a MongoDB 4.4 Enterprise cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
-|| mongodb_5_0Enterprise | **[Mongodb5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise)**
+|| mongodb_5_0_enterprise | **[Mongodb5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb5_0_enterprise)**
 
 Configuration and resource allocation for a MongoDB 5.0 Enterprise cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
-|| mongodb_6_0Enterprise | **[Mongodb6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise)**
+|| mongodb_6_0_enterprise | **[Mongodb6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.Mongodb6_0_enterprise)**
 
 Configuration and resource allocation for a MongoDB 6.0 Enterprise cluster.
 
-Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4Enterprise`, `mongodb_5_0Enterprise`, `mongodb_6_0Enterprise`.
+Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mongodb_4_4`, `mongodb_5_0`, `mongodb_6_0`, `mongodb_4_4_enterprise`, `mongodb_5_0_enterprise`, `mongodb_6_0_enterprise`.
 
 Configuration for MongoDB servers in the cluster. ||
-|| backupWindowStart | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
-|| backupRetainPeriodDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retain period of automatically created backup in days ||
-|| performanceDiagnostics | **[PerformanceDiagnosticsConfig](#yandex.cloud.mdb.mongodb.v1.PerformanceDiagnosticsConfig)**
+|| performance_diagnostics | **[PerformanceDiagnosticsConfig](#yandex.cloud.mdb.mongodb.v1.PerformanceDiagnosticsConfig)**
 
 Performance Diagnostic ||
 || access | **[Access](#yandex.cloud.mdb.mongodb.v1.Access)**
 
 Access policy to DB ||
-|| mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
+|| mongodb_config | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)**
 
 Configuration and resource allocation for a MongoDB Enterprise cluster. ||
 |#
@@ -3551,7 +3551,7 @@ Configuration for a mongod 3.6 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to MongoDB hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -3560,14 +3560,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
+|| effective_config | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
 Effective mongod settings for a MongoDB 3.6 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
 User-defined mongod settings for a MongoDB 3.6 cluster. ||
-|| defaultConfig | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
+|| default_config | **[MongodConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6)**
 
 Default mongod configuration for a MongoDB 3.6 cluster. ||
 |#
@@ -3582,7 +3582,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Network)**
@@ -3594,7 +3594,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v3.6/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.Journal)**
@@ -3608,10 +3608,10 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig3_6.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
 |#
@@ -3620,7 +3620,7 @@ Collection configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -3629,7 +3629,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -3649,7 +3649,7 @@ Whether the journal is enabled or disabled.
 Possible values:
 * true (default) - the journal is enabled.
 * false - the journal is disabled. ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -3665,9 +3665,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -3678,7 +3678,7 @@ running in the SLOW_OP mode. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 |#
@@ -3687,14 +3687,14 @@ The maximum number of simultaneous connections that mongod will accept. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
@@ -3707,13 +3707,13 @@ Possible values:
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -3726,7 +3726,7 @@ Limit on how large the storage for database instances can automatically grow, in
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -3735,14 +3735,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
+|| effective_config | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
 Effective mongocfg settings for a MongoDB 3.6 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
 User-defined mongocfg settings for a MongoDB 3.6 cluster. ||
-|| defaultConfig | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
+|| default_config | **[MongoCfgConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6)**
 
 Default mongocfg configuration for a MongoDB 3.6 cluster. ||
 |#
@@ -3754,7 +3754,7 @@ Default mongocfg configuration for a MongoDB 3.6 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Network)**
@@ -3766,7 +3766,7 @@ Default mongocfg configuration for a MongoDB 3.6 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -3777,7 +3777,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig3_6.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -3786,7 +3786,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -3802,9 +3802,9 @@ Operation profiling level. For details, see [MongoDB documentation](https://docs
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data. This is the default
 profiler level.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -3815,7 +3815,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of incoming connections. ||
 |#
@@ -3828,7 +3828,7 @@ The maximum number of incoming connections. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -3837,14 +3837,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
+|| effective_config | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
 Effective settings for a MongoDB 3.6 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
 User-defined settings for a MongoDB 3.6 cluster. ||
-|| defaultConfig | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
+|| default_config | **[MongosConfig3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig3_6)**
 
 Default configuration for a MongoDB 3.6 cluster. ||
 |#
@@ -3862,7 +3862,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of incoming connections. ||
 |#
@@ -3871,12 +3871,12 @@ The maximum number of incoming connections. ||
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)** ||
-|| configMongocfg | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)** ||
+|| config_mongos | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)** ||
+|| config_mongocfg | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -3909,7 +3909,7 @@ Configuration for mongod 4.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -3918,14 +3918,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
+|| effective_config | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
 Effective mongod settings for a MongoDB 4.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
 User-defined mongod settings for a MongoDB 4.0 cluster. ||
-|| defaultConfig | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
+|| default_config | **[MongodConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0)**
 
 Default mongod configuration for a MongoDB 4.0 cluster. ||
 |#
@@ -3940,7 +3940,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Network)**
@@ -3952,7 +3952,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.Journal)**
@@ -3966,10 +3966,10 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_0.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
 |#
@@ -3978,7 +3978,7 @@ Collection configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -3987,7 +3987,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -4001,7 +4001,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -4017,9 +4017,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -4030,7 +4030,7 @@ running in the SLOW_OP mode. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 |#
@@ -4045,7 +4045,7 @@ Configuration for mongocfg 4.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4054,14 +4054,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
+|| effective_config | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
 Effective mongocfg settings for a MongoDB 4.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
 User-defined mongocfg settings for a MongoDB 4.0 cluster. ||
-|| defaultConfig | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
+|| default_config | **[MongoCfgConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0)**
 
 Default mongocfg configuration for a MongoDB 4.0 cluster. ||
 |#
@@ -4073,7 +4073,7 @@ Default mongocfg configuration for a MongoDB 4.0 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Network)**
@@ -4085,7 +4085,7 @@ Default mongocfg configuration for a MongoDB 4.0 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -4096,7 +4096,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -4105,7 +4105,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -4120,9 +4120,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -4133,7 +4133,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -4148,7 +4148,7 @@ Configuration for mongos 4.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4157,14 +4157,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
+|| effective_config | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
 Effective mongos settings for a MongoDB 4.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
 User-defined mongos settings for a MongoDB 4.0 cluster. ||
-|| defaultConfig | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
+|| default_config | **[MongosConfig4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_0)**
 
 Default mongos configuration for a MongoDB 4.0 cluster. ||
 |#
@@ -4182,7 +4182,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 |#
@@ -4191,12 +4191,12 @@ The maximum number of simultaneous connections that mongos will accept. ||
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_0)** ||
-|| configMongocfg | **[MongoCfgConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_0)** ||
+|| config_mongos | **[MongosConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_0)** ||
+|| config_mongocfg | **[MongoCfgConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_0)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4229,7 +4229,7 @@ Configuration for mongod 4.2 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4238,14 +4238,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
+|| effective_config | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
 Effective mongod settings for a MongoDB 4.2 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
 User-defined mongod settings for a MongoDB 4.2 cluster. ||
-|| defaultConfig | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
+|| default_config | **[MongodConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2)**
 
 Default mongod configuration for a MongoDB 4.2 cluster. ||
 |#
@@ -4260,13 +4260,13 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network)**
 
 `net` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.SetParameter)**
 
 `replication` section of mongod configuration. ||
 |#
@@ -4275,7 +4275,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.2/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.Journal)**
@@ -4289,13 +4289,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -4304,7 +4304,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -4313,7 +4313,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -4328,7 +4328,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -4337,7 +4337,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -4353,14 +4353,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -4370,7 +4370,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_2.Network.Compression)**
@@ -4401,7 +4401,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
@@ -4418,7 +4418,7 @@ Configuration for mongocfg 4.2 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4427,14 +4427,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
+|| effective_config | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
 Effective mongocfg settings for a MongoDB 4.2 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
 User-defined mongocfg settings for a MongoDB 4.2 cluster. ||
-|| defaultConfig | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
+|| default_config | **[MongoCfgConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2)**
 
 Default mongocfg configuration for a MongoDB 4.2 cluster. ||
 |#
@@ -4446,7 +4446,7 @@ Default mongocfg configuration for a MongoDB 4.2 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Network)**
@@ -4458,7 +4458,7 @@ Default mongocfg configuration for a MongoDB 4.2 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -4469,7 +4469,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_2.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -4478,7 +4478,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -4493,9 +4493,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -4506,7 +4506,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -4521,7 +4521,7 @@ Configuration for mongos 4.2 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4530,14 +4530,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
+|| effective_config | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
 Effective mongos settings for a MongoDB 4.2 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
 User-defined mongos settings for a MongoDB 4.2 cluster. ||
-|| defaultConfig | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
+|| default_config | **[MongosConfig4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2)**
 
 Default mongos configuration for a MongoDB 4.2 cluster. ||
 |#
@@ -4555,7 +4555,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_2.Network.Compression)**
@@ -4586,12 +4586,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_2)** ||
-|| configMongocfg | **[MongoCfgConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_2)** ||
+|| config_mongos | **[MongosConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_2)** ||
+|| config_mongocfg | **[MongoCfgConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_2)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4624,7 +4624,7 @@ Configuration for mongod 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4633,14 +4633,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
+|| effective_config | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
 Effective mongod settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
 User-defined mongod settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
+|| default_config | **[MongodConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4)**
 
 Default mongod configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -4655,13 +4655,13 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network)**
 
 `net` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.SetParameter)**
 
 `replication` section of mongod configuration. ||
 |#
@@ -4670,7 +4670,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.Journal)**
@@ -4684,13 +4684,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -4699,7 +4699,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -4708,7 +4708,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -4723,7 +4723,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -4732,7 +4732,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -4748,14 +4748,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -4765,7 +4765,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4.Network.Compression)**
@@ -4796,7 +4796,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
@@ -4813,7 +4813,7 @@ Configuration for mongocfg 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4822,14 +4822,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
+|| effective_config | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
 Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
 User-defined mongocfg settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
+|| default_config | **[MongoCfgConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4)**
 
 Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -4841,7 +4841,7 @@ Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Network)**
@@ -4853,7 +4853,7 @@ Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -4864,7 +4864,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -4873,7 +4873,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -4888,9 +4888,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -4901,7 +4901,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -4916,7 +4916,7 @@ Configuration for mongos 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -4925,14 +4925,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
+|| effective_config | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
 Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
 User-defined mongos settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
+|| default_config | **[MongosConfig4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4)**
 
 Default mongos configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -4950,7 +4950,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4.Network.Compression)**
@@ -4981,12 +4981,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4)** ||
-|| configMongocfg | **[MongoCfgConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4)** ||
+|| config_mongos | **[MongosConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4)** ||
+|| config_mongocfg | **[MongoCfgConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5019,7 +5019,7 @@ Configuration for mongod 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5028,14 +5028,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
+|| effective_config | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
 Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
 User-defined mongod settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
+|| default_config | **[MongodConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0)**
 
 Default mongod configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -5050,13 +5050,13 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network)**
 
 `net` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -5065,7 +5065,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.Journal)**
@@ -5079,13 +5079,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -5094,7 +5094,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -5103,7 +5103,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -5118,7 +5118,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -5127,7 +5127,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -5143,14 +5143,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -5160,7 +5160,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0.Network.Compression)**
@@ -5191,12 +5191,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
-|| minSnapshotHistoryWindowInSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
 |#
@@ -5211,7 +5211,7 @@ Configuration for mongocfg 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5220,14 +5220,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
+|| effective_config | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
 Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
 User-defined mongocfg settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
+|| default_config | **[MongoCfgConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0)**
 
 Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -5239,7 +5239,7 @@ Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Network)**
@@ -5251,7 +5251,7 @@ Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -5262,7 +5262,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -5271,7 +5271,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -5286,9 +5286,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -5299,7 +5299,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -5314,7 +5314,7 @@ Configuration for mongos 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5323,14 +5323,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
+|| effective_config | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
 Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
 User-defined mongos settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
+|| default_config | **[MongosConfig5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0)**
 
 Default mongos configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -5348,7 +5348,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0.Network.Compression)**
@@ -5379,12 +5379,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0)** ||
-|| configMongocfg | **[MongoCfgConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0)** ||
+|| config_mongos | **[MongosConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0)** ||
+|| config_mongocfg | **[MongoCfgConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5417,7 +5417,7 @@ Configuration for mongod 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5426,14 +5426,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
+|| effective_config | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
 Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
 User-defined mongod settings for a MongoDB 6.0 cluster. ||
-|| defaultConfig | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
+|| default_config | **[MongodConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0)**
 
 Default mongod configuration for a MongoDB 6.0 cluster. ||
 |#
@@ -5448,13 +5448,13 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network)**
 
 `net` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -5463,7 +5463,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.Journal)**
@@ -5477,13 +5477,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -5492,7 +5492,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -5501,7 +5501,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -5516,7 +5516,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -5525,7 +5525,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -5541,14 +5541,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -5558,7 +5558,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0.Network.Compression)**
@@ -5589,12 +5589,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
-|| minSnapshotHistoryWindowInSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
 |#
@@ -5609,7 +5609,7 @@ Configuration for mongocfg 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5618,14 +5618,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
+|| effective_config | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
 Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
 User-defined mongocfg settings for a MongoDB 6.0 cluster. ||
-|| defaultConfig | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
+|| default_config | **[MongoCfgConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0)**
 
 Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 |#
@@ -5637,7 +5637,7 @@ Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Network)**
@@ -5649,7 +5649,7 @@ Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -5660,7 +5660,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -5669,7 +5669,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -5684,9 +5684,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -5697,7 +5697,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -5712,7 +5712,7 @@ Configuration for mongos 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5721,14 +5721,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
+|| effective_config | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
 Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
 User-defined mongos settings for a MongoDB 6.0 cluster. ||
-|| defaultConfig | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
+|| default_config | **[MongosConfig6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0)**
 
 Default mongos configuration for a MongoDB 6.0 cluster. ||
 |#
@@ -5746,7 +5746,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0.Network.Compression)**
@@ -5777,12 +5777,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0)** ||
-|| configMongocfg | **[MongoCfgConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0)** ||
+|| config_mongos | **[MongosConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0)** ||
+|| config_mongocfg | **[MongoCfgConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5809,13 +5809,13 @@ Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a Mong
 
 #|
 ||Field | Description ||
-|| config | **[MongodConfigSet4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet4_4_enterprise)**
+|| config | **[MongodConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet4_4_enterprise)**
 
 Configuration for mongod 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -5824,14 +5824,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
+|| effective_config | **[MongodConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
 Effective mongod settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
 User-defined mongod settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongodConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
+|| default_config | **[MongodConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise)**
 
 Default mongod configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -5846,7 +5846,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network)**
@@ -5855,10 +5855,10 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 || security | **[Security](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Security)**
 
 `security` section of mongod configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.AuditLog)**
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.AuditLog)**
 
 `AuditLog` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -5867,7 +5867,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v4.4/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.Journal)**
@@ -5881,13 +5881,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -5896,7 +5896,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -5905,7 +5905,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -5920,7 +5920,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -5929,7 +5929,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -5945,14 +5945,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -5962,7 +5962,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Network.Compression)**
@@ -5993,7 +5993,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableEncryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_encryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig4_4_enterprise.Security.KMIP)**
@@ -6005,19 +6005,19 @@ If encryption at rest should be enabled or not ||
 
 #|
 ||Field | Description ||
-|| serverName | **string**
+|| server_name | **string**
 
 KMIP server name ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 KMIP server port ||
-|| serverCa | **string**
+|| server_ca | **string**
 
 KMIP Server CA ||
-|| clientCertificate | **string**
+|| client_certificate | **string**
 
 KMIP client certificate + private key (unencrypted) ||
-|| keyIdentifier | **string**
+|| key_identifier | **string**
 
 KMIP Key identifier (if any) ||
 |#
@@ -6035,10 +6035,10 @@ Audit filter ||
 
 #|
 ||Field | Description ||
-|| auditAuthorizationSuccess | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the auditing of authorization successes ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
@@ -6049,13 +6049,13 @@ lag under a configurable maximum value. ||
 
 #|
 ||Field | Description ||
-|| config | **[MongoCfgConfigSet4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)**
+|| config | **[MongoCfgConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)**
 
 Configuration for mongocfg 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6064,14 +6064,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
+|| effective_config | **[MongoCfgConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
 Effective mongocfg settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
 User-defined mongocfg settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongoCfgConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
+|| default_config | **[MongoCfgConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise)**
 
 Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -6083,7 +6083,7 @@ Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Network)**
@@ -6095,7 +6095,7 @@ Default mongocfg configuration for a MongoDB 4.4 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -6106,7 +6106,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig4_4_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -6115,7 +6115,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -6130,9 +6130,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -6143,7 +6143,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -6152,13 +6152,13 @@ The maximum number of simultaneous connections that mongocfg will accept. ||
 
 #|
 ||Field | Description ||
-|| config | **[MongosConfigSet4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)**
+|| config | **[MongosConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)**
 
 Configuration for mongos 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6167,14 +6167,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
+|| effective_config | **[MongosConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
 Effective mongos settings for a MongoDB 4.4 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
 User-defined mongos settings for a MongoDB 4.4 cluster. ||
-|| defaultConfig | **[MongosConfig4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
+|| default_config | **[MongosConfig4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise)**
 
 Default mongos configuration for a MongoDB 4.4 cluster. ||
 |#
@@ -6192,7 +6192,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig4_4_enterprise.Network.Compression)**
@@ -6223,12 +6223,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)** ||
-|| configMongocfg | **[MongoCfgConfigSet4_4Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)** ||
+|| config_mongos | **[MongosConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)** ||
+|| config_mongocfg | **[MongoCfgConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6255,13 +6255,13 @@ Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a Mong
 
 #|
 ||Field | Description ||
-|| config | **[MongodConfigSet5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet5_0_enterprise)**
+|| config | **[MongodConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet5_0_enterprise)**
 
 Configuration for mongod 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6270,14 +6270,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
+|| effective_config | **[MongodConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
 Effective mongod settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
 User-defined mongod settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongodConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
+|| default_config | **[MongodConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise)**
 
 Default mongod configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -6292,7 +6292,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network)**
@@ -6301,10 +6301,10 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 || security | **[Security](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Security)**
 
 `security` section of mongod configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.AuditLog)**
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.AuditLog)**
 
 `AuditLog` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -6313,7 +6313,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v5.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.Journal)**
@@ -6327,13 +6327,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -6342,7 +6342,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -6351,7 +6351,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -6366,7 +6366,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -6375,7 +6375,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -6391,14 +6391,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -6408,7 +6408,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Network.Compression)**
@@ -6439,7 +6439,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableEncryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_encryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig5_0_enterprise.Security.KMIP)**
@@ -6451,19 +6451,19 @@ If encryption at rest should be enabled or not ||
 
 #|
 ||Field | Description ||
-|| serverName | **string**
+|| server_name | **string**
 
 KMIP server name ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 KMIP server port ||
-|| serverCa | **string**
+|| server_ca | **string**
 
 KMIP Server CA ||
-|| clientCertificate | **string**
+|| client_certificate | **string**
 
 KMIP client certificate + private key (unencrypted) ||
-|| keyIdentifier | **string**
+|| key_identifier | **string**
 
 KMIP Key identifier (if any) ||
 |#
@@ -6475,7 +6475,7 @@ KMIP Key identifier (if any) ||
 || filter | **string**
 
 Audit filter ||
-|| runtimeConfiguration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| runtime_configuration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
@@ -6484,15 +6484,15 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 
 #|
 ||Field | Description ||
-|| auditAuthorizationSuccess | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the auditing of authorization successes ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
-|| minSnapshotHistoryWindowInSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
 |#
@@ -6501,13 +6501,13 @@ The minimum time window in seconds for which the storage engine keeps the snapsh
 
 #|
 ||Field | Description ||
-|| config | **[MongoCfgConfigSet5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)**
+|| config | **[MongoCfgConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)**
 
 Configuration for mongocfg 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6516,14 +6516,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
+|| effective_config | **[MongoCfgConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
 Effective mongocfg settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
 User-defined mongocfg settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongoCfgConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
+|| default_config | **[MongoCfgConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise)**
 
 Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -6535,7 +6535,7 @@ Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Network)**
@@ -6547,7 +6547,7 @@ Default mongocfg configuration for a MongoDB 5.0 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -6558,7 +6558,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig5_0_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -6567,7 +6567,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -6582,9 +6582,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -6595,7 +6595,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -6604,13 +6604,13 @@ The maximum number of simultaneous connections that mongocfg will accept. ||
 
 #|
 ||Field | Description ||
-|| config | **[MongosConfigSet5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)**
+|| config | **[MongosConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)**
 
 Configuration for mongos 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6619,14 +6619,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
+|| effective_config | **[MongosConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
 Effective mongos settings for a MongoDB 5.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
 User-defined mongos settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongosConfig5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
+|| default_config | **[MongosConfig5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise)**
 
 Default mongos configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -6644,7 +6644,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig5_0_enterprise.Network.Compression)**
@@ -6675,12 +6675,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)** ||
-|| configMongocfg | **[MongoCfgConfigSet5_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)** ||
+|| config_mongos | **[MongosConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)** ||
+|| config_mongocfg | **[MongoCfgConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6707,13 +6707,13 @@ Configuration and resource allocation for mongoinfra (mongos+mongocfg) in a Mong
 
 #|
 ||Field | Description ||
-|| config | **[MongodConfigSet6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet6_0_enterprise)**
+|| config | **[MongodConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfigSet6_0_enterprise)**
 
 Configuration for mongod 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6722,14 +6722,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
+|| effective_config | **[MongodConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
 Effective mongod settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
 User-defined mongod settings for a MongoDB 6.0 cluster. ||
-|| defaultConfig | **[MongodConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
+|| default_config | **[MongodConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise)**
 
 Default mongod configuration for a MongoDB 6.0 cluster. ||
 |#
@@ -6744,7 +6744,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network)**
@@ -6753,10 +6753,10 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 || security | **[Security](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Security)**
 
 `security` section of mongod configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.AuditLog)**
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.AuditLog)**
 
 `AuditLog` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -6765,7 +6765,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v6.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.Journal)**
@@ -6779,13 +6779,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -6794,7 +6794,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -6803,7 +6803,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -6818,7 +6818,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -6827,7 +6827,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -6843,14 +6843,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -6860,7 +6860,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Network.Compression)**
@@ -6891,7 +6891,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableEncryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_encryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig6_0_enterprise.Security.KMIP)**
@@ -6903,19 +6903,19 @@ If encryption at rest should be enabled or not ||
 
 #|
 ||Field | Description ||
-|| serverName | **string**
+|| server_name | **string**
 
 KMIP server name ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 KMIP server port ||
-|| serverCa | **string**
+|| server_ca | **string**
 
 KMIP Server CA ||
-|| clientCertificate | **string**
+|| client_certificate | **string**
 
 KMIP client certificate + private key (unencrypted) ||
-|| keyIdentifier | **string**
+|| key_identifier | **string**
 
 KMIP Key identifier (if any) ||
 |#
@@ -6927,7 +6927,7 @@ KMIP Key identifier (if any) ||
 || filter | **string**
 
 Audit filter ||
-|| runtimeConfiguration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| runtime_configuration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
@@ -6936,15 +6936,15 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 
 #|
 ||Field | Description ||
-|| auditAuthorizationSuccess | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the auditing of authorization successes ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
-|| minSnapshotHistoryWindowInSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
 |#
@@ -6953,13 +6953,13 @@ The minimum time window in seconds for which the storage engine keeps the snapsh
 
 #|
 ||Field | Description ||
-|| config | **[MongoCfgConfigSet6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)**
+|| config | **[MongoCfgConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)**
 
 Configuration for mongocfg 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -6968,14 +6968,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
+|| effective_config | **[MongoCfgConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
 Effective mongocfg settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
 User-defined mongocfg settings for a MongoDB 6.0 cluster. ||
-|| defaultConfig | **[MongoCfgConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
+|| default_config | **[MongoCfgConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise)**
 
 Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 |#
@@ -6987,7 +6987,7 @@ Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Network)**
@@ -6999,7 +6999,7 @@ Default mongocfg configuration for a MongoDB 6.0 cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -7010,7 +7010,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig6_0_enterprise.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -7019,7 +7019,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -7034,9 +7034,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -7047,7 +7047,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://doc
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -7056,13 +7056,13 @@ The maximum number of simultaneous connections that mongocfg will accept. ||
 
 #|
 ||Field | Description ||
-|| config | **[MongosConfigSet6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)**
+|| config | **[MongosConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)**
 
 Configuration for mongos 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7071,14 +7071,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
+|| effective_config | **[MongosConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
 Effective mongos settings for a MongoDB 6.0 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
 User-defined mongos settings for a MongoDB 5.0 cluster. ||
-|| defaultConfig | **[MongosConfig6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
+|| default_config | **[MongosConfig6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise)**
 
 Default mongos configuration for a MongoDB 5.0 cluster. ||
 |#
@@ -7096,7 +7096,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig6_0_enterprise.Network.Compression)**
@@ -7127,12 +7127,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)** ||
-|| configMongocfg | **[MongoCfgConfigSet6_0Enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)** ||
+|| config_mongos | **[MongosConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)** ||
+|| config_mongocfg | **[MongoCfgConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7141,17 +7141,17 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| profilingEnabled | **bool** ||
+|| profiling_enabled | **bool** ||
 |#
 
 ## Access {#yandex.cloud.mdb.mongodb.v1.Access}
 
 #|
 ||Field | Description ||
-|| dataLens | **bool**
+|| data_lens | **bool**
 
 Allow access for DataLens. ||
-|| dataTransfer | **bool**
+|| data_transfer | **bool**
 
 Allow access for DataTransfer. ||
 |#
@@ -7184,7 +7184,7 @@ Configuration for mongod hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongod hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7193,14 +7193,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
+|| effective_config | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
 Effective mongod settings for a MongoDB cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
 User-defined mongod settings for a MongoDB cluster. ||
-|| defaultConfig | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
+|| default_config | **[MongodConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig)**
 
 Default mongod configuration for a MongoDB cluster. ||
 |#
@@ -7215,7 +7215,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage)**
 
 `storage` section of mongod configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.OperationProfiling)**
 
 `operationProfiling` section of mongod configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network)**
@@ -7224,10 +7224,10 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || security | **[Security](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security)**
 
 `security` section of mongod configuration. ||
-|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.AuditLog)**
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.AuditLog)**
 
 `AuditLog` section of mongod configuration. ||
-|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
+|| set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
 |#
@@ -7236,7 +7236,7 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 || journal | **[Journal](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.Journal)**
@@ -7250,13 +7250,13 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
-|| collectionConfig | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig)**
+|| collection_config | **[CollectionConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig)**
 
 Collection configuration for WiredTiger. ||
-|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig)**
+|| index_config | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.IndexConfig)**
 
 Index configuration for WiredTiger ||
 |#
@@ -7265,7 +7265,7 @@ Index configuration for WiredTiger ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -7274,7 +7274,7 @@ The maximum size of the internal cache that WiredTiger will use for all data. ||
 
 #|
 ||Field | Description ||
-|| blockCompressor | enum **Compressor**
+|| block_compressor | enum **Compressor**
 
 Default type of compression to use for collection data.
 
@@ -7289,7 +7289,7 @@ Default type of compression to use for collection data.
 
 #|
 ||Field | Description ||
-|| prefixCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| prefix_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
@@ -7298,7 +7298,7 @@ Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/ref
 
 #|
 ||Field | Description ||
-|| commitInterval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| commit_interval | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Commit interval between journal operations, in milliseconds.
 Default: 100. ||
@@ -7314,14 +7314,14 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
 running in the SLOW_OP mode. ||
-|| slowOpSampleRate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| slow_op_sample_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The fraction of slow operations that should be profiled or logged.
 operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. ||
@@ -7331,7 +7331,7 @@ operationProfiling.slowOpSampleRate accepts values between 0 and 1, inclusive. |
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongod will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Network.Compression)**
@@ -7362,7 +7362,7 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| enableEncryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_encryption | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 If encryption at rest should be enabled or not ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP)**
@@ -7374,19 +7374,19 @@ If encryption at rest should be enabled or not ||
 
 #|
 ||Field | Description ||
-|| serverName | **string**
+|| server_name | **string**
 
 KMIP server name ||
 || port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 KMIP server port ||
-|| serverCa | **string**
+|| server_ca | **string**
 
 KMIP Server CA ||
-|| clientCertificate | **string**
+|| client_certificate | **string**
 
 KMIP client certificate + private key (unencrypted) ||
-|| keyIdentifier | **string**
+|| key_identifier | **string**
 
 KMIP Key identifier (if any) ||
 |#
@@ -7398,7 +7398,7 @@ KMIP Key identifier (if any) ||
 || filter | **string**
 
 Audit filter ||
-|| runtimeConfiguration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| runtime_configuration | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 |#
@@ -7407,15 +7407,15 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 
 #|
 ||Field | Description ||
-|| auditAuthorizationSuccess | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| audit_authorization_success | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the auditing of authorization successes ||
-|| enableFlowControl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| enable_flow_control | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
 goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v7.0/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
 lag under a configurable maximum value. ||
-|| minSnapshotHistoryWindowInSeconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
 |#
@@ -7430,7 +7430,7 @@ Configuration for mongocfg hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7439,14 +7439,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
+|| effective_config | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
 Effective mongocfg settings for a MongoDB cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
 User-defined mongocfg settings for a MongoDB cluster. ||
-|| defaultConfig | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
+|| default_config | **[MongoCfgConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig)**
 
 Default mongocfg configuration for a MongoDB cluster. ||
 |#
@@ -7458,7 +7458,7 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || storage | **[Storage](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage)**
 
 `storage` section of mongocfg configuration. ||
-|| operationProfiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling)**
+|| operation_profiling | **[OperationProfiling](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling)**
 
 `operationProfiling` section of mongocfg configuration. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
@@ -7470,7 +7470,7 @@ Default mongocfg configuration for a MongoDB cluster. ||
 
 #|
 ||Field | Description ||
-|| wiredTiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger)**
+|| wired_tiger | **[WiredTiger](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger)**
 
 Configuration of the WiredTiger storage engine. ||
 |#
@@ -7481,7 +7481,7 @@ Configuration of WiredTiger storage engine.
 
 #|
 ||Field | Description ||
-|| engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
+|| engine_config | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
 |#
@@ -7490,7 +7490,7 @@ Engine configuration for WiredTiger. ||
 
 #|
 ||Field | Description ||
-|| cacheSizeGb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+|| cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
 |#
@@ -7505,9 +7505,9 @@ Mode which specifies operations that should be profiled.
 
 - `MODE_UNSPECIFIED`
 - `OFF`: The profiler is off and does not collect any data.
-- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slowOpThreshold`.
+- `SLOW_OP`: The profiler collects data for operations that take longer than the value of `slow_op_threshold`.
 - `ALL`: The profiler collects data for all operations. ||
-|| slowOpThreshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| slow_op_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The slow operation time threshold, in milliseconds. Operations that run
 for longer than this threshold are considered slow, and are processed by the profiler
@@ -7518,7 +7518,7 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
 |#
@@ -7533,7 +7533,7 @@ Configuration for mongos hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7542,14 +7542,14 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
+|| effective_config | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
 Effective mongos settings for a MongoDB cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
+in `user_config` and `default_config`). ||
+|| user_config | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
 User-defined mongos settings for a MongoDB cluster. ||
-|| defaultConfig | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
+|| default_config | **[MongosConfig](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig)**
 
 Default mongos configuration for a MongoDB cluster. ||
 |#
@@ -7567,7 +7567,7 @@ Network settings for mongos. ||
 
 #|
 ||Field | Description ||
-|| maxIncomingConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_incoming_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections that mongos will accept. ||
 || compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network.Compression)**
@@ -7598,12 +7598,12 @@ MongoDB supports the following compressors:
 
 #|
 ||Field | Description ||
-|| configMongos | **[MongosConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet)** ||
-|| configMongocfg | **[MongoCfgConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet)** ||
+|| config_mongos | **[MongosConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet)** ||
+|| config_mongocfg | **[MongoCfgConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -7618,14 +7618,14 @@ A maintenance window settings.
 
 Maintenance operation can be scheduled anytime.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mongodb.v1.WeeklyMaintenanceWindow)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
 |#
@@ -7669,7 +7669,7 @@ A planned maintenance operation.
 || info | **string**
 
 Information about this maintenance operation. ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||
 |#

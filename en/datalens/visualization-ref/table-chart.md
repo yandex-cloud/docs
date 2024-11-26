@@ -31,15 +31,15 @@ Home appliances |	Health and beauty equipment |	Pickup |	2 387 410 |	550 |	581
 
 To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
 
-* [{#T}](#change-columns-names)
-* [{#T}](#hint-column)
-* [{#T}](#sorting-columns)
-* [{#T}](#set-column-width)
-* [{#T}](#column-fixation)
-* [{#T}](#add-totals)
-* [{#T}](#add-column-color)
-* [{#T}](#set-field-color)
-* [{#T}](#add-linear-indicator)
+* [Renaming columns](#change-columns-names)
+* [Adding a tooltip to a table header](#hint-column)
+* [Setting up table data sorting by multiple columns](#sorting-columns)
+* [Setting the width of table columns](#set-column-width)
+* [Freezing table columns](#column-fixation)
+* [Adding a row with totals](#add-totals)
+* [Adding row color](#add-column-color)
+* [Setting the field fill color](#set-field-color)
+* [Adding a linear indicator to a column with a measure](#add-linear-indicator)
 
 ## Wizard sections {#wizard-sections}
 

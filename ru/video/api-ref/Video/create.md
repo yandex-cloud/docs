@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Video/create.md
 ---
 
-# Video API, REST: Video.Create {#Create}
+# Video API, REST: Video.Create
 
 Create video.
 
@@ -21,6 +21,7 @@ POST https://video.{{ api-host }}/video/v1/videos
   "title": "string",
   "description": "string",
   "thumbnailId": "string",
+  "autoTranscode": "string",
   "labels": "string",
   // Includes only one of the fields `tusd`
   "tusd": {
@@ -28,9 +29,10 @@ POST https://video.{{ api-host }}/video/v1/videos
     "fileName": "string"
   },
   // end of the list of possible fields
-  // Includes only one of the fields `publicAccess`, `authSystemAccess`
+  // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
   "publicAccess": "object",
-  "authSystemAccess": "object"
+  "authSystemAccess": "object",
+  "signUrlAccess": "object"
   // end of the list of possible fields
 }
 ```
@@ -39,16 +41,23 @@ POST https://video.{{ api-host }}/video/v1/videos
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || title | **string**
 
-Video title. ||
+Required field. Video title. ||
 || description | **string**
 
 Video description. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
+|| autoTranscode | **enum** (AutoTranscode)
+
+Auto start transcoding.
+
+- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
+- `ENABLE`: Enable auto transcoding.
+- `DISABLE`: Disable auto transcoding. ||
 || labels | **string**
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
@@ -63,14 +72,21 @@ Source type. ||
 
 Video is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Video access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 |#
@@ -119,14 +135,19 @@ File name. ||
     "status": "string",
     "duration": "string",
     "visibilityStatus": "string",
+    "autoTranscode": "string",
+    "subtitleIds": [
+      "string"
+    ],
     // Includes only one of the fields `tusd`
     "tusd": {
       "url": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
+    // Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`
     "publicAccess": "object",
     "authSystemAccess": "object",
+    "signUrlAccess": "object",
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
@@ -269,6 +290,18 @@ Video visibility status.
 - `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
 - `PUBLISHED`: Video is published and available for viewing.
 - `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
+|| autoTranscode | **enum** (AutoTranscode)
+
+Auto start transcoding.
+If set to ENABLE, transcoding process is initiated automatically after video upload.
+If set to DISABLE, manual "Transcode()" call is required instead.
+
+- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
+- `ENABLE`: Enable auto transcoding.
+- `DISABLE`: Disable auto transcoding. ||
+|| subtitleIds[] | **string**
+
+IDs of active video subtitles. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
 Upload video using the tus protocol.
@@ -280,14 +313,21 @@ Source type. ||
 
 Video is available to everyone.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 || authSystemAccess | **object**
 
 Checking access rights using the authorization system.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
+
+Video access rights. ||
+|| signUrlAccess | **object**
+
+Checking access rights using url's signature.
+
+Includes only one of the fields `publicAccess`, `authSystemAccess`, `signUrlAccess`.
 
 Video access rights. ||
 || createdAt | **string** (date-time)

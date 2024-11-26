@@ -64,7 +64,7 @@ You can stop and restart an {{ MY }} cluster as needed. There is no charge while
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -149,7 +149,7 @@ You can restart **STOPPED** clusters.
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#responses) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

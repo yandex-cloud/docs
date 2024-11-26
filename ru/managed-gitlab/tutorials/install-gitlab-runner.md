@@ -122,7 +122,7 @@
 
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
     * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
     * Задайте нужный размер диска. 

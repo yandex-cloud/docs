@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/updateAccessBindings.md
 ---
 
-# Compute Cloud API, REST: Snapshot.UpdateAccessBindings {#UpdateAccessBindings}
+# Compute Cloud API, REST: Snapshot.UpdateAccessBindings
 
 Updates access bindings for the snapshot.
 

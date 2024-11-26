@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/getRecordSet.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.GetRecordSet {#GetRecordSet}
+# Cloud DNS API, gRPC: DnsZoneService.GetRecordSet
 
 Returns the specified record set.
 
@@ -15,7 +15,7 @@ Returns the specified record set.
 
 ```json
 {
-  "dnsZoneId": "string",
+  "dns_zone_id": "string",
   "name": "string",
   "type": "string"
 }
@@ -23,7 +23,7 @@ Returns the specified record set.
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone to get record set from.
 

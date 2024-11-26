@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/getManifests.md
 ---
 
-# Video API, REST: Episode.GetManifests {#GetManifests}
+# Video API, REST: Episode.GetManifests
 
 Returns manifest urls.
 

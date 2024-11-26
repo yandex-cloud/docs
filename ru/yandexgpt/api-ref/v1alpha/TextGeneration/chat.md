@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/v1alpha/TextGeneration/chat.md
 ---
 
-# YandexGPT API, REST: TextGeneration.Chat {#Chat}
+# YandexGPT API, REST: TextGeneration.Chat
 
 RPC method for engaging in a chat conversation with the model.
 

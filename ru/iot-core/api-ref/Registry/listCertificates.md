@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listCertificates.md
 ---
 
-# IoT Core Service, REST: Registry.ListCertificates {#ListCertificates}
+# IoT Core Service, REST: Registry.ListCertificates
 
 Retrieves the list of registry certificates for the specified registry.
 

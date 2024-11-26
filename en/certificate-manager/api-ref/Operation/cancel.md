@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Operation/cancel.md
 ---
 
-# Certificate Manager API, REST: Operation.Cancel {#Cancel}
+# Certificate Manager API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

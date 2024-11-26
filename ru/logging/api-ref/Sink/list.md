@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/list.md
 ---
 
-# Cloud Logging Service, REST: Sink.List {#List}
+# Cloud Logging Service, REST: Sink.List
 
 Retrieves the list of sinks in the specified folder.
 

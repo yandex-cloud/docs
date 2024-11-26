@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for Apache Airflow™ API, REST: Cluster.Create {#Create}
+# Managed Service for Apache Airflow™ API, REST: Cluster.Create
 
 Creates an Apache Airflow cluster.
 

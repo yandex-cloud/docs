@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Lock/create.md
 ---
 
-# Yandex Cloud Marketplace License Manager, gRPC: LockService.Create {#Create}
+# Yandex Cloud Marketplace License Manager, gRPC: LockService.Create
 
 Locks the specified subscription instance to the resource.
 
@@ -15,17 +15,17 @@ Locks the specified subscription instance to the resource.
 
 ```json
 {
-  "instanceId": "string",
-  "resourceId": "string"
+  "instance_id": "string",
+  "resource_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 Required field. ID of the subscription instance. ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field. ID of the resource to which the subscription will be locked. ||
 |#
@@ -36,25 +36,25 @@ Required field. ID of the resource to which the subscription will be locked. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "lockId": "string"
+    "lock_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "instanceId": "string",
-    "resourceId": "string",
-    "startTime": "google.protobuf.Timestamp",
-    "endTime": "google.protobuf.Timestamp",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "instance_id": "string",
+    "resource_id": "string",
+    "start_time": "google.protobuf.Timestamp",
+    "end_time": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "state": "State",
-    "templateId": "string"
+    "template_id": "string"
   }
   // end of the list of possible fields
 }
@@ -70,13 +70,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -119,7 +119,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| lockId | **string**
+|| lock_id | **string**
 
 ID of the subscription lock. ||
 |#
@@ -131,22 +131,22 @@ ID of the subscription lock. ||
 || id | **string**
 
 ID of the subscription lock. ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 ID of the subscription instance. ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of the resource. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the start of the subscription lock. ||
-|| endTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the end of the subscription lock. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Update timestamp. ||
 || state | enum **State**
@@ -157,7 +157,7 @@ Subscription lock state.
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
-|| templateId | **string**
+|| template_id | **string**
 
 ID of the subscription template. ||
 |#

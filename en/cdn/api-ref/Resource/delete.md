@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/delete.md
 ---
 
-# Cloud CDN API, REST: Resource.Delete {#Delete}
+# Cloud CDN API, REST: Resource.Delete
 
 Deletes client's CDN resource.
 

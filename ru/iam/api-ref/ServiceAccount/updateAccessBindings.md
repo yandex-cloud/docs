@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/updateAccessBindings.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.UpdateAccessBindings {#UpdateAccessBindings}
+# Identity and Access Management API, REST: ServiceAccount.UpdateAccessBindings
 
 Updates access bindings for the specified service account.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/updateSniMatch.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.UpdateSniMatch {#UpdateSniMatch}
+# Application Load Balancer API, REST: LoadBalancer.UpdateSniMatch
 
 Updates the specified SNI handler of the specified listener.
 

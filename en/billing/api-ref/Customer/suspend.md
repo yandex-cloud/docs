@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/suspend.md
 ---
 
-# Billing API, REST: Customer.Suspend {#Suspend}
+# Billing API, REST: Customer.Suspend
 
 Suspend specified customer. After customer is suspended, he can't use resources associated with his billing account.
 

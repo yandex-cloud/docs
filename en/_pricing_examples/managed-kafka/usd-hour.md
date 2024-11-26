@@ -1,8 +1,8 @@
 Cost calculation for {{ KF }} broker hosts:
 
-> 3 × (2&nbsp;×&nbsp;{{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|USD|mdb.cluster.kafka.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}
+> 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|string }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}
 >
-> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}, per hour cost of {{ KF }} broker hosts.
+> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}: Cost of operation of {{ KF }} broker hosts per hour.
 
 Where:
 * 3: Number of {{ KF }} broker hosts.
@@ -24,9 +24,9 @@ Where:
 
 Cost calculation for {{ ZK }} hosts:
 
-> 3 × (2&nbsp;×&nbsp;{{ sku|USD|mdb.zk.kafka.v3.cpu.c50|string }} + 4&nbsp;×&nbsp;{{ sku|USD|mdb.zk.kafka.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}
+> 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|string }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|string }}) = {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}
 >
-> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}, per hour cost of {{ ZK }} hosts.
+> Total: {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}: Cost of operation of {{ ZK }} hosts per hour.
 
 Where:
 * 3: Number of {{ ZK }} hosts.
@@ -54,7 +54,7 @@ Total cost calculation:
 
 Where:
 * 720: Number of hours in 30 days.
-* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}: Per hour cost of {{ KF }} broker hosts.
-* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}: Per hour cost of {{ ZK }} hosts.
+* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|USD|mdb.cluster.kafka.v3.ram|number }}) %}: Cost of operation of {{ KF }} broker hosts per hour.
+* {% calc [currency=USD] 3 × (2 × {{ sku|USD|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|USD|mdb.zk.kafka.v3.ram|number }}) %}: Cost of operation of {{ ZK }} hosts per hour.
 * {% calc [currency=USD] 3 × 100 × {{ sku|USD|mdb.cluster.network-hdd.kafka|month|number }} %}: Cost of storage for {{ KF }} broker hosts.
 * {% calc [currency=USD] 3 × 10 × {{ sku|USD|mdb.cluster.network-nvme.kafka|month|number }} %}: Cost of storage for {{ ZK }} hosts.

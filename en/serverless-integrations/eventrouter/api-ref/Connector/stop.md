@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/stop.md
 ---
 
-# EventRouter Service, REST: Connector.Stop {#Stop}
+# EventRouter Service, REST: Connector.Stop
 
 Stops the specified connector.
 

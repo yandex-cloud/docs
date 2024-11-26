@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/addDataStreamExport.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.AddDataStreamExport {#AddDataStreamExport}
+# IoT Core Service, gRPC: RegistryService.AddDataStreamExport
 
 Adds YDS export for the specified registry.
 
@@ -16,11 +16,11 @@ Adds YDS export for the specified registry.
 ```json
 {
   "name": "string",
-  "registryId": "string",
-  "mqttTopicFilter": "string",
+  "registry_id": "string",
+  "mqtt_topic_filter": "string",
   "database": "string",
   "stream": "string",
-  "serviceAccountId": "string"
+  "service_account_id": "string"
 }
 ```
 
@@ -29,12 +29,12 @@ Adds YDS export for the specified registry.
 || name | **string**
 
 Name of the YDS export. The name must be unique within the folder. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to add a YDS export for.
 
 To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request. ||
-|| mqttTopicFilter | **string**
+|| mqtt_topic_filter | **string**
 
 MQTT topic whose messages export to YDS. ||
 || database | **string**
@@ -43,7 +43,7 @@ Required field. YDS database. ||
 || stream | **string**
 
 Required field. YDS stream name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the service account which has permission to write to data stream. ||
 |#
@@ -54,25 +54,25 @@ Required field. ID of the service account which has permission to write to data 
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "registryId": "string",
-    "dataStreamExportId": "string"
+    "registry_id": "string",
+    "data_stream_export_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "registryId": "string",
-    "mqttTopicFilter": "string",
+    "registry_id": "string",
+    "mqtt_topic_filter": "string",
     "database": "string",
     "stream": "string",
-    "serviceAccountId": "string",
-    "createdAt": "google.protobuf.Timestamp"
+    "service_account_id": "string",
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -88,13 +88,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -137,10 +137,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry for which the YDS export was added. ||
-|| dataStreamExportId | **string**
+|| data_stream_export_id | **string**
 
 ID of the added YDS export. ||
 |#
@@ -157,10 +157,10 @@ ID of the YDS export. ||
 || name | **string**
 
 Name of the YDS export. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the YDS export belongs to. ||
-|| mqttTopicFilter | **string**
+|| mqtt_topic_filter | **string**
 
 MQTT topic whose messages export to YDS. ||
 || database | **string**
@@ -169,10 +169,10 @@ YDS database. ||
 || stream | **string**
 
 YDS stream name. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account which has permission to write to data stream. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

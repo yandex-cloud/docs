@@ -173,6 +173,8 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave the field empty.
 
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Leave the `0` value.
+
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Make sure to enable this option.
 
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.

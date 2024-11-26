@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Repository/get.md
 ---
 
-# Container Registry API, gRPC: RepositoryService.Get {#Get}
+# Container Registry API, gRPC: RepositoryService.Get
 
 Returns the specified Repository resource.
 
@@ -17,13 +17,13 @@ To get the list of available Repository resources, make a [List](/docs/container
 
 ```json
 {
-  "repositoryId": "string"
+  "repository_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| repositoryId | **string**
+|| repository_id | **string**
 
 Required field. ID of the Repository resource to return.
 

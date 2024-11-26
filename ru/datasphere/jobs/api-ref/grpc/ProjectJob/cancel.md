@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/cancel.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.Cancel {#Cancel}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.Cancel
 
 Cancels running job.
 
@@ -15,7 +15,7 @@ Cancels running job.
 
 ```json
 {
-  "jobId": "string",
+  "job_id": "string",
   "reason": "string",
   "graceful": "bool"
 }
@@ -23,7 +23,7 @@ Cancels running job.
 
 #|
 ||Field | Description ||
-|| jobId | **string**
+|| job_id | **string**
 
 ID of the job. ||
 || reason | **string**

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/create.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.Create {#Create}
+# Identity and Access Management SAML API, REST: Certificate.Create
 
 Creates a certificate in the specified federation.
 

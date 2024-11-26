@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/get.md
 ---
 
-# Access Key, REST: AccessKey.Get {#Get}
+# Access Key, REST: AccessKey.Get
 
 Returns the specified access key.
 

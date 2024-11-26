@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/resizeDisk.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.ResizeDisk {#ResizeDisk}
+# DataSphere API v2, gRPC: ProjectService.ResizeDisk
 
 Resizes project disk
 
@@ -15,17 +15,17 @@ Resizes project disk
 
 ```json
 {
-  "projectId": "string",
-  "newDiskSizeGb": "int64"
+  "project_id": "string",
+  "new_disk_size_gb": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the project. ||
-|| newDiskSizeGb | **int64**
+|| new_disk_size_gb | **int64**
 
 Set new size project disk in gigabytes. ||
 |#
@@ -36,26 +36,26 @@ Set new size project disk in gigabytes. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "projectId": "string",
-    "oldDiskSizeGb": "int64",
-    "newDiskSizeGb": "int64"
+    "project_id": "string",
+    "old_disk_size_gb": "int64",
+    "new_disk_size_gb": "int64"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "projectId": "string",
-    "diskSizeGb": "double",
-    "diskUsedGb": "double",
-    "detailedUsage": {
-      "userDataGb": "double",
-      "packagesGb": "double",
-      "systemDataGb": "double",
-      "freeSpaceGb": "double"
+    "project_id": "string",
+    "disk_size_gb": "double",
+    "disk_used_gb": "double",
+    "detailed_usage": {
+      "user_data_gb": "double",
+      "packages_gb": "double",
+      "system_data_gb": "double",
+      "free_space_gb": "double"
     }
   }
   // end of the list of possible fields
@@ -72,13 +72,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -121,13 +121,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project which resized project disk. ||
-|| oldDiskSizeGb | **int64**
+|| old_disk_size_gb | **int64**
 
 Old size project disk in gigabytes. ||
-|| newDiskSizeGb | **int64**
+|| new_disk_size_gb | **int64**
 
 New size project disk in gigabytes. ||
 |#
@@ -136,16 +136,16 @@ New size project disk in gigabytes. ||
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 ID of the project. ||
-|| diskSizeGb | **double**
+|| disk_size_gb | **double**
 
 Project disk size in gigabytes. ||
-|| diskUsedGb | **double**
+|| disk_used_gb | **double**
 
 Used project disk in gigabytes. ||
-|| detailedUsage | **[DetailedDiskInfo](#yandex.cloud.datasphere.v2.DiskInfo.DetailedDiskInfo)**
+|| detailed_usage | **[DetailedDiskInfo](#yandex.cloud.datasphere.v2.DiskInfo.DetailedDiskInfo)**
 
 Detailed information about the project disk. ||
 |#
@@ -154,16 +154,16 @@ Detailed information about the project disk. ||
 
 #|
 ||Field | Description ||
-|| userDataGb | **double**
+|| user_data_gb | **double**
 
 Used project disk for user data in gigabytes. ||
-|| packagesGb | **double**
+|| packages_gb | **double**
 
 Used project disk for packages in gigabytes. ||
-|| systemDataGb | **double**
+|| system_data_gb | **double**
 
 Used project disk for system data in gigabytes. ||
-|| freeSpaceGb | **double**
+|| free_space_gb | **double**
 
 Free space project disk in gigabytes. ||
 |#

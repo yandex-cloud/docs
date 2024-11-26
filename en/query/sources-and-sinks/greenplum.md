@@ -72,8 +72,8 @@ Some limitations apply when working with {{ GP }} clusters.
 Limitations:
 1. {% include [!](_includes/supported_requests.md) %}
 1. Data is read in a single stream via the master host, i.e., the [coordinator host](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-intro-arch_overview.html) of a {{ GP }} cluster. Currently, massive parallel reading is not supported.
-1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system](https://ydb.tech/docs/ru/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ GP }} types (`date` and `timestamp`). 
-Therefore, {{ yq-short-name }} returns date and time values read from {{ GP }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ GP }} types (`date` and `timestamp`). 
+Therefore, {{ yq-short-name }} returns date and time values read from {{ GP }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -91,7 +91,7 @@ Therefore, {{ yq-short-name }} returns date and time values read from {{ GP }} a
 
 ## Supported data types {#supported_types}
 
-In a {{ GP }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented by means of the `attnotnull` attribute in the [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ GP }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional](https://ydb.tech/docs/ru/yql/reference/types/optional) types. 
+In a {{ GP }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented by means of the `attnotnull` attribute in the [pg_attribute](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/ref_guide-system_catalogs-pg_attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ GP }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types. 
 
 The table below shows how {{ GP }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 

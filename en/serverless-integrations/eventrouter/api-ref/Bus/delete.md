@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/delete.md
 ---
 
-# EventRouter Service, REST: Bus.Delete {#Delete}
+# EventRouter Service, REST: Bus.Delete
 
 Deletes the specified bus.
 

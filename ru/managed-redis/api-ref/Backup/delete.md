@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for Redis API, REST: Backup.Delete {#Delete}
+# Managed Service for Redis API, REST: Backup.Delete
 
 Returns the list of available backups for the specified Redis cluster.
 

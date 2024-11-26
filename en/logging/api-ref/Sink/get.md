@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/get.md
 ---
 
-# Cloud Logging Service, REST: Sink.Get {#Get}
+# Cloud Logging Service, REST: Sink.Get
 
 Returns the specified sink.
 

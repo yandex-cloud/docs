@@ -3589,6 +3589,7 @@ default:
   sku|USD|mdb:
     cluster:
       clickhouse:
+        backup|month|string: "0,015360\_$"
         v1:
           cpu:
             c100|month|string: "13,132800\_$"
@@ -3693,6 +3694,7 @@ default:
         pg|month|string: "0,104080\_$"
         redis|month|string: "0,104080\_$"
       mongodb:
+        backup|month|string: "0,015360\_$"
         v1:
           cpu:
             c100|month|string: "9,216000\_$"
@@ -3761,12 +3763,14 @@ default:
             c100:
               dedicated|string: "0,004000\_$"
             c100|month|string: "9,676800\_$"
+            c100|number: 0.01344
             c100|string: "0,013440\_$"
             c50|month|string: "3,744000\_$"
             c50|string: "0,005200\_$"
           ram:
             dedicated|string: "0,001200\_$"
           ram|month|string: "2,649600\_$"
+          ram|number: 0.00368
           ram|string: "0,003680\_$"
       network-hdd:
         ch|month|number: 0.0256
@@ -3776,6 +3780,7 @@ default:
         kafka|month|number: 0.0256
         kafka|month|string: "0,025600\_$"
         mongodb|month|string: "0,025600\_$"
+        mysql|month|number: 0.0256
         mysql|month|string: "0,025600\_$"
         opensearch|month|string: "0,025600\_$"
         pg|month|string: "0,025600\_$"
@@ -3790,16 +3795,27 @@ default:
         opensearch|month|string: "0,104080\_$"
         pg|month|string: "0,104080\_$"
         redis|month|string: "0,104080\_$"
+      network-ssd-io-m3:
+        ch|month|string: "0,174240\_$"
+        greenplum|month|string: "0,174240\_$"
+        kafka|month|string: "0,174240\_$"
+        mongodb|month|string: "0,174240\_$"
+        mysql|month|string: "0,174240\_$"
+        opensearch|month|string: "0,174240\_$"
+        pg|month|string: "0,174240\_$"
+        redis|month|string: "0,174240\_$"
       network-ssd-nonreplicated:
         ch|month|string: "0,070400\_$"
         elasticsearch|month|string: "0,070400\_$"
         greenplum|month|string: "0,070400\_$"
         kafka|month|string: "0,070400\_$"
+        mongodb|month|string: "0,070400\_$"
         mysql|month|string: "0,070400\_$"
         opensearch|month|string: "0,070400\_$"
         pg|month|string: "0,070400\_$"
         redis|month|string: "0,070400\_$"
       opensearch:
+        backup|month|string: "0,015360\_$"
         v2:
           cpu:
             c100|month|string: "9,676800\_$"
@@ -4424,6 +4440,9 @@ default:
         cpu|string: "0,014960\_$"
         ram|month|string: "2,937600\_$"
         ram|string: "0,004080\_$"
+    db:
+      backup:
+        v1|month|string: "0,016080\_$"
     v1:
       serverless:
         requests|pricingRate:
@@ -5554,8 +5573,6 @@ default:
         approved:
           tab:
             recording-rules: Recording rules
-          widget-monitoring:
-            title: Мониторить процесс записи
         common:
           action_code: Код файла
           action_destroy: Удалить
@@ -5674,12 +5691,12 @@ default:
               create: Создать федерацию
         group-mapping:
           create:
-            add: Добавить
+            add: Добавить группу
           field:
             idp: Маппинг групп в IdP
           note:
             group-name: Имя группы
-            iam-group: IAM-группы
+            iam-group: IAM-группа
             tab-idp: IdP-группы
         organization:
           create:
@@ -6056,10 +6073,11 @@ default:
         value_retention-save-last-f: Только последнюю
         value_type-incremental: Инкрементальный
       baremetal:
-        action_delete-server: Отказаться от аренды
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
         action_reboot-server: Перезапустить
+        action_stop-prolongation-server: Выключить автопродление
+        action_stop-prolongation-server-dialog: Выключить
         action-create-subnetwork: Создать приватную подсеть
         actions_add-partition: Добавить раздел
         field_CIDR: CIDR
@@ -6288,8 +6306,8 @@ default:
       cns:
         field_apns-bundle-id: Идентификатор приложения (Bundle ID)
         field_apns-certificate: Сертификат
-        field_apns-key: Токен
-        field_apns-key-id: Идентификатор токена
+        field_apns-key: Ключ подписи
+        field_apns-key-id: Идентификатор ключа
         field_apns-private-key: Закрытый ключ сертификата
         field_apns-team-id: Идентификатор разработчика
       common:
@@ -6704,14 +6722,12 @@ default:
             section_backup: Cloud Backup
             section_base: Общая информация
             section_coi: Настройка Docker-контейнера
-            section_disk: Диски
             section_image: Образ загрузочного диска
             section_monitoring: Мониторинг
             section_network: Сетевые настройки
             section_placement: Размещение
             section_platform: Вычислительные ресурсы
-            section_storages: Диски
-            section_storages_ru: Диски и файловые хранилища
+            section_storages: Диски и файловые хранилища
             unified-agent: Агент сбора метрик
             value_address-auto: Автоматически
             value_address-none: Без адреса
@@ -7030,6 +7046,16 @@ default:
                 size: Объём SSD-хранилищ
           switch_overview: Обзор
           switch_quotas: Квоты
+        connected-federation:
+          action_connect: Привязать
+          action_connect-federation: Привязать к федерации
+          field_federation: Федерация сервисных аккаунтов
+          field_subject: Значение Subject (sub)
+        federations:
+          field_audiences: Допустимые значения Audience (aud)
+          field_issuer: Значение Issuer (iss)
+          field_jwks: Адрес JWKS
+          field_name: Имя
         folder:
           dashboard:
             button_add: Создать ресурс
@@ -7134,6 +7160,8 @@ default:
             popup-confirm_button_delete: Удалить
           switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
+        label_create-wli-federation: Создать федерацию
+        label_federations: Федерации сервисных аккаунтов
         label_service-accounts: Сервисные аккаунты
       iot:
         button_add-alias: Добавить алиас
@@ -9669,6 +9697,7 @@ default:
         folder: Каталог
         foundation-models: Фундаментальные модели
         general: Общие настройки
+        id: ID
         input: Входные значения
         link: Привязать
         manage-labels: Управление метками

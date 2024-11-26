@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/resolveAgent.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent {#ResolveAgent}
+# Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent
 
 Resolve agent service account for the service in the specified resource container.
 
@@ -15,8 +15,8 @@ Resolve agent service account for the service in the specified resource containe
 
 ```json
 {
-  "serviceId": "string",
-  "microserviceId": "string",
+  "service_id": "string",
+  "microservice_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
@@ -26,10 +26,10 @@ Resolve agent service account for the service in the specified resource containe
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 Required field. ID of the Service. ||
-|| microserviceId | **string**
+|| microservice_id | **string**
 
 ID of the Microservice. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
@@ -55,21 +55,21 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
 
 ```json
 {
-  "serviceAccountId": "string",
-  "serviceId": "string",
-  "microserviceId": "string"
+  "service_account_id": "string",
+  "service_id": "string",
+  "microservice_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the agent service account. ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
-|| microserviceId | **string**
+|| microservice_id | **string**
 
 ID of the microservice. ||
 |#

@@ -4,10 +4,10 @@ _Widgets_ are dashboard elements. You can create links between **Selector** and 
 
 {{ datalens-short-name }} supports the following widget types:
 
-* [{#T}](#chart)
-* [{#T}](#selector)
-* [{#T}](#text)
-* [{#T}](#title)
+* [Chart](#chart)
+* [Selector](#selector)
+* [Text](#text)
+* [Header](#title)
 
 ## Chart {#chart}
 
@@ -26,9 +26,9 @@ For more information about selectors, see [{#T}](./selector.md).
 
 ## Text {#text}
 
-Text widget. A text-only dashboard element for links, captions, and other similar content. Supports [Markdown](https://ru.wikipedia.org/wiki/Markdown).
+A widget represented as text. It allows you to place things like a set of links or explanatory captions on a dashboard. The widget can only contain text data. Also, [Markdown](https://ru.wikipedia.org/wiki/Markdown) is supported.
 For more information about Markdown markup, see [{#T}](./markdown.md).
 
 ## Title {#title}
 
-Heading widget. Allows separating similarly themed charts and grouping them within a single dashboard page. Only for text data.
+A widget represented as a heading. It lets you differentiate charts by meaning and divide them into groups within a single dashboard page. The widget can only contain text data.

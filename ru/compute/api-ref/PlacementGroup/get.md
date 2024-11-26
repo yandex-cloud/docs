@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/get.md
 ---
 
-# Compute Cloud API, REST: PlacementGroup.Get {#Get}
+# Compute Cloud API, REST: PlacementGroup.Get
 
 Returns the specified placement group.
 

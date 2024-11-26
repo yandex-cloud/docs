@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Export/run.md
 ---
 
-# Cloud Logging Service, gRPC: ExportService.Run {#Run}
+# Cloud Logging Service, gRPC: ExportService.Run
 
 Run new logs export from log group to sink
 
@@ -15,16 +15,16 @@ Run new logs export from log group to sink
 
 ```json
 {
-  "groupId": "string",
-  "sinkId": "string",
+  "group_id": "string",
+  "sink_id": "string",
   "params": {
-    "resourceTypes": [
+    "resource_types": [
       "string"
     ],
-    "resourceIds": [
+    "resource_ids": [
       "string"
     ],
-    "streamNames": [
+    "stream_names": [
       "string"
     ],
     "levels": [
@@ -32,7 +32,7 @@ Run new logs export from log group to sink
     ],
     "filter": "string"
   },
-  "resultFilename": "string",
+  "result_filename": "string",
   "since": "google.protobuf.Timestamp",
   "until": "google.protobuf.Timestamp"
 }
@@ -40,16 +40,16 @@ Run new logs export from log group to sink
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field.  ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 Required field.  ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
 
 Required field.  ||
-|| resultFilename | **string**
+|| result_filename | **string**
 
 Required field.  ||
 || since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
@@ -64,9 +64,9 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resource_types[] | **string** ||
+|| resource_ids[] | **string** ||
+|| stream_names[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.
@@ -99,28 +99,28 @@ Required field.  ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "groupId": "string",
-    "sinkId": "string",
-    "resultFilename": "string"
+    "group_id": "string",
+    "sink_id": "string",
+    "result_filename": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "groupId": "string",
-    "sinkId": "string",
+    "group_id": "string",
+    "sink_id": "string",
     "params": {
-      "resourceTypes": [
+      "resource_types": [
         "string"
       ],
-      "resourceIds": [
+      "resource_ids": [
         "string"
       ],
-      "streamNames": [
+      "stream_names": [
         "string"
       ],
       "levels": [
@@ -128,7 +128,7 @@ Required field.  ||
       ],
       "filter": "string"
     },
-    "resultFilename": "string",
+    "result_filename": "string",
     "since": "google.protobuf.Timestamp",
     "until": "google.protobuf.Timestamp"
   }
@@ -146,13 +146,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -195,19 +195,19 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| groupId | **string** ||
-|| sinkId | **string** ||
-|| resultFilename | **string** ||
+|| group_id | **string** ||
+|| sink_id | **string** ||
+|| result_filename | **string** ||
 |#
 
 ## RunExportDetails {#yandex.cloud.logging.v1.RunExportDetails}
 
 #|
 ||Field | Description ||
-|| groupId | **string** ||
-|| sinkId | **string** ||
+|| group_id | **string** ||
+|| sink_id | **string** ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams2)** ||
-|| resultFilename | **string** ||
+|| result_filename | **string** ||
 || since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
@@ -216,9 +216,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resource_types[] | **string** ||
+|| resource_ids[] | **string** ||
+|| stream_names[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.

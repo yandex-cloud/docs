@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Topic.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: Topic.Get
 
 Returns the specified Kafka topic.
 

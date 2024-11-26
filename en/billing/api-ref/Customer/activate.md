@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/activate.md
 ---
 
-# Billing API, REST: Customer.Activate {#Activate}
+# Billing API, REST: Customer.Activate
 
 Activates specified customer. After customer is activated, he can use resources associated with his billing account.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/disable.md
 ---
 
-# IoT Core Service, REST: Registry.Disable {#Disable}
+# IoT Core Service, REST: Registry.Disable
 
 Disables the specified registry.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/create.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Create {#Create}
+# Compute Cloud API, REST: GpuCluster.Create
 
 Creates a GPU cluster in the specified folder.
 

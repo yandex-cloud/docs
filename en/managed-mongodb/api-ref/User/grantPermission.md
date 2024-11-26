@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/grantPermission.md
 ---
 
-# Managed Service for MongoDB API, REST: User.GrantPermission {#GrantPermission}
+# Managed Service for MongoDB API, REST: User.GrantPermission
 
 Grants permission to the specified MongoDB user.
 

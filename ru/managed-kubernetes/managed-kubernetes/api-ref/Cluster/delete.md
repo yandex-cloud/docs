@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/delete.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Delete {#Delete}
+# Managed Services for Kubernetes API, REST: Cluster.Delete
 
 Deletes the specified Kubernetes cluster.
 

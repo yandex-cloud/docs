@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/delete.md
 ---
 
-# Federation, REST: Federation.Delete {#Delete}
+# Federation, REST: Federation.Delete
 
 Deletes the specified OIDC workload identity federation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/updateDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.UpdateDashboardsNodeGroup {#UpdateDashboardsNodeGroup}
+# Managed Service for OpenSearch API, gRPC: ClusterService.UpdateDashboardsNodeGroup
 
 Updates a Dashboards type host group.
 
@@ -15,27 +15,27 @@ Updates a Dashboards type host group.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "name": "string",
-  "updateMask": "google.protobuf.FieldMask",
-  "nodeGroupSpec": {
+  "update_mask": "google.protobuf.FieldMask",
+  "node_group_spec": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     },
-    "hostsCount": "int64",
-    "zoneIds": [
+    "hosts_count": "int64",
+    "zone_ids": [
       "string"
     ],
-    "subnetIds": [
+    "subnet_ids": [
       "string"
     ],
-    "assignPublicIp": "bool",
-    "diskSizeAutoscaling": {
-      "plannedUsageThreshold": "int64",
-      "emergencyUsageThreshold": "int64",
-      "diskSizeLimit": "int64"
+    "assign_public_ip": "bool",
+    "disk_size_autoscaling": {
+      "planned_usage_threshold": "int64",
+      "emergency_usage_threshold": "int64",
+      "disk_size_limit": "int64"
     }
   }
 }
@@ -43,16 +43,16 @@ Updates a Dashboards type host group.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to update the Dashboards type host group in. ||
 || name | **string**
 
 Required field. Name of the Dashboards type host group to be updated. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the host group configuration should be updated. ||
-|| nodeGroupSpec | **[DashboardsNodeGroupUpdateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsNodeGroupUpdateSpec)**
+|| node_group_spec | **[DashboardsNodeGroupUpdateSpec](#yandex.cloud.mdb.opensearch.v1.DashboardsNodeGroupUpdateSpec)**
 
 New configuration for the host group. ||
 |#
@@ -64,19 +64,19 @@ New configuration for the host group. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the group. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of the availability zones for hosts ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of the subnets for hosts ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Whether the hosts should get a public IP address. ||
-|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
 |#
@@ -87,13 +87,13 @@ A list of computational resources allocated to a host.
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
@@ -102,13 +102,13 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **int64**
+|| planned_usage_threshold | **int64**
 
 Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
-|| emergencyUsageThreshold | **int64**
+|| emergency_usage_threshold | **int64**
 
 Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
-|| diskSizeLimit | **int64**
+|| disk_size_limit | **int64**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
@@ -119,12 +119,12 @@ Limit on how large the storage for database instances can automatically grow, in
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
+    "cluster_id": "string",
     "name": "string"
   },
   // Includes only one of the fields `error`, `response`
@@ -144,13 +144,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -193,7 +193,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the OpenSearch cluster where the host group is being updated. ||
 || name | **string**

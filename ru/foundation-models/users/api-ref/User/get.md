@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/get.md
 ---
 
-# Users, REST: User.Get {#Get}
+# Users, REST: User.Get
 
 Retrieve details of a specific user by its ID.
 

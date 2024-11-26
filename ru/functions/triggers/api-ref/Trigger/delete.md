@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/delete.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Delete {#Delete}
+# Cloud Functions Triggers Service, REST: Trigger.Delete
 
 Deletes the specified trigger.
 

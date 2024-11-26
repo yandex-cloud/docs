@@ -29,8 +29,8 @@ Below are some examples of how to use API v3 to synthesize speech into a standar
 
 To synthesize template phrases for a call center:
 
-1. [{#T}](#prepare-template).
-1. [{#T}](#send-to-api).
+1. [Prepare an audio recording template](#prepare-template).
+1. [Send data to the API](#send-to-api).
 
 ## Getting started {#before-you-begin}
 
@@ -77,7 +77,7 @@ Create and run a client app to send your data to the API:
     1. Go to the folder with the {{ yandex-cloud }} API repository, create a folder named `output` and generate the client interface code in it:
 
         ```bash
-        cd <path_to_cloudapi_directory> && \
+        cd <path_to_cloudapi_folder> && \
         mkdir output && \
         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \

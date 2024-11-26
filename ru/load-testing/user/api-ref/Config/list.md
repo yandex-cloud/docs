@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/list.md
 ---
 
-# Load Testing API, REST: Config.List {#List}
+# Load Testing API, REST: Config.List
 
 Retrieves the list of configs in the specified folder.
 

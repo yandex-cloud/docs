@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 
-# Lockbox API, REST: Secret.AddVersion {#AddVersion}
+# Lockbox API, REST: Secret.AddVersion
 
 Adds new version based on a previous one.
 

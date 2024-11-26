@@ -19,7 +19,7 @@ As for now, you can only reduce the number of shards in a stream by deleting and
 
 {% endnote %}
 
-You can configure a data stream to increase the number of shards as the write speed into the stream increases. For more information, see [autopartitioning in the {{ ydb-short-name }} documentation](https://ydb.tech/docs/en/concepts/topic#partitioning).
+You can configure a data stream to increase the number of shards as the write speed into the stream increases. For more information, see [autopartitioning in the {{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/topic#partitioning).
 
 ### Shard key {#partition-key}
 

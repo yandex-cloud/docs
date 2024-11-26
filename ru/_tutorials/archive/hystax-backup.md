@@ -134,7 +134,7 @@ Hystax Acura Backup будет выполнять действия от имен
 
       Сохраните обозначение зоны доступности, оно потребуется в дальнейшем.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию с `8 vCPU` и `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 

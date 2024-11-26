@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Move {#Move}
+# Managed Service for Elasticsearch API, REST: Cluster.Move
 
 Moves the specified Elasticsearch cluster to the specified folder.
 

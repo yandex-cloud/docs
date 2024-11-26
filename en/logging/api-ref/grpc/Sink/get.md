@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Sink/get.md
 ---
 
-# Cloud Logging Service, gRPC: SinkService.Get {#Get}
+# Cloud Logging Service, gRPC: SinkService.Get
 
 Returns the specified sink.
 
@@ -17,13 +17,13 @@ To get the list of all available sinks, make a [List](/docs/logging/api-ref/grpc
 
 ```json
 {
-  "sinkId": "string"
+  "sink_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 Required field. ID of the sink to return.
 
@@ -35,16 +35,16 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/grpc/Sink/list#
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "cloudId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "cloud_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
-    "streamName": "string"
+    "stream_name": "string"
   },
   "s3": {
     "bucket": "string",
@@ -59,13 +59,13 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/grpc/Sink/list#
 || id | **string**
 
 Sink ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Sink folder ID. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Sink cloud ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Sink creation time. ||
 || name | **string**
@@ -77,7 +77,7 @@ Sink description. ||
 || labels | **string**
 
 Sink labels. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Logs will be written to the sink on behalf of this service account ||
 || yds | **[Yds](#yandex.cloud.logging.v1.Sink.Yds)**
@@ -100,7 +100,7 @@ Logs destination ||
 
 #|
 ||Field | Description ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Fully qualified name of data stream ||
 |#

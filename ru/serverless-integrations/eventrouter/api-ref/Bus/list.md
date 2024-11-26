@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/list.md
 ---
 
-# EventRouter Service, REST: Bus.List {#List}
+# EventRouter Service, REST: Bus.List
 
 Retrieves the list of buses in the specified folder.
 

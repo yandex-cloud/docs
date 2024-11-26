@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: BackupService.Get {#Get}
+# Managed Service for Elasticsearch API, gRPC: BackupService.Get
 
 Returns the specified backup of Elasticsearch cluster.
 
@@ -15,13 +15,13 @@ Returns the specified backup of Elasticsearch cluster.
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Required. ID of the backup to return. ||
 |#
@@ -31,16 +31,16 @@ Required field. Required. ID of the backup to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "sourceClusterId": "string",
-  "startedAt": "google.protobuf.Timestamp",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "source_cluster_id": "string",
+  "started_at": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "indices": [
     "string"
   ],
-  "elasticsearchVersion": "string",
-  "sizeBytes": "int64",
-  "indicesTotal": "int64"
+  "elasticsearch_version": "string",
+  "size_bytes": "int64",
+  "indices_total": "int64"
 }
 ```
 
@@ -49,28 +49,28 @@ Required field. Required. ID of the backup to return. ||
 || id | **string**
 
 Required. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the associated Elasticsearch cluster. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the backup operation was started. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the backup was created (i.e. when the backup operation completed). ||
 || indices[] | **string**
 
 Indices names. (max 100) ||
-|| elasticsearchVersion | **string**
+|| elasticsearch_version | **string**
 
 Elasticsearch version used to create the snapshot ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 Total size of all indices in backup. in bytes ||
-|| indicesTotal | **int64**
+|| indices_total | **int64**
 
 Total count of indices in backup ||
 |#

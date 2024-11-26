@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.Update {#Update}
+# Managed Service for Apache Kafka® API, REST: Cluster.Update
 
 Updates the specified Apache Kafka® cluster.
 

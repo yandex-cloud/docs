@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.List {#List}
+# Managed Service for Apache Kafka® API, REST: Cluster.List
 
 Retrieves the list of Apache Kafka® clusters that belong to the specified folder.
 

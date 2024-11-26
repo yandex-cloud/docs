@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listCertificates.md
 ---
 
-# IoT Core Broker Service, REST: Broker.ListCertificates {#ListCertificates}
+# IoT Core Broker Service, REST: Broker.ListCertificates
 
 Retrieves the list of broker certificates for the specified broker.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/rebalance.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.Rebalance {#Rebalance}
+# Managed Service for Redis API, REST: Cluster.Rebalance
 
 Rebalances the cluster. Evenly distributes all the hash slots between the shards.
 
@@ -350,7 +350,9 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cl
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -379,7 +381,9 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cl
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -408,7 +412,9 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cl
           "lfuDecayTime": "string",
           "lfuLogFactor": "string",
           "turnBeforeSwitchover": "boolean",
-          "allowDataLoss": "boolean"
+          "allowDataLoss": "boolean",
+          "useLuajit": "boolean",
+          "ioThreadsAllowed": "boolean"
         }
       },
       "diskSizeAutoscaling": {
@@ -1202,6 +1208,12 @@ Allows to turn before switchover in RDSync ||
 || allowDataLoss | **boolean**
 
 Allows some data to be lost in favor of faster switchover/restart ||
+|| useLuajit | **boolean**
+
+Use JIT for lua scripts and functions ||
+|| ioThreadsAllowed | **boolean**
+
+Allow redis to use io-threads ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

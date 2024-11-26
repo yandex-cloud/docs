@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/getLast.md
 ---
 
-# Container Registry API, REST: Scanner.GetLast {#GetLast}
+# Container Registry API, REST: Scanner.GetLast
 
 Returns the last finished ScanResult for the specified Image.
 

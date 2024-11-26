@@ -93,7 +93,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery to {{ yand
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -104,11 +104,11 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery to {{ yand
       * In the public image list, select [Hystax Acura Disaster Recovery to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` for boot [disk](../../compute/concepts/disk.md) size.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the configuration with `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the new VM or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
@@ -125,7 +125,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery to {{ yand
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `hystax-acura-vm`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `hystax-acura-account` service account you created earlier.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `hystax-acura-account` service account.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}

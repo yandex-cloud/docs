@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/instancegroup/api-ref/grpc/InstanceGroup/listOperations.md
 ---
 
-# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ListOperations {#ListOperations}
+# Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ListOperations
 
 Lists operations for the specified instance group.
 
@@ -15,28 +15,28 @@ Lists operations for the specified instance group.
 
 ```json
 {
-  "instanceGroupId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "instance_group_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceGroupId | **string**
+|| instance_group_id | **string**
 
 Required field. ID of the InstanceGroup resource to list operations for.
 To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/grpc/InstanceGroup/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
+results is more than `page_size`, the service returns a [ListInstanceGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListInstanceGroupOperationsResponse.next_page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -51,9 +51,9 @@ Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/a
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -62,7 +62,7 @@ Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/a
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,12 +71,12 @@ Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/a
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 Lists operations for the specified instance group. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is more than [ListInstanceGroupOperationsRequest.pageSize](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest), use the `nextPageToken` as the value
-for the [ListInstanceGroupOperationsRequest.pageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is more than [ListInstanceGroupOperationsRequest.page_size](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest), use the `next_page_token` as the value
+for the [ListInstanceGroupOperationsRequest.page_token](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -91,13 +91,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

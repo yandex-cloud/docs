@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/update.md
 ---
 
-# Access Key, REST: AccessKey.Update {#Update}
+# Access Key, REST: AccessKey.Update
 
 Updates the specified access key.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/create.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.Create {#Create}
+# Network Load Balancer API, REST: TargetGroup.Create
 
 Creates a target group in the specified folder and adds the specified targets to it.
 

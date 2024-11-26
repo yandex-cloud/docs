@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/create.md
 ---
 
-# Users, REST: User.Create {#Create}
+# Users, REST: User.Create
 
 Create a new user.
 

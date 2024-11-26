@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/TrunkConnection/get.md
 ---
 
-# Cloud Interconnect API, gRPC: TrunkConnectionService.Get {#Get}
+# Cloud Interconnect API, gRPC: TrunkConnectionService.Get
 
 Returns the specified TrunkConnection resource.
 
@@ -17,13 +17,13 @@ To get the list of available TrunkConnection resources, make a [List](/docs/cic/
 
 ```json
 {
-  "trunkConnectionId": "string"
+  "trunk_connection_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| trunkConnectionId | **string**
+|| trunk_connection_id | **string**
 
 Required field. ID of the TrunkConnection resource to return.
 To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/workload/api-ref/grpc/TrunkConnection/list#List) request. ||
@@ -36,32 +36,32 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/work
   "id": "string",
   "name": "string",
   "description": "string",
-  "folderId": "string",
-  "regionId": "string",
-  // Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`
-  "singlePortDirectJoint": {
-    "transceiverType": "TransceiverType",
-    "portName": "google.protobuf.StringValue",
-    "accessDeviceName": "string"
+  "folder_id": "string",
+  "region_id": "string",
+  // Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`
+  "single_port_direct_joint": {
+    "transceiver_type": "TransceiverType",
+    "port_name": "google.protobuf.StringValue",
+    "access_device_name": "string"
   },
-  "lagDirectJoint": {
-    "transceiverType": "TransceiverType",
-    "lagAllocationSettings": {
-      "lagInfo": {
-        "lagId": "google.protobuf.Int64Value",
-        "portNames": [
+  "lag_direct_joint": {
+    "transceiver_type": "TransceiverType",
+    "lag_allocation_settings": {
+      "lag_info": {
+        "lag_id": "google.protobuf.Int64Value",
+        "port_names": [
           "string"
         ]
       }
     },
-    "accessDeviceName": "string"
+    "access_device_name": "string"
   },
-  "partnerJointInfo": {
-    "serviceKey": "string",
-    "partnerId": "google.protobuf.StringValue"
+  "partner_joint_info": {
+    "service_key": "string",
+    "partner_id": "google.protobuf.StringValue"
   },
   // end of the list of possible fields
-  "pointOfPresenceId": "google.protobuf.StringValue",
+  "point_of_presence_id": "google.protobuf.StringValue",
   "capacity": "Capacity",
   "labels": "string"
 }
@@ -82,28 +82,28 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the trunkConnection. 0-256 characters long. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the trunkConnection belongs to. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the trunkConnection belongs to. ||
-|| singlePortDirectJoint | **[SinglePortDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint)**
+|| single_port_direct_joint | **[SinglePortDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint)**
 
-Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
-
-Special trunkConnection config ||
-|| lagDirectJoint | **[LagDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.LagDirectJoint)**
-
-Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`.
 
 Special trunkConnection config ||
-|| partnerJointInfo | **[PartnerJointInfo](#yandex.cloud.cic.v1.TrunkConnection.PartnerJointInfo)**
+|| lag_direct_joint | **[LagDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.LagDirectJoint)**
 
-Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`.
 
 Special trunkConnection config ||
-|| pointOfPresenceId | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+|| partner_joint_info | **[PartnerJointInfo](#yandex.cloud.cic.v1.TrunkConnection.PartnerJointInfo)**
+
+Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`.
+
+Special trunkConnection config ||
+|| point_of_presence_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of pointOfPresence that the trunkConnection is deployed on.
 Optional.
@@ -146,7 +146,7 @@ Config of trunkConnection that is deployed on single port.
 
 #|
 ||Field | Description ||
-|| transceiverType | enum **TransceiverType**
+|| transceiver_type | enum **TransceiverType**
 
 Type of transceiver that the trunkConnection is deployed on.
 
@@ -156,10 +156,10 @@ Type of transceiver that the trunkConnection is deployed on.
 - `TRANSCEIVER_TYPE_10GBASE_ER`
 - `TRANSCEIVER_TYPE_100GBASE_LR4`
 - `TRANSCEIVER_TYPE_100GBASE_ER4` ||
-|| portName | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+|| port_name | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 Name of port that the trunkConnection is deployed on. ||
-|| accessDeviceName | **string**
+|| access_device_name | **string**
 
 Device name which is set in LLDP message. ||
 |#
@@ -170,7 +170,7 @@ Config of trunkConnection that is deployed on lag.
 
 #|
 ||Field | Description ||
-|| transceiverType | enum **TransceiverType**
+|| transceiver_type | enum **TransceiverType**
 
 Type of transceiver that the trunkConnection is deployed on.
 
@@ -180,10 +180,10 @@ Type of transceiver that the trunkConnection is deployed on.
 - `TRANSCEIVER_TYPE_10GBASE_ER`
 - `TRANSCEIVER_TYPE_100GBASE_LR4`
 - `TRANSCEIVER_TYPE_100GBASE_ER4` ||
-|| lagAllocationSettings | **[LagAllocationSettings](#yandex.cloud.cic.v1.common.LagAllocationSettings)**
+|| lag_allocation_settings | **[LagAllocationSettings](#yandex.cloud.cic.v1.common.LagAllocationSettings)**
 
 LAG allocation settings that the trunkConnection is deployed on. ||
-|| accessDeviceName | **string**
+|| access_device_name | **string**
 
 Device name which is set in LLDP message. ||
 |#
@@ -194,7 +194,7 @@ Structure that describes LAG allocation settings
 
 #|
 ||Field | Description ||
-|| lagInfo | **[LagInfo](#yandex.cloud.cic.v1.common.LagInfo)**
+|| lag_info | **[LagInfo](#yandex.cloud.cic.v1.common.LagInfo)**
 
 LagInfo ||
 |#
@@ -203,12 +203,12 @@ LagInfo ||
 
 #|
 ||Field | Description ||
-|| lagId | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| lag_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 ID of LAG.
 Optional.
 If is not set scheduler selects it by himself. ||
-|| portNames[] | **string**
+|| port_names[] | **string**
 
 List of port names that the LAG is deployed on. ||
 |#
@@ -219,10 +219,10 @@ Config of trunkConnection that is deployed on partner joint.
 
 #|
 ||Field | Description ||
-|| serviceKey | **string**
+|| service_key | **string**
 
 Reserved for future using; ||
-|| partnerId | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+|| partner_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 ID of partner that the trunkConnection is deployed on.
 Optional.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskType/list.md
 ---
 
-# Compute Cloud API, REST: DiskType.List {#List}
+# Compute Cloud API, REST: DiskType.List
 
 Retrieves the list of disk types for the specified folder.
 

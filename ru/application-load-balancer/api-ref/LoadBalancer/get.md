@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/get.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Get {#Get}
+# Application Load Balancer API, REST: LoadBalancer.Get
 
 Returns the specified application load balancer.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/storage/v1/api-ref/Operation/cancel.md
 ---
 
-# Object Storage API, REST: Operation.Cancel {#Cancel}
+# Object Storage API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

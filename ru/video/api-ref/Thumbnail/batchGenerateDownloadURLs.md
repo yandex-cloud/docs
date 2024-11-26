@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/batchGenerateDownloadURLs.md
 ---
 
-# Video API, REST: Thumbnail.BatchGenerateDownloadURLs {#BatchGenerateDownloadURLs}
+# Video API, REST: Thumbnail.BatchGenerateDownloadURLs
 
 Generate urls for download images.
 
@@ -28,7 +28,7 @@ POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel. ||
 || thumbnailIds[] | **string**
 
 List of thumbnails IDs. ||

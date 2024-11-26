@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/DesktopGroup/list.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopGroupService.List {#List}
+# Cloud Desktop API, gRPC: DesktopGroupService.List
 
 Retrieves the list of desktop group resources.
 
@@ -15,32 +15,32 @@ Retrieves the list of desktop group resources.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list desktop groups in.
 
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListDesktopGroupsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse)
+results is larger than `page_size`,
+the service returns a [ListDesktopGroupsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopGroupsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListDesktopGroupsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -48,9 +48,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [DesktopGroup.name](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. Value or a list of values to compare against the values of the field. ||
-|| orderBy | **string**
+|| order_by | **string**
 
-Sorting the list by [DesktopGroup.name](#yandex.cloud.clouddesktop.v1.api.DesktopGroup), [DesktopGroup.createdAt](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) and [DesktopGroup.status](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) fields.
+Sorting the list by [DesktopGroup.name](#yandex.cloud.clouddesktop.v1.api.DesktopGroup), [DesktopGroup.created_at](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) and [DesktopGroup.status](#yandex.cloud.clouddesktop.v1.api.DesktopGroup) fields.
 The default sorting order is ascending. ||
 |#
 
@@ -58,44 +58,44 @@ The default sorting order is ascending. ||
 
 ```json
 {
-  "desktopGroups": [
+  "desktop_groups": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "status": "Status",
       "name": "string",
       "description": "string",
-      "resourcesSpec": {
+      "resources_spec": {
         "memory": "int64",
         "cores": "int64",
-        "coreFraction": "int64"
+        "core_fraction": "int64"
       },
-      "networkInterfaceSpec": {
-        "networkId": "string",
-        "subnetIds": [
+      "network_interface_spec": {
+        "network_id": "string",
+        "subnet_ids": [
           "string"
         ]
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopGroups[] | **[DesktopGroup](#yandex.cloud.clouddesktop.v1.api.DesktopGroup)**
+|| desktop_groups[] | **[DesktopGroup](#yandex.cloud.clouddesktop.v1.api.DesktopGroup)**
 
 List of desktop groups. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListDesktopGroupsRequest.pageSize](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest), use
-the `nextPageToken` as the value
-for the [ListDesktopGroupsRequest.pageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest) query parameter
+is larger than [ListDesktopGroupsRequest.page_size](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest), use
+the `next_page_token` as the value
+for the [ListDesktopGroupsRequest.page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## DesktopGroup {#yandex.cloud.clouddesktop.v1.api.DesktopGroup}
@@ -107,10 +107,10 @@ A desktop group resource.
 || id | **string**
 
 Desktop group ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the desktop group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
@@ -127,10 +127,10 @@ Name of the desktop group. ||
 || description | **string**
 
 Description of the desktop group. ||
-|| resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
 
 Resource specification of the desktop group. ||
-|| networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+|| network_interface_spec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
 
 Network interface specification of the desktop group. ||
 |#
@@ -145,7 +145,7 @@ RAM volume, in bytes. ||
 || cores | **int64**
 
 Number of CPU cores. ||
-|| coreFraction | **int64**
+|| core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core. ||
@@ -155,10 +155,10 @@ This field sets baseline performance for each core. ||
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network interface specification. ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 List of subnet IDs. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/update.md
 ---
 
-# Video API, REST: Stream.Update {#Update}
+# Video API, REST: Stream.Update
 
 Update stream.
 
@@ -91,7 +91,7 @@ Stream type. ||
 ||Field | Description ||
 || startTime | **string** (date-time)
 
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
 To work with values in this field, use the APIs described in the
@@ -99,7 +99,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
 To work with values in this field, use the APIs described in the

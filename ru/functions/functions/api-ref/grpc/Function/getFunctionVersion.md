@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/getFunctionVersion.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.GetFunctionVersion {#GetFunctionVersion}
+# Cloud Functions Service, gRPC: FunctionService.GetFunctionVersion
 
 Deprecated. Use [GetVersion](/docs/functions/functions/api-ref/grpc/Function/getVersion#GetVersion).
 
@@ -15,13 +15,13 @@ Deprecated. Use [GetVersion](/docs/functions/functions/api-ref/grpc/Function/get
 
 ```json
 {
-  "functionVersionId": "string"
+  "function_version_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| functionVersionId | **string**
+|| function_version_id | **string**
 
 Required field. ID of the version to return.
 
@@ -33,91 +33,91 @@ To get a version ID make a [FunctionService.ListVersions](/docs/functions/functi
 ```json
 {
   "id": "string",
-  "functionId": "string",
+  "function_id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "runtime": "string",
   "entrypoint": "string",
   "resources": {
     "memory": "int64"
   },
-  "executionTimeout": "google.protobuf.Duration",
-  "serviceAccountId": "string",
-  "imageSize": "int64",
+  "execution_timeout": "google.protobuf.Duration",
+  "service_account_id": "string",
+  "image_size": "int64",
   "status": "Status",
   "tags": [
     "string"
   ],
   "environment": "string",
   "connectivity": {
-    "networkId": "string",
-    "subnetId": [
+    "network_id": "string",
+    "subnet_id": [
       "string"
     ]
   },
-  "namedServiceAccounts": "string",
+  "named_service_accounts": "string",
   "secrets": [
     {
       "id": "string",
-      "versionId": "string",
+      "version_id": "string",
       "key": "string",
-      // Includes only one of the fields `environmentVariable`
-      "environmentVariable": "string"
+      // Includes only one of the fields `environment_variable`
+      "environment_variable": "string"
       // end of the list of possible fields
     }
   ],
-  "logOptions": {
+  "log_options": {
     "disabled": "bool",
-    // Includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
+    // Includes only one of the fields `log_group_id`, `folder_id`
+    "log_group_id": "string",
+    "folder_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
   },
-  "storageMounts": [
+  "storage_mounts": [
     {
-      "bucketId": "string",
+      "bucket_id": "string",
       "prefix": "string",
-      "mountPointName": "string",
-      "readOnly": "bool"
+      "mount_point_name": "string",
+      "read_only": "bool"
     }
   ],
-  "asyncInvocationConfig": {
-    "retriesCount": "int64",
-    "successTarget": {
-      // Includes only one of the fields `emptyTarget`, `ymqTarget`
-      "emptyTarget": "EmptyTarget",
-      "ymqTarget": {
-        "queueArn": "string",
-        "serviceAccountId": "string"
+  "async_invocation_config": {
+    "retries_count": "int64",
+    "success_target": {
+      // Includes only one of the fields `empty_target`, `ymq_target`
+      "empty_target": "EmptyTarget",
+      "ymq_target": {
+        "queue_arn": "string",
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "failureTarget": {
-      // Includes only one of the fields `emptyTarget`, `ymqTarget`
-      "emptyTarget": "EmptyTarget",
-      "ymqTarget": {
-        "queueArn": "string",
-        "serviceAccountId": "string"
+    "failure_target": {
+      // Includes only one of the fields `empty_target`, `ymq_target`
+      "empty_target": "EmptyTarget",
+      "ymq_target": {
+        "queue_arn": "string",
+        "service_account_id": "string"
       }
       // end of the list of possible fields
     },
-    "serviceAccountId": "string"
+    "service_account_id": "string"
   },
-  "tmpfsSize": "int64",
+  "tmpfs_size": "int64",
   "concurrency": "int64",
   "mounts": [
     {
       "name": "string",
       "mode": "Mode",
-      // Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`
-      "objectStorage": {
-        "bucketId": "string",
+      // Includes only one of the fields `object_storage`, `ephemeral_disk_spec`
+      "object_storage": {
+        "bucket_id": "string",
         "prefix": "string"
       },
-      "ephemeralDiskSpec": {
+      "ephemeral_disk_spec": {
         "size": "int64",
-        "blockSize": "int64"
+        "block_size": "int64"
       }
       // end of the list of possible fields
     }
@@ -132,13 +132,13 @@ Version of a function. For details about the concept, see [Function versions](/d
 || id | **string**
 
 ID of the version. ||
-|| functionId | **string**
+|| function_id | **string**
 
 ID of the function that the version belongs to. ||
 || description | **string**
 
 Description of the version. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the version. ||
 || runtime | **string**
@@ -154,15 +154,15 @@ Specified in the format `<function file name>.<handler name>`, for example, `ind
 || resources | **[Resources](#yandex.cloud.serverless.functions.v1.Resources)**
 
 Resources allocated to the version. ||
-|| executionTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for the execution of the version.
 
 If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account associated with the version. ||
-|| imageSize | **int64**
+|| image_size | **int64**
 
 Final size of the deployment package after unpacking. ||
 || status | enum **Status**
@@ -183,22 +183,22 @@ Environment settings for the version. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
 
 Network access. If specified the version will be attached to specified network/subnet(s). ||
-|| namedServiceAccounts | **string**
+|| named_service_accounts | **string**
 
 Additional service accounts to be used by the version. ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
 
 Yandex Lockbox secrets to be used by the version. ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.functions.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.serverless.functions.v1.LogOptions)**
 
 Options for logging from the function ||
-|| storageMounts[] | **[StorageMount](#yandex.cloud.serverless.functions.v1.StorageMount)**
+|| storage_mounts[] | **[StorageMount](#yandex.cloud.serverless.functions.v1.StorageMount)**
 
 S3 mounts to be used by the version. ||
-|| asyncInvocationConfig | **[AsyncInvocationConfig](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
+|| async_invocation_config | **[AsyncInvocationConfig](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
 
 Config for asynchronous invocations of the version ||
-|| tmpfsSize | **int64**
+|| tmpfs_size | **int64**
 
 Optional size of in-memory mounted /tmp directory in bytes. ||
 || concurrency | **int64**
@@ -226,11 +226,11 @@ Version connectivity specification.
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Network the version will have access to.
 It's essential to specify network with subnets in all availability zones. ||
-|| subnetId[] | **string**
+|| subnet_id[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
 It's essential to specify at least one subnet for each availability zones. ||
@@ -245,17 +245,17 @@ Secret for serverless function.
 || id | **string**
 
 ID of Yandex Lockbox secret. ||
-|| versionId | **string**
+|| version_id | **string**
 
 ID of Yandex Lockbox version. ||
 || key | **string**
 
 Key in secret's payload, which value to be delivered into function environment. ||
-|| environmentVariable | **string**
+|| environment_variable | **string**
 
 environment variable in which secret's value to be delivered.
 
-Includes only one of the fields `environmentVariable`. ||
+Includes only one of the fields `environment_variable`. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.functions.v1.LogOptions}
@@ -265,21 +265,21 @@ Includes only one of the fields `environmentVariable`. ||
 || disabled | **bool**
 
 Is logging from function disabled. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Entry should be written to default log group for specified folder.
 
-Includes only one of the fields `logGroupId`, `folderId`.
+Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -312,16 +312,16 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Required field. S3 bucket name for mounting. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
-|| mountPointName | **string**
+|| mount_point_name | **string**
 
 Required field. Mount point directory name (not path) for mounting. ||
-|| readOnly | **bool**
+|| read_only | **bool**
 
 Is mount read only. ||
 |#
@@ -330,16 +330,16 @@ Is mount read only. ||
 
 #|
 ||Field | Description ||
-|| retriesCount | **int64**
+|| retries_count | **int64**
 
 Number of retries of version invocation ||
-|| successTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+|| success_target | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
 
 Required field. Target for successful result of the version's invocation ||
-|| failureTarget | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+|| failure_target | **[ResponseTarget](#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
 
 Required field. Target for unsuccessful result, if all retries failed ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account which can invoke version ||
 |#
@@ -350,16 +350,16 @@ Target to which a result of an invocation will be sent
 
 #|
 ||Field | Description ||
-|| emptyTarget | **[EmptyTarget](#yandex.cloud.serverless.functions.v1.EmptyTarget)**
+|| empty_target | **[EmptyTarget](#yandex.cloud.serverless.functions.v1.EmptyTarget)**
 
 Target to ignore a result
 
-Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
-|| ymqTarget | **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
+Includes only one of the fields `empty_target`, `ymq_target`. ||
+|| ymq_target | **[YMQTarget](#yandex.cloud.serverless.functions.v1.YMQTarget)**
 
 Target to send a result to ymq
 
-Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
+Includes only one of the fields `empty_target`, `ymq_target`. ||
 |#
 
 ## EmptyTarget {#yandex.cloud.serverless.functions.v1.EmptyTarget}
@@ -373,10 +373,10 @@ Includes only one of the fields `emptyTarget`, `ymqTarget`. ||
 
 #|
 ||Field | Description ||
-|| queueArn | **string**
+|| queue_arn | **string**
 
 Required field. Queue ARN ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account which has write permission on the queue. ||
 |#
@@ -397,18 +397,18 @@ Mount's mode
 - `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
 
 Object storage mounts
 
-Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+Includes only one of the fields `object_storage`, `ephemeral_disk_spec`.
 
 Target mount option ||
-|| ephemeralDiskSpec | **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
+|| ephemeral_disk_spec | **[DiskSpec](#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
 
 Working disk (worker-local non-shared read-write NBS disk templates)
 
-Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+Includes only one of the fields `object_storage`, `ephemeral_disk_spec`.
 
 Target mount option ||
 |#
@@ -419,7 +419,7 @@ ObjectStorage as a mount
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Required field. ObjectStorage bucket name for mounting. ||
 || prefix | **string**
@@ -436,7 +436,7 @@ Disk as a mount
 || size | **int64**
 
 The size of disk for mount in bytes ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Optional block size of disk for mount in bytes ||
 |#

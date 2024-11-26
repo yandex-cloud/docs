@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/list.md
 ---
 
-# Cloud Desktop API, REST: DesktopImage.List {#List}
+# Cloud Desktop API, REST: DesktopImage.List
 
 Lists desktop images in the specified folder.
 

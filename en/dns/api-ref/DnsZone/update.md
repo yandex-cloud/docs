@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/update.md
 ---
 
-# Cloud DNS API, REST: DnsZone.Update {#Update}
+# Cloud DNS API, REST: DnsZone.Update
 
 Updates the specified DNS zone.
 

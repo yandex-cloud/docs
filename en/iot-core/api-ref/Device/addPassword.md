@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/addPassword.md
 ---
 
-# IoT Core Service, REST: Device.AddPassword {#AddPassword}
+# IoT Core Service, REST: Device.AddPassword
 
 Adds password for the specified device.
 

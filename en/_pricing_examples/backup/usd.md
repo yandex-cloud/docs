@@ -1,4 +1,4 @@
-1 VM × {{ sku|USD|backup.protected_vms.v2|month|string }} + 50 GB × {{ sku|USD|backup.used_space.v1|month|string }} = {% calc [currency=USD] 1 × {{ sku|USD|backup.protected_vms.v2|month|number }} + 50 × {{ sku|USD|backup.used_space.v1|month|number }} %}
+> 1 VM × {{ sku|USD|backup.protected_vms.v2|month|string }} + 50 GB × {{ sku|USD|backup.used_space.v1|month|string }} = {% calc [currency=USD] 1 × {{ sku|USD|backup.protected_vms.v2|month|number }} + 50 × {{ sku|USD|backup.used_space.v1|month|number }} %}
 
 > Total: {% calc [currency=USD] 1 × {{ sku|USD|backup.protected_vms.v2|month|number }} + 50 × {{ sku|USD|backup.used_space.v1|month|number }} %}, cost of using {{ backup-name }} to protect 1 VM with a total of 50 GB of backups per month, without VAT.
 

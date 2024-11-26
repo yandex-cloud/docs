@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogGroup/stats.md
 ---
 
-# Cloud Logging Service, gRPC: LogGroupService.Stats {#Stats}
+# Cloud Logging Service, gRPC: LogGroupService.Stats
 
 Returns stats for the specified log group.
 
@@ -15,13 +15,13 @@ Returns stats for the specified log group.
 
 ```json
 {
-  "logGroupId": "string"
+  "log_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Required field. ID of the log group to return stats for.
 
@@ -32,7 +32,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/grpc/L
 
 ```json
 {
-  "logGroupId": "string",
+  "log_group_id": "string",
   "bytes": "int64",
   "records": "int64"
 }
@@ -40,7 +40,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/grpc/L
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Log group ID the stats are returned for. ||
 || bytes | **int64**

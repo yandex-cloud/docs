@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/update.md
 ---
 
-# Resource Manager API, REST: Cloud.Update {#Update}
+# Resource Manager API, REST: Cloud.Update
 
 Updates the specified cloud.
 

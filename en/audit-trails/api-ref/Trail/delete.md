@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/delete.md
 ---
 
-# Audit Trails API, REST: Trail.Delete {#Delete}
+# Audit Trails API, REST: Trail.Delete
 
 Deletes the specified trail.
 

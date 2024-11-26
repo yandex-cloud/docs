@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateSettings.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.UpdateSettings {#UpdateSettings}
+# Cloud Organization API, gRPC: OsLoginService.UpdateSettings
 
 ## gRPC request
 
@@ -13,26 +13,26 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateS
 
 ```json
 {
-  "organizationId": "string",
-  "userSshKeySettings": {
+  "organization_id": "string",
+  "user_ssh_key_settings": {
     "enabled": "bool",
-    "allowManageOwnKeys": "bool"
+    "allow_manage_own_keys": "bool"
   },
-  "sshCertificateSettings": {
+  "ssh_certificate_settings": {
     "enabled": "bool"
   },
-  "updateMask": "google.protobuf.FieldMask"
+  "update_mask": "google.protobuf.FieldMask"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 Required field.  ||
-|| userSshKeySettings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)** ||
-|| sshCertificateSettings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)** ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+|| user_ssh_key_settings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)** ||
+|| ssh_certificate_settings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)** ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 |#
 
 ## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings}
@@ -40,7 +40,7 @@ Required field.  ||
 #|
 ||Field | Description ||
 || enabled | **bool** ||
-|| allowManageOwnKeys | **bool** ||
+|| allow_manage_own_keys | **bool** ||
 |#
 
 ## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings}
@@ -56,21 +56,21 @@ Required field.  ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "organizationId": "string"
+    "organization_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "userSshKeySettings": {
+    "user_ssh_key_settings": {
       "enabled": "bool",
-      "allowManageOwnKeys": "bool"
+      "allow_manage_own_keys": "bool"
     },
-    "sshCertificateSettings": {
+    "ssh_certificate_settings": {
       "enabled": "bool"
     }
   }
@@ -88,13 +88,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -137,15 +137,15 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| organizationId | **string** ||
+|| organization_id | **string** ||
 |#
 
 ## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}
 
 #|
 ||Field | Description ||
-|| userSshKeySettings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
-|| sshCertificateSettings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
+|| user_ssh_key_settings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
+|| ssh_certificate_settings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
 |#
 
 ## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UserSshKeySettings}
@@ -153,7 +153,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 #|
 ||Field | Description ||
 || enabled | **bool** ||
-|| allowManageOwnKeys | **bool** ||
+|| allow_manage_own_keys | **bool** ||
 |#
 
 ## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.SshCertificateSettings}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/resetupHosts.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.ResetupHosts {#ResetupHosts}
+# Managed Service for MongoDB API, REST: Cluster.ResetupHosts
 
 Resetups hosts.
 

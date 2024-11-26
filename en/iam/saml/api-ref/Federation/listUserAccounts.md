@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/listUserAccounts.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.ListUserAccounts {#ListUserAccounts}
+# Identity and Access Management SAML API, REST: Federation.ListUserAccounts
 
 Lists users for the specified federation.
 

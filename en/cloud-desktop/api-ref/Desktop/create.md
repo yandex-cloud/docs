@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/create.md
 ---
 
-# Cloud Desktop API, REST: Desktop.Create {#Create}
+# Cloud Desktop API, REST: Desktop.Create
 
 Creates desktop in the specified folder.
 
@@ -18,6 +18,7 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 ```json
 {
   "desktopGroupId": "string",
+  "subnetId": "string",
   "users": [
     {
       "subjectId": "string",
@@ -32,6 +33,9 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 || desktopGroupId | **string**
 
 Required field. ID of the desktop group. ||
+|| subnetId | **string**
+
+ID of the subnet for desktop. ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
 List of users. ||
@@ -227,8 +231,14 @@ Status of the desktop.
 
 - `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
-- `ACTIVE`: Desktop is ready to use.
-- `DELETING`: Desktop is being deleted. ||
+- `ACTIVE`: Desktop is ready to be used.
+- `DELETING`: Desktop is being deleted.
+- `RESTARTING`: Desktop is restarting.
+- `UPDATING`: Desktop is updating.
+- `STARTING`: Desktop is starting.
+- `STOPPING`: Desktop is stopping.
+- `STOPPED`: Desktop is stopped.
+- `ERROR`: Desktop is in error state. ||
 || name | **string**
 
 Name of the desktop. ||

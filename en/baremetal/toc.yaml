@@ -16,10 +16,12 @@ items:
             href: operations/servers/server-update.md
           - name: Stopping and starting a server
             href: operations/servers/server-stop-and-start.md
-          - name: Canceling a server lease
+          - name: Cancel a server lease
             href: operations/servers/server-lease-cancel.md
           - name: Connecting to a KVM console
             href: operations/servers/server-kvm.md
+          - name: Using Rescue CD
+            href: operations/servers/rescue-boot.md
       - name: Creating a VRF
         href: operations/network-create.md
       - name: Creating a subnet

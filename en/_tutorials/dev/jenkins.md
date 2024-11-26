@@ -66,7 +66,7 @@ Jenkins will get VM image configuration changes from GitHub and then use Packer 
 
 To create a VM with Jenkins:
 
-1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -79,12 +79,12 @@ To create a VM with Jenkins:
     {% endnote %}
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -102,7 +102,7 @@ To create a VM with Jenkins:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the VM, e.g., `yc-user`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
 
         {% note alert %}
 

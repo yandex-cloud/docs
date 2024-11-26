@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Sku/get.md
 ---
 
-# Billing API, gRPC: SkuService.Get {#Get}
+# Billing API, gRPC: SkuService.Get
 
 Returns the specified SKU.
 
@@ -17,7 +17,7 @@ Returns the specified SKU.
 {
   "id": "string",
   "currency": "string",
-  "billingAccountId": "string"
+  "billing_account_id": "string"
 }
 ```
 
@@ -34,7 +34,7 @@ Can be one of the following:
 * `RUB`
 * `USD`
 * `KZT` ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Optional ID of the billing account.
 If specified, contract prices for a particular billing account are included in the response.
@@ -48,18 +48,18 @@ To get the billing account ID, use [BillingAccountService.List](/docs/billing/ap
   "id": "string",
   "name": "string",
   "description": "string",
-  "serviceId": "string",
-  "pricingUnit": "string",
-  "pricingVersions": [
+  "service_id": "string",
+  "pricing_unit": "string",
+  "pricing_versions": [
     {
       "type": "PricingVersionType",
-      "effectiveTime": "google.protobuf.Timestamp",
-      "pricingExpressions": [
+      "effective_time": "google.protobuf.Timestamp",
+      "pricing_expressions": [
         {
           "rates": [
             {
-              "startPricingQuantity": "string",
-              "unitPrice": "string",
+              "start_pricing_quantity": "string",
+              "unit_price": "string",
               "currency": "string"
             }
           ]
@@ -83,13 +83,13 @@ Name of the SKU. ||
 || description | **string**
 
 Description of the sku. ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service that sku belongs to. ||
-|| pricingUnit | **string**
+|| pricing_unit | **string**
 
 Pricing unit of the SKU, e.g. `core*hour`, `gbyte*hour`. ||
-|| pricingVersions[] | **[PricingVersion](#yandex.cloud.billing.v1.PricingVersion)**
+|| pricing_versions[] | **[PricingVersion](#yandex.cloud.billing.v1.PricingVersion)**
 
 List of pricing versions. ||
 |#
@@ -108,11 +108,11 @@ Type of the pricing version.
 - `PRICING_VERSION_TYPE_UNSPECIFIED`
 - `STREET_PRICE`: Regular price.
 - `CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account. ||
-|| effectiveTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp pricing version is active since inclusive.
 The pricing version is active until next pricing version effective time exclusive. ||
-|| pricingExpressions[] | **[PricingExpression](#yandex.cloud.billing.v1.PricingExpression)**
+|| pricing_expressions[] | **[PricingExpression](#yandex.cloud.billing.v1.PricingExpression)**
 
 List of pricing expressions. ||
 |#
@@ -136,10 +136,10 @@ Define unit price for pricing quantity interval.
 
 #|
 ||Field | Description ||
-|| startPricingQuantity | **string**
+|| start_pricing_quantity | **string**
 
 Start of the pricing quantity interval. The end of the interval is the start pricing quantity of the next rate. ||
-|| unitPrice | **string**
+|| unit_price | **string**
 
 Unit price for the pricing quantity interval. ||
 || currency | **string**

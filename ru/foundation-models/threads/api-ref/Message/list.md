@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/list.md
 ---
 
-# Threads, REST: Message.List {#List}
+# Threads, REST: Message.List
 
 List messages in a specific thread.
 By default, messages are listed in reverse chronological order, i.e., from the newest to the oldest.

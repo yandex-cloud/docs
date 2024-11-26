@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/BillingAccount/get.md
 ---
 
-# Billing API, gRPC: BillingAccountService.Get {#Get}
+# Billing API, gRPC: BillingAccountService.Get
 
 Returns the specified billing account.
 
@@ -33,8 +33,8 @@ To get the billing account ID, use [BillingAccountService.List](/docs/billing/ap
 {
   "id": "string",
   "name": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "countryCode": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "country_code": "string",
   "currency": "string",
   "active": "bool",
   "balance": "string"
@@ -51,10 +51,10 @@ ID of the billing account. ||
 || name | **string**
 
 Name of the billing account. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| countryCode | **string**
+|| country_code | **string**
 
 ISO 3166-1 alpha-2 country code of the billing account. ||
 || currency | **string**

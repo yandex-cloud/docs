@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/delete.md
 ---
 
-# Compute Cloud API, REST: Instance.Delete {#Delete}
+# Compute Cloud API, REST: Instance.Delete
 
 Deletes the specified instance.
 

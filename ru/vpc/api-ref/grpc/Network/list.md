@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Network/list.md
 ---
 
-# Virtual Private Cloud API, gRPC: NetworkService.List {#List}
+# Virtual Private Cloud API, gRPC: NetworkService.List
 
 Retrieves the list of Network resources in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of Network resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list networks in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse)
+results is larger than `page_size`,
+the service returns a [ListNetworksResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworksResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListNetworksResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListNetworksResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworksResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -54,15 +54,15 @@ The expression must specify:
   "networks": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "defaultSecurityGroupId": "string"
+      "default_security_group_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,14 +71,14 @@ The expression must specify:
 || networks[] | **[Network](#yandex.cloud.vpc.v1.Network)**
 
 List of Network resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListNetworksRequest.pageSize](#yandex.cloud.vpc.v1.ListNetworksRequest), use
-the `nextPageToken` as the value
-for the [ListNetworksRequest.pageToken](#yandex.cloud.vpc.v1.ListNetworksRequest) query parameter
+is larger than [ListNetworksRequest.page_size](#yandex.cloud.vpc.v1.ListNetworksRequest), use
+the `next_page_token` as the value
+for the [ListNetworksRequest.page_token](#yandex.cloud.vpc.v1.ListNetworksRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Network {#yandex.cloud.vpc.v1.Network}
@@ -90,10 +90,10 @@ A Network resource. For more information, see [Networks](/docs/vpc/concepts/netw
 || id | **string**
 
 ID of the network. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -112,7 +112,7 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| defaultSecurityGroupId | **string**
+|| default_security_group_id | **string**
 
 ID of default security group for network. ||
 |#

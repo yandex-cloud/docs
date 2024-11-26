@@ -14,4 +14,8 @@ The minimum [folder](../../../resource-manager/concepts/resources-hierarchy.md#f
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, and you have access to creating a VM with a {{ backup-name }} connection, it means the service has already been activated. Proceed to the next step.
 
+- CLI {#cli}
+
+  {% include [default-policies](../../../_includes/backup/operations/cli-activate-service.md) %}
+
 {% endlist %}

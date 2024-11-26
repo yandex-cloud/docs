@@ -2,14 +2,7 @@
 
 - Linux (Bash)/macOS (Zsh) {#linux-macos}
 
-   ```bash
-   mkdir -p ~/.redis && \
-   wget "{{ crt-web-path }}" \
-        --output-document ~/.redis/{{ crt-local-file }} && \
-   chmod 0655 ~/.redis/{{ crt-local-file }}
-   ```
-
-   The certificate is saved to the `~/.redis/{{ crt-local-file }}` file.
+   {% include [unix-certificate](./unix-certificate.md) %}
 
 - Windows (PowerShell) {#windows}
 
@@ -17,6 +10,6 @@
    mkdir $HOME\.redis; curl.exe -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
-   The certificate is saved to the `$HOME\.redis\{{ crt-local-file }}` file.
+   The certificate will be saved to the `$HOME\.redis\{{ crt-local-file }}` file.
 
 {% endlist %}

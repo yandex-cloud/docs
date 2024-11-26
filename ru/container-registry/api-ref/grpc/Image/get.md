@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Image/get.md
 ---
 
-# Container Registry API, gRPC: ImageService.Get {#Get}
+# Container Registry API, gRPC: ImageService.Get
 
 Returns the specified Image resource.
 
@@ -17,13 +17,13 @@ To get the list of available Image resources, make a [List](/docs/container-regi
 
 ```json
 {
-  "imageId": "string"
+  "image_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 Required field. ID of the Docker image resource to return.
 
@@ -37,7 +37,7 @@ To get the Docker image ID use a [ImageService.List](/docs/container-registry/ap
   "id": "string",
   "name": "string",
   "digest": "string",
-  "compressedSize": "int64",
+  "compressed_size": "int64",
   "config": {
     "id": "string",
     "digest": "string",
@@ -59,7 +59,7 @@ To get the Docker image ID use a [ImageService.List](/docs/container-registry/ap
   "tags": [
     "string"
   ],
-  "createdAt": "google.protobuf.Timestamp"
+  "created_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -77,7 +77,7 @@ The name is unique within the registry. ||
 || digest | **string**
 
 Content-addressable identifier of the Docker image. ||
-|| compressedSize | **int64**
+|| compressed_size | **int64**
 
 Compressed size of the Docker image, specified in bytes. ||
 || config | **[Blob](#yandex.cloud.containerregistry.v1.Blob)**
@@ -91,7 +91,7 @@ Layers of the Docker image. ||
 Tags of the Docker image.
 
 Each tag is unique within the repository. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 |#

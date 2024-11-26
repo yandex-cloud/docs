@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Database/create.md
 ---
 
-# Managed Service for MySQL API, gRPC: DatabaseService.Create {#Create}
+# Managed Service for MySQL API, gRPC: DatabaseService.Create
 
 Creates a new database in a cluster.
 
@@ -15,8 +15,8 @@ Creates a new database in a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "databaseSpec": {
+  "cluster_id": "string",
+  "database_spec": {
     "name": "string"
   }
 }
@@ -24,12 +24,12 @@ Creates a new database in a cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to create the database in.
 
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| databaseSpec | **[DatabaseSpec](#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
+|| database_spec | **[DatabaseSpec](#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
 
 Required field. Configuration of the database. ||
 |#
@@ -49,19 +49,19 @@ Required field. Name of the database. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "databaseName": "string"
+    "cluster_id": "string",
+    "database_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string"
+    "cluster_id": "string"
   }
   // end of the list of possible fields
 }
@@ -77,13 +77,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -126,10 +126,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster the database is being created in. ||
-|| databaseName | **string**
+|| database_name | **string**
 
 Name of the database that is being created. ||
 |#
@@ -145,7 +145,7 @@ See [the documentation](/docs/managed-mysql/operations/databases) for details.
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that the database belongs to. ||
 |#

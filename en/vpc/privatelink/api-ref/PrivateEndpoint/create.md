@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/create.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.Create {#Create}
+# Virtual Private Cloud API, REST: PrivateEndpoint.Create
 
 Creates an private endpoint in the specified folder and network.
 

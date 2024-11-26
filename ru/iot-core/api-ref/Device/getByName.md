@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/getByName.md
 ---
 
-# IoT Core Service, REST: Device.GetByName {#GetByName}
+# IoT Core Service, REST: Device.GetByName
 
 ## HTTP request
 

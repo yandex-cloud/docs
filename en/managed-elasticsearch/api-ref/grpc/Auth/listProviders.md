@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Auth/listProviders.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: AuthService.ListProviders {#ListProviders}
+# Managed Service for Elasticsearch API, gRPC: AuthService.ListProviders
 
 Retrieves the list of registered auth providers for Elasticsearch cluster.
 
@@ -15,13 +15,13 @@ Retrieves the list of registered auth providers for Elasticsearch cluster.
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. Required. ID of the ElasticSearch cluster. ||
 |#
@@ -42,15 +42,15 @@ Required field. Required. ID of the ElasticSearch cluster. ||
       "icon": "string",
       // Includes only one of the fields `saml`
       "saml": {
-        "idpEntityId": "string",
-        "idpMetadataFile": "bytes",
-        "spEntityId": "string",
-        "kibanaUrl": "string",
-        "attributePrincipal": "string",
-        "attributeGroups": "string",
-        "attributeName": "string",
-        "attributeEmail": "string",
-        "attributeDn": "string"
+        "idp_entity_id": "string",
+        "idp_metadata_file": "bytes",
+        "sp_entity_id": "string",
+        "kibana_url": "string",
+        "attribute_principal": "string",
+        "attribute_groups": "string",
+        "attribute_name": "string",
+        "attribute_email": "string",
+        "attribute_dn": "string"
       }
       // end of the list of possible fields
     }
@@ -92,13 +92,13 @@ Includes only one of the fields `saml`. ||
 
 #|
 ||Field | Description ||
-|| idpEntityId | **string** ||
-|| idpMetadataFile | **bytes** ||
-|| spEntityId | **string** ||
-|| kibanaUrl | **string** ||
-|| attributePrincipal | **string** ||
-|| attributeGroups | **string** ||
-|| attributeName | **string** ||
-|| attributeEmail | **string** ||
-|| attributeDn | **string** ||
+|| idp_entity_id | **string** ||
+|| idp_metadata_file | **bytes** ||
+|| sp_entity_id | **string** ||
+|| kibana_url | **string** ||
+|| attribute_principal | **string** ||
+|| attribute_groups | **string** ||
+|| attribute_name | **string** ||
+|| attribute_email | **string** ||
+|| attribute_dn | **string** ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/delete.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Delete {#Delete}
+# Virtual Private Cloud API, REST: Subnet.Delete
 
 Deletes the specified subnet.
 

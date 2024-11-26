@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/triggers/v1/triggers/api-ref/grpc/Trigger/listOperations.md
 ---
 
-# Cloud Functions Triggers Service, gRPC: TriggerService.ListOperations {#ListOperations}
+# Cloud Functions Triggers Service, gRPC: TriggerService.ListOperations
 
 Lists operations for the specified trigger.
 
@@ -15,29 +15,29 @@ Lists operations for the specified trigger.
 
 ```json
 {
-  "triggerId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "trigger_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| triggerId | **string**
+|| trigger_id | **string**
 
 Required field. ID of the trigger to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse)
+results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.next_page_token](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse) returned by a previous list request. ||
+[ListTriggerOperationsResponse.next_page_token](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -57,9 +57,9 @@ Example of a filter: `name=my-function`. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -68,7 +68,7 @@ Example of a filter: `name=my-function`. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -77,11 +77,11 @@ Example of a filter: `name=my-function`. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified trigger. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListTriggerOperationsRequest.pageSize](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest), use `nextPageToken` as the value
-for the [ListTriggerOperationsRequest.pageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest) parameter in the next list request.
+the specified [ListTriggerOperationsRequest.page_size](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest), use `nextPageToken` as the value
+for the [ListTriggerOperationsRequest.page_token](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -98,13 +98,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

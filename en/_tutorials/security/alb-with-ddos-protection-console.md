@@ -188,7 +188,7 @@ To create an instance group:
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.common.description }}** for the template.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
 
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`.
        * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

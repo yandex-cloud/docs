@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/LoadBalancer/addListener.md
 ---
 
-# Application Load Balancer API, gRPC: LoadBalancerService.AddListener {#AddListener}
+# Application Load Balancer API, gRPC: LoadBalancerService.AddListener
 
 Adds a listener to the specified application load balancer.
 
@@ -15,22 +15,22 @@ Adds a listener to the specified application load balancer.
 
 ```json
 {
-  "loadBalancerId": "string",
-  "listenerSpec": {
+  "load_balancer_id": "string",
+  "listener_spec": {
     "name": "string",
-    "endpointSpecs": [
+    "endpoint_specs": [
       {
-        "addressSpecs": [
+        "address_specs": [
           {
-            // Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`
-            "externalIpv4AddressSpec": {
+            // Includes only one of the fields `external_ipv4_address_spec`, `internal_ipv4_address_spec`, `external_ipv6_address_spec`
+            "external_ipv4_address_spec": {
               "address": "string"
             },
-            "internalIpv4AddressSpec": {
+            "internal_ipv4_address_spec": {
               "address": "string",
-              "subnetId": "string"
+              "subnet_id": "string"
             },
-            "externalIpv6AddressSpec": {
+            "external_ipv6_address_spec": {
               "address": "string"
             }
             // end of the list of possible fields
@@ -44,65 +44,65 @@ Adds a listener to the specified application load balancer.
     // Includes only one of the fields `http`, `tls`, `stream`
     "http": {
       "handler": {
-        "httpRouterId": "string",
-        // Includes only one of the fields `http2Options`, `allowHttp10`
-        "http2Options": {
-          "maxConcurrentStreams": "int64"
+        "http_router_id": "string",
+        // Includes only one of the fields `http2_options`, `allow_http10`
+        "http2_options": {
+          "max_concurrent_streams": "int64"
         },
-        "allowHttp10": "bool",
+        "allow_http10": "bool",
         // end of the list of possible fields
-        "rewriteRequestId": "bool"
+        "rewrite_request_id": "bool"
       },
       "redirects": {
-        "httpToHttps": "bool"
+        "http_to_https": "bool"
       }
     },
     "tls": {
-      "defaultHandler": {
-        // Includes only one of the fields `httpHandler`, `streamHandler`
-        "httpHandler": {
-          "httpRouterId": "string",
-          // Includes only one of the fields `http2Options`, `allowHttp10`
-          "http2Options": {
-            "maxConcurrentStreams": "int64"
+      "default_handler": {
+        // Includes only one of the fields `http_handler`, `stream_handler`
+        "http_handler": {
+          "http_router_id": "string",
+          // Includes only one of the fields `http2_options`, `allow_http10`
+          "http2_options": {
+            "max_concurrent_streams": "int64"
           },
-          "allowHttp10": "bool",
+          "allow_http10": "bool",
           // end of the list of possible fields
-          "rewriteRequestId": "bool"
+          "rewrite_request_id": "bool"
         },
-        "streamHandler": {
-          "backendGroupId": "string",
-          "idleTimeout": "google.protobuf.Duration"
+        "stream_handler": {
+          "backend_group_id": "string",
+          "idle_timeout": "google.protobuf.Duration"
         },
         // end of the list of possible fields
-        "certificateIds": [
+        "certificate_ids": [
           "string"
         ]
       },
-      "sniHandlers": [
+      "sni_handlers": [
         {
           "name": "string",
-          "serverNames": [
+          "server_names": [
             "string"
           ],
           "handler": {
-            // Includes only one of the fields `httpHandler`, `streamHandler`
-            "httpHandler": {
-              "httpRouterId": "string",
-              // Includes only one of the fields `http2Options`, `allowHttp10`
-              "http2Options": {
-                "maxConcurrentStreams": "int64"
+            // Includes only one of the fields `http_handler`, `stream_handler`
+            "http_handler": {
+              "http_router_id": "string",
+              // Includes only one of the fields `http2_options`, `allow_http10`
+              "http2_options": {
+                "max_concurrent_streams": "int64"
               },
-              "allowHttp10": "bool",
+              "allow_http10": "bool",
               // end of the list of possible fields
-              "rewriteRequestId": "bool"
+              "rewrite_request_id": "bool"
             },
-            "streamHandler": {
-              "backendGroupId": "string",
-              "idleTimeout": "google.protobuf.Duration"
+            "stream_handler": {
+              "backend_group_id": "string",
+              "idle_timeout": "google.protobuf.Duration"
             },
             // end of the list of possible fields
-            "certificateIds": [
+            "certificate_ids": [
               "string"
             ]
           }
@@ -111,8 +111,8 @@ Adds a listener to the specified application load balancer.
     },
     "stream": {
       "handler": {
-        "backendGroupId": "string",
-        "idleTimeout": "google.protobuf.Duration"
+        "backend_group_id": "string",
+        "idle_timeout": "google.protobuf.Duration"
       }
     }
     // end of the list of possible fields
@@ -122,10 +122,10 @@ Adds a listener to the specified application load balancer.
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 Required field. ID of the application load balancer to add a listener to. ||
-|| listenerSpec | **[ListenerSpec](#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
+|| listener_spec | **[ListenerSpec](#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
 
 Required field. Listener to add to the application load balancer. ||
 |#
@@ -137,7 +137,7 @@ Required field. Listener to add to the application load balancer. ||
 || name | **string**
 
 Required field. Name of the listener. The name is unique within the application load balancer. ||
-|| endpointSpecs[] | **[EndpointSpec](#yandex.cloud.apploadbalancer.v1.EndpointSpec)**
+|| endpoint_specs[] | **[EndpointSpec](#yandex.cloud.apploadbalancer.v1.EndpointSpec)**
 
 Endpoints of the listener.
 
@@ -153,7 +153,7 @@ Listener type and settings. ||
 
 TLS-encrypted HTTP or TCP stream listener settings.
 
-All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
+All handlers within a listener ([TlsListener.default_handler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sni_handlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
 type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
 supported.
 
@@ -173,7 +173,7 @@ Listener type and settings. ||
 
 #|
 ||Field | Description ||
-|| addressSpecs[] | **[AddressSpec](#yandex.cloud.apploadbalancer.v1.AddressSpec)**
+|| address_specs[] | **[AddressSpec](#yandex.cloud.apploadbalancer.v1.AddressSpec)**
 
 Endpoint public (external) and internal addresses. ||
 || ports[] | **int64**
@@ -185,27 +185,27 @@ Endpoint ports. ||
 
 #|
 ||Field | Description ||
-|| externalIpv4AddressSpec | **[ExternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv4AddressSpec)**
+|| external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv4AddressSpec)**
 
 Public IPv4 endpoint address.
 
-Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+Includes only one of the fields `external_ipv4_address_spec`, `internal_ipv4_address_spec`, `external_ipv6_address_spec`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
-|| internalIpv4AddressSpec | **[InternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.InternalIpv4AddressSpec)**
+|| internal_ipv4_address_spec | **[InternalIpv4AddressSpec](#yandex.cloud.apploadbalancer.v1.InternalIpv4AddressSpec)**
 
 Internal IPv4 endpoint address.
 
 To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time).
 
-Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+Includes only one of the fields `external_ipv4_address_spec`, `internal_ipv4_address_spec`, `external_ipv6_address_spec`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
-|| externalIpv6AddressSpec | **[ExternalIpv6AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv6AddressSpec)**
+|| external_ipv6_address_spec | **[ExternalIpv6AddressSpec](#yandex.cloud.apploadbalancer.v1.ExternalIpv6AddressSpec)**
 
 Public IPv6 endpoint address.
 
-Includes only one of the fields `externalIpv4AddressSpec`, `internalIpv4AddressSpec`, `externalIpv6AddressSpec`.
+Includes only one of the fields `external_ipv4_address_spec`, `internal_ipv4_address_spec`, `external_ipv6_address_spec`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
 |#
@@ -226,7 +226,7 @@ IPv4 address. ||
 || address | **string**
 
 IPv4 address. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the address belongs to. ||
 |#
@@ -264,35 +264,35 @@ An HTTP handler resource.
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 ID of the HTTP router processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/http-router).
 
 To get the list of all available HTTP routers, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
-|| http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
+|| http2_options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
 
 HTTP/2 settings.
 
 If specified, incoming HTTP/2 requests are supported by the listener.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| allowHttp10 | **bool**
+|| allow_http10 | **bool**
 
 Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| rewriteRequestId | **bool**
+|| rewrite_request_id | **bool**
 
 When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 |#
@@ -303,7 +303,7 @@ An HTTP/2 options resource.
 
 #|
 ||Field | Description ||
-|| maxConcurrentStreams | **int64**
+|| max_concurrent_streams | **int64**
 
 Maximum number of concurrent HTTP/2 streams in a connection. ||
 |#
@@ -314,12 +314,12 @@ A listener redirects resource.
 
 #|
 ||Field | Description ||
-|| httpToHttps | **bool**
+|| http_to_https | **bool**
 
 Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
 
 The setting has the same effect as a single, catch-all [HttpRoute](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute)
-with [RedirectAction.replaceScheme](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`. ||
+with [RedirectAction.replace_scheme](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`. ||
 |#
 
 ## TlsListener {#yandex.cloud.apploadbalancer.v1.TlsListener}
@@ -328,14 +328,14 @@ TLS-encrypted (HTTP or TCP stream) listener resource.
 
 #|
 ||Field | Description ||
-|| defaultHandler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+|| default_handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. Settings for handling requests by default, with Server Name
-Indication (SNI) not matching any of the `sniHandlers`. ||
-|| sniHandlers[] | **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch)**
+Indication (SNI) not matching any of the `sni_handlers`. ||
+|| sni_handlers[] | **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch)**
 
 Settings for handling requests with Server Name Indication (SNI)
-matching one of [SniMatch.serverNames](#yandex.cloud.apploadbalancer.v1.SniMatch) values. ||
+matching one of [SniMatch.server_names](#yandex.cloud.apploadbalancer.v1.SniMatch) values. ||
 |#
 
 ## TlsHandler {#yandex.cloud.apploadbalancer.v1.TlsHandler}
@@ -344,21 +344,21 @@ A TLS-encrypted (HTTP or TCP stream) handler resource.
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+|| http_handler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
 
 HTTP handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+|| stream_handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
 
 Stream (TCP) handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| certificateIds[] | **string**
+|| certificate_ids[] | **string**
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
@@ -371,7 +371,7 @@ A stream (TCP) handler resource.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. ID of the backend group processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group).
@@ -379,7 +379,7 @@ Required field. ID of the backend group processing requests. For details about t
 The backend group type, specified via [BackendGroup.backend](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
 
 To get the list of all available backend groups, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/grpc/BackendGroup/list#List) request. ||
-|| idleTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
 If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
@@ -394,12 +394,12 @@ A SNI handler resource.
 || name | **string**
 
 Required field. Name of the SNI handler. ||
-|| serverNames[] | **string**
+|| server_names[] | **string**
 
 Server names that are matched by the SNI handler. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
-Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
+Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
 |#
 
 ## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener}
@@ -419,13 +419,13 @@ Required field. Settings for handling stream (TCP) requests. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "loadBalancerId": "string",
-    "listenerName": "string"
+    "load_balancer_id": "string",
+    "listener_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -433,11 +433,11 @@ Required field. Settings for handling stream (TCP) requests. ||
     "id": "string",
     "name": "string",
     "description": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "labels": "string",
     "status": "Status",
-    "regionId": "string",
-    "networkId": "string",
+    "region_id": "string",
+    "network_id": "string",
     "listeners": [
       {
         "name": "string",
@@ -445,15 +445,15 @@ Required field. Settings for handling stream (TCP) requests. ||
           {
             "addresses": [
               {
-                // Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`
-                "externalIpv4Address": {
+                // Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`, `external_ipv6_address`
+                "external_ipv4_address": {
                   "address": "string"
                 },
-                "internalIpv4Address": {
+                "internal_ipv4_address": {
                   "address": "string",
-                  "subnetId": "string"
+                  "subnet_id": "string"
                 },
-                "externalIpv6Address": {
+                "external_ipv6_address": {
                   "address": "string"
                 }
                 // end of the list of possible fields
@@ -467,65 +467,65 @@ Required field. Settings for handling stream (TCP) requests. ||
         // Includes only one of the fields `http`, `tls`, `stream`
         "http": {
           "handler": {
-            "httpRouterId": "string",
-            // Includes only one of the fields `http2Options`, `allowHttp10`
-            "http2Options": {
-              "maxConcurrentStreams": "int64"
+            "http_router_id": "string",
+            // Includes only one of the fields `http2_options`, `allow_http10`
+            "http2_options": {
+              "max_concurrent_streams": "int64"
             },
-            "allowHttp10": "bool",
+            "allow_http10": "bool",
             // end of the list of possible fields
-            "rewriteRequestId": "bool"
+            "rewrite_request_id": "bool"
           },
           "redirects": {
-            "httpToHttps": "bool"
+            "http_to_https": "bool"
           }
         },
         "tls": {
-          "defaultHandler": {
-            // Includes only one of the fields `httpHandler`, `streamHandler`
-            "httpHandler": {
-              "httpRouterId": "string",
-              // Includes only one of the fields `http2Options`, `allowHttp10`
-              "http2Options": {
-                "maxConcurrentStreams": "int64"
+          "default_handler": {
+            // Includes only one of the fields `http_handler`, `stream_handler`
+            "http_handler": {
+              "http_router_id": "string",
+              // Includes only one of the fields `http2_options`, `allow_http10`
+              "http2_options": {
+                "max_concurrent_streams": "int64"
               },
-              "allowHttp10": "bool",
+              "allow_http10": "bool",
               // end of the list of possible fields
-              "rewriteRequestId": "bool"
+              "rewrite_request_id": "bool"
             },
-            "streamHandler": {
-              "backendGroupId": "string",
-              "idleTimeout": "google.protobuf.Duration"
+            "stream_handler": {
+              "backend_group_id": "string",
+              "idle_timeout": "google.protobuf.Duration"
             },
             // end of the list of possible fields
-            "certificateIds": [
+            "certificate_ids": [
               "string"
             ]
           },
-          "sniHandlers": [
+          "sni_handlers": [
             {
               "name": "string",
-              "serverNames": [
+              "server_names": [
                 "string"
               ],
               "handler": {
-                // Includes only one of the fields `httpHandler`, `streamHandler`
-                "httpHandler": {
-                  "httpRouterId": "string",
-                  // Includes only one of the fields `http2Options`, `allowHttp10`
-                  "http2Options": {
-                    "maxConcurrentStreams": "int64"
+                // Includes only one of the fields `http_handler`, `stream_handler`
+                "http_handler": {
+                  "http_router_id": "string",
+                  // Includes only one of the fields `http2_options`, `allow_http10`
+                  "http2_options": {
+                    "max_concurrent_streams": "int64"
                   },
-                  "allowHttp10": "bool",
+                  "allow_http10": "bool",
                   // end of the list of possible fields
-                  "rewriteRequestId": "bool"
+                  "rewrite_request_id": "bool"
                 },
-                "streamHandler": {
-                  "backendGroupId": "string",
-                  "idleTimeout": "google.protobuf.Duration"
+                "stream_handler": {
+                  "backend_group_id": "string",
+                  "idle_timeout": "google.protobuf.Duration"
                 },
                 // end of the list of possible fields
-                "certificateIds": [
+                "certificate_ids": [
                   "string"
                 ]
               }
@@ -534,45 +534,45 @@ Required field. Settings for handling stream (TCP) requests. ||
         },
         "stream": {
           "handler": {
-            "backendGroupId": "string",
-            "idleTimeout": "google.protobuf.Duration"
+            "backend_group_id": "string",
+            "idle_timeout": "google.protobuf.Duration"
           }
         }
         // end of the list of possible fields
       }
     ],
-    "allocationPolicy": {
+    "allocation_policy": {
       "locations": [
         {
-          "zoneId": "string",
-          "subnetId": "string",
-          "disableTraffic": "bool"
+          "zone_id": "string",
+          "subnet_id": "string",
+          "disable_traffic": "bool"
         }
       ]
     },
-    "logGroupId": "string",
-    "securityGroupIds": [
+    "log_group_id": "string",
+    "security_group_ids": [
       "string"
     ],
-    "createdAt": "google.protobuf.Timestamp",
-    "autoScalePolicy": {
-      "minZoneSize": "int64",
-      "maxSize": "int64"
+    "created_at": "google.protobuf.Timestamp",
+    "auto_scale_policy": {
+      "min_zone_size": "int64",
+      "max_size": "int64"
     },
-    "logOptions": {
-      "logGroupId": "string",
-      "discardRules": [
+    "log_options": {
+      "log_group_id": "string",
+      "discard_rules": [
         {
-          "httpCodes": [
+          "http_codes": [
             "int64"
           ],
-          "httpCodeIntervals": [
+          "http_code_intervals": [
             "HttpCodeInterval"
           ],
-          "grpcCodes": [
+          "grpc_codes": [
             "google.rpc.Code"
           ],
-          "discardPercent": "google.protobuf.Int64Value"
+          "discard_percent": "google.protobuf.Int64Value"
         }
       ],
       "disable": "bool"
@@ -592,13 +592,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -641,10 +641,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| loadBalancerId | **string**
+|| load_balancer_id | **string**
 
 ID of the application load balancer that the listener is being added to. ||
-|| listenerName | **string**
+|| listener_name | **string**
 
 Name of the listener that is being added to the application load balancer. ||
 |#
@@ -665,7 +665,7 @@ Name of the application load balancer. The name is unique within the folder. ||
 || description | **string**
 
 Description of the application load balancer. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the application load balancer belongs to. ||
 || labels | **string**
@@ -683,10 +683,10 @@ Status of the application load balancer.
 - `STOPPING`: The application load balancer is being stopped.
 - `STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.
 - `DELETING`: The application load balancer is being deleted. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the application load balancer is located at. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network that the application load balancer belongs to. ||
 || listeners[] | **[Listener](#yandex.cloud.apploadbalancer.v1.Listener)**
@@ -694,26 +694,26 @@ ID of the network that the application load balancer belongs to. ||
 Listeners that belong to the application load balancer.
 
 For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener). ||
-|| allocationPolicy | **[AllocationPolicy](#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
+|| allocation_policy | **[AllocationPolicy](#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
 
 Locality settings of the application load balancer.
 
 For details about the concept, see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location). ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the log group that stores access logs of the application load balancer.
 
 The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 ID's of the security groups attributed to the application load balancer.
 
 For details about the concept,
 see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups). ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| autoScalePolicy | **[AutoScalePolicy](#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
+|| auto_scale_policy | **[AutoScalePolicy](#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
 
 Scaling settings of the application load balancer.
 
@@ -723,7 +723,7 @@ and within limitations specified in these settings.
 
 For details about the concept,
 see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling). ||
-|| logOptions | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
+|| log_options | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
 
 Cloud logging settings of the application load balancer. ||
 |#
@@ -756,7 +756,7 @@ Listener type and settings. ||
 
 TLS-encrypted HTTP or TCP stream listener settings.
 
-All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener2) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener2)) must be of one
+All handlers within a listener ([TlsListener.default_handler](#yandex.cloud.apploadbalancer.v1.TlsListener2) and [TlsListener.sni_handlers](#yandex.cloud.apploadbalancer.v1.TlsListener2)) must be of one
 type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler2) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler2). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
 supported.
 
@@ -792,27 +792,27 @@ An endpoint address resource.
 
 #|
 ||Field | Description ||
-|| externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.apploadbalancer.v1.ExternalIpv4Address)**
+|| external_ipv4_address | **[ExternalIpv4Address](#yandex.cloud.apploadbalancer.v1.ExternalIpv4Address)**
 
 Public IPv4 endpoint address.
 
-Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`.
+Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`, `external_ipv6_address`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
-|| internalIpv4Address | **[InternalIpv4Address](#yandex.cloud.apploadbalancer.v1.InternalIpv4Address)**
+|| internal_ipv4_address | **[InternalIpv4Address](#yandex.cloud.apploadbalancer.v1.InternalIpv4Address)**
 
 Internal IPv4 endpoint address.
 
 To enable the use of listeners with internal addresses, [contact support](/docs/support/overview#response-time).
 
-Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`.
+Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`, `external_ipv6_address`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
-|| externalIpv6Address | **[ExternalIpv6Address](#yandex.cloud.apploadbalancer.v1.ExternalIpv6Address)**
+|| external_ipv6_address | **[ExternalIpv6Address](#yandex.cloud.apploadbalancer.v1.ExternalIpv6Address)**
 
 Public IPv6 endpoint address.
 
-Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`.
+Includes only one of the fields `external_ipv4_address`, `internal_ipv4_address`, `external_ipv6_address`.
 
 Endpoint address of one of the types: public (external) IPv4 address, internal IPv4 address, public IPv6 address. ||
 |#
@@ -837,7 +837,7 @@ An internal IPv4 endpoint address resource.
 || address | **string**
 
 IPv4 address. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the address belongs to. ||
 |#
@@ -877,35 +877,35 @@ An HTTP handler resource.
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 ID of the HTTP router processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/http-router).
 
 To get the list of all available HTTP routers, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
-|| http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options2)**
+|| http2_options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options2)**
 
 HTTP/2 settings.
 
 If specified, incoming HTTP/2 requests are supported by the listener.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| allowHttp10 | **bool**
+|| allow_http10 | **bool**
 
 Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
 
-Includes only one of the fields `http2Options`, `allowHttp10`.
+Includes only one of the fields `http2_options`, `allow_http10`.
 
 Protocol settings.
 
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| rewriteRequestId | **bool**
+|| rewrite_request_id | **bool**
 
 When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 |#
@@ -916,7 +916,7 @@ An HTTP/2 options resource.
 
 #|
 ||Field | Description ||
-|| maxConcurrentStreams | **int64**
+|| max_concurrent_streams | **int64**
 
 Maximum number of concurrent HTTP/2 streams in a connection. ||
 |#
@@ -927,12 +927,12 @@ A listener redirects resource.
 
 #|
 ||Field | Description ||
-|| httpToHttps | **bool**
+|| http_to_https | **bool**
 
 Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
 
 The setting has the same effect as a single, catch-all [HttpRoute](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute)
-with [RedirectAction.replaceScheme](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`. ||
+with [RedirectAction.replace_scheme](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`. ||
 |#
 
 ## TlsListener {#yandex.cloud.apploadbalancer.v1.TlsListener2}
@@ -941,14 +941,14 @@ TLS-encrypted (HTTP or TCP stream) listener resource.
 
 #|
 ||Field | Description ||
-|| defaultHandler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler2)**
+|| default_handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler2)**
 
 Required field. Settings for handling requests by default, with Server Name
-Indication (SNI) not matching any of the `sniHandlers`. ||
-|| sniHandlers[] | **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch2)**
+Indication (SNI) not matching any of the `sni_handlers`. ||
+|| sni_handlers[] | **[SniMatch](#yandex.cloud.apploadbalancer.v1.SniMatch2)**
 
 Settings for handling requests with Server Name Indication (SNI)
-matching one of [SniMatch.serverNames](#yandex.cloud.apploadbalancer.v1.SniMatch2) values. ||
+matching one of [SniMatch.server_names](#yandex.cloud.apploadbalancer.v1.SniMatch2) values. ||
 |#
 
 ## TlsHandler {#yandex.cloud.apploadbalancer.v1.TlsHandler2}
@@ -957,21 +957,21 @@ A TLS-encrypted (HTTP or TCP stream) handler resource.
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler2)**
+|| http_handler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler2)**
 
 HTTP handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler2)**
+|| stream_handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler2)**
 
 Stream (TCP) handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `http_handler`, `stream_handler`.
 
 Settings for handling requests. ||
-|| certificateIds[] | **string**
+|| certificate_ids[] | **string**
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
@@ -984,7 +984,7 @@ A stream (TCP) handler resource.
 
 #|
 ||Field | Description ||
-|| backendGroupId | **string**
+|| backend_group_id | **string**
 
 Required field. ID of the backend group processing requests. For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group).
@@ -992,7 +992,7 @@ Required field. ID of the backend group processing requests. For details about t
 The backend group type, specified via [BackendGroup.backend](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
 
 To get the list of all available backend groups, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/grpc/BackendGroup/list#List) request. ||
-|| idleTimeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
 If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
@@ -1007,12 +1007,12 @@ A SNI handler resource.
 || name | **string**
 
 Required field. Name of the SNI handler. ||
-|| serverNames[] | **string**
+|| server_names[] | **string**
 
 Server names that are matched by the SNI handler. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler2)**
 
-Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
+Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
 |#
 
 ## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener2}
@@ -1045,21 +1045,21 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field. ID of the availability zone where the application load balancer resides.
 
 Each availability zone can only be specified once. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the application load balancer belongs to. ||
-|| disableTraffic | **bool**
+|| disable_traffic | **bool**
 
 Disables the load balancer node in the specified availability zone.
 
 Backends in the availability zone are not directly affected by this setting.
 They still may receive traffic from the load balancer nodes in other availability zones,
-subject to [LoadBalancingConfig.localityAwareRoutingPercent](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
+subject to [LoadBalancingConfig.locality_aware_routing_percent](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy}
@@ -1068,7 +1068,7 @@ A resource for scaling settings of an application load balancer.
 
 #|
 ||Field | Description ||
-|| minZoneSize | **int64**
+|| min_zone_size | **int64**
 
 Lower limit for the number of resource units in each availability zone.
 
@@ -1076,11 +1076,11 @@ If not specified previously (using other instruments such as management console)
 To revert to it, specify it explicitly.
 
 The minimum value is 2. ||
-|| maxSize | **int64**
+|| max_size | **int64**
 
 Upper limit for the total number of resource units across all availability zones.
 
-If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
+If a positive value is specified, it must be at least `min_zone_size` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
 
 If the value is 0, there is no upper limit. ||
@@ -1090,12 +1090,12 @@ If the value is 0, there is no upper limit. ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Cloud Logging log group ID to store access logs.
 If not set then logs will be stored in default log group for the folder
 where load balancer located. ||
-|| discardRules[] | **[LogDiscardRule](#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
+|| discard_rules[] | **[LogDiscardRule](#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
 
 ordered list of rules, first matching rule applies ||
 || disable | **bool**
@@ -1110,10 +1110,10 @@ If neither codes or intervals are provided, rule applies to all logs.
 
 #|
 ||Field | Description ||
-|| httpCodes[] | **int64**
+|| http_codes[] | **int64**
 
 HTTP codes that should be discarded. ||
-|| httpCodeIntervals[] | enum **HttpCodeInterval**
+|| http_code_intervals[] | enum **HttpCodeInterval**
 
 Groups of HTTP codes like 4xx that should be discarded.
 
@@ -1124,10 +1124,10 @@ Groups of HTTP codes like 4xx that should be discarded.
 - `HTTP_4XX`
 - `HTTP_5XX`
 - `HTTP_ALL` ||
-|| grpcCodes[] | **[google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto)**
+|| grpc_codes[] | **[google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto)**
 
 GRPC codes that should be discarded ||
-|| discardPercent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| discard_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
 |#

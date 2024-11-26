@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/redis/v1/api-ref/grpc/Cluster/addHosts.md
 ---
 
-# Managed Service for Redis API, gRPC: ClusterService.AddHosts {#AddHosts}
+# Managed Service for Redis API, gRPC: ClusterService.AddHosts
 
 Creates new hosts for a cluster.
 
@@ -15,14 +15,14 @@ Creates new hosts for a cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "hostSpecs": [
+  "cluster_id": "string",
+  "host_specs": [
     {
-      "zoneId": "string",
-      "subnetId": "string",
-      "shardName": "string",
-      "replicaPriority": "google.protobuf.Int64Value",
-      "assignPublicIp": "bool"
+      "zone_id": "string",
+      "subnet_id": "string",
+      "shard_name": "string",
+      "replica_priority": "google.protobuf.Int64Value",
+      "assign_public_ip": "bool"
     }
   ]
 }
@@ -30,11 +30,11 @@ Creates new hosts for a cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Redis cluster to add hosts to.
 To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/grpc/Cluster/list#List) request. ||
-|| hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
+|| host_specs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
 
 Configurations for Redis hosts that should be added to the cluster. ||
 |#
@@ -43,25 +43,25 @@ Configurations for Redis hosts that should be added to the cluster. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the host resides.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/grpc/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster). ||
-|| shardName | **string**
+The ID of the network is set in the field [Cluster.network_id](/docs/managed-redis/api-ref/grpc/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster). ||
+|| shard_name | **string**
 
 ID of the Redis shard the host belongs to.
 To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request. ||
-|| replicaPriority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A replica with a low priority number is considered better for promotion.
 A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
 Works only for non-sharded clusters. Default value is 100. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
 
@@ -76,13 +76,13 @@ Possible values:
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "hostNames": [
+    "cluster_id": "string",
+    "host_names": [
       "string"
     ]
   },
@@ -103,13 +103,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -152,10 +152,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Redis cluster to which the hosts are being added. ||
-|| hostNames[] | **string**
+|| host_names[] | **string**
 
 Names of hosts that are being added to the cluster. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listExternalDictionaries.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.ListExternalDictionaries {#ListExternalDictionaries}
+# Managed Service for ClickHouse API, REST: Cluster.ListExternalDictionaries
 
 Retrieves a list of external dictionaries that belong to specified cluster.
 

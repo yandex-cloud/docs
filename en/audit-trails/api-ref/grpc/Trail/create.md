@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/audittrails/v1/api-ref/grpc/Trail/create.md
 ---
 
-# Audit Trails API, gRPC: TrailService.Create {#Create}
+# Audit Trails API, gRPC: TrailService.Create
 
 Creates a trail in the specified folder.
 
@@ -15,39 +15,39 @@ Creates a trail in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "destination": {
-    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
-    "objectStorage": {
-      "bucketId": "string",
-      "objectPrefix": "string"
+    // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`
+    "object_storage": {
+      "bucket_id": "string",
+      "object_prefix": "string"
     },
-    "cloudLogging": {
-      // Includes only one of the fields `logGroupId`
-      "logGroupId": "string"
+    "cloud_logging": {
+      // Includes only one of the fields `log_group_id`
+      "log_group_id": "string"
       // end of the list of possible fields
     },
-    "dataStream": {
-      "databaseId": "string",
-      "streamName": "string"
+    "data_stream": {
+      "database_id": "string",
+      "stream_name": "string"
     }
     // end of the list of possible fields
   },
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   "filter": {
-    "pathFilter": {
+    "path_filter": {
       "root": {
-        // Includes only one of the fields `anyFilter`, `someFilter`
-        "anyFilter": {
+        // Includes only one of the fields `any_filter`, `some_filter`
+        "any_filter": {
           "resource": {
             "id": "string",
             "type": "string"
           }
         },
-        "someFilter": {
+        "some_filter": {
           "resource": {
             "id": "string",
             "type": "string"
@@ -59,7 +59,7 @@ Creates a trail in the specified folder.
         // end of the list of possible fields
       }
     },
-    "eventFilter": {
+    "event_filter": {
       "filters": [
         {
           "service": "string",
@@ -69,16 +69,16 @@ Creates a trail in the specified folder.
               "type": "EventAccessTypeFilter"
             }
           ],
-          "pathFilter": {
+          "path_filter": {
             "root": {
-              // Includes only one of the fields `anyFilter`, `someFilter`
-              "anyFilter": {
+              // Includes only one of the fields `any_filter`, `some_filter`
+              "any_filter": {
                 "resource": {
                   "id": "string",
                   "type": "string"
                 }
               },
-              "someFilter": {
+              "some_filter": {
                 "resource": {
                   "id": "string",
                   "type": "string"
@@ -94,31 +94,31 @@ Creates a trail in the specified folder.
       ]
     }
   },
-  "filteringPolicy": {
-    "managementEventsFilter": {
-      "resourceScopes": [
+  "filtering_policy": {
+    "management_events_filter": {
+      "resource_scopes": [
         {
           "id": "string",
           "type": "string"
         }
       ]
     },
-    "dataEventsFilters": [
+    "data_events_filters": [
       {
         "service": "string",
-        // Includes only one of the fields `includedEvents`, `excludedEvents`
-        "includedEvents": {
-          "eventTypes": [
+        // Includes only one of the fields `included_events`, `excluded_events`
+        "included_events": {
+          "event_types": [
             "string"
           ]
         },
-        "excludedEvents": {
-          "eventTypes": [
+        "excluded_events": {
+          "event_types": [
             "string"
           ]
         },
         // end of the list of possible fields
-        "resourceScopes": [
+        "resource_scopes": [
           {
             "id": "string",
             "type": "string"
@@ -132,7 +132,7 @@ Creates a trail in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a trail in. ||
 || name | **string**
@@ -148,14 +148,14 @@ For example, `"type": "critical"` or `"source": "dictionary"`. ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
 
 Required field. Destination configuration for the trail ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. Service account ID of the trail ||
 || filter | **[Filter](#yandex.cloud.audittrails.v1.Trail.Filter)**
 
 Event filtering configuration of the trail
 deprecated: use filtering_policy instead ||
-|| filteringPolicy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
+|| filtering_policy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
 
 Event filtering policy of the trail ||
 |#
@@ -164,33 +164,33 @@ Event filtering policy of the trail ||
 
 #|
 ||Field | Description ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
 
 Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
-|| cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+|| cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
-|| dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+|| data_stream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Name of the destination bucket ||
-|| objectPrefix | **string**
+|| object_prefix | **string**
 
 Prefix for exported objects. Optional
 If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
@@ -200,21 +200,21 @@ If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the Cloud Logging destination group
 
-Includes only one of the fields `logGroupId`. ||
+Includes only one of the fields `log_group_id`. ||
 |#
 
 ## DataStream {#yandex.cloud.audittrails.v1.Trail.DataStream}
 
 #|
 ||Field | Description ||
-|| databaseId | **string**
+|| database_id | **string**
 
 ID of the database hosting the destination YDS ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Name of the destination YDS ||
 |#
@@ -223,11 +223,11 @@ Name of the destination YDS ||
 
 #|
 ||Field | Description ||
-|| pathFilter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
 
 Configuration of default events gathering for the trail
 If not specified, default events won't be gathered for the trail ||
-|| eventFilter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter)**
+|| event_filter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter)**
 
 Required field. Configuration of additional events gathering from specific services ||
 |#
@@ -246,16 +246,16 @@ Resource described in that filter node must contain the trail itself ||
 
 #|
 ||Field | Description ||
-|| anyFilter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+|| any_filter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
 
 Filter element with ANY type. If used, configures the trail to gather any events from the resource
 
-Includes only one of the fields `anyFilter`, `someFilter`. ||
-|| someFilter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+Includes only one of the fields `any_filter`, `some_filter`. ||
+|| some_filter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
 
 Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
 
-Includes only one of the fields `anyFilter`, `someFilter`. ||
+Includes only one of the fields `any_filter`, `some_filter`. ||
 |#
 
 ## PathFilterElementAny {#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny}
@@ -310,7 +310,7 @@ Required field. Service ID of the gathered events ||
 || categories[] | **[EventFilterElementCategory](#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory)**
 
 List of the event categories gathered for a specified service ||
-|| pathFilter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
 
 Required field. Resource path filter for a specified service ||
 |#
@@ -342,10 +342,10 @@ At least one filed must be filled
 
 #|
 ||Field | Description ||
-|| managementEventsFilter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
+|| management_events_filter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
 
 Singular filter describing gathering management events ||
-|| dataEventsFilters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
+|| data_events_filters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
 
 List of filters describing gathering data events ||
 |#
@@ -356,7 +356,7 @@ Policy for gathering management events
 
 #|
 ||Field | Description ||
-|| resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail ||
 |#
@@ -370,19 +370,19 @@ Policy for gathering data events
 || service | **string**
 
 Required field. Name of the service whose events will be delivered ||
-|| includedEvents | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+|| included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
 
 Explicitly included events of specified service
 New events of the service won't be delivered by default
 
-Includes only one of the fields `includedEvents`, `excludedEvents`. ||
-|| excludedEvents | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| excluded_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
 
 Explicitly excluded events of specified service
 New events of the service will be delivered by default
 
-Includes only one of the fields `includedEvents`, `excludedEvents`. ||
-|| resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail ||
 |#
@@ -393,7 +393,7 @@ Policy with explicitly specified event group
 
 #|
 ||Field | Description ||
-|| eventTypes[] | **string** ||
+|| event_types[] | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -402,53 +402,53 @@ Policy with explicitly specified event group
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "trailId": "string"
+    "trail_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
     "destination": {
-      // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
-      "objectStorage": {
-        "bucketId": "string",
-        "objectPrefix": "string"
+      // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`
+      "object_storage": {
+        "bucket_id": "string",
+        "object_prefix": "string"
       },
-      "cloudLogging": {
-        // Includes only one of the fields `logGroupId`
-        "logGroupId": "string"
+      "cloud_logging": {
+        // Includes only one of the fields `log_group_id`
+        "log_group_id": "string"
         // end of the list of possible fields
       },
-      "dataStream": {
-        "databaseId": "string",
-        "streamName": "string"
+      "data_stream": {
+        "database_id": "string",
+        "stream_name": "string"
       }
       // end of the list of possible fields
     },
-    "serviceAccountId": "string",
+    "service_account_id": "string",
     "status": "Status",
     "filter": {
-      "pathFilter": {
+      "path_filter": {
         "root": {
-          // Includes only one of the fields `anyFilter`, `someFilter`
-          "anyFilter": {
+          // Includes only one of the fields `any_filter`, `some_filter`
+          "any_filter": {
             "resource": {
               "id": "string",
               "type": "string"
             }
           },
-          "someFilter": {
+          "some_filter": {
             "resource": {
               "id": "string",
               "type": "string"
@@ -460,7 +460,7 @@ Policy with explicitly specified event group
           // end of the list of possible fields
         }
       },
-      "eventFilter": {
+      "event_filter": {
         "filters": [
           {
             "service": "string",
@@ -470,16 +470,16 @@ Policy with explicitly specified event group
                 "type": "EventAccessTypeFilter"
               }
             ],
-            "pathFilter": {
+            "path_filter": {
               "root": {
-                // Includes only one of the fields `anyFilter`, `someFilter`
-                "anyFilter": {
+                // Includes only one of the fields `any_filter`, `some_filter`
+                "any_filter": {
                   "resource": {
                     "id": "string",
                     "type": "string"
                   }
                 },
-                "someFilter": {
+                "some_filter": {
                   "resource": {
                     "id": "string",
                     "type": "string"
@@ -495,33 +495,33 @@ Policy with explicitly specified event group
         ]
       }
     },
-    "statusErrorMessage": "string",
-    "cloudId": "string",
-    "filteringPolicy": {
-      "managementEventsFilter": {
-        "resourceScopes": [
+    "status_error_message": "string",
+    "cloud_id": "string",
+    "filtering_policy": {
+      "management_events_filter": {
+        "resource_scopes": [
           {
             "id": "string",
             "type": "string"
           }
         ]
       },
-      "dataEventsFilters": [
+      "data_events_filters": [
         {
           "service": "string",
-          // Includes only one of the fields `includedEvents`, `excludedEvents`
-          "includedEvents": {
-            "eventTypes": [
+          // Includes only one of the fields `included_events`, `excluded_events`
+          "included_events": {
+            "event_types": [
               "string"
             ]
           },
-          "excludedEvents": {
-            "eventTypes": [
+          "excluded_events": {
+            "event_types": [
               "string"
             ]
           },
           // end of the list of possible fields
-          "resourceScopes": [
+          "resource_scopes": [
             {
               "id": "string",
               "type": "string"
@@ -545,13 +545,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -594,7 +594,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| trailId | **string**
+|| trail_id | **string**
 
 ID of the trail that is being created ||
 |#
@@ -608,13 +608,13 @@ Trail describes the filtering and destination configuration of the process of se
 || id | **string**
 
 ID of the trail ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the trail belongs to ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. The timestamp for the creation operation ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. The timestamp of the last update operation ||
 || name | **string**
@@ -629,7 +629,7 @@ Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination2)**
 
 Required field. Destination configuration of the trail ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account ID of the trail ||
 || status | enum **Status**
@@ -644,13 +644,13 @@ Required field. Status of the trail
 
 Filtering configuration of the trail
 deprecated: use filtering_policy instead ||
-|| statusErrorMessage | **string**
+|| status_error_message | **string**
 
 Current error message of the trail. Empty in case if the trail is active ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Required field. ID of the cloud that the trail belongs to ||
-|| filteringPolicy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy2)**
+|| filtering_policy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy2)**
 
 Event filtering policy
 Describes which groups of events will be sent and which resources will be monitored ||
@@ -660,33 +660,33 @@ Describes which groups of events will be sent and which resources will be monito
 
 #|
 ||Field | Description ||
-|| objectStorage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage2)**
+|| object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage2)**
 
 Configuration for event delivery to Object Storage
 
 Uploaded objects will have prefix <trail_id>/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
-|| cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging2)**
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+|| cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging2)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
-|| dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream2)**
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
+|| data_stream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream2)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage2}
 
 #|
 ||Field | Description ||
-|| bucketId | **string**
+|| bucket_id | **string**
 
 Name of the destination bucket ||
-|| objectPrefix | **string**
+|| object_prefix | **string**
 
 Prefix for exported objects. Optional
 If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
@@ -696,21 +696,21 @@ If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the Cloud Logging destination group
 
-Includes only one of the fields `logGroupId`. ||
+Includes only one of the fields `log_group_id`. ||
 |#
 
 ## DataStream {#yandex.cloud.audittrails.v1.Trail.DataStream2}
 
 #|
 ||Field | Description ||
-|| databaseId | **string**
+|| database_id | **string**
 
 ID of the database hosting the destination YDS ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Name of the destination YDS ||
 |#
@@ -719,11 +719,11 @@ Name of the destination YDS ||
 
 #|
 ||Field | Description ||
-|| pathFilter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
 
 Configuration of default events gathering for the trail
 If not specified, default events won't be gathered for the trail ||
-|| eventFilter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter2)**
+|| event_filter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter2)**
 
 Required field. Configuration of additional events gathering from specific services ||
 |#
@@ -742,16 +742,16 @@ Resource described in that filter node must contain the trail itself ||
 
 #|
 ||Field | Description ||
-|| anyFilter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny2)**
+|| any_filter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny2)**
 
 Filter element with ANY type. If used, configures the trail to gather any events from the resource
 
-Includes only one of the fields `anyFilter`, `someFilter`. ||
-|| someFilter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome2)**
+Includes only one of the fields `any_filter`, `some_filter`. ||
+|| some_filter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome2)**
 
 Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
 
-Includes only one of the fields `anyFilter`, `someFilter`. ||
+Includes only one of the fields `any_filter`, `some_filter`. ||
 |#
 
 ## PathFilterElementAny {#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny2}
@@ -806,7 +806,7 @@ Required field. Service ID of the gathered events ||
 || categories[] | **[EventFilterElementCategory](#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory2)**
 
 List of the event categories gathered for a specified service ||
-|| pathFilter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
 
 Required field. Resource path filter for a specified service ||
 |#
@@ -838,10 +838,10 @@ At least one filed must be filled
 
 #|
 ||Field | Description ||
-|| managementEventsFilter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering2)**
+|| management_events_filter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering2)**
 
 Singular filter describing gathering management events ||
-|| dataEventsFilters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering2)**
+|| data_events_filters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering2)**
 
 List of filters describing gathering data events ||
 |#
@@ -852,7 +852,7 @@ Policy for gathering management events
 
 #|
 ||Field | Description ||
-|| resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
 
 A list of resources which will be monitored by the trail ||
 |#
@@ -866,19 +866,19 @@ Policy for gathering data events
 || service | **string**
 
 Required field. Name of the service whose events will be delivered ||
-|| includedEvents | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
+|| included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
 
 Explicitly included events of specified service
 New events of the service won't be delivered by default
 
-Includes only one of the fields `includedEvents`, `excludedEvents`. ||
-|| excludedEvents | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| excluded_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
 
 Explicitly excluded events of specified service
 New events of the service will be delivered by default
 
-Includes only one of the fields `includedEvents`, `excludedEvents`. ||
-|| resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
 
 A list of resources which will be monitored by the trail ||
 |#
@@ -889,5 +889,5 @@ Policy with explicitly specified event group
 
 #|
 ||Field | Description ||
-|| eventTypes[] | **string** ||
+|| event_types[] | **string** ||
 |#

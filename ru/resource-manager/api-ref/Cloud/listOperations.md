@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/listOperations.md
 ---
 
-# Resource Manager API, REST: Cloud.ListOperations {#ListOperations}
+# Resource Manager API, REST: Cloud.ListOperations
 
 Lists operations for the specified cloud.
 

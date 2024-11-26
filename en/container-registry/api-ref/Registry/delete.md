@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/delete.md
 ---
 
-# Container Registry API, REST: Registry.Delete {#Delete}
+# Container Registry API, REST: Registry.Delete
 
 Deletes the specified registry.
 

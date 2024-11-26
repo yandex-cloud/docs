@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/update.md
 ---
 
-# Identity and Access Management API, REST: Key.Update {#Update}
+# Identity and Access Management API, REST: Key.Update
 
 Updates the specified key pair.
 

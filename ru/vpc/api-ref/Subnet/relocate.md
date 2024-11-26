@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/relocate.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Relocate {#Relocate}
+# Virtual Private Cloud API, REST: Subnet.Relocate
 
 ## HTTP request
 

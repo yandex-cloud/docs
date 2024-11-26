@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/addResource.md
 ---
 
-# DataSphere API v2, REST: Project.AddResource {#AddResource}
+# DataSphere API v2, REST: Project.AddResource
 
 Adds shared resource to project
 

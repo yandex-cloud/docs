@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/Cluster/streamLogs.md
 ---
 
-# Managed Service for PostgreSQL API, gRPC: ClusterService.StreamLogs {#StreamLogs}
+# Managed Service for PostgreSQL API, gRPC: ClusterService.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
@@ -15,40 +15,40 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "serviceType": "ServiceType",
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "recordToken": "string",
+  "service_type": "ServiceType",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "record_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. Required. ID of the PostgreSQL cluster. ||
-|| columnFilter[] | **string**
+|| column_filter[] | **string**
 
 Columns from logs table to get in the response. ||
-|| serviceType | enum **ServiceType**
+|| service_type | enum **ServiceType**
 
 - `SERVICE_TYPE_UNSPECIFIED`
 - `POSTGRESQL`: Logs of PostgreSQL activity.
 - `POOLER`: Logs of connection pooler activity. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request.
 If this field is not set, all existing logs will be sent and then the new ones as
 they appear. In essence it has 'tail -f' semantics. ||
-|| recordToken | **string**
+|| record_token | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by a previous StreamLogs
 request to start streaming from next log record. ||
@@ -73,7 +73,7 @@ Examples of a filter:
     "timestamp": "google.protobuf.Timestamp",
     "message": "string"
   },
-  "nextRecordToken": "string"
+  "next_record_token": "string"
 }
 ```
 
@@ -82,7 +82,7 @@ Examples of a filter:
 || record | **[LogRecord](#yandex.cloud.mdb.postgresql.v1.LogRecord)**
 
 One of the requested log records. ||
-|| nextRecordToken | **string**
+|| next_record_token | **string**
 
 This token allows you to continue streaming logs starting from the exact
 same record. To continue streaming, specify value of `next_record_token`

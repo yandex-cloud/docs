@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Report/getTable.md
 ---
 
-# Load Testing API, gRPC: ReportService.GetTable {#GetTable}
+# Load Testing API, gRPC: ReportService.GetTable
 
 Returns a report table for the specified test.
 
@@ -15,13 +15,13 @@ Returns a report table for the specified test.
 
 ```json
 {
-  "testId": "string"
+  "test_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| testId | **string**
+|| test_id | **string**
 
 Required field. ID of the test for which report table will be returned. ||
 |#
@@ -32,8 +32,8 @@ Required field. ID of the test for which report table will be returned. ||
 {
   "status": "Status",
   "overall": {
-    "httpCodes": "int64",
-    "netCodes": "int64",
+    "http_codes": "int64",
+    "net_codes": "int64",
     "quantiles": {
       "q50": "double",
       "q75": "double",
@@ -47,8 +47,8 @@ Required field. ID of the test for which report table will be returned. ||
     }
   },
   "cases": {
-    "httpCodes": "int64",
-    "netCodes": "int64",
+    "http_codes": "int64",
+    "net_codes": "int64",
     "quantiles": {
       "q50": "double",
       "q75": "double",
@@ -88,10 +88,10 @@ Aggregated test results.
 
 #|
 ||Field | Description ||
-|| httpCodes | **int64**
+|| http_codes | **int64**
 
 Total count of HTTP responses, grouped by HTTP response code. ||
-|| netCodes | **int64**
+|| net_codes | **int64**
 
 Total count of network responses, grouped by response code. ||
 || quantiles | **[Quantiles](#yandex.cloud.loadtesting.api.v1.common.Quantiles)**

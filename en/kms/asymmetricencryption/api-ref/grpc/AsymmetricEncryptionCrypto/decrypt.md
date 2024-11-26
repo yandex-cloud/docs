@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricEncryptionCryptoService.Decrypt {#Decrypt}
+# Key Management Service API, gRPC: AsymmetricEncryptionCryptoService.Decrypt
 
 Decrypts the given ciphertext with the specified key.
 
@@ -15,14 +15,14 @@ Decrypts the given ciphertext with the specified key.
 
 ```json
 {
-  "keyId": "string",
+  "key_id": "string",
   "ciphertext": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the asymmetric KMS key to use for decryption. ||
 || ciphertext | **bytes**
@@ -35,14 +35,14 @@ Should be encoded with base64. ||
 
 ```json
 {
-  "keyId": "string",
+  "key_id": "string",
   "plaintext": "bytes"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the asymmetric KMS key that was used for decryption. ||
 || plaintext | **bytes**

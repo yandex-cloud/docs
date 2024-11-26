@@ -5,6 +5,7 @@ name: <string>
 annotations:
   ingress.alb.yc.io/protocol: <string>
   ingress.alb.yc.io/transport-security: <string>
+  ingress.alb.yc.io/health-checks: <string>
 ```
 
 #|
@@ -16,5 +17,5 @@ annotations:
 This name is not the balancer name in {{ alb-name }}. ||
 || `annotations` | `map[string]string`  | **Required**.
 
-Resource annotation. ||
+Resource annotations. ||
 |#

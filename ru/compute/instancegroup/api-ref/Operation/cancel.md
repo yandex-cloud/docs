@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/Operation/cancel.md
 ---
 
-# Compute Cloud Instance Groups API, REST: Operation.Cancel {#Cancel}
+# Compute Cloud Instance Groups API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

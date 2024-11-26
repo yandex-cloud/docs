@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/Operation/cancel.md
 ---
 
-# Kubernetes Marketplace, REST: Operation.Cancel {#Cancel}
+# Kubernetes Marketplace, REST: Operation.Cancel
 
 Cancels the specified operation.
 

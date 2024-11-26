@@ -4,9 +4,9 @@ The [JSON](https://en.wikipedia.org/wiki/JSON) data format is used for storing a
 
 Below are basic operations with data in this format:
 
-* Checking the existence of the `name` object.
-* Retrieving the value of the `age` object.
-* Querying data from an object.
+* Check the existence of the `name` object.
+* Retrieve the value of the `age` object.
+* Request data from the object.
 
 ```sql
 $json = CAST(@@{
@@ -25,7 +25,7 @@ $json = CAST(@@{
 SELECT
     JSON_EXISTS($json, "$.friends[*].name"), -- Checking the existence of the `name` object.
     JSON_VALUE($json, "$.friends[0].age"),   -- Retrieving the value of the `age` object.
-    JSON_QUERY($json, "$.friends[0]");       -- Querying data from an object.
+    JSON_QUERY($json, "$.friends[0]");       -- Requesting data from the object.
 ```
 
 View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
@@ -43,14 +43,14 @@ VALUES
 ;
 ```
 
-To insert the first string value, a `raw string` and the `\"` escape method are used. To insert the second string, the `\\\"` escape method is used.
+To insert the first string value, a `raw string` and escaping with `\"` are used. To insert the second string, escaping with `\\\"` is used.
 
-We recommend using a `raw string` and the `\"` escape method as it is more visual.
+We recommend using a `raw string` and escaping with `\"`, as it is more visual.
 
 #### See also {#see-also}
 
-* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator.
-* [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists) function.
-* [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value) function.
-* [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query) function.
-* [Functions for JSON]({{ ydb.docs }}/yql/reference/builtins/json).
+* [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
+* [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists) function
+* [JSON_VALUE]({{ ydb.docs }}/yql/reference/builtins/json#json_value) function
+* [JSON_QUERY]({{ ydb.docs }}/yql/reference/builtins/json#json_query) function
+* [Functions for JSON]({{ ydb.docs }}/yql/reference/builtins/json)

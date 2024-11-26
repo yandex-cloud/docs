@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Operation/get.md
 ---
 
-# Container Registry API, REST: Operation.Get {#Get}
+# Container Registry API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

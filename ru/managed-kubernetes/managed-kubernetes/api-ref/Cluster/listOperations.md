@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/listOperations.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.ListOperations {#ListOperations}
+# Managed Services for Kubernetes API, REST: Cluster.ListOperations
 
 Lists operations for the specified Kubernetes cluster.
 

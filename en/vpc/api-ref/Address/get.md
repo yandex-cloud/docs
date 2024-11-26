@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/get.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Get {#Get}
+# Virtual Private Cloud API, REST: Address.Get
 
 Returns the specified Address resource.
 

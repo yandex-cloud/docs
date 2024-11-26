@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/create.md
 ---
 
-# IoT Core Service, REST: Registry.Create {#Create}
+# IoT Core Service, REST: Registry.Create
 
 Creates a registry in the specified folder.
 

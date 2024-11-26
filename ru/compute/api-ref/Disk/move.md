@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/move.md
 ---
 
-# Compute Cloud API, REST: Disk.Move {#Move}
+# Compute Cloud API, REST: Disk.Move
 
 Moves the specified disk to another folder of the same cloud.
 

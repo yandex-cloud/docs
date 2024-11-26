@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/disable.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.Disable {#Disable}
+# Identity and Access Management API, REST: ServiceControl.Disable
 
 Disable a service in the specified resource container.
 

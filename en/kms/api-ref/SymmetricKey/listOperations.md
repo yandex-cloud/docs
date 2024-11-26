@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listOperations.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.ListOperations {#ListOperations}
+# Key Management Service API, REST: SymmetricKey.ListOperations
 
 Lists operations for the specified symmetric KMS key.
 

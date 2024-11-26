@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/marketplace/licensemanager/v1/license-manager/api-ref/grpc/Lock/list.md
 ---
 
-# Yandex Cloud Marketplace License Manager, gRPC: LockService.List {#List}
+# Yandex Cloud Marketplace License Manager, gRPC: LockService.List
 
 Returns subscriptions locks for specified resource and folder.
 
@@ -15,33 +15,33 @@ Returns subscriptions locks for specified resource and folder.
 
 ```json
 {
-  "resourceId": "string",
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "resource_id": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field. ID of the resource that the subscription locks belong to. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the subscription locks belong to. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
+results is larger than `page_size`, the service returns a [ListLocksResponse.next_page_token](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request. ||
+[ListLocksResponse.next_page_token](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters subscription locks listed in the response.
@@ -51,7 +51,7 @@ The expression must specify:
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `product_id="my-product-id"`. ||
-|| orderBy | **string**
+|| order_by | **string**
 
 Sorting order for the list of subscription locks. ||
 |#
@@ -63,17 +63,17 @@ Sorting order for the list of subscription locks. ||
   "locks": [
     {
       "id": "string",
-      "instanceId": "string",
-      "resourceId": "string",
-      "startTime": "google.protobuf.Timestamp",
-      "endTime": "google.protobuf.Timestamp",
-      "createdAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
+      "instance_id": "string",
+      "resource_id": "string",
+      "start_time": "google.protobuf.Timestamp",
+      "end_time": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "state": "State",
-      "templateId": "string"
+      "template_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -82,11 +82,11 @@ Sorting order for the list of subscription locks. ||
 || locks[] | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)**
 
 List of subscription locks. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListLocksRequest.pageSize](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest), use `next_page_token` as the value
-for the [ListLocksRequest.pageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest) parameter in the next list request.
+the specified [ListLocksRequest.page_size](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest), use `next_page_token` as the value
+for the [ListLocksRequest.page_token](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -98,22 +98,22 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 || id | **string**
 
 ID of the subscription lock. ||
-|| instanceId | **string**
+|| instance_id | **string**
 
 ID of the subscription instance. ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of the resource. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the start of the subscription lock. ||
-|| endTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the end of the subscription lock. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Update timestamp. ||
 || state | enum **State**
@@ -124,7 +124,7 @@ Subscription lock state.
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
-|| templateId | **string**
+|| template_id | **string**
 
 ID of the subscription template. ||
 |#

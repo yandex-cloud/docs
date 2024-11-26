@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/delete.md
 ---
 
-# Container Registry API, REST: Image.Delete {#Delete}
+# Container Registry API, REST: Image.Delete
 
 Deletes the specified Docker image.
 

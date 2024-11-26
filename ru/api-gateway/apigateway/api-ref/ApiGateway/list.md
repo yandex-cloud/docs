@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/list.md
 ---
 
-# API Gateway Service, REST: ApiGateway.List {#List}
+# API Gateway Service, REST: ApiGateway.List
 
 Retrieves the list of API gateways in the specified folder.
 

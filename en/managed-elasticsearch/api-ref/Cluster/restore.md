@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Restore {#Restore}
+# Managed Service for Elasticsearch API, REST: Cluster.Restore
 
 Creates a new ElasticSearch cluster from the specified backup.
 

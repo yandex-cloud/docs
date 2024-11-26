@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/addHosts.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.AddHosts {#AddHosts}
+# Managed Service for MongoDB API, REST: Cluster.AddHosts
 
 Creates new hosts for a cluster.
 

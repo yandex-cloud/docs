@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/get.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.Get {#Get}
+# Cloud Functions Service, gRPC: FunctionService.Get
 
 Returns the specified function.
 
@@ -17,13 +17,13 @@ To get the list of all available functions, make a [List](/docs/functions/functi
 
 ```json
 {
-  "functionId": "string"
+  "function_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to return.
 
@@ -35,12 +35,12 @@ To get a function ID make a [FunctionService.List](/docs/functions/functions/api
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "httpInvokeUrl": "string",
+  "http_invoke_url": "string",
   "status": "Status"
 }
 ```
@@ -52,10 +52,10 @@ A serverless function. For details about the concept, see [Functions](/docs/func
 || id | **string**
 
 ID of the function. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the function belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the function. ||
 || name | **string**
@@ -67,7 +67,7 @@ Description of the function. ||
 || labels | **string**
 
 Function labels as `key:value` pairs. ||
-|| httpInvokeUrl | **string**
+|| http_invoke_url | **string**
 
 URL that needs to be requested to invoke the function. ||
 || status | enum **Status**

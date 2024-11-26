@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/create.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Create {#Create}
+# IoT Core Broker Service, REST: Broker.Create
 
 Creates a broker in the specified folder.
 

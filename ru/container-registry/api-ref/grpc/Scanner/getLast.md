@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/getLast.md
 ---
 
-# Container Registry API, gRPC: ScannerService.GetLast {#GetLast}
+# Container Registry API, gRPC: ScannerService.GetLast
 
 Returns the last finished ScanResult for the specified Image.
 
@@ -15,13 +15,13 @@ Returns the last finished ScanResult for the specified Image.
 
 ```json
 {
-  "imageId": "string"
+  "image_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 ID of the Image to get last finished ScanResult. ||
 |#
@@ -31,8 +31,8 @@ ID of the Image to get last finished ScanResult. ||
 ```json
 {
   "id": "string",
-  "imageId": "string",
-  "scannedAt": "google.protobuf.Timestamp",
+  "image_id": "string",
+  "scanned_at": "google.protobuf.Timestamp",
   "status": "Status",
   "vulnerabilities": {
     "critical": "int64",
@@ -52,10 +52,10 @@ A ScanResult resource.
 || id | **string**
 
 Output only. ID of the ScanResult. ||
-|| imageId | **string**
+|| image_id | **string**
 
 Output only. ID of the Image that the ScanResult belongs to. ||
-|| scannedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. ||
 || status | enum **Status**

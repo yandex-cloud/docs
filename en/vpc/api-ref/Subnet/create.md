@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/create.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Create {#Create}
+# Virtual Private Cloud API, REST: Subnet.Create
 
 Creates a subnet in the specified folder and network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

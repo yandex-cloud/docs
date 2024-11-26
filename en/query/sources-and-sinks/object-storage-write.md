@@ -12,7 +12,7 @@ FROM
     $data;
 ```
 
-For a list of supported formats and data compression algorithms, see [{#T}](#write-formats).
+For a list of supported formats and data compression algorithms, see [Supported write formats](#write-formats).
 
 ## Writing data using connections {#connection-write}
 
@@ -85,7 +85,7 @@ SELECT
 
 Where:
 
-* `test`: Name of binding to {{ objstorage-short-name }} data.
+* `test`: Name of a binding to {{ objstorage-short-name }} data.
 
 ## Supported write formats {#write-formats}
 

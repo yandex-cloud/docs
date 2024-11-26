@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/delete.md
 ---
 
-# Compute Cloud API, REST: Disk.Delete {#Delete}
+# Compute Cloud API, REST: Disk.Delete
 
 Deletes the specified disk.
 

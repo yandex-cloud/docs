@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listOperations.md
 ---
 
-# Certificate Manager API, REST: Certificate.ListOperations {#ListOperations}
+# Certificate Manager API, REST: Certificate.ListOperations
 
 Lists operations for the specified certificate.
 

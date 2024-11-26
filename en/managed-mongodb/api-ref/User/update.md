@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/update.md
 ---
 
-# Managed Service for MongoDB API, REST: User.Update {#Update}
+# Managed Service for MongoDB API, REST: User.Update
 
 Updates the specified MongoDB user.
 

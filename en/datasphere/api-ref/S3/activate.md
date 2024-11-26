@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/S3/activate.md
 ---
 
-# DataSphere API v2, REST: S3.Activate {#Activate}
+# DataSphere API v2, REST: S3.Activate
 
 Activates shared s3 for project
 

@@ -34,7 +34,7 @@
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание базовой ВМ.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
      * Укажите размер диска.
      * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**, чтобы добавить дополнительные диски.

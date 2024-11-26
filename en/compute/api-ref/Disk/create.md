@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/create.md
 ---
 
-# Compute Cloud API, REST: Disk.Create {#Create}
+# Compute Cloud API, REST: Disk.Create
 
 Creates a disk in the specified folder.
 

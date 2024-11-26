@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/update.md
 ---
 
-# Cloud Organization API, gRPC: UserSshKeyService.Update {#Update}
+# Cloud Organization API, gRPC: UserSshKeyService.Update
 
 ## gRPC request
 
@@ -13,21 +13,21 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/upda
 
 ```json
 {
-  "userSshKeyId": "string",
+  "user_ssh_key_id": "string",
   "name": "string",
-  "updateMask": "google.protobuf.FieldMask",
-  "expiresAt": "google.protobuf.Timestamp"
+  "update_mask": "google.protobuf.FieldMask",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| userSshKeyId | **string**
+|| user_ssh_key_id | **string**
 
 Required field.  ||
 || name | **string** ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -36,24 +36,24 @@ Required field.  ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "userSshKeyId": "string"
+    "user_ssh_key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "subjectId": "string",
+    "subject_id": "string",
     "data": "string",
     "name": "string",
     "fingerprint": "string",
-    "organizationId": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "expiresAt": "google.protobuf.Timestamp"
+    "organization_id": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "expires_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -69,13 +69,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -118,7 +118,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| userSshKeyId | **string** ||
+|| user_ssh_key_id | **string** ||
 |#
 
 ## UserSshKey {#yandex.cloud.organizationmanager.v1.UserSshKey}
@@ -126,13 +126,13 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 #|
 ||Field | Description ||
 || id | **string** ||
-|| subjectId | **string** ||
+|| subject_id | **string** ||
 || data | **string** ||
 || name | **string** ||
 || fingerprint | **string** ||
-|| organizationId | **string** ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| organization_id | **string** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Used for temporary keys, if empty the key doesn't expire ||
 |#

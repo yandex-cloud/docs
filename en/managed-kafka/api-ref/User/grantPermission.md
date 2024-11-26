@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/grantPermission.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.GrantPermission {#GrantPermission}
+# Managed Service for Apache Kafka® API, REST: User.GrantPermission
 
 Grants permission to the specified Kafka user.
 

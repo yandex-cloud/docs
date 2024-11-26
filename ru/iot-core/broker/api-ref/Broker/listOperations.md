@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listOperations.md
 ---
 
-# IoT Core Broker Service, REST: Broker.ListOperations {#ListOperations}
+# IoT Core Broker Service, REST: Broker.ListOperations
 
 Lists operations for the specified broker.
 

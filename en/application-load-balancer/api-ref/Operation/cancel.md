@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/Operation/cancel.md
 ---
 
-# Application Load Balancer API, REST: Operation.Cancel {#Cancel}
+# Application Load Balancer API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

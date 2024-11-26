@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/move.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Move {#Move}
+# Virtual Private Cloud API, REST: Address.Move
 
 Move an address to another folder
 

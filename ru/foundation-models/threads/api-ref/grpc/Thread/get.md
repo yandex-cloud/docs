@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/threads/api-ref/grpc/Thread/get.md
 ---
 
-# Threads, gRPC: ThreadService.Get {#Get}
+# Threads, gRPC: ThreadService.Get
 
 Retrieve details of a specific thread by its ID.
 
@@ -15,7 +15,7 @@ Retrieve details of a specific thread by its ID.
 
 ```json
 {
-  "threadId": "string"
+  "thread_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for retrieving a thread by ID.
 
 #|
 ||Field | Description ||
-|| threadId | **string**
+|| thread_id | **string**
 
 Required field. ID of the thread to retrieve. ||
 |#
@@ -33,19 +33,19 @@ Required field. ID of the thread to retrieve. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "defaultMessageAuthorId": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "updatedBy": "string",
-  "updatedAt": "google.protobuf.Timestamp",
-  "expirationConfig": {
-    "expirationPolicy": "ExpirationPolicy",
-    "ttlDays": "int64"
+  "default_message_author_id": "string",
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "updated_by": "string",
+  "updated_at": "google.protobuf.Timestamp",
+  "expiration_config": {
+    "expiration_policy": "ExpirationPolicy",
+    "ttl_days": "int64"
   },
-  "expiresAt": "google.protobuf.Timestamp",
+  "expires_at": "google.protobuf.Timestamp",
   "labels": "string"
 }
 ```
@@ -55,7 +55,7 @@ Required field. ID of the thread to retrieve. ||
 || id | **string**
 
 Unique identifier of the thread. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the thread belongs to. ||
 || name | **string**
@@ -64,25 +64,25 @@ Name of the thread. ||
 || description | **string**
 
 Description of the thread. ||
-|| defaultMessageAuthorId | **string**
+|| default_message_author_id | **string**
 
 Default user ID that will be used as the author for thread messages if no other author is specified. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this thread. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the thread was created. ||
-|| updatedBy | **string**
+|| updated_by | **string**
 
 Identifier of the subject who last updated this thread. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing the last time this thread was updated. ||
-|| expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
+|| expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Configuration for the expiration of the thread, defining when and how the thread will expire. ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the thread will expire. ||
 || labels | **string**
@@ -94,10 +94,10 @@ Set of key-value pairs that can be used to organize and categorize the thread. |
 
 #|
 ||Field | Description ||
-|| expirationPolicy | enum **ExpirationPolicy**
+|| expiration_policy | enum **ExpirationPolicy**
 
 - `EXPIRATION_POLICY_UNSPECIFIED`
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
-|| ttlDays | **int64** ||
+|| ttl_days | **int64** ||
 |#

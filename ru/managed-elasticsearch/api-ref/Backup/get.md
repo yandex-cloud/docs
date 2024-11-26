@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Backup.Get {#Get}
+# Managed Service for Elasticsearch API, REST: Backup.Get
 
 Returns the specified backup of Elasticsearch cluster.
 

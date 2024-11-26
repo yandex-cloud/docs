@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/get.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Get {#Get}
+# Virtual Private Cloud API, REST: SecurityGroup.Get
 
 Returns the specified SecurityGroup resource.
 

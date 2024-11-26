@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/listOperations.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.ListOperations {#ListOperations}
+# Virtual Private Cloud API, REST: Subnet.ListOperations
 
 List operations for the specified subnet.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Versions/list.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: VersionsService.List {#List}
+# Managed Service for ClickHouse API, gRPC: VersionsService.List
 
 Returns list of available ClickHouse versions.
 
@@ -15,22 +15,22 @@ Returns list of available ClickHouse versions.
 
 ```json
 {
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
+results is larger than `page_size`, the service returns a [ListVersionsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
 to get the next page of results in subsequent ListVersions requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken` to the [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
+Page token. Set `page_token` to the [ListVersionsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
 request to get the next page of results. ||
 |#
 
@@ -43,12 +43,12 @@ request to get the next page of results. ||
       "id": "string",
       "name": "string",
       "deprecated": "bool",
-      "updatableTo": [
+      "updatable_to": [
         "string"
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -57,13 +57,13 @@ request to get the next page of results. ||
 || version[] | **[Version](#yandex.cloud.mdb.clickhouse.v1.Version)**
 
 Requested list of available versions. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for ListVersions requests,
-if the number of results is larger than [ListVersionsRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest) specified in the request.
-To get the next page, specify the value of `nextPageToken` as a value for
-the [ListVersionsRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest) parameter in the next ListVerions request. Subsequent ListVersions
-requests will have their own `nextPageToken` to continue paging through the results. ||
+if the number of results is larger than [ListVersionsRequest.page_size](#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest) specified in the request.
+To get the next page, specify the value of `next_page_token` as a value for
+the [ListVersionsRequest.page_token](#yandex.cloud.mdb.clickhouse.v1.ListVersionsRequest) parameter in the next ListVerions request. Subsequent ListVersions
+requests will have their own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Version {#yandex.cloud.mdb.clickhouse.v1.Version}
@@ -79,7 +79,7 @@ Name of the version. ||
 || deprecated | **bool**
 
 Whether version is deprecated. ||
-|| updatableTo[] | **string**
+|| updatable_to[] | **string**
 
 List of versions that can be updated from current. ||
 |#

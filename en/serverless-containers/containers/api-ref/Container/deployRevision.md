@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/deployRevision.md
 ---
 
-# Serverless Containers Service, REST: Container.DeployRevision {#DeployRevision}
+# Serverless Containers Service, REST: Container.DeployRevision
 
 Deploys a revision for the specified container.
 

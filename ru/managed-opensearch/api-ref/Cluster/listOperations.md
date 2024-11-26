@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listOperations.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.ListOperations {#ListOperations}
+# Managed Service for OpenSearch API, REST: Cluster.ListOperations
 
 Retrieves the list of Operation resources for the specified cluster.
 

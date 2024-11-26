@@ -63,7 +63,7 @@ To create a VM:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
@@ -71,7 +71,7 @@ To create a VM:
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
   1. Add a secondary [disk](../../compute/concepts/disk.md) for data storage:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}**.
       * Select `Create new disk` and specify the parameters:
 
@@ -82,7 +82,7 @@ To create a VM:
 
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab, select the [platform](../../compute/concepts/vm-platforms.md) and specify the recommended settings for the file server:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab, select the [platform](../../compute/concepts/vm-platforms.md) and specify the recommended parameters for the file server:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8` or more
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
@@ -90,12 +90,12 @@ To create a VM:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, specify the subnet ID in the availability zone of the VM you are creating or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, specify the network name and select the folder to create it in.
+              * In the window that opens, enter the network name and select the folder to host the network.
               * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
@@ -104,7 +104,7 @@ To create a VM:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to create on the VM, e.g., `ubuntu`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `ubuntu`.
 
         {% note alert %}
 

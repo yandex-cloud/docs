@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for Apache Airflow™ API, REST: Cluster.List {#List}
+# Managed Service for Apache Airflow™ API, REST: Cluster.List
 
 Retrieves a list of Apache Airflow Cluster resources.
 

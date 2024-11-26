@@ -20,7 +20,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 * A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
 
 
-    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
 
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
@@ -270,8 +270,8 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
             --cloud-storage=true \
             --cloud-storage-data-cache=<file_storage> \
             --cloud-storage-data-cache-max-size=<memory_size_in_bytes> \
-            --cloud-storage-move-factor=<percentage_of_free_space> \
-            --cloud-storage-prefer-not-to-merge=<merge_data_parts>
+            --cloud-storage-move-factor=<share_of_free_space> \
+            --cloud-storage-prefer-not-to-merge=<merging_data_parts>
            ...
          ```
 
@@ -423,52 +423,401 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a {{ mch-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
-  * ID of the folder to host the cluster, in the `folderId` parameter.
-  * Cluster name in the `name` parameter.
-  * Cluster environment in the `environment` parameter.
-  * Cluster configuration in the `configSpec` parameter.
-  * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
-  * Network ID in the `networkId` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  * Security group IDs in the `securityGroupIds` parameter.
+    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
+        1. Create a file named `body.json` and add the following contents to it:
 
-  * Settings for access from other services in the `configSpec.access` parameter.
+            {% note info %}
 
-  To allow [connection](connect/index.md) to cluster hosts from the internet, provide the `true` value in the `hostSpecs.assignPublicIp` parameter.
+            This example does not use all available parameters.
 
-  Enable user and database management via SQL, if required:
-  * `configSpec.sqlUserManagement`: Set to `true` to enable [user management through SQL](cluster-users.md#sql-user-management).
-  * `configSpec.sqlDatabaseManagement`: Set to `true` to enable [database management through SQL](databases.md#sql-database-management). For that, you also need to enable user management through SQL.
-  * `configSpec.adminPassword`: Set a password for the `admin` account used for management.
-
-  {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+            {% endnote %}
 
 
-  To configure [hybrid storage settings](../concepts/storage.md##hybrid-storage-settings):
+            ```json
+            {
+              "folderId": "<folder_ID>",
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "networkId": "<network_ID>",
+              "securityGroupIds": [
+                "<security_group_1_ID>",
+                "<security_group_2_ID>",
+                ...
+                "<security_group_N_ID>"
+              ],
+              "configSpec": {
+                "version": "<{{ CH }}>_version",
+                "embeddedKeeper": <{{ CK }}_usage>,
+                "clickhouse": {
+                  "resources": {
+                    "resourcePresetId": "<{{ CH }}>_host_class",
+                    "diskSize": "<storage_size_in_bytes>",
+                    "diskTypeId": "<disk_type>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resourcePresetId": "<{{ ZK }}>_host_class",
+                    "diskSize": "<storage_size_in_bytes>",
+                    "diskTypeId": "<disk_type>"
+                  }
+                },
+                "access": {
+                  "dataLens": <access_from_{{ datalens-name }}>,
+                  "webSql": <run_SQL_queries_from_management_console>,
+                  "metrika": <access_from_Metrica_and_AppMetrica>,
+                  "serverless": <access_from_Cloud_Functions>,
+                  "dataTransfer": <access_from_Data_Transfer>,
+                  "yandexQuery": <access_from_Yandex_Query>
+                },
+                "cloudStorage": {
+                  "enabled": <hybrid_storage_use>,
+                  "moveFactor": "<share_of_free_space>",
+                  "dataCacheEnabled": <temporary_file_storage>,
+                  "dataCacheMaxSize": "<maximum_cache_size_for_file_storage>",
+                  "preferNotToMerge": <disabling_merging_data_parts>
+                },
+                "adminPassword": "<admin_user_password>",
+                "sqlUserManagement": <user_management_via_SQL>,
+                "sqlDatabaseManagement": <database_management_via_SQL>
+              },
+              "databaseSpecs": [
+                {
+                  "name": "<DB_name>"
+                },
+                { <similar_settings_for_database_2> },
+                { ... },
+                { <similar_settings_for_database_N> }
+              ],
+              "userSpecs": [
+                {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                    {
+                      "databaseName": "<DB_name>"
+                    }
+                  ]
+                },
+                { <similar_configuration_for_user_2> },
+                { ... },
+                { <similar_configuration_for_user_N> }
+              ],
+              "hostSpecs": [
+                {
+                  "zoneId": "<availability_zone>",
+                  "type": "<host_type>",
+                  "subnetId": "<subnet_ID>",
+                  "assignPublicIp": <public_access_to_host>,
+                  "shardName": "<shard_name>"
+                },
+                { <similar_configuration_for_host_2> },
+                { ... },
+                { <similar_configuration_for_host_N> }
+              ],
+              "deletionProtection": <deletion_protection>
+            }
+            ```
 
-    * Set `true` for the `configSpec.cloudStorage.enabled` parameter to enable hybrid storage.
-    * Provide hybrid storage settings in the `configSpec.cloudStorage` parameters:
 
-        {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
+            Where:
 
-  When creating a cluster with multiple hosts:
-
-  * If `embeddedKeeper` is `true`, replication will be managed using [{{ CK }}](../concepts/replication.md#ck).
-
-      {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
-
-  * If `embeddedKeeper` is undefined or `false`, replication and query distribution will be managed using {{ ZK }}.
+            * `name`: Cluster name.
+            * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+            * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
 
 
-    If the cluster [cloud network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), and {{ ZK }} host settings are not specified, one such host will automatically be added to each subnet.
+            * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
 
-    If only some availability zones in the cluster's network have subnets, explicitly specify the {{ ZK }} host settings.
 
+            * `configSpec`: Cluster configuration:
+
+                * `version`: {{ CH }} version, {{ versions.api.str }}.
+                * `embeddedKeeper`: Using [{{ CK }}](../concepts/replication.md#ck) instead of {{ ZK }}, `true` or `false`.
+
+                    {% include [replication-management-details](../../_includes/mdb/mch/api/replication-management-details.md) %}
+
+                * `clickhouse`: {{ CH }} configuration:
+
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
+
+                * `zookeeper`: [{{ ZK }}](../concepts/replication.md#zk) configuration.
+
+                    * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskTypeId`: Disk type.
+
+                    If you enabled {{ CK }} with the help of the `embeddedKeeper: true` setting, you do not have to specify a {{ ZK }} configuration in `configSpec` as it will not be applied.
+
+                * `access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+
+                    {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
+
+                * `cloudStorage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
+
+                    {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
+
+                * `sql...` and `adminPassword`: Group of settings for user and database management via SQL:
+
+                    * `adminPassword`: `admin` user password.
+                    * `sqlUserManagement`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sqlDatabaseManagement`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
+
+
+                    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+            * `databaseSpecs`: Database settings as an array of `name` element parameters. Each parameter contains the name of a separate database.
+
+            * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+                {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
+
+            * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+
+                * `type`: Host type: `CLICKHOUSE` or `ZOOKEEPER`.
+
+                    If you enabled {{ CK }} with the help of the `embeddedKeeper: true` setting, specify only {{ CH }} host settings in `hostSpecs`.
+
+                * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+                * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+                * `shardName`: [Shard](../concepts/sharding.md) name. The setting is only relevant for `CLICKHOUSE`-type hosts.
+                * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+
+                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
+
+
+            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Run this request:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. View the [server response](../api-ref/Cluster/create.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        1. Create a file named `body.json` and add the following contents to it:
+
+            {% note info %}
+
+            This example does not use all available parameters.
+
+            {% endnote %}
+
+
+            ```json
+            {
+              "folder_id": "<folder_ID>",
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "network_id": "<network_ID>",
+              "security_group_ids": [
+                "<security_group_1_ID>",
+                "<security_group_2_ID>",
+                ...
+                "<security_group_N_ID>"
+              ],
+              "config_spec": {
+                "version": "<{{ CH }}>_version",
+                "embedded_keeper": <{{ CK }}_usage>,
+                "clickhouse": {
+                  "resources": {
+                    "resource_preset_id": "<{{ CH }}>_host_class",
+                    "disk_size": "<storage_size_in_bytes>",
+                    "disk_type_id": "<disk_type>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resource_preset_id": "<{{ ZK }}>_host_class",
+                    "disk_size": "<storage_size_in_bytes>",
+                    "disk_type_id": "<disk_type>"
+                  }
+                },
+                "access": {
+                  "data_lens": <access_from_{{ datalens-name }}>,
+                  "web_sql": <run_SQL_queries_from_management_console>,
+                  "metrika": <access_from_Metrica_and_AppMetrica>,
+                  "serverless": <access_from_Cloud_Functions>,
+                  "data_transfer": <access_from_Data_Transfer>,
+                  "yandex_query": <access_from_Yandex_Query>
+                },
+                "cloud_storage": {
+                  "enabled": <hybrid_storage_use>,
+                  "move_factor": "<share_of_free_space>",
+                  "data_cache_enabled": <temporary_file_storage>,
+                  "data_cache_max_size": "<maximum_cache_size_for_file_storage>",
+                  "prefer_not_to_merge": <disabling_merging_data_parts>
+                },
+                "admin_password": "<admin_user_password>",
+                "sql_user_management": <user_management_via_SQL>,
+                "sql_database_management": <database_management_via_SQL>
+              },
+              "database_specs": [
+                {
+                  "name": "<DB_name>"
+                },
+                { <similar_settings_for_database_2> },
+                { ... },
+                { <similar_settings_for_database_N> }
+              ],
+              "user_specs": [
+                {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                    {
+                      "database_name": "<DB_name>"
+                    }
+                  ]
+                },
+                { <similar_configuration_for_user_2> },
+                { ... },
+                { <similar_configuration_for_user_N> }
+              ],
+              "host_specs": [
+                {
+                  "zone_id": "<availability_zone>",
+                  "type": "<host_type>",
+                  "subnet_id": "<subnet_ID>",
+                  "assign_public_ip": <public_access_to_host>,
+                  "shard_name": "<shard_name>"
+                },
+                { <similar_configuration_for_host_2> },
+                { ... },
+                { <similar_configuration_for_host_N> }
+              ],
+              "deletion_protection": <deletion_protection>
+            }
+            ```
+
+
+            Where:
+
+            * `name`: Cluster name.
+            * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+
+            * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+
+
+            * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
+
+
+            * `config_spec`: Cluster configuration:
+
+                * `version`: {{ CH }} version, {{ versions.api.str }}.
+
+                * `embedded_keeper`: Using [{{ CK }}](../concepts/replication.md#ck) instead of {{ ZK }}, `true` or `false`.
+
+                    {% include [replication-management-details](../../_includes/mdb/mch/api/replication-management-details.md) %}
+
+                * `clickhouse`: {{ CH }} configuration:
+
+                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
+
+                * `zookeeper`: [{{ ZK }}](../concepts/replication.md#zk) configuration.
+
+                    * `resources.resource_preset_id`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_type_id`: Disk type.
+
+                    If you enabled {{ CK }} with the help of the `embedded_keeper: true` setting, you do not have to specify a {{ ZK }} configuration in `config_spec` as it will not be applied.
+
+                * `access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+
+                    {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
+
+                * `cloud_storage`: [Hybrid storage](../concepts/storage.md#hybrid-storage-features) settings:
+
+                    {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
+                * `sql...` and `admin_password`: Group of settings for user and database management via SQL:
+
+                    * `admin_password`: `admin` user password.
+                    * `sql_user_management`: [User management via SQL](./cluster-users.md#sql-user-management), `true` or `false`.
+                    * `sql_database_management`: [Database management via SQL](./databases.md#sql-database-management), `true` or `false`. For that, you also need to enable user management through SQL.
+
+
+                    {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
+
+            * `database_specs`: Database settings as an array of `name` element parameters. Each parameter contains the name of a separate database.
+
+            * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+                {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
+
+            * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+
+                * `type`: Host type: `CLICKHOUSE` or `ZOOKEEPER`.
+
+                    If you enabled {{ CK }} with the help of the `embedded_keeper: true` setting, specify only {{ CH }} host settings in `host_specs`.
+
+                * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+                * `subnet_id`: Subnet [ID](../../vpc/concepts/network.md#subnet).
+                * `shard_name`: [Shard](../concepts/sharding.md) name. The setting is only relevant for `CLICKHOUSE`-type hosts.
+                * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+
+                {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
+
+
+            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Run this request:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.Create \
+              < body.json
+            ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -482,7 +831,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -577,7 +926,7 @@ To create a {{ CH }} cluster copy:
   * Number of {{ CH }} hosts of the `{{ host-class }}` class in the `b0rcctk2rvtr********` subnet in the `{{ region-id }}-a` availability zone: 1.
   * {{ CK }}.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * User: `user1`, with the `user1user1` password.
+  * User: `user1` with password `user1user1`.
   * Database: `db1`.
   * Protection against accidental cluster deletion: Enabled.
 
@@ -616,7 +965,7 @@ To create a {{ CH }} cluster copy:
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
-  * Number of `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`: 1.
+  * One `{{ host-class }}` class hosts in a new subnet named `cluster-subnet-{{ region-id }}-a`.
 
     Subnet parameters:
     * Address range: `172.16.1.0/24`.
@@ -625,7 +974,7 @@ To create a {{ CH }} cluster copy:
 
   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
   * Database name: `db1`.
-  * User: `user1`, with password `user1user1`.
+  * User: `user1` with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 
@@ -680,7 +1029,7 @@ To create a {{ CH }} cluster copy:
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ CH }} hosts: 32 GB.
   * Local SSD storage (`{{ disk-type-example }}`) for each of the cluster's {{ ZK }} hosts: 10 GB.
   * Database name: `db1`.
-  * User: `user1`, with password `user1user1`.
+  * User: `user1` with password `user1user1`.
 
   The configuration files for this cluster are as follows:
 

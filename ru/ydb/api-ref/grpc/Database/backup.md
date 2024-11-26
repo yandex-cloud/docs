@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Database/backup.md
 ---
 
-# Managed Service for YDB API, gRPC: DatabaseService.Backup {#Backup}
+# Managed Service for YDB API, gRPC: DatabaseService.Backup
 
 ## gRPC request
 
@@ -13,49 +13,49 @@ sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Database/backup.md
 
 ```json
 {
-  "databaseId": "string",
-  "backupSettings": {
+  "database_id": "string",
+  "backup_settings": {
     "name": "string",
     "description": "string",
-    "backupSchedule": {
-      // Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`
-      "dailyBackupSchedule": {
-        "executeTime": "google.type.TimeOfDay"
+    "backup_schedule": {
+      // Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`
+      "daily_backup_schedule": {
+        "execute_time": "google.type.TimeOfDay"
       },
-      "weeklyBackupSchedule": {
-        "daysOfWeek": [
+      "weekly_backup_schedule": {
+        "days_of_week": [
           {
             "days": [
               "DayOfWeek"
             ],
-            "executeTime": "google.type.TimeOfDay"
+            "execute_time": "google.type.TimeOfDay"
           }
         ]
       },
-      "recurringBackupSchedule": {
-        "startTime": "google.protobuf.Timestamp",
+      "recurring_backup_schedule": {
+        "start_time": "google.protobuf.Timestamp",
         "recurrence": "string"
       },
       // end of the list of possible fields
-      "nextExecuteTime": "google.protobuf.Timestamp"
+      "next_execute_time": "google.protobuf.Timestamp"
     },
-    "backupTimeToLive": "google.protobuf.Duration",
-    "sourcePaths": [
+    "backup_time_to_live": "google.protobuf.Duration",
+    "source_paths": [
       "string"
     ],
-    "sourcePathsToExclude": [
+    "source_paths_to_exclude": [
       "string"
     ],
     "type": "Type",
-    "storageClass": "StorageClass"
+    "storage_class": "StorageClass"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| databaseId | **string** ||
-|| backupSettings | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**
+|| database_id | **string** ||
+|| backup_settings | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**
 
 custom backup options, if required. ||
 |#
@@ -70,18 +70,18 @@ name of backup settings ||
 || description | **string**
 
 human readable description. ||
-|| backupSchedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
+|| backup_schedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
 
 provide schedule. if empty, backup will be disabled. ||
-|| backupTimeToLive | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 provide time to live of backup. ||
-|| sourcePaths[] | **string**
+|| source_paths[] | **string**
 
 provide a list of source paths. Each path can be directory, table or even database itself.
 Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
 By default, backup will be created for full database. ||
-|| sourcePathsToExclude[] | **string**
+|| source_paths_to_exclude[] | **string**
 
 provide a list of paths to exclude from backup.
 Each path is a directory, table, or database.
@@ -91,7 +91,7 @@ Each directory (or database) will be traversed recursively and all childs of dir
 - `TYPE_UNSPECIFIED`
 - `SYSTEM`
 - `USER` ||
-|| storageClass | enum **StorageClass**
+|| storage_class | enum **StorageClass**
 
 - `STORAGE_CLASS_UNSPECIFIED`
 - `STANDARD`
@@ -108,16 +108,16 @@ Each directory (or database) will be traversed recursively and all childs of dir
 
 #|
 ||Field | Description ||
-|| dailyBackupSchedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+|| daily_backup_schedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| weeklyBackupSchedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| weekly_backup_schedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| recurringBackupSchedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| recurring_backup_schedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| nextExecuteTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 output only field: when next backup will be executed
 using provided schedule. ||
@@ -127,7 +127,7 @@ using provided schedule. ||
 
 #|
 ||Field | Description ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -136,7 +136,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
+|| days_of_week[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
 |#
 
 ## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule}
@@ -153,7 +153,7 @@ Required field.  ||
 - `FRIDAY`: The day-of-week of Friday.
 - `SATURDAY`: The day-of-week of Saturday.
 - `SUNDAY`: The day-of-week of Sunday. ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -162,7 +162,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Timestamp of the first recurrence. ||
 || recurrence | **string**
@@ -178,167 +178,167 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "backupId": "string",
-    "databaseId": "string"
+    "backup_id": "string",
+    "database_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "status": "Status",
     "endpoint": "string",
-    "resourcePresetId": "string",
-    "storageConfig": {
-      "storageOptions": [
+    "resource_preset_id": "string",
+    "storage_config": {
+      "storage_options": [
         {
-          "storageTypeId": "string",
-          "groupCount": "int64"
+          "storage_type_id": "string",
+          "group_count": "int64"
         }
       ],
-      "storageSizeLimit": "int64"
+      "storage_size_limit": "int64"
     },
-    "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
-      "fixedScale": {
+    "scale_policy": {
+      // Includes only one of the fields `fixed_scale`
+      "fixed_scale": {
         "size": "int64"
       }
       // end of the list of possible fields
     },
-    "networkId": "string",
-    "subnetIds": [
+    "network_id": "string",
+    "subnet_ids": [
       "string"
     ],
-    // Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
-    "zonalDatabase": {
-      "zoneId": "string"
+    // Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`
+    "zonal_database": {
+      "zone_id": "string"
     },
-    "regionalDatabase": {
-      "regionId": "string"
+    "regional_database": {
+      "region_id": "string"
     },
-    "dedicatedDatabase": {
-      "resourcePresetId": "string",
-      "storageConfig": {
-        "storageOptions": [
+    "dedicated_database": {
+      "resource_preset_id": "string",
+      "storage_config": {
+        "storage_options": [
           {
-            "storageTypeId": "string",
-            "groupCount": "int64"
+            "storage_type_id": "string",
+            "group_count": "int64"
           }
         ],
-        "storageSizeLimit": "int64"
+        "storage_size_limit": "int64"
       },
-      "scalePolicy": {
-        // Includes only one of the fields `fixedScale`
-        "fixedScale": {
+      "scale_policy": {
+        // Includes only one of the fields `fixed_scale`
+        "fixed_scale": {
           "size": "int64"
         }
         // end of the list of possible fields
       },
-      "networkId": "string",
-      "subnetIds": [
+      "network_id": "string",
+      "subnet_ids": [
         "string"
       ],
-      "assignPublicIps": "bool"
+      "assign_public_ips": "bool"
     },
-    "serverlessDatabase": {
-      "throttlingRcuLimit": "int64",
-      "storageSizeLimit": "int64",
-      "enableThrottlingRcuLimit": "bool",
-      "provisionedRcuLimit": "int64",
-      "topicWriteQuota": "int64"
+    "serverless_database": {
+      "throttling_rcu_limit": "int64",
+      "storage_size_limit": "int64",
+      "enable_throttling_rcu_limit": "bool",
+      "provisioned_rcu_limit": "int64",
+      "topic_write_quota": "int64"
     },
     // end of the list of possible fields
-    "assignPublicIps": "bool",
-    "locationId": "string",
+    "assign_public_ips": "bool",
+    "location_id": "string",
     "labels": "string",
-    "backupConfig": {
-      "backupSettings": [
+    "backup_config": {
+      "backup_settings": [
         {
           "name": "string",
           "description": "string",
-          "backupSchedule": {
-            // Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`
-            "dailyBackupSchedule": {
-              "executeTime": "google.type.TimeOfDay"
+          "backup_schedule": {
+            // Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`
+            "daily_backup_schedule": {
+              "execute_time": "google.type.TimeOfDay"
             },
-            "weeklyBackupSchedule": {
-              "daysOfWeek": [
+            "weekly_backup_schedule": {
+              "days_of_week": [
                 {
                   "days": [
                     "DayOfWeek"
                   ],
-                  "executeTime": "google.type.TimeOfDay"
+                  "execute_time": "google.type.TimeOfDay"
                 }
               ]
             },
-            "recurringBackupSchedule": {
-              "startTime": "google.protobuf.Timestamp",
+            "recurring_backup_schedule": {
+              "start_time": "google.protobuf.Timestamp",
               "recurrence": "string"
             },
             // end of the list of possible fields
-            "nextExecuteTime": "google.protobuf.Timestamp"
+            "next_execute_time": "google.protobuf.Timestamp"
           },
-          "backupTimeToLive": "google.protobuf.Duration",
-          "sourcePaths": [
+          "backup_time_to_live": "google.protobuf.Duration",
+          "source_paths": [
             "string"
           ],
-          "sourcePathsToExclude": [
+          "source_paths_to_exclude": [
             "string"
           ],
           "type": "Type",
-          "storageClass": "StorageClass"
+          "storage_class": "StorageClass"
         }
       ]
     },
-    "documentApiEndpoint": "string",
-    "kinesisApiEndpoint": "string",
-    "kafkaApiEndpoint": "string",
-    "monitoringConfig": {
+    "document_api_endpoint": "string",
+    "kinesis_api_endpoint": "string",
+    "kafka_api_endpoint": "string",
+    "monitoring_config": {
       "alerts": [
         {
-          "alertId": "string",
-          "alertTemplateId": "string",
+          "alert_id": "string",
+          "alert_template_id": "string",
           "name": "string",
           "description": "string",
-          "notificationChannels": [
+          "notification_channels": [
             {
-              "notificationChannelId": "string",
-              "notifyAboutStatuses": [
+              "notification_channel_id": "string",
+              "notify_about_statuses": [
                 "AlertEvaluationStatus"
               ],
-              "repeateNotifyDelayMs": "int64"
+              "repeate_notify_delay_ms": "int64"
             }
           ],
-          "alertParameters": [
+          "alert_parameters": [
             {
-              // Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
-              "doubleParameterValue": {
+              // Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`
+              "double_parameter_value": {
                 "name": "string",
                 "value": "double"
               },
-              "integerParameterValue": {
+              "integer_parameter_value": {
                 "name": "string",
                 "value": "int64"
               },
-              "textParameterValue": {
+              "text_parameter_value": {
                 "name": "string",
                 "value": "string"
               },
-              "textListParameterValue": {
+              "text_list_parameter_value": {
                 "name": "string",
                 "values": [
                   "string"
                 ]
               },
-              "labelListParameterValue": {
+              "label_list_parameter_value": {
                 "name": "string",
                 "values": [
                   "string"
@@ -347,28 +347,28 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
               // end of the list of possible fields
             }
           ],
-          "alertThresholds": [
+          "alert_thresholds": [
             {
-              // Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`
-              "doubleParameterValue": {
+              // Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`
+              "double_parameter_value": {
                 "name": "string",
                 "value": "double"
               },
-              "integerParameterValue": {
+              "integer_parameter_value": {
                 "name": "string",
                 "value": "int64"
               },
-              "textParameterValue": {
+              "text_parameter_value": {
                 "name": "string",
                 "value": "string"
               },
-              "textListParameterValue": {
+              "text_list_parameter_value": {
                 "name": "string",
                 "values": [
                   "string"
                 ]
               },
-              "labelListParameterValue": {
+              "label_list_parameter_value": {
                 "name": "string",
                 "values": [
                   "string"
@@ -380,7 +380,7 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
         }
       ]
     },
-    "deletionProtection": "bool"
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -396,13 +396,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -445,8 +445,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| backupId | **string** ||
-|| databaseId | **string** ||
+|| backup_id | **string** ||
+|| database_id | **string** ||
 |#
 
 ## Database {#yandex.cloud.ydb.v1.Database}
@@ -456,8 +456,8 @@ YDB database.
 #|
 ||Field | Description ||
 || id | **string** ||
-|| folderId | **string** ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| folder_id | **string** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string** ||
 || description | **string** ||
 || status | enum **Status**
@@ -471,44 +471,44 @@ YDB database.
 - `STARTING`
 - `STOPPED` ||
 || endpoint | **string** ||
-|| resourcePresetId | **string** ||
-|| storageConfig | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
-|| networkId | **string** ||
-|| subnetIds[] | **string** ||
-|| zonalDatabase | **[ZonalDatabase](#yandex.cloud.ydb.v1.ZonalDatabase)**
+|| resource_preset_id | **string** ||
+|| storage_config | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
+|| scale_policy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
+|| network_id | **string** ||
+|| subnet_ids[] | **string** ||
+|| zonal_database | **[ZonalDatabase](#yandex.cloud.ydb.v1.ZonalDatabase)**
 
 deprecated field
 
-Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
-|| regionalDatabase | **[RegionalDatabase](#yandex.cloud.ydb.v1.RegionalDatabase)**
+Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
+|| regional_database | **[RegionalDatabase](#yandex.cloud.ydb.v1.RegionalDatabase)**
 
 deprecated field
 
-Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
-|| dedicatedDatabase | **[DedicatedDatabase](#yandex.cloud.ydb.v1.DedicatedDatabase)**
+Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
+|| dedicated_database | **[DedicatedDatabase](#yandex.cloud.ydb.v1.DedicatedDatabase)**
 
-Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
-|| serverlessDatabase | **[ServerlessDatabase](#yandex.cloud.ydb.v1.ServerlessDatabase)**
+Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
+|| serverless_database | **[ServerlessDatabase](#yandex.cloud.ydb.v1.ServerlessDatabase)**
 
-Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
-|| assignPublicIps | **bool** ||
-|| locationId | **string** ||
+Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
+|| assign_public_ips | **bool** ||
+|| location_id | **string** ||
 || labels | **string** ||
-|| backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
-|| documentApiEndpoint | **string** ||
-|| kinesisApiEndpoint | **string** ||
-|| kafkaApiEndpoint | **string** ||
-|| monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
-|| deletionProtection | **bool** ||
+|| backup_config | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
+|| document_api_endpoint | **string** ||
+|| kinesis_api_endpoint | **string** ||
+|| kafka_api_endpoint | **string** ||
+|| monitoring_config | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
+|| deletion_protection | **bool** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
 
 #|
 ||Field | Description ||
-|| storageOptions[] | **[StorageOption](#yandex.cloud.ydb.v1.StorageOption)** ||
-|| storageSizeLimit | **int64**
+|| storage_options[] | **[StorageOption](#yandex.cloud.ydb.v1.StorageOption)** ||
+|| storage_size_limit | **int64**
 
 output only field: storage size limit of dedicated database. ||
 |#
@@ -517,17 +517,17 @@ output only field: storage size limit of dedicated database. ||
 
 #|
 ||Field | Description ||
-|| storageTypeId | **string** ||
-|| groupCount | **int64** ||
+|| storage_type_id | **string** ||
+|| group_count | **int64** ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ydb.v1.ScalePolicy}
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
+|| fixed_scale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixed_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -541,7 +541,7 @@ Includes only one of the fields `fixedScale`. ||
 
 #|
 ||Field | Description ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Required field.  ||
 |#
@@ -550,7 +550,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| regionId | **string**
+|| region_id | **string**
 
 Required field.  ||
 |#
@@ -559,37 +559,37 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string** ||
-|| storageConfig | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
-|| networkId | **string** ||
-|| subnetIds[] | **string** ||
-|| assignPublicIps | **bool** ||
+|| resource_preset_id | **string** ||
+|| storage_config | **[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)** ||
+|| scale_policy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
+|| network_id | **string** ||
+|| subnet_ids[] | **string** ||
+|| assign_public_ips | **bool** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}
 
 #|
 ||Field | Description ||
-|| throttlingRcuLimit | **int64**
+|| throttling_rcu_limit | **int64**
 
 Let's define 1 RU  - 1 request unit
 Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second.
 If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value.
 Otherwise, the database is throttled using the cloud quotas.
 If zero, all requests will be blocked until non zero value is set. ||
-|| storageSizeLimit | **int64**
+|| storage_size_limit | **int64**
 
 Specify serverless database storage size limit. If zero, default value is applied. ||
-|| enableThrottlingRcuLimit | **bool**
+|| enable_throttling_rcu_limit | **bool**
 
 If false, the database is throttled by cloud value. ||
-|| provisionedRcuLimit | **int64**
+|| provisioned_rcu_limit | **int64**
 
 Specify the number of provisioned RCUs to pay less if the database has predictable load.
 You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed.
 You will be charged for the on-demand consumption only if provisioned capacity is consumed. ||
-|| topicWriteQuota | **int64**
+|| topic_write_quota | **int64**
 
 write quota for topic service, defined in bytes per second. ||
 |#
@@ -598,7 +598,7 @@ write quota for topic service, defined in bytes per second. ||
 
 #|
 ||Field | Description ||
-|| backupSettings[] | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings2)** ||
+|| backup_settings[] | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings2)** ||
 |#
 
 ## BackupSettings {#yandex.cloud.ydb.v1.BackupSettings2}
@@ -611,18 +611,18 @@ name of backup settings ||
 || description | **string**
 
 human readable description. ||
-|| backupSchedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule2)**
+|| backup_schedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule2)**
 
 provide schedule. if empty, backup will be disabled. ||
-|| backupTimeToLive | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 provide time to live of backup. ||
-|| sourcePaths[] | **string**
+|| source_paths[] | **string**
 
 provide a list of source paths. Each path can be directory, table or even database itself.
 Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
 By default, backup will be created for full database. ||
-|| sourcePathsToExclude[] | **string**
+|| source_paths_to_exclude[] | **string**
 
 provide a list of paths to exclude from backup.
 Each path is a directory, table, or database.
@@ -632,7 +632,7 @@ Each directory (or database) will be traversed recursively and all childs of dir
 - `TYPE_UNSPECIFIED`
 - `SYSTEM`
 - `USER` ||
-|| storageClass | enum **StorageClass**
+|| storage_class | enum **StorageClass**
 
 - `STORAGE_CLASS_UNSPECIFIED`
 - `STANDARD`
@@ -649,16 +649,16 @@ Each directory (or database) will be traversed recursively and all childs of dir
 
 #|
 ||Field | Description ||
-|| dailyBackupSchedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule2)**
+|| daily_backup_schedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule2)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| weeklyBackupSchedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule2)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| weekly_backup_schedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule2)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| recurringBackupSchedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule2)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| recurring_backup_schedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule2)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| nextExecuteTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 output only field: when next backup will be executed
 using provided schedule. ||
@@ -668,7 +668,7 @@ using provided schedule. ||
 
 #|
 ||Field | Description ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -677,7 +677,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule2)** ||
+|| days_of_week[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule2)** ||
 |#
 
 ## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule2}
@@ -694,7 +694,7 @@ Required field.  ||
 - `FRIDAY`: The day-of-week of Friday.
 - `SATURDAY`: The day-of-week of Saturday.
 - `SUNDAY`: The day-of-week of Sunday. ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -703,7 +703,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Timestamp of the first recurrence. ||
 || recurrence | **string**
@@ -724,10 +724,10 @@ The FREQ values of MINUTELY, and SECONDLY are not supported. ||
 
 #|
 ||Field | Description ||
-|| alertId | **string**
+|| alert_id | **string**
 
 output only field. ||
-|| alertTemplateId | **string**
+|| alert_template_id | **string**
 
 template of the alert. ||
 || name | **string**
@@ -736,13 +736,13 @@ name of the alert. ||
 || description | **string**
 
 human readable description of the alert. ||
-|| notificationChannels[] | **[NotificationChannel](#yandex.cloud.ydb.v1.NotificationChannel)**
+|| notification_channels[] | **[NotificationChannel](#yandex.cloud.ydb.v1.NotificationChannel)**
 
 the notification channels of the alert. ||
-|| alertParameters[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+|| alert_parameters[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
 
 alert parameters to override. ||
-|| alertThresholds[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+|| alert_thresholds[] | **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
 
 alert paratemers to override. ||
 |#
@@ -751,8 +751,8 @@ alert paratemers to override. ||
 
 #|
 ||Field | Description ||
-|| notificationChannelId | **string** ||
-|| notifyAboutStatuses[] | enum **AlertEvaluationStatus**
+|| notification_channel_id | **string** ||
+|| notify_about_statuses[] | enum **AlertEvaluationStatus**
 
 - `ALERT_EVALUATION_STATUS_UNSPECIFIED`
 - `ALERT_EVALUATION_STATUS_OK`
@@ -760,28 +760,28 @@ alert paratemers to override. ||
 - `ALERT_EVALUATION_STATUS_ERROR`
 - `ALERT_EVALUATION_STATUS_ALARM`
 - `ALERT_EVALUATION_STATUS_WARN` ||
-|| repeateNotifyDelayMs | **int64** ||
+|| repeate_notify_delay_ms | **int64** ||
 |#
 
 ## AlertParameter {#yandex.cloud.ydb.v1.AlertParameter}
 
 #|
 ||Field | Description ||
-|| doubleParameterValue | **[DoubleParameterValue](#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue)**
+|| double_parameter_value | **[DoubleParameterValue](#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue)**
 
-Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
-|| integerParameterValue | **[IntegerParameterValue](#yandex.cloud.ydb.v1.AlertParameter.IntegerParameterValue)**
+Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`. ||
+|| integer_parameter_value | **[IntegerParameterValue](#yandex.cloud.ydb.v1.AlertParameter.IntegerParameterValue)**
 
-Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
-|| textParameterValue | **[TextParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextParameterValue)**
+Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`. ||
+|| text_parameter_value | **[TextParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextParameterValue)**
 
-Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
-|| textListParameterValue | **[TextListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextListParameterValue)**
+Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`. ||
+|| text_list_parameter_value | **[TextListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextListParameterValue)**
 
-Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
-|| labelListParameterValue | **[LabelListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.LabelListParameterValue)**
+Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`. ||
+|| label_list_parameter_value | **[LabelListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.LabelListParameterValue)**
 
-Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`. ||
+Includes only one of the fields `double_parameter_value`, `integer_parameter_value`, `text_parameter_value`, `text_list_parameter_value`, `label_list_parameter_value`. ||
 |#
 
 ## DoubleParameterValue {#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue}

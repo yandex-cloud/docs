@@ -25,7 +25,17 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [Using parameters](data-from-ch-with-parameters.md)
+* [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
+* [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](data-from-appmetrica-visualization.md)
+* [{#T}](data-from-appmetrica-yc-visualization.md)
+* [{#T}](data-from-tracker.md)
+* [{#T}](data-from-ch-visualization.md)
+* [{#T}](data-from-ch-to-geolayers-visualization.md)
+* [{#T}](data-from-ch-geocoder.md)
 * [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](data-ingestion.md)
 
 
 To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

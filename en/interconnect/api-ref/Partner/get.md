@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/Partner/get.md
 ---
 
-# Cloud Interconnect API, REST: Partner.Get {#Get}
+# Cloud Interconnect API, REST: Partner.Get
 
 Returns the specified Partner resource.
 

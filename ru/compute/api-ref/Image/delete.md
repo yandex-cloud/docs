@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/delete.md
 ---
 
-# Compute Cloud API, REST: Image.Delete {#Delete}
+# Compute Cloud API, REST: Image.Delete
 
 Deletes the specified image.
 

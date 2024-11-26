@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/Broker/listCertificates.md
 ---
 
-# IoT Core Broker Service, gRPC: BrokerService.ListCertificates {#ListCertificates}
+# IoT Core Broker Service, gRPC: BrokerService.ListCertificates
 
 Retrieves the list of broker certificates for the specified broker.
 
@@ -15,13 +15,13 @@ Retrieves the list of broker certificates for the specified broker.
 
 ```json
 {
-  "brokerId": "string"
+  "broker_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the broker to list certificates for. ||
 |#
@@ -32,10 +32,10 @@ Required field. ID of the broker to list certificates for. ||
 {
   "certificates": [
     {
-      "brokerId": "string",
+      "broker_id": "string",
       "fingerprint": "string",
-      "certificateData": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "certificate_data": "string",
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -54,16 +54,16 @@ A broker certificate.
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 ID of the broker that the certificate belongs to. ||
 || fingerprint | **string**
 
 SHA256 hash of the certificates. ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

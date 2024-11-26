@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/update.md
 ---
 
-# Cloud CDN API, REST: Resource.Update {#Update}
+# Cloud CDN API, REST: Resource.Update
 
 Updates the specified CDN resource.
 

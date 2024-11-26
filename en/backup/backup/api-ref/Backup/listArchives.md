@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/listArchives.md
 ---
 
-# Cloud Backup API, REST: Backup.ListArchives {#ListArchives}
+# Cloud Backup API, REST: Backup.ListArchives
 
 List archives that holds backups for specified folder or
 specified [Compute Cloud instance](/docs/backup/concepts/vm-connection#os).

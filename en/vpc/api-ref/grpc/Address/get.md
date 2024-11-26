@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Address/get.md
 ---
 
-# Virtual Private Cloud API, gRPC: AddressService.Get {#Get}
+# Virtual Private Cloud API, gRPC: AddressService.Get
 
 Returns the specified Address resource.
 
@@ -17,13 +17,13 @@ To get the list of all available Address resources, make a [List](/docs/vpc/api-
 
 ```json
 {
-  "addressId": "string"
+  "address_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| addressId | **string**
+|| address_id | **string**
 
 Required field. ID of the Address resource to return.
 
@@ -35,30 +35,30 @@ To get Address resource ID make a [AddressService.List](/docs/vpc/api-ref/grpc/A
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  // Includes only one of the fields `externalIpv4Address`
-  "externalIpv4Address": {
+  // Includes only one of the fields `external_ipv4_address`
+  "external_ipv4_address": {
     "address": "string",
-    "zoneId": "string",
+    "zone_id": "string",
     "requirements": {
-      "ddosProtectionProvider": "string",
-      "outgoingSmtpCapability": "string"
+      "ddos_protection_provider": "string",
+      "outgoing_smtp_capability": "string"
     }
   },
   // end of the list of possible fields
   "reserved": "bool",
   "used": "bool",
   "type": "Type",
-  "ipVersion": "IpVersion",
-  "deletionProtection": "bool",
-  "dnsRecords": [
+  "ip_version": "IpVersion",
+  "deletion_protection": "bool",
+  "dns_records": [
     {
       "fqdn": "string",
-      "dnsZoneId": "string",
+      "dns_zone_id": "string",
       "ttl": "int64",
       "ptr": "bool"
     }
@@ -73,10 +73,10 @@ An Address resource. For more information, see [Address](/docs/vpc/concepts/addr
 || id | **string**
 
 ID of the address. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the address belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -95,9 +95,9 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| externalIpv4Address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
+|| external_ipv4_address | **[ExternalIpv4Address](#yandex.cloud.vpc.v1.ExternalIpv4Address)**
 
-Includes only one of the fields `externalIpv4Address`.
+Includes only one of the fields `external_ipv4_address`.
 
 External ipv4 address specification. ||
 || reserved | **bool**
@@ -113,17 +113,17 @@ Type of the IP address.
 - `TYPE_UNSPECIFIED`
 - `INTERNAL`: Internal IP address.
 - `EXTERNAL`: Public IP address. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 Version of the IP address.
 
 - `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address.
 - `IPV6`: IPv6 address. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if address protected from deletion. ||
-|| dnsRecords[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
+|| dns_records[] | **[DnsRecord](#yandex.cloud.vpc.v1.DnsRecord)**
 
 Optional DNS record specifications ||
 |#
@@ -135,7 +135,7 @@ Optional DNS record specifications ||
 || address | **string**
 
 Value of address. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 Availability zone from which the address will be allocated. ||
 || requirements | **[AddressRequirements](#yandex.cloud.vpc.v1.AddressRequirements)**
@@ -147,10 +147,10 @@ Parameters of the allocated address, for example DDoS Protection. ||
 
 #|
 ||Field | Description ||
-|| ddosProtectionProvider | **string**
+|| ddos_protection_provider | **string**
 
 DDoS protection provider ID. ||
-|| outgoingSmtpCapability | **string**
+|| outgoing_smtp_capability | **string**
 
 Capability to send SMTP traffic. ||
 |#
@@ -162,7 +162,7 @@ Capability to send SMTP traffic. ||
 || fqdn | **string**
 
 DNS record name (absolute or relative to the DNS zone in use). ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the public DNS zone. ||
 || ttl | **int64**

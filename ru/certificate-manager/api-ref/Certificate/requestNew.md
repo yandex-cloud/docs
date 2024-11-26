@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/requestNew.md
 ---
 
-# Certificate Manager API, REST: Certificate.RequestNew {#RequestNew}
+# Certificate Manager API, REST: Certificate.RequestNew
 
 Request a certificate in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/update.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.Update {#Update}
+# Managed Service for PostgreSQL API, REST: Database.Update
 
 Updates the specified PostgreSQL database.
 

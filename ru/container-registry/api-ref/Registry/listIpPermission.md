@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/listIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.ListIpPermission {#ListIpPermission}
+# Container Registry API, REST: Registry.ListIpPermission
 
 List ip permissions for the specified registry.
 

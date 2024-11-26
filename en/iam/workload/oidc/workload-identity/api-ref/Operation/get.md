@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Operation/get.md
 ---
 
-# Federation, REST: Operation.Get {#Get}
+# Federation, REST: Operation.Get
 
 Returns the specified Operation resource.
 

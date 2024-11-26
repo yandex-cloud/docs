@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/delete.md
 ---
 
-# Load Testing API, REST: Agent.Delete {#Delete}
+# Load Testing API, REST: Agent.Delete
 
 Deletes the specified agent.
 

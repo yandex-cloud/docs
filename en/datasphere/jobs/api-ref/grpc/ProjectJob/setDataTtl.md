@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/setDataTtl.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.SetDataTtl {#SetDataTtl}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.SetDataTtl
 
 Update job data ttl.
 
@@ -15,14 +15,14 @@ Update job data ttl.
 
 ```json
 {
-  "jobId": "string",
+  "job_id": "string",
   "ttl": "google.protobuf.Duration"
 }
 ```
 
 #|
 ||Field | Description ||
-|| jobId | **string** ||
+|| job_id | **string** ||
 || ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)** ||
 |#
 

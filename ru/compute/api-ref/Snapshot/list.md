@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/list.md
 ---
 
-# Compute Cloud API, REST: Snapshot.List {#List}
+# Compute Cloud API, REST: Snapshot.List
 
 Retrieves the list of Snapshot resources in the specified folder.
 

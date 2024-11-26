@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listShardGroups.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.ListShardGroups {#ListShardGroups}
+# Managed Service for ClickHouse API, REST: Cluster.ListShardGroups
 
 Retrieves a list of shard groups that belong to specified cluster.
 

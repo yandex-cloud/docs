@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/Operation/get.md
 ---
 
-# Key Management Service API, REST: Operation.Get {#Get}
+# Key Management Service API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

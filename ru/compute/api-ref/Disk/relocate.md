@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/relocate.md
 ---
 
-# Compute Cloud API, REST: Disk.Relocate {#Relocate}
+# Compute Cloud API, REST: Disk.Relocate
 
 Moves the specified disk to another availability zone
 

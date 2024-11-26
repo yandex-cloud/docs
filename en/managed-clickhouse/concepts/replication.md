@@ -10,7 +10,7 @@ With {{ mch-name }}, you can use one of the following tools to manage replicatio
 * [{#T}](#ck)
 * [{#T}](#zk) (default)
 
-This allows you to use [replicated tables](#replicated-tables) in a cluster with multiple hosts in a [shard](./sharding.md). Meanwhile, the replication is managed automatically.
+You can create [replicated tables](#replicated-tables) in a cluster with enabled replication. Meanwhile, the replication is managed automatically.
 
 ## {{ CK }} {#ck}
 
@@ -29,12 +29,10 @@ For more information about {{ CK }}, see the [{{ CH }} documentation]({{ ch.docs
 
 ## {{ ZK }} {#zk}
 
-If the cluster was created without {{ CK }} support, before adding new hosts to a single-host shard, you need to [enable fault tolerance for the cluster](../operations/zk-hosts.md#add-zk), if it is not already enabled. In this case, three {{ ZK }} hosts, which is the minimum number of hosts required to manage replication and fault tolerance, will be added to the cluster.
-
-You can enable fault tolerance and configure {{ ZK }} hosts [after creating a cluster](../operations/zk-hosts.md#add-zk) with a single host.
+If your cluster consists of one host or several single-host shards and was originally created without {{ CK }} support, you must [enable fault tolerance for the cluster](../operations/zk-hosts.md#add-zk) before adding new hosts. In which case three {{ ZK }} hosts will be added to the cluster, which is the minimum number required for replication management and fault tolerance.
 
 
-You can also configure {{ ZK }} hosts immediately when creating a cluster with multiple hosts. In this case:
+You can also configure {{ ZK }} hosts as soon as you create a multi-host cluster. In which case:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.
@@ -53,13 +51,13 @@ The {{ ZK }} host class can be changed when configuring fault tolerance or [clus
 
 {% note warning %}
 
-{{ ZK }} hosts, if any, are taken into account when calculating [resource usage]({{ link-console-quotas }}) and the cost of the cluster.
+{{ ZK }} hosts, if any, are counted in when calculating [resource usage]({{ link-console-quotas }}) and cluster cost.
 
 {% endnote %}
 
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} only supports automatic replication for tables running on the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) engine. To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -83,10 +81,10 @@ Where:
 
 * `db_01`: Database name.
 * `table_01`: Table name.
-* `/table_01`: Path to the table in {{ ZK }} or {{ CK }}, which must start with a forward slash (`/`).
-* `{replica}`: Host ID macro.
+* `/table_01`: Path to the table in {{ ZK }} or {{ CK }}, which must start with a forward slash `/`.
+* `{replica}`: Host ID macro substitution.
 
-To create replicated tables on all cluster hosts, run the following [distributed DDL query]({{ ch.docs }}/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, send [a distributed DDL request]({{ ch.docs }}/sql-reference/distributed-ddl/):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (

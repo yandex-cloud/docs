@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/updateHosts.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.UpdateHosts {#UpdateHosts}
+# Managed Service for ClickHouse API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified hosts.
 
@@ -15,12 +15,12 @@ Updates the specified hosts.
 
 ```json
 {
-  "clusterId": "string",
-  "updateHostSpecs": [
+  "cluster_id": "string",
+  "update_host_specs": [
     {
-      "hostName": "string",
-      "updateMask": "google.protobuf.FieldMask",
-      "assignPublicIp": "google.protobuf.BoolValue"
+      "host_name": "string",
+      "update_mask": "google.protobuf.FieldMask",
+      "assign_public_ip": "google.protobuf.BoolValue"
     }
   ]
 }
@@ -28,11 +28,11 @@ Updates the specified hosts.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to update hosts in.
 To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
+|| update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
 
 New configurations to apply to hosts. ||
 |#
@@ -41,14 +41,14 @@ New configurations to apply to hosts. ||
 
 #|
 ||Field | Description ||
-|| hostName | **string**
+|| host_name | **string**
 
 Required field. Name of the host to update.
 To get the ClickHouse host name, use a [ClusterService.ListHosts](/docs/managed-clickhouse/api-ref/grpc/Cluster/listHosts#ListHosts) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the ClickHouse host should be updated. ||
-|| assignPublicIp | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| assign_public_ip | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the host should get a public IP address on creation. ||
 |#
@@ -59,13 +59,13 @@ Whether the host should get a public IP address on creation. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "hostNames": [
+    "cluster_id": "string",
+    "host_names": [
       "string"
     ]
   },
@@ -86,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -135,10 +135,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster to modify hosts in. ||
-|| hostNames[] | **string**
+|| host_names[] | **string**
 
 Names of hosts that are being modified. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/get.md
 ---
 
-# Resource Manager API, REST: Cloud.Get {#Get}
+# Resource Manager API, REST: Cloud.Get
 
 Returns the specified Cloud resource.
 

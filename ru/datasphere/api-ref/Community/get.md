@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/get.md
 ---
 
-# DataSphere API v2, REST: Community.Get {#Get}
+# DataSphere API v2, REST: Community.Get
 
 Returns community.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/create.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Create {#Create}
+# Managed Service for Apache Kafka® API, REST: User.Create
 
 Creates a Kafka user in the specified cluster.
 

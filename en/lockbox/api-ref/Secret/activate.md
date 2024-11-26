@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/activate.md
 ---
 
-# Lockbox API, REST: Secret.Activate {#Activate}
+# Lockbox API, REST: Secret.Activate
 
 Activates the specified secret.
 

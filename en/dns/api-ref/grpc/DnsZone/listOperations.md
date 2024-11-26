@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/listOperations.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.ListOperations {#ListOperations}
+# Cloud DNS API, gRPC: DnsZoneService.ListOperations
 
 Lists operations for the specified DNS zone.
 
@@ -15,29 +15,29 @@ Lists operations for the specified DNS zone.
 
 ```json
 {
-  "dnsZoneId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "dns_zone_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone to list operations for.
 
 To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/grpc/DnsZone/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
+results is larger than `page_size`, the service returns a [ListDnsZoneOperationsResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListDnsZoneOperationsResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters DNS zones listed in the response.
@@ -57,9 +57,9 @@ Example of a filter: `name=my-dns-zone`. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -68,7 +68,7 @@ Example of a filter: `name=my-dns-zone`. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -77,11 +77,11 @@ Example of a filter: `name=my-dns-zone`. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified DNS zone. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListDnsZoneOperationsRequest.pageSize](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest), use `next_page_token` as the value
-for the [ListDnsZoneOperationsRequest.pageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest) parameter in the next list request.
+the specified [ListDnsZoneOperationsRequest.page_size](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest), use `next_page_token` as the value
+for the [ListDnsZoneOperationsRequest.page_token](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -98,13 +98,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

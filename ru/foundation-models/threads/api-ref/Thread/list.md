@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Thread/list.md
 ---
 
-# Threads, REST: Thread.List {#List}
+# Threads, REST: Thread.List
 
 List threads in a specific folder.
 

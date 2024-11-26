@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/assistants/api-ref/grpc/Assistant/get.md
 ---
 
-# AI Assistants API, gRPC: AssistantService.Get {#Get}
+# AI Assistants API, gRPC: AssistantService.Get
 
 Retrieve details of a specific assistant by its ID.
 
@@ -15,7 +15,7 @@ Retrieve details of a specific assistant by its ID.
 
 ```json
 {
-  "assistantId": "string"
+  "assistant_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for retrieving an assistant by ID.
 
 #|
 ||Field | Description ||
-|| assistantId | **string**
+|| assistant_id | **string**
 
 Required field. ID of the assistant to retrieve. ||
 |#
@@ -33,36 +33,36 @@ Required field. ID of the assistant to retrieve. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "createdBy": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "updatedBy": "string",
-  "updatedAt": "google.protobuf.Timestamp",
-  "expirationConfig": {
-    "expirationPolicy": "ExpirationPolicy",
-    "ttlDays": "int64"
+  "created_by": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "updated_by": "string",
+  "updated_at": "google.protobuf.Timestamp",
+  "expiration_config": {
+    "expiration_policy": "ExpirationPolicy",
+    "ttl_days": "int64"
   },
-  "expiresAt": "google.protobuf.Timestamp",
+  "expires_at": "google.protobuf.Timestamp",
   "labels": "string",
-  "modelUri": "string",
+  "model_uri": "string",
   "instruction": "string",
-  "promptTruncationOptions": {
-    "maxPromptTokens": "google.protobuf.Int64Value"
+  "prompt_truncation_options": {
+    "max_prompt_tokens": "google.protobuf.Int64Value"
   },
-  "completionOptions": {
-    "maxTokens": "google.protobuf.Int64Value",
+  "completion_options": {
+    "max_tokens": "google.protobuf.Int64Value",
     "temperature": "google.protobuf.DoubleValue"
   },
   "tools": [
     {
-      // Includes only one of the fields `searchIndex`
-      "searchIndex": {
-        "searchIndexIds": [
+      // Includes only one of the fields `search_index`
+      "search_index": {
+        "search_index_ids": [
           "string"
         ],
-        "maxNumResults": "google.protobuf.Int64Value"
+        "max_num_results": "google.protobuf.Int64Value"
       }
       // end of the list of possible fields
     }
@@ -77,7 +77,7 @@ Assistant represents an AI assistant configuration with various settings and met
 || id | **string**
 
 Unique identifier of the assistant. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the assistant belongs to. ||
 || name | **string**
@@ -86,38 +86,38 @@ Name of the assistant. ||
 || description | **string**
 
 Description of the assistant. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 Identifier of the subject who created this assistant. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the assistant was created. ||
-|| updatedBy | **string**
+|| updated_by | **string**
 
 Identifier of the subject who last updated this assistant. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing the last time this assistant was updated. ||
-|| expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
+|| expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Configuration for the expiration of the assistant, defining when and how the assistant will expire. ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the assistant will expire. ||
 || labels | **string**
 
 Set of key-value pairs that can be used to organize and categorize the assistant. ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. ||
 || instruction | **string**
 
 Instructions or guidelines that the assistant should follow when generating responses or performing tasks.
 These instructions can help guide the assistant's behavior and responses. ||
-|| promptTruncationOptions | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
+|| prompt_truncation_options | **[PromptTruncationOptions](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
 
 Configuration options for truncating the prompt when the token count exceeds a specified limit. ||
-|| completionOptions | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions)**
+|| completion_options | **[CompletionOptions](#yandex.cloud.ai.assistants.v1.CompletionOptions)**
 
 Configuration options for completion generation. ||
 || tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
@@ -130,12 +130,12 @@ One example is the SearchIndexTool, which is used for Retrieval-Augmented Genera
 
 #|
 ||Field | Description ||
-|| expirationPolicy | enum **ExpirationPolicy**
+|| expiration_policy | enum **ExpirationPolicy**
 
 - `EXPIRATION_POLICY_UNSPECIFIED`
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
-|| ttlDays | **int64** ||
+|| ttl_days | **int64** ||
 |#
 
 ## PromptTruncationOptions {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions}
@@ -144,7 +144,7 @@ Defines the options for truncating thread messages within a prompt.
 
 #|
 ||Field | Description ||
-|| maxPromptTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prompt_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
@@ -157,7 +157,7 @@ Defines the options for completion generation.
 
 #|
 ||Field | Description ||
-|| maxTokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_tokens | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||
@@ -174,11 +174,11 @@ Represents a general tool that can be one of several types.
 
 #|
 ||Field | Description ||
-|| searchIndex | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+|| search_index | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `searchIndex`. ||
+Includes only one of the fields `search_index`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
@@ -187,10 +187,10 @@ Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing 
 
 #|
 ||Field | Description ||
-|| searchIndexIds[] | **string**
+|| search_index_ids[] | **string**
 
 A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
-|| maxNumResults | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_num_results | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.

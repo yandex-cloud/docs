@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/delete.md
 ---
 
-# EventRouter Service, REST: Connector.Delete {#Delete}
+# EventRouter Service, REST: Connector.Delete
 
 Deletes the specified connector.
 

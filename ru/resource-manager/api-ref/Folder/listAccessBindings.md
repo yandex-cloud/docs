@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/listAccessBindings.md
 ---
 
-# Resource Manager API, REST: Folder.ListAccessBindings {#ListAccessBindings}
+# Resource Manager API, REST: Folder.ListAccessBindings
 
 Lists access bindings for the specified folder.
 

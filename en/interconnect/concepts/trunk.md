@@ -27,7 +27,7 @@ All physical ports on the {{ yandex-cloud }} equipment have the following defaul
 
 {% note warning %}
 
-If you need to, you can group multiple physical ports into a single bundle via [LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol) in `Active` mode.
+If you need to, you can group multiple physical ports into a single bundle via [LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol) in `Active` mode. When setting up a bundle, all its physical ports must use [transceivers](./transceivers.md) of the same type. You cannot combine transceivers of different types within a single bundle.
 
 The [MC-LAG technology](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) for aggregate channels on the {{ yandex-cloud }} equipment is not supported.
 
@@ -37,11 +37,11 @@ The [MC-LAG technology](https://en.wikipedia.org/wiki/Multi-chassis_link_aggrega
 
 The following physical connection setup options are supported on the {{ yandex-cloud }} equipment:
 
-* [Direct client connection](#direct-link): Connection of your own equipment at a point of presence directly to the {{ yandex-cloud }} equipment.
-* [Connection via a telecom provider](#sp-link): You have no equipment of your own at the point of presence so you enlist the services of a telecom provider who connects you to the {{ yandex-cloud }} equipment.
+* [Direct client connection](#direct-link): Connection of your own equipment at the point of presence directly to the {{ yandex-cloud }} equipment.
+* [Connection via a telecom provider](#sp-link): You have no equipment of your own at the point of presence and you enlist the services of a telecom provider who connects you to the {{ yandex-cloud }} equipment.
 
 ### Direct client connection {#direct-link}
-This is a connection of your own equipment at a [point of presence](./pops.md) directly to the {{ yandex-cloud }} equipment.
+This is a connection of your own equipment at the [point of presence](./pops.md) directly to the {{ yandex-cloud }} equipment.
 
 A trunk in this setup option has the following components:
 

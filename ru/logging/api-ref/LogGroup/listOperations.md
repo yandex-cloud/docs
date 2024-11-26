@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listOperations.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.ListOperations {#ListOperations}
+# Cloud Logging Service, REST: LogGroup.ListOperations
 
 Lists operations for the specified log group.
 

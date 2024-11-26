@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/StorageType/get.md
 ---
 
-# Managed Service for YDB API, gRPC: StorageTypeService.Get {#Get}
+# Managed Service for YDB API, gRPC: StorageTypeService.Get
 
 Returns the specified storage types.
 
@@ -15,13 +15,13 @@ Returns the specified storage types.
 
 ```json
 {
-  "storageTypeId": "string"
+  "storage_type_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| storageTypeId | **string**
+|| storage_type_id | **string**
 
 Required field. Required. ID of the storage type to return. ||
 |#
@@ -31,14 +31,14 @@ Required field. Required. ID of the storage type to return. ||
 ```json
 {
   "id": "string",
-  "deviceType": "string",
-  "redundancyType": "string"
+  "device_type": "string",
+  "redundancy_type": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || id | **string** ||
-|| deviceType | **string** ||
-|| redundancyType | **string** ||
+|| device_type | **string** ||
+|| redundancy_type | **string** ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/get.md
 ---
 
-# Load Testing API, REST: Config.Get {#Get}
+# Load Testing API, REST: Config.Get
 
 Returns the specified config.
 

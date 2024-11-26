@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/start.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Start {#Start}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Start
 
 Starts load balancing and health checking with the specified network load balancer with specified settings.
 Changes network load balancer status to `` ACTIVE ``.

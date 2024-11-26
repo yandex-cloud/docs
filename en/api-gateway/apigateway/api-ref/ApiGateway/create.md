@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/create.md
 ---
 
-# API Gateway Service, REST: ApiGateway.Create {#Create}
+# API Gateway Service, REST: ApiGateway.Create
 
 Creates an API gateway in the specified folder.
 

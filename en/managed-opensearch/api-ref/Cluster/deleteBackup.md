@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteBackup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.DeleteBackup {#DeleteBackup}
+# Managed Service for OpenSearch API, REST: Cluster.DeleteBackup
 
 Delete backup for the specified OpenSearch cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/Operation/get.md
 ---
 
-# Billing API, REST: Operation.Get {#Get}
+# Billing API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/assistants/v1/assistants/api-ref/grpc/Assistant/delete.md
 ---
 
-# AI Assistants API, gRPC: AssistantService.Delete {#Delete}
+# AI Assistants API, gRPC: AssistantService.Delete
 
 Delete an assistant by its ID.
 
@@ -15,7 +15,7 @@ Delete an assistant by its ID.
 
 ```json
 {
-  "assistantId": "string"
+  "assistant_id": "string"
 }
 ```
 
@@ -23,7 +23,7 @@ Request message for deleting an assistant by ID.
 
 #|
 ||Field | Description ||
-|| assistantId | **string**
+|| assistant_id | **string**
 
 Required field. ID of the assistant to delete. ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/list.md
 ---
 
-# Video API, REST: Thumbnail.List {#List}
+# Video API, REST: Thumbnail.List
 
 List thumbnails for channel.
 

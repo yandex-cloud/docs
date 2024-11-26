@@ -148,6 +148,14 @@ items:
         href: tutorials/remote-wireguard-vpn.md
       - name: Creating and configuring a UserGate gateway in proxy server mode
         href: tutorials/usergate-proxy.md
+      - name: Creating and configuring a UserGate gateway in firewall mode
+        href: tutorials/usergate-firewall.md
+      - name: Implementing fault-tolerant scenarios for network VMs
+        href: tutorials/route-switcher.md
+      - name: Creating a tunnel between two subnets using OpenVPN Access Server
+        href: tutorials/site-to-site-openvpn.md
+      - name: Creating a bastion host
+        href: tutorials/bastion.md
       - name: >-
           Migrating an HDFS {{ dataproc-full-name }} cluster to a different
           availability zone
@@ -158,8 +166,25 @@ items:
         href: tutorials/multi-folder-vpc.md
       - name: Setting up PT Application Firewall
         href: tutorials/pt-application-firewall.md
+        hidden: true
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Cloud infrastructure segmentation with Check Point Next-Generation
+          Firewall
+        href: tutorials/network-segmentation-checkpoint.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
       - name: Using {{ yandex-cloud }} modules in {{ TF }}
         href: tutorials/terraform-modules.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: tutorials/mssql-alwayson-lb.md
   - name: Concepts
     items:
       - name: Resource relationships

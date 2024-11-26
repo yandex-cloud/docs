@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/listVulnerabilities.md
 ---
 
-# Container Registry API, gRPC: ScannerService.ListVulnerabilities {#ListVulnerabilities}
+# Container Registry API, gRPC: ScannerService.ListVulnerabilities
 
 Retrieves the list of vulnerabilities found in particular scan.
 
@@ -15,30 +15,30 @@ Retrieves the list of vulnerabilities found in particular scan.
 
 ```json
 {
-  "scanResultId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "scan_result_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| scanResultId | **string**
+|| scan_result_id | **string**
 
 Required field. ID of the ScanResult to get list of vulnerabilities for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+results is larger than `page_size`,
+the service returns a [ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListRegistriesResponse.next_page_token](/docs/container-registry/api-ref/grpc/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -46,7 +46,7 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
 2. An `=` operator.
 3. The value in double quotes (`"`). ||
-|| orderBy | **string**
+|| order_by | **string**
 
 An order expression that orders resources listed in the response.
 The expression must specify:
@@ -68,14 +68,14 @@ The expression must specify:
         "package": "string",
         "source": "string",
         "version": "string",
-        "fixedBy": "string",
+        "fixed_by": "string",
         "origin": "string",
         "type": "string"
       }
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -84,14 +84,14 @@ The expression must specify:
 || vulnerabilities[] | **[Vulnerability](#yandex.cloud.containerregistry.v1.Vulnerability)**
 
 List of Vulnerability resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListImagesRequest.pageSize](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest), use
-the `nextPageToken` as the value
-for the [ListImagesRequest.pageToken](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) query parameter
+is larger than [ListImagesRequest.page_size](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest), use
+the `next_page_token` as the value
+for the [ListImagesRequest.page_token](/docs/container-registry/api-ref/grpc/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Vulnerability {#yandex.cloud.containerregistry.v1.Vulnerability}
@@ -148,7 +148,7 @@ The package manager name. Ex.: yum, rpm, dpkg. ||
 || version | **string**
 
 The version of the package where vulnerability has been found. ||
-|| fixedBy | **string**
+|| fixed_by | **string**
 
 The version of the package where vulnerability has been fixed. ||
 || origin | **string**

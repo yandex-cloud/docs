@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/get.md
 ---
 
-# Certificate Manager API, REST: Certificate.Get {#Get}
+# Certificate Manager API, REST: Certificate.Get
 
 Returns the specified certificate.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/restore.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.Restore {#Restore}
+# Managed Service for Greenplum® API, REST: Cluster.Restore
 
 Creates a new Greenplum® cluster using the specified backup.
 

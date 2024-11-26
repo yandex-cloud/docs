@@ -1,7 +1,7 @@
 # Getting started with {{ ydb-name }}
 
 
-In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/en) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
+In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
 * [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
@@ -257,7 +257,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. To manage your DBs from the command line, [install]({{ ydb.docs }}/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
+  1. To manage your DBs from the command line, [install](https://{{ ydb.docs }}/reference/ydb-cli/install) the {{ ydb-short-name }} CLI.
   1. To authenticate the {{ ydb-short-name }} CLI in {{ yandex-cloud }}, get an [IAM token](../iam/concepts/authorization/iam-token.md) and export it to the following environment variable:
 
      ```bash

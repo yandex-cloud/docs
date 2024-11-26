@@ -76,7 +76,7 @@ For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is availab
 
 You can connect to nodes in a group in the following ways:
 * Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
-* Via an SSH client and YC CLI using OS Login, see [{#T}](../operations/node-connect-oslogin.md).
+* Via an SSH client and the YC CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
 
 ### Taints and tolerations policies {#taints-tolerations}
 
@@ -158,7 +158,7 @@ A prefix is an optional part of a key. The prefix requirements are as follows:
 * The last character must be followed by `/`.
 
 A name is a required part of a key. The naming requirements are as follows:
-* It may be up to 63 characters long.
+* May be up to 63 characters long.
 * It may contain lowercase Latin letters, numbers, hyphens, underscores, and periods.
 * Use a letter or number for the first and last characters.
 
@@ -205,7 +205,7 @@ A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
   These accounts exist at the level of an individual folder in the cloud and can be used both by {{ managed-k8s-name }} and other services.
 
   For more information, see [{#T}](../security/index.md) and [{#T}](../../iam/concepts/users/service-accounts.md).
-* **{{ k8s }} service accounts**
+* **{{ k8s }} service accounts** 
 
   These accounts exist and run only at a level of an individual {{ managed-k8s-name }} cluster. {{ k8s }} uses them for:
   * To authenticate cluster API calls from applications deployed in the cluster.

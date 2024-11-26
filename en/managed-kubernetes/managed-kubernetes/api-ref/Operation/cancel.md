@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Operation/cancel.md
 ---
 
-# Managed Services for Kubernetes API, REST: Operation.Cancel {#Cancel}
+# Managed Services for Kubernetes API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/delete.md
 ---
 
-# Cloud Functions Service, REST: Function.Delete {#Delete}
+# Cloud Functions Service, REST: Function.Delete
 
 Deletes the specified function.
 

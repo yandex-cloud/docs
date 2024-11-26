@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/deleteMembership.md
 ---
 
-# Cloud Organization API, REST: User.DeleteMembership {#DeleteMembership}
+# Cloud Organization API, REST: User.DeleteMembership
 
 Delete user membership.
 

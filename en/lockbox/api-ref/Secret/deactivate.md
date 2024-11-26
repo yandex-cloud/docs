@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/deactivate.md
 ---
 
-# Lockbox API, REST: Secret.Deactivate {#Deactivate}
+# Lockbox API, REST: Secret.Deactivate
 
 Deactivates the specified secret.
 

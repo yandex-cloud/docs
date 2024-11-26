@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/createFromYaml.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.CreateFromYaml {#CreateFromYaml}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.CreateFromYaml
 
 Creates an instance group in the specified folder from a YAML file.
 This method starts an operation that can be cancelled by another operation.

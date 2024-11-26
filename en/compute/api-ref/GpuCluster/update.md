@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/update.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Update {#Update}
+# Compute Cloud API, REST: GpuCluster.Update
 
 Updates the specified GPU cluster.
 

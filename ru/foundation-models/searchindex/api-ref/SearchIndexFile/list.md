@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/list.md
 ---
 
-# Search Index, REST: SearchIndexFile.List {#List}
+# Search Index, REST: SearchIndexFile.List
 
 List files that are indexed within a specific search index.
 
@@ -49,15 +49,7 @@ Token to retrieve the next page of results. ||
       "id": "string",
       "searchIndexId": "string",
       "createdBy": "string",
-      "createdAt": "string",
-      "chunkingStrategy": {
-        // Includes only one of the fields `staticStrategy`
-        "staticStrategy": {
-          "maxChunkSizeTokens": "string",
-          "chunkOverlapTokens": "string"
-        }
-        // end of the list of possible fields
-      }
+      "createdAt": "string"
     }
   ],
   "nextPageToken": "string"
@@ -101,36 +93,4 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| chunkingStrategy | **[ChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy)** ||
-|#
-
-## ChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy}
-
-Defines a general strategy for chunking text into smaller segments.
-Currently, only StaticChunkingStrategy is supported.
-
-#|
-||Field | Description ||
-|| staticStrategy | **[StaticChunkingStrategy](#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy)**
-
-Includes only one of the fields `staticStrategy`. ||
-|#
-
-## StaticChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.StaticChunkingStrategy}
-
-Defines a chunking strategy where chunks are created with a fixed maximum chunk size and an overlap between consecutive chunks.
-
-#|
-||Field | Description ||
-|| maxChunkSizeTokens | **string** (int64)
-
-The maximum number of tokens allowed in a single chunk.
-Constraints: must be within the range [100, 2048].
-Default value: 800 ||
-|| chunkOverlapTokens | **string** (int64)
-
-The number of tokens that should overlap between consecutive chunks.
-This allows for some context from the previous chunk to be included in the next chunk.
-Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
-Default value: 400 ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/addDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.AddDashboardsNodeGroup {#AddDashboardsNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.AddDashboardsNodeGroup
 
 Creates a Dashboards type host group.
 

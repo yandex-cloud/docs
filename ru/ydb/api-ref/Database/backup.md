@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/backup.md
 ---
 
-# Managed Service for YDB API, REST: Database.Backup {#Backup}
+# Managed Service for YDB API, REST: Database.Backup
 
 ## HTTP request
 

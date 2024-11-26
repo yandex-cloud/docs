@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/list.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.List {#List}
+# Identity and Access Management API, REST: ServiceControl.List
 
 Retrieves the list of Service in the specified resource container.
 

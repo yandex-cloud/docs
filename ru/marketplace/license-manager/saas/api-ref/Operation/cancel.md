@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Operation/cancel.md
 ---
 
-# Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Cancel {#Cancel}
+# Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Cancel
 
 Cancels the specified operation.
 

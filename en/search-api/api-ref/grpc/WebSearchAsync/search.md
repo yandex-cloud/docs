@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
 ---
 
-# Web Search API, gRPC: WebSearchAsyncService.Search {#Search}
+# Web Search API, gRPC: WebSearchAsyncService.Search
 
 ## gRPC request
 
@@ -14,24 +14,24 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
 ```json
 {
   "query": {
-    "searchType": "SearchType",
-    "queryText": "string",
-    "familyMode": "FamilyMode",
+    "search_type": "SearchType",
+    "query_text": "string",
+    "family_mode": "FamilyMode",
     "page": "int64"
   },
-  "sortSpec": {
-    "sortMode": "SortMode",
-    "sortOrder": "SortOrder"
+  "sort_spec": {
+    "sort_mode": "SortMode",
+    "sort_order": "SortOrder"
   },
-  "groupSpec": {
-    "groupMode": "GroupMode",
-    "groupsOnPage": "int64",
-    "docsInGroup": "int64"
+  "group_spec": {
+    "group_mode": "GroupMode",
+    "groups_on_page": "int64",
+    "docs_in_group": "int64"
   },
-  "maxPassages": "int64",
+  "max_passages": "int64",
   "region": "string",
   "l10n": "Localization",
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
@@ -40,13 +40,13 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
 || query | **[SearchQuery](#yandex.cloud.searchapi.v2.SearchQuery)**
 
 Required field. Search query. ||
-|| sortSpec | **[SortSpec](#yandex.cloud.searchapi.v2.SortSpec)**
+|| sort_spec | **[SortSpec](#yandex.cloud.searchapi.v2.SortSpec)**
 
 The rules for sorting search results that define the sequence of the returned search results. ||
-|| groupSpec | **[GroupSpec](#yandex.cloud.searchapi.v2.GroupSpec)**
+|| group_spec | **[GroupSpec](#yandex.cloud.searchapi.v2.GroupSpec)**
 
 Grouping settings that are used to group documents from a single domain into a container. ||
-|| maxPassages | **int64**
+|| max_passages | **int64**
 
 The maximum number of passages that can be used when generating a document snippet. ||
 || region | **string**
@@ -63,7 +63,7 @@ The notification language for a search response.
 - `LOCALIZATION_KK`: Kazakh
 - `LOCALIZATION_TR`: Turkish
 - `LOCALIZATION_EN`: English ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder. ||
 |#
@@ -72,7 +72,7 @@ ID of the folder. ||
 
 #|
 ||Field | Description ||
-|| searchType | enum **SearchType**
+|| search_type | enum **SearchType**
 
 Required field. Search type that determines the domain name that will be used for the search queries.
 
@@ -80,10 +80,10 @@ Required field. Search type that determines the domain name that will be used fo
 - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
 - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
 - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used. ||
-|| queryText | **string**
+|| query_text | **string**
 
 Required field. Search query text ||
-|| familyMode | enum **FamilyMode**
+|| family_mode | enum **FamilyMode**
 
 Rule for filtering search results and determines whether any documents should be excluded.
 
@@ -102,14 +102,14 @@ The number of a requested page with search results ||
 
 #|
 ||Field | Description ||
-|| sortMode | enum **SortMode**
+|| sort_mode | enum **SortMode**
 
 Documents sorting mode.
 
 - `SORT_MODE_UNSPECIFIED`
 - `SORT_MODE_BY_RELEVANCE`: Sort documents by relevance (default value).
 - `SORT_MODE_BY_TIME`: Sort documents by update time. ||
-|| sortOrder | enum **SortOrder**
+|| sort_order | enum **SortOrder**
 
 Documents sorting order.
 
@@ -122,17 +122,17 @@ Documents sorting order.
 
 #|
 ||Field | Description ||
-|| groupMode | enum **GroupMode**
+|| group_mode | enum **GroupMode**
 
 Grouping method.
 
 - `GROUP_MODE_UNSPECIFIED`
 - `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
 - `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain. ||
-|| groupsOnPage | **int64**
+|| groups_on_page | **int64**
 
 Maximum number of groups that can be returned per page with search results. ||
-|| docsInGroup | **int64**
+|| docs_in_group | **int64**
 
 Maximum number of documents that can be returned per group. ||
 |#
@@ -143,15 +143,15 @@ Maximum number of documents that can be returned per group. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "rawData": "bytes"
+    "raw_data": "bytes"
   }
   // end of the list of possible fields
 }
@@ -167,13 +167,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -216,7 +216,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| rawData | **bytes**
+|| raw_data | **bytes**
 
 Required field. Search results, usually in XML format. ||
 |#

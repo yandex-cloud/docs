@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/listRuntimes.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.ListRuntimes {#ListRuntimes}
+# Cloud Functions Service, gRPC: FunctionService.ListRuntimes
 
 Lists available runtime environments for the specified function.
 

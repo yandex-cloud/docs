@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listVersions.md
 ---
 
-# Certificate Manager API, REST: Certificate.ListVersions {#ListVersions}
+# Certificate Manager API, REST: Certificate.ListVersions
 
 ## HTTP request
 

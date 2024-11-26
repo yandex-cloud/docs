@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/list.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.List {#List}
+# Key Management Service API, REST: AsymmetricSignatureKey.List
 
 Returns the list of asymmetric KMS keys in the specified folder.
 

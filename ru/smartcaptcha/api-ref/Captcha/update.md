@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/update.md
 ---
 
-# SmartCaptcha API, REST: Captcha.Update {#Update}
+# SmartCaptcha API, REST: Captcha.Update
 
 Updates the specified captcha.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/broker/v1/broker/api-ref/grpc/Broker/addCertificate.md
 ---
 
-# IoT Core Broker Service, gRPC: BrokerService.AddCertificate {#AddCertificate}
+# IoT Core Broker Service, gRPC: BrokerService.AddCertificate
 
 Adds a certificate.
 
@@ -15,19 +15,19 @@ Adds a certificate.
 
 ```json
 {
-  "brokerId": "string",
-  "certificateData": "string"
+  "broker_id": "string",
+  "certificate_data": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 Required field. ID of the broker for which the certificate is being added.
 
 To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grpc/Broker/list#List) request. ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the certificate that is being added. ||
 |#
@@ -38,21 +38,21 @@ Public part of the certificate that is being added. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "brokerId": "string",
+    "broker_id": "string",
     "fingerprint": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "brokerId": "string",
+    "broker_id": "string",
     "fingerprint": "string",
-    "certificateData": "string",
-    "createdAt": "google.protobuf.Timestamp"
+    "certificate_data": "string",
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -68,13 +68,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -117,7 +117,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 ID of the broker certificate that is being added. ||
 || fingerprint | **string**
@@ -131,16 +131,16 @@ A broker certificate.
 
 #|
 ||Field | Description ||
-|| brokerId | **string**
+|| broker_id | **string**
 
 ID of the broker that the certificate belongs to. ||
 || fingerprint | **string**
 
 SHA256 hash of the certificates. ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

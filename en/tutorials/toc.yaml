@@ -160,7 +160,7 @@ items:
           - name: Scheduled scaling of an instance group
             href: infrastructure-management/vm-scale-scheduled.md
           - name: >-
-              Autoscaling an instance group to process messages enqueued in {{
+              Autoscaling an instance group to process messages enqueued in{{
               message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
@@ -684,6 +684,8 @@ items:
     items:
       - name: All tutorials
         href: windows/index.md
+      - name: Secure password transmission to an initialization script
+        href: windows/secure-password-script.md
       - name: Deploying Active Directory
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
@@ -717,8 +719,8 @@ items:
           dedicated DMZ based on the Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
-          Cloud infrastructure segmentation with Check Point Next-Generation
-          Firewall
+          Cloud infrastructure segmentation with the Check Point next-generation
+          firewall
         href: routing/network-segmentation-checkpoint.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a

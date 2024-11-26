@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/eventrouter/v1/eventrouter/api-ref/grpc/Connector/listOperations.md
 ---
 
-# EventRouter Service, gRPC: ConnectorService.ListOperations {#ListOperations}
+# EventRouter Service, gRPC: ConnectorService.ListOperations
 
 Lists operations for the specified connector.
 
@@ -15,22 +15,22 @@ Lists operations for the specified connector.
 
 ```json
 {
-  "connectorId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "connector_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| connectorId | **string**
+|| connector_id | **string**
 
 Required field. ID of the connector to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per response. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 `next_page_token` returned by a previous list request. ||
@@ -52,9 +52,9 @@ done ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -63,7 +63,7 @@ done ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -72,7 +72,7 @@ done ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified connector. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list of results. ||
 |#
@@ -89,13 +89,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

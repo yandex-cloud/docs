@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/getStreamKey.md
 ---
 
-# Video API, REST: StreamLine.GetStreamKey {#GetStreamKey}
+# Video API, REST: StreamLine.GetStreamKey
 
 Returns unique stream key.
 

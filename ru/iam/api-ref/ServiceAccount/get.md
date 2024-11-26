@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/get.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.Get {#Get}
+# Identity and Access Management API, REST: ServiceAccount.Get
 
 Returns the specified ServiceAccount resource.
 

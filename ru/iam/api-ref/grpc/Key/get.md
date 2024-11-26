@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/Key/get.md
 ---
 
-# Identity and Access Management API, gRPC: KeyService.Get {#Get}
+# Identity and Access Management API, gRPC: KeyService.Get
 
 Returns the specified Key resource.
 
@@ -17,14 +17,14 @@ To get the list of available Key resources, make a [List](/docs/iam/api-ref/grpc
 
 ```json
 {
-  "keyId": "string",
+  "key_id": "string",
   "format": "KeyFormat"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the Key resource to return.
 To get the ID use a [KeyService.List](/docs/iam/api-ref/grpc/Key/list#List) request. ||
@@ -40,15 +40,15 @@ Output format of the key.
 ```json
 {
   "id": "string",
-  // Includes only one of the fields `userAccountId`, `serviceAccountId`
-  "userAccountId": "string",
-  "serviceAccountId": "string",
+  // Includes only one of the fields `user_account_id`, `service_account_id`
+  "user_account_id": "string",
+  "service_account_id": "string",
   // end of the list of possible fields
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "description": "string",
-  "keyAlgorithm": "Algorithm",
-  "publicKey": "string",
-  "lastUsedAt": "google.protobuf.Timestamp"
+  "key_algorithm": "Algorithm",
+  "public_key": "string",
+  "last_used_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -59,33 +59,33 @@ A Key resource. For more information, see [Authorized keys](/docs/iam/concepts/a
 || id | **string**
 
 ID of the Key resource. ||
-|| userAccountId | **string**
+|| user_account_id | **string**
 
 ID of the user account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| serviceAccountId | **string**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| service_account_id | **string**
 
 ID of the service account that the Key resource belongs to.
 
-Includes only one of the fields `userAccountId`, `serviceAccountId`. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `user_account_id`, `service_account_id`. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the Key resource. 0-256 characters long. ||
-|| keyAlgorithm | enum **Algorithm**
+|| key_algorithm | enum **Algorithm**
 
 An algorithm used to generate a key pair of the Key resource.
 
 - `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
-|| publicKey | **string**
+|| public_key | **string**
 
 A public key of the Key resource. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last use of this key. ||
 |#

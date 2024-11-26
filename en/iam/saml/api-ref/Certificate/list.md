@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Certificate/list.md
 ---
 
-# Identity and Access Management SAML API, REST: Certificate.List {#List}
+# Identity and Access Management SAML API, REST: Certificate.List
 
 Retrieves the list of certificates in the specified federation.
 

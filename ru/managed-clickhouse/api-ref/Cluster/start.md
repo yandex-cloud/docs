@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.Start {#Start}
+# Managed Service for ClickHouse API, REST: Cluster.Start
 
 Starts the specified ClickHouse cluster.
 

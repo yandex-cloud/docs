@@ -55,7 +55,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
   ```bash
   {{ yc-mdb-pg }} user update <username> \
-         --grants=<role1,role2> \
+         --grants=<role_1,role_2> \
          --cluster-id <cluster_ID>
   ```
 
@@ -71,14 +71,14 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-    1. Locate the user's `yandex_mdb_postgresql_user` resource.
+    1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
     1. Add the `grants` attribute with the list of required roles:
   
         ```hcl
         resource "yandex_mdb_postgresql_user" "<username>" {
           ...
           name   = "<username>"
-          grants = [ "<role1>","<role2>" ]
+          grants = [ "<role_1>","<role_2>" ]
           ...
         }
         ```
@@ -141,7 +141,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
        * `mdb_replication`
        * `mdb_superuser`
 
-  1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
 

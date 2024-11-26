@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/listOperations.md
 ---
 
-# API Gateway Service, REST: ApiGateway.ListOperations {#ListOperations}
+# API Gateway Service, REST: ApiGateway.ListOperations
 
 Lists operations for the specified API gateway.
 

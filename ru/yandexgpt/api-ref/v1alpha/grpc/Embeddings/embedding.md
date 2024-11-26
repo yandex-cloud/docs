@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/llm/v1alpha/api-ref/v1alpha/grpc/Embeddings/embedding.md
 ---
 
-# YandexGPT API, gRPC: EmbeddingsService.Embedding {#Embedding}
+# YandexGPT API, gRPC: EmbeddingsService.Embedding
 
 RPC method to obtain embeddings for input text data.
 
@@ -15,7 +15,7 @@ RPC method to obtain embeddings for input text data.
 
 ```json
 {
-  "embeddingType": "EmbeddingType",
+  "embedding_type": "EmbeddingType",
   "model": "string",
   "text": "string"
 }
@@ -25,7 +25,7 @@ Represents a request to obtain embeddings for text data.
 
 #|
 ||Field | Description ||
-|| embeddingType | enum **EmbeddingType**
+|| embedding_type | enum **EmbeddingType**
 
 The type of embedding to be generated.
 
@@ -51,7 +51,7 @@ The input text for which the embedding is requested. ||
   "embedding": [
     "double"
   ],
-  "numTokens": "int64"
+  "num_tokens": "int64"
 }
 ```
 
@@ -62,7 +62,7 @@ Represents a response containing embeddings for input text data.
 || embedding[] | **double**
 
 A repeated list of double values representing the embedding. ||
-|| numTokens | **int64**
+|| num_tokens | **int64**
 
 The number of tokens in the input text. ||
 |#

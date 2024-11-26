@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/list.md
 ---
 
-# Cloud Backup API, REST: Resource.List {#List}
+# Cloud Backup API, REST: Resource.List
 
 List resources: Compute Cloud instances.
 

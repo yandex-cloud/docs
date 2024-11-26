@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/list.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.List {#List}
+# Identity and Access Management API, REST: ApiKey.List
 
 Retrieves the list of API keys for the specified service account.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/delete.md
 ---
 
-# Application Load Balancer API, REST: BackendGroup.Delete {#Delete}
+# Application Load Balancer API, REST: BackendGroup.Delete
 
 Deletes the specified backend group.
 

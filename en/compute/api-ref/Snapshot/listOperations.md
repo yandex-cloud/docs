@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/listOperations.md
 ---
 
-# Compute Cloud API, REST: Snapshot.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Snapshot.ListOperations
 
 Lists operations for the specified snapshot.
 

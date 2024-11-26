@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/llm/v1alpha/api-ref/v1alpha/Operation/get.md
 ---
 
-# YandexGPT API, REST: Operation.Get {#Get}
+# YandexGPT API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

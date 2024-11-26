@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/UserAccount/get.md
 ---
 
-# Identity and Access Management API, REST: UserAccount.Get {#Get}
+# Identity and Access Management API, REST: UserAccount.Get
 
 Returns the specified UserAccount resource.
 

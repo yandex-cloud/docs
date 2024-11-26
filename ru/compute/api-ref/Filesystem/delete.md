@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/delete.md
 ---
 
-# Compute Cloud API, REST: Filesystem.Delete {#Delete}
+# Compute Cloud API, REST: Filesystem.Delete
 
 Deletes the specified filesystem.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/delete.md
 ---
 
-# Users, REST: User.Delete {#Delete}
+# Users, REST: User.Delete
 
 Delete a user by its ID.
 

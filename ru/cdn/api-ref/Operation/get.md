@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/Operation/get.md
 ---
 
-# Cloud CDN API, REST: Operation.Get {#Get}
+# Cloud CDN API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

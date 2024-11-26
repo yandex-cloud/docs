@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/list.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.List {#List}
+# Virtual Private Cloud API, REST: Subnet.List
 
 Retrieves the list of Subnet resources in the specified folder.
 

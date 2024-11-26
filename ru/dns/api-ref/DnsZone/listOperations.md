@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listOperations.md
 ---
 
-# Cloud DNS API, REST: DnsZone.ListOperations {#ListOperations}
+# Cloud DNS API, REST: DnsZone.ListOperations
 
 Lists operations for the specified DNS zone.
 

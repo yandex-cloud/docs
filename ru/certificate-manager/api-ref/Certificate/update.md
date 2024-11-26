@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/update.md
 ---
 
-# Certificate Manager API, REST: Certificate.Update {#Update}
+# Certificate Manager API, REST: Certificate.Update
 
 Updates the specified certificate.
 

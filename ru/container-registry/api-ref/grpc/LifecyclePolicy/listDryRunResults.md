@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/listDryRunResults.md
 ---
 
-# Container Registry API, gRPC: LifecyclePolicyService.ListDryRunResults {#ListDryRunResults}
+# Container Registry API, gRPC: LifecyclePolicyService.ListDryRunResults
 
 Retrieves the list of the dry run results.
 
@@ -15,29 +15,29 @@ Retrieves the list of the dry run results.
 
 ```json
 {
-  "lifecyclePolicyId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "lifecycle_policy_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string",
-  "orderBy": "string"
+  "order_by": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 Required field. ID of the lifecycle policy. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns
-a [ListDryRunLifecyclePolicyResultsResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) that can be used to get
+a [ListDryRunLifecyclePolicyResultsResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) that can be used to get
 the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDryRunLifecyclePolicyResultsResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) returned by a previous list request. ||
+[ListDryRunLifecyclePolicyResultsResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters dry run results listed in the response.
@@ -46,9 +46,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/grpc/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
-|| orderBy | **string**
+|| order_by | **string**
 
-Sorting the list by [DryRunLifecyclePolicyResult.runAt](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) and [DryRunLifecyclePolicyResult.affectedImagesCount](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) fields.
+Sorting the list by [DryRunLifecyclePolicyResult.run_at](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) and [DryRunLifecyclePolicyResult.affected_images_count](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult) fields.
 The default sorting order is ascending. ||
 |#
 
@@ -56,28 +56,28 @@ The default sorting order is ascending. ||
 
 ```json
 {
-  "dryRunLifecyclePolicyResults": [
+  "dry_run_lifecycle_policy_results": [
     {
-      "dryRunLifecyclePolicyResultId": "string",
-      "lifecyclePolicyId": "string",
-      "runAt": "google.protobuf.Timestamp",
-      "affectedImagesCount": "int64"
+      "dry_run_lifecycle_policy_result_id": "string",
+      "lifecycle_policy_id": "string",
+      "run_at": "google.protobuf.Timestamp",
+      "affected_images_count": "int64"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResults[] | **[DryRunLifecyclePolicyResult](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult)**
+|| dry_run_lifecycle_policy_results[] | **[DryRunLifecyclePolicyResult](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult)**
 
 List of results of dry runs of a lifecycle policy. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListDryRunLifecyclePolicyResultsRequest.pageSize](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) use `next_page_token` as the value
-for the [ListDryRunLifecyclePolicyResultsRequest.pageToken](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) parameter in the next list request.
+the specified [ListDryRunLifecyclePolicyResultsRequest.page_size](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) use `next_page_token` as the value
+for the [ListDryRunLifecyclePolicyResultsRequest.page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -86,16 +86,16 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResultId | **string**
+|| dry_run_lifecycle_policy_result_id | **string**
 
 ID of the dry run result of the lifecycle policy. ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy. ||
-|| runAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| run_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the getting result. ||
-|| affectedImagesCount | **int64**
+|| affected_images_count | **int64**
 
 Count of affected images. ||
 |#

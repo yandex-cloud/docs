@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/list.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.List {#List}
+# Cloud Logging Service, REST: LogGroup.List
 
 Retrieves the list of log groups in the specified folder.
 

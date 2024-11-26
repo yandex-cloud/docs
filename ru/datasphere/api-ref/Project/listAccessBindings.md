@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/listAccessBindings.md
 ---
 
-# DataSphere API v2, REST: Project.ListAccessBindings {#ListAccessBindings}
+# DataSphere API v2, REST: Project.ListAccessBindings
 
 Lists access bindings for the project.
 

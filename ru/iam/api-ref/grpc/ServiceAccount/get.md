@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceAccount/get.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceAccountService.Get {#Get}
+# Identity and Access Management API, gRPC: ServiceAccountService.Get
 
 Returns the specified ServiceAccount resource.
 
@@ -17,13 +17,13 @@ To get the list of available ServiceAccount resources, make a [List](/docs/iam/a
 
 ```json
 {
-  "serviceAccountId": "string"
+  "service_account_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the ServiceAccount resource to return.
 To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
@@ -34,12 +34,12 @@ To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "lastAuthenticatedAt": "google.protobuf.Timestamp"
+  "last_authenticated_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -50,10 +50,10 @@ A ServiceAccount resource. For more information, see [Service accounts](/docs/ia
 || id | **string**
 
 ID of the service account. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the service account belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -66,7 +66,7 @@ Description of the service account. 0-256 characters long. ||
 || labels | **string**
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| lastAuthenticatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication of this service account. ||
 |#

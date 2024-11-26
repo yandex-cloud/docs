@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/get.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Get {#Get}
+# IoT Core Broker Service, REST: Broker.Get
 
 Returns the specified broker.
 

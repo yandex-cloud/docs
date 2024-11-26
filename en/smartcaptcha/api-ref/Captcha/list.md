@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/list.md
 ---
 
-# SmartCaptcha API, REST: Captcha.List {#List}
+# SmartCaptcha API, REST: Captcha.List
 
 Retrieves the list of Captcha resources in the specified folder.
 

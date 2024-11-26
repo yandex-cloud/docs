@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/list.md
 ---
 
-# Managed Service for MongoDB API, REST: User.List {#List}
+# Managed Service for MongoDB API, REST: User.List
 
 Retrieves the list of MongoDB User resources in the specified cluster.
 

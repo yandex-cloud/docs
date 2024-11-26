@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.Get {#Get}
+# Managed Service for Greenplum® API, REST: Cluster.Get
 
 Returns the specified Greenplum® cluster.
 

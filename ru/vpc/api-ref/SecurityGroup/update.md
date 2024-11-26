@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/update.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Update {#Update}
+# Virtual Private Cloud API, REST: SecurityGroup.Update
 
 Updates the specified security group.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

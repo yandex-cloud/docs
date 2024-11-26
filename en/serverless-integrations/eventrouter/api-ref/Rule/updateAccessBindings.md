@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/updateAccessBindings.md
 ---
 
-# EventRouter Service, REST: Rule.UpdateAccessBindings {#UpdateAccessBindings}
+# EventRouter Service, REST: Rule.UpdateAccessBindings
 
 Updates access bindings for the specified rule.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Talk/search.md
 ---
 
-# Talk Analytics API, REST: Talk.Search {#Search}
+# Talk Analytics API, REST: Talk.Search
 
 rpc for searching talks. will return ids only
 

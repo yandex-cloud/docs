@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/listLanguages.md
 ---
 
-# Translate API v2, gRPC: TranslationService.ListLanguages {#ListLanguages}
+# Translate API v2, gRPC: TranslationService.ListLanguages
 
 Retrieves the list of supported languages.
 
@@ -15,13 +15,13 @@ Retrieves the list of supported languages.
 
 ```json
 {
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to which you have access.
 Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).

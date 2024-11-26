@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/listNodes.md
 ---
 
-# Managed Services for Kubernetes API, REST: NodeGroup.ListNodes {#ListNodes}
+# Managed Services for Kubernetes API, REST: NodeGroup.ListNodes
 
 Retrieves the list of nodes in the specified Kubernetes cluster.
 

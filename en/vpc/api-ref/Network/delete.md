@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/delete.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Delete {#Delete}
+# Virtual Private Cloud API, REST: Network.Delete
 
 Deletes the specified network.
 

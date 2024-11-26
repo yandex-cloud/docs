@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/saml/api-ref/Federation/delete.md
 ---
 
-# Identity and Access Management SAML API, REST: Federation.Delete {#Delete}
+# Identity and Access Management SAML API, REST: Federation.Delete
 
 Deletes the specified federation.
 

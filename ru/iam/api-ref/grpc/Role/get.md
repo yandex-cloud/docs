@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/Role/get.md
 ---
 
-# Identity and Access Management API, gRPC: RoleService.Get {#Get}
+# Identity and Access Management API, gRPC: RoleService.Get
 
 Returns the specified Role resource.
 
@@ -17,13 +17,13 @@ To get the list of available Role resources, make a [List](/docs/iam/api-ref/grp
 
 ```json
 {
-  "roleId": "string"
+  "role_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| roleId | **string**
+|| role_id | **string**
 
 Required field. ID of the Role resource to return.
 To get the role ID, use a [RoleService.List](/docs/iam/api-ref/grpc/Role/list#List) request. ||

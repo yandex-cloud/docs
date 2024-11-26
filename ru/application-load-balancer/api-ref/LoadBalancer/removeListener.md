@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/removeListener.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.RemoveListener {#RemoveListener}
+# Application Load Balancer API, REST: LoadBalancer.RemoveListener
 
 Deletes the specified listener.
 

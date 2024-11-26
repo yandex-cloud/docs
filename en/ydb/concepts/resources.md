@@ -65,4 +65,4 @@ For more information about storage groups in {{ ydb-short-name }}, see the [docu
 
 {{ ydb-name }} databases are hosted in three availability zones of the central Russia `{{ region-id }}` region. {{ ydb-name }} ensures the databases are fully available if any availability zone fails.
 
-You can learn more about {{ yandex-cloud }} availability zones in [here](../../overview/concepts/geo-scope.md). To move a database to a different availability zone, follow [this guide](../operations/migration-to-an-availability-zone.md).
+You can learn more about {{ yandex-cloud }} availability zones in [{#T}](../../overview/concepts/geo-scope.md). To move a database to a different availability zone, follow [this guide](../operations/migration-to-an-availability-zone.md).

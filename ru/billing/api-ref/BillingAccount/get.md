@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/get.md
 ---
 
-# Billing API, REST: BillingAccount.Get {#Get}
+# Billing API, REST: BillingAccount.Get
 
 Returns the specified billing account.
 

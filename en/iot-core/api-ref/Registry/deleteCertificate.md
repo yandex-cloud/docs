@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/deleteCertificate.md
 ---
 
-# IoT Core Service, REST: Registry.DeleteCertificate {#DeleteCertificate}
+# IoT Core Service, REST: Registry.DeleteCertificate
 
 Deletes the specified registry certificate.
 

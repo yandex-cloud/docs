@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/create.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.Create {#Create}
+# Yandex Cloud Marketplace License Manager, REST: Lock.Create
 
 Locks the specified subscription instance to the resource.
 

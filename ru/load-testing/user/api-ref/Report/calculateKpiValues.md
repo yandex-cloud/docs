@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Report/calculateKpiValues.md
 ---
 
-# Load Testing API, REST: Report.CalculateKpiValues {#CalculateKpiValues}
+# Load Testing API, REST: Report.CalculateKpiValues
 
 Returns a list of KPI values for tests matching the specified filter.
 

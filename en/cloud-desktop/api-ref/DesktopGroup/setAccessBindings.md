@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/setAccessBindings.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.SetAccessBindings {#SetAccessBindings}
+# Cloud Desktop API, REST: DesktopGroup.SetAccessBindings
 
 Sets access bindings for the specified desktop group.
 

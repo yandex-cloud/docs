@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/listMembers.md
 ---
 
-# Cloud Organization API, REST: Group.ListMembers {#ListMembers}
+# Cloud Organization API, REST: Group.ListMembers
 
 List group active members.
 

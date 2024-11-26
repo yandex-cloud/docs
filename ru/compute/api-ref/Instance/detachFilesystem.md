@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachFilesystem.md
 ---
 
-# Compute Cloud API, REST: Instance.DetachFilesystem {#DetachFilesystem}
+# Compute Cloud API, REST: Instance.DetachFilesystem
 
 Detaches the filesystem from the instance.
 

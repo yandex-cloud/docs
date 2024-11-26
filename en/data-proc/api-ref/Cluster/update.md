@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/update.md
 ---
 
-# Data Proc API, REST: Cluster.Update {#Update}
+# Data Proc API, REST: Cluster.Update
 
 Updates the configuration of the specified cluster.
 
@@ -345,7 +345,8 @@ Execution timeout ||
       "string"
     ],
     "deletionProtection": "boolean",
-    "logGroupId": "string"
+    "logGroupId": "string",
+    "environment": "string"
   }
   // end of the list of possible fields
 }
@@ -527,6 +528,13 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

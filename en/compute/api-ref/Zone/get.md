@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Zone/get.md
 ---
 
-# Compute Cloud API, REST: Zone.Get {#Get}
+# Compute Cloud API, REST: Zone.Get
 
 Returns the information about the specified availability zone.
 

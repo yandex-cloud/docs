@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/delete.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.Delete {#Delete}
+# Managed Service for PostgreSQL API, REST: Database.Delete
 
 Deletes the specified PostgreSQL database.
 

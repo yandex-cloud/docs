@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/create.md
 ---
 
-# Cloud Logging Service, REST: Sink.Create {#Create}
+# Cloud Logging Service, REST: Sink.Create
 
 Creates a sink in the specified folder.
 

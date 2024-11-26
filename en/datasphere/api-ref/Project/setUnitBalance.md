@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/setUnitBalance.md
 ---
 
-# DataSphere API v2, REST: Project.SetUnitBalance {#SetUnitBalance}
+# DataSphere API v2, REST: Project.SetUnitBalance
 
 Sets the unit balance of the specified project.
 

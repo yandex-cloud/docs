@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/list.md
 ---
 
-# Billing API, REST: BillingAccount.List {#List}
+# Billing API, REST: BillingAccount.List
 
 Retrieves the list of billing accounts available for current user.
 

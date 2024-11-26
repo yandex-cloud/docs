@@ -96,8 +96,8 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
           name = <username>
           ...
           settings {
-            <parameter1_name> = <value1>
-            <parameter2_name> = <value2>
+            <parameter1_name> = <value_1>
+            <parameter2_name> = <value_2>
             ...
           }
         }

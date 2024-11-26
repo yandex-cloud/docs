@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/create.md
 ---
 
-# Container Registry API, gRPC: LifecyclePolicyService.Create {#Create}
+# Container Registry API, gRPC: LifecyclePolicyService.Create
 
 Creates a lifecycle policy in the specified repository.
 
@@ -15,17 +15,17 @@ Creates a lifecycle policy in the specified repository.
 
 ```json
 {
-  "repositoryId": "string",
+  "repository_id": "string",
   "name": "string",
   "description": "string",
   "status": "Status",
   "rules": [
     {
       "description": "string",
-      "expirePeriod": "google.protobuf.Duration",
-      "tagRegexp": "string",
+      "expire_period": "google.protobuf.Duration",
+      "tag_regexp": "string",
       "untagged": "bool",
-      "retainedTop": "int64"
+      "retained_top": "int64"
     }
   ]
 }
@@ -33,7 +33,7 @@ Creates a lifecycle policy in the specified repository.
 
 #|
 ||Field | Description ||
-|| repositoryId | **string**
+|| repository_id | **string**
 
 Required field. ID of the lifecycle policy repository. ||
 || name | **string**
@@ -62,17 +62,17 @@ The rules of the lifecycle policy. ||
 || description | **string**
 
 Description of the lifecycle policy rule. ||
-|| expirePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
-|| tagRegexp | **string**
+|| tag_regexp | **string**
 
 Tag for specifying a filter in the form of a regular expression. ||
 || untagged | **bool**
 
 Tag for applying the rule to Docker images without tags. ||
-|| retainedTop | **int64**
+|| retained_top | **int64**
 
 Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
 |#
@@ -83,29 +83,29 @@ Number of Docker images (falling under the specified filter by tags) that must b
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "lifecyclePolicyId": "string"
+    "lifecycle_policy_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "repositoryId": "string",
+    "repository_id": "string",
     "description": "string",
     "status": "Status",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "rules": [
       {
         "description": "string",
-        "expirePeriod": "google.protobuf.Duration",
-        "tagRegexp": "string",
+        "expire_period": "google.protobuf.Duration",
+        "tag_regexp": "string",
         "untagged": "bool",
-        "retainedTop": "int64"
+        "retained_top": "int64"
       }
     ]
   }
@@ -123,13 +123,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -172,7 +172,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy resource that is being created. ||
 |#
@@ -187,7 +187,7 @@ ID of the lifecycle policy. ||
 || name | **string**
 
 Name of the lifecycle policy. ||
-|| repositoryId | **string**
+|| repository_id | **string**
 
 ID of the repository that the lifecycle policy belongs to.
 Required. The maximum string length in characters is 50. ||
@@ -203,7 +203,7 @@ Status of lifecycle policy.
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || rules[] | **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule2)**
@@ -218,17 +218,17 @@ The rules of lifecycle policy. ||
 || description | **string**
 
 Description of the lifecycle policy rule. ||
-|| expirePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
-|| tagRegexp | **string**
+|| tag_regexp | **string**
 
 Tag for specifying a filter in the form of a regular expression. ||
 || untagged | **bool**
 
 Tag for applying the rule to Docker images without tags. ||
-|| retainedTop | **int64**
+|| retained_top | **int64**
 
 Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
 |#

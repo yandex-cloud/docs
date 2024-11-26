@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/Operation/get.md
 ---
 
-# Access Key, REST: Operation.Get {#Get}
+# Access Key, REST: Operation.Get
 
 Returns the specified Operation resource.
 

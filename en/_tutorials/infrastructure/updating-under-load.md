@@ -173,7 +173,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
           * In the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** field, specify `nginx`.
           * In the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** field, click **{{ ui-key.yacloud.component.image-field.button_custom-image }}** and enter `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
           * Click **{{ ui-key.yacloud.common.apply }}**.
-        * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+        * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
           * For the boot disk, specify the **{{ ui-key.yacloud.compute.disk-form.field_size }}** of `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** field, select `for-load`.
@@ -455,7 +455,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
   1. Click the `group-for-load` instance group name.
   1. Click ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter the new disk size of `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Under **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}**, you will see disk size changes for all VM instances in the group, step-by-step.

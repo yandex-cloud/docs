@@ -125,6 +125,8 @@
   * `_action_params`
   * `_autoupdate`
   * `_opened_info`
+  * `report_page`
+  * `preview_mode`
 
   Параметры с такими ключами будут проигнорированы и не будут сохранены.
 

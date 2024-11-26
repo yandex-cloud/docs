@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/update.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Update {#Update}
+# Container Registry API, REST: ScanPolicy.Update
 
 Updates the specified scan policy.
 

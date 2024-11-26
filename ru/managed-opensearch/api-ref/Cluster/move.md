@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/move.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Move {#Move}
+# Managed Service for OpenSearch API, REST: Cluster.Move
 
 Moves the specified OpenSearch cluster to the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/create.md
 ---
 
-# Video API, REST: Channel.Create {#Create}
+# Video API, REST: Channel.Create
 
 Create channel.
 
@@ -28,10 +28,10 @@ POST https://video.{{ api-host }}/video/v1/channels
 ||Field | Description ||
 || organizationId | **string**
 
-ID of the organization. ||
+Required field. ID of the organization. ||
 || title | **string**
 
-Channel title. ||
+Required field. Channel title. ||
 || description | **string**
 
 Channel description. ||

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cic/v1/api-ref/grpc/PointOfPresence/get.md
 ---
 
-# Cloud Interconnect API, gRPC: PointOfPresenceService.Get {#Get}
+# Cloud Interconnect API, gRPC: PointOfPresenceService.Get
 
 Returns the specified PointOfPresence resource.
 
@@ -17,13 +17,13 @@ To get the list of available PointOfPresence resources, make a [List](/docs/cic/
 
 ```json
 {
-  "pointOfPresenceId": "string"
+  "point_of_presence_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| pointOfPresenceId | **string**
+|| point_of_presence_id | **string**
 
 Required field. ID of the PointOfPresence resource to return.
 To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/cic/workload/api-ref/grpc/PointOfPresence/list#List) request. ||
@@ -34,7 +34,7 @@ To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/cic/work
 ```json
 {
   "id": "string",
-  "regionId": "string"
+  "region_id": "string"
 }
 ```
 
@@ -45,7 +45,7 @@ A PointOfPresence resource.
 || id | **string**
 
 ID of the pointOfPresence. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the pointOfPresence belongs to. ||
 |#

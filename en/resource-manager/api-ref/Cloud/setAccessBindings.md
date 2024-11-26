@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/setAccessBindings.md
 ---
 
-# Resource Manager API, REST: Cloud.SetAccessBindings {#SetAccessBindings}
+# Resource Manager API, REST: Cloud.SetAccessBindings
 
 Sets access bindings for the specified cloud.
 

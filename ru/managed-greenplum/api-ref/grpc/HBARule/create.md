@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/HBARule/create.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: HBARuleService.Create {#Create}
+# Managed Service for Greenplum® API, gRPC: HBARuleService.Create
 
 Create single HBA rule for the specified Greenplum cluster to the end of HBA rules list.
 
@@ -15,25 +15,25 @@ Create single HBA rule for the specified Greenplum cluster to the end of HBA rul
 
 ```json
 {
-  "clusterId": "string",
-  "hbaRule": {
+  "cluster_id": "string",
+  "hba_rule": {
     "priority": "int64",
-    "connectionType": "ConnectionType",
+    "connection_type": "ConnectionType",
     "database": "string",
     "user": "string",
     "address": "string",
-    "authMethod": "AuthMethod"
+    "auth_method": "AuthMethod"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Greenplum cluster.
 To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
-|| hbaRule | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
+|| hba_rule | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
 
 Required field. New hba rule for the cluster. ||
 |#
@@ -45,7 +45,7 @@ Required field. New hba rule for the cluster. ||
 || priority | **int64**
 
 Priority of the Greenplum cluster rule. ||
-|| connectionType | enum **ConnectionType**
+|| connection_type | enum **ConnectionType**
 
 - `CONNECTION_TYPE_UNSPECIFIED`
 - `HOST`: Matches connection attempts made using TCP/IP.
@@ -60,7 +60,7 @@ Required field. Specifies which database role names this user matches. ||
 || address | **string**
 
 Required field. Specifies the client machine addresses that this record matches. ||
-|| authMethod | enum **AuthMethod**
+|| auth_method | enum **AuthMethod**
 
 Specifies the authentication method to use when a connection matches this record.
 https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
@@ -77,12 +77,12 @@ https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -101,13 +101,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -150,7 +150,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Greenplum cluster which HBA rules was affected. ||
 |#

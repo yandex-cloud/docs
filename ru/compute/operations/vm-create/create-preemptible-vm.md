@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [change-custom-disk-settings-image](../../../_includes/compute/create/change-custom-disk-settings-image.md) %}
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться прерываемая ВМ.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../concepts/disk.md):
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
 
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Задайте нужный размер диска.

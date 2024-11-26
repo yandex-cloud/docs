@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/get.md
 ---
 
-# Files API, REST: File.Get {#Get}
+# Files API, REST: File.Get
 
 Retrieve details of a specific file by its ID.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/update.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Update {#Update}
+# Compute Cloud API, REST: DiskPlacementGroup.Update
 
 Updates the specified placement group.
 

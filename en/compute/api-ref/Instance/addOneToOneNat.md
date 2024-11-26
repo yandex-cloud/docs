@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/addOneToOneNat.md
 ---
 
-# Compute Cloud API, REST: Instance.AddOneToOneNat {#AddOneToOneNat}
+# Compute Cloud API, REST: Instance.AddOneToOneNat
 
 Enables One-to-one NAT on the network interface.
 

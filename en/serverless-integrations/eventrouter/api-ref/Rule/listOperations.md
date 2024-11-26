@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/listOperations.md
 ---
 
-# EventRouter Service, REST: Rule.ListOperations {#ListOperations}
+# EventRouter Service, REST: Rule.ListOperations
 
 Lists operations for the specified rule.
 

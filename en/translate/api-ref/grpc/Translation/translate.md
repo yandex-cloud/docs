@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/translate.md
 ---
 
-# Translate API v2, gRPC: TranslationService.Translate {#Translate}
+# Translate API v2, gRPC: TranslationService.Translate
 
 Translates the text to the specified language.
 
@@ -15,21 +15,21 @@ Translates the text to the specified language.
 
 ```json
 {
-  "sourceLanguageCode": "string",
-  "targetLanguageCode": "string",
+  "source_language_code": "string",
+  "target_language_code": "string",
   "format": "Format",
   "texts": [
     "string"
   ],
-  "folderId": "string",
+  "folder_id": "string",
   "model": "string",
-  "glossaryConfig": {
-    // Includes only one of the fields `glossaryData`
-    "glossaryData": {
-      "glossaryPairs": [
+  "glossary_config": {
+    // Includes only one of the fields `glossary_data`
+    "glossary_data": {
+      "glossary_pairs": [
         {
-          "sourceText": "string",
-          "translatedText": "string",
+          "source_text": "string",
+          "translated_text": "string",
           "exact": "bool"
         }
       ]
@@ -42,13 +42,13 @@ Translates the text to the specified language.
 
 #|
 ||Field | Description ||
-|| sourceLanguageCode | **string**
+|| source_language_code | **string**
 
 The text language to translate from.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
 
 Required for translating with glossary. ||
-|| targetLanguageCode | **string**
+|| target_language_code | **string**
 
 Required field. The target language to translate the text.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
@@ -63,7 +63,7 @@ Format of the text.
 
 Array of the strings to translate.
 The maximum total length of all strings is 10000 characters. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to which you have access.
 Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
@@ -71,7 +71,7 @@ Don't specify this field if you make the request on behalf of a service account.
 || model | **string**
 
 Do not specify this field, custom models are not supported yet. ||
-|| glossaryConfig | **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
+|| glossary_config | **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
 
 Glossary to be applied for the translation. For more information, see [Glossaries](/docs/translate/concepts/glossary). ||
 || speller | **bool**
@@ -83,18 +83,18 @@ use speller ||
 
 #|
 ||Field | Description ||
-|| glossaryData | **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
+|| glossary_data | **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
 
 Pass glossary data in the request. Currently, only this way to pass glossary is supported.
 
-Includes only one of the fields `glossaryData`. ||
+Includes only one of the fields `glossary_data`. ||
 |#
 
 ## GlossaryData {#yandex.cloud.ai.translate.v2.GlossaryData}
 
 #|
 ||Field | Description ||
-|| glossaryPairs[] | **[GlossaryPair](#yandex.cloud.ai.translate.v2.GlossaryPair)**
+|| glossary_pairs[] | **[GlossaryPair](#yandex.cloud.ai.translate.v2.GlossaryPair)**
 
 Array of text pairs.
 
@@ -106,10 +106,10 @@ The maximum total length of all translated texts is 10000 characters. ||
 
 #|
 ||Field | Description ||
-|| sourceText | **string**
+|| source_text | **string**
 
 Required field. Text in the source language. ||
-|| translatedText | **string**
+|| translated_text | **string**
 
 Required field. Text in the target language. ||
 || exact | **bool** ||
@@ -122,7 +122,7 @@ Required field. Text in the target language. ||
   "translations": [
     {
       "text": "string",
-      "detectedLanguageCode": "string"
+      "detected_language_code": "string"
     }
   ]
 }
@@ -142,7 +142,7 @@ Array of the translations. ||
 || text | **string**
 
 Translated text. ||
-|| detectedLanguageCode | **string**
+|| detected_language_code | **string**
 
 The language code of the source text.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||

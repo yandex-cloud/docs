@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/fewShotClassify.md
 ---
 
-# Foundation Models Text Classification API, REST: TextClassification.FewShotClassify {#FewShotClassify}
+# Foundation Models Text Classification API, REST: TextClassification.FewShotClassify
 
 RPC method for binary and multi-class classification.
 

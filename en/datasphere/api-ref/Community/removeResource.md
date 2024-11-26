@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/removeResource.md
 ---
 
-# DataSphere API v2, REST: Community.RemoveResource {#RemoveResource}
+# DataSphere API v2, REST: Community.RemoveResource
 
 Removes shared resource from community
 

@@ -50,11 +50,53 @@ Backups are created based on a random replica host. If there is no cluster host 
   
       You can get the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:backup'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Backup
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -178,18 +220,189 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
          ...
       ```
 
-- API {#api}
+- REST API {#api}
 
-  To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * The shard's backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
-  * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
-  * Cluster environment in the `environment` parameter.
-  * Cluster configuration in the `configSpec` parameter.
-  * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
-  * Network ID in the `networkId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  To restore the whole cluster, provide backup IDs for the remaining cluster shards in the `additionalBackupIds` parameter.
+    1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        1. Create a file named `body.json` and add the following contents to it:
+
+            ```json
+            {
+              "backupId": "<backup_ID>",
+              "additionalBackupIds": [
+                <list_of_additional_IDs_of_backups>
+              ],
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "configSpec": { <cluster_configuration> },
+              "hostSpecs": [
+                {
+                  "type": "<host_type>",
+                  "zoneId": "<availability_zone>",
+                  "subnetId": "<subnet_ID>",
+                  "shardName": "<shard_name>",
+                  "assignPublicIp": <public_access_to_host>
+                },
+                { <similar_configuration_for_host_2> },
+                { ... },
+                { <similar_configuration_for_host_N> }
+              ],
+              "folderId": "<folder_ID>",
+              "networkId": "<network_ID>",
+              "serviceAccountId": "<service_account_ID>",
+              "securityGroupIds": [
+                <list_of_security_group_IDs>
+              ],
+              "deletionProtection": <deletion_protection>
+            }
+            ```
+
+            Where:
+
+            * `backupId`: Backup ID.
+
+                The shard for which that backup was created will be restored.
+
+            * `additionalBackupIds`: Array containing a list of additional IDs of your backups.
+
+                The shards for which those backups were created will be restored. To restore the entire cluster, provide backup IDs for all cluster shards.
+
+            * `name`: Cluster name.
+            * `environment`: Environment:
+
+                * `PRODUCTION`: For stable versions of your apps.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+
+            * `configSpec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [Cluster.restore](../api-ref/Cluster/restore.md) method description.
+            * `hostSpecs`: Array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
+
+                * `type`: Host type.
+                * `zoneId`: Availability zone.
+                * `subnetId`: Subnet ID.
+                * `shardName`: Shard name.
+                * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+            * `folderId`: ID of the folder to create the cluster in.
+            * `networkId`: ID of the network to create the cluster in.
+            * `serviceAccountId`: Service account ID.
+            * `securityGroupIds`: Array of security group IDs.
+            * `deletionProtection`: Option to manage protection of the cluster, its databases, and its users against accidental deletion.
+
+                Enabled deletion protection will not prevent a manual connection and database content deletion.
+
+            You can request the backup ID with the [list of backups in the folder](#list-backups).
+
+        1. Run this request:
+
+            ```bash
+            curl \
+                --request POST \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore' \
+                --data "@body.json"
+            ```
+
+    1. View the [server response](../api-ref/Cluster/restore.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        1. Create a file named `body.json` and add the following contents to it:
+
+            ```json
+            {
+              "backup_id": "<backup_ID>",
+              "additional_backup_ids": [
+                <list_of_additional_IDs_of_backups>
+              ],
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "config_spec": { <cluster_configuration> },
+              "host_specs": [
+                {
+                  "type": "<host_type>",
+                  "zone_id": "<availability_zone>",
+                  "subnet_id": "<subnet_ID>",
+                  "shard_name": "<shard_name>",
+                  "assign_public_ip": <public_access_to_host>
+                },
+                { <similar_configuration_for_host_2> },
+                { ... },
+                { <similar_configuration_for_host_N> }
+              ],
+              "folder_id": "<folder_ID>",
+              "network_id": "<network_ID>",
+              "service_account_id": "<service_account_ID>",
+              "security_group_ids": [
+                <list_of_security_group_IDs>
+              ],
+              "deletion_protection": <deletion_protection>
+            }
+            ```
+
+            Where:
+
+            * `backup_id`: Backup ID.
+
+                The shard for which that backup was created will be restored.
+
+            * `additional_backup_ids`: Array containing a list of additional IDs of your backups.
+
+                The shards for which those backups were created will be restored. To restore the entire cluster, provide backup IDs for all cluster shards.
+
+            * `name`: Cluster name.
+            * `environment`: Environment:
+
+                * `PRODUCTION`: For stable versions of your apps.
+                * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+
+            * `config_spec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call description.
+            * `host_specs`: Array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
+
+                * `type`: Host type.
+                * `zone_id`: Availability zone.
+                * `subnet_id`: Subnet ID.
+                * `shard_name`: Shard name.
+                * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+            * `folder_id`: ID of the folder to create the cluster in.
+            * `network_id`: ID of the network to create the cluster in.
+            * `service_account_id`: Service account ID.
+            * `security_group_ids`: Array of security group IDs.
+            * `deletion_protection`: Option to manage protection of the cluster, its databases, and its users against accidental deletion.
+
+                Enabled deletion protection will not prevent a manual connection and database content deletion.
+
+            You can request the backup ID with the [list of backups in the folder](#list-backups).
+
+        1. Run this request:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d @ \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ClusterService.Restore \
+                < body.json
+            ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -247,16 +460,100 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
   * Backup size.
   * Backup type: Automatic (`AUTOMATED`) or manual (`MANUAL`).
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To get a list of backups for all the {{ mch-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    1. To get a list of {{ CH }} cluster backups:
+
+        1. Use the [Cluster.listBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/backups'
+            ```
+
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure the request was successful.
+
+    1. To get a list of backups for all the {{ CH }} clusters in a folder:
+
+        1. Use the [Backup.list](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups' \
+                --url-query folderId=<folder_ID>
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. To get a list of {{ CH }} cluster backups:
+
+        1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                        "cluster_id": "<cluster_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ClusterService.ListBackups
+            ```
+
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+    1. To get a list of backups for all the {{ CH }} clusters in a folder:
+
+        1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                        "folder_id": "<folder_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.BackupService.List
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure the request was successful.
 
 {% endlist %}
-
 
 ## Getting information about backups {#get-backup}
 
@@ -286,11 +583,52 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   You can retrieve the backup ID with a [list of backups](#list-backups).
 
-- API {#api}
+- REST API {#api}
 
-  To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To find out the ID, [retrieve a list of backups](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Backup.get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<backup_ID>'
+        ```
+
+        You can request the backup ID with the [list of backups in the folder](#list-backups).
+
+    1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "backup_id": "<backup_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.BackupService.Get
+        ```
+
+        You can request the backup ID with the [list of backups in the folder](#list-backups).
+
+    1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.clickhouse.v1.Backup) to make sure the request was successful.
 
 {% endlist %}
 
@@ -317,15 +655,97 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To set the backup start time, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * New backup start time in the `configSpec.backupWindowStart` parameter.
-    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupWindowStart`).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.backupWindowStart",
+                      "configSpec": {
+                        "backupWindowStart": {
+                          "hours": "<hours>",
+                          "minutes": "<minutes>",
+                          "seconds": "<seconds>",
+                          "nanos": "<nanoseconds>"
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here we specified just a single parameter, `configSpec.backupWindowStart`.
+
+        * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.backup_window_start"
+                    ]
+                  },
+                  "config_spec": {
+                    "backup_window_start": {
+                      "hours": "<hours>",
+                      "minutes": "<minutes>",
+                      "seconds": "<seconds>",
+                      "nanos": "<nanoseconds>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here we specified just a single parameter, `config_spec.backup_window_start`.
+
+        * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
+
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

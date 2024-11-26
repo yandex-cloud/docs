@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/stop.md
 ---
 
-# Data Proc API, REST: Cluster.Stop {#Stop}
+# Data Proc API, REST: Cluster.Stop
 
 Stops the specified cluster.
 
@@ -110,7 +110,8 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
       "string"
     ],
     "deletionProtection": "boolean",
-    "logGroupId": "string"
+    "logGroupId": "string",
+    "environment": "string"
   }
   // end of the list of possible fields
 }
@@ -292,6 +293,13 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

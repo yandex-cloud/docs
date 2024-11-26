@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/postgresql/v1/api-ref/grpc/Database/get.md
 ---
 
-# Managed Service for PostgreSQL API, gRPC: DatabaseService.Get {#Get}
+# Managed Service for PostgreSQL API, gRPC: DatabaseService.Get
 
 Returns the specified PostgreSQL Database resource.
 
@@ -17,18 +17,18 @@ To get the list of available PostgreSQL Database resources, make a [List](/docs/
 
 ```json
 {
-  "clusterId": "string",
-  "databaseName": "string"
+  "cluster_id": "string",
+  "database_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the PostgreSQL cluster that the database belongs to.
 To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/grpc/Cluster/list#List) request. ||
-|| databaseName | **string**
+|| database_name | **string**
 
 Required field. Name of the PostgreSQL Database resource to return.
 To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/grpc/Database/list#List) request. ||
@@ -39,18 +39,18 @@ To get the name of the database use a [DatabaseService.List](/docs/managed-postg
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "owner": "string",
-  "lcCollate": "string",
-  "lcCtype": "string",
+  "lc_collate": "string",
+  "lc_ctype": "string",
   "extensions": [
     {
       "name": "string",
       "version": "string"
     }
   ],
-  "templateDb": "string",
-  "deletionProtection": "google.protobuf.BoolValue"
+  "template_db": "string",
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -62,27 +62,27 @@ the [Developer's Guide](/docs/managed-postgresql/concepts).
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the PostgreSQL cluster that the database belongs to. ||
 || owner | **string**
 
 Name of the user assigned as the owner of the database. ||
-|| lcCollate | **string**
+|| lc_collate | **string**
 
 POSIX locale for string sorting order.
 Can only be set at creation time. ||
-|| lcCtype | **string**
+|| lc_ctype | **string**
 
 POSIX locale for character classification.
 Can only be set at creation time. ||
 || extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
 
 PostgreSQL extensions enabled for the database. ||
-|| templateDb | **string**
+|| template_db | **string**
 
 Name of the database template. ||
-|| deletionProtection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Deletion Protection inhibits deletion of the database
 

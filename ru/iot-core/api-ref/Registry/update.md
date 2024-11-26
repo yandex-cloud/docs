@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/update.md
 ---
 
-# IoT Core Service, REST: Registry.Update {#Update}
+# IoT Core Service, REST: Registry.Update
 
 Updates the specified registry.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/update.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.Update {#Update}
+# Application Load Balancer API, REST: LoadBalancer.Update
 
 Updates the specified application load balancer.
 

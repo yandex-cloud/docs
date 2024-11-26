@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/create.md
 ---
 
-# EventRouter Service, REST: Bus.Create {#Create}
+# EventRouter Service, REST: Bus.Create
 
 Creates a bus in the specified folder.
 

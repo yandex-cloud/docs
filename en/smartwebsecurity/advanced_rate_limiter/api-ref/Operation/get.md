@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/Operation/get.md
 ---
 
-# SmartWebSecurity ARL API, REST: Operation.Get {#Get}
+# SmartWebSecurity ARL API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

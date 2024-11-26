@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/get.md
 ---
 
-# Serverless Containers Service, REST: Container.Get {#Get}
+# Serverless Containers Service, REST: Container.Get
 
 Returns the specified container.
 

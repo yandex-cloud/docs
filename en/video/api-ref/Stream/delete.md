@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/delete.md
 ---
 
-# Video API, REST: Stream.Delete {#Delete}
+# Video API, REST: Stream.Delete
 
 Delete stream.
 

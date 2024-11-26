@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/deleteShard.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.DeleteShard {#DeleteShard}
+# Managed Service for Redis API, REST: Cluster.DeleteShard
 
 Deletes the specified shard.
 

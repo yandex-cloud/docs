@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Lock/get.md
 ---
 
-# Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.Get {#Get}
+# Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.Get
 
 Returns the specified subscription lock.
 

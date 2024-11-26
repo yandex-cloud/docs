@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/api-ref/grpc/SecurityProfile/create.md
 ---
 
-# SmartWebSecurity API, gRPC: SecurityProfileService.Create {#Create}
+# SmartWebSecurity API, gRPC: SecurityProfileService.Create
 
 Creates a security profile in the specified folder using the data specified in the request.
 
@@ -15,70 +15,70 @@ Creates a security profile in the specified folder using the data specified in t
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "labels": "string",
   "name": "string",
   "description": "string",
-  "defaultAction": "DefaultAction",
-  "securityRules": [
+  "default_action": "DefaultAction",
+  "security_rules": [
     {
       "name": "string",
       "priority": "int64",
-      "dryRun": "bool",
-      // Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`
-      "ruleCondition": {
+      "dry_run": "bool",
+      // Includes only one of the fields `rule_condition`, `smart_protection`, `waf`
+      "rule_condition": {
         "action": "Action",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -88,34 +88,34 @@ Creates a security profile in the specified folder using the data specified in t
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -123,59 +123,59 @@ Creates a security profile in the specified folder using the data specified in t
           }
         }
       },
-      "smartProtection": {
+      "smart_protection": {
         "mode": "Mode",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -185,34 +185,34 @@ Creates a security profile in the specified folder using the data specified in t
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -226,53 +226,53 @@ Creates a security profile in the specified folder using the data specified in t
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -282,58 +282,58 @@ Creates a security profile in the specified folder using the data specified in t
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
             }
           }
         },
-        "wafProfileId": "string"
+        "waf_profile_id": "string"
       },
       // end of the list of possible fields
       "description": "string"
     }
   ],
-  "captchaId": "string",
-  "advancedRateLimiterProfileId": "string",
-  "analyzeRequestBody": {
-    "sizeLimit": "int64",
-    "sizeLimitAction": "Action"
+  "captcha_id": "string",
+  "advanced_rate_limiter_profile_id": "string",
+  "analyze_request_body": {
+    "size_limit": "int64",
+    "size_limit_action": "Action"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a security profile in. ||
 || labels | **string**
@@ -345,23 +345,23 @@ Name of the security profile. The name is unique within the folder. 1-50 charact
 || description | **string**
 
 Optional description of the security profile. ||
-|| defaultAction | enum **DefaultAction**
+|| default_action | enum **DefaultAction**
 
 Action to perform if none of rules matched.
 
 - `DEFAULT_ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
+|| security_rules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
 
 List of security rules. ||
-|| captchaId | **string**
+|| captcha_id | **string**
 
 Captcha ID to use with this security profile. Set empty to use default. ||
-|| advancedRateLimiterProfileId | **string**
+|| advanced_rate_limiter_profile_id | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
-|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
+|| analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
 
 Parameters for request body analyzer. ||
 |#
@@ -382,26 +382,26 @@ Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire security profile.
 A lower numeric value means a higher priority.
 The default_action has the lowest priority. ||
-|| dryRun | **bool**
+|| dry_run | **bool**
 
 This mode allows you to test your security profile or a single rule.
 For example, you can have the number of alarms for a specific rule displayed.
 Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. ||
-|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+|| rule_condition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
 
 Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
+|| smart_protection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
 
 Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
 
 Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || description | **string**
 
 Optional description of the rule. 0-512 characters long. ||
@@ -435,16 +435,16 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
 Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
 |#
@@ -466,24 +466,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -492,7 +492,7 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 List of HTTP methods. OR semantics implied. ||
 |#
@@ -545,10 +545,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -557,7 +557,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -611,7 +611,7 @@ requests to SmartCaptcha. The suspicious requests will be blocked. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the rule. ||
-|| wafProfileId | **string**
+|| waf_profile_id | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
 |#
@@ -620,10 +620,10 @@ Required field. ID of WAF profile to use in this rule. ||
 
 #|
 ||Field | Description ||
-|| sizeLimit | **int64**
+|| size_limit | **int64**
 
 Maximum size of body to pass to analyzer. In kilobytes. ||
-|| sizeLimitAction | enum **Action**
+|| size_limit_action | enum **Action**
 
 Action to perform if maximum size of body exceeded.
 
@@ -638,81 +638,81 @@ Action to perform if maximum size of body exceeded.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "securityProfileId": "string"
+    "security_profile_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "labels": "string",
     "name": "string",
     "description": "string",
-    "defaultAction": "DefaultAction",
-    "securityRules": [
+    "default_action": "DefaultAction",
+    "security_rules": [
       {
         "name": "string",
         "priority": "int64",
-        "dryRun": "bool",
-        // Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`
-        "ruleCondition": {
+        "dry_run": "bool",
+        // Includes only one of the fields `rule_condition`, `smart_protection`, `waf`
+        "rule_condition": {
           "action": "Action",
           "condition": {
             "authority": {
               "authorities": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "httpMethod": {
-              "httpMethods": [
+            "http_method": {
+              "http_methods": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "requestUri": {
+            "request_uri": {
               "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               },
               "queries": [
                 {
                   "key": "string",
                   "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
+                    // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                    "exact_match": "string",
+                    "exact_not_match": "string",
+                    "prefix_match": "string",
+                    "prefix_not_match": "string",
+                    "pire_regex_match": "string",
+                    "pire_regex_not_match": "string"
                     // end of the list of possible fields
                   }
                 }
@@ -722,34 +722,34 @@ Action to perform if maximum size of body exceeded.
               {
                 "name": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
             ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
+            "source_ip": {
+              "ip_ranges_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "ipRangesNotMatch": {
-                "ipRanges": [
+              "ip_ranges_not_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "geoIpMatch": {
+              "geo_ip_match": {
                 "locations": [
                   "string"
                 ]
               },
-              "geoIpNotMatch": {
+              "geo_ip_not_match": {
                 "locations": [
                   "string"
                 ]
@@ -757,59 +757,59 @@ Action to perform if maximum size of body exceeded.
             }
           }
         },
-        "smartProtection": {
+        "smart_protection": {
           "mode": "Mode",
           "condition": {
             "authority": {
               "authorities": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "httpMethod": {
-              "httpMethods": [
+            "http_method": {
+              "http_methods": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "requestUri": {
+            "request_uri": {
               "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               },
               "queries": [
                 {
                   "key": "string",
                   "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
+                    // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                    "exact_match": "string",
+                    "exact_not_match": "string",
+                    "prefix_match": "string",
+                    "prefix_not_match": "string",
+                    "pire_regex_match": "string",
+                    "pire_regex_not_match": "string"
                     // end of the list of possible fields
                   }
                 }
@@ -819,34 +819,34 @@ Action to perform if maximum size of body exceeded.
               {
                 "name": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
             ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
+            "source_ip": {
+              "ip_ranges_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "ipRangesNotMatch": {
-                "ipRanges": [
+              "ip_ranges_not_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "geoIpMatch": {
+              "geo_ip_match": {
                 "locations": [
                   "string"
                 ]
               },
-              "geoIpNotMatch": {
+              "geo_ip_not_match": {
                 "locations": [
                   "string"
                 ]
@@ -860,53 +860,53 @@ Action to perform if maximum size of body exceeded.
             "authority": {
               "authorities": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "httpMethod": {
-              "httpMethods": [
+            "http_method": {
+              "http_methods": [
                 {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               ]
             },
-            "requestUri": {
+            "request_uri": {
               "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               },
               "queries": [
                 {
                   "key": "string",
                   "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
+                    // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                    "exact_match": "string",
+                    "exact_not_match": "string",
+                    "prefix_match": "string",
+                    "prefix_not_match": "string",
+                    "pire_regex_match": "string",
+                    "pire_regex_not_match": "string"
                     // end of the list of possible fields
                   }
                 }
@@ -916,53 +916,53 @@ Action to perform if maximum size of body exceeded.
               {
                 "name": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
             ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
+            "source_ip": {
+              "ip_ranges_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "ipRangesNotMatch": {
-                "ipRanges": [
+              "ip_ranges_not_match": {
+                "ip_ranges": [
                   "string"
                 ]
               },
-              "geoIpMatch": {
+              "geo_ip_match": {
                 "locations": [
                   "string"
                 ]
               },
-              "geoIpNotMatch": {
+              "geo_ip_not_match": {
                 "locations": [
                   "string"
                 ]
               }
             }
           },
-          "wafProfileId": "string"
+          "waf_profile_id": "string"
         },
         // end of the list of possible fields
         "description": "string"
       }
     ],
-    "createdAt": "google.protobuf.Timestamp",
-    "cloudId": "string",
-    "captchaId": "string",
-    "advancedRateLimiterProfileId": "string",
-    "analyzeRequestBody": {
-      "sizeLimit": "int64",
-      "sizeLimitAction": "Action"
+    "created_at": "google.protobuf.Timestamp",
+    "cloud_id": "string",
+    "captcha_id": "string",
+    "advanced_rate_limiter_profile_id": "string",
+    "analyze_request_body": {
+      "size_limit": "int64",
+      "size_limit_action": "Action"
     }
   }
   // end of the list of possible fields
@@ -979,13 +979,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -1028,7 +1028,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| securityProfileId | **string**
+|| security_profile_id | **string**
 
 ID of the security profile that is being created. ||
 |#
@@ -1042,7 +1042,7 @@ A SecurityProfile resource.
 || id | **string**
 
 ID of the security profile. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the security profile belongs to. ||
 || labels | **string**
@@ -1054,29 +1054,29 @@ Required field. Name of the security profile. The name is unique within the fold
 || description | **string**
 
 Optional description of the security profile. ||
-|| defaultAction | enum **DefaultAction**
+|| default_action | enum **DefaultAction**
 
 Required field. Action to perform if none of rules matched.
 
 - `DEFAULT_ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule2)**
+|| security_rules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule2)**
 
 List of security rules. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the security profile belongs to. ||
-|| captchaId | **string**
+|| captcha_id | **string**
 
 Captcha ID to use with this security profile. Set empty to use default. ||
-|| advancedRateLimiterProfileId | **string**
+|| advanced_rate_limiter_profile_id | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
-|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2)**
+|| analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2)**
 
 Parameters for request body analyzer. ||
 |#
@@ -1097,26 +1097,26 @@ Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire security profile.
 A lower numeric value means a higher priority.
 The default_action has the lowest priority. ||
-|| dryRun | **bool**
+|| dry_run | **bool**
 
 This mode allows you to test your security profile or a single rule.
 For example, you can have the number of alarms for a specific rule displayed.
 Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. ||
-|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition2)**
+|| rule_condition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition2)**
 
 Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection2)**
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
+|| smart_protection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection2)**
 
 Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf2)**
 
 Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || description | **string**
 
 Optional description of the rule. 0-512 characters long. ||
@@ -1150,16 +1150,16 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher2)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2)**
 
 Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
 
 Match IP. ||
 |#
@@ -1181,24 +1181,24 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2}
@@ -1207,7 +1207,7 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 List of HTTP methods. OR semantics implied. ||
 |#
@@ -1260,10 +1260,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2}
@@ -1272,7 +1272,7 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
 List of IP ranges. OR semantics implied. ||
 |#
@@ -1326,7 +1326,7 @@ requests to SmartCaptcha. The suspicious requests will be blocked. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
 
 The condition for matching the rule. ||
-|| wafProfileId | **string**
+|| waf_profile_id | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
 |#
@@ -1335,10 +1335,10 @@ Required field. ID of WAF profile to use in this rule. ||
 
 #|
 ||Field | Description ||
-|| sizeLimit | **int64**
+|| size_limit | **int64**
 
 Maximum size of body to pass to analyzer. In kilobytes. ||
-|| sizeLimitAction | enum **Action**
+|| size_limit_action | enum **Action**
 
 Action to perform if maximum size of body exceeded.
 

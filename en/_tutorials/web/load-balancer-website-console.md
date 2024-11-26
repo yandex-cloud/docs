@@ -48,7 +48,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
 
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`

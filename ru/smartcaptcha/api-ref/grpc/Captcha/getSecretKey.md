@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartcaptcha/v1/api-ref/grpc/Captcha/getSecretKey.md
 ---
 
-# SmartCaptcha API, gRPC: CaptchaService.GetSecretKey {#GetSecretKey}
+# SmartCaptcha API, gRPC: CaptchaService.GetSecretKey
 
 Returns the secret data of specified Captcha resource.
 
@@ -15,13 +15,13 @@ Returns the secret data of specified Captcha resource.
 
 ```json
 {
-  "captchaId": "string"
+  "captcha_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| captchaId | **string**
+|| captcha_id | **string**
 
 Required field. ID of the Captcha resource to return. ||
 |#
@@ -30,7 +30,7 @@ Required field. ID of the Captcha resource to return. ||
 
 ```json
 {
-  "serverKey": "string"
+  "server_key": "string"
 }
 ```
 
@@ -38,7 +38,7 @@ CaptchaSecretKey object. Contains captcha data that need to keep in secret.
 
 #|
 ||Field | Description ||
-|| serverKey | **string**
+|| server_key | **string**
 
 Server key of the captcha, see [CAPTCHA keys](/docs/smartcaptcha/concepts/keys). ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/listOperations.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.ListOperations {#ListOperations}
+# Identity and Access Management API, REST: ApiKey.ListOperations
 
 Retrieves the list of operations for the specified API key.
 

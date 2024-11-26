@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/Cluster/create.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: ClusterService.Create {#Create}
+# Managed Service for Greenplum® API, gRPC: ClusterService.Create
 
 Creates a Greenplum® cluster in the specified folder.
 
@@ -15,127 +15,127 @@ Creates a Greenplum® cluster in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
   "environment": "Environment",
   "config": {
     "version": "string",
-    "backupWindowStart": "google.type.TimeOfDay",
-    "backupRetainPeriodDays": "google.protobuf.Int64Value",
+    "backup_window_start": "google.type.TimeOfDay",
+    "backup_retain_period_days": "google.protobuf.Int64Value",
     "access": {
-      "dataLens": "bool",
-      "webSql": "bool",
-      "dataTransfer": "bool",
-      "yandexQuery": "bool"
+      "data_lens": "bool",
+      "web_sql": "bool",
+      "data_transfer": "bool",
+      "yandex_query": "bool"
     },
-    "zoneId": "string",
-    "subnetId": "string",
-    "assignPublicIp": "bool"
+    "zone_id": "string",
+    "subnet_id": "string",
+    "assign_public_ip": "bool"
   },
-  "masterConfig": {
+  "master_config": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     }
   },
-  "segmentConfig": {
+  "segment_config": {
     "resources": {
-      "resourcePresetId": "string",
-      "diskSize": "int64",
-      "diskTypeId": "string"
+      "resource_preset_id": "string",
+      "disk_size": "int64",
+      "disk_type_id": "string"
     }
   },
-  "masterHostCount": "int64",
-  "segmentInHost": "int64",
-  "segmentHostCount": "int64",
-  "userName": "string",
-  "userPassword": "string",
-  "networkId": "string",
-  "securityGroupIds": [
+  "master_host_count": "int64",
+  "segment_in_host": "int64",
+  "segment_host_count": "int64",
+  "user_name": "string",
+  "user_password": "string",
+  "network_id": "string",
+  "security_group_ids": [
     "string"
   ],
-  "deletionProtection": "bool",
-  "hostGroupIds": [
+  "deletion_protection": "bool",
+  "host_group_ids": [
     "string"
   ],
-  "maintenanceWindow": {
-    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
     "anytime": "AnytimeMaintenanceWindow",
-    "weeklyMaintenanceWindow": {
+    "weekly_maintenance_window": {
       "day": "WeekDay",
       "hour": "int64"
     }
     // end of the list of possible fields
   },
-  "configSpec": {
-    // Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`
-    "greenplumConfig_6_17": {
-      "maxConnections": "google.protobuf.Int64Value",
-      "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-      "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-      "maxPreparedTransactions": "google.protobuf.Int64Value",
-      "gpWorkfileCompression": "google.protobuf.BoolValue"
+  "config_spec": {
+    // Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`
+    "greenplum_config_6_17": {
+      "max_connections": "google.protobuf.Int64Value",
+      "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+      "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+      "max_prepared_transactions": "google.protobuf.Int64Value",
+      "gp_workfile_compression": "google.protobuf.BoolValue"
     },
-    "greenplumConfig_6_19": {
-      "maxConnections": "google.protobuf.Int64Value",
-      "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-      "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-      "maxPreparedTransactions": "google.protobuf.Int64Value",
-      "gpWorkfileCompression": "google.protobuf.BoolValue",
-      "maxStatementMem": "google.protobuf.Int64Value",
-      "logStatement": "LogStatement"
+    "greenplum_config_6_19": {
+      "max_connections": "google.protobuf.Int64Value",
+      "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+      "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+      "max_prepared_transactions": "google.protobuf.Int64Value",
+      "gp_workfile_compression": "google.protobuf.BoolValue",
+      "max_statement_mem": "google.protobuf.Int64Value",
+      "log_statement": "LogStatement"
     },
-    "greenplumConfig_6_21": {
-      "maxConnections": "google.protobuf.Int64Value",
-      "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-      "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-      "maxPreparedTransactions": "google.protobuf.Int64Value",
-      "gpWorkfileCompression": "google.protobuf.BoolValue",
-      "maxStatementMem": "google.protobuf.Int64Value",
-      "logStatement": "LogStatement",
-      "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+    "greenplum_config_6_21": {
+      "max_connections": "google.protobuf.Int64Value",
+      "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+      "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+      "max_prepared_transactions": "google.protobuf.Int64Value",
+      "gp_workfile_compression": "google.protobuf.BoolValue",
+      "max_statement_mem": "google.protobuf.Int64Value",
+      "log_statement": "LogStatement",
+      "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
     },
-    "greenplumConfig_6_22": {
-      "maxConnections": "google.protobuf.Int64Value",
-      "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-      "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-      "maxPreparedTransactions": "google.protobuf.Int64Value",
-      "gpWorkfileCompression": "google.protobuf.BoolValue",
-      "maxStatementMem": "google.protobuf.Int64Value",
-      "logStatement": "LogStatement",
-      "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+    "greenplum_config_6_22": {
+      "max_connections": "google.protobuf.Int64Value",
+      "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+      "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+      "max_prepared_transactions": "google.protobuf.Int64Value",
+      "gp_workfile_compression": "google.protobuf.BoolValue",
+      "max_statement_mem": "google.protobuf.Int64Value",
+      "log_statement": "LogStatement",
+      "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
     },
-    "greenplumConfig_6": {
-      "maxConnections": "google.protobuf.Int64Value",
-      "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-      "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-      "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-      "maxPreparedTransactions": "google.protobuf.Int64Value",
-      "gpWorkfileCompression": "google.protobuf.BoolValue",
-      "maxStatementMem": "google.protobuf.Int64Value",
-      "logStatement": "LogStatement",
-      "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+    "greenplum_config_6": {
+      "max_connections": "google.protobuf.Int64Value",
+      "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+      "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+      "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+      "max_prepared_transactions": "google.protobuf.Int64Value",
+      "gp_workfile_compression": "google.protobuf.BoolValue",
+      "max_statement_mem": "google.protobuf.Int64Value",
+      "log_statement": "LogStatement",
+      "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
     },
     // end of the list of possible fields
     "pool": {
       "mode": "PoolMode",
       "size": "google.protobuf.Int64Value",
-      "clientIdleTimeout": "google.protobuf.Int64Value"
+      "client_idle_timeout": "google.protobuf.Int64Value"
     },
-    "backgroundActivities": {
-      "tableSizes": {
+    "background_activities": {
+      "table_sizes": {
         "starts": [
           {
             "hours": "int64",
@@ -143,57 +143,57 @@ Creates a Greenplum® cluster in the specified folder.
           }
         ]
       },
-      "analyzeAndVacuum": {
+      "analyze_and_vacuum": {
         "start": {
           "hours": "int64",
           "minutes": "int64"
         },
-        "analyzeTimeout": "google.protobuf.Int64Value",
-        "vacuumTimeout": "google.protobuf.Int64Value"
+        "analyze_timeout": "google.protobuf.Int64Value",
+        "vacuum_timeout": "google.protobuf.Int64Value"
       },
-      "queryKillerScripts": {
+      "query_killer_scripts": {
         "idle": {
           "enable": "google.protobuf.BoolValue",
-          "maxAge": "google.protobuf.Int64Value",
-          "ignoreUsers": [
+          "max_age": "google.protobuf.Int64Value",
+          "ignore_users": [
             "string"
           ]
         },
-        "idleInTransaction": {
+        "idle_in_transaction": {
           "enable": "google.protobuf.BoolValue",
-          "maxAge": "google.protobuf.Int64Value",
-          "ignoreUsers": [
+          "max_age": "google.protobuf.Int64Value",
+          "ignore_users": [
             "string"
           ]
         },
-        "longRunning": {
+        "long_running": {
           "enable": "google.protobuf.BoolValue",
-          "maxAge": "google.protobuf.Int64Value",
-          "ignoreUsers": [
+          "max_age": "google.protobuf.Int64Value",
+          "ignore_users": [
             "string"
           ]
         }
       }
     },
-    "pxfConfig": {
-      "connectionTimeout": "google.protobuf.Int64Value",
-      "uploadTimeout": "google.protobuf.Int64Value",
-      "maxThreads": "google.protobuf.Int64Value",
-      "poolAllowCoreThreadTimeout": "google.protobuf.BoolValue",
-      "poolCoreSize": "google.protobuf.Int64Value",
-      "poolQueueCapacity": "google.protobuf.Int64Value",
-      "poolMaxSize": "google.protobuf.Int64Value",
+    "pxf_config": {
+      "connection_timeout": "google.protobuf.Int64Value",
+      "upload_timeout": "google.protobuf.Int64Value",
+      "max_threads": "google.protobuf.Int64Value",
+      "pool_allow_core_thread_timeout": "google.protobuf.BoolValue",
+      "pool_core_size": "google.protobuf.Int64Value",
+      "pool_queue_capacity": "google.protobuf.Int64Value",
+      "pool_max_size": "google.protobuf.Int64Value",
       "xmx": "google.protobuf.Int64Value",
       "xms": "google.protobuf.Int64Value"
     }
   },
-  "cloudStorage": {
+  "cloud_storage": {
     "enable": "bool"
   },
-  "masterHostGroupIds": [
+  "master_host_group_ids": [
     "string"
   ],
-  "segmentHostGroupIds": [
+  "segment_host_group_ids": [
     "string"
   ]
 }
@@ -201,7 +201,7 @@ Creates a Greenplum® cluster in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create the Greenplum® cluster in. ||
 || name | **string**
@@ -224,52 +224,52 @@ Required field. Deployment environment of the Greenplum® cluster.
 || config | **[GreenplumConfig](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig)**
 
 Greenplum® cluster configuration. ||
-|| masterConfig | **[MasterSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec)**
+|| master_config | **[MasterSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfigSpec)**
 
 Configuration of the Greenplum® master subcluster. ||
-|| segmentConfig | **[SegmentSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfigSpec)**
+|| segment_config | **[SegmentSubclusterConfigSpec](#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfigSpec)**
 
 Configuration of the Greenplum® segment subcluster. ||
-|| masterHostCount | **int64**
+|| master_host_count | **int64**
 
 Number of hosts in the master subcluster. ||
-|| segmentInHost | **int64**
+|| segment_in_host | **int64**
 
 Number of segments per host. ||
-|| segmentHostCount | **int64**
+|| segment_host_count | **int64**
 
 Number of hosts in the segment subcluster. ||
-|| userName | **string**
+|| user_name | **string**
 
 Required field. Owner user name. ||
-|| userPassword | **string**
+|| user_password | **string**
 
 Required field. Owner user password. ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the network to create the cluster in. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Determines whether the cluster is protected from being deleted. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups to place VMs of the cluster in. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
 
 A Greenplum® cluster maintenance window. Should be defined by either one of the two options. ||
-|| configSpec | **[ConfigSpec](#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
+|| config_spec | **[ConfigSpec](#yandex.cloud.mdb.greenplum.v1.ConfigSpec)**
 
 Configuration of Greenplum® and Odyssey®. ||
-|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
+|| cloud_storage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
 
 Cloud storage settings ||
-|| masterHostGroupIds[] | **string**
+|| master_host_group_ids[] | **string**
 
 Host groups hosting VMs of the master subcluster. ||
-|| segmentHostGroupIds[] | **string**
+|| segment_host_group_ids[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
 |#
@@ -281,23 +281,23 @@ Host groups hosting VMs of the segment subcluster. ||
 || version | **string**
 
 Version of the Greenplum® server software. ||
-|| backupWindowStart | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
-|| backupRetainPeriodDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retention policy of automated backups. ||
 || access | **[Access](#yandex.cloud.mdb.greenplum.v1.Access)**
 
 Access policy for external services. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone the cluster belongs to.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
-ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](#yandex.cloud.mdb.greenplum.v1.Cluster)). ||
-|| assignPublicIp | **bool**
+ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#yandex.cloud.mdb.greenplum.v1.Cluster)). ||
+|| assign_public_ip | **bool**
 
 Determines whether the cluster has a public IP address.
 
@@ -308,16 +308,16 @@ After the cluster has been created, this setting cannot be changed. ||
 
 #|
 ||Field | Description ||
-|| dataLens | **bool**
+|| data_lens | **bool**
 
 Allows data export from the cluster to DataLens. ||
-|| webSql | **bool**
+|| web_sql | **bool**
 
 Allows SQL queries to the cluster databases from the management console. ||
-|| dataTransfer | **bool**
+|| data_transfer | **bool**
 
 Allows access for DataTransfer. ||
-|| yandexQuery | **bool**
+|| yandex_query | **bool**
 
 Allow access for YandexQuery. ||
 |#
@@ -335,15 +335,15 @@ Resources allocated to Greenplum® master subcluster hosts. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host.
 
 Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
@@ -365,12 +365,12 @@ Resources allocated to Greenplum® segment subcluster hosts. ||
 
 An any-time maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
 
 A weekly maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
 
 ## AnytimeMaintenanceWindow {#yandex.cloud.mdb.greenplum.v1.AnytimeMaintenanceWindow}
@@ -409,57 +409,57 @@ Hour of the day in the UTC timezone. ||
 
 #|
 ||Field | Description ||
-|| greenplumConfig_6_17 | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
+|| greenplum_config_6_17 | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6_19 | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
+Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`. ||
+|| greenplum_config_6_19 | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_19)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6_21 | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
+Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`. ||
+|| greenplum_config_6_21 | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_21)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6_22 | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
+Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`. ||
+|| greenplum_config_6_22 | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_22)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
-|| greenplumConfig_6 | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
+Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`. ||
+|| greenplum_config_6 | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6)**
 
-Includes only one of the fields `greenplumConfig_6_17`, `greenplumConfig_6_19`, `greenplumConfig_6_21`, `greenplumConfig_6_22`, `greenplumConfig_6`. ||
+Includes only one of the fields `greenplum_config_6_17`, `greenplum_config_6_19`, `greenplum_config_6_21`, `greenplum_config_6_22`, `greenplum_config_6`. ||
 || pool | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig)**
 
 Odyssey® pool settings. ||
-|| backgroundActivities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig)**
+|| background_activities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig)**
 
 Managed Greenplum® background tasks configuration. ||
-|| pxfConfig | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)** ||
+|| pxf_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)** ||
 |#
 
 ## GreenplumConfig6_17 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_17}
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of temporary spill files allowed per query at each segment.
 
@@ -474,12 +474,12 @@ Master session reloads if the parameter changes.
 Default value is 10000.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of transactions that can be in the `prepared` state simultaneously.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the spill files are compressed or not.
 
@@ -490,29 +490,29 @@ More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Green
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of temporary spill files allowed per query at each segment.
 
@@ -527,30 +527,30 @@ Master session reloads if the parameter changes.
 Default value is 10000.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of transactions that can be in the `prepared` state simultaneously.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the spill files are compressed or not.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum memory limit for a query, in bytes.
 
 Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
 
-Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
 
-When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file.
 
 Default value is 2097152000 (2000 MB).
 
 More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Logged SQL statements.
 
@@ -569,24 +569,24 @@ More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Green
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -594,15 +594,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -610,7 +610,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -623,7 +623,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -632,24 +632,24 @@ https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -657,15 +657,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -673,7 +673,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -686,7 +686,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -695,24 +695,24 @@ https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -720,15 +720,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -736,7 +736,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -749,7 +749,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -770,7 +770,7 @@ Route server pool mode.
 The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
 
 Set to zero to disable the limit. ||
-|| clientIdleTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Server pool idle timeout, in seconds.
 
@@ -783,13 +783,13 @@ Set to zero to disable the limit. ||
 
 #|
 ||Field | Description ||
-|| tableSizes | **[TableSizes](#yandex.cloud.mdb.greenplum.v1.TableSizes)**
+|| table_sizes | **[TableSizes](#yandex.cloud.mdb.greenplum.v1.TableSizes)**
 
 Enables scripts that collects tables sizes to `*_sizes` tables in `mdb_toolkit` schema. ||
-|| analyzeAndVacuum | **[AnalyzeAndVacuum](#yandex.cloud.mdb.greenplum.v1.AnalyzeAndVacuum)**
+|| analyze_and_vacuum | **[AnalyzeAndVacuum](#yandex.cloud.mdb.greenplum.v1.AnalyzeAndVacuum)**
 
 Configuration for `ANALYZE` and `VACUUM` operations. ||
-|| queryKillerScripts | **[QueryKillerScripts](#yandex.cloud.mdb.greenplum.v1.QueryKillerScripts)**
+|| query_killer_scripts | **[QueryKillerScripts](#yandex.cloud.mdb.greenplum.v1.QueryKillerScripts)**
 
 Configuration for long running queries killer. ||
 |#
@@ -814,10 +814,10 @@ Configuration for long running queries killer. ||
 #|
 ||Field | Description ||
 || start | **[BackgroundActivityStartAt](#yandex.cloud.mdb.greenplum.v1.BackgroundActivityStartAt)** ||
-|| analyzeTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. ||
-|| vacuumTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. ||
 |#
@@ -829,10 +829,10 @@ Maximum duration of the `VACUUM` operation, in seconds. The default value is `36
 || idle | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
 
 Configuration of script that kills long running queries that are in `idle` state. ||
-|| idleInTransaction | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
+|| idle_in_transaction | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
 
 Configuration of script that kills long running queries that are in `idle in transaction` state. ||
-|| longRunning | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
+|| long_running | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller)**
 
 Configuration of script that kills long running queries (in any state). ||
 |#
@@ -842,10 +842,10 @@ Configuration of script that kills long running queries (in any state). ||
 #|
 ||Field | Description ||
 || enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| maxAge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_age | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration for this type of queries (in seconds). ||
-|| ignoreUsers[] | **string**
+|| ignore_users[] | **string**
 
 Ignore these users when considering queries to terminate ||
 |#
@@ -854,33 +854,33 @@ Ignore these users when considering queries to terminate ||
 
 #|
 ||Field | Description ||
-|| connectionTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making read requests.
 
 Specify values in seconds. ||
-|| uploadTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making write requests.
 
 Specify the values in seconds. ||
-|| maxThreads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of the Apache Tomcat® threads.
 
 To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. ||
-|| poolAllowCoreThreadTimeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the timeout for core streaming threads is permitted. ||
-|| poolCoreSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of core streaming threads per pool. ||
-|| poolQueueCapacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of requests you can add to a pool queue for core streaming threads.
 
 If `0`, no pool queue is generated. ||
-|| poolMaxSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum allowed number of core streaming threads. ||
 || xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -908,33 +908,33 @@ enable Cloud Storage for cluster ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "config": {
       "version": "string",
-      "backupWindowStart": "google.type.TimeOfDay",
-      "backupRetainPeriodDays": "google.protobuf.Int64Value",
+      "backup_window_start": "google.type.TimeOfDay",
+      "backup_retain_period_days": "google.protobuf.Int64Value",
       "access": {
-        "dataLens": "bool",
-        "webSql": "bool",
-        "dataTransfer": "bool",
-        "yandexQuery": "bool"
+        "data_lens": "bool",
+        "web_sql": "bool",
+        "data_transfer": "bool",
+        "yandex_query": "bool"
       },
-      "zoneId": "string",
-      "subnetId": "string",
-      "assignPublicIp": "bool"
+      "zone_id": "string",
+      "subnet_id": "string",
+      "assign_public_ip": "bool"
     },
     "description": "string",
     "labels": "string",
@@ -946,247 +946,247 @@ enable Cloud Storage for cluster ||
         "link": "string"
       }
     ],
-    "masterConfig": {
+    "master_config": {
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       }
     },
-    "segmentConfig": {
+    "segment_config": {
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       }
     },
-    "masterHostCount": "int64",
-    "segmentHostCount": "int64",
-    "segmentInHost": "int64",
-    "networkId": "string",
+    "master_host_count": "int64",
+    "segment_host_count": "int64",
+    "segment_in_host": "int64",
+    "network_id": "string",
     "health": "Health",
     "status": "Status",
-    "maintenanceWindow": {
-      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "maintenance_window": {
+      // Includes only one of the fields `anytime`, `weekly_maintenance_window`
       "anytime": "AnytimeMaintenanceWindow",
-      "weeklyMaintenanceWindow": {
+      "weekly_maintenance_window": {
         "day": "WeekDay",
         "hour": "int64"
       }
       // end of the list of possible fields
     },
-    "plannedOperation": {
+    "planned_operation": {
       "info": "string",
-      "delayedUntil": "google.protobuf.Timestamp"
+      "delayed_until": "google.protobuf.Timestamp"
     },
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ],
-    "userName": "string",
-    "deletionProtection": "bool",
-    "hostGroupIds": [
+    "user_name": "string",
+    "deletion_protection": "bool",
+    "host_group_ids": [
       "string"
     ],
-    "clusterConfig": {
-      // Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`
-      "greenplumConfigSet_6_17": {
-        "effectiveConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue"
+    "cluster_config": {
+      // Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`
+      "greenplum_config_set_6_17": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue"
         },
-        "userConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue"
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue"
         },
-        "defaultConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue"
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue"
         }
       },
-      "greenplumConfigSet_6_19": {
-        "effectiveConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement"
+      "greenplum_config_set_6_19": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement"
         },
-        "userConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement"
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement"
         },
-        "defaultConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement"
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement"
         }
       },
-      "greenplumConfigSet_6_21": {
-        "effectiveConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+      "greenplum_config_set_6_21": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "userConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "defaultConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         }
       },
-      "greenplumConfigSet_6_22": {
-        "effectiveConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+      "greenplum_config_set_6_22": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "userConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "defaultConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         }
       },
-      "greenplumConfigSet_6": {
-        "effectiveConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+      "greenplum_config_set_6": {
+        "effective_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "userConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "user_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         },
-        "defaultConfig": {
-          "maxConnections": "google.protobuf.Int64Value",
-          "maxSlotWalKeepSize": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerSegment": "google.protobuf.Int64Value",
-          "gpWorkfileLimitPerQuery": "google.protobuf.Int64Value",
-          "gpWorkfileLimitFilesPerQuery": "google.protobuf.Int64Value",
-          "maxPreparedTransactions": "google.protobuf.Int64Value",
-          "gpWorkfileCompression": "google.protobuf.BoolValue",
-          "maxStatementMem": "google.protobuf.Int64Value",
-          "logStatement": "LogStatement",
-          "gpAddColumnInheritsTableSetting": "google.protobuf.BoolValue"
+        "default_config": {
+          "max_connections": "google.protobuf.Int64Value",
+          "max_slot_wal_keep_size": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_segment": "google.protobuf.Int64Value",
+          "gp_workfile_limit_per_query": "google.protobuf.Int64Value",
+          "gp_workfile_limit_files_per_query": "google.protobuf.Int64Value",
+          "max_prepared_transactions": "google.protobuf.Int64Value",
+          "gp_workfile_compression": "google.protobuf.BoolValue",
+          "max_statement_mem": "google.protobuf.Int64Value",
+          "log_statement": "LogStatement",
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
         }
       },
       // end of the list of possible fields
       "pool": {
-        "effectiveConfig": {
+        "effective_config": {
           "mode": "PoolMode",
           "size": "google.protobuf.Int64Value",
-          "clientIdleTimeout": "google.protobuf.Int64Value"
+          "client_idle_timeout": "google.protobuf.Int64Value"
         },
-        "userConfig": {
+        "user_config": {
           "mode": "PoolMode",
           "size": "google.protobuf.Int64Value",
-          "clientIdleTimeout": "google.protobuf.Int64Value"
+          "client_idle_timeout": "google.protobuf.Int64Value"
         },
-        "defaultConfig": {
+        "default_config": {
           "mode": "PoolMode",
           "size": "google.protobuf.Int64Value",
-          "clientIdleTimeout": "google.protobuf.Int64Value"
+          "client_idle_timeout": "google.protobuf.Int64Value"
         }
       },
-      "backgroundActivities": {
-        "tableSizes": {
+      "background_activities": {
+        "table_sizes": {
           "starts": [
             {
               "hours": "int64",
@@ -1194,81 +1194,81 @@ enable Cloud Storage for cluster ||
             }
           ]
         },
-        "analyzeAndVacuum": {
+        "analyze_and_vacuum": {
           "start": {
             "hours": "int64",
             "minutes": "int64"
           },
-          "analyzeTimeout": "google.protobuf.Int64Value",
-          "vacuumTimeout": "google.protobuf.Int64Value"
+          "analyze_timeout": "google.protobuf.Int64Value",
+          "vacuum_timeout": "google.protobuf.Int64Value"
         },
-        "queryKillerScripts": {
+        "query_killer_scripts": {
           "idle": {
             "enable": "google.protobuf.BoolValue",
-            "maxAge": "google.protobuf.Int64Value",
-            "ignoreUsers": [
+            "max_age": "google.protobuf.Int64Value",
+            "ignore_users": [
               "string"
             ]
           },
-          "idleInTransaction": {
+          "idle_in_transaction": {
             "enable": "google.protobuf.BoolValue",
-            "maxAge": "google.protobuf.Int64Value",
-            "ignoreUsers": [
+            "max_age": "google.protobuf.Int64Value",
+            "ignore_users": [
               "string"
             ]
           },
-          "longRunning": {
+          "long_running": {
             "enable": "google.protobuf.BoolValue",
-            "maxAge": "google.protobuf.Int64Value",
-            "ignoreUsers": [
+            "max_age": "google.protobuf.Int64Value",
+            "ignore_users": [
               "string"
             ]
           }
         }
       },
-      "pxfConfig": {
-        "effectiveConfig": {
-          "connectionTimeout": "google.protobuf.Int64Value",
-          "uploadTimeout": "google.protobuf.Int64Value",
-          "maxThreads": "google.protobuf.Int64Value",
-          "poolAllowCoreThreadTimeout": "google.protobuf.BoolValue",
-          "poolCoreSize": "google.protobuf.Int64Value",
-          "poolQueueCapacity": "google.protobuf.Int64Value",
-          "poolMaxSize": "google.protobuf.Int64Value",
+      "pxf_config": {
+        "effective_config": {
+          "connection_timeout": "google.protobuf.Int64Value",
+          "upload_timeout": "google.protobuf.Int64Value",
+          "max_threads": "google.protobuf.Int64Value",
+          "pool_allow_core_thread_timeout": "google.protobuf.BoolValue",
+          "pool_core_size": "google.protobuf.Int64Value",
+          "pool_queue_capacity": "google.protobuf.Int64Value",
+          "pool_max_size": "google.protobuf.Int64Value",
           "xmx": "google.protobuf.Int64Value",
           "xms": "google.protobuf.Int64Value"
         },
-        "userConfig": {
-          "connectionTimeout": "google.protobuf.Int64Value",
-          "uploadTimeout": "google.protobuf.Int64Value",
-          "maxThreads": "google.protobuf.Int64Value",
-          "poolAllowCoreThreadTimeout": "google.protobuf.BoolValue",
-          "poolCoreSize": "google.protobuf.Int64Value",
-          "poolQueueCapacity": "google.protobuf.Int64Value",
-          "poolMaxSize": "google.protobuf.Int64Value",
+        "user_config": {
+          "connection_timeout": "google.protobuf.Int64Value",
+          "upload_timeout": "google.protobuf.Int64Value",
+          "max_threads": "google.protobuf.Int64Value",
+          "pool_allow_core_thread_timeout": "google.protobuf.BoolValue",
+          "pool_core_size": "google.protobuf.Int64Value",
+          "pool_queue_capacity": "google.protobuf.Int64Value",
+          "pool_max_size": "google.protobuf.Int64Value",
           "xmx": "google.protobuf.Int64Value",
           "xms": "google.protobuf.Int64Value"
         },
-        "defaultConfig": {
-          "connectionTimeout": "google.protobuf.Int64Value",
-          "uploadTimeout": "google.protobuf.Int64Value",
-          "maxThreads": "google.protobuf.Int64Value",
-          "poolAllowCoreThreadTimeout": "google.protobuf.BoolValue",
-          "poolCoreSize": "google.protobuf.Int64Value",
-          "poolQueueCapacity": "google.protobuf.Int64Value",
-          "poolMaxSize": "google.protobuf.Int64Value",
+        "default_config": {
+          "connection_timeout": "google.protobuf.Int64Value",
+          "upload_timeout": "google.protobuf.Int64Value",
+          "max_threads": "google.protobuf.Int64Value",
+          "pool_allow_core_thread_timeout": "google.protobuf.BoolValue",
+          "pool_core_size": "google.protobuf.Int64Value",
+          "pool_queue_capacity": "google.protobuf.Int64Value",
+          "pool_max_size": "google.protobuf.Int64Value",
           "xmx": "google.protobuf.Int64Value",
           "xms": "google.protobuf.Int64Value"
         }
       }
     },
-    "cloudStorage": {
+    "cloud_storage": {
       "enable": "bool"
     },
-    "masterHostGroupIds": [
+    "master_host_group_ids": [
       "string"
     ],
-    "segmentHostGroupIds": [
+    "segment_host_group_ids": [
       "string"
     ]
   }
@@ -1286,13 +1286,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -1335,7 +1335,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the Greenplum® cluster that is being created. ||
 |#
@@ -1350,10 +1350,10 @@ A Greenplum® cluster resource.
 
 ID of the Greenplum® cluster.
 This ID is assigned by the platform at the moment of cluster creation. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Greenplum® cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the cluster was created. ||
 || name | **string**
@@ -1379,22 +1379,22 @@ Deployment environment of the Greenplum® cluster.
 || monitoring[] | **[Monitoring](#yandex.cloud.mdb.greenplum.v1.Monitoring)**
 
 Description of monitoring systems relevant to the Greenplum® cluster. ||
-|| masterConfig | **[MasterSubclusterConfig](#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfig)**
+|| master_config | **[MasterSubclusterConfig](#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfig)**
 
 Configuration of the Greenplum® master subcluster. ||
-|| segmentConfig | **[SegmentSubclusterConfig](#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfig)**
+|| segment_config | **[SegmentSubclusterConfig](#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfig)**
 
 Configuration of the Greenplum® segment subcluster. ||
-|| masterHostCount | **int64**
+|| master_host_count | **int64**
 
 Number of hosts in the master subcluster. ||
-|| segmentHostCount | **int64**
+|| segment_host_count | **int64**
 
 Number of hosts in the segment subcluster. ||
-|| segmentInHost | **int64**
+|| segment_in_host | **int64**
 
 Number of segments per host. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the cloud network that the cluster belongs to. ||
 || health | enum **Health**
@@ -1418,34 +1418,34 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster has stopped.
 - `STARTING`: Cluster is starting. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow2)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow2)**
 
 A Greenplum® cluster maintenance window. Should be defined by either one of the two options. ||
-|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.greenplum.v1.MaintenanceOperation)**
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.greenplum.v1.MaintenanceOperation)**
 
-Maintenance operation planned at nearest `maintenanceWindow`. ||
-|| securityGroupIds[] | **string**
+Maintenance operation planned at nearest `maintenance_window`. ||
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| userName | **string**
+|| user_name | **string**
 
 Owner user name. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Determines whether the cluster is protected from being deleted. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| clusterConfig | **[ClusterConfigSet](#yandex.cloud.mdb.greenplum.v1.ClusterConfigSet)**
+|| cluster_config | **[ClusterConfigSet](#yandex.cloud.mdb.greenplum.v1.ClusterConfigSet)**
 
 Greenplum® and Odyssey® configuration. ||
-|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage2)**
+|| cloud_storage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage2)**
 
 Cloud storage settings ||
-|| masterHostGroupIds[] | **string**
+|| master_host_group_ids[] | **string**
 
 Host groups hosting VMs of the master subcluster. ||
-|| segmentHostGroupIds[] | **string**
+|| segment_host_group_ids[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
 |#
@@ -1457,23 +1457,23 @@ Host groups hosting VMs of the segment subcluster. ||
 || version | **string**
 
 Version of the Greenplum® server software. ||
-|| backupWindowStart | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| backup_window_start | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Time to start the daily backup, in the UTC timezone. ||
-|| backupRetainPeriodDays | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retention policy of automated backups. ||
 || access | **[Access](#yandex.cloud.mdb.greenplum.v1.Access2)**
 
 Access policy for external services. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone the cluster belongs to.
 To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
-ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.networkId](#yandex.cloud.mdb.greenplum.v1.Cluster)). ||
-|| assignPublicIp | **bool**
+ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#yandex.cloud.mdb.greenplum.v1.Cluster)). ||
+|| assign_public_ip | **bool**
 
 Determines whether the cluster has a public IP address.
 
@@ -1484,16 +1484,16 @@ After the cluster has been created, this setting cannot be changed. ||
 
 #|
 ||Field | Description ||
-|| dataLens | **bool**
+|| data_lens | **bool**
 
 Allows data export from the cluster to DataLens. ||
-|| webSql | **bool**
+|| web_sql | **bool**
 
 Allows SQL queries to the cluster databases from the management console. ||
-|| dataTransfer | **bool**
+|| data_transfer | **bool**
 
 Allows access for DataTransfer. ||
-|| yandexQuery | **bool**
+|| yandex_query | **bool**
 
 Allow access for YandexQuery. ||
 |#
@@ -1528,15 +1528,15 @@ Computational resources allocated to Greenplum® master subcluster hosts. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host.
 
 Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
@@ -1558,12 +1558,12 @@ Computational resources allocated to Greenplum® segment subcluster hosts. ||
 
 An any-time maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow2)**
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow2)**
 
 A weekly maintenance window.
 
-Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
 |#
 
 ## AnytimeMaintenanceWindow {#yandex.cloud.mdb.greenplum.v1.AnytimeMaintenanceWindow2}
@@ -1605,7 +1605,7 @@ Hour of the day in the UTC timezone. ||
 || info | **string**
 
 The description of the operation. ||
-|| delayedUntil | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Delay time for the maintenance operation. ||
 |#
@@ -1614,28 +1614,28 @@ Delay time for the maintenance operation. ||
 
 #|
 ||Field | Description ||
-|| greenplumConfigSet_6_17 | **[GreenplumConfigSet6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_17)**
+|| greenplum_config_set_6_17 | **[GreenplumConfigSet6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_17)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6_19 | **[GreenplumConfigSet6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_19)**
+Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`. ||
+|| greenplum_config_set_6_19 | **[GreenplumConfigSet6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_19)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6_21 | **[GreenplumConfigSet6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_21)**
+Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`. ||
+|| greenplum_config_set_6_21 | **[GreenplumConfigSet6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_21)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6_22 | **[GreenplumConfigSet6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_22)**
+Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`. ||
+|| greenplum_config_set_6_22 | **[GreenplumConfigSet6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_22)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
-|| greenplumConfigSet_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
+Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`. ||
+|| greenplum_config_set_6 | **[GreenplumConfigSet6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6)**
 
-Includes only one of the fields `greenplumConfigSet_6_17`, `greenplumConfigSet_6_19`, `greenplumConfigSet_6_21`, `greenplumConfigSet_6_22`, `greenplumConfigSet_6`. ||
+Includes only one of the fields `greenplum_config_set_6_17`, `greenplum_config_set_6_19`, `greenplum_config_set_6_21`, `greenplum_config_set_6_22`, `greenplum_config_set_6`. ||
 || pool | **[ConnectionPoolerConfigSet](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet)**
 
 Odyssey® pool settings. ||
-|| backgroundActivities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig2)**
+|| background_activities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig2)**
 
 Managed Greenplum® background tasks configuration. ||
-|| pxfConfig | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)** ||
+|| pxf_config | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)** ||
 |#
 
 ## GreenplumConfigSet6_17 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6_17}
@@ -1644,13 +1644,13 @@ Configuration settings version 6.17
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
+|| effective_config | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
 
-Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
+Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). ||
+|| user_config | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
 
 User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
+|| default_config | **[GreenplumConfig6_17](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_172)**
 
 Default configuration for a Greenplum® cluster. ||
 |#
@@ -1659,29 +1659,29 @@ Default configuration for a Greenplum® cluster. ||
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of temporary spill files allowed per query at each segment.
 
@@ -1696,12 +1696,12 @@ Master session reloads if the parameter changes.
 Default value is 10000.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of transactions that can be in the `prepared` state simultaneously.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the spill files are compressed or not.
 
@@ -1714,13 +1714,13 @@ Configuration settings version 6.19
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
+|| effective_config | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
 
-Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
+Required field. Effective settings for a Greenplum® cluster (a combination of settings defined in `user_config` and `default_config`). ||
+|| user_config | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
 
 User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
+|| default_config | **[GreenplumConfig6_19](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_192)**
 
 Default configuration for a Greenplum® cluster. ||
 |#
@@ -1729,29 +1729,29 @@ Default configuration for a Greenplum® cluster. ||
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment. ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of WAL files that replication slots are allowed to retain in the `pg_wal` directory at checkpoint time.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html). ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment). ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum disk size that an individual query is allowed to use for creating temporary spill files at each segment.
 
 The default value is 0 (no limit).
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query). ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of temporary spill files allowed per query at each segment.
 
@@ -1766,30 +1766,30 @@ Master session reloads if the parameter changes.
 Default value is 10000.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query). ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of transactions that can be in the `prepared` state simultaneously.
 
 More info in [PostgreSQL® documentation](https://www.postgresql.org/docs/9.6/runtime-config-resource.html). ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the spill files are compressed or not.
 
 More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression). ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum memory limit for a query, in bytes.
 
 Helps to avoid out-of-memory errors on a segment host during query processing as a result of setting `statement_mem` too high.
 
-Taking into account the configuration of a single segment host, calculate `maxStatementMem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
+Taking into account the configuration of a single segment host, calculate `max_statement_mem` as follows: `seghost_physical_memory` / `average_number_concurrent_queries`.
 
-When changing both `maxStatementMem` and `statement_mem`, `maxStatementMem` must be changed first, or listed first in the `postgresql.conf` file.
+When changing both `max_statement_mem` and `statement_mem`, `max_statement_mem` must be changed first, or listed first in the `postgresql.conf` file.
 
 Default value is 2097152000 (2000 MB).
 
 More info in [Greenplum® documentation](https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem). ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Logged SQL statements.
 
@@ -1808,13 +1808,13 @@ More info in [Greenplum® documentation](https://docs.vmware.com/en/VMware-Green
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
+|| effective_config | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
 
-Required field. Effective settings for a Greenplum®  cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
+Required field. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). ||
+|| user_config | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
 
 User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
+|| default_config | **[GreenplumConfig6_21](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_212)**
 
 Default configuration for a Greenplum® cluster. ||
 |#
@@ -1823,24 +1823,24 @@ Default configuration for a Greenplum® cluster. ||
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -1848,15 +1848,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -1864,7 +1864,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -1877,7 +1877,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -1886,13 +1886,13 @@ https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
+|| effective_config | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
 
-Required field. Effective settings for a Greenplum®  cluster (a combination of settings defined in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
+Required field. Effective settings for a Greenplum®  cluster (a combination of settings defined in `user_config` and `default_config`). ||
+|| user_config | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
 
 User-defined settings for a Greenplum® cluster. ||
-|| defaultConfig | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
+|| default_config | **[GreenplumConfig6_22](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig6_222)**
 
 Default configuration for a Greenplum® cluster. ||
 |#
@@ -1901,24 +1901,24 @@ Default configuration for a Greenplum® cluster. ||
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -1926,15 +1926,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.vmware.com/en/VMware-Greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -1942,7 +1942,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -1955,7 +1955,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -1964,14 +1964,14 @@ https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
+|| effective_config | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
 
 Required field. Effective settings for a Greenplum (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
+in `user_config` and `default_config`). ||
+|| user_config | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
 
 User-defined settings for a Greenplum. ||
-|| defaultConfig | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
+|| default_config | **[GreenplumConfig6](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig62)**
 
 Default configuration for a Greenplum. ||
 |#
@@ -1980,24 +1980,24 @@ Default configuration for a Greenplum. ||
 
 #|
 ||Field | Description ||
-|| maxConnections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of inbound connections on master segment ||
-|| maxSlotWalKeepSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_slot_wal_keep_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
 https://www.postgresql.org/docs/current/runtime-config-replication.html ||
-|| gpWorkfileLimitPerSegment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_segment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment ||
-|| gpWorkfileLimitPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
 The default value is 0, which means a limit is not enforced.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query ||
-|| gpWorkfileLimitFilesPerQuery | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| gp_workfile_limit_files_per_query | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
 Spill files are created when executing a query that requires more memory than it is allocated.
@@ -2005,15 +2005,15 @@ The current query is terminated when the limit is exceeded.
 Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
 Default value is 10000 ||
-|| maxPreparedTransactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_prepared_transactions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum number of transactions that can be in the "prepared" state simultaneously
 https://www.postgresql.org/docs/9.6/runtime-config-resource.html ||
-|| gpWorkfileCompression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_workfile_compression | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
 https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression ||
-|| maxStatementMem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_statement_mem | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
 Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
@@ -2021,7 +2021,7 @@ Taking into account the configuration of a single segment host, calculate max_st
 When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
 https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
 Default value is 2097152000 (2000MB) ||
-|| logStatement | enum **LogStatement**
+|| log_statement | enum **LogStatement**
 
 Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
 MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
@@ -2034,7 +2034,7 @@ Default value is ddl
 - `DDL`: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
 - `MOD`: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
 - `ALL`: Logs all statements. ||
-|| gpAddColumnInheritsTableSetting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
 |#
@@ -2043,13 +2043,13 @@ https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
+|| effective_config | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
 
-Required field. Effective settings for an Odyssey® pooler (a combination of settings defined in `ConnectionPoolerConfigSet.userConfig` and `ConnectionPoolerConfigSet.defaultConfig`). ||
-|| userConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
+Required field. Effective settings for an Odyssey® pooler (a combination of settings defined in `ConnectionPoolerConfigSet.user_config` and `ConnectionPoolerConfigSet.default_config`). ||
+|| user_config | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
 
 User-defined settings for an Odyssey® pooler. ||
-|| defaultConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
+|| default_config | **[ConnectionPoolerConfig](#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig2)**
 
 Default configuration for an Odyssey® pooler. ||
 |#
@@ -2070,7 +2070,7 @@ Route server pool mode.
 The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
 
 Set to zero to disable the limit. ||
-|| clientIdleTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Server pool idle timeout, in seconds.
 
@@ -2083,13 +2083,13 @@ Set to zero to disable the limit. ||
 
 #|
 ||Field | Description ||
-|| tableSizes | **[TableSizes](#yandex.cloud.mdb.greenplum.v1.TableSizes2)**
+|| table_sizes | **[TableSizes](#yandex.cloud.mdb.greenplum.v1.TableSizes2)**
 
 Enables scripts that collects tables sizes to `*_sizes` tables in `mdb_toolkit` schema. ||
-|| analyzeAndVacuum | **[AnalyzeAndVacuum](#yandex.cloud.mdb.greenplum.v1.AnalyzeAndVacuum2)**
+|| analyze_and_vacuum | **[AnalyzeAndVacuum](#yandex.cloud.mdb.greenplum.v1.AnalyzeAndVacuum2)**
 
 Configuration for `ANALYZE` and `VACUUM` operations. ||
-|| queryKillerScripts | **[QueryKillerScripts](#yandex.cloud.mdb.greenplum.v1.QueryKillerScripts2)**
+|| query_killer_scripts | **[QueryKillerScripts](#yandex.cloud.mdb.greenplum.v1.QueryKillerScripts2)**
 
 Configuration for long running queries killer. ||
 |#
@@ -2114,10 +2114,10 @@ Configuration for long running queries killer. ||
 #|
 ||Field | Description ||
 || start | **[BackgroundActivityStartAt](#yandex.cloud.mdb.greenplum.v1.BackgroundActivityStartAt2)** ||
-|| analyzeTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate. ||
-|| vacuumTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate. ||
 |#
@@ -2129,10 +2129,10 @@ Maximum duration of the `VACUUM` operation, in seconds. The default value is `36
 || idle | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller2)**
 
 Configuration of script that kills long running queries that are in `idle` state. ||
-|| idleInTransaction | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller2)**
+|| idle_in_transaction | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller2)**
 
 Configuration of script that kills long running queries that are in `idle in transaction` state. ||
-|| longRunning | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller2)**
+|| long_running | **[QueryKiller](#yandex.cloud.mdb.greenplum.v1.QueryKiller2)**
 
 Configuration of script that kills long running queries (in any state). ||
 |#
@@ -2142,10 +2142,10 @@ Configuration of script that kills long running queries (in any state). ||
 #|
 ||Field | Description ||
 || enable | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
-|| maxAge | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_age | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum duration for this type of queries (in seconds). ||
-|| ignoreUsers[] | **string**
+|| ignore_users[] | **string**
 
 Ignore these users when considering queries to terminate ||
 |#
@@ -2154,13 +2154,13 @@ Ignore these users when considering queries to terminate ||
 
 #|
 ||Field | Description ||
-|| effectiveConfig | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
+|| effective_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
 
 Required field.  ||
-|| userConfig | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
+|| user_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
 
 User-defined settings. ||
-|| defaultConfig | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
+|| default_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig2)**
 
 Default configuration. ||
 |#
@@ -2169,33 +2169,33 @@ Default configuration. ||
 
 #|
 ||Field | Description ||
-|| connectionTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making read requests.
 
 Specify values in seconds. ||
-|| uploadTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making write requests.
 
 Specify the values in seconds. ||
-|| maxThreads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of the Apache Tomcat® threads.
 
 To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://docs.vmware.com/en/VMware-Greenplum-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation. ||
-|| poolAllowCoreThreadTimeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| pool_allow_core_thread_timeout | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the timeout for core streaming threads is permitted. ||
-|| poolCoreSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_core_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Number of core streaming threads per pool. ||
-|| poolQueueCapacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of requests you can add to a pool queue for core streaming threads.
 
 If `0`, no pool queue is generated. ||
-|| poolMaxSize | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+|| pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum allowed number of core streaming threads. ||
 || xmx | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**

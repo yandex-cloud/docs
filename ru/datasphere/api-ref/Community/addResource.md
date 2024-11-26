@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/addResource.md
 ---
 
-# DataSphere API v2, REST: Community.AddResource {#AddResource}
+# DataSphere API v2, REST: Community.AddResource
 
 Adds shared resource to community
 

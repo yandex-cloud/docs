@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Network/listSubnets.md
 ---
 
-# Virtual Private Cloud API, gRPC: NetworkService.ListSubnets {#ListSubnets}
+# Virtual Private Cloud API, gRPC: NetworkService.ListSubnets
 
 Lists subnets from the specified network.
 
@@ -15,27 +15,27 @@ Lists subnets from the specified network.
 
 ```json
 {
-  "networkId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "network_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
 Required field. ID of the Network resource to list subnets for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+results is larger than `page_size`,
+the service returns a [ListNetworkSubnetsResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken`
-to the [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+Page token. Set `page_token`
+to the [ListNetworkSubnetsResponse.next_page_token](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
 returned by a previous list request to get the next page of results. ||
 |#
 
@@ -46,32 +46,32 @@ returned by a previous list request to get the next page of results. ||
   "subnets": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
       "labels": "string",
-      "networkId": "string",
-      "zoneId": "string",
-      "v4CidrBlocks": [
+      "network_id": "string",
+      "zone_id": "string",
+      "v4_cidr_blocks": [
         "string"
       ],
-      "v6CidrBlocks": [
+      "v6_cidr_blocks": [
         "string"
       ],
-      "routeTableId": "string",
-      "dhcpOptions": {
-        "domainNameServers": [
+      "route_table_id": "string",
+      "dhcp_options": {
+        "domain_name_servers": [
           "string"
         ],
-        "domainName": "string",
-        "ntpServers": [
+        "domain_name": "string",
+        "ntp_servers": [
           "string"
         ]
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -80,14 +80,14 @@ returned by a previous list request to get the next page of results. ||
 || subnets[] | **[Subnet](#yandex.cloud.vpc.v1.Subnet)**
 
 List of subnets that belong to the network which is specified in the request. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListNetworkSubnetsRequest.pageSize](#yandex.cloud.vpc.v1.ListNetworkSubnetsRequest), use
-the `nextPageToken` as the value
-for the [ListNetworkSubnetsRequest.pageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsRequest) query parameter
+is larger than [ListNetworkSubnetsRequest.page_size](#yandex.cloud.vpc.v1.ListNetworkSubnetsRequest), use
+the `next_page_token` as the value
+for the [ListNetworkSubnetsRequest.page_token](#yandex.cloud.vpc.v1.ListNetworkSubnetsRequest) query parameter
 in the next list request. Subsequent list requests will have their own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Subnet {#yandex.cloud.vpc.v1.Subnet}
@@ -99,10 +99,10 @@ A Subnet resource. For more information, see [Subnets](/docs/vpc/concepts/networ
 || id | **string**
 
 ID of the subnet. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the subnet belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -121,26 +121,26 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|| networkId | **string**
+|| network_id | **string**
 
 ID of the network the subnet belongs to. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the subnet resides. ||
-|| v4CidrBlocks[] | **string**
+|| v4_cidr_blocks[] | **string**
 
 CIDR block.
 The range of internal addresses that are defined for this subnet.
 This field can be set only at Subnet resource creation time and cannot be changed.
 For example, 10.0.0.0/22 or 192.168.0.0/24.
 Minimum subnet size is /28, maximum subnet size is /16. ||
-|| v6CidrBlocks[] | **string**
+|| v6_cidr_blocks[] | **string**
 
 IPv6 not available yet. ||
-|| routeTableId | **string**
+|| route_table_id | **string**
 
 ID of route table the subnet is linked to. ||
-|| dhcpOptions | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**
+|| dhcp_options | **[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**
 
 DHCP options for the subnet. ||
 |#
@@ -149,13 +149,13 @@ DHCP options for the subnet. ||
 
 #|
 ||Field | Description ||
-|| domainNameServers[] | **string**
+|| domain_name_servers[] | **string**
 
 A list of DHCP servers for this subnet. ||
-|| domainName | **string**
+|| domain_name | **string**
 
 A domain name to us as a suffix when resolving host names in this subnet. ||
-|| ntpServers[] | **string**
+|| ntp_servers[] | **string**
 
 List of NTP servers for this subnet. ||
 |#

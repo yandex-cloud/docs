@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/list.md
 ---
 
-# Compute Cloud API, REST: Disk.List {#List}
+# Compute Cloud API, REST: Disk.List
 
 Retrieves the list of Disk resources in the specified folder.
 

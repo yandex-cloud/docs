@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/HBARule/listAtRevision.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: HBARuleService.ListAtRevision {#ListAtRevision}
+# Managed Service for Greenplum® API, gRPC: HBARuleService.ListAtRevision
 
 Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 
@@ -15,14 +15,14 @@ Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "revision": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Greenplum cluster.
 To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
@@ -35,14 +35,14 @@ Cluster revision ||
 
 ```json
 {
-  "hbaRules": [
+  "hba_rules": [
     {
       "priority": "int64",
-      "connectionType": "ConnectionType",
+      "connection_type": "ConnectionType",
       "database": "string",
       "user": "string",
       "address": "string",
-      "authMethod": "AuthMethod"
+      "auth_method": "AuthMethod"
     }
   ]
 }
@@ -50,7 +50,7 @@ Cluster revision ||
 
 #|
 ||Field | Description ||
-|| hbaRules[] | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
+|| hba_rules[] | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
 
 Requested list of hba rules for the cluster. ||
 |#
@@ -62,7 +62,7 @@ Requested list of hba rules for the cluster. ||
 || priority | **int64**
 
 Priority of the Greenplum cluster rule. ||
-|| connectionType | enum **ConnectionType**
+|| connection_type | enum **ConnectionType**
 
 - `CONNECTION_TYPE_UNSPECIFIED`
 - `HOST`: Matches connection attempts made using TCP/IP.
@@ -77,7 +77,7 @@ Required field. Specifies which database role names this user matches. ||
 || address | **string**
 
 Required field. Specifies the client machine addresses that this record matches. ||
-|| authMethod | enum **AuthMethod**
+|| auth_method | enum **AuthMethod**
 
 Specifies the authentication method to use when a connection matches this record.
 https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html

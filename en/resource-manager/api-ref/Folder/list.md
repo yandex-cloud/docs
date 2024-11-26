@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/list.md
 ---
 
-# Resource Manager API, REST: Folder.List {#List}
+# Resource Manager API, REST: Folder.List
 
 Retrieves the list of Folder resources in the specified cloud.
 

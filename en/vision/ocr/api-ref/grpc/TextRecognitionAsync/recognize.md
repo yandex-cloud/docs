@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/ocr/v1/ocr/api-ref/grpc/TextRecognitionAsync/recognize.md
 ---
 
-# Vision OCR API, gRPC: TextRecognitionAsyncService.Recognize {#Recognize}
+# Vision OCR API, gRPC: TextRecognitionAsyncService.Recognize
 
 To send the image for asynchronous text recognition.
 
@@ -18,8 +18,8 @@ To send the image for asynchronous text recognition.
   // Includes only one of the fields `content`
   "content": "bytes",
   // end of the list of possible fields
-  "mimeType": "string",
-  "languageCodes": [
+  "mime_type": "string",
+  "language_codes": [
     "string"
   ],
   "model": "string"
@@ -33,14 +33,14 @@ To send the image for asynchronous text recognition.
 Bytes with data
 
 Includes only one of the fields `content`. ||
-|| mimeType | **string**
+|| mime_type | **string**
 
 Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions:
 * Supported file formats: `JPEG`, `PNG`, `PDF`.
 * Maximum file size: see [documentation](/docs/vision/concepts/limits).
 * Image size should not exceed 20M pixels (length x width).
 * The number of pages in a PDF file should not exceed 1. ||
-|| languageCodes[] | **string**
+|| language_codes[] | **string**
 
 [List of the languages](/docs/vision/concepts/ocr/supported-languages) to recognize text.
 Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`). ||
@@ -55,9 +55,9 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -77,13 +77,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

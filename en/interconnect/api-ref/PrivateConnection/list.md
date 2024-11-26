@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/list.md
 ---
 
-# Cloud Interconnect API, REST: PrivateConnection.List {#List}
+# Cloud Interconnect API, REST: PrivateConnection.List
 
 Retrieves the list of PrivateConnection resources in the specified folder.
 

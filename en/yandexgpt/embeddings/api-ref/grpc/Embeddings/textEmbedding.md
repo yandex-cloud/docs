@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/foundation_models/v1/embedding/embeddings/api-ref/grpc/Embeddings/textEmbedding.md
 ---
 
-# Foundation Models Embedding API, gRPC: EmbeddingsService.TextEmbedding {#TextEmbedding}
+# Foundation Models Embedding API, gRPC: EmbeddingsService.TextEmbedding
 
 A method for obtaining embeddings from text data.
 
@@ -15,7 +15,7 @@ A method for obtaining embeddings from text data.
 
 ```json
 {
-  "modelUri": "string",
+  "model_uri": "string",
   "text": "string"
 }
 ```
@@ -24,7 +24,7 @@ Request for the service to obtain text embeddings.
 
 #|
 ||Field | Description ||
-|| modelUri | **string**
+|| model_uri | **string**
 
 The [model URI](/docs/foundation-models/concepts/embeddings) to be used for obtaining text embeddings. ||
 || text | **string**
@@ -39,8 +39,8 @@ The input text for which the embedding is requested. ||
   "embedding": [
     "double"
   ],
-  "numTokens": "int64",
-  "modelVersion": "string"
+  "num_tokens": "int64",
+  "model_version": "string"
 }
 ```
 
@@ -51,10 +51,10 @@ Response containing generated text embedding.
 || embedding[] | **double**
 
 A repeated list of double values representing the embedding. ||
-|| numTokens | **int64**
+|| num_tokens | **int64**
 
 The number of tokens in the input text. ||
-|| modelVersion | **string**
+|| model_version | **string**
 
 The model version changes with each new releases. ||
 |#

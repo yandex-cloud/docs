@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/get.md
 ---
 
-# IoT Core Service, REST: Registry.Get {#Get}
+# IoT Core Service, REST: Registry.Get
 
 Returns the specified registry.
 

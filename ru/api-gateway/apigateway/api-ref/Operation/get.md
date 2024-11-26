@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/Operation/get.md
 ---
 
-# API Gateway Service, REST: Operation.Get {#Get}
+# API Gateway Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

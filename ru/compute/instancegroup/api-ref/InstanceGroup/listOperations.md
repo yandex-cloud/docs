@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/listOperations.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.ListOperations {#ListOperations}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.ListOperations
 
 Lists operations for the specified instance group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateOpenSearchNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.UpdateOpenSearchNodeGroup {#UpdateOpenSearchNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.UpdateOpenSearchNodeGroup
 
 Updates an OpenSearch type host group.
 

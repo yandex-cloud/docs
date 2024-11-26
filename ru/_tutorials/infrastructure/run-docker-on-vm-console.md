@@ -100,7 +100,7 @@
   1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте нужный [тип](../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../compute/concepts/disk.md).
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте нужный [тип](../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../compute/concepts/disk.md).
 
       Если вы хотите добавить на ВМ новый дополнительный диск или подключить существующий, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

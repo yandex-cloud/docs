@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/listOperations.md
 ---
 
-# Compute Cloud API, REST: HostGroup.ListOperations {#ListOperations}
+# Compute Cloud API, REST: HostGroup.ListOperations
 
 Lists operations for the specified host group.
 

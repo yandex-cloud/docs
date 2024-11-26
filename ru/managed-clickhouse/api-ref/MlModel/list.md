@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: MlModel.List {#List}
+# Managed Service for ClickHouse API, REST: MlModel.List
 
 Retrieves the list of machine learning models in the specified cluster.
 

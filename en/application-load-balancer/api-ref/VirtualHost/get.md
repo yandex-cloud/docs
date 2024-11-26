@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/get.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.Get {#Get}
+# Application Load Balancer API, REST: VirtualHost.Get
 
 Returns the specified virtual host.
 

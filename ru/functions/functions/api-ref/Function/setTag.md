@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setTag.md
 ---
 
-# Cloud Functions Service, REST: Function.SetTag {#SetTag}
+# Cloud Functions Service, REST: Function.SetTag
 
 Set a tag for the specified version of a function.
 

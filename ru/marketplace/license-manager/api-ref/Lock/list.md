@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/list.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.List {#List}
+# Yandex Cloud Marketplace License Manager, REST: Lock.List
 
 Returns subscriptions locks for specified resource and folder.
 

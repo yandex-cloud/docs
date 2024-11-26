@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Filesystem/update.md
 ---
 
-# Compute Cloud API, gRPC: FilesystemService.Update {#Update}
+# Compute Cloud API, gRPC: FilesystemService.Update
 
 Updates the specified filesystem.
 
@@ -15,8 +15,8 @@ Updates the specified filesystem.
 
 ```json
 {
-  "filesystemId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "filesystem_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "labels": "string",
@@ -26,12 +26,12 @@ Updates the specified filesystem.
 
 #|
 ||Field | Description ||
-|| filesystemId | **string**
+|| filesystem_id | **string**
 
 Required field. ID of the filesystem to update.
 
 To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/grpc/Filesystem/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the filesystem should be updated. ||
 || name | **string**
@@ -61,26 +61,26 @@ Size of the filesystem, specified in bytes. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "filesystemId": "string"
+    "filesystem_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "typeId": "string",
-    "zoneId": "string",
+    "type_id": "string",
+    "zone_id": "string",
     "size": "int64",
-    "blockSize": "int64",
+    "block_size": "int64",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -97,13 +97,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -146,7 +146,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| filesystemId | **string**
+|| filesystem_id | **string**
 
 ID of the filesystem that is being updated. ||
 |#
@@ -161,10 +161,10 @@ For details about the concept, see [documentation](/docs/compute/concepts/filesy
 || id | **string**
 
 ID of the filesystem. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the filesystem belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -177,12 +177,12 @@ Description of the filesystem. ||
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of the filesystem type.
 
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the filesystem resides.
 
@@ -190,7 +190,7 @@ A filesystem can be attached only to instances residing in the same availability
 || size | **int64**
 
 Size of the filesystem, specified in bytes. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size used for the filesystem, specified in bytes. ||
 || status | enum **Status**

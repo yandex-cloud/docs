@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/delete.md
 ---
 
-# Resource Manager API, REST: Cloud.Delete {#Delete}
+# Resource Manager API, REST: Cloud.Delete
 
 Deletes the specified cloud.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/list.md
 ---
 
-# SmartWebSecurity API, REST: SecurityProfile.List {#List}
+# SmartWebSecurity API, REST: SecurityProfile.List
 
 Retrieves the list of SecurityProfile resources in the specified folder.
 

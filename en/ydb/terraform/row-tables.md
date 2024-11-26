@@ -1,6 +1,6 @@
 ---
 title: Creating row tables in a {{ ydb-short-name }} database
-description: This tutorial describes the properties of the `yandex_ydb_table` resource for creating row-based tables in {{ ydb-short-name }}.
+description: This tutorial describes the properties of the `yandex_ydb_table` resource for creating row-oriented tables in {{ ydb-short-name }}.
 ---
 
 # Creating row tables in a database
@@ -8,7 +8,7 @@ description: This tutorial describes the properties of the `yandex_ydb_table` re
 
 {% note warning %}
 
-Currently, the service only supports creating row-based tables. The {{ TF }} provider functionality for creating column-based tables is under development.
+Currently, the service only supports creating row-oriented tables. The {{ TF }} provider functionality for creating column-based tables is under development.
 
 {% endnote %}
 
@@ -17,12 +17,12 @@ In the {{ TF }} context, a table is a resource. That is why, we describe databas
 
 ## Description of the `yandex_ydb_table` resource {#ydb_table_description}
 
-Example of creating a test row-based table with three columns in an existing database:
+Example of creating a test row-oriented table with three columns in an existing database:
 ```tf
 resource "yandex_ydb_table" "test_table" {
   path = "test_dir/test_table_3_col"
-  connection_string = yandex_ydb_database_serverless.database1.ydb_full_endpoint
-
+  connection_string = yandex_ydb_database_serverless.database1.ydb_full_endpoint 
+  
 column {
       name = "a"
       type = "Utf8"
@@ -44,13 +44,13 @@ column {
     }
 
   primary_key = ["a","b"]
-
+  
 }
 ```
 
 Properties of the `yandex_ydb_table` resource fields:
-1. `path`: Path within the database to where the table will be created. The table name is specified without the trailing slash (`/`). If there is no directory to host the table, it will be created automatically.
-1. `connection_string`: Path for connecting to the database. It is used together with the `ydb_full_endpoint` parameter, which contains the full path to the database: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gv7kfcttio********/etn66ecf1qbt********`. For brevity and simplicity, you can use a link to the `"yandex_ydb_database_serverless"` resource with the ID and the `ydb_full_endpoint` parameter specified, e.g., `yandex_ydb_database_serverless.database1.ydb_full_endpoint `. 
+1. `path`: Path within the database to include the table being created. The table name is specified without the trailing slash (`/`). If there is no directory to host the table, it will be created automatically.
+1. `connection_string`: Path for connecting to the database. It is used together with the `ydb_full_endpoint` parameter, which contains the full path to the database: `grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gv7kfcttio********/etn66ecf1qbt********`. For brevity and simplicity, you can use a link to the `"yandex_ydb_database_serverless"` resource specifying the ID and the `ydb_full_endpoint` parameter, e.g., `yandex_ydb_database_serverless.database1.ydb_full_endpoint `. 
 1. `primary_key`: Primary key of the table. The key can be composite.
 
 Full list of the `yandex_ydb_table` resource fields:
@@ -136,7 +136,7 @@ resource "yandex_ydb_table" "test_table" {
 }
 ```
 
-{{ ydb-short-name }} allows you to create a [TTL column]({{ ydb.docs }}/concepts/ttl), i.e., a special column type, whose values determine the time-to-live for rows. The TTL mechanism automatically deletes the item from your table after the specified number of seconds elapses from the time set in the TTL column. You can define only a single TTL column. A TTL column comment can be one of the following types: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, `DyNumber`.
+{{ ydb-short-name }} allows you to create a [TTL column]({{ ydb.docs }}/concepts/ttl), i.e., a special column type, whose values determine the time-to-live for rows. The TTL mechanism automatically deletes the item from your table after the specified number of seconds elapses from the time set in the TTL column. You can define only a single TTL column. A TTL column comment can be one of the following types: `Date`, `Datetime`, `Timestamp`, `Uint32`, `Uint64`, and `DyNumber`.
 
 The TTL column is configured by the following block:
 ```tf
@@ -152,11 +152,11 @@ Description of `ttl` field values:
 | --- | --- | --- |
 |column_name|`string`<br>`required`|TTL column name|
 |expire_interval|`string`<br>`required`|Time in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format|
-|unit|`string`<br>`optional`|Specified if the TTL column is of [numeric]({{ ydb.docs }}/yql/reference/types/primitive#numeric) type. The supported values are `seconds`, `milliseconds`, `microseconds`, `nanoseconds`.|
+|unit|`string`<br>`optional`|It is mandatory if the TTL column has the [numeric]({{ ydb.docs }}/yql/reference/types/primitive#numeric) type. The supported values are `seconds`, `milliseconds`, `microseconds`, and `nanoseconds`.|
 
-## Partitioning row-based tables
+## Partitioning of row-oriented tables
 
-[Partitioning]({{ ydb.docs }}/concepts/datamodel/table#partitioning_row_table) is splitting table data into parts to improve query performance and optimize data management. For partitioning row-based {{ ydb-short-name }} tables in {{ TF }}, use the `partitioning_settings` parameter of the `yandex_ydb_table` resource.
+[Partitioning]({{ ydb.docs }}/concepts/datamodel/table#partitioning_row_table) is splitting table data into parts to improve query performance and optimize data management. For partitioning of row-oriented {{ ydb-short-name }} tables in {{ TF }}, use the `partitioning_settings` parameter of the `yandex_ydb_table` resource.
 
 ### Description of the `partitioning_settings` block fields
 
@@ -164,7 +164,7 @@ Example:
 ```tf
 resource "yandex_ydb_table" "test_table" {
   path = "/test_dir/test_table_3_col"
-  connection_string = yandex_ydb_database_serverless.database1.ydb_full_endpoint
+  connection_string = yandex_ydb_database_serverless.database1.ydb_full_endpoint 
 
   partitioning_settings {
     auto_partitioning_min_partitions_count = 5
@@ -174,7 +174,7 @@ resource "yandex_ydb_table" "test_table" {
     ...
   }
  ...
-}
+} 
 ```
 
 Full description of `partitioning_settings` fields:
@@ -184,6 +184,6 @@ Full description of `partitioning_settings` fields:
 |partition_at_keys|`string`<br>`optional`|[Partitioning by primary key]({{ ydb.docs }}/concepts/datamodel/table#partition_at_keys)|
 |auto_partitioning_min_partitions_count|`number`<br>`optional`|Minimum possible [number of partitions]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_min_partitions_count) for auto partitioning|
 |auto_partitioning_max_partitions_count|`number`<br>`optional`|Maximum possible [number of partitions]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_max_partitions_count) for auto partitioning|
-|auto_partitioning_partition_size_mb|`number`<br>`optional`|Specifying [auto partitioning by size]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_partition_size_mb) in MB|
-|auto_partitioning_by_size_enabled|`bool`<br>`optional`|Auto partitioning by size (`bool`); enabled by default (`true`).|
-|auto_partitioning_by_load|`bool`<br>`optional`|Auto partitioning by load (`bool`); disabled by default (`false`).|
+|auto_partitioning_partition_size_mb|`number`<br>`optional`|Speciying the [auto partitioning value by size]({{ ydb.docs }}/concepts/datamodel/table#auto_partitioning_partition_size_mb) in MB|
+|auto_partitioning_by_size_enabled|`bool`<br>`optional`|Enabling auto partitioning by size (`bool`); enabled (`true`) by default.|
+|auto_partitioning_by_load|`bool`<br>`optional`|Enabling auto partitioning by load (`bool`); disabled (`false`) by default.|

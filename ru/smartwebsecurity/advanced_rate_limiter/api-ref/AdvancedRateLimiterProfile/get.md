@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/get.md
 ---
 
-# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Get {#Get}
+# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Get
 
 Returns the specified AdvancedRateLimiterProfile resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Customer/invite.md
 ---
 
-# Billing API, gRPC: CustomerService.Invite {#Invite}
+# Billing API, gRPC: CustomerService.Invite
 
 Invites customer to the specified reseller.
 
@@ -15,17 +15,17 @@ Invites customer to the specified reseller.
 
 ```json
 {
-  "resellerId": "string",
+  "reseller_id": "string",
   "name": "string",
-  "invitationEmail": "string",
+  "invitation_email": "string",
   "person": {
     "name": "string",
     "longname": "string",
     "phone": "string",
     "email": "string",
-    "postCode": "string",
-    "postAddress": "string",
-    "legalAddress": "string",
+    "post_code": "string",
+    "post_address": "string",
+    "legal_address": "string",
     "tin": "string"
   }
 }
@@ -33,13 +33,13 @@ Invites customer to the specified reseller.
 
 #|
 ||Field | Description ||
-|| resellerId | **string**
+|| reseller_id | **string**
 
 Required field. Billing account ID of the reseller that the customer will be associated with. ||
 || name | **string**
 
 Required field. Name of the customer. ||
-|| invitationEmail | **string**
+|| invitation_email | **string**
 
 Required field. Customer email to send invitation to. ||
 || person | **[CustomerPerson](#yandex.cloud.billing.v1.CustomerPerson)**
@@ -73,17 +73,17 @@ Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.o
 Optional. Email of the person.
 
 Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address). ||
-|| postCode | **string**
+|| post_code | **string**
 
 Optional. Post code of the person.
 
 String length is not limited. ||
-|| postAddress | **string**
+|| post_address | **string**
 
 Optional. Post address of the person.
 
 String length is not limited. ||
-|| legalAddress | **string**
+|| legal_address | **string**
 
 Optional. Legal address of the person.
 
@@ -101,19 +101,19 @@ String length is not limited. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "resellerId": "string",
-    "customerId": "string"
+    "reseller_id": "string",
+    "customer_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "billingAccountId": "string"
+    "billing_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -129,13 +129,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -178,10 +178,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resellerId | **string**
+|| reseller_id | **string**
 
 ID of the reseller. ||
-|| customerId | **string**
+|| customer_id | **string**
 
 ID of the customer. ||
 |#
@@ -195,7 +195,7 @@ A Customer resource.
 || id | **string**
 
 ID of the customer. ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 ID of the [yandex.cloud.billing.v1.BillingAccount](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount) assigned to the customer. ||
 |#

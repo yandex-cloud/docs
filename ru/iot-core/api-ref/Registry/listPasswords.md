@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listPasswords.md
 ---
 
-# IoT Core Service, REST: Registry.ListPasswords {#ListPasswords}
+# IoT Core Service, REST: Registry.ListPasswords
 
 Retrieves the list of passwords for the specified registry.
 

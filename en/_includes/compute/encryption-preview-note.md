@@ -1,1 +1,0 @@
-The encryption feature in {{ compute-name }} is currently at the [Preview stage](../../overview/concepts/launch-stages.md). To access it, open the resource creation page and click **Request access** under **Encryption** or [contact support]({{ link-console-support }}).

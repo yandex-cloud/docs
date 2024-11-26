@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/getUsed.md
 ---
 
-# Cloud Functions Service, REST: Network.GetUsed {#GetUsed}
+# Cloud Functions Service, REST: Network.GetUsed
 
 Returns the specified network used in serverless resources.
 

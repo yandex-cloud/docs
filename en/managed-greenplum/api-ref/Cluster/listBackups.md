@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for Greenplum® API, REST: Cluster.ListBackups
 
 Retrieves a list of available backups for the specified Greenplum® cluster.
 

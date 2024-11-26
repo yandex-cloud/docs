@@ -1,7 +1,7 @@
 # Creating test VMs via {{ GL }} CI
 
 
-You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each commit in the `master` branch in a Git repository. The example below creates and tests a [VM](../../compute/concepts/vm.md) following each commit.
+You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each commit to the `master` branch in a Git repository. The example below creates and tests a [VM](../../compute/concepts/vm.md) following each commit.
 
 To configure Continuous Integration (CI) for VM [disk snapshots](../../compute/concepts/snapshot.md):
 1. [Create a VM for the test application](#create-vm): Create a new VM whose disk snapshot will be used to create new VMs via CI.
@@ -45,15 +45,15 @@ Create a VM to deploy the test application to, a set of components required for 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the virtual machine, such as `yc-user`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
 
       {% note alert %}
 
@@ -66,7 +66,7 @@ Create a VM to deploy the test application to, a set of components required for 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ci-tutorial-test-app`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
+It may take a few minutes to create the VM. When its status changes to `RUNNING`, you can start to configure your VM.
 
 Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vpc/concepts/address.md). This data can be used for SSH access.
 
@@ -81,7 +81,7 @@ On the created VM, deploy a collection of components required for the test appli
    ```
 
 1. Run the `apt update` command to update the lists of packages available for installation.
-1. Install the required packages: jq JSON processor, git client, PIP package manager, virtualenv virtual environment management system, the set of header files for Python C API, and the nginx web server:
+1. Install the required packages: jq JSON processor, Git client, PIP package manager, virtualenv virtual environment management system, header files for the Python C API, and Nginx web server:
 
    ```bash
    sudo apt-get --yes install jq git python-pip virtualenv python-dev nginx-full
@@ -94,7 +94,7 @@ On the created VM, deploy a collection of components required for the test appli
    sudo chown -R $USER /srv/test-app
    ```
 
-1. Go to the folder and create the `virtualenv` virtual environment in it:
+1. Go to the directory and create the `virtualenv` virtual environment in it:
 
    ```bash
    cd /srv/test-app
@@ -119,15 +119,15 @@ On the created VM, deploy a collection of components required for the test appli
    deactivate
    ```
 
-1. In the `/srv/test-app` folder, create a file named `api.py`:
+1. In the `/srv/test-app` directory, create a file named `api.py`:
 
    ```bash
    touch api.py
    ```
 
-1. Open the `api.py` file using any text editor, and insert the Python code that:
+1. Open the `api.py` file in any text editor and paste there the Python code which:
    * Accepts a text string as input in the `text` parameter.
-   * Writes each word from the passed string in the opposite order.
+   * Writes each word from the string in the reverse order.
    * Returns a response:
      * In JSON format if the client application can accept JSON.
      * In plain text if the client application does not accept JSON.
@@ -157,13 +157,13 @@ On the created VM, deploy a collection of components required for the test appli
        return res
    ```
 
-1. In the `/srv/test-app` folder, create a file named `wsgi.py`:
+1. In the `/srv/test-app` directory, create a file named `wsgi.py`:
 
    ```bash
    touch wsgi.py
    ```
 
-1. Open the `wsgi.py` file using any text editor and insert the code that runs the test application:
+1. Open the `wsgi.py` file in any text editor and paste the code that runs the test application:
 
    ```python
    # wsgi.py
@@ -173,13 +173,13 @@ On the created VM, deploy a collection of components required for the test appli
        app.run()
    ```
 
-1. In the `/srv/test-app` folder, create a file named `test-app.ini`:
+1. In the `/srv/test-app` directory, create a file named `test-app.ini`:
 
    ```bash
    touch test-app.ini
    ```
 
-1. Open the `test-app.ini` file using any text editor and insert the configuration of the uWSGI server:
+1. Open the `test-app.ini` file in any text editor and paste the configuration of the uWSGI server:
 
    ```ini
    #test-app.ini
@@ -196,7 +196,7 @@ On the created VM, deploy a collection of components required for the test appli
    die-on-term = true
    ```
 
-1. Assign the `www-data` user as the owner of the `/srv/test-app` folder and the files it contains:
+1. Assign the `www-data` user as the owner of the `/srv/test-app` directory and the files in it:
 
    ```bash
    sudo chown -R www-data:www-data /srv/test-app
@@ -221,7 +221,7 @@ On the created VM, deploy a collection of components required for the test appli
    WantedBy=multi-user.target
    ```
 
-1. Specify the settings of the new virtual server in the nginx configuration by changing the `/etc/nginx/sites-available/test-app.conf` as follows:
+1. Provide the settings of the new virtual server in the Nginx configuration by changing the `/etc/nginx/sites-available/test-app.conf` file as follows:
 
    ```nginx
    #/etc/nginx/sites-available/test-app.conf
@@ -239,7 +239,7 @@ On the created VM, deploy a collection of components required for the test appli
    }
    ```
 
-1. Create a symbolic link that points to the nginx configuration file, i.e., `test-app.conf`:
+1. Create a symbolic link that points to the `test-app.conf` Nginx configuration file:
 
    ```bash
    sudo ln -s /etc/nginx/sites-available/test-app.conf /etc/nginx/sites-enabled/
@@ -266,7 +266,7 @@ To make sure the test application is functional and the web server is properly c
    http://<VM_public_IP_address>/test/?text=hello_world
    ```
 
-1. If everything is working, the screen will display text with reversed words from the `text` parameter.
+1. If everything works correctly, the screen will display text with reversed words from the `text` parameter.
 
 ## Take a snapshot of the VM disk {#create-snapshot}
 
@@ -293,15 +293,15 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
 1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user you want to create on the virtual machine, such as `yc-user`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
 
       {% note alert %}
 
@@ -314,7 +314,7 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ci-tutorial-gitlab`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring it.
+It may take a few minutes to create the VM. When its status changes to `RUNNING`, you can start to configure your VM.
 
 Once created, the VM is assigned an [IP address and a host name (FQDN)](../../vpc/concepts/address.md). This data can be used for SSH access.
 
@@ -342,12 +342,12 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
 1. Set the project name: `gitlab-test`.
 1. Click **Create project**.
 1. Obtain an OAuth token from the Yandex OAuth service. To do this, follow the [link]({{ link-cloud-oauth }}) and click **Allow**.
-1. In the browser, open the link formatted as follows: `http://<VM_public_IP_address>/root`.
+1. In the browser, open the link formatted as `http://<VM_public_IP_address>/root`.
 1. Select the `gitlab-test` project.
 1. On the screen that opens, choose the **Settings** tab on the left. In the menu that opens, select **CI/CD**.
 1. Under **Variables**, click **Expand**.
 1. Create a new variable:
-   * For the variable name, specify `YC_OAUTH`.
+   * Specify `YC_OAUTH` as the variable name.
    * Specify the OAuth token you received as the value of the variable.
    * Click **Save variables**.
 1. Under **Runners**, click **Expand**.
@@ -359,7 +359,7 @@ A Runner is a tool for performing tasks that a user creates. You need to install
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM with {{ GL }} over SSH:
 
    ```bash
-   ssh <login>@<public_IP_address_of_your_VM_with_{{ GL }}>
+   ssh <login>@<public_IP_address_of_VM_with_{{ GL }}>
    ```
 
 1. Add the new repository to the package manager:
@@ -368,15 +368,15 @@ A Runner is a tool for performing tasks that a user creates. You need to install
    curl --location https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
    ```
 
-1. Install the Runner that will run your CI scripts:
+1. Install GitLab Runner that will run your CI scripts:
 
    ```bash
    sudo apt-get -y install gitlab-runner
    ```
 
-1. Register the Runner:
+1. Register GitLab Runner:
    * For `Please enter the gitlab-ci coordinator URL`, enter the IP address of your {{ GL }} server.
-   * For `Please enter the gitlab-ci token for this runner`, enter your Runner token.
+   * For `Please enter the gitlab-ci token for this runner`, enter your GitLab Runner token.
    * For `Please enter the gitlab-ci description for this runner`, enter the `gitlab test runner` description.
    * For `Please enter the gitlab-ci tags for this runner`, do not type anything. Press **Enter**.
    * For `Please enter the executor`, enter `shell`.
@@ -415,8 +415,8 @@ A Runner is a tool for performing tasks that a user creates. You need to install
 
 1. Create a file named `test.py` with the functional testing script:
    1. Open the home page of the `gitlab-test` repository.
-   1. Click **+** and choose **New file**.
-   1. In the window that opens, name the file as follows: `test.py`.
+   1. Click **+** and select **New file**.
+   1. In the window that opens, name the file as `test.py`.
    1. Copy the following code to the file body:
 
       ```python
@@ -450,14 +450,14 @@ A Runner is a tool for performing tasks that a user creates. You need to install
 ## Configure CI {#configure-ci}
 
 You need to define the configuration for CI.
-1. Open the home page of the `gitlab-test` repository.
+1. Open the home page of the `gitlab-test` repository:
 
    ```http
-   http://<public_IP_address_of_your_VM_with_{{ GL }}>/root/gitlab-test
+   http://<public_IP_address_of_{{ GL }}_VM>/root/gitlab-test
    ```
 
 1. Click **Set up CI/CD**. A window will open for adding a new file.
-1. {{ GL }} will automatically name the file `.gitlab-ci.yml`. Do not rename it. Copy the following configuration to the file:
+1. {{ GL }} will name the file as `.gitlab-ci.yml` automatically. Do not rename it. Copy the following configuration to the file:
 
    ```yaml
    #.gitlab-ci.yml
@@ -502,14 +502,14 @@ You need to define the configuration for CI.
        expire_in: 1 hour
    ```
 
-1. In the `snapshot_name` field, enter the name of your snapshot for the first VM.
+1. In the `snapshot_name` field, enter the snapshot name for the first VM.
    In the `folder_id` field, specify the ID of the folder where VMs are created.
-   In the `subnet_name` field, specify the name of the subnet the VMs will connect to. You can retrieve the name in the management console by opening the appropriate folder and going to the {{ vpc-name }} service page.
+   In the `subnet_name` field, specify the name of the subnet the VMs will connect to. You can get the name in the management console: open the appropriate folder and go to the {{ vpc-name }} service page.
 1. Click **Commit changes**.
 
 ## Test the application on the VM created using CI {#test-new-vm}
 
-After the commit, you need to make sure that CI worked correctly. The appropriate folder should contain a new VM where the test application and the web server are deployed.
+After making a commit, you need to make sure that CI worked correctly. The appropriate folder should contain a new VM where the test application and the web server are deployed.
 
 To test the created VM:
 1. Open the {{ yandex-cloud }} management console.
@@ -522,7 +522,7 @@ To test the created VM:
    http://<public_IP_address_of_created_VM>/test/?text=hello_world
    ```
 
-1. The application created in the previous steps should also function on the created VM and return the reversed words from the `text` parameter.
+1. The application you created in the previous steps should also function on the created VM and return the reversed words from the `text` parameter.
 
 ### Delete the resources you created {#clear-out}
 

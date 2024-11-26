@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/MlModel/update.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: MlModelService.Update {#Update}
+# Managed Service for ClickHouse API, gRPC: MlModelService.Update
 
 Updates the specified machine learning model.
 
@@ -15,24 +15,24 @@ Updates the specified machine learning model.
 
 ```json
 {
-  "clusterId": "string",
-  "mlModelName": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "cluster_id": "string",
+  "ml_model_name": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "uri": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to update the model in.
 
 To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| mlModelName | **string**
+|| ml_model_name | **string**
 
 Required field. Name of the the model to update. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || uri | **string**
 
 The new model file URL. You can only use models stored in Object Storage. ||
@@ -44,19 +44,19 @@ The new model file URL. You can only use models stored in Object Storage. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "mlModelName": "string"
+    "cluster_id": "string",
+    "ml_model_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "type": "MlModelType",
     "uri": "string"
   }
@@ -74,13 +74,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -123,10 +123,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that contains the model being updated. ||
-|| mlModelName | **string**
+|| ml_model_name | **string**
 
 Name of the the model that is being updated. ||
 |#
@@ -138,7 +138,7 @@ Name of the the model that is being updated. ||
 || name | **string**
 
 Name of the the model. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the model belongs to. ||
 || type | enum **MlModelType**

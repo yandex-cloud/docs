@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/saml/api-ref/grpc/Certificate/get.md
 ---
 
-# Identity and Access Management SAML API, gRPC: CertificateService.Get {#Get}
+# Identity and Access Management SAML API, gRPC: CertificateService.Get
 
 Returns the specified certificate.
 
@@ -17,13 +17,13 @@ To get the list of available certificates, make a [List](/docs/iam/api-ref/grpc/
 
 ```json
 {
-  "certificateId": "string"
+  "certificate_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate to return.
 To get the certificate ID, make a [CertificateService.List](/docs/iam/api-ref/grpc/Certificate/list#List) request. ||
@@ -34,10 +34,10 @@ To get the certificate ID, make a [CertificateService.List](/docs/iam/api-ref/gr
 ```json
 {
   "id": "string",
-  "federationId": "string",
+  "federation_id": "string",
   "name": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "data": "string"
 }
 ```
@@ -49,7 +49,7 @@ A certificate.
 || id | **string**
 
 Required field. ID of the certificate. ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation that the certificate belongs to. ||
 || name | **string**
@@ -58,7 +58,7 @@ Name of the certificate. ||
 || description | **string**
 
 Description of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || data | **string**

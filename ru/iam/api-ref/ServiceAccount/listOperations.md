@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/listOperations.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.ListOperations {#ListOperations}
+# Identity and Access Management API, REST: ServiceAccount.ListOperations
 
 Lists operations for the specified service account.
 

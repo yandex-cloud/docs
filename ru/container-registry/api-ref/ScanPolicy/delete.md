@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/delete.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Delete {#Delete}
+# Container Registry API, REST: ScanPolicy.Delete
 
 Deletes the specified scan policy.
 

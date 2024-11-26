@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/list.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Cluster.List {#List}
+# Managed Service for PostgreSQL API, REST: Cluster.List
 
 Retrieves the list of PostgreSQL Cluster resources that belong
 to the specified folder.

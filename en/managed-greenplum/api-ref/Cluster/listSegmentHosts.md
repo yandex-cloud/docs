@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/listSegmentHosts.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.ListSegmentHosts {#ListSegmentHosts}
+# Managed Service for Greenplum® API, REST: Cluster.ListSegmentHosts
 
 Retrieves a list of segment hosts for the specified cluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setAccessBindings.md
 ---
 
-# Cloud Functions Service, REST: Function.SetAccessBindings {#SetAccessBindings}
+# Cloud Functions Service, REST: Function.SetAccessBindings
 
 Sets access bindings for the function.
 

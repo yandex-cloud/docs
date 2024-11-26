@@ -18,7 +18,7 @@ To send an SQL query to a database from the management console:
 1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
 1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use the following templates:
    * To use one of the standard templates, select it from the drop-down list to the right of the **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** button.
-   * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the table and select a template.
+   * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row with the table and select a template.
 1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
 ## Insert and update data {#change-data}
@@ -50,11 +50,11 @@ Once the `series`, `seasons`, and `episodes` tables are created, you can insert 
 REPLACE INTO <table_name> (<list_of_columns>) VALUES (<list_of_values_to_add>);
 ```
 
-Use [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only difference from the `UPSERT` statement.
+Use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement to add a new row or change an existing one based on the specified primary key value. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new ones. *The values of columns not involved in the operation are set to their default values.* This is the only difference from the UPSERT statement.
 
 {% note info %}
 
-When performing a REPLACE operation, a blind write is performed. For write or change operations, we recommend using REPLACE and UPSERT statements.
+When performing a REPLACE operation, a blind write is performed. For data write or update operations, we recommend using the REPLACE or UPSERT statements.
 
 {% endnote %}
 
@@ -96,11 +96,11 @@ VALUES
 
 ### UPSERT {#upsert}
 
-Use [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into) statement to add a new row or change an existing one based on a specified value of the primary key. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new values. *However, the values of the columns not involved in the operation will not be changed. This is the only difference from the REPLACE statement.*
+Use the [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into) statement to add a new row or change an existing one based on a specified value of the primary key. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new ones. *However, the values of columns not involved in the operation remain unchanged. This is the only difference from the REPLACE statement.*
 
 {% note info %}
 
-When making an UPSERT, a blind write is performed. For writing data, we recommend using REPLACE and UPSERT statements.
+When making an UPSERT, a blind write is performed. For writing data, we recommend using the REPLACE or UPSERT statements.
 
 {% endnote %}
 
@@ -180,7 +180,7 @@ WHERE
 
 ### DELETE {#delete}
 
-The [DELETE]({{ ydb.docs }}/yql/reference/syntax/delete) statement deletes table rows filtered by a WHERE predicate. The code below removes the episode with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the `episodes` table.
+The [DELETE]({{ ydb.docs }}/yql/reference/syntax/delete) statement deletes table rows filtered by a WHERE predicate. The code below removes an episode with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the `episodes` table.
 
 ```sql
 DELETE
@@ -196,7 +196,7 @@ WHERE
 
 Use the [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) statement to read data from a table.
 
-To query data from the `series` table, execute the code shown below.
+To query data from the `series` table, run the code shown below.
 
 ```sql
 SELECT

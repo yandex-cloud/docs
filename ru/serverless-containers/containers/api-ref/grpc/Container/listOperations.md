@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Container/listOperations.md
 ---
 
-# Serverless Containers Service, gRPC: ContainerService.ListOperations {#ListOperations}
+# Serverless Containers Service, gRPC: ContainerService.ListOperations
 
 Lists operations for the specified container.
 
@@ -15,35 +15,35 @@ Lists operations for the specified container.
 
 ```json
 {
-  "containerId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "container_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 Required field. ID of the container to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListContainerOperationsResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainerOperationsResponse)
+results is larger than `pageSize`, the service returns a [ListContainerOperationsResponse.next_page_token](#yandex.cloud.serverless.containers.v1.ListContainerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListContainerOperationsResponse.nextPageToken](#yandex.cloud.serverless.containers.v1.ListContainerOperationsResponse) returned by a previous list request. ||
+[ListContainerOperationsResponse.next_page_token](#yandex.cloud.serverless.containers.v1.ListContainerOperationsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 
 The expression must specify:
-1. The field name. Currently filtering can be applied to the [operation.Operation.done](#yandex.cloud.operation.Operation), [operation.Operation.createdBy](#yandex.cloud.operation.Operation) field.
+1. The field name. Currently filtering can be applied to the [operation.Operation.done](#yandex.cloud.operation.Operation), [operation.Operation.created_by](#yandex.cloud.operation.Operation) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
@@ -57,9 +57,9 @@ Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -68,7 +68,7 @@ Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -77,11 +77,11 @@ Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified container. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListContainerOperationsRequest.pageSize](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest), use `nextPageToken` as the value
-for the [ListContainerOperationsRequest.pageToken](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest) parameter in the next list request.
+the specified [ListContainerOperationsRequest.page_size](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest), use `nextPageToken` as the value
+for the [ListContainerOperationsRequest.page_token](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
@@ -98,13 +98,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

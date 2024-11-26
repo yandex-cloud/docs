@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Origin/list.md
 ---
 
-# Cloud CDN API, gRPC: OriginService.List {#List}
+# Cloud CDN API, gRPC: OriginService.List
 
 Lists origins of origin group.
 
@@ -15,17 +15,17 @@ Lists origins of origin group.
 
 ```json
 {
-  "folderId": "string",
-  "originGroupId": "int64"
+  "folder_id": "string",
+  "origin_group_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the origin belongs to. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the group to request origins from. ||
 |#
@@ -37,7 +37,7 @@ ID of the group to request origins from. ||
   "origins": [
     {
       "id": "int64",
-      "originGroupId": "int64",
+      "origin_group_id": "int64",
       "source": "string",
       "enabled": "bool",
       "backup": "bool",
@@ -78,7 +78,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**

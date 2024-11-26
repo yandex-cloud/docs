@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getUnitBalance.md
 ---
 
-# DataSphere API v2, REST: Project.GetUnitBalance {#GetUnitBalance}
+# DataSphere API v2, REST: Project.GetUnitBalance
 
 Returns the unit balance of the specified project.
 

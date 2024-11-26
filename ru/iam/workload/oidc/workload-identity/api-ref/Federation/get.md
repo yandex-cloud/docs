@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/get.md
 ---
 
-# Federation, REST: Federation.Get {#Get}
+# Federation, REST: Federation.Get
 
 Returns the specified OIDC workload identity federation.
 

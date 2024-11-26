@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Create {#Create}
+# Managed Service for Elasticsearch API, REST: Cluster.Create
 
 Creates a new Elasticsearch cluster in the specified folder.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/addPassword.md
 ---
 
-# IoT Core Service, REST: Registry.AddPassword {#AddPassword}
+# IoT Core Service, REST: Registry.AddPassword
 
 Adds password for the specified registry.
 

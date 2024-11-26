@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/getRestrictions.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.GetRestrictions {#GetRestrictions}
+# DataSphere API v2, gRPC: ProjectService.GetRestrictions
 
 Get current project restrictions.
 
@@ -15,13 +15,13 @@ Get current project restrictions.
 
 ```json
 {
-  "projectId": "string"
+  "project_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| projectId | **string**
+|| project_id | **string**
 
 Required field. ID of the project. ||
 |#
@@ -33,13 +33,13 @@ Required field. ID of the project. ||
   "restrictions": [
     {
       "name": "string",
-      "boolValue": [
+      "bool_value": [
         "bool"
       ],
-      "longValue": [
+      "long_value": [
         "int64"
       ],
-      "stringValue": [
+      "string_value": [
         "string"
       ]
     }
@@ -61,13 +61,13 @@ List of restrictions. ||
 || name | **string**
 
 Name of restriction. ||
-|| boolValue[] | **bool**
+|| bool_value[] | **bool**
 
 List of boolean restriction values. Empty if value type is not boolean. ||
-|| longValue[] | **int64**
+|| long_value[] | **int64**
 
 List of long restriction values. Empty if value type is not long. ||
-|| stringValue[] | **string**
+|| string_value[] | **string**
 
 List of string restriction values. Empty if value type is not string. ||
 |#

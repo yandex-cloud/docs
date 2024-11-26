@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/create.md
 ---
 
-# Managed Service for Greenplum® API, REST: HBARule.Create {#Create}
+# Managed Service for Greenplum® API, REST: HBARule.Create
 
 Create single HBA rule for the specified Greenplum cluster to the end of HBA rules list.
 

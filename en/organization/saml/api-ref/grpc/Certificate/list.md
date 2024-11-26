@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/list.md
 ---
 
-# SAML Federation API, gRPC: CertificateService.List {#List}
+# SAML Federation API, gRPC: CertificateService.List
 
 Retrieves the list of certificates in the specified federation.
 
@@ -15,29 +15,29 @@ Retrieves the list of certificates in the specified federation.
 
 ```json
 {
-  "federationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "federation_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation to list certificates in.
 To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/grpc/Federation/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
+results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
+Page token. To get the next page of results, set `page_token`
+to the [ListCertificatesResponse.next_page_token](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
 returned by a previous list request. ||
 || filter | **string**
 
@@ -55,14 +55,14 @@ The expression must specify:
   "certificates": [
     {
       "id": "string",
-      "federationId": "string",
+      "federation_id": "string",
       "name": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
       "data": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,14 +71,14 @@ The expression must specify:
 || certificates[] | **[Certificate](#yandex.cloud.organizationmanager.v1.saml.Certificate)**
 
 List of certificates. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListCertificatesRequest.pageSize](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesRequest), use
-the `nextPageToken` as the value
-for the [ListCertificatesRequest.pageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesRequest) query parameter
+is larger than [ListCertificatesRequest.page_size](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesRequest), use
+the `next_page_token` as the value
+for the [ListCertificatesRequest.page_token](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Certificate {#yandex.cloud.organizationmanager.v1.saml.Certificate}
@@ -90,7 +90,7 @@ A certificate.
 || id | **string**
 
 Required field. ID of the certificate. ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Required field. ID of the federation that the certificate belongs to. ||
 || name | **string**
@@ -99,7 +99,7 @@ Name of the certificate. ||
 || description | **string**
 
 Description of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || data | **string**

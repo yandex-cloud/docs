@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/get.md
 ---
 
-# Data Transfer API, REST: Endpoint.Get {#Get}
+# Data Transfer API, REST: Endpoint.Get
 
 ## HTTP request
 

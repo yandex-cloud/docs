@@ -91,7 +91,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate stating your organization [ID](../../../organization/operations/organization-get-id.md):
+  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate, specifying your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
       yc compute ssh certificate export \
@@ -119,7 +119,10 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
       * `<SSH_certificate_path>`: Path to the exported SSH certificate, the value of the `Identity` field.
       * `<VM_ID>`: ID of the virtual machine whose serial console you want to connect to.
       * `<OS_Login_username>`: {{ oslogin }} user ID in the organization. You can find the {{ oslogin }} username at the end of the exported certificate's name after the organization [ID](../../../organization/operations/organization-get-id.md).
-          You can also get the username in [{{ org-full-name }}]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
+
+          You can also get the username using the `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/managed-services/organization-manager/oslogin/profile/list.md) command or in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
+
+          {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
       Example for a user with the `yid-orgusername` username and a VM with the `epd22a2tj3gd********` ID:
 
@@ -140,7 +143,7 @@ You can also connect to the serial console using [SSH keys for other users](../v
   * Press **Enter**.
   * Restart the VM (for VMs created before February 22, 2019).
 * If you get the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
-* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is valid. If necessary, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
+* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is still valid. If required, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

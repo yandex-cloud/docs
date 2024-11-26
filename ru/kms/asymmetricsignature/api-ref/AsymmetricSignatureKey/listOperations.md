@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.ListOperations {#ListOperations}
+# Key Management Service API, REST: AsymmetricSignatureKey.ListOperations
 
 Lists operations for the specified asymmetric KMS key.
 

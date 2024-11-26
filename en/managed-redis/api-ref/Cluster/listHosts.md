@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for Redis API, REST: Cluster.ListHosts {#ListHosts}
+# Managed Service for Redis API, REST: Cluster.ListHosts
 
 Retrieves a list of hosts for the specified cluster.
 

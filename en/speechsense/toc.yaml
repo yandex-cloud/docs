@@ -149,10 +149,6 @@ items:
             items:
               - name: Overview
                 href: api-ref/Talk/index.md
-              - name: Upload
-                href: api-ref/Talk/upload.md
-              - name: UploadText
-                href: api-ref/Talk/uploadText.md
               - name: Search
                 href: api-ref/Talk/search.md
               - name: Get

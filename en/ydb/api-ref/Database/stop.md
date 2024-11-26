@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/stop.md
 ---
 
-# Managed Service for YDB API, REST: Database.Stop {#Stop}
+# Managed Service for YDB API, REST: Database.Stop
 
 Stops the specified database.
 

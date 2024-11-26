@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/create.md
 ---
 
-# Workload Identity, REST: FederatedCredential.Create {#Create}
+# Workload Identity, REST: FederatedCredential.Create
 
 Creates a federated credential for the specified service account.
 

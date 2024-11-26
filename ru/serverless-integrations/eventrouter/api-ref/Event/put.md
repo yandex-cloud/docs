@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Event/put.md
 ---
 
-# EventRouter Service, REST: Event.Put {#Put}
+# EventRouter Service, REST: Event.Put
 
 Puts event to bus.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: ResourcePreset.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
 

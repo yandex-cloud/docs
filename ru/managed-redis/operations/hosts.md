@@ -42,11 +42,52 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список хостов в кластере, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md).
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.ListHosts
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse).
 
 {% endlist %}
 
@@ -174,11 +215,13 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы добавить хост, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Настройки нового хоста в одном или нескольких параметрах `hostSpecs`.
+    {% include [rest-add-hosts](../../_includes/mdb/mrd/api/rest-add-hosts.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [grpc-add-hosts](../../_includes/mdb/mrd/api/grpc-add-hosts.md) %}
 
 {% endlist %}
 
@@ -261,16 +304,91 @@
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить параметры хоста, воспользуйтесь методом REST API [updateHosts](../api-ref/Cluster/updateHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и передайте в запросе:
-  * Идентификатор кластера, в котором нужно изменить хост, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя хоста, который нужно изменить, в параметре `updateHostSpecs.hostName`. Чтобы узнать имя, [получите список хостов в кластере](#list).
-  * Настройки публичного доступа к хосту в параметре `updateHostSpecs.assignPublicIp`.
-  * [Приоритет хоста](../concepts/replication.md#master-failover) в параметре `updateHostSpecs.replicaPriority`.
-  * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+            --data '{
+                      "updateHostSpecs": [
+                        {
+                          "hostName": "<имя_хоста>",
+                          "replicaPriority": "<приоритет_хоста>",
+                          "assignPublicIp": <публичный_доступ_к_хосту_кластера>,
+                          "updateMask": "replicaPriority,assignPublicIp"
+                        }
+                      ]
+                    }'
+        ```
+
+        Где `updateHostSpecs` — параметры хоста:
+
+        * `hostName` — имя хоста, который нужно изменить. Чтобы узнать имя, [получите список хостов в кластере](#list).
+        * `replicaPriority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+        * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если в кластере включена поддержка TLS.
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_host_specs": [
+                    {
+                      "host_name": "<имя_хоста>",
+                      "replica_priority": "<приоритет_хоста>",
+                      "assign_public_ip": <публичный_доступ_к_хосту_кластера>,
+                      "update_mask": {
+                        "paths": ["replica_priority", "assign_public_ip"]
+                      }
+                    }
+                  ] 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.UpdateHosts
+        ```
+
+        Где `update_host_specs` — параметры хоста:
+
+        * `host_name` — имя хоста, который нужно изменить. Чтобы узнать имя, [получите список хостов в кластере](#list).
+        * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Включить публичный доступ можно, только если в кластере включена поддержка TLS.
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -334,10 +452,12 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя или массив имен удаляемых хостов в параметре `hostNames`.
+    {% include [rest-remove-hosts](../../_includes/mdb/mrd/api/rest-remove-hosts.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [grpc-remove-hosts](../../_includes/mdb/mrd/api/grpc-remove-hosts.md) %}
 
 {% endlist %}

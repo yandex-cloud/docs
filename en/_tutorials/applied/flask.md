@@ -3,9 +3,9 @@
 
 With this tutorial, you will develop a simple web application from scratch: a mini blog where users can create, view, edit, and delete posts. To do this, you will create a {{ compute-full-name }} VM in {{ yandex-cloud }} and run a web server on it.
 
-The web application is written in [Python](https://www.python.org/) and uses the [SQLite](https://sqlite.org/) DBMS to work with data. To develop the frontend, the [Bootstrap toolkit](https://getbootstrap.com/) is used.
+The web app is written in [Python](https://www.python.org/) and uses [SQLite](https://sqlite.org/) to work with data. To develop the frontend, we will use [Bootstrap](https://getbootstrap.com/). 
 
-We chose [Flask](https://flask.palletsprojects.com/en/3.0.x/) as the base framework for our application as one of the most intuitive and straightforward Python web frameworks.
+We opted for [Flask](https://flask.palletsprojects.com/en/3.0.x/) as the base framework for our application, since it is one of the most intuitive and straightforward Python web frameworks. 
 
 The Flask framework allows you to create web applications from a single source code file; it does not require following any specific directory structure or writing complex template code before you start using it. Flask also has out-of-the-box support for the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) toolkit and the [Jinja templating engine](http://jinja.palletsprojects.com/) to create dynamic HTML pages.
 
@@ -53,7 +53,7 @@ To create a virtual network and subnet for your web server:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select your folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
@@ -100,7 +100,7 @@ To create a virtual network and subnet for your web server:
 
       Result:
 
-      ```
+      ``` 
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
@@ -226,7 +226,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
@@ -1017,7 +1017,7 @@ Create a new Flask route with a view function that will process a new HTML templ
 
     If you try to open `http://<public_IP_address_of_VM>:5000/3`, you will see an error page stating that the requested blog post is not found.
 
-1. Add links from the post titles that open the post view pages to the main page of your application.
+1. Add links from the post titles that open the post view pages to the main page of your application. 
 
     Open the `index.html` template:
 

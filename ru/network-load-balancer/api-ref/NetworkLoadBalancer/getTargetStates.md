@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates {#GetTargetStates}
+# Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates
 
 Gets states of target resources in the attached target group.
 

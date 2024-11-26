@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/delete.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Delete {#Delete}
+# Managed Service for OpenSearch API, REST: Cluster.Delete
 
 Deletes the specified OpenSearch cluster.
 

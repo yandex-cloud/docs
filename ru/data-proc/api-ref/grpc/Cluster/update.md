@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/update.md
 ---
 
-# Data Proc API, gRPC: ClusterService.Update {#Update}
+# Data Proc API, gRPC: ClusterService.Update
 
 Updates the configuration of the specified cluster.
 
@@ -15,29 +15,29 @@ Updates the configuration of the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "cluster_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "description": "string",
   "labels": "string",
-  "configSpec": {
-    "subclustersSpec": [
+  "config_spec": {
+    "subclusters_spec": [
       {
         "id": "string",
         "name": "string",
         "resources": {
-          "resourcePresetId": "string",
-          "diskTypeId": "string",
-          "diskSize": "int64"
+          "resource_preset_id": "string",
+          "disk_type_id": "string",
+          "disk_size": "int64"
         },
-        "hostsCount": "int64",
-        "autoscalingConfig": {
-          "maxHostsCount": "int64",
+        "hosts_count": "int64",
+        "autoscaling_config": {
+          "max_hosts_count": "int64",
           "preemptible": "bool",
-          "measurementDuration": "google.protobuf.Duration",
-          "warmupDuration": "google.protobuf.Duration",
-          "stabilizationDuration": "google.protobuf.Duration",
-          "cpuUtilizationTarget": "double",
-          "decommissionTimeout": "int64"
+          "measurement_duration": "google.protobuf.Duration",
+          "warmup_duration": "google.protobuf.Duration",
+          "stabilization_duration": "google.protobuf.Duration",
+          "cpu_utilization_target": "double",
+          "decommission_timeout": "int64"
         }
       }
     ],
@@ -46,10 +46,10 @@ Updates the configuration of the specified cluster.
         "Service"
       ],
       "properties": "string",
-      "sshPublicKeys": [
+      "ssh_public_keys": [
         "string"
       ],
-      "initializationActions": [
+      "initialization_actions": [
         {
           "uri": "string",
           "args": [
@@ -61,26 +61,26 @@ Updates the configuration of the specified cluster.
     }
   },
   "name": "string",
-  "serviceAccountId": "string",
+  "service_account_id": "string",
   "bucket": "string",
-  "decommissionTimeout": "int64",
-  "uiProxy": "bool",
-  "securityGroupIds": [
+  "decommission_timeout": "int64",
+  "ui_proxy": "bool",
+  "security_group_ids": [
     "string"
   ],
-  "deletionProtection": "bool",
-  "logGroupId": "string"
+  "deletion_protection": "bool",
+  "log_group_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster to update.
 
 To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the cluster should be updated. ||
 || description | **string**
@@ -89,31 +89,31 @@ New description for the cluster. ||
 || labels | **string**
 
 A new set of cluster labels as `key:value` pairs. ||
-|| configSpec | **[UpdateClusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
+|| config_spec | **[UpdateClusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
 
 Configuration and resources for hosts that should be created with the Data Proc cluster. ||
 || name | **string**
 
 New name for the Data Proc cluster. The name must be unique within the folder. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the new service account to be used by the Data Proc manager agent. ||
 || bucket | **string**
 
 Name of the new Object Storage bucket to use for Data Proc jobs. ||
-|| decommissionTimeout | **int64**
+|| decommission_timeout | **int64**
 
 Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
-|| uiProxy | **bool**
+|| ui_proxy | **bool**
 
 Enable UI Proxy feature. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service ||
 |#
@@ -122,7 +122,7 @@ ID of the cloud logging log group to write logs. If not set, logs will not be se
 
 #|
 ||Field | Description ||
-|| subclustersSpec[] | **[UpdateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateSubclusterConfigSpec)**
+|| subclusters_spec[] | **[UpdateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateSubclusterConfigSpec)**
 
 New configuration for subclusters in a cluster. ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
@@ -145,10 +145,10 @@ Name of the subcluster. ||
 || resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)**
 
 Resource configuration for each host in the subcluster. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the subcluster. ||
-|| autoscalingConfig | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+|| autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
 |#
@@ -157,17 +157,17 @@ Configuration for instance group based subclusters ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the resource preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
 * network-hdd - network HDD drive,
 * network-ssd - network SSD drive. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
 |#
@@ -176,7 +176,7 @@ Volume of the storage available to a host, in bytes. ||
 
 #|
 ||Field | Description ||
-|| maxHostsCount | **int64**
+|| max_hosts_count | **int64**
 
 Upper limit for total instance subcluster count. ||
 || preemptible | **bool**
@@ -184,23 +184,23 @@ Upper limit for total instance subcluster count. ||
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
 if their resources are needed by Compute.
 For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). ||
-|| measurementDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Time in seconds allotted for averaging metrics. ||
-|| warmupDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The warmup time of the instance in seconds. During this time,
 traffic is sent to the instance, but instance metrics are not collected. ||
-|| stabilizationDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Minimum amount of time in seconds allotted for monitoring before
 Instance Groups can reduce the number of instances in the group.
 During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
-|| cpuUtilizationTarget | **double**
+|| cpu_utilization_target | **double**
 
 Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
-|| decommissionTimeout | **int64**
+|| decommission_timeout | **int64**
 
 Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
 |#
@@ -237,10 +237,10 @@ the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
 |#
@@ -266,19 +266,19 @@ Execution timeout ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
@@ -290,16 +290,16 @@ Execution timeout ||
       }
     ],
     "config": {
-      "versionId": "string",
+      "version_id": "string",
       "hadoop": {
         "services": [
           "Service"
         ],
         "properties": "string",
-        "sshPublicKeys": [
+        "ssh_public_keys": [
           "string"
         ],
-        "initializationActions": [
+        "initialization_actions": [
           {
             "uri": "string",
             "args": [
@@ -312,18 +312,19 @@ Execution timeout ||
     },
     "health": "Health",
     "status": "Status",
-    "zoneId": "string",
-    "serviceAccountId": "string",
+    "zone_id": "string",
+    "service_account_id": "string",
     "bucket": "string",
-    "uiProxy": "bool",
-    "securityGroupIds": [
+    "ui_proxy": "bool",
+    "security_group_ids": [
       "string"
     ],
-    "hostGroupIds": [
+    "host_group_ids": [
       "string"
     ],
-    "deletionProtection": "bool",
-    "logGroupId": "string"
+    "deletion_protection": "bool",
+    "log_group_id": "string",
+    "environment": "Environment"
   }
   // end of the list of possible fields
 }
@@ -339,13 +340,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -388,7 +389,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that is being updated. ||
 |#
@@ -402,10 +403,10 @@ A Data Proc cluster. For details about the concept, see [documentation](/docs/da
 || id | **string**
 
 ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -442,31 +443,38 @@ Cluster status.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the cluster resides. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of service account for the Data Proc manager agent. ||
 || bucket | **string**
 
 Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
-|| uiProxy | **bool**
+|| ui_proxy | **bool**
 
 Whether UI Proxy feature is enabled. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | enum **Environment**
+
+Environment of the cluster
+
+- `ENVIRONMENT_UNSPECIFIED`
+- `PRODUCTION`
+- `PRESTABLE` ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
@@ -490,7 +498,7 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
@@ -531,10 +539,10 @@ the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
 
 Set of init-actions ||
 |#

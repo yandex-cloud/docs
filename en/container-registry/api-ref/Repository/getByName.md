@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/getByName.md
 ---
 
-# Container Registry API, REST: Repository.GetByName {#GetByName}
+# Container Registry API, REST: Repository.GetByName
 
 Returns the specified Repository resource.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/update.md
 ---
 
-# Data Transfer API, REST: Transfer.Update {#Update}
+# Data Transfer API, REST: Transfer.Update
 
 ## HTTP request
 

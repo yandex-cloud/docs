@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/update.md
 ---
 
-# Video API, REST: Channel.Update {#Update}
+# Video API, REST: Channel.Update
 
 Update channel.
 

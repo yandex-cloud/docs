@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/CertificateContent/get.md
 ---
 
-# Certificate Manager API, REST: CertificateContent.Get {#Get}
+# Certificate Manager API, REST: CertificateContent.Get
 
 Returns chain and private key of the specified certificate.
 

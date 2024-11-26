@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Provider/listActivated.md
 ---
 
-# Cloud CDN API, gRPC: ProviderService.ListActivated {#ListActivated}
+# Cloud CDN API, gRPC: ProviderService.ListActivated
 
 List activated providers for specified client.
 
@@ -15,13 +15,13 @@ List activated providers for specified client.
 
 ```json
 {
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the activate provider belongs to. ||
 |#

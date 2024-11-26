@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/getLastByThread.md
 ---
 
-# Runs, REST: Run.GetLastByThread {#GetLastByThread}
+# Runs, REST: Run.GetLastByThread
 
 Retrieves the most recent run for a specific thread.
 

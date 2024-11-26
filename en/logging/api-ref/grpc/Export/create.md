@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/Export/create.md
 ---
 
-# Cloud Logging Service, gRPC: ExportService.Create {#Create}
+# Cloud Logging Service, gRPC: ExportService.Create
 
 Creates a export in the specified folder.
 
@@ -15,20 +15,20 @@ Creates a export in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
   "labels": "string",
-  "groupId": "string",
-  "sinkId": "string",
+  "group_id": "string",
+  "sink_id": "string",
   "params": {
-    "resourceTypes": [
+    "resource_types": [
       "string"
     ],
-    "resourceIds": [
+    "resource_ids": [
       "string"
     ],
-    "streamNames": [
+    "stream_names": [
       "string"
     ],
     "levels": [
@@ -41,7 +41,7 @@ Creates a export in the specified folder.
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a export in.
 
@@ -56,10 +56,10 @@ Description of the export. ||
 || labels | **string**
 
 Export labels as `key:value` pairs. ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field. Logging Group ID logs exported from ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 Required field. Logging Sink ID logs exported to ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
@@ -71,9 +71,9 @@ Required field. Parameters for logs filtration ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resource_types[] | **string** ||
+|| resource_ids[] | **string** ||
+|| stream_names[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.
@@ -106,33 +106,33 @@ Required field. Parameters for logs filtration ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "exportId": "string"
+    "export_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "cloud_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
     "labels": "string",
-    "groupId": "string",
-    "sinkId": "string",
+    "group_id": "string",
+    "sink_id": "string",
     "params": {
-      "resourceTypes": [
+      "resource_types": [
         "string"
       ],
-      "resourceIds": [
+      "resource_ids": [
         "string"
       ],
-      "streamNames": [
+      "stream_names": [
         "string"
       ],
       "levels": [
@@ -155,13 +155,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -204,7 +204,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| exportId | **string**
+|| export_id | **string**
 
 ID of the export being created. ||
 |#
@@ -216,13 +216,13 @@ ID of the export being created. ||
 || id | **string**
 
 Export ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Export folder ID. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Export cloud ID. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Export creation time. ||
 || name | **string**
@@ -234,10 +234,10 @@ Export description. ||
 || labels | **string**
 
 Export lables. ||
-|| groupId | **string**
+|| group_id | **string**
 
 Group logs are exported from. ||
-|| sinkId | **string**
+|| sink_id | **string**
 
 Sink logs are exported to. ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams2)**
@@ -249,9 +249,9 @@ Parameters of logs filtration. ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resource_types[] | **string** ||
+|| resource_ids[] | **string** ||
+|| stream_names[] | **string** ||
 || levels[] | enum **Level**
 
 - `LEVEL_UNSPECIFIED`: Default log level.

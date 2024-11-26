@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listAccessBindings.md
 ---
 
-# Cloud DNS API, REST: DnsZone.ListAccessBindings {#ListAccessBindings}
+# Cloud DNS API, REST: DnsZone.ListAccessBindings
 
 Lists existing access bindings for the specified DNS zone.
 

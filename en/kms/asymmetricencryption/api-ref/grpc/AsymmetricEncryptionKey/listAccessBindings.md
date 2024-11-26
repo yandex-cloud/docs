@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/listAccessBindings.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.ListAccessBindings {#ListAccessBindings}
+# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.ListAccessBindings
 
 Lists existing access bindings for the specified key.
 
@@ -15,31 +15,31 @@ Lists existing access bindings for the specified key.
 
 ```json
 {
-  "resourceId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "resource_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Required field. ID of the resource to list access bindings for.
 
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request to get the Cloud resource ID. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
+results is larger than `page_size`,
+the service returns a [ListAccessBindingsResponse.next_page_token](#yandex.cloud.access.ListAccessBindingsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. Set `pageToken`
-to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
+Page token. Set `page_token`
+to the [ListAccessBindingsResponse.next_page_token](#yandex.cloud.access.ListAccessBindingsResponse)
 returned by a previous list request to get the next page of results. ||
 |#
 
@@ -47,39 +47,39 @@ returned by a previous list request to get the next page of results. ||
 
 ```json
 {
-  "accessBindings": [
+  "access_bindings": [
     {
-      "roleId": "string",
+      "role_id": "string",
       "subject": {
         "id": "string",
         "type": "string"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| accessBindings[] | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
+|| access_bindings[] | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
 
 List of access bindings for the specified resource. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListAccessBindingsRequest.pageSize](#yandex.cloud.access.ListAccessBindingsRequest), use
-the `nextPageToken` as the value
-for the [ListAccessBindingsRequest.pageToken](#yandex.cloud.access.ListAccessBindingsRequest) query parameter
+is larger than [ListAccessBindingsRequest.page_size](#yandex.cloud.access.ListAccessBindingsRequest), use
+the `next_page_token` as the value
+for the [ListAccessBindingsRequest.page_token](#yandex.cloud.access.ListAccessBindingsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## AccessBinding {#yandex.cloud.access.AccessBinding}
 
 #|
 ||Field | Description ||
-|| roleId | **string**
+|| role_id | **string**
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**

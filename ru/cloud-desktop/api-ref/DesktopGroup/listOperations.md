@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listOperations.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.ListOperations {#ListOperations}
+# Cloud Desktop API, REST: DesktopGroup.ListOperations
 
 Returns list of the operations for the specified desktop group.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/terminate.md
 ---
 
-# Workflows Service, REST: Execution.Terminate {#Terminate}
+# Workflows Service, REST: Execution.Terminate
 
 Terminates specified Workflow execution.
 

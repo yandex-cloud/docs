@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/create.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.Create {#Create}
+# SmartWebSecurity WAF API, REST: WafProfile.Create
 
 Creates a WAF profile in the specified folder using the data specified in the request.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/createProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.CreateProfile {#CreateProfile}
+# Cloud Organization API, REST: OsLogin.CreateProfile
 
 ## HTTP request
 

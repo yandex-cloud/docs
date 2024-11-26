@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/listOperations.md
 ---
 
-# IoT Core Service, REST: Device.ListOperations {#ListOperations}
+# IoT Core Service, REST: Device.ListOperations
 
 Lists operations for the specified device.
 

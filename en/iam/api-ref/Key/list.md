@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/list.md
 ---
 
-# Identity and Access Management API, REST: Key.List {#List}
+# Identity and Access Management API, REST: Key.List
 
 Retrieves the list of Key resources for the specified service account.
 

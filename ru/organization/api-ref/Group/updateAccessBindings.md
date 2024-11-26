@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/updateAccessBindings.md
 ---
 
-# Cloud Organization API, REST: Group.UpdateAccessBindings {#UpdateAccessBindings}
+# Cloud Organization API, REST: Group.UpdateAccessBindings
 
 Updates access bindings for the specified group.
 

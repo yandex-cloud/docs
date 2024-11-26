@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadtesting/api/v1/user/api-ref/grpc/Config/list.md
 ---
 
-# Load Testing API, gRPC: ConfigService.List {#List}
+# Load Testing API, gRPC: ConfigService.List
 
 Retrieves the list of configs in the specified folder.
 
@@ -15,28 +15,28 @@ Retrieves the list of configs in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to list configs in. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListConfigsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse)
+results is larger than `page_size`, the service returns a [ListConfigsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListConfigsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse) returned by a previous list request. ||
+[ListConfigsResponse.next_page_token](#yandex.cloud.loadtesting.api.v1.ListConfigsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters tests listed in the response. ||
@@ -49,14 +49,14 @@ A filter expression that filters tests listed in the response. ||
   "configs": [
     {
       "id": "string",
-      "folderId": "string",
-      "yamlString": "string",
+      "folder_id": "string",
+      "yaml_string": "string",
       "name": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string"
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -65,11 +65,11 @@ A filter expression that filters tests listed in the response. ||
 || configs[] | **[Config](#yandex.cloud.loadtesting.api.v1.config.Config)**
 
 List of configs in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListConfigsRequest.pageSize](#yandex.cloud.loadtesting.api.v1.ListConfigsRequest), use `next_page_token` as the value
-for the [ListConfigsRequest.pageToken](#yandex.cloud.loadtesting.api.v1.ListConfigsRequest) parameter in the next list request.
+the specified [ListConfigsRequest.page_size](#yandex.cloud.loadtesting.api.v1.ListConfigsRequest), use `next_page_token` as the value
+for the [ListConfigsRequest.page_token](#yandex.cloud.loadtesting.api.v1.ListConfigsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -83,19 +83,19 @@ Test config.
 || id | **string**
 
 ID of the test config. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the config belongs to. ||
-|| yamlString | **string**
+|| yaml_string | **string**
 
 Config content in YAML format. ||
 || name | **string**
 
 Name of the config. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 UA or SA that created the config. ||
 |#

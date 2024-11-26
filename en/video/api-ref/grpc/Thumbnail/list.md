@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/list.md
 ---
 
-# Video API, gRPC: ThumbnailService.List {#List}
+# Video API, gRPC: ThumbnailService.List
 
 List thumbnails for channel.
 
@@ -15,21 +15,21 @@ List thumbnails for channel.
 
 ```json
 {
-  "channelId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "channel_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
 ID of the channel. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of the results per page to return. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token for getting the next page of the result. ||
 |#
@@ -41,11 +41,11 @@ Page token for getting the next page of the result. ||
   "thumbnails": [
     {
       "id": "string",
-      "channelId": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "channel_id": "string",
+      "created_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -54,7 +54,7 @@ Page token for getting the next page of the result. ||
 || thumbnails[] | **[Thumbnail](#yandex.cloud.video.v1.Thumbnail)**
 
 List of thumbnails. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page. ||
 |#
@@ -66,10 +66,10 @@ Token for getting the next page. ||
 || id | **string**
 
 ID of the thumbnail. ||
-|| channelId | **string**
+|| channel_id | **string**
 
 ID of the channel where the thumbnail was created. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when thumbnail was created. ||
 |#

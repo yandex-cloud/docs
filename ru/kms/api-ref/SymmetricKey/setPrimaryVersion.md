@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/setPrimaryVersion.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.SetPrimaryVersion {#SetPrimaryVersion}
+# Key Management Service API, REST: SymmetricKey.SetPrimaryVersion
 
 Sets the primary version for the specified key. The primary version is used
 by default for all encrypt/decrypt operations where no version ID is specified.

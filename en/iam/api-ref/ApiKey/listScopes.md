@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/listScopes.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.ListScopes {#ListScopes}
+# Identity and Access Management API, REST: ApiKey.ListScopes
 
 Retrieves the list of scopes.
 

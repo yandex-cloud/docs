@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/pause.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Pause {#Pause}
+# Cloud Functions Triggers Service, REST: Trigger.Pause
 
 Pauses the specified trigger.
 

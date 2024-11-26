@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/elasticsearch/v1/api-ref/grpc/Auth/getProvider.md
 ---
 
-# Managed Service for Elasticsearch API, gRPC: AuthService.GetProvider {#GetProvider}
+# Managed Service for Elasticsearch API, gRPC: AuthService.GetProvider
 
 Returns registered auth provider by name.
 
@@ -15,14 +15,14 @@ Returns registered auth provider by name.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. Required. ID of the ElasticSearch cluster. ||
 || name | **string**
@@ -44,15 +44,15 @@ Required field. Required. Name of the provider to delete. ||
   "icon": "string",
   // Includes only one of the fields `saml`
   "saml": {
-    "idpEntityId": "string",
-    "idpMetadataFile": "bytes",
-    "spEntityId": "string",
-    "kibanaUrl": "string",
-    "attributePrincipal": "string",
-    "attributeGroups": "string",
-    "attributeName": "string",
-    "attributeEmail": "string",
-    "attributeDn": "string"
+    "idp_entity_id": "string",
+    "idp_metadata_file": "bytes",
+    "sp_entity_id": "string",
+    "kibana_url": "string",
+    "attribute_principal": "string",
+    "attribute_groups": "string",
+    "attribute_name": "string",
+    "attribute_email": "string",
+    "attribute_dn": "string"
   }
   // end of the list of possible fields
 }
@@ -83,13 +83,13 @@ Includes only one of the fields `saml`. ||
 
 #|
 ||Field | Description ||
-|| idpEntityId | **string** ||
-|| idpMetadataFile | **bytes** ||
-|| spEntityId | **string** ||
-|| kibanaUrl | **string** ||
-|| attributePrincipal | **string** ||
-|| attributeGroups | **string** ||
-|| attributeName | **string** ||
-|| attributeEmail | **string** ||
-|| attributeDn | **string** ||
+|| idp_entity_id | **string** ||
+|| idp_metadata_file | **bytes** ||
+|| sp_entity_id | **string** ||
+|| kibana_url | **string** ||
+|| attribute_principal | **string** ||
+|| attribute_groups | **string** ||
+|| attribute_name | **string** ||
+|| attribute_email | **string** ||
+|| attribute_dn | **string** ||
 |#

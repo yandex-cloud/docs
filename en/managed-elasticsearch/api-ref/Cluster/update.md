@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.Update {#Update}
+# Managed Service for Elasticsearch API, REST: Cluster.Update
 
 Updates the specified Elasticsearch cluster.
 

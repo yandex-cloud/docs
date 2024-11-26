@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updateRecordSets.md
 ---
 
-# Cloud DNS API, REST: DnsZone.UpdateRecordSets {#UpdateRecordSets}
+# Cloud DNS API, REST: DnsZone.UpdateRecordSets
 
 Method with strict control for changing zone state. Returns error when:
 1. Deleted record is not found.

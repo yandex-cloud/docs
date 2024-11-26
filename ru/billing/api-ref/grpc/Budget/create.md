@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Budget/create.md
 ---
 
-# Billing API, gRPC: BudgetService.Create {#Create}
+# Billing API, gRPC: BudgetService.Create
 
 Creates a budget for the specified billing account.
 
@@ -15,91 +15,91 @@ Creates a budget for the specified billing account.
 
 ```json
 {
-  "billingAccountId": "string",
+  "billing_account_id": "string",
   "name": "string",
-  // Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`
-  "costBudgetSpec": {
+  // Includes only one of the fields `cost_budget_spec`, `expense_budget_spec`, `balance_budget_spec`
+  "cost_budget_spec": {
     "amount": "string",
-    "notificationUserAccountIds": [
+    "notification_user_account_ids": [
       "string"
     ],
-    "thresholdRules": [
+    "threshold_rules": [
       {
         "type": "ThresholdType",
         "amount": "string",
-        "notificationUserAccountIds": [
+        "notification_user_account_ids": [
           "string"
         ]
       }
     ],
     "filter": {
-      "serviceIds": [
+      "service_ids": [
         "string"
       ],
-      "cloudFoldersFilters": [
+      "cloud_folders_filters": [
         {
-          "cloudId": "string",
-          "folderIds": [
+          "cloud_id": "string",
+          "folder_ids": [
             "string"
           ]
         }
       ]
     },
-    // Includes only one of the fields `resetPeriod`, `startDate`
-    "resetPeriod": "ResetPeriodType",
-    "startDate": "string",
+    // Includes only one of the fields `reset_period`, `start_date`
+    "reset_period": "ResetPeriodType",
+    "start_date": "string",
     // end of the list of possible fields
-    "endDate": "string"
+    "end_date": "string"
   },
-  "expenseBudgetSpec": {
+  "expense_budget_spec": {
     "amount": "string",
-    "notificationUserAccountIds": [
+    "notification_user_account_ids": [
       "string"
     ],
-    "thresholdRules": [
+    "threshold_rules": [
       {
         "type": "ThresholdType",
         "amount": "string",
-        "notificationUserAccountIds": [
+        "notification_user_account_ids": [
           "string"
         ]
       }
     ],
     "filter": {
-      "serviceIds": [
+      "service_ids": [
         "string"
       ],
-      "cloudFoldersFilters": [
+      "cloud_folders_filters": [
         {
-          "cloudId": "string",
-          "folderIds": [
+          "cloud_id": "string",
+          "folder_ids": [
             "string"
           ]
         }
       ]
     },
-    // Includes only one of the fields `resetPeriod`, `startDate`
-    "resetPeriod": "ResetPeriodType",
-    "startDate": "string",
+    // Includes only one of the fields `reset_period`, `start_date`
+    "reset_period": "ResetPeriodType",
+    "start_date": "string",
     // end of the list of possible fields
-    "endDate": "string"
+    "end_date": "string"
   },
-  "balanceBudgetSpec": {
+  "balance_budget_spec": {
     "amount": "string",
-    "notificationUserAccountIds": [
+    "notification_user_account_ids": [
       "string"
     ],
-    "thresholdRules": [
+    "threshold_rules": [
       {
         "type": "ThresholdType",
         "amount": "string",
-        "notificationUserAccountIds": [
+        "notification_user_account_ids": [
           "string"
         ]
       }
     ],
-    "startDate": "string",
-    "endDate": "string"
+    "start_date": "string",
+    "end_date": "string"
   }
   // end of the list of possible fields
 }
@@ -107,32 +107,32 @@ Creates a budget for the specified billing account.
 
 #|
 ||Field | Description ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Required field. ID of the billing account to list budgets corresponding to.
 To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request. ||
 || name | **string**
 
 Required field. Name of the budget. ||
-|| costBudgetSpec | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
+|| cost_budget_spec | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
 
 Cost budget specification.
 
-Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+Includes only one of the fields `cost_budget_spec`, `expense_budget_spec`, `balance_budget_spec`.
 
 Specification of the budget. ||
-|| expenseBudgetSpec | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
+|| expense_budget_spec | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
 
 Expense budget specification.
 
-Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+Includes only one of the fields `cost_budget_spec`, `expense_budget_spec`, `balance_budget_spec`.
 
 Specification of the budget. ||
-|| balanceBudgetSpec | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
+|| balance_budget_spec | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
 
 Balance budget specification.
 
-Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+Includes only one of the fields `cost_budget_spec`, `expense_budget_spec`, `balance_budget_spec`.
 
 Specification of the budget. ||
 |#
@@ -146,23 +146,23 @@ Cost budget specification describes budget that can be used to control cost of c
 || amount | **string**
 
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
 Rules define intermediate cost thresholds of the budget. ||
 || filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
 
 Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. ||
-|| resetPeriod | enum **ResetPeriodType**
+|| reset_period | enum **ResetPeriodType**
 
 Periodic start type that resets budget after specified period is finished.
 First time budget is calculated in the current period, i.e. current month, quarter or year.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget.
 
@@ -170,15 +170,15 @@ Start type of the budget.
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Custom start date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
@@ -202,7 +202,7 @@ Required field. Type of the rule.
 Required field. Amount of the rule.
 * Must be less than 100 if type is PERCENT.
 * Must be less than budget's amount if type is AMOUNT. ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the threshold exceeds. ||
@@ -214,12 +214,12 @@ Filter that can be used for specific resources selection.
 
 #|
 ||Field | Description ||
-|| serviceIds[] | **string**
+|| service_ids[] | **string**
 
 IDs of the [yandex.cloud.billing.v1.Service](/docs/billing/api-ref/grpc/Service/get#yandex.cloud.billing.v1.Service).
 Only consumption of resources corresponding to the given services is used for the budget calculation.
 Empty sequence means no services filters. ||
-|| cloudFoldersFilters[] | **[CloudFoldersConsumptionFilter](#yandex.cloud.billing.v1.CloudFoldersConsumptionFilter)**
+|| cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#yandex.cloud.billing.v1.CloudFoldersConsumptionFilter)**
 
 Cloud and folders consumption filter.
 Only consumption within specified clouds and folders is used for the budget calculation.
@@ -232,11 +232,11 @@ Filter that can be used for specific cloud and its folders selection.
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the [yandex.cloud.resourcemanager.v1.Cloud](/docs/resource-manager/api-ref/grpc/Cloud/get#yandex.cloud.resourcemanager.v1.Cloud).
 Only consumption within specified cloud is used for the budget calculation. ||
-|| folderIds[] | **string**
+|| folder_ids[] | **string**
 
 IDs of the [yandex.cloud.resourcemanager.v1.Folder](/docs/resource-manager/api-ref/grpc/Folder/get#yandex.cloud.resourcemanager.v1.Folder).
 Only consumption within specified folders of the given cloud is used for the budget calculation.
@@ -252,23 +252,23 @@ Expense budget specification describes budget that can be used to control expens
 || amount | **string**
 
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
 Rules define intermediate expense thresholds of the budget. ||
 || filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
 
 Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. ||
-|| resetPeriod | enum **ResetPeriodType**
+|| reset_period | enum **ResetPeriodType**
 
 Periodic start type that resets budget after specified period is finished.
 First time budget is calculated in the current period, i.e. current month, quarter or year.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget.
 
@@ -276,15 +276,15 @@ Start type of the budget.
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Custom start date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
@@ -299,19 +299,19 @@ Balance budget specification describes budget that can be used to control [yande
 || amount | **string**
 
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
 Rules define intermediate balance thresholds of the budget. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Start_date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
@@ -323,104 +323,104 @@ Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "budgetId": "string"
+    "budget_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "billingAccountId": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "billing_account_id": "string",
     "status": "BudgetStatus",
-    // Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`
-    "costBudget": {
+    // Includes only one of the fields `cost_budget`, `expense_budget`, `balance_budget`
+    "cost_budget": {
       "amount": "string",
-      "notificationUserAccountIds": [
+      "notification_user_account_ids": [
         "string"
       ],
-      "thresholdRules": [
+      "threshold_rules": [
         {
           "type": "ThresholdType",
           "amount": "string",
-          "notificationUserAccountIds": [
+          "notification_user_account_ids": [
             "string"
           ]
         }
       ],
       "filter": {
-        "serviceIds": [
+        "service_ids": [
           "string"
         ],
-        "cloudFoldersFilters": [
+        "cloud_folders_filters": [
           {
-            "cloudId": "string",
-            "folderIds": [
+            "cloud_id": "string",
+            "folder_ids": [
               "string"
             ]
           }
         ]
       },
-      // Includes only one of the fields `resetPeriod`, `startDate`
-      "resetPeriod": "ResetPeriodType",
-      "startDate": "string",
+      // Includes only one of the fields `reset_period`, `start_date`
+      "reset_period": "ResetPeriodType",
+      "start_date": "string",
       // end of the list of possible fields
-      "endDate": "string"
+      "end_date": "string"
     },
-    "expenseBudget": {
+    "expense_budget": {
       "amount": "string",
-      "notificationUserAccountIds": [
+      "notification_user_account_ids": [
         "string"
       ],
-      "thresholdRules": [
+      "threshold_rules": [
         {
           "type": "ThresholdType",
           "amount": "string",
-          "notificationUserAccountIds": [
+          "notification_user_account_ids": [
             "string"
           ]
         }
       ],
       "filter": {
-        "serviceIds": [
+        "service_ids": [
           "string"
         ],
-        "cloudFoldersFilters": [
+        "cloud_folders_filters": [
           {
-            "cloudId": "string",
-            "folderIds": [
+            "cloud_id": "string",
+            "folder_ids": [
               "string"
             ]
           }
         ]
       },
-      // Includes only one of the fields `resetPeriod`, `startDate`
-      "resetPeriod": "ResetPeriodType",
-      "startDate": "string",
+      // Includes only one of the fields `reset_period`, `start_date`
+      "reset_period": "ResetPeriodType",
+      "start_date": "string",
       // end of the list of possible fields
-      "endDate": "string"
+      "end_date": "string"
     },
-    "balanceBudget": {
+    "balance_budget": {
       "amount": "string",
-      "notificationUserAccountIds": [
+      "notification_user_account_ids": [
         "string"
       ],
-      "thresholdRules": [
+      "threshold_rules": [
         {
           "type": "ThresholdType",
           "amount": "string",
-          "notificationUserAccountIds": [
+          "notification_user_account_ids": [
             "string"
           ]
         }
       ],
-      "startDate": "string",
-      "endDate": "string"
+      "start_date": "string",
+      "end_date": "string"
     }
     // end of the list of possible fields
   }
@@ -438,13 +438,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -487,7 +487,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| budgetId | **string**
+|| budget_id | **string**
 
 ID of the budget. ||
 |#
@@ -504,10 +504,10 @@ ID of the budget. ||
 || name | **string**
 
 Name of the budget. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 ID of the billing account that the budget belongs to. ||
 || status | enum **BudgetStatus**
@@ -518,25 +518,25 @@ Status of the budget.
 - `CREATING`: The budget is being created.
 - `ACTIVE`: The budget is active.
 - `FINISHED`: The budget is finished. ||
-|| costBudget | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec2)**
+|| cost_budget | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec2)**
 
 Cost budget specification.
 
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+Includes only one of the fields `cost_budget`, `expense_budget`, `balance_budget`.
 
 Specification of the budget. ||
-|| expenseBudget | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec2)**
+|| expense_budget | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec2)**
 
 Expense budget specification.
 
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+Includes only one of the fields `cost_budget`, `expense_budget`, `balance_budget`.
 
 Specification of the budget. ||
-|| balanceBudget | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec2)**
+|| balance_budget | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec2)**
 
 Balance budget specification.
 
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+Includes only one of the fields `cost_budget`, `expense_budget`, `balance_budget`.
 
 Specification of the budget. ||
 |#
@@ -550,23 +550,23 @@ Cost budget specification describes budget that can be used to control cost of c
 || amount | **string**
 
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).
 Rules define intermediate cost thresholds of the budget. ||
 || filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter2)**
 
 Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. ||
-|| resetPeriod | enum **ResetPeriodType**
+|| reset_period | enum **ResetPeriodType**
 
 Periodic start type that resets budget after specified period is finished.
 First time budget is calculated in the current period, i.e. current month, quarter or year.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget.
 
@@ -574,15 +574,15 @@ Start type of the budget.
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Custom start date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
@@ -606,7 +606,7 @@ Required field. Type of the rule.
 Required field. Amount of the rule.
 * Must be less than 100 if type is PERCENT.
 * Must be less than budget's amount if type is AMOUNT. ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the threshold exceeds. ||
@@ -618,12 +618,12 @@ Filter that can be used for specific resources selection.
 
 #|
 ||Field | Description ||
-|| serviceIds[] | **string**
+|| service_ids[] | **string**
 
 IDs of the [yandex.cloud.billing.v1.Service](/docs/billing/api-ref/grpc/Service/get#yandex.cloud.billing.v1.Service).
 Only consumption of resources corresponding to the given services is used for the budget calculation.
 Empty sequence means no services filters. ||
-|| cloudFoldersFilters[] | **[CloudFoldersConsumptionFilter](#yandex.cloud.billing.v1.CloudFoldersConsumptionFilter2)**
+|| cloud_folders_filters[] | **[CloudFoldersConsumptionFilter](#yandex.cloud.billing.v1.CloudFoldersConsumptionFilter2)**
 
 Cloud and folders consumption filter.
 Only consumption within specified clouds and folders is used for the budget calculation.
@@ -636,11 +636,11 @@ Filter that can be used for specific cloud and its folders selection.
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the [yandex.cloud.resourcemanager.v1.Cloud](/docs/resource-manager/api-ref/grpc/Cloud/get#yandex.cloud.resourcemanager.v1.Cloud).
 Only consumption within specified cloud is used for the budget calculation. ||
-|| folderIds[] | **string**
+|| folder_ids[] | **string**
 
 IDs of the [yandex.cloud.resourcemanager.v1.Folder](/docs/resource-manager/api-ref/grpc/Folder/get#yandex.cloud.resourcemanager.v1.Folder).
 Only consumption within specified folders of the given cloud is used for the budget calculation.
@@ -656,23 +656,23 @@ Expense budget specification describes budget that can be used to control expens
 || amount | **string**
 
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).
 Rules define intermediate expense thresholds of the budget. ||
 || filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter2)**
 
 Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. ||
-|| resetPeriod | enum **ResetPeriodType**
+|| reset_period | enum **ResetPeriodType**
 
 Periodic start type that resets budget after specified period is finished.
 First time budget is calculated in the current period, i.e. current month, quarter or year.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget.
 
@@ -680,15 +680,15 @@ Start type of the budget.
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Custom start date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD.
 
-Includes only one of the fields `resetPeriod`, `startDate`.
+Includes only one of the fields `reset_period`, `start_date`.
 
 Start type of the budget. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||
@@ -703,19 +703,19 @@ Balance budget specification describes budget that can be used to control [yande
 || amount | **string**
 
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/grpc/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
+|| notification_user_account_ids[] | **string**
 
 IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
 Specified users will be be notified if the budget exceeds. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
+|| threshold_rules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).
 Rules define intermediate balance thresholds of the budget. ||
-|| startDate | **string**
+|| start_date | **string**
 
 Start_date of the budget.
 Must be the first day of a month and must be formatted like YYYY-MM-DD. ||
-|| endDate | **string**
+|| end_date | **string**
 
 Required field. End date of the budget.
 Must be the last day of a month and must be formatted like YYYY-MM-DD. ||

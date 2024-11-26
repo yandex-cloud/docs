@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: Cluster.Delete
 
 Deletes the specified Greenplum® cluster.
 

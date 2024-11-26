@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/delete.md
 ---
 
-# Data Proc API, REST: Subcluster.Delete {#Delete}
+# Data Proc API, REST: Subcluster.Delete
 
 Deletes the specified subcluster.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/stop.md
 ---
 
-# Workflows Service, gRPC: ExecutionService.Stop {#Stop}
+# Workflows Service, gRPC: ExecutionService.Stop
 
 Stops specified Workflow execution.
 
@@ -15,13 +15,13 @@ Stops specified Workflow execution.
 
 ```json
 {
-  "executionId": "string"
+  "execution_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| executionId | **string**
+|| execution_id | **string**
 
 Required field. ID of the Workflow execution. ||
 |#
@@ -30,13 +30,13 @@ Required field. ID of the Workflow execution. ||
 
 ```json
 {
-  "executionId": "string"
+  "execution_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| executionId | **string**
+|| execution_id | **string**
 
 ID of the Workflow execution. ||
 |#

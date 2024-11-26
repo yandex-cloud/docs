@@ -26,8 +26,8 @@ To solve this task, you will need to do the following:
 
 Once you are done, you will have the IP connectivity available between your infrastructure resources and cloud resources in {{ yandex-cloud }} so that they can exchange IP traffic between each other.
 
-{% note warning "Guides" %}
+{% note warning "Tutorials" %}
 
-For detailed guides on how to enable and manage {{ interconnect-name }}, see the [Guides](../operations/) section.
+For detailed guides on how to enable and manage {{ interconnect-name }}, see the [tutorials](../tutorials/) section.
 
 {% endnote %}

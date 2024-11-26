@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/create.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Create {#Create}
+# Compute Cloud API, REST: Snapshot.Create
 
 Creates a snapshot of the specified disk.
 

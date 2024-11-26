@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/dryRun.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.DryRun {#DryRun}
+# Container Registry API, REST: LifecyclePolicy.DryRun
 
 Creates a request of a dry run of the lifecycle policy.
 

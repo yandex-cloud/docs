@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/streamLogs.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.StreamLogs {#StreamLogs}
+# Managed Service for OpenSearch API, gRPC: ClusterService.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
@@ -15,38 +15,38 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "recordToken": "string",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "record_token": "string",
   "filter": "string",
-  "serviceType": "ServiceType"
+  "service_type": "ServiceType"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster. ||
-|| columnFilter[] | **string**
+|| column_filter[] | **string**
 
 Columns from log table to get in the response.
 If no columns are specified, entire log records are returned. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request.
 
 If this field is not set, all existing logs are sent as well as the new ones as they appear.
 
 In essence it has `tail -f` semantics. ||
-|| recordToken | **string**
+|| record_token | **string**
 
 Record token. Set `record_token` to the `next_record_token` returned by the previous [StreamLogs](#StreamLogs)
 request to start streaming from the next log record. ||
@@ -65,7 +65,7 @@ The expression must specify:
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
 * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
-|| serviceType | enum **ServiceType**
+|| service_type | enum **ServiceType**
 
 Type of the service to request logs about.
 
@@ -82,7 +82,7 @@ Type of the service to request logs about.
     "timestamp": "google.protobuf.Timestamp",
     "message": "string"
   },
-  "nextRecordToken": "string"
+  "next_record_token": "string"
 }
 ```
 
@@ -91,11 +91,11 @@ Type of the service to request logs about.
 || record | **[LogRecord](#yandex.cloud.mdb.opensearch.v1.LogRecord)**
 
 One of the requested log records. ||
-|| nextRecordToken | **string**
+|| next_record_token | **string**
 
 This token allows you to continue streaming logs starting from the exact same record.
 
-To do that, specify value of `nextRecordToken` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs](#StreamLogs) request.
+To do that, specify value of `next_record_token` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs](#StreamLogs) request.
 
 This value is interchangeable with [ListLogs.next_page_token] from [ListLogs](/docs/managed-opensearch/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
 |#

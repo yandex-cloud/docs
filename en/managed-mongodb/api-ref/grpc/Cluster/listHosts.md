@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Managed Service for MongoDB API, gRPC: ClusterService.ListHosts {#ListHosts}
+# Managed Service for MongoDB API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for the specified cluster.
 
@@ -15,28 +15,28 @@ Retrieves a list of hosts for the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the MongoDB cluster.
 To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/grpc/Cluster/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse)
+results is larger than `page_size`, the service returns a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) returned by the previous list request. ||
 |#
 
 ## ListClusterHostsResponse {#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse}
@@ -46,12 +46,12 @@ Page token. To get the next page of results, set `pageToken` to the
   "hosts": [
     {
       "name": "string",
-      "clusterId": "string",
-      "zoneId": "string",
+      "cluster_id": "string",
+      "zone_id": "string",
       "resources": {
-        "resourcePresetId": "string",
-        "diskSize": "int64",
-        "diskTypeId": "string"
+        "resource_preset_id": "string",
+        "disk_size": "int64",
+        "disk_type_id": "string"
       },
       "role": "Role",
       "health": "Health",
@@ -61,19 +61,19 @@ Page token. To get the next page of results, set `pageToken` to the
           "health": "Health"
         }
       ],
-      "subnetId": "string",
-      "assignPublicIp": "bool",
-      "shardName": "string",
+      "subnet_id": "string",
+      "assign_public_ip": "bool",
+      "shard_name": "string",
       "type": "Type",
-      "hostParameters": {
+      "host_parameters": {
         "hidden": "bool",
-        "secondaryDelaySecs": "int64",
+        "secondary_delay_secs": "int64",
         "priority": "double",
         "tags": "string"
       }
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -82,12 +82,12 @@ Page token. To get the next page of results, set `pageToken` to the
 || hosts[] | **[Host](#yandex.cloud.mdb.mongodb.v1.Host)**
 
 List of Host resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsRequest), use the `nextPageToken` as the value
-for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsRequest), use the `next_page_token` as the value
+for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.mongodb.v1.ListClusterHostsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Host {#yandex.cloud.mdb.mongodb.v1.Host}
@@ -100,10 +100,10 @@ Name of the MongoDB host. The host name is assigned by MDB at creation time, and
 1-63 characters long.
 
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the MongoDB host. The ID is assigned by MDB at creation time. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the MongoDB host resides. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
@@ -127,13 +127,13 @@ Aggregated health of the host. If the field has default value, it is not returne
 || services[] | **[Service](#yandex.cloud.mdb.mongodb.v1.Service)**
 
 Services provided by the host. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the host belongs to. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Flag showing public IP assignment status to this host. ||
-|| shardName | **string**
+|| shard_name | **string**
 
 Shard which this host belongs to. ||
 || type | enum **Type**
@@ -145,7 +145,7 @@ Host type. If the field has default value, it is not returned in the response.
 - `MONGOS`: A mongos host.
 - `MONGOCFG`: A mongocfg host.
 - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host. ||
-|| hostParameters | **[HostParameters](#yandex.cloud.mdb.mongodb.v1.Host.HostParameters)**
+|| host_parameters | **[HostParameters](#yandex.cloud.mdb.mongodb.v1.Host.HostParameters)**
 
 Host parameters ||
 |#
@@ -154,14 +154,14 @@ Host parameters ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types). ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
@@ -196,7 +196,7 @@ Aggregated health of the service. If the field has default value, it is not retu
 #|
 ||Field | Description ||
 || hidden | **bool** ||
-|| secondaryDelaySecs | **int64** ||
+|| secondary_delay_secs | **int64** ||
 || priority | **double** ||
 || tags | **string** ||
 |#

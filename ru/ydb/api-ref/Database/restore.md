@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/restore.md
 ---
 
-# Managed Service for YDB API, REST: Database.Restore {#Restore}
+# Managed Service for YDB API, REST: Database.Restore
 
 Restores the specified backup
 

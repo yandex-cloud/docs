@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/update.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Update {#Update}
+# Virtual Private Cloud API, REST: RouteTable.Update
 
 Updates the specified route table.
 Method starts an asynchronous operation that can be cancelled while it is in progress.

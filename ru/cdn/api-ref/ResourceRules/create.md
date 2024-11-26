@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/create.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Create {#Create}
+# Cloud CDN API, REST: ResourceRules.Create
 
 Create new resource rule with specified unique name and rule patter.
 

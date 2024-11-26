@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Origin/get.md
 ---
 
-# Cloud CDN API, gRPC: OriginService.Get {#Get}
+# Cloud CDN API, gRPC: OriginService.Get
 
 Get origin in origin group.
 
@@ -15,19 +15,19 @@ Get origin in origin group.
 
 ```json
 {
-  "folderId": "string",
-  "originId": "int64"
+  "folder_id": "string",
+  "origin_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder that the origin belongs to. ||
-|| originId | **int64**
+|| origin_id | **int64**
 
-`originId` group ID to request origin from. ||
+`origin_id` group ID to request origin from. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -35,7 +35,7 @@ Required field. ID of the folder that the origin belongs to. ||
 ```json
 {
   "id": "int64",
-  "originGroupId": "int64",
+  "origin_group_id": "int64",
   "source": "string",
   "enabled": "bool",
   "backup": "bool",
@@ -65,7 +65,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**

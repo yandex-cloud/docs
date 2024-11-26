@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/get.md
 ---
 
-# Lockbox API, REST: Payload.Get {#Get}
+# Lockbox API, REST: Payload.Get
 
 Returns the payload of the specified secret.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/MlModel/list.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: MlModelService.List {#List}
+# Managed Service for ClickHouse API, gRPC: MlModelService.List
 
 Retrieves the list of machine learning models in the specified cluster.
 
@@ -15,55 +15,55 @@ Retrieves the list of machine learning models in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster that models belongs to. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListMlModelsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse)
+results is larger than `page_size`, the service returns a [ListMlModelsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse)
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListMlModelsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) returned by the previous list request. ||
+[ListMlModelsResponse.next_page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) returned by the previous list request. ||
 |#
 
 ## ListMlModelsResponse {#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse}
 
 ```json
 {
-  "mlModels": [
+  "ml_models": [
     {
       "name": "string",
-      "clusterId": "string",
+      "cluster_id": "string",
       "type": "MlModelType",
       "uri": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| mlModels[] | **[MlModel](#yandex.cloud.mdb.clickhouse.v1.MlModel)**
+|| ml_models[] | **[MlModel](#yandex.cloud.mdb.clickhouse.v1.MlModel)**
 
 List of models in the specified cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListMlModelsRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsRequest), use `next_page_token` as the value
-for the [ListMlModelsRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsRequest) parameter in the next list request.
+the specified [ListMlModelsRequest.page_size](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsRequest), use `next_page_token` as the value
+for the [ListMlModelsRequest.page_token](#yandex.cloud.mdb.clickhouse.v1.ListMlModelsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
@@ -75,7 +75,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 || name | **string**
 
 Name of the the model. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the model belongs to. ||
 || type | enum **MlModelType**

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/create.md
 ---
 
-# SAML Federation API, gRPC: FederationService.Create {#Create}
+# SAML Federation API, gRPC: FederationService.Create
 
 Creates a federation in the specified organization.
 
@@ -15,26 +15,26 @@ Creates a federation in the specified organization.
 
 ```json
 {
-  "organizationId": "string",
+  "organization_id": "string",
   "name": "string",
   "description": "string",
-  "cookieMaxAge": "google.protobuf.Duration",
-  "autoCreateAccountOnLogin": "bool",
+  "cookie_max_age": "google.protobuf.Duration",
+  "auto_create_account_on_login": "bool",
   "issuer": "string",
-  "ssoBinding": "BindingType",
-  "ssoUrl": "string",
-  "securitySettings": {
-    "encryptedAssertions": "bool",
-    "forceAuthn": "bool"
+  "sso_binding": "BindingType",
+  "sso_url": "string",
+  "security_settings": {
+    "encrypted_assertions": "bool",
+    "force_authn": "bool"
   },
-  "caseInsensitiveNameIds": "bool",
+  "case_insensitive_name_ids": "bool",
   "labels": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization to create a federation in.
 To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
@@ -45,13 +45,13 @@ The name must be unique within the organization. ||
 || description | **string**
 
 Description of the federation. ||
-|| cookieMaxAge | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Browser cookie lifetime in seconds.
 If the cookie is still valid, the management console
 authenticates the user immediately and redirects them to the home page.
 The default value is `8h`. ||
-|| autoCreateAccountOnLogin | **bool**
+|| auto_create_account_on_login | **bool**
 
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
@@ -63,7 +63,7 @@ can't log in, even if they have authenticated on your server. ||
 
 Required field. ID of the IdP server to be used for authentication.
 The IdP server also responds to IAM with this ID after the user authenticates. ||
-|| ssoBinding | enum **BindingType**
+|| sso_binding | enum **BindingType**
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
 
@@ -74,14 +74,14 @@ formats and/or communications protocols.
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
-|| ssoUrl | **string**
+|| sso_url | **string**
 
 Required field. Single sign-on endpoint URL.
 Specify the link to the IdP login page here. ||
-|| securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
+|| security_settings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
 
 Federation security settings. ||
-|| caseInsensitiveNameIds | **bool**
+|| case_insensitive_name_ids | **bool**
 
 Use case insensitive Name IDs. ||
 || labels | **string**
@@ -95,10 +95,10 @@ Federation security settings.
 
 #|
 ||Field | Description ||
-|| encryptedAssertions | **bool**
+|| encrypted_assertions | **bool**
 
 Enable encrypted assertions. ||
-|| forceAuthn | **bool**
+|| force_authn | **bool**
 
 Value parameter ForceAuthn in SAMLRequest. ||
 |#
@@ -109,31 +109,31 @@ Value parameter ForceAuthn in SAMLRequest. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federationId": "string"
+    "federation_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
+    "organization_id": "string",
     "name": "string",
     "description": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "cookieMaxAge": "google.protobuf.Duration",
-    "autoCreateAccountOnLogin": "bool",
+    "created_at": "google.protobuf.Timestamp",
+    "cookie_max_age": "google.protobuf.Duration",
+    "auto_create_account_on_login": "bool",
     "issuer": "string",
-    "ssoBinding": "BindingType",
-    "ssoUrl": "string",
-    "securitySettings": {
-      "encryptedAssertions": "bool",
-      "forceAuthn": "bool"
+    "sso_binding": "BindingType",
+    "sso_url": "string",
+    "security_settings": {
+      "encrypted_assertions": "bool",
+      "force_authn": "bool"
     },
-    "caseInsensitiveNameIds": "bool",
+    "case_insensitive_name_ids": "bool",
     "labels": "string"
   }
   // end of the list of possible fields
@@ -150,13 +150,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -199,7 +199,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 ID of the federation that is being created. ||
 |#
@@ -214,7 +214,7 @@ For more information, see [SAML-compatible identity federations](/docs/iam/conce
 || id | **string**
 
 Required field. ID of the federation. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the federation belongs to. ||
 || name | **string**
@@ -223,15 +223,15 @@ Required field. Name of the federation. ||
 || description | **string**
 
 Description of the federation. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| cookieMaxAge | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| cookie_max_age | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Browser cookie lifetime in seconds.
 If the cookie is still valid, the management console
 authenticates the user immediately and redirects them to the home page. ||
-|| autoCreateAccountOnLogin | **bool**
+|| auto_create_account_on_login | **bool**
 
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
@@ -243,7 +243,7 @@ can't log in, even if they have authenticated on your server. ||
 
 Required field. ID of the IdP server to be used for authentication.
 The IdP server also responds to IAM with this ID after the user authenticates. ||
-|| ssoBinding | enum **BindingType**
+|| sso_binding | enum **BindingType**
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
 
@@ -254,14 +254,14 @@ formats and/or communications protocols.
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
-|| ssoUrl | **string**
+|| sso_url | **string**
 
 Required field. Single sign-on endpoint URL.
 Specify the link to the IdP login page here. ||
-|| securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings2)**
+|| security_settings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings2)**
 
 Federation security settings. ||
-|| caseInsensitiveNameIds | **bool**
+|| case_insensitive_name_ids | **bool**
 
 Use case insensitive Name IDs. ||
 || labels | **string**
@@ -275,10 +275,10 @@ Federation security settings.
 
 #|
 ||Field | Description ||
-|| encryptedAssertions | **bool**
+|| encrypted_assertions | **bool**
 
 Enable encrypted assertions. ||
-|| forceAuthn | **bool**
+|| force_authn | **bool**
 
 Value parameter ForceAuthn in SAMLRequest. ||
 |#

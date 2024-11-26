@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/update.md
 ---
 
-# Managed Service for ClickHouse API, REST: MlModel.Update {#Update}
+# Managed Service for ClickHouse API, REST: MlModel.Update
 
 Updates the specified machine learning model.
 

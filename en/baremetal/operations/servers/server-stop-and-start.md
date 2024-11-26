@@ -14,7 +14,7 @@ To stop a server:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
-  1. In the list of services, select **{{ baremetal-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the server you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.stop }}**.
 
@@ -31,7 +31,7 @@ To start a server:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the stopped server belongs to.
-  1. In the list of services, select **{{ baremetal-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the server you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}**.
 
 {% endlist %}
@@ -47,8 +47,8 @@ To restart a server:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
-  1. In the list of services, select **{{ baremetal-name }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the server you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.action_reboot-server }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.baremetal.action_reboot-server }}**. The server will enter the `Restarting` status.
+  1. In the window that opens, click **{{ ui-key.yacloud.baremetal.action_reboot-server }}**. The server status will change to `Restarting`.
 
 {% endlist %}

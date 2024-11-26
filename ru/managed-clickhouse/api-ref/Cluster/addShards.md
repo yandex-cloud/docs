@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/addShards.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.AddShards {#AddShards}
+# Managed Service for ClickHouse API, REST: Cluster.AddShards
 
 Creates one or more shards in the specified cluster.
 

@@ -34,7 +34,7 @@ editable: false
 [Стилизация интерфейса {{ datalens-name }}](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Безопасное встраивание чартов и дашбордов](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Контроль публикаций](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Расширенная ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash)) 
+Статистика использования сервиса {{ datalens-name }} | Общая ([Light](./concepts/datalens-usage-analytics.md#light-dash)) | Расширенная ([Detailed](./concepts/datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.ru/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
 Техническая поддержка | [Базовый тариф](../support/pricing.md#base) (если у пользователя не подключен [Бизнес](../support/pricing.md#business) или [Премиум](../support/pricing.md#premium)) | [Тариф Бизнес](../support/pricing.md#business) (распространяется только на {{ datalens-name }}) и повышенный приоритет в рассмотрении обращений относительно тарифа Community
 
@@ -132,3 +132,7 @@ editable: false
 
 
 
+
+#### См. также {#see-also}
+
+* [Вопросы про тарификацию и оплату](./qa/pricing.md)

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/update.md
 ---
 
-# Managed Service for Greenplum® API, REST: PXFDatasource.Update {#Update}
+# Managed Service for Greenplum® API, REST: PXFDatasource.Update
 
 Update PXF datasource
 

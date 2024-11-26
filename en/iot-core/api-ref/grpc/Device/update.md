@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/update.md
 ---
 
-# IoT Core Service, gRPC: DeviceService.Update {#Update}
+# IoT Core Service, gRPC: DeviceService.Update
 
 Updates the specified device.
 
@@ -15,22 +15,22 @@ Updates the specified device.
 
 ```json
 {
-  "deviceId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "device_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "topicAliases": "string"
+  "topic_aliases": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 Required field. ID of the device to update.
 
 To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the device are going to be updated. ||
 || name | **string**
@@ -39,7 +39,7 @@ Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
-|| topicAliases | **string**
+|| topic_aliases | **string**
 
 Alias of a device topic.
 
@@ -52,29 +52,29 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "deviceId": "string"
+    "device_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "registryId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "registry_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topic_aliases": "string",
     "status": "Status",
-    "monitoringData": {
-      "lastAuthIp": "string",
-      "lastAuthTime": "google.protobuf.Timestamp",
-      "lastPubActivityTime": "google.protobuf.Timestamp",
-      "lastSubActivityTime": "google.protobuf.Timestamp",
-      "lastOnlineTime": "google.protobuf.Timestamp"
+    "monitoring_data": {
+      "last_auth_ip": "string",
+      "last_auth_time": "google.protobuf.Timestamp",
+      "last_pub_activity_time": "google.protobuf.Timestamp",
+      "last_sub_activity_time": "google.protobuf.Timestamp",
+      "last_online_time": "google.protobuf.Timestamp"
     }
   }
   // end of the list of possible fields
@@ -91,13 +91,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -140,7 +140,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 ID of the device that is being updated. ||
 |#
@@ -154,10 +154,10 @@ A device. For more information, see [Device](/docs/iot-core/concepts/index#devic
 || id | **string**
 
 ID of the device. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the device belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -166,7 +166,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topic_aliases | **string**
 
 Alias of a device topic.
 
@@ -179,7 +179,7 @@ Status of the device.
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||
-|| monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
+|| monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
 |#
@@ -188,9 +188,9 @@ Device monitoring data, returns if FULL view specified. ||
 
 #|
 ||Field | Description ||
-|| lastAuthIp | **string** ||
-|| lastAuthTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastPubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastSubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastOnlineTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_auth_ip | **string** ||
+|| last_auth_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

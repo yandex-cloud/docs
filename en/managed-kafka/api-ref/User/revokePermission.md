@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/revokePermission.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.RevokePermission {#RevokePermission}
+# Managed Service for Apache Kafka® API, REST: User.RevokePermission
 
 Revokes permission from the specified Kafka user.
 

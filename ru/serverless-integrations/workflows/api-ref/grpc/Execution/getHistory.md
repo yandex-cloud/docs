@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/workflows/v1/workflows/api-ref/grpc/Execution/getHistory.md
 ---
 
-# Workflows Service, gRPC: ExecutionService.GetHistory {#GetHistory}
+# Workflows Service, gRPC: ExecutionService.GetHistory
 
 Retrieves detailed history of specified Workflow execution.
 
@@ -15,13 +15,13 @@ Retrieves detailed history of specified Workflow execution.
 
 ```json
 {
-  "executionId": "string"
+  "execution_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| executionId | **string**
+|| execution_id | **string**
 
 Required field. ID of the Workflow execution. ||
 |#
@@ -32,9 +32,9 @@ Required field. ID of the Workflow execution. ||
 {
   "execution": {
     "id": "string",
-    "workflowId": "string",
+    "workflow_id": "string",
     "status": "Status",
-    "startedAt": "google.protobuf.Timestamp",
+    "started_at": "google.protobuf.Timestamp",
     "duration": "google.protobuf.Duration"
   },
   "entries": [
@@ -42,28 +42,28 @@ Required field. ID of the Workflow execution. ||
       "id": "string",
       "title": "string",
       "description": "string",
-      "startedAt": "google.protobuf.Timestamp",
+      "started_at": "google.protobuf.Timestamp",
       "duration": "google.protobuf.Duration",
       "input": {
-        // Includes only one of the fields `inputJson`
-        "inputJson": "string"
+        // Includes only one of the fields `input_json`
+        "input_json": "string"
         // end of the list of possible fields
       },
       "output": {
-        // Includes only one of the fields `outputJson`
-        "outputJson": "string"
+        // Includes only one of the fields `output_json`
+        "output_json": "string"
         // end of the list of possible fields
       },
       "error": {
         "message": "string",
-        "errorCode": "string"
+        "error_code": "string"
       },
       "status": "Status",
       "type": "string",
       "attempts": "int64",
-      "lastError": {
+      "last_error": {
         "message": "string",
-        "errorCode": "string"
+        "error_code": "string"
       }
     }
   ]
@@ -87,7 +87,7 @@ Workflow execution detailed history items. ||
 || id | **string**
 
 ID of the Workflow execution. Generated at creation time. ||
-|| workflowId | **string**
+|| workflow_id | **string**
 
 ID of the Workflow. ||
 || status | enum **Status**
@@ -101,7 +101,7 @@ Status of the Workflow execution
 - `STOPPED`: Workflow execution is stopped.
 - `FAILED`: Workflow execution is failed.
 - `FINISHED`: Workflow execution is finished. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the Workflow execution. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -122,7 +122,7 @@ Title of the Workflow step. ||
 || description | **string**
 
 Description of the Workflow step. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the Workflow step. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -154,7 +154,7 @@ Type of the Workflow step (for example, FunctionCall or HttpCall). ||
 || attempts | **int64**
 
 Number of attempts (including all retries of unsuccessful attempts). Value "1" means there were no retries. ||
-|| lastError | **[HistoryEntryError](#yandex.cloud.serverless.workflows.v1.HistoryEntryError)**
+|| last_error | **[HistoryEntryError](#yandex.cloud.serverless.workflows.v1.HistoryEntryError)**
 
 Last received error details in case of retries. ||
 |#
@@ -163,22 +163,22 @@ Last received error details in case of retries. ||
 
 #|
 ||Field | Description ||
-|| inputJson | **string**
+|| input_json | **string**
 
 JSON input data for the Workflow step.
 
-Includes only one of the fields `inputJson`. ||
+Includes only one of the fields `input_json`. ||
 |#
 
 ## HistoryEntryOutput {#yandex.cloud.serverless.workflows.v1.HistoryEntryOutput}
 
 #|
 ||Field | Description ||
-|| outputJson | **string**
+|| output_json | **string**
 
 JSON result for the Workflow step.
 
-Includes only one of the fields `outputJson`. ||
+Includes only one of the fields `output_json`. ||
 |#
 
 ## HistoryEntryError {#yandex.cloud.serverless.workflows.v1.HistoryEntryError}
@@ -188,7 +188,7 @@ Includes only one of the fields `outputJson`. ||
 || message | **string**
 
 Error message of the Workflow step. ||
-|| errorCode | **string**
+|| error_code | **string**
 
 Error code of the Workflow step. ||
 |#

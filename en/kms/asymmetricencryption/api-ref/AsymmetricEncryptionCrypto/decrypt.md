@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
 ---
 
-# Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt {#Decrypt}
+# Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt
 
 Decrypts the given ciphertext with the specified key.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Operation/get.md
 ---
 
-# Load Testing API, REST: Operation.Get {#Get}
+# Load Testing API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

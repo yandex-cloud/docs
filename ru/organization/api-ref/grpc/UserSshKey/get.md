@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/get.md
 ---
 
-# Cloud Organization API, gRPC: UserSshKeyService.Get {#Get}
+# Cloud Organization API, gRPC: UserSshKeyService.Get
 
 ## gRPC request
 
@@ -13,13 +13,13 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/get.
 
 ```json
 {
-  "userSshKeyId": "string"
+  "user_ssh_key_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| userSshKeyId | **string**
+|| user_ssh_key_id | **string**
 
 Required field.  ||
 |#
@@ -29,26 +29,26 @@ Required field.  ||
 ```json
 {
   "id": "string",
-  "subjectId": "string",
+  "subject_id": "string",
   "data": "string",
   "name": "string",
   "fingerprint": "string",
-  "organizationId": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "expiresAt": "google.protobuf.Timestamp"
+  "organization_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
 || id | **string** ||
-|| subjectId | **string** ||
+|| subject_id | **string** ||
 || data | **string** ||
 || name | **string** ||
 || fingerprint | **string** ||
-|| organizationId | **string** ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| organization_id | **string** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Used for temporary keys, if empty the key doesn't expire ||
 |#

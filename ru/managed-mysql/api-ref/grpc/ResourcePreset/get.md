@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Managed Service for MySQL API, gRPC: ResourcePresetService.Get {#Get}
+# Managed Service for MySQL API, gRPC: ResourcePresetService.Get
 
 Retrieves information about a resource preset.
 
@@ -15,13 +15,13 @@ Retrieves information about a resource preset.
 
 ```json
 {
-  "resourcePresetId": "string"
+  "resource_preset_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. ID of the resource preset to return information about.
 
@@ -33,7 +33,7 @@ To get this ID, make a [ResourcePresetService.List](/docs/managed-mysql/api-ref/
 ```json
 {
   "id": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ],
   "cores": "int64",
@@ -51,7 +51,7 @@ See [the documentation](/docs/managed-mysql/concepts/instance-types) for details
 || id | **string**
 
 ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of availability zones where the resource preset is available. ||
 || cores | **int64**

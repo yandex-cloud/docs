@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Operation/cancel.md
 ---
 
-# Talk Analytics API, REST: Operation.Cancel {#Cancel}
+# Talk Analytics API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

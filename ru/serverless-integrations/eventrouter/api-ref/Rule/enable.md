@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/enable.md
 ---
 
-# EventRouter Service, REST: Rule.Enable {#Enable}
+# EventRouter Service, REST: Rule.Enable
 
 Enables the specified rule.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/delete.md
 ---
 
-# Cloud Backup API, REST: Resource.Delete {#Delete}
+# Cloud Backup API, REST: Resource.Delete
 
 Delete specific Compute Cloud instance from Cloud Backup. It does not delete
 instance from Cloud Compute service.

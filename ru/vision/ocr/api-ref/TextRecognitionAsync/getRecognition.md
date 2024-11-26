@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognitionAsync/getRecognition.md
 ---
 
-# Vision OCR API, REST: TextRecognitionAsync.GetRecognition {#GetRecognition}
+# Vision OCR API, REST: TextRecognitionAsync.GetRecognition
 
 To get recognition results.
 

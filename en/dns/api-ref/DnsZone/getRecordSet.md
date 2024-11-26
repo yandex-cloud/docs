@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/getRecordSet.md
 ---
 
-# Cloud DNS API, REST: DnsZone.GetRecordSet {#GetRecordSet}
+# Cloud DNS API, REST: DnsZone.GetRecordSet
 
 Returns the specified record set.
 

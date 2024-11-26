@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/BillingAccount/bindBillableObject.md
 ---
 
-# Billing API, gRPC: BillingAccountService.BindBillableObject {#BindBillableObject}
+# Billing API, gRPC: BillingAccountService.BindBillableObject
 
 Binds billable object to the specified billing account.
 
@@ -15,8 +15,8 @@ Binds billable object to the specified billing account.
 
 ```json
 {
-  "billingAccountId": "string",
-  "billableObject": {
+  "billing_account_id": "string",
+  "billable_object": {
     "id": "string",
     "type": "string"
   }
@@ -25,11 +25,11 @@ Binds billable object to the specified billing account.
 
 #|
 ||Field | Description ||
-|| billingAccountId | **string**
+|| billing_account_id | **string**
 
 Required field. ID of the billing account to bind billable object.
 To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request. ||
-|| billableObject | **[BillableObject](#yandex.cloud.billing.v1.BillableObject)**
+|| billable_object | **[BillableObject](#yandex.cloud.billing.v1.BillableObject)**
 
 [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) to bind with billing account. ||
 |#
@@ -56,18 +56,18 @@ Billable object type. Can be one of the following:
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "billableObjectId": "string"
+    "billable_object_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "effectiveTime": "google.protobuf.Timestamp",
-    "billableObject": {
+    "effective_time": "google.protobuf.Timestamp",
+    "billable_object": {
       "id": "string",
       "type": "string"
     }
@@ -86,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -135,7 +135,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| billableObjectId | **string**
+|| billable_object_id | **string**
 
 ID of the [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) that was bound to billing account. ||
 |#
@@ -146,10 +146,10 @@ Represents a binding of the BillableObject to a BillingAccount.
 
 #|
 ||Field | Description ||
-|| effectiveTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when binding was created. ||
-|| billableObject | **[BillableObject](#yandex.cloud.billing.v1.BillableObject2)**
+|| billable_object | **[BillableObject](#yandex.cloud.billing.v1.BillableObject2)**
 
 Object that is bound to billing account. ||
 |#

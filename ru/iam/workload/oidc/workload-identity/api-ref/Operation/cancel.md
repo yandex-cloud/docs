@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Operation/cancel.md
 ---
 
-# Federation, REST: Operation.Cancel {#Cancel}
+# Federation, REST: Operation.Cancel
 
 Cancels the specified operation.
 

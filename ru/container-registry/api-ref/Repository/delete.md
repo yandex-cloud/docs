@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/delete.md
 ---
 
-# Container Registry API, REST: Repository.Delete {#Delete}
+# Container Registry API, REST: Repository.Delete
 
 Deletes the specified repository.
 

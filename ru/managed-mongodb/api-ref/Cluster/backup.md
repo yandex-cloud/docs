@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/backup.md
 ---
 
-# Managed Service for MongoDB API, REST: Cluster.Backup {#Backup}
+# Managed Service for MongoDB API, REST: Cluster.Backup
 
 Creates a backup for the specified MongoDB cluster.
 

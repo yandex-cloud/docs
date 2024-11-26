@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/listBillableObjectBindings.md
 ---
 
-# Billing API, REST: BillingAccount.ListBillableObjectBindings {#ListBillableObjectBindings}
+# Billing API, REST: BillingAccount.ListBillableObjectBindings
 
 Retrieves the list of billable object bindings associated with the specified billing account.
 

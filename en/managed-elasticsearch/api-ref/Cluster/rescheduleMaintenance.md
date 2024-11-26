@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
-# Managed Service for Elasticsearch API, REST: Cluster.RescheduleMaintenance {#RescheduleMaintenance}
+# Managed Service for Elasticsearch API, REST: Cluster.RescheduleMaintenance
 
 Reschedule planned maintenance operation.
 
