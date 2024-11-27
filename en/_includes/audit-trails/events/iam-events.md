@@ -11,7 +11,6 @@ Event name | Description
 `DeleteAccessKey` | Deleting a static key
 `DeleteApiKey` | Deleting API keys
 `DeleteCertificate` | Deleting a certificate for a federation
-`DeleteFederatedUserAccounts` | Deleting a user from a federation
 `DeleteFederation` | Deleting a federation
 `DeleteKey` | Deleting a key pair for a service account
 `DeleteServiceAccount` | Deleting a service account
@@ -30,4 +29,4 @@ Event name | Description
 `workload.oidc.DeleteFederation` | Deleting a service account federation
 `workload.oidc.UpdateFederation` | Updating a service account federation
 
-\* The event will not end up in the audit log unless the [audit log collection scope](../../../audit-trails/concepts/trail.md#collecting-area) for the trail is `Organization`.
+\* The event is not logged in the audit log unless the [audit log collection scope](../../../audit-trails/concepts/trail.md#collecting-area) for the trail is `Organization`.

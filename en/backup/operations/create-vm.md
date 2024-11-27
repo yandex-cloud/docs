@@ -23,24 +23,23 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Enter a name and description for the VM. The naming requirements are as follows:
-
-        {% include [name-format](../../_includes/name-format.md) %}
-
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#linux).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Select a security group configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
+      1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. The naming requirements are as follows:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+      1. Select the service account with the `backup.editor` role.
+      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](./policy-vm/create.md) a new one.
 
   1. Specify the other VM parameters as needed. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -111,10 +110,10 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux) for details.
-      * `create-boot-disk`: Boot disk size.
+      * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
-      * `--core-fraction`: Guaranteed vCPU share (in percentage).
-      * `--memory`: VM [RAM amount](../../compute/concepts/vm.md).
+      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
       * `--service-account-name`: Name of the [service account](../../iam/concepts/users/service-accounts.md) with the `backup.editor` role.
       * `--ssh-key`: Path to the file with the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 

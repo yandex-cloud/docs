@@ -28,15 +28,24 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
      --subject serviceAccount:<service_account_ID>
    ```
 
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
+1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md).
 
-   ```bash
-   yc iam access-key create \
-     --service-account-name=<service_account_name> \
-     --format=json > sa-key.json
-   ```
+   * If you want to install Velero [using the {{ marketplace-full-name }} in the management console](#marketplace-install), create a static access key in JSON format and save it to the `sa-key.json` file:
 
-1. [Create a {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<service_account_name> \
+       --format=json > sa-key.json
+     ```
+
+   * If you are going to use a [Helm chart](#helm-install) to install Velero, run the following command and save the obtained `key_id` and `secret` key:
+
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<service_account_name>
+     ```
+
+1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
@@ -57,8 +66,8 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
      {% endnote %}
 
    * **Application name**: Specify the app name.
-   * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
-   * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
+   * **{{ objstorage-name }} static access key** : Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
+   * **{{ objstorage-name }} bucket name** : Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
@@ -76,7 +85,8 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
         --namespace velero \
         --create-namespace \
         --set configuration.backupStorageLocation.bucket=<bucket_name> \
-        --set-file serviceaccountawskeyvalue=<path_to_sa-key.json> \
+        --set serviceaccountawskeyvalue_generated.accessKeyID=<key_ID> \
+        --set serviceaccountawskeyvalue_generated.secretAccessKey=<secret_key> \
         velero ./velero/
    ```
 
@@ -84,4 +94,5 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 ## See also {#see-also}
 
-* [Velero documentation](https://velero.io/docs/v1.11/examples/).
+* [Velero documentation](https://velero.io/docs/v1.11/examples/)
+* [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

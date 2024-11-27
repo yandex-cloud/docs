@@ -51,3 +51,27 @@
 #### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
+
+#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
+
+Полный текст ошибки:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
+
+Чтобы исправить ошибку:
+
+* убедитесь, что проверку не блокируют настройки корпоративной сети;
+* выполните команду с параметром `--ssl-no-revoke`.
+
+   ```powershell
+   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt {{ crt-web-path }}
+   ```
+
+#### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+{% include notitle [attach-sa](../../_qa/attach-sa.md) %}
+

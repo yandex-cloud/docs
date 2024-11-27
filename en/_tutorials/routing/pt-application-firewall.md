@@ -30,30 +30,35 @@ The infrastructure support costs include:
 
 ## Create a web server {#create-web-server}
 
-1. Create a `dvwa-server` VM with [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts):
+1. Create a [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts) VM named `dvwa-server`.
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-   1. In the list of services, select **{{ compute-name }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Enter the name: `dvwa-server`.
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts).
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `ycuser` username.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
-   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+    1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04` and select a public [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
+    1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   {% note info %}
+        * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+        * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
-   A public and a private IP addresses are assigned to the VM when you create it. Write them down, as you will need them to access the VM and set up the firewall.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-   {% endnote %}
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `dvwa-server`.
+    1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+    {% note info %}
+
+    A public and a private IP addresses are assigned to the VM when you create it. Write them down, as you will need them to access the VM and set up the firewall.
+
+    {% endnote %}
 
 1. Connect to the `dvwa-server` VM over SSH by running the following command in the terminal:
-   ```bash
-   ssh ycuser@<public_IP_address_of_dvwa-server>
-   ```
+
+    ```bash
+    ssh ycuser@<public_IP_address_of_dvwa-server>
+    ```
 
 ## Run your DVWA {#run-dvwa}
 
@@ -87,31 +92,41 @@ The infrastructure support costs include:
 
 1. Create a VM named `pt-firewall` from a [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) public image:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
-      1. In the list of services, select **{{ compute-name }}**.
-      1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * Enter the name: `pt-firewall`.
-         * Select the same availability zone as the one the `dvwa-server` VM is in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
-      1. Select the current [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) image.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `ycuser` username.
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
-      1. Enable the **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}** option.
-      1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+        1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `PT Application Firewall` and select the current [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) image.
+        1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the same [availability zone](../../overview/concepts/geo-scope.md) as the one the `dvwa-server` VM is in.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   {% endlist %}
+            * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+            * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
-   {% note info %}
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-   A public and a private IP addresses are assigned to the VM when you create it. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
-   {% endnote %}
+                If there are no saved SSH keys in your profile, or you want to add a new key:
+
+                * Click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+                * Enter a name for the SSH key.
+                * Upload or paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM yourself.
+                * Click **{{ ui-key.yacloud.common.add }}**.
+
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `pt-firewall`.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` option.
+        1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+    {% endlist %}
+
+    {% note info %}
+
+    A public and a private IP addresses are assigned to the VM when you create it. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
+
+    {% endnote %}
 
 1. Go to the [serial console](../../compute/operations/serial-console/index.md) of the new VM:
 

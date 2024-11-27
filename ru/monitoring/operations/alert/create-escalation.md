@@ -7,6 +7,10 @@ description: В этой статье вы узнаете, как создать
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
+
+@[youtube](https://youtu.be/iAGfn-I0CtY)
+
+
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
 ## Предварительные действия { #before-you-begin }
@@ -53,7 +57,7 @@ description: В этой статье вы узнаете, как создать
       * **Метод** — [метод уведомления](../../concepts/alerting/notification-channel.md#channel-parameters):
        
           {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
-          
+
       * **Задержка после шага** — задержка перед переходом к следующему шагу, если уведомление успешно доставлено, но эскалация не остановлена. Задержку можно установить в секундах или минутах. Например: `30s`, `10m` или `3m30s`.
       
         Задержка по умолчанию — `30m`. Чтобы отправлять уведомление следующего шага без задержки, удалите значение из поля.

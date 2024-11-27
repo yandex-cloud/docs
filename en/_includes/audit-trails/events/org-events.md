@@ -8,6 +8,7 @@ Event name | Description
 `CreateOrganization` | Creating an organization
 `CreateOsLoginProfile` | Creating a profile {{ oslogin }}
 `CreateUserSshKey` | Creating an SSH user key
+`DeleteFederatedUserAccounts` | Deleting a user from a federation
 `DeleteInvitation` | Deleting an invitation
 `DeleteGroup` | Deleting a user group
 `DeleteMembership` | Deleting a user from an organization

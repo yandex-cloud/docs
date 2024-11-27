@@ -1,6 +1,6 @@
 ---
 title: Resource relationships in {{ compute-full-name }}
-description: This tutorial describes relationships between {{ compute-short-name }} resources, resource types, and relationships with other {{ yandex-cloud }} services.
+description: This tutorial explains how {{ compute-short-name }} resources and resource types are related, as well as how they relate to other {{ yandex-cloud }} services.
 ---
 
 # Resource relationships in {{ compute-full-name }}
@@ -33,10 +33,10 @@ When creating disks and VMs, you need to specify the [availability zone](../../o
 
 You can view a list of availability zones and find out their current status.
 
-When creating a disk, you also specify the disk type. You can view possible disk types and find out in which zones they are available.
+When creating a disk, you also specify its type. You can view possible disk types and find out in which zones they are available.
 
 ## Relationship with resources of other services {#relationship-with-resources-of-other-services}
 
 When creating a VM, you need to specify the subnet it will be connected to. You can find more information about cloud networks [here](../../vpc/concepts/network.md).
 
-All {{ compute-short-name }} resources are created within folders. Disk types and availability zones are public resources that do not belong to any folder. You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../resource-manager/concepts/resources-hierarchy.md).
+All {{ compute-short-name }} resources are created within folders. You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../resource-manager/concepts/resources-hierarchy.md).

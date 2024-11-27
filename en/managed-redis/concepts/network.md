@@ -38,13 +38,13 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
 {{ RD }} uses host IP addresses, not their [FQDNs](#hostname). If a {{ mrd-short-name }} cluster supports TLS, this prevents connection to {{ RD }} hosts in the following situations:
 
-* The [{{ RD }} client ](./supported-clients.md) connects to a host via SSL and requests to verify the host's FQDN against the certificate.
+* The [{{ RD }} client](./supported-clients.md) connects to a host via SSL and requests to verify the host's FQDN against the certificate.
 
-   The certificate contains the host's FQDN, not its IP address, so this verification will fail.
+    The certificate contains the host's FQDN, not its IP address, so this verification will fail.
 
 * Public access is enabled for the host.
 
-   {{ RD }} returns the host's internal IP address, even if public access is enabled for that host. Such an IP address is not accessible from the internet.
+    {{ RD }} returns the host's internal IP address, even if public access is enabled for that host. Such an IP address is not accessible from the internet.
 
 Enable the use of FQDNs instead of IP addresses to replace a host's IP address with its FQDN. You can do this when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#configure-fqdn-ip-behavior) any {{ mrd-short-name }} cluster; however, this setting is typically used in clusters with TLS support to bypass the above limitations.
 
@@ -54,7 +54,7 @@ Enable the use of FQDNs instead of IP addresses to replace a host's IP address w
 >
 > In non-sharded {{ mrd-short-name }} clusters, Sentinel is often used to get the address of the {{ RD }} master host. Since Sentinel gets the address from {{ RD }} itself, the result will vary depending on whether the **{{ ui-key.yacloud.redis.field_announce-hostnames }}** option is enabled.
 >
-> Let's assume a cluster has a {{ RD }} master host with `rc1a-abcd********5678.mdb.yandexcloud.net` as its FQDN and `10.0.0.222` as its IP address. The host address returned by Sentinel will look like this:
+> Let's assume a cluster has a {{ RD }} master host with `rc1a-abcd********5678.mdb.yandexcloud.net` for FQDN and `10.0.0.222` for internal IP address. The host address returned by Sentinel will look like this:
 >
 > * Option disabled: `10.0.0.222:6379`
 > * Option enabled: `rc1a-abcd********5678.mdb.yandexcloud.net:6379`
@@ -63,9 +63,11 @@ Enable the use of FQDNs instead of IP addresses to replace a host's IP address w
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+For information on how to configure security groups, see [{#T}](../operations/connect/index.md#configuring-security-groups).
+
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure security groups](../operations/connect/index.md#configuring-security-groups) both for the cluster and for the connecting host.
+When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

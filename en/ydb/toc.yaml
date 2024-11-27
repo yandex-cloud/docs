@@ -85,6 +85,10 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: >-
+          Delivering data from an {{ yds-name }} queue to {{ ydb-name }} using
+          {{ data-transfer-name }}
+        href: tutorials/yds-to-ydb.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}

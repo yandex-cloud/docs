@@ -24,52 +24,47 @@ To create a VM:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ compute-short-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **VMs**.
   1. Click **Create VM**.  
-  1. Under **Image/boot disk selection**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `OpenCart` and select a public [OpenCart](/marketplace/products/yc/opencart-3) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
-      * Go to the **Marketplace** tab.
-      * Click **Show all Marketplace products**.
-      * In the list of public [images](../../compute/concepts/image.md), select [OpenCart](/marketplace/products/yc/opencart-3) and click **Use**.
+      * Select the [disk type](../../compute/concepts/disk.md#disks_types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+      * Specify the disk size: `13 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. Under **Location**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-  1. Under **Disks and file storage**, configure a boot [disk](../../compute/concepts/disk.md):
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      * Select the [disk type](../../compute/concepts/disk.md#disks_types): `SSD`.
-      * Specify the disk size: `13 GB`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-  1. Under **Computing resources**, go to **Custom** and specify the following configuration:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * **Platform**: `Intel Ice Lake`
-      * **Guaranteed vCPU share**: `20%`
-      * **vCPU**: `2`
-      * **RAM**: `4 GB`
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-  1. Under **Network settings**:
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-      * In the **Subnet** field, specify the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+              * In the window that opens, enter the network name and select the folder to host the network.
+              * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+              * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Create subnet**.
-          * If you do not have a network, click **Create network** to create one:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-              * In the window that opens, specify the network name and select the folder to host the network.
-              * (Optional) Select the **Create subnets** option to automatically create subnets in all availability zones.
-              * Click **Create network**.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the information required to access the VM:
 
-      * In the **Public address** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
-
-    1. Under **Access**, select **Immutable key** and specify the information required for access to the VM:
-
-        * In the **Login** field, enter the preferred username for the user to be created on the VM, e.g., `ubuntu`.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the preferred login for the user to create on the VM, e.g., `ubuntu`.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **General information**, enter the VM name, e.g., `opencart`. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter the VM name, e.g., `opencart`. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Click **Create VM**.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Get the [public IP address](../../vpc/concepts/address.md#public-addresses) of the VM: you will use it later to [configure OpenCart](#configure-opencart). You can find out the public IP address in the management console. On the VM's page, go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section and find the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field.
 
 {% endlist %}

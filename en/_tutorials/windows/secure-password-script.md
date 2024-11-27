@@ -341,7 +341,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    "Bootstrap script ended" | Write-Host
    ```
 
-1. In the `init.ps1` file, replace the `<secret_id>` placeholder with the real ID of the secret where you saved the user accounts.
+1. In the `init.ps1` file, replace `<secret_id>` with the real ID of the secret where you saved the user accounts.
 
 1. Create a VM:
 
@@ -350,18 +350,18 @@ Create a VM with the Windows OS having the administrator and user accounts.
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), open the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-      1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-      1. In the list that opens, select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-         * Enter the VM name, e.g., `win-test`.
-         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+      1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [image](../../compute/concepts/image.md) with the Windows OS.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-         * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, grant access to the [serial console](../../compute/operations/serial-console/index.md).
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name, e.g., `win-test`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the data for access to the VM:
+
+          * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
+          * Grant access to the [serial console](../../compute/operations/serial-console/index.md).
       1. Under **{{ ui-key.yacloud.common.metadata }}**:
-         * In the field with the **Key** placeholder, enter `user-data`.
-         * In the field with the **Value** placeholder, paste the contents of the `init.ps1` file.
+
+          * In the **{{ ui-key.yacloud.component.key-values-input.label_key }}** field, specify `user-data`.
+          * In the **{{ ui-key.yacloud.component.key-values-input.label_value }}** field, paste the contents of the `init.ps1` file.
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
    - CLI {#cli}

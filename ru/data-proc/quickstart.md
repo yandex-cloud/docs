@@ -20,6 +20,12 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роли:
+
+    * [dataproc.editor](security/index.md#dataproc-editor) — чтобы создать кластер;
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать [сервисный аккаунт](../iam/concepts/users/service-accounts.md) к кластеру и создавать ресурсы от имени этого сервисного аккаунта.
+
 1. [Настройте NAT-шлюз](../vpc/operations/create-nat-gateway.md) в подсети, в которой будет размещен [кластер](../glossary/cluster.md).
 
 1. Если вы используете группы безопасности, [настройте их](operations/cluster-create.md#change-security-groups).

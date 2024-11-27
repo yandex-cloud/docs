@@ -11,7 +11,7 @@ items:
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and instance access restrictions
+      - name: Setting up security groups and access restrictions to an instance
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
@@ -37,12 +37,12 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Installing {{ GL }} Runner on a virtual machine
+      - name: Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
         href: tutorials/install-gitlab-runner.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
       - name: >-
-          Continuous deployment of {{ managed-k8s-name }} containerized
+          Continuous deployment of containerized {{ managed-k8s-name }}
           applications
         href: tutorials/gitlab-containers.md
       - name: >-
@@ -59,15 +59,15 @@ items:
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
-      - name: Invoking load testing from {{ GL }}} CI
+      - name: Invoking load testing from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
   - name: Concepts
     items:
       - name: Resource relationships
         href: concepts/index.md
-      - name: Service advantages over a {{ GL }} custom installation
+      - name: Advantages over a custom {{ GL }} installation
         href: concepts/managed-gitlab-vs-custom-installation.md
-      - name: Running migration from a {{ GL }} custom installation
+      - name: Running migration from a custom {{ GL }} installation
         href: concepts/migration.md
       - name: Approval rules
         href: concepts/approval-rules.md

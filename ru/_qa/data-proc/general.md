@@ -121,3 +121,7 @@ previously initiated loading for a different type with name "com/amazonaws/auth/
    ```
 
 Однако переключаться на суперпользователя необязательно — достаточно использовать `sudo`.
+
+#### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}

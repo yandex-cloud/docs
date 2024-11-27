@@ -12,6 +12,8 @@
 
    {% include [create-folder](../../_includes/create-folder.md) %}
 
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру {{ metastore-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
 1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, в которой будут размещены кластеры {{ metastore-name }} и {{ dataproc-name }}.
 
 1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) для кластеров {{ metastore-name }} и {{ dataproc-name }}.

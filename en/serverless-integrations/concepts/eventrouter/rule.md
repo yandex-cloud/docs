@@ -18,7 +18,7 @@ _Rule_ is a routing component that consists of a filter and one to five [targets
 
 ## Filter {#filter}
 
-_Filter_ is an expression in [jq format](https://jqlang.github.io/jq/) that figures out whether an event should be forwarded to the targets specified in the rule. If the filter is empty, the rule is considered triggered and events are forwarded to all targets. If the event cannot be parsed or its body does not satisfy the conditions specified in the filter, the rule is not triggered. Events in formats other than JSON can be processed, but filter checking is not available for them.
+A _filter_ is an expression in [jq format](https://jqlang.github.io/jq/manual/) which applies to every event in a bus. A _filter_ returns a Boolean response and determines whether or not to send an event to the targets specified in the rule, e.g., `.firstName == "Ivan"`. If the filter is empty, the rule is considered triggered and events are forwarded to all targets. If the event cannot be parsed or its body does not satisfy the conditions specified in the filter, the rule is not triggered. Events in formats other than JSON can be processed, but filter checking is not available for them.
 
 ## Target {#target}
 

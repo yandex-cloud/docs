@@ -42,7 +42,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-     1. Enter the name of the bucket.
+     1. Enter a name for the bucket.
 
         {% note warning %}
 
@@ -94,7 +94,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
            document.getElementById("shortened").innerHTML = `<a href=${url}>${url}</a>`
          })
          .catch(error => {
-           document.getElementById("shortened").innerHTML = `<p>An error (${error}) occurred. Please try again later.</p>`
+           document.getElementById("shortened").innerHTML = `<p>An error (${error}) occurred. Try again.</p>`
          })
        }
      </script>
@@ -106,7 +106,7 @@ To create a bucket to place the HTML page of your service in and configure it fo
 
   1. Click the name of the created bucket.
   1. Click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
-  1. Specify the previously prepared `index.html` file.
+  1. Specify the `index.html` file you prepared.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:

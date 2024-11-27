@@ -13,14 +13,14 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
     * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-    * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Not to assign a public IP address.
 
 * Select the [appropriate security groups](../../../vpc/concepts/security-groups.md). If you leave this field empty, the default security group will be assigned to the VM.
 
 * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section and select a method for internal IP address assignment in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
 
-    * `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
-    * `{{ ui-key.yacloud.common.label_list }}`: Select a private IP address from the list of previously reserved IP addresses. Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve a private IP address in the selected subnet if needed.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`: Manually assign a private IP address to the VM.
     * Enable the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option, if needed. The option is available if you previously selected the automatic IP assignment method in the public address settings.
 
 * (Optional) Create records for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md):

@@ -1,8 +1,3 @@
----
-title: Создание кластера {{ KF }}
-description: Следуя данной инструкции, вы сможете создать кластер {{ KF }}.
----
-
 # Создание кластера {{ KF }}
 
 
@@ -31,13 +26,14 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о различиях в конфигурации кластеров с {{ ZK }} и {{ kraft-short-name }} см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
+
 ## Перед началом работы {#before-you-begin}
 
 1. Рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
 1. [Убедитесь](../../iam/operations/roles/get-assigned-roles.md), что у вашего аккаунта есть роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mkf.editor }} или выше](../security/index.md#roles-list).
 
-
 Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
+
 
 ## Создать кластер {#create-cluster}
 

@@ -120,7 +120,7 @@ Create a file named `setpass` with a script that will set a password for the loc
 
     ```
     #ps1
-    Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
+    Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your_password>" -AsPlainText -Force)
     ```
 {% endlist %}
 
@@ -136,20 +136,22 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name, `my-rds-vm`.
-  1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [RDS](/marketplace?tab=software&search=windows+rds) image.
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-      - Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4.
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `RDS` and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-  1. Under **Network settings**, click **Add network** and select `my-network`. Select the`my-subnet-a` subnet. Under **Public address**, select **Automatically**.
-  1. Click **Create VM**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-network` and `my-subnet-a`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-vm`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 

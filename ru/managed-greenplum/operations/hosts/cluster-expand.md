@@ -109,37 +109,119 @@
 
         Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы расширить кластер, воспользуйтесь методом REST API [expand](../../api-ref/Cluster/expand.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Expand](../../api-ref/grpc/Cluster/expand.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-        Идентификатор кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [Cluster.Expand](../../api-ref/Cluster/expand.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Параметр `segmentHostCount` — количество хостов-сегментов, на которое нужно расширить кластер.
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/expand' \
+            --data '{
+                      "segmentHostCount": "<количество_добавляемых_хостов-сегментов>",
+                      "addSegmentsPerHostCount": "<количество_добавляемых_сегментов_на_хост>",
+                      "duration": "<таймаут_перераспределения_данных>",
+                      "parallel": "<количество_потоков_перераспределения_данных>",
+                      "closeCluster": "<временный_запрет_на_подключение_к_кластеру>",
+                      "delayRedistribution": "<фоновое_перераспределение_данных>"
+                    }'
+        ```
 
-        {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-    * Параметр `addSegmentsPerHostCount` — количество добавляемых сегментов на хост .
+        Параметры тела запроса:
 
-        {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+        * `segmentHostCount` — количество хостов-сегментов, на которое нужно расширить кластер.
 
-    * Параметр `closeCluster` — [закрыть ли кластер для доступа](../../concepts/expand.md#setting-close-cluster): `true` или `false`.
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
 
-        {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+        * `addSegmentsPerHostCount` — количество добавляемых сегментов на хост.
 
-    * Параметр `delayRedistribution` — [использовать ли фоновое перераспределение данных](../../concepts/expand.md#setting-delay-redistribution): `true` или `false`.
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
-        {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+        * `duration` — [таймаут](../../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
 
-    * Параметр `duration` — [таймаут (в секундах), после истечения которого процесс перераспределения данных будет прерван](../../concepts/expand.md#setting-duration).
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
-        {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+        * `parallel` — [количество потоков](../../concepts/expand.md#setting-parallel), которые будут запущены в ходе процесса перераспределения данных.
 
-    * Параметр `parallel` — [количество потоков, которые будут запущены в ходе процесса перераспределения данных](../../concepts/expand.md#setting-parallel).
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
 
-        {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+        * `closeCluster` — [закрыть кластер](../../concepts/expand.md#setting-close-cluster) для доступа: `true` или `false`.
+
+            {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+
+        * `delayRedistribution` — [использовать фоновое перераспределение данных](../../concepts/expand.md#setting-delay-redistribution): `true` или `false`.
+
+            {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Expand](../../api-ref/grpc/Cluster/expand.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "segment_host_count": "<количество_добавляемых_хостов-сегментов>",
+                  "add_segments_per_host_count": "<количество_добавляемых_сегментов_на_хост>",
+                  "duration": "<таймаут_перераспределения_данных>",
+                  "parallel": "<количество_потоков_перераспределения_данных>",
+                  "close_cluster": "<временный_запрет_на_подключение_к_кластеру>",
+                  "delay_redistribution": "<фоновое_перераспределение_данных>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+        Параметры тела запроса:
+
+        * `segment_host_count` — количество хостов-сегментов, на которое нужно расширить кластер.
+
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+
+        * `add_segments_per_host_count` — количество добавляемых сегментов на хост.
+
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+        * `duration` — [таймаут](../../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
+
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+
+        * `parallel` — [количество потоков](../../concepts/expand.md#setting-parallel), которые будут запущены в ходе процесса перераспределения данных.
+
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+
+        * `close_cluster` — [закрыть кластер](../../concepts/expand.md#setting-close-cluster) для доступа: `true` или `false`.
+
+            {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+
+        * `delay_redistribution` — [использовать фоновое перераспределение данных](../../concepts/expand.md#setting-delay-redistribution): `true` или `false`.
+
+            {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

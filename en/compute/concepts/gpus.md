@@ -47,7 +47,9 @@ The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-
 NVIDIA® Tesla® T4 based on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores and RT cores and offers 16 GB of GDDR6 memory with [300 GB/s bandwidth](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
 
+### T4i {#t4i}
 
+T4i GPU uses Tensor Cores and offers 24 GB GDDR6 memory with up to 300 GB/s bandwidth.
 
 
 ### VM configurations {#config}
@@ -98,6 +100,15 @@ The computing resources may have the following configurations:
   1 | 16 | 16 | 64
   1 | 16 | 32 | 128
 
+
+* {{ t4i-ice-lake }} (`standard-v3-t4i`):
+
+  Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
+  --- | --- | --- | ---
+  1 | 24 | 4 | 16
+  1 | 24 | 8 | 32
+  1 | 24 | 16 | 64
+  1 | 24 | 32 | 128
 
 
 

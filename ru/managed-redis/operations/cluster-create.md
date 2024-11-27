@@ -10,15 +10,21 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее об устройстве кластера {{ mrd-name }} см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
-Количество хостов, которые можно создать вместе с кластером {{ RD }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
-Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
+{% note info %}
+
+* Количество хостов, которые можно создать вместе с кластером {{ RD }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection), [класса хостов](../concepts/instance-types.md#available-flavors) и использования [шардирования](../concepts/sharding.md).
+* Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
 {% endnote %}
 
 
 ## Создать кластер {#create-cluster}
 
-Для создания кластера {{ mrd-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
+Для создания кластера {{ mpg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
+
+{% note info %}
 
 Действуют следующие ограничения на способы создания шардированных кластеров:
 
@@ -27,6 +33,8 @@ description: Следуя данной инструкции, вы сможете
 * Кластер с тремя и более шардами можно создать с помощью консоли управления, CLI, {{ TF }} или API.
 
 Для нешардированных кластеров ограничений нет.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -93,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-       * Облачную сеть для размещения кластера.
+       * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 

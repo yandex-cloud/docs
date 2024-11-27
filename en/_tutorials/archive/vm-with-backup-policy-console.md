@@ -434,28 +434,30 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Enter a name for the VM: `backup-instance`.
-  1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      1. Select the`cloud-network-{{ region-id }}-d` subnet.
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Select the `backup-sg` security group.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `cloud-network` and the subnet named `cloud-network-{{ region-id }}-d`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign a random external IP address from the {{ yandex-cloud }} pool.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `backup-sg` security group.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      1. Select the `backup-sa` service account.
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `backup-instance`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-      1. Select the backup policy [created earlier](#create-policy).
+      * Select the `backup-sa` service account.
+      * Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
+      * Select the backup policy [created earlier](#create-policy).
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 

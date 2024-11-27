@@ -26,30 +26,32 @@ Make sure the selected [folder](../../resource-manager/concepts/resources-hierar
 
 - Management console {#console}
 
-   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the VM name: `joomla-pg-tutorial-web`.
-   1. Select an availability zone to place your VM in.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}** on the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab:
-      * Choose a [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the required number of vCPUs and the amount of RAM.
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `CentOS Stream` and select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in. If you do not know which availability zone you need, leave the default one.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      This minimum configuration is enough for functional testing:
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
-   1. In **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet to connect the VM to once it is created.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the instance:
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-         You will need to create a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      This configuration will be enough for functional testing.
 
-   It may take a few minutes to create a VM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-   Once created, the VM is assigned an IP address and a [host name (FQDN)](../../compute/concepts/network.md#hostname). This data can be used for SSH access.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `joomla-pg-tutorial-web`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+  It may take a few minutes to create the VM.
 
 {% endlist %}
 
@@ -59,19 +61,19 @@ Make sure the selected [folder](../../resource-manager/concepts/resources-hierar
 
 - Management console {#console}
 
-   1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}**.
-   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the appropriate [host](../../managed-postgresql/concepts/instance-types.md) class.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, enter `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify:
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `joomla-pg-tutorial-db`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `joomla`.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: Password you will use to access the DB.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network your VM is connected to.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add two more hosts in the other availability zones. When creating hosts, do not enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** for them.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}**.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the appropriate [host](../../managed-postgresql/concepts/instance-types.md) class.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify:
+     * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `joomla-pg-tutorial-db`.
+     * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `joomla`.
+     * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: Password you will use to access the DB.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network your VM is connected to.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add two more hosts in the other availability zones. When creating hosts, do not enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** for them.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
-   Creating a DB cluster may take a few minutes.
+  Creating a DB cluster may take a few minutes.
 
 {% endlist %}
 
@@ -93,13 +95,13 @@ Make sure the selected [folder](../../resource-manager/concepts/resources-hierar
 
 ## Configure the DNS {#configure-dns}
 
-You need to link the domain name you want to use for your website to the created `joomla-pg-tutorial-web` VM. You can use [{{ dns-full-name }}](../../dns/) to manage your domain.
+You need to link the domain name you want to use for your website to the IP address of the created `joomla-pg-tutorial-web` VM. You can use [{{ dns-full-name }}](../../dns/) to manage your domain.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   {% include [configure-a-record-and-cname](../../_tutorials/_tutorials_includes/configure-a-record-and-cname.md) %}
+  {% include [configure-a-record-and-cname](../../_tutorials/_tutorials_includes/configure-a-record-and-cname.md) %}
 
 {% endlist %}
 

@@ -15,7 +15,14 @@ description: Из статьи вы узнаете, как настроить д
 1. [Настройте права доступа](#configure-acl).
 1. [Подключите репозиторий снапшотов](#register-snapshot-repository).
 
-## Подключить сервисный аккаунт к кластеру {#connect-service-account}
+
+Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
+
+
+* если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
+* если вы восстанавливаете из резервной копии кластер с привязкой к сервисному аккаунту.
+
+## Подключите сервисный аккаунт к кластеру {#connect-service-account}
 
 
 1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
@@ -23,7 +30,7 @@ description: Из статьи вы узнаете, как настроить д
 1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
 
 
-## Настроить права доступа {#configure-acl}
+## Настройте права доступа {#configure-acl}
 
 {% list tabs group=instructions %}
 
@@ -38,12 +45,11 @@ description: Из статьи вы узнаете, как настроить д
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
         1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
         1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+        1. Нажмите кнопки **{{ ui-key.yacloud.common.add }}** и **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-## Подключить репозиторий снапшотов {#register-snapshot-repository}
+## Подключите репозиторий снапшотов {#register-snapshot-repository}
 
 {% note alert %}
 

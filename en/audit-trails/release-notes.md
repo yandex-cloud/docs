@@ -20,6 +20,16 @@ description: This section contains {{ at-name }} release notes.
 
   {% endcut %}
 
+  {% cut "{{ org-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteFederatedUserAccounts` | Deleting a user from a federation
+
+  {% endcut %}
+
   {% cut "{{ ml-platform-name }}" %}
 
   [Management events](./concepts/format.md):
@@ -34,7 +44,7 @@ description: This section contains {{ at-name }} release notes.
   `SuspendNode` | Suspending a node
   `UpdateNode` | Updating a node
 
-  {% endcut %}  
+  {% endcut %}
 
   {% cut "{{ iam-name }}" %}
 
@@ -42,7 +52,6 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `DeleteFederatedUserAccounts` | Deleting a user from a federation
   `workload.CreateFederatedCredential` | Creating [a link](../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
   `workload.DeleteFederatedCredential` | Deleting a link from a service account federation
   `workload.oidc.CreateFederation` | Creating a [service account federation](../iam/concepts/workload-identity.md)
@@ -166,7 +175,7 @@ description: This section contains {{ at-name }} release notes.
   [Management events](./concepts/format.md):
 
   Event name | Description
-  --- | ---  
+  --- | ---
   `CreateConfigurationSet` | Creating a [configuration](../postbox/concepts/glossary.md#configuration)
   `CreateIdentity` | Creating an address
   `DeleteConfigurationSet` | Deleting a configuration
@@ -424,7 +433,7 @@ description: This section contains {{ at-name }} release notes.
 
   {% endcut %}
 
-* Replaced the `impersonator_info` field with `token_info` in the `authentication` section.  
+* Replaced the `impersonator_info` field with `token_info` in the `authentication` section.
 
 ## Q1 2024 {#q1-2024}
 

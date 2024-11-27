@@ -2,9 +2,11 @@
 
 * [Is database host backup enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during backup?](#backup-window)
+* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
 
 * [How many backups are stored in {{ mch-name }}? For how long?](#how-many-backups)
+
+* [Can I change the automatic backup retention period?](#backup-retain-days)
 
 * [What does a daily backup include?](#daily-backups)
 

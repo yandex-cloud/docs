@@ -8,6 +8,25 @@
 
 [Подробнее о подключении к кластерам](../../managed-greenplum/operations/connect.md).
 
+#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
+
+Полный текст ошибки:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
+
+Чтобы исправить ошибку:
+
+* убедитесь, что проверку не блокируют настройки корпоративной сети;
+* выполните команду с параметром `--ssl-no-revoke`.
+
+   ```powershell
+   mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+   ```
+
 #### Как настроить аутентификацию пользователей? {#auth-user}
 
 Настроить аутентификацию пользователей в {{ mgp-name }} можно с помощью [правил](../../managed-greenplum/operations/user-auth-rules.md).

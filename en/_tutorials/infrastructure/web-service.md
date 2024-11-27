@@ -90,9 +90,9 @@ Create a VM you will use to connect to the basic internet service infrastructure
 
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-1`. 
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **Access via OS Login** to [connect](../../compute/operations/vm-connect/os-login.md) and manage access to the new VM using [OS Login](../../organization/concepts/os-login.md) in {{ org-full-name }}.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** to [connect](../../compute/operations/vm-connect/os-login.md) and manage access to the new VM using [OS Login](../../organization/concepts/os-login.md) in {{ org-full-name }}.
 
-        Using OS Login, you can connect to VMs via SSH keys and SSH certificates using a standard SSH client or [YC CLI](../../cli/quickstart.md). OS Login allows you to rotate the SSH keys used to access the VM and is the most [secure](../../security/domains/iaas-checklist.md#vm-security) access option.
+        With OS Login, you can connect to VMs using SSH keys and SSH certificates via a standard SSH client or [YC CLI](../../cli/quickstart.md). OS Login allows you to rotate the SSH keys used to access the VM, providing the most [secure](../../security/domains/iaas-checklist.md#vm-security) access option.
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-1`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -171,7 +171,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-    1. Enter the security group name: `vpn-sg`.
+    1. Enter a name for the security group: `vpn-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `network`, which you created earlier.
     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) rules based on the table below:
 
@@ -209,7 +209,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-    1. Enter the security group name: `web-service-sg`.
+    1. Enter a name for the security group: `web-service-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `network`, which you created earlier.
     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) rules based on the table below:
    
@@ -257,7 +257,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
-            If there are no saved SSH keys in your profile, or you want to add a new one:
+            If there are no saved SSH keys in your profile, or you want to add a new key:
             * Click **Add key**.
             * Enter a name for the SSH key.
             * Upload or paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM yourself.
@@ -266,7 +266,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
 
             The SSH key will be added to your organization user profile.
 
-            If users cannot add SSH keys to their profiles in the organization, the added SSH key will only be saved to the user profile of the created VM.
+            If users cannot add SSH keys to their profiles in the organization, the added public SSH key will only be saved to the user profile of the VM being created.
        
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `web-node-a`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -293,29 +293,11 @@ To provide secure access to your resources, create an IPSec instance.
         * Select the`subnet-a` subnet.
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`. In the list that opens, select the IP address that you reserved.
         * Select the `vpn-sg` security group.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-        * Select the **SSH key** connection option.
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user.
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-            {% note alert %}
-
-            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
-
-            {% endnote %}
-
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
-
-            If there are no saved SSH keys in your profile, or you want to add a new one:
-            * Click **Add key**.
-            * Enter a name for the SSH key.
-            * Upload or paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM yourself.
-            * Select an expiration date for the key.
-            * Click **{{ ui-key.yacloud.common.add }}**.
-
-            The SSH key will be added to your organization user profile.
-
-            If users cannot add SSH keys to their profiles in the organization, the added SSH key will only be saved to the user profile of the created VM.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

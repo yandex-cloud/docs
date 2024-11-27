@@ -14,19 +14,22 @@ description: Чтобы начать работать с {{ maf-full-name }}, с
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 
-
 1. Если у вас еще нет каталога, создайте его:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
    {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](security/index.md#roles-list).
+1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роли:
+
+    * [{{ roles.maf.editor }}](security/index.md#managed-airflow-editor) — чтобы создать кластер;
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+
 1. [Создайте бакет {{ objstorage-full-name }}](../storage/operations/buckets/create.md) для хранения [DAG-файлов](concepts/index.md#about-the-service) {{ maf-name }}.
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Назначьте сервисному аккаунту роль](../iam/operations/sa/assign-role-for-sa.md) `managed-airflow.integrationProvider` на каталог или бакет.
 1. [Предоставьте разрешение](../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту на бакет.
-
 
 ## Создайте кластер {#cluster-create}
 

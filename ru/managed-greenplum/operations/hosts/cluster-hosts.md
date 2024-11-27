@@ -37,11 +37,93 @@
 
     Имя кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список хостов в кластере, воспользуйтесь методами REST API [listMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и [listSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) для ресурса [Cluster](../../api-ref/Cluster/index.md) или вызовами gRPC API [ClusterService/ListMasterHosts](../../api-ref/grpc/Cluster/listMasterHosts.md) и [ClusterService/ListSegmentHosts](../../api-ref/grpc/Cluster/listSegmentHosts.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+       {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Чтобы получить список хостов-мастеров в кластере:
+
+        1. Воспользуйтесь методом [Cluster.ListMasterHosts](../../api-ref/Cluster/listMasterHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/master-hosts'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse).
+
+    1. Чтобы получить список хостов-сегментов в кластере:
+
+        1. Воспользуйтесь методом [Cluster.ListSegmentHosts](../../api-ref/Cluster/listSegmentHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/segment-hosts'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Чтобы получить список хостов-мастеров в кластере:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListMasterHosts](../../api-ref/grpc/Cluster/listMasterHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListMasterHosts
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse).
+
+    1. Чтобы получить список хостов-сегментов в кластере:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListSegmentHosts](../../api-ref/grpc/Cluster/listSegmentHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListSegmentHosts
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse).
 
 {% endlist %}
 

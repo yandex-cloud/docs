@@ -31,24 +31,29 @@ The cost of using a virtual router and test VM includes:
 
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
-1. In the [management console]({{ link-console-main }}), select the folder.
-1. In the top-right corner, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and choose **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the VM, e.g., `mikrotik-router`.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you do not know which availability zone you need, leave the default one.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the parameters:
-   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 GB`.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically. If you do not have a network or subnet, create them on the VM creation page.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-   1. Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   1. Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair yourself.
+1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cloud Hosted Router` and select a public [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      Note that you only need this data for VM creation. You cannot use the data for router access.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS.
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+    Note that you only need this data for VM creation. You cannot use the data for router access.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mikrotik-router`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 It may take a few minutes to create a VM. When the VM status changes to `RUNNING`, you can log in.
@@ -65,7 +70,7 @@ The router is created with a public IP address, so you need to change the defaul
 
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. Copy the `mikrotik-router` VM public IP and open it in your browser.
+1. Copy the `mikrotik-router` VM public IP address and open it in your browser.
 1. Enter the VM internal **IP address** in the IP Address field.
 1. On the page that opens, enter the new administrator password, confirm it, and click **Apply Configuration**. You can make other setting later.
 
@@ -73,23 +78,27 @@ The router is created with a public IP address, so you need to change the defaul
 
 Create a test VM in the subnet that hosts the router, to test connectivity between the router and VM.
 
-1. In the [management console]({{ link-console-main }}), select the folder.
-1. In the top-right corner, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and choose **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the VM, such as `test-vm`.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, choose the same [availability zone](../../overview/concepts/geo-scope.md) that the `mikrotik-router` VM is in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the parameters:
-   * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-   * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-   * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
-   * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 GB`
+1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu` and select a public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the same [availability zone](../../overview/concepts/geo-scope.md) as the one the `mikrotik-router` VM is in.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet hosting the `mikrotik-router` VM.
-   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-   1. Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-   1. Paste the contents of the public SSH key file in the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field.
+
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet hosting the `mikrotik-router` VM.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ### Check the connection between the router and test VM {#test-connection}
@@ -104,12 +113,12 @@ Make sure that a network connection has been established between the router and 
 
 1. Open the router's administrative interface in the browser.
 1. Click **Terminal**.
-1. In the terminal that opens, run the `ping <internal_IP_address_of_the_test_VM>` command.
+1. In the terminal that opens, run the `ping <test_VM_internal_IP_address>` command.
 
 If the packets reach the test VM, you can start configuring the router. To learn how to work with the router, see the [Mikrotik documentation](https://wiki.mikrotik.com/wiki/Main_Page).
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for your deployed resources, [delete](../../compute/operations/vm-control/vm-delete.md) the `mikrotik-router` and `test-vm` VMs.
+To stop paying for the deployed resources, [delete](../../compute/operations/vm-control/vm-delete.md) the `mikrotik-router` and `test-vm` VMs.
 
 If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).

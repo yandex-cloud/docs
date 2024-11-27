@@ -24,26 +24,26 @@ To create a [security group](../../../vpc/concepts/security-groups.md):
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
-   1. Open the **Security groups** tab.
-   1. Click **Create group**.
-   1. Enter the **name** of the group: `wordpress`.
-   1. Select the **Network**.
-   1. Under **Rules**, create the following rules using the instructions below the table:
+  1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
+  1. Open the **Security groups** tab.
+  1. Click **Create group**.
+  1. Enter a **Name** for the group: `wordpress`.
+  1. Select **Network**.
+  1. Under **Rules**, create the following rules using the instructions below the table:
 
-      | Traffic<br>direction | Description | Port<br>range | Protocol | Source/<br>destination type | Source /<br>destination |
-      --- | --- | --- | --- | --- | ---
-      | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
-      | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
+     Traffic<br>direction | Description | Port<br>range | Protocol | Source /<br>target type | Source /<br>target
+     --- | --- | --- | --- | --- | ---
+     Outgoing | any | All | Any | CIDR | 0.0.0.0/0
+     Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
+     Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
 
-      1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-      1. Click **Add rule**.
-      1. In the **Port range** window that opens, specify the port to receive traffic. Do not indicate anything for outgoing traffic.
-      1. In the **Protocol** field, specify the required protocol. For outgoing traffic, leave **Any** to allow traffic over all protocols.
-      1. In the **Destination** or **Source** field, select the **CIDR**, and the rule is applied to a range of IP addresses. In the **CIDR bloсks** field, enter `0.0.0.0/0`.
-      1. Click **Save**. Repeat the steps to create all the rules from the table.
-   1. Click **Save**.
+     1. Select the **Outgoing traffic** or **Incoming traffic** tab.
+     1. Click **Add rule**.
+     1. In the **Port range** window that opens, specify the port to receive traffic. Do not indicate anything for outgoing traffic.
+     1. In the **Protocol** field, specify the required protocol. For outgoing traffic, leave **Any** to allow traffic over all protocols.
+     1. In the **Destination** or **Source** field, select the **CIDR**, and the rule is applied to a range of IP addresses. In the **CIDR bloсks** field, enter `0.0.0.0/0`.
+     1. Click **Save**. Repeat the steps to create all the rules from the table.
+  1. Click **Save**.
 
 {% endlist %}
 
@@ -55,44 +55,33 @@ To create a VM:
 
 - Management console {#console}
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. On the [folder page](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `WordPress` and select a public [WordPress](/marketplace/products/yc/wordpress) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in. If you do not know which availability zone you need, leave the default one.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      ![create-vm](../../../_assets/tutorials/wordpress/vm-create-1.png)
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-   1. In the **Name** field, enter `wordpress` as the VM name. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network where you created the `wordpress` security group and the [subnet](../../../vpc/concepts/network.md#subnet) to connect your VM to. If you do not have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `wordpress` security group.
 
-   1. Select an availability zone to place your VM in.
-   1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [WordPress](../../../marketplace/products/yc/wordpress) as your public image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      ![choose-image](../../../_assets/tutorials/wordpress/vm-create-3.png)
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
 
-   1. Under **Computing resources**:
-      * Choose a [platform](../../../compute/concepts/vm-platforms.md).
-      * Specify the required number of vCPUs and the amount of RAM.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `wordpress`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-      The minimum configuration is enough for testing:
-      * **Platform**: Intel Ice Lake
-      * **vCPU**: 2
-      * **Guaranteed vCPU share**: 20%
-      * **RAM**: 1 GB
-   1. In **Network settings**, select the subnet to connect the VM to once it is created.
-   1. In **Public address**, select **Automatically**.
+  It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can start configuring your website.
 
-      ![choose-network](../../../_assets/tutorials/wordpress/vm-create-4.png)
-
-   1. In **Security group**, select the `wordpress` group.
-   1. Specify the VM access data:
-      * Enter the username in the **Login** field.
-      * In the **SSH key** field, paste the contents of the public key file.
-
-         You will need to create a key pair for the SSH connection yourself. For more information, see [{#T}](../../../compute/operations/vm-connect/ssh.md).
-   1. Click **Create VM**.
-
-   It may take a few minutes to create a VM. When the VM's status changes to `RUNNING`, you can begin configuring the website.
-
-   Once created, the VM is assigned an IP address and a [host name (FQDN)](../../../compute/concepts/network.md#hostname). This data can be used when configuring the DNS and SSH access.
+  Once created, the VM is assigned an IP address and a [host name (FQDN)](../../../compute/concepts/network.md#hostname). This data can be used when configuring the DNS and SSH access.
 
 {% endlist %}
 
@@ -110,7 +99,7 @@ To configure WordPress:
 
 - Management console {#console}
 
-   {% include [wordpress-config](wordpress-config.md) %}
+  {% include [wordpress-config](wordpress-config.md) %}
 
 {% endlist %}
 
@@ -118,6 +107,6 @@ To configure WordPress:
 
 To stop paying for the resources you created:
 
-1. [Delete](../../../compute/operations/vm-control/vm-delete.md) the `wordpress` VM.
+1. [Delete](../../../compute/operations/vm-control/vm-delete.md) `wordpress`.
 1. [Delete](../../../vpc/operations/address-delete.md) the static public IP address if you reserved one specifically for this VM.
 1. [Delete](../../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../../dns/operations/zone-delete.md) the DNS zone if you used {{ dns-name }}.

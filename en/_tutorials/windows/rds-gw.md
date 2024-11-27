@@ -7,7 +7,7 @@
 
 Remote Desktop Gateway (RDGW) is a Windows Server service for accessing resources that have no internet access via a secure HTTPS communication channel. 
 
-In this use case, users from the `Administrators` group are granted access to a test VM using a self-signed certificate.
+In this scenario, users from the `Administrators` group will get access to a test VM using a self-signed certificate.
 
 To deploy the Remote Desktop Gateway infrastructure:
 
@@ -38,7 +38,7 @@ The cost of installing RDGW includes:
 
 ## Create a cloud network and subnets {#create-network}
 
-Create a cloud network named `rdgw-network` with a subnet in the availability zone where your VMs will be located.
+Create a cloud network named `rdgw-network` with a subnet in the availability zone your VMs will be located in.
 
 1. Create a [cloud network](../../vpc/concepts/network.md).
 
@@ -51,7 +51,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
         1. Enter the network name: `rdgw-network`.
         1. Click **Create network**.
    
-   - CLI {#cli}
+    - CLI {#cli}
       
       ```
       yc vpc network create --name rdgw-network
@@ -69,7 +69,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       default_security_group_id: enpa139ji55jti00u5sg
       ```
 
-   - API {#api}
+    - API {#api}
 
       Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
 
@@ -77,18 +77,18 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
 
 1. Create a subnet in `rdgw-network`.
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
    
-   - Management console {#console}
+    - Management console {#console}
     
         1. Select **{{ vpc-short-name }}** in the folder to create a subnet in.
         1. Click the name of the cloud network.
         1. Click **Add subnet**.
-        1. Fill out the form: enter `rdgw-subnet` as a subnet name and select the desired availability zone from the drop-down list (e.g., `{{ region-id }}-a`).
+        1. Fill out the form: enter `rdgw-subnet` for subnet name and select the desired availability zone from the drop-down list (e.g., `{{ region-id }}-a`).
         1. Enter the subnet CIDR: IP address and subnet mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
         1. Click **Create subnet**.
    
-   - CLI {#cli}
+    - CLI {#cli}
    
       ```
       yc vpc subnet create `
@@ -102,7 +102,7 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       
       Result:
       
-      ``` 
+      ```
       id: e9b95m6al33r62n5vkab
       folder_id: big67u7m5flplkc6vvpc
       created_at: "2021-06-09T10:49:21Z"
@@ -113,11 +113,11 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       - 10.1.0.0/16
       ```
 
-   - API {#api}
+    - API {#api}
 
        Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
-   {% endlist %}
+    {% endlist %}
 
 ## Create a security group {#sg}
 
@@ -130,16 +130,16 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
    1. Select **{{ vpc-short-name }}** in the folder where you want to create a security group.
    1. Open the **Security groups** tab.
    1. Click **Create group**.
-   1. Enter the security group name: `my-rdgw-sg`.
+   1. Enter a name for the security group: `my-rdgw-sg`.
    1. In the **Network** field, select the network to assign the security group to: `rdgw-network`.
    1. Under **Rules**, create the following traffic management rules according to the instructions below the table:
       
-        | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose | 
+        | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose |
         |---|---|---|---|---|---|
         | Incoming | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
         | Incoming | self-security | Any | Any | Security group | Current |
         | Incoming | tcp | 3389 | TCP | CIDR | 0.0.0.0/0 |
-        | Incoming | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
+        | Incoming | rdgw| 443 | TCP | CIDR | 0.0.0.0/0 |
         | Outgoing | default | Any | Any | CIDR | 0.0.0.0/0 |
         
         1. Select the **Outgoing traffic** or **Incoming traffic** tab.
@@ -183,7 +183,7 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
      cidr_blocks:
      v4_cidr_blocks:
       - 0.0.0.0/0
-   ```
+  ```
 
 - API {#api}
 
@@ -199,9 +199,7 @@ Create a VM with a public address:
 
 - Management console {#console}
 
-     1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-     1. In the **Name** field, enter the VM name, `my-rds-gw`.
-     1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+     1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
          * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -209,16 +207,21 @@ Create a VM with a public address:
          * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
          * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-     1. Under **Disks**, enter 60 GB for the size of the boot disk.
-     1. Under **Computing resources**:
-         * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the required number of vCPUs and the amount of RAM:
-             * **vCPU**: 2
-             * **Guaranteed vCPU share**: 100%
-             * **RAM**: 4 GB
-     1. Under **Network settings**, click **Add network** and select `rdgw-network`. Select the `rdgw-subnet` subnet. Under **Public address**, select **Automatically**. Select the `my-rdgw-sg` security group.
-     1. Click **Create VM**.
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-network` and `rdgw-subnet`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `my-rdgw-sg`.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-gw`.
+     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -234,7 +237,7 @@ Create a VM with a public address:
     
         ```powershell
         #ps1
-        Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force) 
+        Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
         ```
    
     1. Create a VM and specify the created script as the metadata source. In the `security-group-ids` parameter, insert the ID of the `my-rdgw-group` security group:
@@ -254,7 +257,7 @@ Create a VM with a public address:
    
       Result:
    
-      ``` 
+      ```
       done (25s)
       id: frmogfp7mm1kg87c25f3
       folder_id: big67u7m5flplkc6vvpc
@@ -303,7 +306,7 @@ Create a VM with a public address:
    
    Result:
    
-   ``` 
+   ```
    Success Restart Needed Exit Code      Feature Result
    ------- -------------- ---------      --------------
    True    No             Success        {Network Policy and Access Services, Remot...
@@ -315,8 +318,7 @@ Create a VM with a public address:
    Import-Module -Name RemoteDesktopServices
    ```
    
-   
-1. Create a client access policy to allow all `Administrators` local group accounts to connect to the RDGW. You can do this using a [Windows PowerShell drive]({{ ms.docs }}/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1) that is created automatically when importing the role:
+1. Create a client access policy to allow all `Administrators` local group accounts to connect to the RDGW. You can do this using a [Windows PowerShell drive]({{ ms.docs }}/powershell/scripting/samples/managing-windows-powershell-drives?view=powershell-7.1) that will be created automatically when importing the role:
 
    ```powershell
    New-Item -Path 'RDS:\GatewayServer\CAP' -Name 'Default-CAP' -UserGroups Administrators@Builtin -AuthMethod '1'
@@ -326,7 +328,7 @@ Create a VM with a public address:
 
    ```
        Directory: RDS:\GatewayServer\CAP
-
+   
    Name                   Type      CurrentValue         GP   PermissibleValues PermissibleOperations
    ----                   ----      ------------         --   ----------------- ---------------------
    Default-CAP                                           -                      Get-Item, Get-ChildItem, Remove-Item,...
@@ -342,19 +344,19 @@ Create a VM with a public address:
 
    ```
        Directory: RDS:\GatewayServer\RAP
-
+   
    Name                   Type      CurrentValue         GP   PermissibleValues PermissibleOperations
    ----                   ----      ------------         --   ----------------- ---------------------
    Default-RAP                                           -                      Get-Item, Get-ChildItem, Remove-Item,...
    ```
-
+   
 1. Create a certificate with the name of the server to be used for connecting to the gateway and encrypting traffic:
 
    ```powershell
    $Certificate = New-SelfSignedCertificate -CertStoreLocation 'Cert:\LocalMachine\My' -DnsName $ENV:COMPUTERNAME
    ```
-
-1. Export the created certificate to later upload it to the `Trusted Roots Certificate Authorities` certificate store on the computer connecting to the VM. This is necessary for the client to trust the self-signed RDGW certificate:
+   
+1. Export the created certificate so you can later upload it to the `Trusted Roots Certificate Authorities` certificate store on the computer connecting to the VM. This is necessary for the client to trust the self-signed RDGW certificate:
 
    ```powershell
    $Certificate | Export-Certificate -FilePath "C:\REGW.cer"
@@ -387,19 +389,17 @@ Create a VM with a public address:
    -a----         6/9/2021  11:51 AM            796 REGW.cer
    ```
 
-The gateway VM with the configured RDGW role allows `BUILTIN\Administrators` local group accounts to connect to VMs that do not have direct internet access.
+The gateway VM with the configured RDGW role allows `BUILTIN\Administrators` local group accounts to connect to VMs that do not have direct Internet access.
 
 ## Test the RDGW {#test-rdgw}
 
 1. Create a VM with no internet access and connect to it during the test.
 
     {% list tabs group=instructions %}
-    
+
     - Management console {#console}
-    
-        1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-        1. In the **Name** field, enter the VM name, `test-vm`.
-        1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+
+        1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
             * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -407,16 +407,20 @@ The gateway VM with the configured RDGW role allows `BUILTIN\Administrators` loc
             * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
             * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
             * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+        1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-        1. Under **Disks**, enter 60 GB for the size of the boot disk.
-        1. Under **Computing resources**:
-            * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-            * Specify the required number of vCPUs and the amount of RAM:
-                * **vCPU**: 2
-                * **Guaranteed vCPU share**: 100%
-                * **RAM**: 4 GB
-        1. Under **Network settings**, click **Add network** and select `rdgw-network`. Select the`rdgw-subnet` subnet. Under **Public address**, select **No address**.
-        1. Click **Create VM**.
+            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `rdgw-network` and `rdgw-subnet`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
+        1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
         {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -438,7 +442,7 @@ The gateway VM with the configured RDGW role allows `BUILTIN\Administrators` loc
       ```
 
       Result:
-
+   
       ```
       done (19s)
       id: fhm5pflreh2jellq97r0
@@ -478,13 +482,13 @@ The gateway VM with the configured RDGW role allows `BUILTIN\Administrators` loc
 
 1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you will use to connect to the test VM.
     
-   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. Here is an example:
+   To connect to the gateway using the VM name, specify the name and external IP address of the created RDGW in the `C:\Windows\system32\drivers\etc\hosts` file. For example:
    
     ```powershell
     87.250.250.242 my-rds-gw
     ```
    
-1. Run the [`mstsc`]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) utility that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username. 
+1. Run the [`mstsc` utility]({{ ms.docs }}/windows-server/administration/windows-commands/mstsc) that creates remote desktop connections. In the settings on the **Advanced** tab, specify the `my-rds-gw` VM name as the gateway, the `test-vm` name as the destination node, and `Administrator` as the username.
 
 ## How to delete the resources you created {#clear-out}
 

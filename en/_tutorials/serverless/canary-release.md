@@ -149,7 +149,7 @@ You can use a custom function or create [any function from the list](../../funct
 
 ## Add tags {#add-tag}
 
-Add the `stable` tag to the first function version, and the `canary` tag to the second one.
+Add the `stable` tag to the first function version and the `canary` tag to the second one.
 
 {% list tabs group=instructions %}
 
