@@ -19,7 +19,6 @@ keywords:
 * `0.ru.pool.ntp.org`;
 * `1.ru.pool.ntp.org`;
 * `ntp0.NL.net`;
-* `ntp2.vniiftri.ru`;
 * `ntp.ix.ru`;
 * `ntps1-1.cs.tu-berlin.de`.
 
@@ -78,7 +77,7 @@ keywords:
      
 
       ```text
-      FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
+      FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
 
 
@@ -132,7 +131,6 @@ keywords:
       server 0.ru.pool.ntp.org
       server 1.ru.pool.ntp.org
       server ntp0.NL.net
-      server ntp2.vniiftri.ru
       server ntp.ix.ru
       server ntps1-1.cs.tu-berlin.de
       ```
@@ -270,7 +268,7 @@ keywords:
   ...
   [TimeProviders]
   ...
-  NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
+  NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
   ...
   ```
 
