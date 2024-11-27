@@ -19,10 +19,21 @@ description: Следуя данной инструкции, вы сможете
 
 
 
+{% note info %}
+
+Возможность создания кластеров с версией {{ MG }} 5.0 будет отключена 2 декабря 2024 года в связи с [прекращением поддержки](https://www.mongodb.com/support-policy) этой версии разработчиком.
+
+Начиная с 3 февраля 2025 года существующие кластеры с этой версией {{ MG }} будут [принудительно обновлены](../qa/general.md#dbms-deprecated) до версии 6.0. Рекомендуем заранее [перейти](../operations/cluster-version-update.md) на использование актуальных версий {{ MG }}.
+
+{% endnote %}
+
+
 
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -73,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
-      * Облачную сеть для размещения кластера.
+      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
       * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 

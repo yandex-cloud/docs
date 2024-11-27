@@ -208,7 +208,7 @@ Register the bot in Telegram and get a token.
    ```
 
 1. In the `name` field, specify the name of the bot you are creating. This is the name users will see when communicating with the bot.
-1. In the `username` field, specify the username of the bot you are creating. You can use the user name to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `username` field, specify the username of the bot you are creating. You can use the username to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
    As a result, you will get a token. Save it. You will need it later.
 

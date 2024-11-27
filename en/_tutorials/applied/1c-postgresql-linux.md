@@ -82,35 +82,34 @@ Create a VM to serve as a gateway for VPN connections:
 - Management console {#console}
 
   1. [Reserve](../../vpc/operations/get-static-ip.md) a public IP address for your VPN server.
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Enter the VM name: `vpn-server`.
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) to create a VPN gateway in. For example: `{{ region-id }}-b`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-b`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify the size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-
+  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Select `my-1c-network` you created earlier and the subnet mapped to the selected VM availability zone.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `my-1c-network` and the subnet mapped to the selected VM availability zone.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and the previously reserved public IP address from the list.
 
           When configuring a VPN server, use only a static public IP address. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
       * Leave the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field blank. The [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned to the new VM.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * Enter the VM user name in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, For example: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-          You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
-
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  1. This will open a window informing you of the pricing type, which is BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
+  1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -152,31 +151,30 @@ Create a VM for the 1C:Enterprise server:
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `CentOS 7` and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) hosting the VNP server you created earlier.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      * Enter the VM name: `server-1c`.
-      * Select the [availability zone](../../overview/concepts/geo-scope.md) hosting the VNP server you created earlier.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify:
-
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Select `my-1c-network` you created earlier and the subnet mapped to the selected VM availability zone.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `my-1c-network` and the subnet mapped to the selected VM availability zone.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign a random external IP address from the {{ yandex-cloud }} pool.
 
           The virtual machine will need a public IP address for software configuration. Once the software has been configured, unlink the public IP address from the VM. The OpenVPN server will then be used to access the VM.
       * Leave the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field blank. The [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned to the new VM.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
 
-      * Enter the VM user name in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field. For example: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `server-1c`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
@@ -333,12 +331,12 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
 1. Copy the 1C:Enterprise server distribution from your local computer to the `server-1c` VM:
 
     ```bash
-    scp <file_name> <username>@<VM_public_IP_address>:/1c-files
+    scp <file_name> <username>@<VM_public_IP_address>:/1c-file.
     ```
 
     Where:
-    * `<file_name>`: Name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
-    * `<username>`: VM user name, e.g., `yc-user`.
+    * `<file_name>`: Name of the binary distribution file. For example, `setup-full-8.3.25.1257-x86_64.run`.
+    * `<username>`: VM username. For example, `yc-user`.
     * `<VM_public_IP_address>`: Public IP address of the VM with the 1С server.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM over SSH.
@@ -350,7 +348,7 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     sudo ./<file_name> --mode unattended --enable-components server,ws,server_admin
     ```
 
-    Where `<file_name>` is the name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
+    Where `<file_name>` is the name of the binary distribution file. For example, `setup-full-8.3.25.1257-x86_64.run`.
 
 1. After installation is complete, delete the distribution file by specifying the name of the binary distribution file:
 
@@ -426,7 +424,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
         * Leave all other parameters as they are and click **OK**.
 
     1. Open the **Local cluster** context menu and select **Apply functionality assignment requirements (full)** to apply the new requirement to the cluster.
-    1. Add another requirement for assigning functionality to the `licensing-server-1c.{{ region-id }}.internal` with the following parameters:
+    1. Add another requirement for assigning functionality to the `licensing-server-1c.{{ region-id }}.internal` server with the following parameters:
         * In the **Requirement object** list, select `Licensing service`.
         * In the **Requirement type** list, select `Assign`.
         * Leave all other parameters as they are and click **OK**.

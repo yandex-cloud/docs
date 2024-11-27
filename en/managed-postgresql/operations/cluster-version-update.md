@@ -91,7 +91,7 @@ Make sure this does not affect your applications:
 
        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
     1. In the `cluster_config` section of the required {{ mpg-name }} cluster, add the `version` field or edit the existing one:
 
@@ -187,7 +187,7 @@ Make sure this does not affect your applications:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `config_spec.version`: New {{ PG }} version.
 
@@ -203,7 +203,7 @@ Cluster upgrade time depends on the database size.
 
 ## Examples {#examples}
 
-Let's assume that you need to upgrade your cluster from version 11 to version 12.
+Let's assume you need to upgrade a cluster from version 14 to version 15.
 
 {% list tabs group=instructions %}
 
@@ -233,14 +233,14 @@ Let's assume that you need to upgrade your cluster from version 11 to version 12
         id: c9q8p8j2gaih********
         ...
         config:
-          version: "11"
+          version: "14"
           ...
       ```
 
-   1. To upgrade the `postgre406` cluster to version 12, run this command:
+   1. To upgrade the `postgre406` cluster to version 15, run this command:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 12
+      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 15
       ```
 
 {% endlist %}

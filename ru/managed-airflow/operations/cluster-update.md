@@ -16,6 +16,8 @@ keywords:
 
 - Консоль управления {#console}
 
+    Чтобы изменить настройки кластера:
+
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
@@ -23,6 +25,11 @@ keywords:
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера, удалите или добавьте новые метки.
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью  `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+        Для изменения сервисного аккаунта в кластере {{ maf-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера или создайте ее.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
@@ -68,7 +75,7 @@ keywords:
     1. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
 
         ```bash
-        {{ yc-mdb-af }} managed-airflow cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-af }} cluster update <имя_или_идентификатор_кластера> \
            --new-name <новое_имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
@@ -99,6 +106,8 @@ keywords:
 
 - {{ TF }} {#tf}
 
+    Чтобы изменить настройки кластера:
+
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
@@ -124,6 +133,8 @@ keywords:
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-maf }}).
 
 - REST API {#api}
+
+    Чтобы изменить настройки кластера:
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -256,7 +267,12 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `serviceAccountId` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `serviceAccountId` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+            Для изменения сервисного аккаунта в кластере {{ maf-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
@@ -281,6 +297,8 @@ keywords:
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
+
+    Чтобы изменить настройки кластера:
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -432,7 +450,12 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `service_account_id` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `service_account_id` — идентификатор сервисного аккаунта с [ролью](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+            Для изменения сервисного аккаунта в кластере {{ maf-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.

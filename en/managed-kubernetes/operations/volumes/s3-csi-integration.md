@@ -21,6 +21,8 @@ See also:
 
 ## Configuring {{ CSI }} {#configure-csi}
 
+{% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ marketplace-full-name }} {#marketplace}
@@ -55,7 +57,7 @@ See also:
        endpoint: https://{{ s3-storage-host }}
      ```
 
-     In the `accessKeyID` and `secretAccessKey` fields, specify the ID and secret key [you obtained previously](#create-environment).
+     In the `accessKeyID` and `secretAccessKey` fields, specify the [previously received](#create-environment) ID and secret key value.
   1. Create a file with a description of the `storageclass.yaml` storage class:
 
      ```yaml
@@ -102,7 +104,7 @@ See also:
 
 ## {{ CSI }} usage {#csi-usage}
 
-With {{ CSI }} configured, there are certain things to consider when creating static and dynamic `PersistentVolumes` objects.
+With {{ CSI }} configured, there are certain things to note about creating static and dynamic `PersistentVolumes` objects.
 
 ### Dynamic PersistentVolume {#dpvc-csi-usage}
 
@@ -110,7 +112,7 @@ For a dynamic `PersistentVolume`:
 
 * Specify the name of the storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
 * If required, specify the bucket name in the `bucket` parameter (or the **Shared S3 bucket for volumes** field in the {{ marketplace-full-name }} settings) when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
-  * If you specify the bucket name when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume`.
+  * If you specify the bucket name when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each created `PersistentVolume` object.
 
     {% note info %}
 
@@ -126,16 +128,16 @@ See also the [example of creating](#create-dynamic-pvc) a dynamic `PersistentVol
 
 For a static `PersistentVolume`:
 
-* When creating a `PersistentVolumeClaim`, set an empty value for the `spec.storageClassName` parameter.
-* Then, specify the name of the bucket or bucket directory in the `spec.csi.volumeHandle` parameter. If no such bucket exists, create one.
+* When creating your `PersistentVolumeClaim`, set an empty value for the `spec.storageClassName` parameter.
+* Then, specify the name of the bucket or bucket directory of your choice in the `spec.csi.volumeHandle` parameter. If no such bucket exists, create one.
 
   {% note info %}
 
-  Deleting such a `PersistentVolume` will not automatically delete its associated bucket.
+  Deleting this type of `PersistentVolume` will not automatically delete its associated bucket.
 
   {% endnote %}
 
-* To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating a `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the owner of all the files in a storage. To get a list of GeeseFS options, run the `geesefs -h` command or refer to the relevant [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
+* To update [GeeseFS](../../../storage/tools/geesefs.md) options for working with a bucket, specify them in the `spec.csi.volumeAttributes.options` parameter when creating your `PersistentVolume`. For example, in the `--uid` option, you can specify the ID of the user being the owner of all files in storage. To get a list of GeeseFS options, run the `geesefs -h` command or find it in the [GitHub repository](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
   The GeeseFS options specified under `parameters.options` (or the **GeeseFS mount options** field in the {{ marketplace-full-name }} settings) in `StorageClass` are ignored for a static `PersistentVolume`. For more information, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
@@ -219,7 +221,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
 
       {% endcut %}
 
-   1. Create a pod to mount a bucket to for your dynamic `PersistentVolume`:
+   1. Create a pod to mount a bucket for your dynamic `PersistentVolume`:
 
       ```bash
       kubectl create -f pod-dynamic.yaml
@@ -234,12 +236,12 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
 1. Create the `/usr/share/nginx/html/s3/hello_world` file in the container. For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
     ```bash
-    kubectl exec -ti csi-s3-test-nginx -- touch /usr/share/nginx/html/s3/hello_world
+    kubectl exec -ti csi-s3-test-nginx-dynamic -- touch /usr/share/nginx/html/s3/hello_world
     ```
 
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified a bucket name when configuring your storage class, open the bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
+   1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified the bucket name when configuring your storage class, open that bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
 
 ### Static PersistentVolume {#create-static-pvc}
 
@@ -270,7 +272,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
       {% endcut %}
 
       For a static `PersistentVolume`, you do not need to specify the storage class name in the `spec.storageClassName` parameter. You can change the requested storage size as you need in the `spec.resources.requests.storage` parameter value.
-   1. Create a file named `pv-static.yaml` with the static `PersistentVolume` description:
+   1. Create a file named `pv-static.yaml` with the static `PersistentVolume` description, and specify the `volumeHandle` parameter value in the file:
 
       {% cut "pv-static.yaml" %}
 
@@ -307,7 +309,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
             options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666 --uid=1001"
       ```
 
-      Here, the GeeseFS settings for working with a bucket are different compared to `StorageClass`. There is an additional `--uid` option which specifies the ID of the owner of all the files in the storage: `1001`. [See above](#spvc-csi-usage) for more information on setting up GeeseFS for a static `PersistentVolume`.
+      In this example, GeeseFS settings for working with a bucket are changed as compared to `StorageClass`. The `--uid` option is added to them. It specifies the ID of the user being the owner of all files in storage: `1001`. For more information about setting up GeeseFS for a static `PersistentVolume`, see [this section](#spvc-csi-usage).
 
       {% endcut %}
 

@@ -1,6 +1,6 @@
 ---
 title: Networking in {{ mmy-name }}
-description: When creating a {{ MY }} cluster, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
+description: When creating a {{ MY }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
 ---
 
 # Network and clusters in {{ mmy-name }}
@@ -26,7 +26,7 @@ You can use the FQDN to access the host within a single cloud network. For more 
 
 ## Public access to a host {#public-access-to-host}
 
-Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating or editing a host. To connect to such kind of a host, use its FQDN.
+Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating or editing a host. To connect to such a host, use its FQDN.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
@@ -46,9 +46,11 @@ In addition to host names, to connect to a cluster, you can use [special FQDNs](
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+For information on how to configure security groups, see [{#T}](../operations/connect.md#configure-security-groups).
+
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect.md#configure-security-groups) security groups both for the cluster and for the connecting host.
+When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

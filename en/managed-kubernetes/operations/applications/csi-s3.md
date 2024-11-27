@@ -3,6 +3,13 @@
 
 [Container Storage Interface for S3](/marketplace/products/yc/csi-s3) (_CSI_) enables you to dynamically reserve [buckets](../../../storage/concepts/bucket.md) of S3-compatible storages and mount them in [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) [pods](../../concepts/index.md#pod) as [persistent volumes](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). The connection is made using the [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) implementation of the [GeeseFS](https://github.com/yandex-cloud/geesefs) file system.
 
+{% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
+
+You can install container Storage Interface for S3 in the following ways:
+* [Using {{ marketplace-name }}](#marketplace-install) in the management console
+* [Using a Helm chart from the {{ marketplace-name }} repository](#helm-install)
+* [Using a Helm chart from the remote GitHub storage](#helm-github-install)
+
 ## Getting started {#before-you-begin}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
@@ -13,7 +20,7 @@
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installation in the management console using {{ marketplace-name }} {#marketplace-install}
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
@@ -37,7 +44,7 @@
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
-## Installation using a Helm chart {#helm-install}
+## Installation using a Helm chart from the {{ marketplace-name }} repository {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -56,7 +63,32 @@
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-When installing a CSI application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using this key: `--set <parameter_name>=<new_value>`.
+   You can also specify additional Container Storage Interface [parameters](#installation-parameters) for S3.
+
+## Installation using a Helm chart from the GitHub repository {#helm-github-install}
+
+The latest version of Container Storage Interface for S3 with {{ objstorage-name }} support is available in the [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3).
+
+1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
+
+    ```bash
+    helm repo add yandex-s3 https://yandex-cloud.github.io/k8s-csi-s3/charts && \
+    helm repo update && \
+    helm pull yandex-s3/csi-s3 --untar && \
+    helm install \
+      --namespace kube-system \
+      --set secret.accessKey=<key_ID> \
+      --set secret.secretKey=<secret_key> \
+      csi-s3 ./csi-s3/
+    ```
+
+    You can also specify additional Container Storage Interface [parameters](#installation-parameters) for S3.
+
+## Parameters for installation using a Helm chart {#installation-parameters}
+
+When installing a Container Storage Interface for S3 application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using this key: `--set <parameter_name>=<new_value>`.
 
 The list of parameters available for redefining and their default values are shown in the table below:
 
@@ -77,5 +109,7 @@ Parameter name | Description | Default value
 ## See also {#see-also}
 
 * [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
+* [Container Storage Interface for S3 with {{ objstorage-name }} support in GitHub](https://github.com/yandex-cloud/k8s-csi-s3)
 * [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md)
+* [CSI Use cases](../volumes/s3-csi-integration.md#examples)
 * [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md)

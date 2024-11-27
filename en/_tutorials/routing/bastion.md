@@ -182,45 +182,37 @@ After you created the subnet and security group, proceed to create a virtual ser
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Enter the VM name: `bastion-host`.
-  1. Select the availability zone: `{{ region-id }}-b`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
-
-     * In the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, select the **NAT instance powered by Ubuntu 22.04 LTS** product.
-     * Click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `NAT instance based on Ubuntu 22.04 LTS` and select a public [NAT instance based on Ubuntu 22.04 LTS](/marketplace/products/yc/nat-instance-ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure the first network interface:
 
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-external-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Click **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** and select the [IP address reserved earlier](#get-static-ip).     
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `secure-bastion-sg`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-external-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: Click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the [IP address reserved earlier](#get-static-ip).
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `secure-bastion-sg`.
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and configure the second network interface:
 
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`.
-     * Expand the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}** section:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * In the input field that appears, enter `172.16.16.254`.
 
-       * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_list }}**.
-       * Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**. In the window that opens:
+      {% note info %}
 
-         * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, enter `172.16.16.254`.
-         * Click **{{ ui-key.yacloud.common.create }}**.
+      Make sure the first interface on the new VM belongs to an external segment; the default gateway will be automatically set on that interface.
 
-     {% note info %}
+      {% endnote %}
 
-     Make sure the first interface on the new VM belongs to an external segment, since the default gateway is automatically specified on this interface.
+      Specify a public IP address for the external segment only. For the internal segment, specify an internal static IP address.
 
-     {% endnote %}
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-     Specify a public IP address for the external segment only. For the internal segment, specify an internal static IP address.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `bastion`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, enter `bastion` as the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-  1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `bastion-host`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   As soon as the server VM starts and gets the **Running** status, you will see the public IP address assigned to it in the **{{ ui-key.yacloud.compute.group.overview.label_instance-address }}** field.
@@ -245,25 +237,22 @@ If you already have a virtual machine, [add](../../compute/operations/vm-control
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go the folder where you want to create an infrastructure for your bastion host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Enter the VM name: `test-vm`.
-  1. Select the availability zone: `{{ region-id }}-b`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an operating system.
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public image with any OS, e.g., [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure a network interface:
 
-     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `bastion-internal-segment`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**: `internal-bastion-sg`.
+      * Expand the **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_advanced }}** section; in the **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-     1. Disable the **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** option.
-     1. In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `test`.
-     1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `test`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
@@ -345,7 +334,7 @@ ssh bastion@<public_IP_address_of_bastion_host> -L 3390:<Windows_host_IP_address
 
 ### Transferring files {#file-transfers}
 
-For Linux clients and servers, you can configure [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol) to securely transfer files through the bastion host to internal hosts and back. Do this using the same ProxyCommand and ProxyJump options specified in the SSH command line. Here is an example:
+For Linux clients and servers, you can configure [SCP](https://en.wikipedia.org/wiki/Secure_copy_protocol) to securely transfer files through the bastion host to internal hosts and back. Do this using the same ProxyCommand and ProxyJump options specified in the SSH command line. For example:
 
 ```bash
 scp -o "ProxyJump bastion@<public_IP_address_of_bastion_host>" <file_name> bastion@<internal_IP_address_of_virtual_server>:<path_to_file>

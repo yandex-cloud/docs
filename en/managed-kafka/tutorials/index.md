@@ -4,7 +4,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 
 ## Moving data from {{ KF }} {#moving-data}
 
-* [Configuring {{ KFC }} for {{ mkf-name }} clusters](./kafka-connect.md)
+* [Configuring {{ KFC }} to work with a {{ mkf-name }} cluster](./kafka-connect.md)
 * [{#T}](./kafka-connectors.md)
 * [{#T}](./mkf-to-mkf-transfer.md)
 
@@ -22,6 +22,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ ydb-short-name }}](mkf-ydb-stream.md)
 * [From {{ KF }} to {{ CH }}](mkf-to-mch-migration.md)
 * [From {{ KF }} to {{ yds-name }}](mkf-yds-stream.md)
+* [From {{ yds-name }} to {{ KF }}](yds-to-kafka.md)
 * [From {{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
 * [From {{ KF }} to {{ MG }}](mkf-to-mmg-migration.md)
 * [From {{ MY }} to {{ KF }}](cdc/cdc-mmy.md)

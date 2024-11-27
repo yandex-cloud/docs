@@ -55,51 +55,98 @@
             * `true` (значение по умолчанию) — PXF формирует файлы на диске перед отправкой в S3-хранилище.
             * `false` — PXF формирует файлы в оперативной памяти (если ее не хватает, то записывает на диск).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы добавить источник данных S3 в кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../../api-ref/PXFDatasource/create.md) для ресурса [PXFDatasource](../../api-ref/PXFDatasource/index.md) или вызовом gRPC API [PXFDatasourceService/Create](../../api-ref/grpc/PXFDatasource/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](../cluster-list.md#list-clusters).
-    * Имя источника в параметре `name`.
-    * Настройки внешнего источника в параметре `s3`.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources' \
+            --data '{
+                      "datasource": {
+                        "name": "<имя_внешнего_источника_данных>",
+                        "s3": {
+                          "accessKey": "<идентификатор_статического_ключа>",
+                          "secretKey": "<секретная_часть_статического_ключа>",
+                          "fastUpload": "<быстрая_загрузка>",
+                          "endpoint": "<адрес_S3-хранилища>"
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `name` — имя внешнего источника данных.
+        * `s3` — настройки внешнего источника данных:
+
+            * `accessKey`, `secretKey` — [идентификатор и содержимое статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+            * `fastUpload` — быстрая загрузка больших файлов в S3-хранилище. Возможные значения:
+                * `true` (значение по умолчанию) — PXF формирует файлы на диске перед отправкой в S3-хранилище.
+                * `false` — PXF формирует файлы в оперативной памяти (если ее не хватает, то записывает на диск).
+
+            * `endpoint` — адрес S3-хранилища. Значение для {{ objstorage-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/pxf_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                  "datasource": {
+                    "name": "<имя_внешнего_источника_данных>",
+                    "s3": {
+                      "access_key": "<идентификатор_статического_ключа>",
+                      "secret_key": "<секретная_часть_статического_ключа>",
+                      "fast_upload": <быстрая_загрузка>,
+                      "endpoint": "<адрес_S3-хранилища>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
+        ```
+
+        Где:
+
+        * `name` — имя внешнего источника данных.
+        * `s3` — настройки внешнего источника данных:
+
+            * `access_key`, `secret_key` — [идентификатор и содержимое статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+            * `fast_upload` — быстрая загрузка больших файлов в S3-хранилище. Возможные значения:
+                * `true` (значение по умолчанию) — PXF формирует файлы на диске перед отправкой в S3-хранилище.
+                * `false` — PXF формирует файлы в оперативной памяти (если ее не хватает, то записывает на диск).
+
+            * `endpoint` — адрес S3-хранилища. Значение для {{ objstorage-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-## Пример запроса REST API {#example}
-
-В примере ниже рассматривается, как создать внешний источник данных для бакета {{ objstorage-name }} с помощью REST API {{ mgp-name }}. Чтобы создать источник:
-
-1. [Получите IAM-токен](../../../iam/operations/index.md#iam-tokens). Он используется для аутентификации в API.
-1. Добавьте IAM-токен в переменную окружения:
-
-    ```bash
-    export IAM_TOKEN=<токен>
-    ```
-
-1. Создайте статический ключ доступа.
-1. Отправьте запрос с помощью утилиты [cURL](https://curl.haxx.se):
-
-    ```bash
-    curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/pxf_datasources" \
-         --header "Content-Type: text/plain" \
-         --header "Authorization: Bearer ${IAM_TOKEN}" \
-         --data "{
-             \"datasource\": {
-                 \"name\": \"s3:csv\",
-                 \"s3\": {
-                     \"accessKey\": \"<идентификатор_ключа>\",
-                     \"secretKey\": \"<секретный_ключ>\",
-                     \"endpoint\": \"{{ s3-storage-host }}\"
-                 }
-             }
-        }"
-    ```
-
-    В теле запроса передаются параметры:
-
-    * `name` — имя источника, например `s3:csv`.
-    * `accessKey` — идентификатор статического ключа доступа.
-    * `secretKey` — секретный ключ. Является частью статического ключа.
-    * `endpoint` — адрес {{ objstorage-name }}.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

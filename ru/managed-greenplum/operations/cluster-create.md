@@ -1,8 +1,3 @@
----
-title: Создание кластера {{ GP }}
-description: Следуя данной инструкции, вы сможете создать кластеры {{ GP }}.
----
-
 # Создание кластера {{ GP }}
 
 
@@ -15,7 +10,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mgp-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -39,7 +36,9 @@ description: Следуя данной инструкции, вы сможете
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
-        * Выберите облачную сеть для размещения кластера.
+
+        * Выберите [облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+
         * В параметре **{{ ui-key.yacloud.mdb.forms.field_security-group }}** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
 
             {% note alert %}
@@ -48,9 +47,10 @@ description: Следуя данной инструкции, вы сможете
 
             {% endnote %}
 
-
         * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}** рядом с нужной зоной доступности.
+
         * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
+
 
     1. (Опционально) Для кластера с версией {{ GP }} 6.25 и выше включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -370,42 +370,283 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать кластер {{ mgp-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-    * Имя кластера в параметре `name`.
-    * Окружение кластера в параметре `environment`.
-    * Версию {{ GP }} в параметре `config.version`.
-    * Имя пользователя в параметре `userName`.
-    * Пароль пользователя в параметре `userPassword`.
-    * Идентификатор сети в параметре `networkId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
 
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "config": {
+            "version": "<версия_{{ GP }}>",
+            "access": {
+              "dataLens": <доступ_из_{{ datalens-name }}>,
+              "yandexQuery": <доступ_из_Yandex_Query>
+            },
+            "zoneId": "<зона_доступности>",
+            "subnetId": "<идентификатор_подсети>",
+            "assignPublicIp": <публичный_доступ_к_хостам_кластера>
+          },
+          "masterConfig": {
+            "resources": {
+              "resourcePresetId": "<класс_хостов>",
+              "diskSize": "<размер_хранилища_в_байтах>",
+              "diskTypeId": "<тип_диска>"
+            }
+          },
+          "segmentConfig": {
+            "resources": {
+              "resourcePresetId": "<класс_хостов>",
+              "diskSize": "<размер_хранилища_в_байтах>",
+              "diskTypeId": "<тип_диска>"
+            }
+          },
+          "masterHostCount": "<количество_хостов-мастеров>",
+          "segmentHostCount": "<количество_хостов-сегментов>",
+          "segmentInHost": "<количество_сегментов_на_хост>",
+          "userName": "<имя_пользователя>",
+          "userPassword": "<пароль_пользователя>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletionProtection": <защита_от_удаления_кластера>,
+          "configSpec": {
+            "pool": {
+              "mode": "<режим_работы>",
+              "size": "<количество_клиентских_соединений>",
+              "clientIdleTimeout": "<время_ожидания_клиента>"
+            }
+          },
+          "cloudStorage": {
+            "enable": <использование_гибридного_хранилища>
+          }
+        }
+        ```
 
 
-    * Конфигурацию хостов-мастеров в параметре `masterConfig`.
-    * Конфигурацию хостов-сегментов в параметре `segmentConfig`.
-
-    При необходимости передайте дополнительные настройки кластера:
-
-    * Публичный доступ в параметре `assignPublicIp`.
-    * Окно резервного копирования в параметре `config.backupWindowStart`.
 
 
-    * Доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
-    * Доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md) в параметре `config.access.yandexQuery`.
+        Где:
+
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `config` — настройки кластера:
+
+            * `version` — версия {{ GP }}.
+
+
+            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+                * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
+                * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
 
 
 
-    * Время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
-    * [Настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) в параметре `configSpec.greenplumConfig_<версия>`.
-    * [Регламентные операции технического обслуживания](../concepts/maintenance.md#regular-ops) в параметре `configSpec.backgroundActivities.analyzeAndVacuum`.
-    * Защиту от удаления кластера в параметре `deletionProtection`.
+            * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+            * `assignPublicIp` — публичный доступ к хостам кластера: `true` или `false`.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            * `masterConfig.resources`, `segmentConfig.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+
+                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                * `diskSize` — размер диска в байтах;
+                * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+        * `masterHostCount` — количество хостов-мастеров: `1` или `2`.
+        * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
+        * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+        * `userName` — имя пользователя.
+        * `userPassword` — пароль пользователя.
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+
+        * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+        * `deletionProtection` — защита от удаления кластера: `true` или `false`.
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `configSpec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
+
+            * `mode` — режим работы: `SESSION` или `TRANSACTION`.
+            * `size` — количество клиентских соединений.
+            * `clientIdleTimeout` — время неактивности клиентского соединения в миллисекундах, после которого соединение разрывается.
+
+        * `cloudStorage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+
+            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "config": {
+            "version": "<версия_{{ GP }}>",
+            "access": {
+              "data_lens": <доступ_из_{{ datalens-name }}>,
+              "yandex_query": <доступ_из_Yandex_Query>
+            },
+            "zone_id": "<зона_доступности>",
+            "subnet_id": "<идентификатор_подсети>",
+            "assign_public_ip": <публичный_доступ_к_хостам_кластера>
+          },
+          "master_config": {
+            "resources": {
+              "resource_preset_id": "<класс_хостов>",
+              "disk_size": "<размер_хранилища_в_байтах>",
+              "disk_type_id": "<тип_диска>"
+            }
+          },
+          "segment_config": {
+            "resources": {
+              "resource_preset_id": "<класс_хостов>",
+              "disk_size": "<размер_хранилища_в_байтах>",
+              "disk_type_id": "<тип_диска>"
+            }
+          },
+          "master_host_count": "<количество_хостов-мастеров>",
+          "segment_host_count": "<количество_хостов-сегментов>",
+          "segment_in_host": "<количество_сегментов_на_хост>",
+          "user_name": "<имя_пользователя>",
+          "user_password": "<пароль_пользователя>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletion_protection": <защита_от_удаления_кластера>
+          "config_spec": {
+            "pool": {
+              "mode": "<режим_работы>",
+              "size": "<количество_клиентских_соединений>",
+              "client_idle_timeout": "<время_ожидания_клиента>"
+            }
+          },
+          "cloud_storage": {
+            "enable": <использование_гибридного_хранилища>
+          }
+        }
+        ```
+
+
+
+
+        Где:
+
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `config` — настройки кластера:
+
+            * `version` — версия {{ GP }}.
+
+
+            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+                * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
+                * `yandex_query` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+
+
+
+            * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+            * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
+
+            * `master_config.resources`, `segment_config.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+
+                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                * `disk_size` — размер диска в байтах;
+                * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+        * `master_host_count` — количество хостов-мастеров: `1` или `2`.
+        * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
+        * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+        * `user_name` — имя пользователя.
+        * `user_password` — пароль пользователя.
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+
+        * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+        * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `config_spec.pool` — настройки [менеджера подключений](../concepts/pooling.md):
+
+            * `mode` — режим работы: `SESSION` или `TRANSACTION`.
+            * `size` — количество клиентских соединений.
+            * `client_idle_timeout` — время неактивности клиентского соединения в миллисекундах, после которого соединение разрывается.
+
+        * `cloud_storage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+
+            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Create \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

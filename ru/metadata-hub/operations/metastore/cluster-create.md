@@ -11,6 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Перед началом работы {#before-you-begin}
 
+1. Для привязки [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) к кластеру {{ metastore-name }} [убедитесь](../../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в подсети, к которой будет подключен кластер. Это необходимо, чтобы кластер мог взаимодействовать с сервисами {{ yandex-cloud }}.
 1. [Настройте группу безопасности](configure-security-group.md).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).

@@ -10,6 +10,10 @@ From inside a VM instance, metadata is available in the following formats:
 * [Google Compute Engine](../operations/vm-info/get-info.md#gce-metadata) (some fields are not supported).
 * [Amazon EC2](../operations/vm-info/get-info.md#ec2-metadata) (some fields are not supported).
 
+{{ compute-name }} VMs support the following VM metadata service settings:
+
+{% include [metadata-service-settings](../../_includes/compute/metadata-service-settings.md) %}
+
 ## How to send metadata {#how-to-send-metadata}
 
 You can provide metadata when creating or [updating](../operations/vm-control/vm-update.md#change-metadata) VMs. Data for connection to a VM can only be provided when creating the VM; moreover, in a [VM running Linux](../operations/vm-create/create-linux-vm.md), a public SSH key must be provided for each user.
@@ -36,6 +40,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
   {% note info %}
 
   When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `--ssh-key`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `--ssh-key`.
+
 
   {% endnote %}
 
@@ -69,6 +74,7 @@ You can provide metadata when creating or [updating](../operations/vm-control/vm
   {% note info %}
 
   When creating VM users via metadata using the `user-data` key, all users, including the default one specified under `ssh-keys`, will be overwritten. To avoid this, specify the data of all users in the `user-data` key, including the user specified under `ssh-keys`.
+
 
   {% endnote %}
 

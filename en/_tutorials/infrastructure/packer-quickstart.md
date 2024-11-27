@@ -23,12 +23,12 @@ If you no longer need the image you created, [delete it](#clear-out).
 
 ### Configure the environment and infrastructure {#prepare-environment}
 
-1. Install the {{ yandex-cloud }} [command line interface](../../cli/quickstart.md#install).
+1. Install the {{ yandex-cloud }} [CLI](../../cli/quickstart.md#install).
 
     {% note tip %}
 
     If you access the cloud using a [federated account](../../iam/concepts/users/accounts.md#saml-federation) and want to use the CLI from within your VM, [authenticate with the CLI as a service account](../../cli/operations/authentication/service-account.md#vm-auth-as-sa).
-    
+
     {% endnote %}
 
 1. [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
@@ -122,7 +122,7 @@ Install a Packer distribution for your platform from a [mirror](https://hashicor
       ```
 
       Result:
-      
+
       ```text
       Packer v1.11.2
       ```
@@ -208,6 +208,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 1. Prepare the subnet ID by running the `yc vpc subnet list` command.
 1. Create a JSON file with any name, e.g., `image.json`. Add to it the following configuration:
 
+
     ```json
     {
       "builders": [
@@ -243,6 +244,9 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
       ]
     }
     ```
+
+
+
 
     Where:
     * `token`: OAuth token for a Yandex account or an IAM token for a federated account.

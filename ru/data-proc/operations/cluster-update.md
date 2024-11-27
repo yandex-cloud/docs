@@ -11,11 +11,11 @@
 * [Миграция легковесного кластера в другую зону доступности](migration-to-an-availability-zone.md).
 * [Миграция кластера с файловой системой HDFS в другую зону доступности](../tutorials/hdfs-cluster-migration.md).
 
-Чтобы изменить настройки кластера {{ dataproc-name }}:
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
@@ -26,6 +26,10 @@
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-full-name }}.
 
             Выберите существующий сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md).
+
+            Для изменения сервисного аккаунта в кластере {{ dataproc-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — [свойства компонентов](../concepts/settings-list.md) кластера.
 
@@ -77,6 +81,8 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
+
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
@@ -119,6 +125,8 @@
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
 
 - {{ TF }} {#tf}
+
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

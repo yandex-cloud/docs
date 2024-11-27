@@ -1,6 +1,6 @@
 ---
 title: Network and DB clusters in {{ mch-name }}
-description: When creating a cluster in {{ mch-name }}, you can set a network for the cluster and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
+description: When creating a {{ mch-name }} cluster, you can set a network for the cluster itself and subnets for each cluster host. You can also request public access to connect to the cluster from outside {{ yandex-cloud }}.
 ---
 
 # Network and DB clusters in {{ mch-name }}
@@ -38,9 +38,11 @@ When deleting a publicly accessible host, the assigned IP address is revoked.
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+For information on how to configure security groups, see [{#T}](../operations/connect/index.md#configuring-security-groups).
+
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
+When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

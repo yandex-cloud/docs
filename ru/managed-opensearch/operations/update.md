@@ -26,17 +26,19 @@ keywords:
 
 ## Изменить сервисный аккаунт {#change-service-account}
 
-{% note warning %}
 
-Если для доступа к объектам из {{ objstorage-full-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+Для привязки сервисного аккаунта к кластеру {{ mos-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
-{% endnote %}
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
 О настройке сервисного аккаунта читайте в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
+
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
@@ -61,6 +63,8 @@ keywords:
     Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
+
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 

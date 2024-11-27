@@ -511,6 +511,7 @@ default:
   port-mrd: 6379
   port-mrd-sentinel: 26379
   port-mrd-tls: 6380
+  port-range-k8s-nodeport: 30000-32767
   port-ssh: 22
   postbox-endpoint: https://postbox.cloud.yandex.net
   postbox-full-name: Yandex Cloud Postbox
@@ -720,6 +721,7 @@ default:
   sws-full-name: Yandex Smart Web Security
   sws-name: Smart Web Security
   t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
@@ -6458,7 +6460,6 @@ default:
         image-field:
           button_custom-image: Enter link
         internal-v4-address-field:
-          button_internal-address-reserve: Reserve
           field_internal-ipv4-address: Internal IPv4 address
         ip-address-form:
           label_button-save: Save
@@ -6546,7 +6547,6 @@ default:
             label_title: Changing an instance group
           overview:
             label_instance-address: Public IP address
-            label_instance-resource: Computing resources
             section_base: General information
             section_instances-state: VM states
           switch_instances: List of VMs
@@ -6639,7 +6639,6 @@ default:
             field_security-groups-ids: Security groups
           edit:
             button_update: Save changes
-          label_vm: Virtual machine instance
           overview:
             button_action-edit: Edit VM
             button_add-public-ip: Add public IP address
@@ -6731,8 +6730,6 @@ default:
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
         label_service: Compute Cloud
-        landing:
-          action_create-resource: Create resource
         nfs:
           button_attach-instance-to-the-filesystem: Attach to VM
           button_create-filesystem: Create file storage

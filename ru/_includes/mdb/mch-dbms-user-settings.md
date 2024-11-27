@@ -313,6 +313,14 @@
 
   Минимальное значение — `0` (не установлено), по умолчанию — `50000000`.
 
+* **Hedged connection timeout ms**{#setting-hedged-connection-timeout-ms} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Время в миллисекундах, за которое нужно установить соединение с репликой для работы с хеджированными запросами. Используется вместе с настройкой [Use hedged requests](#setting-use-hedged-requests).
+
+  Значение по умолчанию — 50 миллисекунд.
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#hedged_connection_timeout_ms).
+
 * **HTTP connection timeout**{#setting-http-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Задает время ожидания установления HTTP-соединения (в миллисекундах).
@@ -336,6 +344,16 @@
   Задает время ожидания отправки данных через HTTP-соединение (в миллисекундах).
 
   Минимальное значение — `1`, по умолчанию — `1800000` (30 минут).
+
+* **Idle connection timeout**{#setting-idle-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Время в миллисекундах, через которое нужно закрыть простаивающие TCP-соединения.
+
+  Если указано значение `0`, соединения закрываются незамедлительно.
+
+  Значение по умолчанию — `360000` (шесть минут).
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout).
 
 * **Input format defaults for omitted fields**{#setting-input-format-defaults-for-omitted-fields} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -489,6 +507,32 @@
 
   По умолчанию настройка выключена.
 
+* **Load balancing**{#setting-load-balancing} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Задает алгоритм выбора реплик, который используется при отправке и обработке распределенных запросов. {{ CH }} считает число ошибок на каждой реплике и выбирает реплику с наименьшим числом ошибок. Если у нескольких реплик это число одинаковое, настройка **Load balancing** определяет, в каком порядке сортируются реплики и какая из них выбирается.
+
+  Возможные значения:
+
+  * `random` — запрос отправляется на любую реплику случайным образом (значение по умолчанию).
+
+     Недостаток: не учитывается близость хостов.
+
+  * `nearest_hostname` — запрос отправляется на реплику, имя хоста которой наиболее близко к имени хоста сервера в конфигурационном файле {{ CH }}. Допустим, есть сервер `example-05-05-5` и две реплики `example-05-05-7` и `example-05-06-7`. Будет выбрана реплика `example-05-05-7`, так как ее имя отличается от имени сервера только на один символ.
+
+     Такой подход повышает вероятность, что распределенные запросы будут отправляться на одни и те же реплики, расположенные близко друг к другу. Это устраняет недостаток значения `random`.
+
+  * `hostname_levenshtein_distance` — для выбора реплики используется тот же принцип, что при значении `nearest_hostname`. Но подходящее имя хоста реплики определяется по [расстоянию Левенштейна](https://ru.wikipedia.org/wiki/Расстояние_Левенштейна).
+
+  * `in_order` — запрос отправляется на реплику в порядке, заданном в конфигурационном файле {{ CH }}. В кластере {{ mch-name }} порядок реплик такой, что первое место занимает реплика в той же зоне доступности, где находится хост-инициатор распределенных подзапросов.
+
+     Недостаток: если первая по порядку реплика выходит из строя, ее нагрузка переходит на следующую по очереди реплику. В результате на нее возникает двойная нагрузка.
+
+  * `first_or_random` — запрос отправляется на первую по порядку реплику по аналогии со значением `in_order`. При этом закрывается недостаток `in_order`: если первая в списке реплика выходит из строя, случайным образом выбирается любая другая реплика.
+
+  * `round_robin` — запрос отправляется в соответствии с политикой [Round-Robin](https://ru.wikipedia.org/wiki/Round-robin_(алгоритм)). Относится только к запросам, которые поддерживают эту политику.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-load_balancing).
+
 * **Local filesystem read method**{#setting-local-filesystem-read-method} {{ tag-con }}
 
   Определяет способ считывания данных из локальной файловой системы.
@@ -501,6 +545,16 @@
   * `read`
 
   Значение по умолчанию — `pread`.
+
+* **Log query threads**{#setting-log-query-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Включает логирование потоков, которые выполняют запросы. Логи записываются в таблицу [system.query_thread_log]({{ ch.docs }}/operations/system-tables/query_thread_log).
+
+  Настройка работает, только когда также включена настройка [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled). По умолчанию обе настройки включены.
+
+  Настройку можно применить только для части пользователей или запросов.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-log-query-threads).
 
 * **Low cardinality allow in native format**{#setting-low-cardinality-allow-in-native-format} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -651,6 +705,18 @@
   По умолчанию выбрано значение `1048576`.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#settings-max_insert_block_size).
+
+* **Max insert threads**{#setting-max-insert-threads} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Максимальное количество потоков для выполнения запроса `INSERT SELECT`.
+
+  Если указано значение больше `1`, потоки запускаются параллельно. Значение по умолчанию — `0`.
+
+  Запросы `INSERT SELECT` выполняются параллельно, только если настроен параллельный запуск запросов `SELECT` с помощью настройки [Max threads](#setting-max-threads).
+
+  Чем больше значение настройки **Max insert threads**, тем выше потребление оперативной памяти кластера.
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-max-insert-threads).
 
 * **Max memory usage**{#setting-max-memory-usage} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -950,6 +1016,22 @@
 
   По умолчанию вывод 64-битных целых чисел в кавычках выключен.
 
+* **Prefer localhost replica**{#setting-prefer-localhost-replica} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Включает отправку распределенных запросов на реплику `localhost`.
+
+  Если настройка выключена, {{ mch-name }} распределяет запросы на основе настройки [Load balancing](#setting-load-balancing).
+
+  По умолчанию настройка включена.
+
+  {% note warning %}
+
+  Если кластер содержит один шард и несколько реплик, отключение этой настройки может повредить работоспособности кластера.
+
+  {% endnote %}
+
+  Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings#settings-prefer-localhost-replica).
+
 * **Priority**{#setting-priority} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Определяет приоритет запроса:
@@ -1100,6 +1182,18 @@
   По умолчанию настройка выключена.
 
   Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/operations/settings/settings/#transform_null_in).
+
+* **Use hedged requests**{#setting-use-hedged-requests} {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} {{ tag-sql }}
+
+  Включает хеджированные запросы.
+
+  Позволяет устанавливать множество соединений с различными репликами для отправки запросов. Новое соединение устанавливается, если текущие соединения с репликами не были установлены в течение времени [Hedged connection timeout ms](#setting-hedged-connection-timeout-ms).
+
+  Первое соединение, которое отправило не пустой пакет о прогрессе выполнения запроса, используется для отправки этого запроса. Остальные соединения отменяются.
+
+  По умолчанию настройка включена.
+
+  Подробнее см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
 
 * **Use uncompressed cache**{#setting-use-uncompressed-cache} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 

@@ -257,7 +257,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
 
@@ -286,7 +286,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[btree_gin]({{ pg-docs }}/static/btree-gin.html)</p><p>Contains examples of GIN (Generalized Inverted Index) operator classes used for inverted searches.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[btree_gist]({{ pg-docs }}/static/btree-gist.html)</p><p>Contains GiST (Generalized Search Tree) operator classes. Unlike B-tree indexes, GiST supports the `<>` (<q>not equal to</q>) and `<->` (<q>distance</q>) operators. However, it does not ensure uniqueness of the values it returns.</p> | 1.5 | 1.5 | 1.5 | 1.6 | 1.7 | 1.7 ||
 || <p>[citext]({{ pg-docs }}/static/citext.html)</p><p>Contains the `citext` data type that allows using case-insensitive strings.</p> | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 | 1.6 ||
-|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} database, supports `SELECT FROM` and `INSERT INTO` transactions.</p> | 1.3 | 1.3 | 1.3 | - | 1.4 | - ||
+|| <p>[clickhouse_fdw](https://github.com/adjust/clickhouse_fdw)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing {{ CH }} database, supports `SELECT FROM` and `INSERT INTO` transactions.</p><p>The extension is not supported by {{ PG }} versions 16 or higher. Use [{{ data-transfer-full-name }}](../../../data-transfer/tutorials/rdbms-to-clickhouse.md) to upload data to a {{ CH }} DB.</p> | 1.3 | 1.3 | 1.3 | - | 1.4 | - ||
 || <p>[cube]({{ pg-docs }}/static/cube.html)</p><p>Contains the `cube` data type used for representing multidimensional cubes.</p> | 1.4 | 1.4 | 1.4 | 1.5 | 1.5 | 1.5 ||
 || <p>[dblink]({{ pg-docs }}/static/dblink.html)</p><p>Allows connecting to other {{ PG }} databases from the current session.</p><p>You need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role to use this extension.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[dict_int]({{ pg-docs }}/static/dict-int.html)</p><p>Contains an example of an add-on dictionary template for full-text search. It allows preventing excessive growth of a list of unique words and speeding up search.</p><p>In addition to extensions, you can also use [Hunspell dictionaries](hunspell.md) for full-text search.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
@@ -327,8 +327,8 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[postgis](https://postgis.net/docs/)</p><p>Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
 || <p>[postgis_tiger_geocoder](https://postgis.net/docs/postgis_installation.html#loading_extras_tiger_geocoder)</p><p>Provides functions for geocoding based on [TIGER](https://wiki.openstreetmap.org/wiki/TIGER) data.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
 || <p>[postgis_topology](https://postgis.net/docs/Topology.html)</p><p>Contains `postgis` extension data types and functions to manage topology objects.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 ||
-|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for access to external {{ PG }} servers.</p><p>You need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role to use this extension.</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 ||
-|| <p>[postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/)</p><p>Masks or replaces data in a {{ PG }} database.</p><p>Requires enabling the `anon` [shared library](#libraries-connection).</p><p>You need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role to use this extension.</p> | - | - | - | - | 1.3.2 | 1.3.2 ||
+|| <p>[postgres_fdw]({{ pg-docs }}/static/postgres-fdw.html)</p><p>Adds support for [Foreign Data Wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for access to external {{ PG }} servers.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.0 | 1.0 | 1.0 | 1.1 | 1.1 | 1.1 ||
+|| <p>[postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/)</p><p>Masks or replaces data in a {{ PG }} database.</p><p>Requires enabling the `anon` [shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | - | - | - | - | 1.3.2 | 1.3.2 ||
 || <p>[rum](https://github.com/postgrespro/rum)</p><p>Provides an access method to work with `RUM` indexes.</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Contains the `seg` data type for representing line segments or floating point intervals.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 ||
 || <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides a set of functions for computing similarity of two arrays.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||

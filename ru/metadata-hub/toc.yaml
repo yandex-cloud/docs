@@ -80,6 +80,8 @@ items:
         href: tutorials/metastore-import.md
       - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
         href: tutorials/metastore-logging.md
+      - name: Использование {{ schema-registry-name }} с {{ mkf-full-name }}
+        href: tutorials/managed-schema-registry.md
   - name: Концепции
     items:
       - name: О сервисе {{ metadata-hub-full-name }}

@@ -103,6 +103,99 @@
 
 {% endlist %}
 
+## Мониторинг состояния сети {#monitoring-network}
+
+Для просмотра детальной информации о состоянии сети кластера {{ mgp-name }}:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}**.
+
+    На этой странице отображаются следующие графики:
+
+    * **Interfaces**:
+        * **Сlient Interface Packets** — число полученных и отправленных пакетов на клиентском сетевом интерфейсе.
+        * **Сlient Interface Bytes** — объем полученных и отправленных данных на клиентском сетевом интерфейсе (в байтах).
+        * **Client Interface Drops and Errors** — число ошибок и отброшенных пакетов при отправке и передаче на клиентском сетевом интерфейсе.
+        * **Service Interface Packets** — число полученных и отправленных пакетов на сервисном сетевом интерфейсе.
+        * **Service Interface Bytes** — объем полученных и отправленных данных на сервисном сетевом интерфейсе (в байтах).
+        * **Service Interface Drops and Errors** — число ошибок и отброшенных пакетов при отправке и передаче на сервисном сетевом интерфейсе.
+
+    * **CPU**:
+        * **Cpu Usage** — использование процессорных ядер (в процентах).
+
+    * **Ping and SSH response time**:
+        * **Host Ping Average Response** — среднее время ответа пинга (в миллисекундах).
+        * **Host Ping Packet Loss** — потерянные пакеты пинга (в процентах).
+        * **Host SSH Response Time** — время ответа при подключении через SSH (в миллисекундах).
+
+    * **TCP counters**:
+        * **TcpActiveConnection** — число активных TCP-соединений в состоянии `ESTABLISHED` или `CLOSE-WAIT`.
+        * **TCP Errors** — число ошибок при передаче TCP-пакетов.
+        * **TcpEstabResets** — число раз, когда TCP-соединения совершали прямой переход в состояние `CLOSED` либо из состояния `ESTABLISHED`, либо из состояния `CLOSE-WAIT`.
+        * **TCP Retransmission** — число TCP-пакетов, переданных повторно.
+
+    * **ICMP Counters**:
+        * **IcmpErrors** — число ICMP-сообщений об ошибках.
+        * **Icmp6PacketsTooBig** — число ICMPv6-сообщений о слишком больших пакетах.
+        * **IcmpDestUnreached** — число ICMP- и ICMPv6-сообщений о недоступности назначения.
+
+    * **UDP counters**:
+        * **UdpSndbufErrors** — число ошибок буфера при отправке UDP-пакетов.
+        * **UDP Datagrams** — число UDP-пакетов.
+        * **UdpRcvbufErrors** — число ошибок буфера при приеме UDP-пакетов.
+        * **UDP NoPorts** — число принятых UDP-пакетов, для которых на порте назначения не было слушателя.
+
+    * **IP**:
+        * **IpMulticastPackets** — число полученных и отправленных многоадресных пакетов.
+        * **Ip6 Neighbor Discovery** — число отправленных запросов и объявлений маршрутизаторов.
+        * **IpBroadcastPackets** — число полученных и отправленных широковещательных пакетов.
+        * **Ip6NoRoutes** — число IPv6-пакетов, сброшенных из-за отсутствия маршрута.
+
+{% endlist %}
+
+## Мониторинг PXF {#monitoring-pxf}
+
+Для просмотра детальной информации о состоянии [PXF](external-tables.md):
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}**.
+
+    На этой странице отображаются следующие графики:
+
+    * **Liveness** — состояние PXF на хостах.
+
+    * **Connections** — число подключений.
+
+    * **Log messages** — число сообщений типа `warn`, `trace`, `info`, `fatal`, `error` и `debug`.
+
+    * **File handles** — число файлов, открытых в процессе PXF.
+
+    * **JVM memory** — использование памяти JVM PXF (в ГБ).
+
+    * **PXF threads** — число потоков PXF.
+
+    * **Sent data** — объем отправленных данных.
+
+    * **Sent records** — число записей, отправленных PXF.
+
+    * **JVM Threads** — число потоков JVM PXF.
+
+    * **PXF Busy threads** — число занятых потоков PXF.
+
+    * **Received data** — объем полученных данных.
+
+    * **Received records** — число записей, полученных PXF.
+
+{% endlist %}
+
 
 ## Интеграция с {{ monitoring-full-name }} {#monitoring-integration}
 

@@ -667,8 +667,11 @@
 
     {% cut "{{ CH }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ CH }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ CH }}. Необязательный параметр.
+
+        Хост должен находиться в той же сети, что и кластер {{ CH }}.
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику. Необязательный параметр.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
@@ -759,13 +762,17 @@
 
     {% cut "`--clickhouse-source` — источник {{ CH }}" %}
 
-    * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-    * `port` — порт для подключения к источнику.
+    * `host` — имя хоста источника. Необязательный параметр.
+
+        Хост должен находиться в той же сети, что и кластер {{ CH }}.
+
+    * `port` — порт для подключения к источнику. Необязательный параметр.
     * `db` — имя базы данных источника.
     * `user` — имя пользователя базы данных источника.
     * `password` — пароль для доступа к базе данных источника.
     * `table` — имя таблицы источника.
     * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * `secure` — использовать ли SSL для установки соединения.
 
     {% endcut %}
 
@@ -787,6 +794,8 @@
     * `password` — пароль для доступа к базе данных источника.
     * `table` — имя таблицы источника.
     * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора`id=10` эквивалентно SQL-команде `WHERE id=10`.
+    * `share-connection` – сделать ли соединение общим для нескольких запросов.
+    * `close-connection` — закрывать ли соединение после каждого запроса.
 
     {% endcut %}
 
@@ -804,6 +813,11 @@
 
     {% endcut %}
 
+  * `--http-header` — особый HTTP-заголовок запроса к источнику HTTP(s):
+
+    * `name` – имя заголовка;
+    * `value` — значение заголовка.
+
   * `--mysql-replica` — настройки реплик источника {{ MY }}:
 
     * `host` — имя хоста реплики.
@@ -820,6 +834,7 @@
 
   * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, `complex_key_cache`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
   * `--layout-size-in-cells` — количество ячеек кэша для способов `cache`, `complex_key_cache`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
+  * `--layout-max-array-size` — максимальное значение ключа для способа `flat`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
   * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `cache`, `range_hashed`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
   * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_hashed`, `complex_key_cache`:
 
@@ -871,10 +886,14 @@
       * `db` — имя базы данных источника.
       * `table` — имя таблицы источника.
       * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
-      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-      * `port` — порт для подключения к источнику.
+      * `host` — имя хоста источника. Необязательный параметр.
+
+          Хост должен находиться в той же сети, что и кластер {{ CH }}.
+
+      * `port` — порт для подключения к источнику. Необязательный параметр.
       * `user` — имя пользователя базы данных источника.
       * `password` — пароль для доступа к базе данных источника.
+      * `secure` — использовать ли SSL для установки соединения.
 
       {% endcut %}
 
@@ -903,8 +922,8 @@
         * `user` — имя пользователя базы данных.
         * `password` — пароль для доступа к базе данных.
       * `invalidateQuery` — запрос для проверки изменений словаря {{ MY }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        * `shareConnection` – признак общего подключения к источнику для нескольких запросов.
-        * `closeConnection` — признак закрытия подключения к источнику после каждого запроса.
+      * `shareConnection` — сделать ли соединение общим для нескольких запросов.
+      * `closeConnection` — закрывать ли соединение после каждого запроса.
 
       {% endcut %}
 
@@ -926,14 +945,14 @@
       * `url` — URL HTTP(s)-источника.
       * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
       * `headers` – особые HTTP-заголовки запроса к источнику:
-        * `name` – имя заголовка.
+        * `name` – имя заголовка;
         * `value` — значение заголовка.
 
       {% endcut %}
 
     * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
     * `layout.sizeInCells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.maxArraySize` — максимальное значение ключа для способа `FLAT`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `layout.maxArraySize` — максимальное значение ключа для способа `FLAT`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
     * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
 
@@ -977,10 +996,14 @@
       * `db` — имя базы данных источника.
       * `table` — имя таблицы источника.
       * `where` — условие для выбора строк, из которых будет сформирован словарь. Например, условие выбора `id=10` эквивалентно SQL-команде `WHERE id=10`.
-      * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
-      * `port` — порт для подключения к источнику.
+      * `host` — имя хоста источника. Необязательный параметр.
+
+          Хост должен находиться в той же сети, что и кластер {{ CH }}.
+
+      * `port` — порт для подключения к источнику. Необязательный параметр.
       * `user` — имя пользователя базы данных источника.
       * `password` — пароль для доступа к базе данных источника.
+      * `secure` — использовать ли SSL для установки соединения.
 
       {% endcut %}
 
@@ -1009,8 +1032,8 @@
         * `user` — имя пользователя базы данных.
         * `password` — пароль для доступа к базе данных.
       * `invalidate_query` — запрос для проверки изменений словаря {{ MY }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
-        * `share_connection` – признак общего подключения к источнику для нескольких запросов.
-        * `close_connection` — признак закрытия подключения к источнику после каждого запроса.
+      * `share_connection` — сделать ли соединение общим для нескольких запросов.
+      * `close_connection` — закрывать ли соединение после каждого запроса.
 
       {% endcut %}
 
@@ -1032,14 +1055,14 @@
       * `url` — URL HTTP(s)-источника.
       * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
       * `headers` – особые HTTP-заголовки запроса к источнику:
-        * `name` – имя заголовка.
+        * `name` – имя заголовка;
         * `value` — значение заголовка.
 
       {% endcut %}
 
     * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
     * `layout.size_in_cells` — количество ячеек кэша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.max_array_size` — максимальное значение ключа для способа `FLAT`. Подробнее о кэше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `layout.max_array_size` — максимальное значение ключа для способа `FLAT`. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Подробнее о значении ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
     * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_HASHED`, `COMPLEX_KEY_CACHE`:
 
@@ -1073,7 +1096,7 @@
 
 {% endlist %}
 
-## Примеры
+## Примеры {#examples}
 
 Пусть существует кластер {{ CH }} `mych` с идентификатором `{{ cluster-id }}`, и в этот кластер нужно подключить словарь с тестовыми характеристиками:
 

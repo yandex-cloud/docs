@@ -1,6 +1,6 @@
 ---
 title: Network and DB clusters in {{ mkf-full-name }}
-description: In this tutorial, you will learn about the basic network interface settings of an {{ KF }} cluster.
+description: In this tutorial, you will learn about the basic network interface settings for an {{ KF }} cluster.
 ---
 
 # Networking in {{ mkf-name }}
@@ -37,9 +37,11 @@ When you delete a cluster with public access enabled, all public IP addresses as
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+For information on how to configure security groups, see [{#T}](../operations/connect/index.md).
+
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups for both the cluster and the connecting VM.
+When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the VM you are connecting from.
 
 {% endnote %}
 

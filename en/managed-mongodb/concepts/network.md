@@ -38,9 +38,11 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+For information on how to configure security groups, see [{#T}](../operations/connect/index.md#configuring-security-groups).
+
 {% note tip %}
 
-When connecting to a cluster from within its cloud network, make sure to [configure](../operations/connect/index.md#configuring-security-groups) security groups both for the cluster and for the connecting host.
+When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

@@ -83,6 +83,12 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/kafka-to-yds.md
+      - name: Delivering data from an {{ yds-name }} queue to {{ ydb-name }}
+        href: tutorials/yds-to-ydb.md
+      - name: >-
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/yds-to-kafka.md
       - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: tutorials/ydb-to-yds.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'

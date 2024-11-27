@@ -41,13 +41,98 @@
     +--------------------------+---------------------+----------------------+---------------------+
     ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Чтобы получить список резервных копий всех кластеров {{ mgp-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>/backups'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/backups' \
+                --url-query folderId=<идентификатор_каталога>
+            ```
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListBackups
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "folder_id": "<идентификатор_каталога>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.BackupService.List
+            ```
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse).
 
 {% endlist %}
 
@@ -65,11 +150,52 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Чтобы узнать идентификатор, [получите список резервных копий](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/backups/<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "backup_id": "<идентификатор_резервной_копии>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.BackupService.Get
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup).
 
 {% endlist %}
 
@@ -84,6 +210,53 @@
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>:backup'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Backup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -212,21 +385,180 @@
         * `--assign-public-ip` — флаг, который указывается, если кластеру требуется доступ из интернета.
 
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор требуемой резервной копии в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
-    * Момент времени, на который должен быть восстановлен кластер, в параметре `time`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
-    * Количество хостов-сегментов в параметре `segmentHostCount`.
-    * Количество [сегментов](../concepts/index.md) на хост в параметре `segmentInHost`.
-    * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
-    * (Опционально) Список БД и таблиц, которые будут восстановлены из резервной копии, в параметре `restoreOnly`, через запятую. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия. Чтобы восстановить кластер в другом каталоге, укажите идентификатор этого каталога в параметре `folderId`.
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "backupId": "<идентификатор_резервной_копии>",
+          "time": "<время>",
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "config": {
+            "zoneId": "<зона_доступности>",
+            "subnetId": "<идентификатор_подсети>",
+            "assignPublicIp": <публичный_доступ_к_хостам_кластера>
+          },
+          "masterResources": {
+            "resourcePresetId": "<класс_хостов>",
+            "diskSize": "<размер_хранилища_в_байтах>",
+            "diskTypeId": "<тип_диска>"
+          },
+          "segmentResources": {
+            "resourcePresetId": "<класс_хостов>",
+            "diskSize": "<размер_хранилища_в_байтах>",
+            "diskTypeId": "<тип_диска>"
+          },
+          "segmentHostCount": "<количество_хостов-сегментов>",
+          "segmentInHost": "<количество_сегментов_на_хост>",
+          "restoreOnly": [
+            "<БД_и_таблица_1>",
+            "<БД_и_таблица_2>",
+            ...
+            "<БД_и_таблица_N>"
+          ]
+        }
+        ```
+
+        Где:
+
+        * `backupId` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
+        * `time` — момент времени, на который нужно восстановить состояние кластера {{ GP }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
+        * `folderId` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md). По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия.
+        * `name` — имя нового кластера.
+        * `environment` — окружение:
+
+            * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+            * `PRODUCTION` — для стабильных версий ваших приложений.
+
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network).
+        * `config` — настройки кластера:
+
+            * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+            * `assignPublicIp` — публичный доступ к хостам кластера: `true` или `false`.
+
+            * `masterResources`, `segmentResources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+
+                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                * `diskSize` — размер диска в байтах;
+                * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+            * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
+            * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+            * `restoreOnly` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+          "backup_id": "<идентификатор_резервной_копии>",
+          "time": "<время>",
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "config": {
+            "zone_id": "<зона_доступности>",
+            "subnet_id": "<идентификатор_подсети>",
+            "assign_public_ip": <публичный_доступ_к_хостам_кластера>
+          },
+          "master_resources": {
+            "resource_preset_id": "<класс_хостов>",
+            "disk_size": "<размер_хранилища_в_байтах>",
+            "disk_type_id": "<тип_диска>"
+          },
+          "segment_resources": {
+            "resource_preset_id": "<класс_хостов>",
+            "disk_size": "<размер_хранилища_в_байтах>",
+            "disk_type_id": "<тип_диска>"
+          },
+          "segment_host_count": "<количество_хостов-сегментов>",
+          "segment_in_host": "<количество_сегментов_на_хост>",
+          "restore_only": [
+            "<БД_и_таблица_1>",
+            "<БД_и_таблица_2>",
+            ...
+            "<БД_и_таблица_N>"
+          ]
+        }
+        ```
+
+        Где:
+
+        * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
+        * `time` — момент времени, на который нужно восстановить состояние кластера {{ GP }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
+        * `folder_id` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md). По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия.
+        * `name` — имя нового кластера.
+        * `environment` — окружение:
+
+            * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+            * `PRODUCTION` — для стабильных версий ваших приложений.
+
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network).
+        * `config` — настройки кластера:
+
+            * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+            * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
+            * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
+
+            * `master_resources`, `segment_resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+
+                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                * `disk_size` — размер диска в байтах;
+                * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+            * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
+            * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+            * `restore_only` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

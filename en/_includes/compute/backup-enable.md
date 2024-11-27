@@ -1,2 +1,0 @@
-1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](../../backup/operations/policy-vm/create.md) a new one.

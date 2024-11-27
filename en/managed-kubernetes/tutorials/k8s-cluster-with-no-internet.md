@@ -90,7 +90,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the library pages.
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -117,7 +117,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
    - Manually {#manual}
 
       1. Create a service account named `vm-sa` with the `{{ roles.k8s.cluster-api.cluster-admin }}` and `{{ roles.k8s.admin }}` roles. This account will be used to connect to the {{ managed-k8s-name }} cluster.
-      1. Create a security group named `vm-security-group` and specify a rule for incoming traffic in it:
+      1. Create a security group named `vm-security-group` and specify its rule for incoming traffic:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -145,11 +145,11 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
          * Folder ID.
          * ID of the network created together with the {{ managed-k8s-name }} cluster.
-         * ID of the subnet created together with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
+         * ID of the subnet created with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
          * Username to be used for connection to the VM over SSH.
          * Absolute path to the public part of the SSH key for connection to the VM.
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate
@@ -175,7 +175,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
 1. [Install the {{ yandex-cloud }} command line interface](../../cli/operations/install-cli.md#interactive) (YC CLI).
 1. [Create a YC CLI profile](../../cli/operations/profile/profile-create.md#create).
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
+1. [Install kubect]({{ k8s-docs }}/tasks/tools/#kubectl) and [set it up to work with the created cluster](../operations/connect/index.md#kubectl-connect).
 
 ## Check cluster availability {#check}
 
@@ -272,7 +272,7 @@ To configure certificate updates using DaemonSet, do the following on your VM:
                        echo "Copying certificates from configmap"
                        cp /mnt/sbin/update-ca-certificates /usr/sbin/
                        cp /mnt/user-cert-path/* /usr/local/share/ca-certificates
-
+         
                        echo "Updating cerfificates authorities"
                        update-ca-certificates
 

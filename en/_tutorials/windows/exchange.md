@@ -5,7 +5,7 @@
 
 
 
-This tutorial describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. You will install two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport servers in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across the servers. To manage the servers, you will use a separate VM with internet access hosted in the `{{ region-id }}-d` availability zone.
+This tutorial describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport servers will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across servers. All servers will be managed via a separate VM with internet access in the `{{ region-id }}-d` availability zone.
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -116,7 +116,7 @@ Create a cloud network named `exchange-network` with subnets in all availability
 
 ## Create a script to manage a local administrator account {#admin-script}
 
-Create a file named `setpass` with a script that will set a password for the local administrator account when creating VMs via the CLI:
+Create a file named `setpass` with a script that will set a password for the local administrator account when you create VMs via the CLI:
 
 ```
 #ps1
@@ -135,27 +135,31 @@ Create two virtual machines for Active Directory. These VMs will not have intern
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name, `ad-vm-a`.
-  1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-      * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-  1. Under **Network settings**, select `exchange-subnet-a`. In the **Public address**field, select **No address**.
-  1. Click **Create VM**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `exchange-subnet-a`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ad-vm-a`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -195,27 +199,32 @@ A file server with internet access is used to configure VMs with Active Director
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name, `fsw-vm`.
-  1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
-      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-      * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 2
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 4 GB
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-  1. Under **Network settings**, select `exchange-subnet-d`. In the **Public address** field, select **Auto**.
-  1. Click **Create VM**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `exchange-subnet-d`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `fsw-vm`.
+
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -273,7 +282,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows will restart automatically. After it restarts, connect to `ad-vm-a` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, log in to `ad-vm-a` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Rename the default site to `{{ region-id }}-a`:
 
@@ -362,7 +371,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
        -Force:$true
    ```
 
-   Windows will restart automatically. After it restarts, connect to `ad-vm-b` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, log in to `ad-vm-b` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Set the DNS redirect server:
 
@@ -386,7 +395,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   Windows will restart automatically. After it restarts, connect to `fsw-vm` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, log in to `fsw-vm` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Create the `distrib` folder:
 
@@ -400,7 +409,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Rename the downloaded file to `vcredist_x64_2013.exe`.
    1. [Microsoft Unified Communications Managed API 4.0, Core Runtime 64-bit](https://go.microsoft.com/fwlink/p/?linkId=258269).
 
-   Place the distributions in the `C:\distrib` directory.
+   Put the distributions in the `C:\distrib` directory.
 
 1. Grant shared access from the domain to the directory with distributions:
 
@@ -418,21 +427,35 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    - Management console {#console}
 
-     1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-     1. In the **Name** field, enter the VM name, `vm-exchange-a`.
-     1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-     1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-     1. Under **Disks**, enter 100 GB for the size of the boot disk.
-     1. Add another 250 GB SSD named `db-a`.
-     1. Under **Computing resources**:
-         * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the required number of vCPUs and the amount of RAM:
-            * **vCPU**: 8
-            * **Guaranteed vCPU share**: 100%
-            * **RAM**: 32 GB
+     1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-     1. Under **Network settings**, select `exchange-subnet-a`. In the **Public address**field, select **No address**.
-     1. Click **Create VM**.
+         * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+         * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
+         * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+         * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+
+         * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-a`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `32 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `exchange-subnet-a`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-exchange-a`.
+     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -479,7 +502,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    After it restarts, log in to the VM with the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared folder with distributions:
+1. Install Exchange Mailbox Server to `vm-exchange-a`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
@@ -502,21 +525,34 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    - Management console {#console}
 
-     1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-     1. In the **Name** field, enter the VM name, `vm-exchange-b`.
-     1. Select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
-     1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-     1. Under **Disks**, enter 100 GB for the size of the boot disk.
-     1. Add another 250 GB SSD named `db-b`.
-     1. Under **Computing resources**:
-         * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Specify the required number of vCPUs and the amount of RAM:
-            * **vCPU**: 8
-            * **Guaranteed vCPU share**: 100%
-            * **RAM**: 32 GB
+     1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-     1. Under **Network settings**, select `exchange-subnet-b`. In the **Public address**field, select **No address**.
-     1. Click **Create VM**.
+         * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+         * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+         * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
+         * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+         * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+
+         * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-b`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `32 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `exchange-subnet-b`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-exchange-b`.
+     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -564,7 +600,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    After it restarts, log in to the VM with the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared folder with distributions:
+1. Install Exchange Mailbox Server to `vm-exchange-b`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
@@ -584,7 +620,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 A database availability group ensures fault tolerance for mail servers via DB replication and automatic DB failover in the event of a crash.
 
 1. Connect to `fsw-vm` through RDP.
-1. Grant the `yantoso\Exchange Trusted Subsystem` group administrator permissions for `fsw-vm`:
+1. Grant the `yantoso\Exchange Trusted Subsystem` group administrator permissions to `fsw-vm`:
 
    ```powershell
    Add-LocalGroupMember -Group 'Administrators' -Member 'yantoso\Exchange Trusted Subsystem'
@@ -624,7 +660,7 @@ Repeat these commands for `vm-exchange-b`.
        -DatabaseAvailabilityGroupIpAddresses 255.255.255.255
    ```
 
-1. Add the `vm-exchange-a` and `vm-exchange-b` servers to the DAG:
+1. Add the `vm-exchange-a` and `vm-exchange-b` servers to DAG:
 
    ```powershell
    Add-DatabaseAvailabilityGroupServer -Identity ycdag -MailboxServer vm-exchange-a
@@ -731,7 +767,7 @@ It distributes the load across Exchange servers in different availability zones.
 
 - Management console {#console}
 
-  To create a [network load balancer](../../network-load-balancer/concepts/index.md):
+  To create a [network load balancer](../../network-load-balancer/concepts/index.md).
 
   1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
   1. Click **Create a network load balancer**.
@@ -743,7 +779,7 @@ It distributes the load across Exchange servers in different availability zones.
   1. Under **Target groups**, click **Add target group**.
   1. In the **Target group** field, open the drop-down list and select **Create target group**.
   1. Enter the target group name: `exchange-tg`.
-  1. Select `vm-exchange-a` and `vm-exchange-b` and click **Create**.
+  1. Check `vm-exchange-a` and `vm-exchange-b` and then click **Create**.
   1. Click **Configure**.
   1. Enter the health check name: `exchange-hc`.
   1. Select the **TCP** check.
@@ -834,20 +870,28 @@ Create a VM named `vm-edge-a`:
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name, `vm-edge-a`.
-  1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-      * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-  1. Under **Network settings**, select `exchange-subnet-a`. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
-  1. Click **Create VM**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `exchange-subnet-a`.
+      * Leave the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field set to `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and the public IP address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one earlier.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-edge-a`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -875,20 +919,28 @@ Create a VM named `vm-edge-b`:
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name, `vm-edge-b`.
-  1. Select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-      * Choose a [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      * Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-  1. Under **Network settings**, select `exchange-subnet-b`. In the **Public address** field, select **Auto** or select an address from the list of the reserved addresses.
-  1. Click **Create VM**.
+      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
+      * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
+      * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
+      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `exchange-subnet-b`.
+      * Leave the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field set to `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and the public IP address from the list if you [reserved](../../vpc/operations/get-static-ip.md) one earlier.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-edge-b`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -1048,7 +1100,7 @@ Create a VM named `vm-edge-b`:
    Restart-Computer -Force
    ```
 
-   Reconnect to `vm-edge-b` via RDP and run PowerShell.
+   Reconnect to `vm-edge-b` through RDP and run PowerShell.
 
 1. Mount the Exchange Server distribution:
 
@@ -1110,7 +1162,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Test-EdgeSynchronization
    ```
 
-   The `SyncStatus` parameter should change to `Normal`.
+   The `SyncStatus` parameter must switch to `Normal`.
 
 
 ### Set up a subscription on the vm-edge-b server {#subscribe-vm-edge-b}
@@ -1127,7 +1179,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    New-EdgeSubscription -FileName "C:\subscribe\$(hostname).xml"
    ```
 
-1. Copy the `C:\subscribe\vm-edge-b.xml` file to the `vm-exchange-b` server, the `C:\root\vm-edge-b.xml` folder.
+1. Copy the `C:\subscribe\vm-edge-b.xml` file to the `vm-exchange-b` server to the `C:\root\vm-edge-b.xml` folder.
 
 1. Log in to the `vm-exchange-b` server and run the Exchange Management Shell.
 
@@ -1158,7 +1210,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Test-EdgeSynchronization
    ```
 
-   The `SyncStatus` parameter should change to `Normal`.
+   The `SyncStatus` parameter must switch to `Normal`.
 
 ## How to delete the resources you created {#clear-out}
 

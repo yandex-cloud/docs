@@ -6467,7 +6467,6 @@ default:
         image-field:
           button_custom-image: Укажите ссылку
         internal-v4-address-field:
-          button_internal-address-reserve: Зарезервировать
           field_internal-ipv4-address: Внутренний IPv4 адрес
         ip-address-form:
           label_button-save: Сохранить
@@ -6555,7 +6554,6 @@ default:
             label_title: Изменение группы виртуальных машин
           overview:
             label_instance-address: Публичный IP-адрес
-            label_instance-resource: Вычислительные ресурсы
             section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
           switch_instances: Список ВМ
@@ -6648,7 +6646,6 @@ default:
             field_security-groups-ids: Группы безопасности
           edit:
             button_update: Сохранить изменения
-          label_vm: Виртуальная машина
           overview:
             button_action-edit: Изменить ВМ
             button_add-public-ip: Добавить публичный IP-адрес
@@ -6742,8 +6739,6 @@ default:
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
         label_service: Compute Cloud
-        landing:
-          action_create-resource: Создать ресурс
         nfs:
           button_attach-instance-to-the-filesystem: Подключить к ВМ
           button_create-filesystem: Создать файловое хранилище

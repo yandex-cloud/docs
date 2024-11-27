@@ -3,7 +3,7 @@
 
 To enable secure communication between remote resources and data transmission via public communication channels, e.g., the internet, one uses technologies for setting up secure connections, such as the [IPsec](https://www.ietf.org/rfc/rfc2401.txt) protocol. However, IPsec has a number of significant limitations: it is only designed for IP packet transmission, does not support [multicast delivery](https://en.wikipedia.org/wiki/IP_multicast), and cannot be combined with other protocols within a single request.
 
-To extend the IPsec features, it is handy to use the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol in the GRE over IPsec configuration. GRE encapsulates network packets in IP packets, which enables you to transmit any traffic over IPsec.
+To extend the IPsec capabilities, you can configure the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol over IPsec. GRE encapsulates network packets in IP packets, which enables you to transmit any traffic over IPsec.
 
 In this example, you will create a secure GRE over IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}.
 
@@ -92,7 +92,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
@@ -140,30 +140,36 @@ Repeat the steps to create a second folder named `site-b`.
 
 ## Create two VMs with a Cisco Cloud Services Router {#create-routers}
 
-### Create your first VM with a Cisco Cloud Services Router
+### Create your first VM with a Cisco Cloud Services Router {#create-first-vm}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select `site-a`.
-   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select the **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** option.
-   1. Enter a name for the VM, e.g., `cisco-router-a`.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** list, select **{{ region-id }}-a**.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Cisco CSR](/marketplace/products/yc/cisco-csr) image.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * Choose a VM [platform](../../compute/concepts/vm-platforms.md).
-      * Specify the required number of vCPUs and the amount of RAM:
-        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-        * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the network and the subnet to connect the VM to. 
-   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [previously generated](#create-ssh-keys) public key file.
-   1. In the **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** field, select **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
-   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. In the [management console]({{ link-console-main }}), select `site-a`.
+  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-a`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` option.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can use the serial console.
 
@@ -248,7 +254,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          ip ssh pubkey-chain
       ```
 
-   1. Create a user named `test-user` and provide your public SSH key in chunks that you split it into in the previous step:
+   1. Create a user named `test-user` and provide your public SSH key in chunks you split it into in the previous step:
 
       ```bash
          username test-user
@@ -295,13 +301,13 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
-   ssh -i <private_key_file_path> test-user@<router_public_IP_address> 
+   ssh -i <private_key_file_path> test-user@<router_public_IP_address>
    ```
 
-   If everything is configured correctly, you will log in to the router under `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was run, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If still unable to locate the issue, repeat the previous steps. 
+   If everything is configured correctly, you will log in to the router as `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was executed, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If still unable to locate the issue, repeat the previous steps.
 1. Switch to privileged mode. To do this, enter the `enable` command and password. If everything is configured correctly, you can configure the router.
 
-### Create and set up a second VM with a Cisco Cloud Services Router {#test-ssh}
+### Create and set up a second VM with a Cisco Cloud Services Router {#create-second-vm}
 
 1. In the `site-b` folder, create a VM named `cisco-router-b` by following the above steps. Select **{{ region-id }}-b** as its availability zone.
 1. Set up the VM in the same way as the `cisco-router-a` VM.
@@ -352,7 +358,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
      crypto ikev2 keyring MY_IKEV2_KEYRING
         peer SiteB
         address cisco-router-b
-        pre-shared-key <secret_key> 
+        pre-shared-key <secret_key>
         exit
      ```
 
@@ -362,7 +368,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
      crypto ikev2 keyring MY_IKEV2_KEYRING
         peer SiteA
         address cisco-router-a
-        pre-shared-key <secret_key> 
+        pre-shared-key <secret_key>
         exit
      ```
 
@@ -476,7 +482,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% list tabs %}
 
-   -Cisco-router-a VM
+   - Cisco-router-a VM
 
      ```bash
      show crypto ikev2 sa remote cisco-router-b
@@ -547,7 +553,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
    - Cisco-router-a VM
 
      ```bash
-     router bgp 65001 
+     router bgp 65001
         bgp log-neighbor-changes
         neighbor 192.168.0.2 remote-as 65002
         address-family ipv4

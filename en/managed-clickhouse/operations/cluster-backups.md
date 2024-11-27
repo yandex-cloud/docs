@@ -8,7 +8,7 @@ description: You can create backups and restore clusters from existing {{ CH }} 
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
-{{ mch-name }} also creates automatic daily backups. You can [set the backup start time](#set-backup-window).
+{{ mch-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](#set-backup-retain).
 
 ## Creating a backup {#create-backup}
 
@@ -66,7 +66,7 @@ Backups are created based on a random replica host. If there is no cluster host 
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/backup.md#responses) to make sure the request was successful.
 
@@ -94,7 +94,7 @@ Backups are created based on a random replica host. If there is no cluster host 
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Backup
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -109,7 +109,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster. You can restore the whole cluster only by using the CLI or API.
 
 
-Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. Restoring a cluster from a backup with a link to a [service account](../../iam/concepts/users/service-accounts.md).
+Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
@@ -277,7 +277,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 * `PRODUCTION`: For stable versions of your apps.
                 * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
-            * `configSpec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [Cluster.restore](../api-ref/Cluster/restore.md) method description.
+            * `configSpec`: {{ CH }} cluster configuration. For detailed description of the parameters, see the [Cluster.restore](../api-ref/Cluster/restore.md) method description.
             * `hostSpecs`: Array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
 
                 * `type`: Host type.
@@ -286,15 +286,15 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 * `shardName`: Shard name.
                 * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-            * `folderId`: ID of the folder to create the cluster in.
-            * `networkId`: ID of the network to create the cluster in.
+            * `folderId`: ID of the folder to create your cluster in.
+            * `networkId`: ID of the network to create your cluster in.
             * `serviceAccountId`: Service account ID.
             * `securityGroupIds`: Array of security group IDs.
             * `deletionProtection`: Option to manage protection of the cluster, its databases, and its users against accidental deletion.
 
                 Enabled deletion protection will not prevent a manual connection and database content deletion.
 
-            You can request the backup ID with the [list of backups in the folder](#list-backups).
+            You can get the backup ID together with a [list of backups in the relevant folder](#list-backups).
 
         1. Run this request:
 
@@ -368,7 +368,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 * `PRODUCTION`: For stable versions of your apps.
                 * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
 
-            * `config_spec`: {{ CH }} cluster configuration. For a detailed description of the parameters, see the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call description.
+            * `config_spec`: {{ CH }} cluster configuration. For detailed description of the parameters, see the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call description.
             * `host_specs`: Array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
 
                 * `type`: Host type.
@@ -377,15 +377,15 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 * `shard_name`: Shard name.
                 * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-            * `folder_id`: ID of the folder to create the cluster in.
-            * `network_id`: ID of the network to create the cluster in.
+            * `folder_id`: ID of the folder to create your cluster in.
+            * `network_id`: ID of the network to create your cluster in.
             * `service_account_id`: Service account ID.
             * `security_group_ids`: Array of security group IDs.
             * `deletion_protection`: Option to manage protection of the cluster, its databases, and its users against accidental deletion.
 
                 Enabled deletion protection will not prevent a manual connection and database content deletion.
 
-            You can request the backup ID with the [list of backups in the folder](#list-backups).
+            You can get the backup ID together with a [list of backups in the relevant folder](#list-backups).
 
         1. Run this request:
 
@@ -477,7 +477,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/Cluster/listBackups.md#responses) to make sure the request was successful.
 
@@ -494,7 +494,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             ```
 
 
-            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. View the [server response](../api-ref/Backup/list.md#responses) to make sure the request was successful.
@@ -525,7 +525,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 yandex.cloud.mdb.clickhouse.v1.ClusterService.ListBackups
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -548,7 +548,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             ```
 
 
-            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+            You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
         1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse) to make sure the request was successful.
@@ -598,7 +598,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<backup_ID>'
         ```
 
-        You can request the backup ID with the [list of backups in the folder](#list-backups).
+        You can get the backup ID together with a [list of backups in the relevant folder](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#responses) to make sure the request was successful.
 
@@ -626,7 +626,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             yandex.cloud.mdb.clickhouse.v1.BackupService.Get
         ```
 
-        You can request the backup ID with the [list of backups in the folder](#list-backups).
+        You can get the backup ID together with a [list of backups in the relevant folder](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.clickhouse.v1.Backup) to make sure the request was successful.
 
@@ -688,11 +688,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here we specified just a single parameter, `configSpec.backupWindowStart`.
+            Here only one parameter is specified: `configSpec.backupWindowStart`.
 
         * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -739,11 +739,46 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here we specified just a single parameter, `config_spec.backup_window_start`.
+            Here only one parameter is specified: `config_spec.backup_window_start`.
 
         * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
+
+## Setting a retention period for automatic backups {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+  
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [modifying a cluster](update.md).
+  
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To set the retention period for automatic backups, provide the required value in `HH:MM:SS` format in the `--backup-retain-period-days` argument of the cluster update command:
+
+  ```bash
+  {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+     --backup-retain-period-days=<automatic_backup_retention_period_in_days>
+  ```
+  
+  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- API {#api}
+
+    To set the retention period for automatic backups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [Cluster/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+
+    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    * New automatic backup retention period in days in the `configSpec.backupRetainPeriodDays` parameter.
+    * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `configSpec.backupRetainPeriodDays`).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

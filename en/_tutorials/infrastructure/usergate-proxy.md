@@ -15,7 +15,7 @@ To deploy a UserGate gateway:
 1. [Create a cloud network and subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
-1. [Set up the UserGate NGFW via the administrative console](#admin-console).
+1. [Set up the UserGate NGFW via the admin console](#admin-console).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -111,7 +111,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
      ```
 
-     For more information, see the description of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
@@ -151,7 +151,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. Enter the security group name: `usergate-sg`.
+  1. Enter a name for the security group: `usergate-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `usergate-network`.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
    
@@ -306,7 +306,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
      ```
 
-     For more information about the resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-resources-link }}/vpc_security_group).
      
   1. Make sure the configuration files are correct.
 
@@ -381,41 +381,36 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Enter the VM name: `usergate-proxy`.
-  1. Select the availability zone: `{{ region-id }}-a`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-     * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-     * Specify the required number of vCPUs and the amount of RAM:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
-       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      {% note info %}
 
-       {% note info %}
+      These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
 
-       These parameters are appropriate for functional testing of the gateway. To calculate the parameters for a production workload, refer to the UserGate [product guidelines](https://www.usergate.com/products/usergate-vm).
+      {% endnote %}
 
-       {% endnote %}
-   
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-  
-     * Select the network: `usergate-network` the subnet: `usergate-subnet-{{ region-id }}-a`.
-     * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select **{{ ui-key.yacloud.component.compute.network-select.switch_list }}** and then select the previously reserved IP from the list that opens.
-     * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `usergate-sg` group from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `usergate-network` and `usergate-subnet-{{ region-id }}-a`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and then select the previously reserved IP from the list that opens.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `usergate-sg` group from the list.
 
-     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-       You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-proxy`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-   
+
 - CLI {#cli}
   
   1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair.
@@ -539,13 +534,13 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - API {#api}
 
-  Create a VM named `usergate-proxy` using the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
+  Create the `usergate-proxy` VM using the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
 
 {% endlist %}
 
 ## Set up the UserGate NGFW via the admin console {#admin-console}
 
-To set up a gateway, go to the UserGate NGFW admin console at `https://<VM_public_IP_address>:8001` and log in with the default credentials (username: `Admin`, password: `utm`).
+To set up the gateway, go to the UserGate NGFW admin console at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
 
 When you are logged in, the system prompts you to change the default password and update the OS.
 
@@ -559,13 +554,13 @@ Set up the UserGate NGFW for running in the proxy server mode:
 1. Click **Access control**, then enable **Administration console**. Click **Save**.
 1. In the menu on the left, go to **Network** ⟶ **Interfaces**.
 1. Click the `port0` network interface name.
-1. In the **General** tab, in the **Zone** field, select the `Trusted` zone from the list. Click **Save**.
+1. On the **General** tab, select the `Trusted` zone from the list in the **Zone** field. Click **Save**.
 1. In the menu on the left, click **Network policies** ⟶ **Firewall**.
-1. Click the name of the preset `Allow trusted to untrusted` rule.
+1. Click the name of the `Allow trusted to untrusted` preset rule.
 1. Go to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
 1. Enable the `Allow trusted to untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
 1. In the menu on the left, click **Network policies** ⟶ **NAT and routing**.
-1. Click the name of the preset `NAT from Trusted to Untrusted` rule.
+1. Click the name of the `NAT from Trusted to Untrusted` preset rule.
 1. Go to the **Destination** tab and change the destination zone from `Untrusted` to `Trusted`. Click **Save**.
 1. Enable the `NAT from Trusted to Untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
  
@@ -577,7 +572,7 @@ We recommend using the following default policies: `Block to botnets`, `Block fr
 
 1. Click **Network policies** ⟶ **Firewall**.
 1. Click the name of the preset rule.
-1. Click **Source** and change the source zone from `Untrusted` to `Trusted`. 
+1. Go to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
 1. Go to the **Destination** tab and disable the `Untrusted` zone.
 1. Click **Save**.
 1. Enable the selected rule. To do this, select the line with the rule and click **Enable** at the top of the screen.

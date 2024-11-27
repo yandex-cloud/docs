@@ -1,10 +1,18 @@
 # Создание кластера {{ dataproc-name }}
 
-Для создания кластера {{ dataproc-name }} у пользователя должны быть следующие роли:
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ dataproc-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
 * [dataproc.editor](../security/index.md#dataproc-editor) — чтобы создать кластер;
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы создавать ресурсы от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) к кластеру и создавать ресурсы от имени этого сервисного аккаунта.
+
+Сервисному аккаунту кластера {{ dataproc-name }} должны быть назначены роли:
+
+{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
 
 ## Настройте сеть {#setup-network}
@@ -105,11 +113,7 @@
         {% endnote %}
 
      * Публичная часть [SSH-ключа](../../glossary/ssh-keygen.md) в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}**. Как сгенерировать и использовать SSH-ключи, читайте в [документации {{ compute-full-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-     * Сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
-
-        {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+     * Сервисный аккаунт, которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
      * Зона доступности для кластера {{ dataproc-name }}.
      * (Опционально) [Свойства компонентов кластера](../concepts/settings-list.md).
      * (Опционально) Пользовательские [скрипты инициализации](../concepts/init-action.md) хостов кластера. Для каждого скрипта укажите следующую информацию:
@@ -244,10 +248,7 @@
      Где:
      * `--bucket` — имя бакета в {{ objstorage-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} должен иметь разрешение `READ и WRITE` для этого бакета.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера {{ dataproc-name }}.
-     * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}. Сервисному аккаунту кластера {{ dataproc-name }} должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
-
-       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+     * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}.
      * `--version` — [версия образа](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -567,10 +568,7 @@
     * Публичную часть [SSH-ключа](../../glossary/ssh-keygen.md) в параметре `configSpec.hadoop.sshPublicKeys`.
     * Настройки подкластеров {{ dataproc-name }} в параметре `configSpec.subclustersSpec`.
   * Зону доступности кластера {{ dataproc-name }} в параметре `zoneId`.
-  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`. Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
-
-       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} в параметре `serviceAccountId`.
   * Имя бакета в параметре `bucket`.
   * Идентификаторы групп безопасности кластера {{ dataproc-name }} в параметре `hostGroupIds`.
   * Настройки защиты от удаления кластера {{ dataproc-name }} в параметре `deletionProtection`.

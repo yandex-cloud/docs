@@ -80,7 +80,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a static k
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key. After you close the dialog, the private key value will become unavailable.
+  1. Save the ID and the secret key. After you close the dialog, the key value will become unavailable.
 
 - CLI {#cli}
 
@@ -125,24 +125,29 @@ To create a key pair:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.  
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Enter the VM name, e.g., `mlflow-vm`.
-     * Select the availability zone: `{{ region-id }}-a`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select `Ubuntu 22.04`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** tab and configure the boot disk:
-     * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
-     * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 GB`
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4`
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the subnet specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
-     * **{{ ui-key.yacloud.compute.instances.create.field_service-account }}**: `datasphere-sa`.
-     * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](#create-ssh-keys) file.
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04` and select a public [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify the size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mlflow-vm`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `datasphere-sa` [service account](../../iam/concepts/users/service-accounts.md).
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
@@ -305,7 +310,7 @@ For MLFlow to run automatically after the VM restarts, you need to convert it in
    ```
    Where:
 
-   * `<VM_user_name>` is the VM account username.
+   * `<VM_user_name>`: VM account username.
    * `<DB_user_name>`: Username specified when creating a database cluster.
 
 1. Run the service and enable autoload at system startup:

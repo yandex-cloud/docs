@@ -17,11 +17,18 @@ keywords:
 Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mos-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) или выше.
+
+Если вы хотите привязать сервисный аккаунт к кластеру (например, для [работы с {{ objstorage-full-name }}](s3-access.md)), вашему аккаунту в {{ yandex-cloud }} нужна роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
 
 При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
-
-Для создания кластера {{ mos-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 

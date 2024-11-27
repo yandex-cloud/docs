@@ -6,16 +6,18 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Getting information about {{ interconnect-name }} partners
+      - name: Getting information about the {{ interconnect-name }} partners
         href: operations/partner-get-info.md
       - name: Getting information about {{ interconnect-name }} points of presence
         href: operations/pop-get-info.md
-      - name: Getting information about trunks
+      - name: Getting information about trunk connections
         href: operations/trunk-get-info.md
       - name: Getting information about private connections
         href: operations/priv-con-get-info.md
       - name: Getting information about public connections
         href: operations/pub-con-get-info.md
+      - name: Getting information about a routing instance
+        href: ../cloud-router/operations/ri-get-info.md
   - name: Tutorials
     expanded: false
     items:
