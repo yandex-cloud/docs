@@ -20,7 +20,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mmy-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -70,8 +72,9 @@ description: Следуя данной инструкции, вы сможете
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mmy-name }}.
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mmy-name }}. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
+
+     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/console-icons/pencil.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:

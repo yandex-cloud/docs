@@ -1,6 +1,10 @@
 * {% include [Backup time](../../../_includes/mdb/console/backup-time.md) %}
 
-* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../../../managed-clickhouse/concepts/maintenance.md) settings:
+* **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**: Retention period for automatic backups, in days. If an automatic backup expires, it is deleted. The default is {{ mch-backup-retention }} days. For more information, see [Backups](../../../managed-clickhouse/concepts/backup.md#storage).
+
+    Changing the retention period affects both new automatic backups and existing backups. For example, the initial retention period was 7 days, and the remaining lifetime of a single automatic backup is 1 day. If the retention period increases to 9 days, the remaining lifetime for this backup will now be 3 days.
+
+* **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../../../managed-clickhouse/concepts/maintenance.md) window settings:
 
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 

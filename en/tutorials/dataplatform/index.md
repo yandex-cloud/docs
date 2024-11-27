@@ -23,6 +23,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](mkf-ydb-stream.md)
 * [{#T}](mkf-yds-stream.md)
+* [{#T}](yds-to-kafka.md)
 * [{#T}](kafka-connect.md)
 * Using the registry of data format schemas with {{ mkf-full-name }}:
   * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
@@ -112,7 +113,7 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
-* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md
+* [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
 * [Migrating a database from {{ mpg-name }}](outbound-replication.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
@@ -144,6 +145,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](ydb-to-object-storage.md)
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
+* [{#T}](yds-to-ydb.md)
 
 ## {{ dns-full-name }} {#dns}
 

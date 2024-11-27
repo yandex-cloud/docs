@@ -55,6 +55,25 @@
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
+#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
+
+Полный текст ошибки:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
+
+Чтобы исправить ошибку:
+
+* убедитесь, что проверку не блокируют настройки корпоративной сети;
+* выполните команду с параметром `--ssl-no-revoke`.
+
+   ```powershell
+   mkdir $HOME\.mysql; curl.exe --ssl-no-revoke -o $HOME\.mysql\root.crt {{ crt-web-path }}
+   ```
+
 #### Почему может быть превышен лимит соединений? {#connection-limit}
 
 Максимальное количество одновременных подключений к хосту кластера {{ mmy-short-name }} задается параметром `max_connections` и по умолчанию равно величине `<количество_МБ_RAM_на_одном_хосте> ÷ 32`, но не менее 100.

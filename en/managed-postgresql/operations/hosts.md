@@ -154,8 +154,8 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
      ```bash
-     {{ yc-mdb-pg }} host add
-       --cluster-name <cluster_name>
+     {{ yc-mdb-pg }} host add \
+       --cluster-name <cluster_name> \
        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>
      ```
 
@@ -354,9 +354,9 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
   To change the parameters of a host in a cluster, run the command below:
 
   ```bash
-  {{ yc-mdb-pg }} host update <host_name>
-    --cluster-name <cluster_name>
-    --replication-source <source_host_name>
+  {{ yc-mdb-pg }} host update <host_name> \
+    --cluster-name <cluster_name> \
+    --replication-source <source_host_name> \
     --assign-public-ip=<public_access_to_host>
   ```
 
@@ -552,7 +552,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
   To remove a host from the cluster, run:
 
   ```bash
-  {{ yc-mdb-pg }} host delete <host_name>
+  {{ yc-mdb-pg }} host delete <host_name> \
     --cluster-name <cluster_name>
   ```
 

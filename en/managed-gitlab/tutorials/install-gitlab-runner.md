@@ -1,29 +1,48 @@
-# Installing {{ GLR }} on a {{ compute-full-name }} VM
+# Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
 
-You can install {{ GLR }} on a {{ compute-name }} [VM](../../compute/concepts/vm.md). As a result, you will not need a more expensive and hard to configure [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) to install {{ GLR }}.
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} either in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or a {{ compute-name }} virtual machine, which is an easier and cheaper option.
 
-To install {{ GLR }} on a {{ compute-name }} VM:
+{{ compute-name }} offers two ways to work with {{ GLR }}: You can:
+
+* Create a [VM](../../compute/concepts/vm.md) and install {{ oslogin }} on it manually.
+* Use the [management console]({{ link-console-main }}) to create a runner that will automatically deploy the specified number of VMs ready to run tasks.
+
+To get started with {{ GLR }} using {{ compute-name }}:
 
 1. [{#T}](#infra).
 1. [{#T}](#gitlab-token).
-1. [{#T}](#install).
+1. [{#T}](#install) or [create a runner using the management console](#create-runner).
+1. [{#T}](#example).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the infrastructure {#infra}
 
 1. [Create and activate](../../managed-gitlab/operations/instance/instance-create.md) a {{ mgl-name }} instance.
-1. [Create a {{ GL }} project]({{ gl.docs }}/ee/user/project/).
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 22.04 LTS image.
+1. [Create a {{ GL }}]({{ gl.docs }}/ee/user/project/) project.
 
 ## Get a {{ GLR }} token {#gitlab-token}
 
-1. Open the {{ GL }} project in your browser.
-1. In the left-hand menu, go **Settings** → **CI/CD**.
-1. Under **Runners**, click **Expand**.
-1. Next to **New Project Runner**, click ![icon](../../_assets/dots.svg) and copy the contents of the **Registration token** field.
+* To configure {{ GLR }} throughout the [{{ GL }}](../../managed-gitlab/concepts/index.md#instance) instance ({{ GL }} administrator access required):
 
-## Install {{ GLR }} {#install}
+  1. Open {{ GL }}.
+  1. In the bottom-left corner, click **Admin**. 
+  1. In the left-hand menu, select **CI/CD** → **Runners**.
+  1. Click **New instance runner** and create a new {{ GLR }}.
+  1. Save the value of the `Runner authentication token` parameter.
+
+* To configure {{ GLR }} project settings:
+
+  1. Open {{ GL }}.
+  1. Select a project.
+  1. In the left-hand menu, select **Settings** → **CI/CD**.
+  1. Under **Runners**, click **Expand**.
+  1. Click **New project runner** and create a new {{ GLR }}.
+  1. Save the value of the `Runner authentication token` parameter.
+
+## Install {{ GLR }} on a {{ compute-full-name }} VM {#install}
+
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 22.04 LTS image.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
@@ -70,6 +89,93 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
    ```
+
+## Create a runner using the management console {#create-runner}
+
+1. Select the {{ mgl-name }} instance [created earlier](#infra).
+
+1. Select the **Runners** tab.
+
+1. Click **Create runner**.
+
+1. Enter a name for the runner:
+    
+    * The name must be 2 to 63 characters long.
+    * It may contain lowercase Latin letters, numbers, and hyphens.
+    * It must start with a letter and cannot end with a hyphen.
+
+1. Enter the [previously obtained](#gitlab-token) {{ GLR }} token.
+
+1. Select or create a [service account](../../iam/concepts/users/service-accounts.md). The service account must have the following roles: `compute.admin`, `vpc.admin`, and `iam.serviceAccounts.user`.
+
+1. Optionally, add labels for the runner.
+
+1. Under **Scaling settings**, specify:
+
+    * Maximum number of workers
+    * Minimum number of workers
+    * Worker downtime limit in minutes
+    * Maximum number of tasks per worker
+    * Maximum number of parallel jobs per worker
+
+1. Optionally, add labels for the worker.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations.
+
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
+
+    * Select the [disk type](../../compute/concepts/disk.md#disks_types).
+    * Specify the required disk size. 
+
+1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+1. Make sure the runner works:
+
+    * In {{ GL }}:
+      * If {{ GLR }} was created for the whole {{ GL }} instance:
+          1. In the bottom-left corner, click **Admin**. 
+          1. In the left-hand menu, select **CI/CD** → **Runners**.
+          1. Make sure the new runner is now in the list.
+
+      *  If {{ GLR }} was created for a project.
+          1. Open the project.
+          1. In the left-hand menu, select **Settings** → **CI/CD**.
+          1. Under **Runners**, click **Expand**.
+          1. Make sure the new runner has appeared in the **Assigned project runners** section.
+
+    * In {{ compute-name }}: make sure that new VMs with the `runner-` prefix have appeared.
+
+## Create a test scenario {#example} 
+
+1. Open the {{ GL }} project.
+
+1. Select **Build** → **Pipeline editor** in the left-hand menu. A page will open asking you to add a new file named `.gitlab-ci.yml`, in which you need to describe the scenario in [YAML](https://yaml.org/) format.
+
+1. Add the scenario text:
+
+    ```yaml
+    build:
+    stage: build
+    script:
+      - echo "Hello, $GITLAB_USER_LOGIN!"
+
+    test:
+    stage: test
+    script:
+      - echo "This job tests something"
+
+    deploy:
+    stage: deploy
+    script:
+      - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+    environment: production
+    ```
+
+1. Click **Commit changes**.
+
+1. Select **Build** → **Jobs** in the left-hand menu.
+
+1. Make sure that three issues have the `Passed` status.
 
 ## Delete the resources you created {#clear-out}
 

@@ -233,28 +233,21 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-
-      * In the **{{ ui-key.yacloud.common.name }}** field, specify the name: `mywebserver`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, select `{{ region-id }}-b`.
-
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-  1. In the window that opens, find and select [LAMP](/marketplace/products/yc/lamp).
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) created earlier.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mywebserver`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -272,7 +265,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
   Where:
   * `<security_group_ID>`: Previously saved security group ID.
-  * `--ssh-key`: Path to the file with the public SSH key. e.g., `~/.ssh/id_ed25519.pub`.
+  * `--ssh-key`: Path to the file with the public SSH key. For example, `~/.ssh/id_ed25519.pub`.
 
   Result:
 
@@ -381,7 +374,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
     {% endlist %}
 
-1. Delegate your domain to {{ dns-name }}. To do this, in your personal account with your domain registrar, specify the DNS server addresses: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
+1. Delegate your domain to {{ dns-name }}. To do this, in your domain registrar's account, specify the addresses of these DNS servers in your domain settings: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
 1. In your DNS zone, create an A resource record pointing to the public IP address of the previously created VM with a web server:
 
@@ -589,8 +582,8 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             ```
 
             Where:
-            * `<dns_challenge_value>`: Value saved in the previous step that is required to check permissions for the relevant domain using a CNAME record.
-            * `<subdomain>`: Name that you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will appear as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
+            * `<dns_challenge_value>`: Value saved in the previous step that is required to check you rights to the relevant domain using a CNAME record.
+            * `<subdomain>`: Name you gave to the CDN resource subdomain, e.g., `cdn`. In this case, the record will look as follows: `_acme-challenge.cdn 600 CNAME fpq2gpi42teg********.cm.yandexcloud.net.`. 
 
             Result:
 
@@ -985,7 +978,7 @@ The content on the new CDN resource will be accessible only via [signed links](.
 
       Where:
       * `<subdomain>`: Subdomain created for the CDN resource. For example, for the `cdn.example.com` domain name, specify `cdn`.
-      * `<cname_value>`: `cname` value for the CDN resource, as you obtained in the previous step.
+      * `<cname_value>`: `cname` value for the CDN resource you obtained in the previous step.
 
       Result:
 
@@ -1039,7 +1032,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
 
       For more information about the `yc certificate-manager certificate list` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/list.md).
 
-  1. Download the key and certificate by specifying the ID obtained in the previous step:
+  1. Download the key and certificate by specifying the ID you got in the previous step:
 
       ```bash
       yc certificate-manager certificate content \
@@ -1190,7 +1183,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
     <body>
 
       <h2>Secure link generator</h2>
-      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The referenced content is available only to the user the link was generated for by the website (verified by IP address).</p>
+      <p>Below, a signed link to the secure CDN resource has been generated. The link is valid for five minutes. The content at this link is available only to the user the link was generated for by the website (verified by IP address).</p>
       <br>
 
       <?php

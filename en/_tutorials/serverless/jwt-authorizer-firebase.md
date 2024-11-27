@@ -31,7 +31,7 @@ The infrastructure support cost for running the web app includes:
 
 Set up Google OAuth:
 1. Log in to the [Google Cloud Console](https://console.cloud.google.com/) and create a new project.
-1. In the **API & Services** tab, go to **OAuth consent screen**, select `External` as the app type and click **Create**.
+1. Go to **API & Services** → **OAuth consent screen**, select `External` as the app type, and click **Create**.
 1. Under **OAuth consent screen**, enter the app name and your email address in the **User support email** and **Developer contact information** fields. Click **Save and continue**.
 1. Under **Scopes**, click **Add or Remove Scopes** and add the `openid`, `/auth/userinfo.email`, and `/auth/userinfo.profile` scopes. Click **Update** → **Save and continue**.
 1. Under **Test users**, specify your email address. Finish creating your app.
@@ -41,9 +41,9 @@ Set up Google OAuth:
 ## Set up authentication in Firebase {#create-firebase-project}
 
 1. Log in to the [Firebase Console](https://console.firebase.google.com) and create a new project.
-1. Under **Authentication** → **Sign-in method** → **Custom providers**, select `OpenID Connect`.
+1. Go to **Authentication** → **Sign-in method** → **Custom providers** and select `OpenID Connect`.
 1. Confirm the selection of `OpenID Connect`.
-1. Enter the provider name, the `Client ID` and `Client secret` you obtained in the [previous step](#create-google-cloud-project). Fill in the **Issuer** field (for Google OAuth, set it to `https://accounts.google.com`).
+1. Enter the provider name as well as the `Client ID` and `Client secret` you obtained in the [previous step](#create-google-cloud-project). Fill in the **Issuer** field (for Google OAuth, specify `https://accounts.google.com`).
 1. Save the `Callback URL` and complete the OpenID setup.
 
 ## Complete Google resource configuration {#google-oauth-setup}
@@ -261,8 +261,8 @@ Firebase:
 1. Open the `src/App.js` file using a text editor and specify the following parameters:
    * `firebaseConfig`: Firebase configuration for your app that you saved when [completing Google resource configuration](#google-oauth-setup).
    * `providerId`: ID of the OpenID Connect provider previously created in Firebase, in `oidc.<provider_name>` format.
-   * `apiGwDomain`: API gateway's previously created service domain.
-1. [Install Node.js](https://nodejs.org/en/download) and npm: The package manager will be installed automatically during Node.js installation.
+   * `apiGwDomain`: Service domain of the API gateway you created earlier.
+1. [Install Node.js](https://nodejs.org/en/download) and the npm package manager: The package manager will be installed automatically during Node.js installation.
 1. In the folder with your app:
    1. Install react-scripts in your project and add it to `devDependencies` in the `package.json` file:
 
@@ -303,7 +303,7 @@ Deploy a static website.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. On the bucket creation page:
-        1. Enter the name of the bucket: `bucket-for-tutorial`.
+        1. Enter a name for the bucket: `bucket-for-tutorial`.
         1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
         1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
 
@@ -397,7 +397,7 @@ Deploy a static website.
 
      1. In the [management console]({{ link-console-main }}), select the folder to upload objects to.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-     1. Click the `bucket-for-tutorial`.
+     1. Click `bucket-for-tutorial`.
      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the [previously generated](#project-prepare) objects in the `build` folder.
      1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../storage/concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../storage/concepts/bucket.md#bucket-settings).
      1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
@@ -417,7 +417,7 @@ Deploy a static website.
      1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
      1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
         * Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
-        * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the `index.html` website home page.
+        * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file of the website home page, `index.html`.
         * In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file to display in case of 4xx errors, `error.html`.
      1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
      1. In the **{{ ui-key.yacloud.storage.bucket.website.field_link }}** field, copy your website's URL.
@@ -428,7 +428,7 @@ Deploy a static website.
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     1. Create a `setup.json` hosting settings file in JSON format.
+     1. Create the `setup.json` file with hosting settings in JSON format.
 
         ```json
         {

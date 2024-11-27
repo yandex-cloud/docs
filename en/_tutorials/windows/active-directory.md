@@ -130,9 +130,7 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name: `ad-vm-a`.
-  1. Select the availability zone: `{{ region-id }}-a`.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -141,18 +139,22 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
       * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. Under **Disks**, enter 50 GB for the size of the boot [disk](../../compute/concepts/disk.md).
-  1. Under **Computing resources**:
-     * Select the [platform](../../compute/concepts/vm-platforms.md): **Intel Ice Lake**.
-     * Specify the required number of vCPUs and the amount of RAM:
-       * **vCPU**: 4.
-       * **Guaranteed vCPU share**: 100%
-       * **RAM**: 8 GB
-  1. Under **Network settings**:
-     * Select the `ad-subnet-a` subnet.
-     * **Public address**: **No address**.
-     * **Internal address**: Select **Manual** and specify `10.1.0.3`.
-  1. Click **Create VM**.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
+
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `ad-subnet-a`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * In the input field that appears, enter `10.1.0.3`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ad-vm-a`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -192,9 +194,7 @@ A file server with internet access is used to configure VMs with Active Director
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name: `jump-server-vm`.
-  1. Select the availability zone: `{{ region-id }}-d`.
+  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
@@ -202,16 +202,22 @@ A file server with internet access is used to configure VMs with Active Director
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
       * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+  
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` availability zone.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required platform, number of vCPUs, and amount of RAM:
 
-  1. Under **Disks**, enter 50 GB for the size of the boot disk.
-  1. Under **Computing resources**:
-     * Choose a platform: Intel Ice Lake.
-     * Specify the required number of vCPUs and the amount of RAM:
-       * **vCPU**: 2
-       * **Guaranteed vCPU share**: 100%
-       * **RAM**: 4 GB
-  1. Under **Network settings**, select `ad-subnet-d`. Under **Public address**, select **Automatically**.
-  1. Click **Create VM**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `ad-subnet-d`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `jump-server-vm`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 

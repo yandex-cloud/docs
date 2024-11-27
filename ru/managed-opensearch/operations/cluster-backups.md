@@ -343,6 +343,10 @@ keywords:
 
 Для нового кластера необходимо задать все параметры, обязательные при его создании.
 
+
+Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

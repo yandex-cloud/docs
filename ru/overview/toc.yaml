@@ -35,6 +35,8 @@ items:
         href: concepts/services.md
       - name: Стадии готовности сервисов
         href: concepts/launch-stages.md
+      - name: Инструменты мониторинга и логирования (observability)
+        href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md
       - name: Квоты и лимиты
@@ -46,6 +48,8 @@ items:
   - name: Интерфейсы для работы с сервисами
     expanded: true
     items:
+      - name: Обзор
+        href: concepts/interfaces.md
       - name: Мобильное приложение
         href: mobile-app/index.md
       - name: API

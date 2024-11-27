@@ -40,7 +40,7 @@ You can install Crossplane in any of the following ways:
 
 {% include [crossplane-provider-info](../../../_includes/managed-kubernetes/crossplane-provider-info.md) %}
 
-## Installation using a Helm chart from the {{ marketplace-full-name }} repository {#helm-install}
+## Installation using a Helm chart from the {{ marketplace-name }} repository {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -182,7 +182,7 @@ You can install Crossplane in any of the following ways:
    kubectl describe crd instances.compute.yandex-cloud.jet.crossplane.io
    ```
 
-   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repo](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 ## Use cases {#examples}
 

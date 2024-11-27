@@ -55,8 +55,8 @@ The roles described below allow you to manage {{ managed-k8s-name }} clusters an
 To manage a {{ managed-k8s-name }} cluster and a node group without public access, you need the `k8s.clusters.agent` role.
 
 To manage a {{ managed-k8s-name }} cluster and a node group with public access, you need the following roles:
-* `k8s.clusters.agent`
-* `{{ roles-vpc-public-admin }}`
+* `k8s.clusters.agent`.
+* `{{ roles-vpc-public-admin }}`.
 
 To manage a {{ managed-k8s-name }} cluster with a cloud network from a different folder, you will additionally need the following roles in this folder:
 * [{{ roles-vpc-private-admin }}](../../vpc/security/index.md#vpc-private-admin)
@@ -115,8 +115,9 @@ With {{ k8s }} RBAC, you can provide users with granular access to the cluster n
       name: <role_name>
     rules:
     - apiGroups: [""]
-      resources: ["*"]
-      verbs: ["*"]
+      resources: ["*"]   
+      verbs: ["*"]                   
+    ```
 
 1. Bind this role to a user account:
 
@@ -132,8 +133,10 @@ With {{ k8s }} RBAC, you can provide users with granular access to the cluster n
       name: <role_name>
     subjects:
     - kind: User
-      name: <account_identifier>
+      name: <account_ID>
     ```
+
+To learn more about getting the account ID, see [Getting user information](../../iam/operations/users/get).
 
 Check creating resources in the cluster. In other namespaces, the user will have no permissions to create or edit resources.
 

@@ -390,16 +390,20 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
   Create a Linux VM named `net-vm` in `net-folder`:
 
   1. In the [management console]({{ link-console-main }}), select `net-folder`.
-  1. In the list of services, select **{{ compute-name }}**.
-  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Enter the name: `net-vm`.
-     * Select the `{{ region-id }}-a` availability zone.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `subnet-a`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the `ycuser` username.
-     * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection on your own.
+  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-a`.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `net-vm`.
   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Similarly, create VMs named `dev-vm` and `prod-vm` in the respective folders.

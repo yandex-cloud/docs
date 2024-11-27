@@ -60,32 +60,32 @@ Create a VM to be the gateway for VPN connections:
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Enter `vpn-server` as your VM name and add a description.
-  1. Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**. Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md#disks_types) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
           Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the SSH username, e.g., `yc-user`.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-          You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
-
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -145,7 +145,7 @@ To make sure the connection is established and working properly, connect to the 
    1. Upload the configuration file to a Linux machine:
 
       ```bash
-      scp profile-1.ovpn user@<IP address>:~
+      scp profile-1.ovpn user@<IP_address>:~
       ```
 
    1. Move the configuration file to the `/etc/openvpn` folder:
@@ -197,7 +197,7 @@ To make sure the connection is established and working properly, connect to the 
       sudo ping <test_VM_internal_IP_address>
       ```
 
-      If the command is executed, the VM can be accessed via OpenVPN.
+      If the command is running, the VM can be accessed via VPN.
 
    1. To terminate a manually established connection, press **Ctrl** + **C**.
 
@@ -213,7 +213,7 @@ To make sure the connection is established and working properly, connect to the 
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. You can import a new configuration profile into the application. To do this, specify the `https://<VM_public_IP_address>/` URL or select a profile file.
+   1. You can import a new configuration profile into the application. To do this, specify `https://<VM_public_IP_address>/` or select a profile file.
 
    1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 
@@ -229,7 +229,7 @@ To make sure the connection is established and working properly, connect to the 
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. You can import a new configuration profile into the application. To do this, specify the `https://<<VM_public_IP_address>/` URL or select a profile file.
+   1. You can import a new configuration profile into the application. To do this, specify `https://<<VM_public_IP_address>/` or select a profile file.
 
    1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 

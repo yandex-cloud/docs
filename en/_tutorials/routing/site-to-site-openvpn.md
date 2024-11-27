@@ -66,7 +66,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. Select `ovpn-network`.
+  1. Select the `ovpn-network` network.
   1. Click **Add subnet**.
   1. Enter a name for the subnet, e.g., `ovpn-left`.
   1. Select an [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
@@ -82,29 +82,26 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. Under **Basic parameters**:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) the `ovpn-left` subnet resides in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Enter `ao-openvpn-test` as your VM name and add a description.
-      * Select the availability zone with the `ovpn-left` subnet.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the subnet named `ovpn-left`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section:
 
-  1. Under **Image/boot disk selection**, choose an image for your VM.
+          * In the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+          * In the input field that appears, enter `10.128.0.4`.
 
-  1. Under **Network settings**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * Specify the `ovpn-network` network and the `ovpn-left` subnet.
-      * In the **Public address** field, select **No address**.
-      * In the **Internal address** field, select **Manual** and specify `10.128.0.4`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **Access**, specify the data required to access the VM:
-
-      * In the **Login** field, enter the SSH username, for example, `yc-user`.
-      * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Click **Create VM**.
-
-  1. Repeat steps 1 to 7 to create your second VM named `vm-ovpn-host`, with the `10.253.11.110` internal address, hosted in the `ovpn-right` subnet.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ao-openvpn-test`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Repeat steps 1 to 7 to create the second VM named `vm-ovpn-host` with internal address `10.253.11.110`, hosted in the `ovpn-right` subnet.
 
 {% endlist %}
 
@@ -114,30 +111,26 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. Under **Basic parameters**:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) the `ovpn-right` subnet resides in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * Enter `vm-ovpn-gw` as your VM name and add a description.
-      * Select the availability zone where the `ovpn-right` subnet resides.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the subnet named `ovpn-right`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-  1. Under **Image/boot disk selection**, choose an image for your VM.
+          Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
-  1. Under **Network settings**:
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * In the input field that appears, enter `10.253.11.19`.
 
-      * Specify the `ovpn-network` network and the `ovpn-right` subnet.
-      * In the **Public address** field, select **Manual** or **Auto**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-        Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-      * In the **Internal address** field, select **Manual** and specify `10.253.11.19`.
-
-  1. Under **Access**, specify the data required to access the VM:
-
-      * In the **Login** field, enter the SSH username, for example, `yc-user`.
-      * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Click **Create VM**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-ovpn-gw`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
@@ -149,46 +142,36 @@ Create a VM to be the gateway for VPN connections:
 
 - Management console {#console}
 
-  1. On the [folder page]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) the `ovpn-left` subnet resides in.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `10 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-  1. Under **Basic parameters**:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-     * Enter `vpn-server` as your VM name and add a description.
-     * Select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-left` subnet resides.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. Under **Image/boot disk selection**:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the subnet named `ovpn-left`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` or `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-     * Go to the **{{ marketplace-name }}** tab.
-     * Click **Show more**.
-     * In the public image list, select [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and click **Use**.
+          Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [convert](../../vpc/operations/set-static-ip.md) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
-  1. Under **Disks**, enter 10 GB as your disk size.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+      * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section; in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * In the input field that appears, enter `10.128.0.3`.
 
-  1. Under **Computing resources**, specify:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-     * vCPU: 2
-     * RAM: 2 GB
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **Network settings**:
-
-     * Specify the `ovpn-network` network and the `ovpn-left` subnet.
-     * In the **Public address** field, select **Manual** or **Auto**.
-
-       Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip.md) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
-
-     * In the **Internal address** field, select **Manual** and specify `10.128.0.3`.
-
-     * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
-
-  1. Under **Access**, specify the data required to access the VM:
-
-     * In the **Login** field, enter the SSH username, for example, `yc-user`.
-     * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-  1. Click **Create VM**.
-
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License).
-
   1. Click **Create**.
 
 {% endlist %}
@@ -205,8 +188,8 @@ Create a VM to be the gateway for VPN connections:
 
 OpenVPN Access Server provides two web interfaces:
 
-1. Client Web UI at `https://<VM public IP address>:943/`. This interface is used by regular users to download client applications and configuration profiles.
-1. Admin Web UI at `https://<VM public IP address>:943/admin/`. This interface is used to configure the server.
+1. Client Web UI at `https://<VM_public_IP_address>:943/`. This interface is used by regular users to download client applications and configuration profiles.
+1. Admin Web UI at `https://<VM_public_IP_address>:943/admin/`. This interface is used to configure the server.
 
 {% note info %}
 
@@ -216,29 +199,29 @@ By default, the server has a self-signed certificate installed. If you need to r
 
 Once you deploy OpenVPN Access Server on the {{ yandex-cloud }} VM that will be working as a gateway, you will have specific IP addresses and accounts as follows (the addresses below are provided for indicative purposes, yours may be different):
 
-1. Internal IP of the `vpn-server` gateway: `10.128.0.3`
-1. Public IP of the `vpn-server` VM: `<VM public IP address>`
-1. Admin Web UI: `https://<VM public IP address>:943/admin`
+1. Internal IP of the `vpn-server` gateway: `10.128.0.3`.
+1. Public IP address of the `vpn-server` VM: `<VM_public_IP_address>`
+1. Admin Web UI: `https://<VM_public_IP_address>:943/admin`
 1. Account for accessing the Admin UI: `openvpn/<admin password>`
-1. Client Web UI: `https://<VM public IP address>:943`
+1. Client Web UI: `https://<VM_public_IP_address>:943`
 
-On the server side, create an OpenVPN user the second subnet's gateway will access the OpenVPN server under for the tunnel to run. To create a user, log in to the Admin Web UI admin panel:
+On the server side, create an OpenVPN user the second subnet's gateway will use to access the OpenVPN server to enable the tunnel. To create a user, log in to the Admin Web UI admin panel:
 
-1. In the browser, type a URL in `https://<VM public IP address>:943/admin` format.
-1. Enter the `openvpn` username and password (to learn how to get the admin password, see [this section](#get-admin-password)).
+1. Open `https://<VM_public_IP_address>:943/admin` in your browser.
+1. Enter the `openvpn` username and password (see [this section](#get-admin-password) on how to get the admin password).
 1. Click **Agree**. This will open the home screen of the OpenVPN admin panel.
 1. Go to the **User management** tab and select **User permissions**.
 1. In the user list, enter the name of the new user in the **New Username** field, e.g., `as-gw-user`.
 1. Click the pencil icon in the **More Settings** column and set the new user's password in the **Local Password** field.
 1. In the **Access Control** field, select **User Routing** and specify the current local subnet where OpenVPN Access Server is deployed, e.g., `10.128.0.0/24`.
-1. In the **VPN Gateway** field, select **Yes** and specify another local subnet to connect through a tunnel, e.g., `10.253.11.0/24`.
+1. In the **VPN Gateway** field, select **Yes** and specify another local subnet to connect to via the tunnel, e.g., `10.253.11.0/24`.
 1. Click **Save settings**.
 1. Click **Update running server**.
-1. Log in to the user panel under the new `as-gw-user` account, save the connection profile to the `as-gw-user.conf` file, and transfer this file to the VM that is going to be a gateway for the OpenVPN tunnel in the other subnet.
+1. Log in to the user panel under the new `as-gw-user` account, save the connection profile in a file named `as-gw-user.conf`, and move this file to the VM that will act as a gateway for the OpenVPN tunnel in the other subnet.
 
 ## Set up the second subnet's gateway to access the OpenVPN server {#configure-second-end-of-the-tunnel}
 
-Run the following commands in the `vm-ovpn-gw` VM console:
+Run the following commands in the `vm-ovpn-gw` console:
 
 ```bash
 sudo apt update
@@ -247,7 +230,7 @@ cp as-gw-user.conf /etc/openvpn/client/
 echo -e "as-gw-user\n<password>" > /etc/openvpn/client/param.txt
 ```
 
-As a result, the `param.txt` file should appear in the `/etc/openvpn/client/` directory. Copy the previously created `as-gw-user.conf` file of the OpenVPN user created for the tunnel to run, to the same directory:
+As a result, a file named `param.txt` should appear in the `/etc/openvpn/client/` folder. Copy to the same folder the previously created `as-gw-user.conf` file of the OpenVPN user you created to establish the tunnel:
 
 ```bash
 ls -lh /etc/openvpn/client/
@@ -261,7 +244,7 @@ total 16K
 -rw-r--r-- 1 root root 24 Nov 10 14:31 param.txt
 ```
 
-In the `auth-user-pass` string of the `/etc/openvpn/as-gw-user.conf` file, provide the `param.txt` file name:
+In the `auth-user-pass` string of the `/etc/openvpn/as-gw-user.conf` file, specify the `param.txt` file name:
 
 ```
 dev tun
@@ -307,14 +290,14 @@ vm-ovpn-gw:~$ sudo bash -c "echo 'net.ipv4.ip_forward = 1' >> /etc/sysctl.conf"
 vm-ovpn-gw:~$ sudo sysctl -p
 ```
 
-Check whether the `vpn-server` gateway has a route to `10.253.11.0/24`:
-
+Check that there is a route to `10.253.11.0/24` at the `vpn-server` gateway:
+    
 ```bash
 vpn-server:~$ sudo ip route
 ```
 
 Result:
-
+    
 ```
 default via 10.128.0.1 dev eth0 proto dhcp src 10.128.0.3 metric 100
 10.128.0.0/24 dev eth0 proto kernel scope link src 10.128.0.3
@@ -326,7 +309,7 @@ default via 10.128.0.1 dev eth0 proto dhcp src 10.128.0.3 metric 100
 172.27.236.0/22 dev as0t3 proto kernel scope link src 172.27.236.1
 ```
 
-Check whether the `vm-ovpn-gw` VM has a route to `10.128.0.0/24`:
+Check the route to `10.128.0.0/24` at the `vm-ovpn-gw` VM:
 
 ```bash
 sudo ip route
@@ -346,11 +329,11 @@ default via 10.253.11.1 dev ens18 proto dhcp src 10.253.11.19 metric 100
 
 ## Test the tunnel {#test-vpn-tunnel}
 
-To test the tunnel, you will need the test VMs we mentioned above; those VMs should reside in both subnets and be different from the tunnel gateways.
+To test the tunnel, you will need the test VMs we mentioned above. These must reside in both subnets and be different from the tunnel gateways.
 
-For these two VMs to exchange data, both of them should have access to static routes to the other subnet. On the `ao-openvpn-test` VM, this is a route to `10.253.11.0/24`, while on the `vm-ovpn-host` VM, this is `10.128.0.0/24`.
+For these two VMs to exchange data, they both must see the static routes to the other subnet. `ao-openvpn-test` to `10.253.11.0/24`, and `vm-ovpn-host` to `10.128.0.0/24`.
 
-Run the following command on the `vm-ovpn-host` VM:
+Run the following command on `vm-ovpn-host`:
 
 ```bash
 sudo ip route add 10.128.0.0./24 via 10.253.11.19
@@ -358,8 +341,8 @@ sudo ip route add 10.128.0.0./24 via 10.253.11.19
 
 On the test VM in {{ yandex-cloud }}, adding a static route within the VM will not help. In {{ yandex-cloud }}, static routes for VMs should be specified [in a different way](../../vpc/concepts/routing.md).
 
-In {{ yandex-cloud }}, the `ao-openvpn-as` (OpenVPN server) and `ao-openvpn-test` VMs are hosted in the same `default` subnet. In the settings of this subnet, add a static route with the following parameters:
-
+In {{ yandex-cloud }}, the `ao-openvpn-as` VMs (OpenVPN server) and `ao-openvpn-test` VMs reside in the same `default` subnet. In the settings of this subnet, add a static route with the following parameters:
+    
 ```
 Name: office-net
 Prefix: 10.253.11.0/24
@@ -368,14 +351,14 @@ Next hop: 10.128.0.3
 
 To apply this static route to the `ao-openvpn-test` VM, shut it down and start it again.
 
-After that, from the `vm-ovpn-host` VM, test the tunnel to the other test VM by running the `ping` command:
-
+Now use the `ping` command to test the tunnel from the `vm-ovpn-host` VM to the other test VM:
+    
 ```bash
 ping 10.128.0.4
 ```
 
 Result:
-
+    
 ```
 PING 10.128.0.4 (10.128.0.4) 56(84) bytes of data.
 64 bytes from 10.128.0.4: icmp_seq=1 ttl=61 time=7.45 ms
@@ -387,14 +370,14 @@ PING 10.128.0.4 (10.128.0.4) 56(84) bytes of data.
 rtt min/avg/max/mdev = 5.613/6.235/7.446/0.855 ms
 ```
 
-Run the same command on the other end of the tunnel, from the `ao-openvpn-test` VM:
+Do the same from the other end of the tunnel, from the `ao-openvpn-test` test VM:
 
 ```bash
 ping 10.253.11.110
 ```
 
 Result:
-
+    
 ```
 PING 10.253.11.110 (10.253.11.110) 56(84) bytes of data.
 64 bytes from 10.253.11.110: icmp_seq=1 ttl=61 time=6.23 ms
@@ -409,7 +392,7 @@ rtt min/avg/max/mdev = 5.688/5.976/6.229/0.203 ms
 
 ## How to delete the resources you created {#clear-out}
 
-To free up resources in the folder, [delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
+To free up folder resources, [delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` VM and the test VM.
 
 If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
 

@@ -23,7 +23,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mpg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mpg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -101,13 +103,15 @@ description: Следуя данной инструкции, вы сможете
      * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной подсети. Чтобы выбрать для хоста конкретную [подсеть](../../vpc/concepts/network.md#subnet), в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
 
      При настройке параметров хостов обратите внимание, что если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер.
 
 
+
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+
 
   1. При необходимости задайте дополнительные настройки кластера:
 
@@ -320,12 +324,9 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
-
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
-  
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -454,13 +455,11 @@ description: Следуя данной инструкции, вы сможете
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
-
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
-
 
      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
@@ -604,13 +603,11 @@ description: Следуя данной инструкции, вы сможете
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
-
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
-
 
      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 

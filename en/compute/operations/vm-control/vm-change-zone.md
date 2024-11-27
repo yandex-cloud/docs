@@ -77,7 +77,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. In the window that opens:
+  1. In the row with the VM you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. In the window that opens:
 
       1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, choose the availability zone to move the VM to, e.g., `{{ region-id }}-d`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure each [network interface](../../concepts/network.md) of your VM as follows:
@@ -85,12 +85,12 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
           1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for public IP address assignment:
               * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
               * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
+              * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Not to assign a public IP address.
 
           1. Select the [appropriate security groups in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**](../../../vpc/concepts/security-groups.md) field.
           1. To set up an internal IP address for a VM and enable DDoS protection, expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section and select a method for internal IP address assignment in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
-              * `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
-              * `{{ ui-key.yacloud.common.label_list }}`: Select an internal IP address from the list of previously reserved IP addresses. Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve an internal IP address in the selected subnet if needed.
+              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
+              * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`: Manually set the internal IP address of the VM.
           1. Enable the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option, if needed. The option is available if you previously selected the automatic IP assignment method in the public address settings.
 
       1. Click **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}** to start moving the VM to a different availability zone.
@@ -213,7 +213,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
 
-      Examples:
+      Example:
 
       ```bash
       yc compute instance relocate a7lh48f5jvlk******** \

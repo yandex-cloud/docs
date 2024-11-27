@@ -12,9 +12,19 @@ keywords:
 
 Каждый [кластер](../../glossary/cluster.md) {{ maf-name }} состоит из набора компонентов {{ AF }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 
-## Создать кластер {#create-cluster}
+## Роли для создания кластера {#roles}
 
-Для создания кластера {{ maf-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ maf-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor) — чтобы создать кластер;
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+
+Сервисному аккаунту кластера должна быть назначена роль `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -51,8 +61,6 @@ keywords:
            {% endnote %}
 
         * Выберите существующий сервисный аккаунт или создайте новый.
-
-           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
@@ -336,7 +344,8 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `serviceAccountId` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `serviceAccountId` — идентификатор сервисного аккаунта.
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
@@ -506,7 +515,8 @@ keywords:
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `service_account_id` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `service_account_id` — идентификатор сервисного аккаунта.
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.

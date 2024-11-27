@@ -9,3 +9,7 @@ user subnet overlaps with service network range {{ airflow-service-address }}, s
 Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. В ней {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }}.
 
 Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети.
+
+#### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}

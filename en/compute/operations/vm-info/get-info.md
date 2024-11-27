@@ -34,7 +34,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
      yc compute instance get --help
      ```
 
-  1. Select a VM, such as `first-instance`:
+  1. Select a VM, e.g., `first-instance`:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
@@ -71,7 +71,7 @@ You can also get basic information and metadata [from inside a VM](#inside-insta
      Where:
      * `data "yandex_compute_instance"`: Description of the data source to get VM information from:
        * `instance_id`: VM ID.
-     * `output "instance_external_ip"`: [Public IP address](../../../vpc/concepts/address.md#public-addresses) of the VM to be presented in the output:
+     * `output "instance_external_ip"`: [Public IP address](../../../vpc/concepts/address.md#public-addresses) of the VM to return in the output:
        * `value`: Returned value.
 
      For more information about the `yandex_compute_instance` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_instance).
@@ -121,8 +121,8 @@ Metadata-Flavor: Google
 
 Where:
 * `alt`: Response format (by default, `text`).
-* `recursive`: If `true`, it returns all values in the tree recursively. The default address is `false`.
-* `wait_for_change`: If `true`, this response will be returned only when one of the metadata parameters is modified. The default address is `false`.
+* `recursive`: If `true`, it returns all values in the tree recursively. The default value is `false`.
+* `wait_for_change`: If `true`, this response will be returned only when one of the metadata parameters is modified. The default value is `false`.
 * `last_etag`: The ETag value from the previous response to a similar request. Use if `wait_for_change="true"`.
 * `timeout_sec`: Maximum request timeout. Use if `wait_for_change="true"`.
 
@@ -199,13 +199,13 @@ The angle brackets contain parameters to replace with values. For example, inste
 
 {% endnote %}
 
-* `hostname`: VM hostname.
+* `hostname`: Host name assigned to VM.
 * `instance-id`: VM ID.
 * `local-ipv4`: [Internal IPv4 address](../../../vpc/concepts/address.md#internal-addresses).
-* `local-hostname`: VM hostname.
-* `mac`: MAC address of the VM network interface.
+* `local-hostname`: Host name assigned to VM.
+* `mac`: MAC address of VM network interface.
 * `network/interfaces/macs/<MAC_address>/ipv6s`: Internal IPv6 addresses associated with the network interface.
-* `network/interfaces/macs/<MAC_address>/local-hostname`: Hostname associated with the network interface.
+* `network/interfaces/macs/<MAC_address>/local-hostname`: Host name associated with the network interface.
 * `network/interfaces/macs/<MAC_address>/local-ipv4s`: Internal IPv4 addresses associated with the network interface.
 * `network/interfaces/macs/<MAC_address>/mac`: MAC address of the VM network interface.
 * `public-ipv4`: [Public IPv4 address](../../../vpc/concepts/address.md#public-addresses).
@@ -226,22 +226,11 @@ curl http://169.254.169.254/latest/vendor/instance-identity/document
 
 ## Setting up metadata service parameters for a VM instance {#metadata-options}
 
-You can set up metadata service parameters when creating or updating VMs.
+You can configure metadata service parameters when [creating](../index.md#vm-create) or [updating](../vm-control/vm-update.md) VMs.
 
-You can use the following settings:
-* `aws-v1-http-endpoint`: Provides access to metadata using AWS format (IMDSv1). Possible values: `enabled`, `disabled`.
-* `aws-v1-http-token`: Provides access to [{{ iam-name }}](../../../iam/) credentials using AWS format (IMDSv1). Possible values: `enabled`, `disabled`.
+Available options:
 
-  {% note info %}
-
-  The IMDSv1 format has certain drawbacks in terms of security, which is why the `aws-v1-http-token` parameter is `disabled` by default. The most severe drawback of IMDSv1 is its high risk of certain attacks, e.g., [SSRF](https://portswigger.net/web-security/ssrf). You can read more about it in the [AWS official blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). To change the default behavior of this parameter, contact [support]({{ link-console-support }}).
-
-  The safest method to obtain the token in {{ yandex-cloud }} is to use [Google Compute Engine](#gce-metadata) format, which uses an extra header for protection against SSRF.
-
-  {% endnote %}
-
-* `gce-http-endpoint`: Provides access to metadata using Google Compute Engine format. Possible values: `enabled`, `disabled`.
-* `gce-http-token`: Provides access to {{ iam-name }} credentials using Google Compute Engine format. Possible values: `enabled`, `disabled`.
+{% include [metadata-service-settings](../../../_includes/compute/metadata-service-settings.md) %}
 
 To set up metadata service parameters for a VM instance:
 

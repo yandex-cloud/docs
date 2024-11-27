@@ -416,6 +416,14 @@ items:
           Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
+      - name: >-
+          Delivering data from {{ yds-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-ydb.md
+      - name: >-
+          Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-kafka.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}

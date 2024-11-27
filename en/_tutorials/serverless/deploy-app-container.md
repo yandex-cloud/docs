@@ -168,9 +168,9 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 
         * Traffic direction: `ingress`.
         * Name of the traffic transmission protocol, in the `additionRuleSpecs[].protocolName` parameter: `any`.
-        * List of CIDRs and subnet masks in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter: `[0.0.0.0/0,0.0.0.0/0]`.
-        * First port in the traffic port range, in the `additionRuleSpecs[].ports.fromPort` parameter: `0`.
-        * Last port in the traffic port range, in the `additionRuleSpecs[].ports.toPort` parameter: `65535`.
+        * List of CIDRs and subnet masks, in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter: `[0.0.0.0/0,0.0.0.0/0]`.
+        * First port in the traffic ports range, in the `additionRuleSpecs[].ports.fromPort` parameter: `0`.
+        * Last port in the traffic ports range, in the `additionRuleSpecs[].ports.toPort` parameter: `65535`.
 
 {% endlist %}
 
@@ -182,37 +182,42 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. At the top right, click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter `mongo-vm` as your VM name.
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
       1. Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab and click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
       1. In the window that opens, go to the **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** tab and enter the VM specification:
 
-         ```yaml
-         version: '3.1'
+          ```yaml
+          version: '3.1'
 
-         services:
-           mongo:
-             image: mongo
-             restart: always
-             environment:
-               MONGO_INITDB_ROOT_USERNAME: mongo_db_user
-               MONGO_INITDB_ROOT_PASSWORD: <password>
-             ports:
-               - 27017:27017
-         ```
+          services:
+            mongo:
+              image: mongo
+              restart: always
+              environment:
+                MONGO_INITDB_ROOT_USERNAME: mongo_db_user
+                MONGO_INITDB_ROOT_PASSWORD: <password>
+              ports:
+                - 27017:27017
+          ```
 
          In the `MONGO_INITDB_ROOT_PASSWORD` parameter, specify the password to use for accessing the database. To create a password, you can use the [password generator](https://passwordsgenerator.net/). Save the password as you will need it in the next steps.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
-      * Enter the VM user name in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a subnet in the `mongo-express-network` network you created earlier.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Wait for the VM status to change to `Running` and save its public IP address: you will need it for connecting to the database.
@@ -304,7 +309,7 @@ A [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store the e
 
      Where:
 
-     * `--name`: Secret name
+     * `--name`: Secret name.
      * `--payload`: Contents of the secret as a YAML or JSON array.
      * `<password>`: `MONGO_INITDB_ROOT_PASSWORD` value from the [VM specification](#create-vm).
 
@@ -386,7 +391,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
    docker pull mongo-express
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```
    Using default tag: latest
@@ -404,7 +409,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
    docker.io/library/mongo-express:latest
    ```
 
-1. [Authenticate](../../container-registry/operations/authentication.md) in {{ container-registry-name }} using Docker credential helper:
+1. [Authenticate](../../container-registry/operations/authentication.md) in {{ container-registry-name }} using the Docker credential helper:
 
     {% list tabs group=instructions %}
 
@@ -440,7 +445,7 @@ The [registry](../../container-registry/concepts/registry.md) in {{ container-re
 
     - CLI {#cli}
 
-      1. Assign a URL to the pushed `mongo-express` image (use the following format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`):
+      1. Assign a URL to the pushed `mongo-express` image using the following format: `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>`:
 
          ```
          docker tag mongo-express \
@@ -668,6 +673,6 @@ To stop paying for the resources you created:
 1. [Delete](../../serverless-containers/operations/delete.md) the `mongo-express-container` container.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the image from `app-registry`.
 1. [Delete](../../container-registry/operations/registry/registry-delete.md) the `app-registry` registry.
-1. [Delete the secret](../../lockbox/operations/secret-delete.md) `mongodb-creds`.
+1. [Delete `mongodb-creds`](../../lockbox/operations/secret-delete.md).
 1. [Delete](../../managed-mongodb/operations/cluster-delete.md) `mongo-vm`.
 1. [Delete](../../iam/operations/sa/delete.md) the `mongo-express` service account.

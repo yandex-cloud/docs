@@ -202,38 +202,34 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-  1. In the **Name** field, enter the VM name: `usergate-firewall`.
-  1. Select the availability zone: `{{ region-id }}-a`.
-  1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, then select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
-  1. Under **Computing resources**:
+  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-     * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-     * Specify the required number of vCPUs and the amount of RAM:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
-       * **vCPU**: 4
-       * **Guaranteed vCPU share**: 100%
-       * **RAM**: 8 GB
+      {% note info %}
 
-       {% note info %}
+      These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
 
-       These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
+      {% endnote %}
 
-       {% endnote %}
-   
-  1. Under **Network settings**:
-  
-     * Select `usergate-network` for network and `usergate-subnet-{{ region-id }}-a` for subnet.
-     * In the **Public address** field, select from a list of reserved IPs.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. Under **Access**, specify the information required to access the VM:
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `usergate-network` and the subnet named `usergate-subnet-{{ region-id }}-a`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the IP address [reserved earlier](#get-static-ip).
 
-     * Enter the username in the **Login** field.
-     * In the **SSH key** field, paste the contents of the public key file.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-       You will need to create a key pair for the SSH connection yourself; see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Click **Create VM**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    
 - CLI {#cli}
   
@@ -428,7 +424,7 @@ For higher security, set up more traffic filtering rules:
 You can also add other traffic filtering rules. We don't recommend combining services and applications in the same rule. The rule might not trigger in this case.
 
 
-## Set up routing for the subnet {#subnet-routing}
+## Set up subnet routing {#subnet-routing}
 
 Create a [static route](../../vpc/concepts/routing.md):
 
@@ -438,7 +434,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   1. In the [management console]({{ link-console-main }}), go to the folder you need to create a static route in.
   1. In the list of services, select **{{ vpc-name }}**.
-  1. On the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
   1. Click **Create**.
   1. Enter a name for the route table. The naming requirements are as follows:
 

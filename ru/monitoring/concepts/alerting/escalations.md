@@ -2,6 +2,10 @@
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
+
+@[youtube](https://youtu.be/iAGfn-I0CtY)
+
+
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
 Политика эскалации добавляется как [способ уведомления](notification-channel.md#channel-parameters) к алерту. Одну политику эскалаций можно добавить к любому количеству алертов.

@@ -85,6 +85,8 @@ items:
             href: tutorials/mkf-to-mch-migration.md
           - name: Delivering data from {{ KF }} to {{ yds-name }}
             href: tutorials/mkf-yds-stream.md
+          - name: Delivering data from {{ yds-name }} to {{ KF }}
+            href: tutorials/yds-to-kafka.md
           - name: Delivering data from {{ KF }} to {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
           - name: Delivering data from {{ KF }} to {{ MG }}
@@ -105,8 +107,6 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Delivering data to ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
-      - name: Deploying the {{ KF }} web interface
-        href: tutorials/deploy-kafka-ui.md
       - name: Working with {{ KF }} topics using {{ dataproc-name }}
         href: tutorials/data-proc.md
   - name: Concepts

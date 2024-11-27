@@ -6,4 +6,5 @@
 * [{#T}](organization-get-id.md)
 * [{#T}](org-profile.md)
 * [{#T}](manage-organizations.md)
+* [{#T}](hide-user-info.md)
 * [{#T}](delete-org.md)

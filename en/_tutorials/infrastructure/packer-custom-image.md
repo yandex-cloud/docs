@@ -142,6 +142,7 @@ The cost of building a VM image and creating a VM from it includes:
 1. Create an [HCL](https://github.com/hashicorp/hcl#readme) configuration file, such as `toolbox.pkr.hcl`.
 1. In the configuration file, describe the parameters of the image to create:
 
+
     ```hcl
     # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #
@@ -303,6 +304,9 @@ The cost of building a VM image and creating a VM from it includes:
       }
     }
     ```
+
+
+
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
 

@@ -31,9 +31,9 @@ After creating a cluster, you can:
 
 Learn more about other cluster updates:
 
-* [{#T}](cluster-version-update.md)
+* [{#T}](cluster-version-update.md).
 
-* [Migrating hosts to a different availability zone](host-migration.md)
+* [Migrating hosts to a different availability zone](host-migration.md).
 
 ## Changing the cluster name and description {#change-name-and-description}
 
@@ -54,7 +54,7 @@ Learn more about other cluster updates:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
+  To change the name and description of a cluster:
 
   1. View the description of the update cluster CLI command:
 
@@ -237,7 +237,7 @@ We recommend changing the host class only when the cluster has no active workloa
 	 * Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
      * Select the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the virtual machine the hosts will be deployed on:
         * `high-memory`: Increased RAM per 1 vCPU.
-        * `burstable`: Partial guaranteed share of vCPU. VMs with a guaranteed share of less than 100% ensure the specified level of performance with a possible temporary performance increase up to 100%. Clusters with such hosts are good for tasks that don't require guaranteed permanent performance (for example, testing).
+        * `burstable`: Partial guaranteed share of vCPU. VMs with a guaranteed share of less than 100% ensure the specified level of performance with a possible temporary performance increase up to 100%. Clusters with such hosts are good for tasks that do not require guaranteed permanent performance (for example, testing).
      * Modify the host configuration.
 	 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -564,7 +564,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * List of cluster configuration fields to update, in the `updateMask` parameter.
+    * List of cluster configuration fields to update in the `updateMask` parameter.
 
     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -727,7 +727,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
     * List of security group IDs in the `securityGroupIds` parameter.
-    * List of settings to update (in this case, `securityGroupIds`), in the `updateMask` parameter.
+    * List of settings to update (in this case, `securityGroupIds`) in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
