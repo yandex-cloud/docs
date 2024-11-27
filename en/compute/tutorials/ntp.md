@@ -2,4 +2,4 @@
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/ntp'
 ---
 
-{% include [ntp](../../_tutorials/infrastructure/ntp.md) %}
+{% include [ntp](../../_tutorials/infrastructure-management/ntp.md) %}
