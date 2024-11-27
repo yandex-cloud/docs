@@ -17,7 +17,6 @@ NTP servers recommended for syncing:
 * `0.ru.pool.ntp.org`
 * `1.ru.pool.ntp.org`
 * `ntp0.NL.net`
-* `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
 * `ntps1-1.cs.tu-berlin.de`
 
@@ -76,7 +75,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
      
 
       ```text
-      FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
+      FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
 
 
@@ -130,7 +129,6 @@ The cost of clock synchronization using NTP includes fees for computing resource
       server 0.ru.pool.ntp.org
       server 1.ru.pool.ntp.org
       server ntp0.NL.net
-      server ntp2.vniiftri.ru
       server ntp.ix.ru
       server ntps1-1.cs.tu-berlin.de
       ```
@@ -166,7 +164,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 
       ```powershell
-      w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
+      w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp.ix.ru ntps1-1.cs.tu-berlin.de"
       ```
 
 
@@ -268,7 +266,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
   ...
   [TimeProviders]
   ...
-  NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
+  NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.netntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
   ...
   ```
 
