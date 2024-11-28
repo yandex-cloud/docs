@@ -42,3 +42,5 @@ description: Следуя данной инструкции, вы сможете
 1. Укажите [аннотации](../../concepts/alerting/annotation.md) к алерту.
 1. Настройте [уведомления](../../concepts/alerting/notification-channel.md). Если у вас нет канала уведомлений, [создайте его](create-channel.md).
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Алерт появится в списке.
+
+Чтобы следить за состоянием алерта, добавьте его [виджет на дашборд](../dashboard/add-widget.md).

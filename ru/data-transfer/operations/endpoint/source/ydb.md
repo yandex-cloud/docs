@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-    * [Загрузка данных из {{ ydb-short-name }} в {{ objstorage-name }}](../../../../_tutorials/dataplatform/datatransfer/ydb-to-object-storage.md).
+    * [Загрузка данных из {{ ydb-short-name }} в {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

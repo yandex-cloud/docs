@@ -6,7 +6,6 @@ description: Различные сценарии использования {{ c
 # Практические руководства {{ cloud-logging-name }}
 
 * [{#T}](k8s-fluent-bit-logging.md)
-* [{#T}](metastore-logging.md)
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](replicate-logs-to-storage.md)

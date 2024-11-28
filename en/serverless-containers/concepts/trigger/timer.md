@@ -1,6 +1,6 @@
 # Timer that invokes a {{ serverless-containers-name }} container
 
-_Timer_ is a [trigger](../trigger/) that invokes a {{ serverless-containers-name }} [container](../container.md) on a schedule. The schedule is entered as a [cron expression](../../../_includes/functions/cron-expression.md#cron-expression). The cron expression uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+_Timer_ is a [trigger](../trigger/) that invokes a {{ serverless-containers-name }} [container](../container.md) on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 A timer needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a container.
 

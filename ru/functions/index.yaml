@@ -47,8 +47,8 @@ links:
   - title: R
     description: Разработка функций на языке R
     href: lang/r/
-  - title: C#
-    description: Разработка функций на языке C#
+  - title: .NET Core
+    description: Разработка функций на языке .NET Core
     href: lang/csharp/
   - title: Справочник API Functions (англ.)
     description: Описание методов HTTP API

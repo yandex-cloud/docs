@@ -4,7 +4,7 @@
    1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
    1. Check the **Disk usage** chart.
-1. Make sure that the host being written to is the master rather than a [replica](mysql.md#read-only-instance).
+1. Make sure that the host being written to is the master rather than a [replica](../../managed-mysql/qa/mysql.md#read-only-instance).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 

@@ -43,7 +43,7 @@
 
   Администратор сможет [назначить права](../organization/operations/add-role.md) пользователю только после того, как пользователь примет приглашение. Чтобы пользователь сразу после принятия приглашения получал нужные права или состоял в [группе](../organization/concepts/groups.md), вы можете добавить его в группу {{ org-full-name }}. Для этого:
 
-  1. [Отправьте приглашение](../_includes/organization/add-user.md#useraccount) в {{ org-full-name }}.
+  1. [Отправьте приглашение](../organization/operations/add-account.md#useraccount) в {{ org-full-name }}.
    
   1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) и нажмите строку с названием группы (если вы не видите данного раздела, нажмите кнопку ![](../_assets/horizontal-ellipsis.svg) **Еще**).
 

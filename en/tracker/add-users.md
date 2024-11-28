@@ -43,7 +43,7 @@ To invite a user to an organization:
 
    The administrator can [grant user permissions](../organization/operations/add-role.md) only after the user accepts the invitation. To make sure the user gets the appropriate permissions or joins a [group](../organization/concepts/groups.md) immediately after accepting the invitation, you can add them to the {{ org-full-name }} group. To do this:
 
-   1. [Send an invitation](../_includes/organization/add-user.md#useraccount) to {{ org-full-name }}.
+   1. [Send an invitation](../organization/operations/add-account.md#useraccount) to {{ org-full-name }}.
 
    1. In the left-hand panel, select the **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../_assets/console-icons/persons.svg) section and click the line with the group name (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 

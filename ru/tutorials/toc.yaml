@@ -23,8 +23,6 @@ items:
             href: security/tls-termination/terraform.md
       - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
-      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
-        href: security/metastore-logging.md
       - name: Запись логов балансировщика в {{ PG }}
         href: security/logging.md
       - name: >-

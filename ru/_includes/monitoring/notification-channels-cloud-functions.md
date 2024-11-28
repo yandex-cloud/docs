@@ -4,7 +4,7 @@
 
 1. [Создайте функцию](../../functions/operations/function/function-create.md) и [версию функции](../../functions/operations/function/version-manage.md) в том же каталоге, где находится эскалация.
 1. Включите в настройках функции [возможность асинхронного вызова](../../functions/operations/function/function-invoke-async.md).
-1. [Создайте сервисный аккаунт](../iam/create-sa-via-console.md) с ролями `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`, он потребуется для вызова функции.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`, он потребуется для вызова функции.
 1. Создайте эскалацию и выберите метод уведомлений **{{ sf-name }}**.
 1. В списке **Облачная функция** выберите созданную ранее функцию.
 1. В списке **Сервисный аккаунт** выберите аккаунт для вызова функции.

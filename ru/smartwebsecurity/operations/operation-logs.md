@@ -28,4 +28,5 @@
 
 #### См. также {#see-also}
 
+* [{#T}](./profile-get.md)
 * [{#T}](../../api-design-guide/concepts/about-async.md)
