@@ -364,7 +364,7 @@ To automate operations with {{ kms-short-name }}, we recommend that you create a
 
 We recommend that you grant granular permissions for specific keys in the {{ kms-short-name }} service to your users and service accounts. For more information, see the {{ kms-short-name }} documentation, [Access management in {{ kms-name }}](../../../kms/security/).
 
-For more information about security measures for access control, see [Authentication and access control](authentication.md).
+For more information about security measures for access control, see [Authentication and access control](../../../security/standard/authentication.md).
 
 To check the {{ kms-short-name }} key access permissions, check who has access permissions for:
 * Organization, cloud, or folder (such permissions as `admin`, `editor`, `kms.admin`, `kms.editor`, or `kms.keys.encrypterDecrypter`)
@@ -647,7 +647,7 @@ Delete the secret data from env and [use](../../../functions/operations/function
 
 [Encrypting secrets in {{ TF }} to transfer them to a VM from a {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
-For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](virtualenv-safe-config.md#tf-using).
+For other recommendations on how to use {{ TF }} safely, see [Secure configuration: {{ TF }}](../../../security/standard/virtualenv-safe-config.md#tf-using).
 
 #### 4.16 There is a guide for cloud administrators on handling compromised secrets {#secrets-scanning}
 

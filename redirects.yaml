@@ -1,15 +1,19 @@
 common:
-    - from: data-proc/concepts/metastore.md
-      to: metadata-hub/concepts/metastore.md
-    - from: data-proc/concepts/metastore-impersonation.md
-      to: metadata-hub/concepts/metastore-impersonation.md
-    - from: data-proc/operations/metastore/cluster-create.md
-      to: metadata-hub/operations/metastore/cluster-create.md
-    - from: data-proc/operations/metastore/cluster-delete.md
-      to: metadata-hub/operations/metastore/cluster-delete.md
-    - from: data-proc/operations/metastore/dataproc-connect.md
-      to: metadata-hub/operations/metastore/dataproc-connect.md
-    - from: data-proc/operations/metastore/export-and-import.md
-      to: metadata-hub/operations/metastore/export-and-import.md
-    - from: security/domains/checklist.md
-      to: security/domains/index.md
+  - from: ^/data-proc/concepts/metastore
+    to: /metadata-hub/concepts/metastore
+  - from: ^/data-proc/concepts/metastore-impersonation
+    to: /metadata-hub/concepts/metastore-impersonation
+  - from: ^/data-proc/operations/metastore/cluster-create
+    to: /metadata-hub/operations/metastore/cluster-create
+  - from: ^/data-proc/operations/metastore/cluster-delete
+    to: /metadata-hub/operations/metastore/cluster-delete
+  - from: ^/data-proc/operations/metastore/dataproc-connect
+    to: /metadata-hub/operations/metastore/dataproc-connect
+  - from: ^/data-proc/operations/metastore/export-and-import
+    to: /metadata-hub/operations/metastore/export-and-import
+  - from: ^/security/domains/checklist
+    to: /security/domains
+  - from: ^/datalens/concepts/dataset/(.*)
+    to: /datalens/dataset/$1
+  - from: ^/datalens/operations/dataset/(.*)
+    to: /datalens/dataset/create-dataset

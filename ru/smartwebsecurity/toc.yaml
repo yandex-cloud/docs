@@ -13,6 +13,8 @@ items:
             href: operations/profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/profile-get.md
           - name: Удалить профиль
             href: operations/profile-delete.md
           - name: Добавить правило

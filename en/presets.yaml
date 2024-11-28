@@ -926,7 +926,9 @@ default:
         c100:
           gpu-standard:
             preemptible:
+              t4i|string: ₸5.25
               v3|string: ₸1.80
+            t4i|string: ₸5.25
             v3|string: ₸4.50
           highfreq-v3|string: ₸8.80
           preemptible:
@@ -954,9 +956,11 @@ default:
       gpu:
         gpu-standard:
           preemptible:
+            t4i|string: ₸720.00
             v2|string: ₸312.00
             v3|string: ₸743.40
           preemptible|string: ₸312.00
+          t4i|string: ₸720.00
           v2|string: ₸1247.60
           v3|string: ₸1858.50
         gpu-standard|string: ₸1247.60
@@ -971,7 +975,9 @@ default:
       ram:
         gpu-standard:
           preemptible:
+            t4i|string: ₸1.40
             v3|string: ₸0.55
+          t4i|string: ₸1.40
           v3|string: ₸1.40
         highfreq-v3|string: ₸1.60
         preemptible:
@@ -1234,10 +1240,12 @@ default:
         v2:
           cpu:
             c100:
+              dedicated|number: 6
               dedicated|string: ₸6.00
             c100|month|string: ₸8604.00
             c100|string: ₸11.95
           ram:
+            dedicated|number: 1.55
             dedicated|string: ₸1.55
           ram|month|string: ₸2268.00
           ram|string: ₸3.15
@@ -1246,10 +1254,12 @@ default:
             c100:
               dedicated|string: ₸5.40
             c100|month|string: ₸7740.00
+            c100|number: 10.75
             c100|string: ₸10.75
           ram:
             dedicated|string: ₸1.40
           ram|month|string: ₸2052.00
+          ram|number: 2.85
           ram|string: ₸2.85
       kafka:
         v2:
@@ -1275,6 +1285,7 @@ default:
         elasticsearch|month|string: ₸65.05
         greenplum:
           dedicated|month|string: ₸21.05
+        greenplum|month|number: 65.05
         greenplum|month|string: ₸65.05
         kafka|month|string: ₸65.05
         mongodb|month|string: ₸65.05
@@ -1367,6 +1378,7 @@ default:
         ch|month|number: 16
         ch|month|string: ₸16.00
         elasticsearch|month|string: ₸16.00
+        greenplum|month|number: 16
         greenplum|month|string: ₸16.00
         kafka|month|number: 16
         kafka|month|string: ₸16.00
@@ -1670,6 +1682,7 @@ default:
     check:
       requests:
         v1|pricingRate:
+          250|number: 500
           250|string: ₸500.00
   sku|KZT|speechkit:
     stt_long_running_deferred:
@@ -2134,7 +2147,9 @@ default:
         c100:
           gpu-standard:
             preemptible:
+              t4i|string: ₽1.05
               v3|string: ₽0.36
+            t4i|string: ₽1.05
             v3|string: ₽0.90
           highfreq-v3|string: ₽1.76
           preemptible:
@@ -2162,9 +2177,11 @@ default:
       gpu:
         gpu-standard:
           preemptible:
+            t4i|string: ₽144.00
             v2|string: ₽62.40
             v3|string: ₽148.68
           preemptible|string: ₽62.40
+          t4i|string: ₽144.00
           v2|string: ₽249.52
           v3|string: ₽371.70
         gpu-standard|string: ₽249.52
@@ -2179,7 +2196,9 @@ default:
       ram:
         gpu-standard:
           preemptible:
+            t4i|string: ₽0.28
             v3|string: ₽0.11
+          t4i|string: ₽0.28
           v3|string: ₽0.28
         highfreq-v3|string: ₽0.32
         preemptible:
@@ -2443,10 +2462,12 @@ default:
         v2:
           cpu:
             c100:
+              dedicated|number: 1.2
               dedicated|string: ₽1.20
             c100|month|string: ₽1720.80
             c100|string: ₽2.39
           ram:
+            dedicated|number: 0.31
             dedicated|string: ₽0.31
           ram|month|string: ₽453.60
           ram|string: ₽0.63
@@ -2455,10 +2476,12 @@ default:
             c100:
               dedicated|string: ₽1.08
             c100|month|string: ₽1548.00
+            c100|number: 2.15
             c100|string: ₽2.15
           ram:
             dedicated|string: ₽0.28
           ram|month|string: ₽410.40
+          ram|number: 0.57
           ram|string: ₽0.57
       kafka:
         v2:
@@ -2484,6 +2507,7 @@ default:
         elasticsearch|month|string: ₽13.01
         greenplum:
           dedicated|month|string: ₽4.21
+        greenplum|month|number: 13.01
         greenplum|month|string: ₽13.01
         kafka|month|string: ₽13.01
         mongodb|month|string: ₽13.01
@@ -2576,6 +2600,7 @@ default:
         ch|month|number: 3.2
         ch|month|string: ₽3.20
         elasticsearch|month|string: ₽3.20
+        greenplum|month|number: 3.2
         greenplum|month|string: ₽3.20
         kafka|month|number: 3.2
         kafka|month|string: ₽3.20
@@ -2879,6 +2904,7 @@ default:
     check:
       requests:
         v1|pricingRate:
+          250|number: 100
           250|string: ₽100.00
   sku|RUB|speechkit:
     stt_long_running_deferred:
@@ -3343,7 +3369,9 @@ default:
         c100:
           gpu-standard:
             preemptible:
+              t4i|string: $0.008400
               v3|string: $0.002880
+            t4i|string: $0.008400
             v3|string: $0.007200
           highfreq-v3|string: $0.014080
           preemptible:
@@ -3371,9 +3399,11 @@ default:
       gpu:
         gpu-standard:
           preemptible:
+            t4i|string: $1.152000
             v2|string: $0.499200
             v3|string: $1.189440
           preemptible|string: $0.499200
+          t4i|string: $1.152000
           v2|string: $1.996160
           v3|string: $2.973600
         gpu-standard|string: $1.996160
@@ -3388,7 +3418,9 @@ default:
       ram:
         gpu-standard:
           preemptible:
+            t4i|string: $0.002240
             v3|string: $0.000880
+          t4i|string: $0.002240
           v3|string: $0.002240
         highfreq-v3|string: $0.002560
         preemptible:
@@ -3645,15 +3677,23 @@ default:
       greenplum:
         v2:
           cpu:
+            c100:
+              dedicated|number: 0.0096
+              dedicated|string: $0.009600
             c100|month|string: $13.766400
             c100|string: $0.019120
+          ram:
+            dedicated|number: 0.00248
+            dedicated|string: $0.002480
           ram|month|string: $3.628800
           ram|string: $0.005040
         v3:
           cpu:
             c100|month|string: $12.384000
+            c100|number: 0.0172
             c100|string: $0.017200
           ram|month|string: $3.283200
+          ram|number: 0.00456
           ram|string: $0.004560
       kafka:
         v2:
@@ -3679,6 +3719,7 @@ default:
         elasticsearch|month|string: $0.104080
         greenplum:
           dedicated|month|string: $0.033680
+        greenplum|month|number: 0.10408
         greenplum|month|string: $0.104080
         kafka|month|string: $0.104080
         mongodb|month|string: $0.104080
@@ -3771,6 +3812,7 @@ default:
         ch|month|number: 0.0256
         ch|month|string: $0.025600
         elasticsearch|month|string: $0.025600
+        greenplum|month|number: 0.0256
         greenplum|month|string: $0.025600
         kafka|month|number: 0.0256
         kafka|month|string: $0.025600
@@ -4061,6 +4103,7 @@ default:
     check:
       requests:
         v1|pricingRate:
+          250|number: 0.8
           250|string: $0.800000
   sku|USD|speechkit:
     stt_long_running_deferred:

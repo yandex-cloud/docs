@@ -37,7 +37,7 @@ New {{ KF }} version 3.3 is available in the `PRODUCTION` environment.
 * Improved the performance of transactions to modify user privileges for a large number of topics.
 * The `Message max bytes`, `Offsets retention minutes`, `Replica fetch max bytes`, and `Ssl cipher suites` [settings](concepts/settings-list.md#cluster-settings) are now supported.
 * Added the ability to create a cluster on local disks on Intel Ice Lake.
-* Fixed the `kafka_group_topic_partition_lag` metric calculation. For more information, see the [{{ monitoring-full-name }} metric reference](../_includes/monitoring/metrics-ref/managed-kafka.md).
+* Fixed the `kafka_group_topic_partition_lag` metric calculation. For more information, see the [{{ monitoring-full-name }} metric reference](metrics.md).
 * New {{ KF }} version 3.2 is available in the `PRODUCTION` environment.
 
 ## Q2 2022 {#q2-2022}

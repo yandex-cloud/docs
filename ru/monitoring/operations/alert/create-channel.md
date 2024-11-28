@@ -35,7 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.
 
-## Создание канала уведомлений с с вызовом функции {{ sf-name }}
+## Создание канала уведомлений с вызовом функции {{ sf-name }}
 
 {% include [escalation-cloud-functions](../../../_includes/monitoring/escalation-cloud-functions.md) %}
 

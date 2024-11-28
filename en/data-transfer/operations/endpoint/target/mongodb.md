@@ -12,7 +12,7 @@ description: In this tutorial, you will learn how to set up a {{ MG }} target en
 1. [Prepare the {{ MG }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. [Perform required operations with the database](#db-actions) and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data to {{ MG }} {#scenarios}

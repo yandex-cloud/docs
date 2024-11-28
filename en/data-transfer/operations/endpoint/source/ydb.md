@@ -29,7 +29,7 @@ description: In this tutorial, you will learn how to configure a {{ ydb-full-nam
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-    * [Loading data from {{ ydb-short-name }} to {{ objstorage-name }}](../../../../_tutorials/dataplatform/datatransfer/ydb-to-object-storage.md).
+    * [Loading data from {{ ydb-short-name }} to {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
