@@ -1,6 +1,6 @@
 | Service | Price of 1 GB per month |
 |---------------------------------|------------------------------------------------------------:|
-| Network HDD storage | {{ sku|USD|mdb.cluster.local-nvme.greenplum|month|string }} |
+| Network HDD storage | {{ sku|USD|mdb.cluster.network-hdd.greenplum|month|string }} |
 | Non-replicated SSD storage | {{ sku|USD|mdb.cluster.local-nvme.greenplum|month|string }} |
 | Network SSD storage | {{ sku|USD|mdb.cluster.local-nvme.greenplum|month|string }} |
 | High-performance SSD storage | {{ sku|USD|mdb.cluster.network-ssd-io-m3.greenplum|month|string }} |

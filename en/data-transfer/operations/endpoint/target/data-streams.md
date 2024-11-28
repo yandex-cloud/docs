@@ -11,7 +11,7 @@ description: In this tutorial, you will learn how to set up a {{ yds-full-name }
 1. [Configure one of the supported data sources](#supported-sources).
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [control the transfer](../../monitoring.md).
+1. Perform required operations with the database and [control the transfer](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data to {{ yds-full-name }} {#scenarios}

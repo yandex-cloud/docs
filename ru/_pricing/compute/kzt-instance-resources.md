@@ -20,9 +20,9 @@
 | 1 GPU Nvidia T4 | {{ sku|KZT|compute.vm.gpu.standard.v3-t4|string }} | {{ sku|KZT|compute.vm.gpu.standard.v3-t4.preemptible|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.v3|string }} | {{ sku|KZT|compute.vm.ram.preemptible.v3|string }} | {{ sku|KZT|v1.commitment.selfcheckout.m6.compute.vm.ram.standard.v3|string }} | {{ sku|KZT|v1.commitment.selfcheckout.y1.compute.vm.ram.standard.v3|string }} |
 | **Intel Ice Lake with T4i** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
-| 100% vCPU | 5,25 ₸ | 5,25 ₸ | - | - |
-| 1 GPU | 720,00 ₸ | 720,00 ₸ | - | - |
-| RAM (за 1 ГБ) | 1,40 ₸ | 1,40 ₸ | - | - |
+| 100% vCPU | {{ sku|KZT|compute.vm.cpu.c100.gpu-standard.t4i|string }} | {{ sku|KZT|compute.vm.cpu.c100.gpu-standard.preemptible.t4i|string }} | - | - |
+| 1 GPU | {{ sku|KZT|compute.vm.gpu.gpu-standard.t4i|string }} | {{ sku|KZT|compute.vm.gpu.gpu-standard.preemptible.t4i|string }} | - | - |
+| RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.gpu-standard.t4i|string }} | {{ sku|KZT|compute.vm.ram.gpu-standard.preemptible.t4i|string }} | - | - |
 | **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
 | 100% vCPU | {{ sku|KZT|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
 | RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.highfreq-v3|string }} | - | − | − |

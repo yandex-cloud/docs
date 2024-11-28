@@ -1,6 +1,6 @@
 # Таймер, который вызывает контейнер {{ serverless-containers-name }}
 
-_Таймер_ — это [триггер](../trigger/), который запускает [контейнер](../container.md) {{ serverless-containers-name }} по расписанию. Расписание задается в виде [cron-выражения](../../../_includes/functions/cron-expression.md#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+_Таймер_ — это [триггер](../trigger/), который запускает [контейнер](../container.md) {{ serverless-containers-name }} по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
 Таймеру необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для вызова контейнера.
 

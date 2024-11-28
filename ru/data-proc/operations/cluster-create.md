@@ -381,8 +381,12 @@
      }
      ```
 
-
-  1. Создайте конфигурационный файл с описанием [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }}, а также [статического ключа](../../iam/concepts/authorization/access-key.md) и бакета {{ objstorage-name }} для хранения заданий и результатов.
+  
+  1. Создайте конфигурационный файл с описанием следующих ресурсов:
+      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
+      * Сервисный аккаунт для создания бакета {{ objstorage-name }}.
+      * [Статический ключ](../../iam/concepts/authorization/access-key.md).
+      * Бакет {{ objstorage-name }} для хранения результатов выполнения [заданий](../concepts/jobs.md).
 
      ```hcl
      resource "yandex_iam_service_account" "data_proc_sa" {
@@ -402,18 +406,29 @@
        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
      }
 
-     resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
-       service_account_id = yandex_iam_service_account.data_proc_sa.id
+     resource "yandex_iam_service_account" "bucket_sa" {
+       name        = "<имя_сервисного_аккаунта>"
+       description = "<описание_сервисного_аккаунта>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_member" "storage-editor" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "storage.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.bucket_sa.id}"
+     }
+
+     resource "yandex_iam_service_account_static_access_key" "bucket_sa_static_key" {
+       service_account_id = yandex_iam_service_account.bucket_sa.id
      }
 
      resource "yandex_storage_bucket" "data_bucket" {
        depends_on = [
-         yandex_resourcemanager_folder_iam_member.dataproc-provisioner
+         yandex_resourcemanager_folder_iam_member.storage-editor
        ]
 
        bucket     = "<имя_бакета>"
-       access_key = yandex_iam_service_account_static_access_key.sa_static_key.access_key
-       secret_key = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
+       access_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.secret_key
      }
      ```
 

@@ -15,7 +15,7 @@
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
-    1. [Создайте пользователя](../../../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника. В настройках пользователя укажите для [параметра](../../../mdb/mch-dbms-user-settings.md#setting-max-execution-time) **Max execution time**  значение не менее `1000000`.
+    1. [Создайте пользователя](../../../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника. В настройках пользователя укажите для [параметра](../../../../managed-clickhouse/concepts/settings-list.md#setting-max-execution-time) **Max execution time**  значение не менее `1000000`.
 
 * {{ CH }}
 

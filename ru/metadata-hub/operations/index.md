@@ -8,7 +8,7 @@ description: Пошаговые инструкции по работе с {{ met
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-## {{ connection-manager-name }} {#instrucations-connman}
+## {{ connection-manager-name }} {#instructions-connman}
 
 * [{#T}](create-connection.md)
 * [{#T}](view-connection.md)
@@ -22,6 +22,7 @@ description: Пошаговые инструкции по работе с {{ met
 * [{#T}](metastore/configure-security-group.md)
 * [{#T}](metastore/dataproc-connect.md)
 * [{#T}](metastore/export-and-import.md)
+* [{#T}](metastore/logging.md)
 * [{#T}](metastore/cluster-delete.md)
 
 

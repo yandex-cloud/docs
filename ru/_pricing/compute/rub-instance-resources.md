@@ -20,9 +20,9 @@
 | 1 GPU Nvidia T4 | {{ sku|RUB|compute.vm.gpu.standard.v3-t4|string }} | {{ sku|RUB|compute.vm.gpu.standard.v3-t4.preemptible|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.v3|string }} | {{ sku|RUB|compute.vm.ram.preemptible.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.m6.compute.vm.ram.standard.v3|string }} | {{ sku|RUB|v1.commitment.selfcheckout.y1.compute.vm.ram.standard.v3|string }} |
 | **Intel Ice Lake with T4i** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
-| 100% vCPU | 1,05 ₽ | 1,05 ₽ | - | - |
-| 1 GPU | 144,00 ₽ | 144,00 ₽ | - | - |
-| RAM (за 1 ГБ) | 0,28 ₽ | 0,28 ₽ | - | - |
+| 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.gpu-standard.t4i|string }} | {{ sku|RUB|compute.vm.cpu.c100.gpu-standard.preemptible.t4i|string }} | - | - |
+| 1 GPU | {{ sku|RUB|compute.vm.gpu.gpu-standard.t4i|string }} | {{ sku|RUB|compute.vm.gpu.gpu-standard.preemptible.t4i|string }} | - | - |
+| RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.gpu-standard.t4i|string }} | {{ sku|RUB|compute.vm.ram.gpu-standard.preemptible.t4i|string }} | - | - |
 | **Intel Ice Lake (Compute Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
 | 100% vCPU | {{ sku|RUB|compute.vm.cpu.c100.highfreq-v3|string }} | - | − | − |
 | RAM (за 1 ГБ) | {{ sku|RUB|compute.vm.ram.highfreq-v3|string }} | - | − | − |
