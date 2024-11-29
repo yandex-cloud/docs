@@ -16,8 +16,7 @@ def main() -> None:
     # Определяем модель YandexGPT Pro RC и ее максимальный контекст
     model = sdk.models.completions(
         "yandexgpt", 
-        version="rc",
-        max_tokens=500
+        model_version="rc"
     )
 
     # Создаем ассистента для модели
@@ -26,6 +25,7 @@ def main() -> None:
         model,
         ttl_days=4,
         expiration_policy="since_last_active",
+        max_tokens=500
     )
 
     # Здесь нужно предусмотреть чтение сообщений пользователей
