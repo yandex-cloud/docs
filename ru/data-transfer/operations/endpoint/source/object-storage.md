@@ -4,6 +4,12 @@ description: Следуя данной инструкции, вы сможете
 ---
 # Передача данных из эндпоинта-источника {{ objstorage-full-name }}
 
+{% note info %}
+
+{% include [note-preview](../../../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из хранилища {{ objstorage-full-name }} в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
@@ -28,8 +34,6 @@ description: Следуя данной инструкции, вы сможете
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка эндпоинта-источника {{ objstorage-name }} {#endpoint-settings}
-
-{% include [note-preview](../../../../_includes/preview-pp.md) %}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 

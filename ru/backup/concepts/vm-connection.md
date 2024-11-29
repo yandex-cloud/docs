@@ -24,18 +24,19 @@
 
 ### Образы на базе Linux {#linux}
 
-* [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
-* [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
-* [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
-* [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
-* [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
-* [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
-* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts)
+* [Astra Linux SE 1.7 «Воронеж»](/marketplace/products/astralinux/alse)
+* [Astra Linux SE 1.7 «Орел»](/marketplace/products/astralinux/alse-orel)
 * [CentOS 7](/marketplace/products/yc/centos-7)
 * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
 * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
-* [Astra Linux SE 1.7 «Воронеж»](/marketplace/products/astralinux/alse)
-* [Astra Linux SE 1.7 «Орел»](/marketplace/products/astralinux/alse-orel)
+* [Debian 12](/marketplace/products/yc/debian-12)
+* [Ubuntu 16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts)
+* [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts)
+* [Ubuntu 18.04 LTS OS Login](/marketplace/products/yc/ubuntu-1804-lts-oslogin)
+* [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
+* [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
+* [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
+* [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
 
 ### Образы на базе Windows {#windows}
 

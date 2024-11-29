@@ -78,6 +78,8 @@ You can create calculated fields in the dataset or wizard interface.
 
   {% include [datalens-create-calculated-field-in-dataset](../../../_includes/datalens/operations/datalens-create-calculated-field-in-dataset.md) %}
 
+  ![dataset-calculated-field](../../../_assets/datalens/concepts/dataset-calculated-field.png)
+
 - Wizard
 
 
@@ -89,6 +91,8 @@ You can create calculated fields in the dataset or wizard interface.
   1. Enter a name for the field.
   1. Enter the required formula.
   1. Click **Create**. The field will appear in the list on the left. You can use it in a chart.
+
+  ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
 
 {% endlist %}
 
