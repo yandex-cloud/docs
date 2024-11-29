@@ -1,6 +1,14 @@
 # Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с использованием {{ data-transfer-full-name }}
 
 
+
+{% note info %}
+
+Функциональность загрузки данных из {{ objstorage-name }} в сервисе {{ data-transfer-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+
+{% endnote %}
+
+
 Вы можете перенести данные из {{ objstorage-full-name }} в таблицу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).

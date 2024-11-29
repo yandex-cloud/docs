@@ -20,7 +20,7 @@ editable: false
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md#working-mode) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
+Text generation cost is based on the overall number of prompt and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
@@ -40,6 +40,22 @@ The use of models fine-tuned in {{ ml-platform-full-name }} is charged according
 ### Text classification {#rules-text-classifier}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classifiers based on {{ yagpt-name }} is free of charge.
+
+{% note warning %}
+
+The pricing below will apply starting December 9, 2024.
+
+{% endnote %}
+
+The cost of text classification depends on the classification model you use and the number of [tokens](concepts/yandexgpt/tokens.md) you provide.
+
+* When classifying with {{ gpt-lite }}, a single billing unit is a request of up to 1,000 tokens.
+* When classifying with {{ gpt-pro }} and fine-tuned classifiers, a single billing unit is a request of up to 250 tokens.
+
+Requests with less than one billing unit are rounded up to the next integer. Large texts are billed as multiple requests with rounding up.
+
+> For example, classifying a text of 770 tokens with {{ gpt-lite }} will be billed as a single request, i.e., as one billing unit.
+> The same 770-token text classified with {{ gpt-pro }} or a fine-tuned classifier will be billed as four requests.
 
 ### Text vectorization {#rules-embedding}
 
@@ -64,6 +80,13 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
 
 
+### Text classification {#pricing-classifier}
+
+
+
+{% include [usd-classifier.md](../_pricing/yandexgpt/usd-classifier.md) %}
+
+
 ### Text vectorization in {{ yagpt-full-name }} {#pricing-embedding}
 
 
@@ -72,12 +95,6 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 
 
 ### Image generation {#pricing-image-generation}
-
-{% note warning %}
-
-The prices listed below will come into effect starting November 1, 2024.
-
-{% endnote %}
 
 
 

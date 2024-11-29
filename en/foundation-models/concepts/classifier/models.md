@@ -6,5 +6,6 @@ If an out-of-the-box model is not enough, you can [fine-tune](../../../dataspher
 
 | Model | URI | Operation mode |
 |---|---|---|
-| Prompt-based classifier | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |
+| Prompt-based classifier based on {{ gpt-lite }} | `cls://<folder_ID>/yandexgpt-lite/latest` | Synchronous |
+| Prompt-based classifier based on {{ gpt-pro }} | `cls://<folder_ID>/yandexgpt/latest` | Synchronous |
 | Classifier model fine-tuned in {{ ml-platform-full-name }} | `cls://<folder_ID>/<fine-tuned_model_ID>` | Synchronous |

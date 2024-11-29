@@ -78,6 +78,8 @@
 
   {% include [datalens-create-calculated-field-in-dataset](../../../_includes/datalens/operations/datalens-create-calculated-field-in-dataset.md) %}
 
+  ![dataset-calculated-field](../../../_assets/datalens/concepts/dataset-calculated-field.png)
+
 - Визард
   
 
@@ -89,6 +91,8 @@
   1. Введите название поля.
   1. Введите необходимую формулу.
   1. Нажмите кнопку **Создать**. Поле отобразится в списке слева. Вы можете использовать его в чарте.
+
+  ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
 
 {% endlist %}
 

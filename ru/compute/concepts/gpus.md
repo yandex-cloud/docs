@@ -9,7 +9,7 @@ description: GPU (Graphics Processing Unit) – это графический п
 {{ compute-name }} предоставляет графические ускорители ([GPU](../../glossary/gpu.md)) в различных [конфигурациях](#config) виртуальных машин. GPU обрабатывают некоторые типы данных эффективнее, чем CPU, и могут использоваться для сложных вычислений. Сделать решение задач еще эффективнее и удобнее поможет автоматическое выделение ресурсов в [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
 В {{ compute-name }} доступны следующие графические карты:
-* [NVIDIA® Tesla® V100](https://www.nvidia.com/ru-ru/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory). 
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/ru-ru/data-center/a100/) с 80 ГБ памяти HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/ru-ru/data-center/tesla-t4/) с 16 ГБ памяти GDDR6.
 
@@ -88,8 +88,10 @@ T4i использует тензорные ядра и предоставляе
 
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
+  2 | 160 | 36 | 288
+  4 | 320 | 72 | 576
   8 | 640 | 180 | 1440
-
+  
 * Платформа {{ t4-ice-lake }} (`standard-v3-t4`):
 
 
@@ -136,7 +138,7 @@ GPU в виртуальных машинах предоставляется це
 Максимальный возможный размер кластера на платформе AMD EPYC™ 9474F with Gen2 — 20 ВМ с конфигурацией 8 GPU, 80 ГБ VRAM, 180 vCPU, 1440 ГБ RAM. Фактический максимальный размер кластера ограничен технической доступностью ресурсов.
 
 
-## Смотрите также {#see-also}
+#### См. также {#see-also}
 
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md).
 * Узнайте, как [добавить GPU к существующей ВМ](../operations/vm-control/vm-update-resources.md#add-gpu).
