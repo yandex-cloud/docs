@@ -12,7 +12,7 @@ There are three types of classification available in {{ foundation-models-name }
 
 Classification models are only available in [synchronous mode](../index.md#working-mode).
 
-{{ foundation-models-name }} provides {{ yagpt-name }} classifiers of these two types: [prompt-based](#readymade) and [trainable](#trainable).
+{{ foundation-models-name }} provides {{ yagpt-name }} classifiers of these two types: [prompt-based](#readymade) based on {{ gpt-lite }} and {{ gpt-pro }}, and [trainable](#trainable).
 
 ## Prompt-based classifiers {#readymade}
 

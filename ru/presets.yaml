@@ -8568,6 +8568,12 @@ default:
         switch_security-groups: Группы безопасности
         title_network-map-page: Карта облачной сети
       yagpt:
+        foundation-models:
+          playground:
+            text-generation:
+              title: Генерация текста
+          section_title:
+            playground: AI Playground
         label_button-instruct-submit: Узнать ответ
         label_instruction-text: Инструкции
         label_promt: Промт-режим YandexGPT

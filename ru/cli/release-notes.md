@@ -7,6 +7,41 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.140.0 (29.11.24) {#version0.140.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ alb-name }} {#alb}
+
+* В команды `yc alb backend-group add-http-backend` и `yc alb backend-group update-http-backend` для параметра `--http-healthcheck` добавлено свойство `--expected-statuses`. Оно позволяет указать собственные коды HTTP-статусов, которые будут считаться корректными при проверках состояния бэкенда (HealthCheck).
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* В команду `yc desktops desktop create` добавлен параметр `subnet-id`.
+
+##### {{ cloud-registry-name }} {#cloud-registry}
+
+* Добавлены команды `yc cloud-registry artifact get` и `yc cloud-registry artifact delete`, позволяющие управлять артефактами.
+* Добавлены команды для управления реестрами: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
+
+##### {{ data-transfer-name }} {#data-transfer}
+
+* В команду `yc datatransfer endpoint create <endpoint_type>` для эндпоинтов `postgres-target`, `clickhouse-target`, `mysql-target` и `mongo-target` добавлен флаг `--cleanup-policy`, который позволяет задавать политики очистки приемника при активации и переактивации трансфера (`drop`, `truncte` или `disabled`).
+
+##### {{ iot-name }} {#iot}
+
+* В текстовый формат команд `iot registry list` и `iot device list` добавлена колонка STATUS.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore` и `yc managed-redis cluster update-config` добавлены параметры:
+  * `use-luajit`;
+  * `io-threads-allowed`.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.139.0 (18.11.24) {#version0.139.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -27,8 +62,6 @@ description: На странице представлены релизы YC CLI,
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
 * В команду `yc serverless container revision deploy` добавлен параметр `--runtime`, позволяющий задать режим работы контейнера (`http` или `task`).
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.138.0 (06.11.24) {#version0.138.0}
 

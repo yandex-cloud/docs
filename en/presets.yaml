@@ -8559,6 +8559,12 @@ default:
         switch_security-groups: Security groups
         title_network-map-page: Cloud network map
       yagpt:
+        foundation-models:
+          playground:
+            text-generation:
+              title: Text generation
+          section_title:
+            playground: AI Playground
         label_button-instruct-submit: View answer
         label_instruction-text: Instructions
         label_promt: YandexGPT Prompt mode

@@ -2,7 +2,7 @@
 
 {{ v100-broadwell }} и {{ v100-cascade-lake }}
 
-: * [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) (`ubuntu-1604-lts-gpu`)
+: * [Ubuntu 18.04 LTS GPU](/marketplace/products/yc/ubuntu-18-04-lts-gpu) (`ubuntu-1804-lts-gpu`)
   * [Ubuntu 20.04 LTS GPU](/marketplace/products/yc/ubuntu-20-04-lts-gpu) (`ubuntu-2004-lts-gpu`)
 
 {{ t4-ice-lake }}

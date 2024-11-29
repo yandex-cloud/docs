@@ -28,6 +28,8 @@ items:
         href: operations/subnet-create.md
       - name: Загрузить образ
         href: operations/image-upload.md
+      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+        href: operations/backup-baremetal.md
   - name: Концепции
     items:
       - name: Обзор

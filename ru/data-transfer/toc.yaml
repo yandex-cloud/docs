@@ -406,6 +406,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Ноябрь 2024
+        href: release-notes/2411.md
       - name: Октябрь 2024
         href: release-notes/2410.md
       - name: Сентябрь 2024
