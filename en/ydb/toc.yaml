@@ -136,7 +136,7 @@ items:
       - name: Dedicated mode
         href: pricing/dedicated.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/ydb/index.md
+    href: ../cli/cli-ref/ydb/cli-ref/index.md
   - name: Amazon DynamoDB-compatible Document API
     items:
       - name: Tools

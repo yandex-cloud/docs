@@ -87,7 +87,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
    1. Create subnets in all availability zones.
 
@@ -157,7 +157,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
          - 10.3.0.0/16
          ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - {{ TF }}
 
@@ -489,7 +489,7 @@ To create security groups:
      predefined_target: loadbalancer_healthchecks
    ```
 
-   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - {{ TF }}
 
@@ -627,7 +627,7 @@ To create security groups:
       created_at: "2022-04-04T10:31:41.027649223Z"
       ```
 
-      For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+      For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
    1. Create the `example-vh` virtual host:
 
@@ -646,7 +646,7 @@ To create security groups:
       - cdn.yandexcloud.example
       ```
 
-      For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+      For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
    1. Create the `example-route` route in the `example-vh` virtual host:
 
@@ -675,7 +675,7 @@ To create security groups:
             backend_group_id: ds7pbm5fj2v0********
       ```
 
-      For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+      For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 - {{ TF }}
 
@@ -780,7 +780,7 @@ To create security groups:
       +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
       ```
 
-      For more information about the `yc vpc network list-subnets` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
+      For more information about the `yc vpc network list-subnets` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
 
    1. Get the `example-sg` security group ID:
 
@@ -794,7 +794,7 @@ To create security groups:
       id: enpd133ngcnrgc8475cc
       ```
 
-      For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
+      For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
    1. Create a load balancer named `example-balancer`:
 
@@ -831,7 +831,7 @@ To create security groups:
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
-      For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+      For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
    1. Add a listener to the load balancer:
 
@@ -878,7 +878,7 @@ To create security groups:
       created_at: "2022-04-04T10:55:49.134935148Z"
       ```
 
-      For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+      For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 - {{ TF }}
 
@@ -1031,7 +1031,7 @@ To create security groups:
         enabled: true
       ```
 
-      For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+      For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
    1. Copy the `origin_group_id` from the previous step and create a CDN resource by running the command:
@@ -1058,7 +1058,7 @@ To create security groups:
       ...
       ```
 
-      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
    1. Enable a client redirect for a resource:
 
@@ -1232,7 +1232,7 @@ To configure DNS:
          public_visibility: {}
          ```
 
-         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
+         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
       1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-****edgecdn.ru` format:
 
@@ -1242,7 +1242,7 @@ To configure DNS:
            --record "cdn CNAME cl-****edgecdn.ru" \
          ```
 
-         For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+         For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
    - {{ TF }}
 

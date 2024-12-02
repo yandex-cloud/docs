@@ -92,7 +92,7 @@ description: Из статьи вы узнаете, как изменить ра
      * `--start-at` — дата и время начала. Также можно указать промежуток времени относительно текущего момента. Например: `"2022-12-31T16:39:00+05:00"`, `"2h"`.
      * `--labels` — метки, указанные в формате `ключ=значение`.
 
-     Подробнее о команде `yc compute snapshot-schedule update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/update.md).
+     Подробнее о команде `yc compute snapshot-schedule update` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
 
      Результат:
 

@@ -93,7 +93,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
         done (1s)
         ```
 
-        For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
+        For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
     1. The `storage.uploader` role for a folder:
 
@@ -111,7 +111,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
         done (1s)
         ```
 
-        For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+        For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -135,7 +135,7 @@ Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example
     done (1s)
     ```
 
-    For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+    For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 

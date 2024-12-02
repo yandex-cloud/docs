@@ -74,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
        enabled: true
      ```
 
-     Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+     Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 - {{ TF }} {#tf}
 

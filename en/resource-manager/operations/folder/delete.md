@@ -64,7 +64,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
       Once the folder deletion is over, the output will contain the `done` field set to `true` (`done: true`).
 
-  For more information about the `yc resource-manager folder delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/resource-manager/folder/delete.md).
+  For more information about the `yc resource-manager folder delete` command, see the [CLI reference](../../../cli/cli-ref/resource-manager/cli-ref/folder/delete.md).
 
 - {{ TF }} {#tf}
 

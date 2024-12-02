@@ -86,7 +86,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
      created_at: "2024-07-25T19:21:05.039610Z"
      ```
 
-  For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
+  For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
 
 - API {#api}
 

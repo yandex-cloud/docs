@@ -87,7 +87,7 @@ To create a virtual network and subnet for your web server:
       default_security_group_id: enppne4l2eg5********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet in the `{{ region-id }}-b` availability zone:
 
@@ -111,7 +111,7 @@ To create a virtual network and subnet for your web server:
         - 192.168.1.0/24
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -204,7 +204,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
   Save the security group ID (`id`) as you will need need it to create a VM.
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -307,7 +307,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
       placement_policy: {}
       ```
 
-      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
     - API {#api}
 

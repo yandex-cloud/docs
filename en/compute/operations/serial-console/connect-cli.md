@@ -59,7 +59,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
       When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
 
-      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/connect-to-serial-port.md).
 
 - Linux via {{ oslogin }}
 
@@ -91,7 +91,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
       When connecting, the system may request a username and password to authenticate on the VM. Enter the username and password you created earlier to gain access to the serial console.
 
-      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/connect-to-serial-port.md).
 
 - Windows
 
@@ -119,7 +119,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
       When prompted by the system, enter your username, domain (VM name), and password. For more information, see [Starting your terminal in the Windows serial console (SAC)](./windows-sac.md).
 
-      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/connect-to-serial-port.md).
+      For more information about the `yc compute connect-to-serial-port` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/connect-to-serial-port.md).
 
 {% endlist %}
 

@@ -626,7 +626,7 @@ items:
           - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/compute/index.md
+    href: ../cli/cli-ref/compute/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

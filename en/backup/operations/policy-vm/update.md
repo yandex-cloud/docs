@@ -118,7 +118,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
       folder_id: d2q792qpemb4********
       ```
 
-      For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/update.md).
+      For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
 
 - {{ TF }} {#tf}
 
@@ -253,7 +253,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
          Where `--instance-ids` are the IDs of VMs to link to the backup policy. Multiple IDs should be comma-separated.
 
-         For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/apply.md).
+         For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
       * To unlink a VM from a backup policy:
 
          View a description of the CLI command:
@@ -271,7 +271,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
          Where `--instance-ids` are the IDs of VMs to unlink from the backup policy. Multiple IDs should be comma-separated.
 
-         For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
+         For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
 - API {#api}
 

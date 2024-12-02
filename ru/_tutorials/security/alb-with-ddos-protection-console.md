@@ -55,7 +55,7 @@
        --name ddos-network
      ```
 
-     Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью флага `--network-name`:
 
@@ -83,7 +83,7 @@
        --range 192.168.2.0/24
      ```
 
-     Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 {% endlist %}
 
@@ -161,7 +161,7 @@
 
   Где `security-group-id` — идентификатор группы безопасности `ddos-sg-balancer`.
 
-  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 {% endlist %}
 
@@ -223,11 +223,11 @@
 
   1. Получите идентификаторы ресурсов, необходимые для создания группы ВМ, с помощью команд:
 
-     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта.
-     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md) — для сети `ddos-network`.
-     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-d`.
-     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска.
-     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
+     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/iam/cli-ref/service-account/get.md) — для сервисного аккаунта.
+     * [yc vpc network get ddos-network](../../cli/cli-ref/vpc/cli-ref/network/get.md) — для сети `ddos-network`.
+     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/vpc/cli-ref/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-d`.
+     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md) — для образа загрузочного диска.
+     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/vpc/cli-ref/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
 
   1. Создайте YAML-файл с именем `specification.yaml`.
   1. Добавьте в него описание конфигурации базовой ВМ:
@@ -337,7 +337,7 @@
        target_group_id: ds78imh0ds2e********
      ```
 
-     Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+     Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 {% endlist %}
 
@@ -410,7 +410,7 @@
      created_at: "2021-08-08T20:46:21.688940670Z"
      ```
 
-     Подробнее о команде `yc alb backend-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/create.md).
+     Подробнее о команде `yc alb backend-group create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/create.md).
 
   1. Добавьте в группу бэкенд и проверку состояния:
 
@@ -461,7 +461,7 @@
      created_at: "2021-08-08T07:59:22.922603189Z"
      ```
 
-     Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
+     Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/add-http-backend.md).
 
 {% endlist %}
 
@@ -510,7 +510,7 @@
      created_at: "2021-08-08T21:04:59.438292069Z"
      ```
 
-     Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост, указав имя HTTP-роутера:
 
@@ -520,7 +520,7 @@
        --authority alb-with-ddos.com
      ```
 
-     Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
   1. Добавьте маршрут, указав имя роутера и параметры маршрутизации:
 
@@ -549,7 +549,7 @@
             timeout: 60s
      ```
 
-     Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 {% endlist %}
 
@@ -590,7 +590,7 @@
        --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
      ```
 
-     Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Добавьте обработчик:
 
@@ -601,7 +601,7 @@
        --external-ipv4-endpoint port=80, address=<IP-адрес_с_защитой_от_DDoS>
      ```
 
-     Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 {% endlist %}
 

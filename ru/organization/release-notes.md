@@ -23,5 +23,5 @@ description: В разделе представлена история изме�
 
 ## I квартал 2024 {#q1-2024}
 
-* Добавлена возможность удалять федеративных пользователей через [CLI](../cli/cli-ref/managed-services/organization-manager/federation/saml/delete-user-accounts.md) и [API](saml/api-ref/Federation/deleteUserAccounts.md). {{ tag-cli }} {{ tag-api }}
+* Добавлена возможность удалять федеративных пользователей через [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/delete-user-accounts.md) и [API](saml/api-ref/Federation/deleteUserAccounts.md). {{ tag-cli }} {{ tag-api }}
 * Устранена уязвимость к Replay Attack для SAML.

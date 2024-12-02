@@ -11,7 +11,7 @@ One of the available encryption modes in {{ kms-short-name }} is _asymmetric enc
 
 ## Obtaining a key pair public key {#acquire-public-key}
 
-To encrypt a message, you need to get a public key in {{ kms-short-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
+To encrypt a message, you need to get a public key in {{ kms-short-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/get-public-key.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
 
 To obtain the public encryption key of the key pair, the user or service account must [have the `kms.asymmetricEncryptionKeys.publicKeyViewer` role](../operations/key-access.md) for the key pair.
 
@@ -57,6 +57,6 @@ Where:
 
 ## Data decryption {#decryption}
 
-You can decrypt data using a private key of the key pair in {{ kms-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/decrypt.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
+You can decrypt data using a private key of the key pair in {{ kms-name }}. To do this, make a service request using the [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/decrypt.md) or [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
 
 To decrypt data, the user or service account must [have the `kms.asymmetricEncryptionKeys.decrypter` role](../operations/key-access.md) for the encryption key pair.

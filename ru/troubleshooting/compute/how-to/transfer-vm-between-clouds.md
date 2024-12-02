@@ -88,6 +88,6 @@
             --destination-folder-id b1gXXXXXXXXXXXXXXXXX
         ```
 
-        Подробнее о команде `yc compute instance move` можно узнать в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+        Подробнее о команде `yc compute instance move` можно узнать в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 {% endlist %}

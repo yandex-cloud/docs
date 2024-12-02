@@ -38,7 +38,7 @@ This chart displays the dependence of RPS disorder on time.
 
 For each metric (line) on the regression dashboard charts, you can add a threshold value the excess of which should be considered abnormal. The chart areas where values exceed the thresholds are highlighted with the same color as the relevant metric line.
 
-For individual tests, you can also use the `check-regressions` [command](../../cli/cli-ref/managed-services/loadtesting/test/check-regression.md) in the {{ yandex-cloud }} CLI to check whether metric thresholds were exceeded. For more information, see [{#T}](../operations/check-regression.md).
+For individual tests, you can also use the `check-regressions` [command](../../cli/cli-ref/loadtesting/cli-ref/test/check-regression.md) in the {{ yandex-cloud }} CLI to check whether metric thresholds were exceeded. For more information, see [{#T}](../operations/check-regression.md).
 
 ## See also {#see-also}
 

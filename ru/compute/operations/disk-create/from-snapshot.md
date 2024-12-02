@@ -76,7 +76,7 @@ description: Следуя данной инструкции, вы сможете
       ```
       Указать снимок можно с помощью параметра `--source-snapshot-name` или `--source-snapshot-id`.
 
-      Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/create.md).
+      Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Получите список дисков в каталоге по умолчанию:
 

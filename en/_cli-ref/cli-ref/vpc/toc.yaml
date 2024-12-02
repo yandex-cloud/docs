@@ -1,0 +1,168 @@
+name: vpc
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: address
+    items:
+      - name: Overview
+        href: cli-ref/address/index.md
+      - name: create
+        href: cli-ref/address/create.md
+      - name: delete
+        href: cli-ref/address/delete.md
+      - name: get
+        href: cli-ref/address/get.md
+      - name: list
+        href: cli-ref/address/list.md
+      - name: list-operations
+        href: cli-ref/address/list-operations.md
+      - name: move
+        href: cli-ref/address/move.md
+      - name: update
+        href: cli-ref/address/update.md
+  - name: gateway
+    items:
+      - name: Overview
+        href: cli-ref/gateway/index.md
+      - name: add-labels
+        href: cli-ref/gateway/add-labels.md
+      - name: create
+        href: cli-ref/gateway/create.md
+      - name: delete
+        href: cli-ref/gateway/delete.md
+      - name: get
+        href: cli-ref/gateway/get.md
+      - name: list
+        href: cli-ref/gateway/list.md
+      - name: list-operations
+        href: cli-ref/gateway/list-operations.md
+      - name: move
+        href: cli-ref/gateway/move.md
+      - name: remove-labels
+        href: cli-ref/gateway/remove-labels.md
+      - name: update
+        href: cli-ref/gateway/update.md
+  - name: network
+    items:
+      - name: Overview
+        href: cli-ref/network/index.md
+      - name: add-labels
+        href: cli-ref/network/add-labels.md
+      - name: create
+        href: cli-ref/network/create.md
+      - name: delete
+        href: cli-ref/network/delete.md
+      - name: get
+        href: cli-ref/network/get.md
+      - name: list
+        href: cli-ref/network/list.md
+      - name: list-operations
+        href: cli-ref/network/list-operations.md
+      - name: list-route-tables
+        href: cli-ref/network/list-route-tables.md
+      - name: list-security-groups
+        href: cli-ref/network/list-security-groups.md
+      - name: list-subnets
+        href: cli-ref/network/list-subnets.md
+      - name: move
+        href: cli-ref/network/move.md
+      - name: remove-labels
+        href: cli-ref/network/remove-labels.md
+      - name: update
+        href: cli-ref/network/update.md
+  - name: private-endpoint
+    items:
+      - name: Overview
+        href: cli-ref/private-endpoint/index.md
+      - name: create
+        href: cli-ref/private-endpoint/create.md
+      - name: delete
+        href: cli-ref/private-endpoint/delete.md
+      - name: get
+        href: cli-ref/private-endpoint/get.md
+      - name: list
+        href: cli-ref/private-endpoint/list.md
+      - name: list-operations
+        href: cli-ref/private-endpoint/list-operations.md
+      - name: update
+        href: cli-ref/private-endpoint/update.md
+  - name: route-table
+    items:
+      - name: Overview
+        href: cli-ref/route-table/index.md
+      - name: add-labels
+        href: cli-ref/route-table/add-labels.md
+      - name: create
+        href: cli-ref/route-table/create.md
+      - name: delete
+        href: cli-ref/route-table/delete.md
+      - name: get
+        href: cli-ref/route-table/get.md
+      - name: list
+        href: cli-ref/route-table/list.md
+      - name: list-operations
+        href: cli-ref/route-table/list-operations.md
+      - name: move
+        href: cli-ref/route-table/move.md
+      - name: remove-labels
+        href: cli-ref/route-table/remove-labels.md
+      - name: update
+        href: cli-ref/route-table/update.md
+  - name: security-group
+    items:
+      - name: Overview
+        href: cli-ref/security-group/index.md
+      - name: add-labels
+        href: cli-ref/security-group/add-labels.md
+      - name: create
+        href: cli-ref/security-group/create.md
+      - name: delete
+        href: cli-ref/security-group/delete.md
+      - name: get
+        href: cli-ref/security-group/get.md
+      - name: list
+        href: cli-ref/security-group/list.md
+      - name: list-operations
+        href: cli-ref/security-group/list-operations.md
+      - name: move
+        href: cli-ref/security-group/move.md
+      - name: remove-labels
+        href: cli-ref/security-group/remove-labels.md
+      - name: update
+        href: cli-ref/security-group/update.md
+      - name: update-rule-meta
+        href: cli-ref/security-group/update-rule-meta.md
+      - name: update-rules
+        href: cli-ref/security-group/update-rules.md
+  - name: subnet
+    items:
+      - name: Overview
+        href: cli-ref/subnet/index.md
+      - name: add-labels
+        href: cli-ref/subnet/add-labels.md
+      - name: add-range
+        href: cli-ref/subnet/add-range.md
+      - name: create
+        href: cli-ref/subnet/create.md
+      - name: delete
+        href: cli-ref/subnet/delete.md
+      - name: get
+        href: cli-ref/subnet/get.md
+      - name: list
+        href: cli-ref/subnet/list.md
+      - name: list-operations
+        href: cli-ref/subnet/list-operations.md
+      - name: list-used-addresses
+        href: cli-ref/subnet/list-used-addresses.md
+      - name: move
+        href: cli-ref/subnet/move.md
+      - name: relocate
+        href: cli-ref/subnet/relocate.md
+      - name: remove-labels
+        href: cli-ref/subnet/remove-labels.md
+      - name: remove-range
+        href: cli-ref/subnet/remove-range.md
+      - name: update
+        href: cli-ref/subnet/update.md
+base: en/_cli-ref/cli-ref/vpc
+deepBase: 4

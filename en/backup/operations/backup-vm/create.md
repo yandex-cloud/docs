@@ -71,6 +71,6 @@ To create a non-scheduled VM backup:
         compute_instance_id: klmc87d7q49r********
       ```
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/execute.md).
+  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/execute.md).
 
 {% endlist %}

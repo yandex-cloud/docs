@@ -76,7 +76,7 @@ Limitations when moving a VM:
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+      For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 - API {#api}
 

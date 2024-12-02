@@ -76,7 +76,7 @@ description: Из статьи вы узнаете, как создать рас
      * `--start-at "2022-12-31T16:39:00+05:00"` — начало 31 декабря 2022 г. в 16:39 UTC+5.
      * `--start-at "2h"` — начало два часа назад от текущего момента.
 
-     Подробнее о команде `yc compute snapshot-schedule create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/create.md).
+     Подробнее о команде `yc compute snapshot-schedule create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
   1. Получите идентификаторы [дисков](../../concepts/disk.md), чтобы добавить их в расписание:
 
      ```bash

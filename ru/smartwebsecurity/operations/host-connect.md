@@ -132,7 +132,7 @@ description: Следуя данной инструкции, вы сможете
        security_profile_id: fev3s055oq64********
       ```
 
-  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/update.md).
+  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - API {#api}
 

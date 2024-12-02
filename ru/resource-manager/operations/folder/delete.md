@@ -64,7 +64,7 @@
 
       После завершения удаления каталога, ответ будет содержать поле `done` со значением `true` (`done: true`).
 
-  Подробнее о команде `yc resource-manager folder delete` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/resource-manager/folder/delete.md).
+  Подробнее о команде `yc resource-manager folder delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/delete.md).
 
 - {{ TF }} {#tf}
 

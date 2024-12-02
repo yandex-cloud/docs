@@ -85,7 +85,7 @@ The cost of supporting the infrastructure created in the guide includes:
       expires_at: "2024-06-21T20:10:11.380653492Z"
       ```
 
-      For more information about the `yc organization-manager oslogin user-ssh-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/oslogin/user-ssh-key/create.md).
+      For more information about the `yc organization-manager oslogin user-ssh-key create` command, see the [CLI reference](../../cli/cli-ref/organization-manager/cli-ref/oslogin/user-ssh-key/create.md).
 
     {% endlist %}
 

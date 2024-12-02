@@ -94,7 +94,7 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/certificate-manager/index.md
+    href: ../cli/cli-ref/certificate-manager/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

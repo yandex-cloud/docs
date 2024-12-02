@@ -232,7 +232,7 @@ items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/vpc/index.md
+    href: ../cli/cli-ref/vpc/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

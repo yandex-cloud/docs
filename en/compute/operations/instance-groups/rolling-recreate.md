@@ -121,7 +121,7 @@ To recreate group instances one by one:
       
       {{ ig-name }} will begin to recreate the specified instances in the group one by one. The status of recreated VMs will change to `Running`.
 
-  For more information about the `{{ yc-compute-ig }} rolling-recreate` command parameters, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-recreate.md).
+  For more information about the `{{ yc-compute-ig }} rolling-recreate` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 
 - API {#api}
 

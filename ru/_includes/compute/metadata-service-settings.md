@@ -12,4 +12,4 @@
 * `gce-http-endpoint` — обеспечивает доступ к метаданным с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`. Если для опции задано значение `disabled`, то запрос к метаданным завершится ошибкой `400` (`BadRequest`). Значение по умолчанию: `enabled`.
 * `gce-http-token` — обеспечивает доступ к получению через метаданные Google Compute Engine токена сервисного аккаунта, подключенного к ВМ. Возможные значения: `enabled`, `disabled`. Если для опции задано значение `disabled`, то запрос на получение токена завершится ошибкой `400` (`BadRequest`). Значение по умолчанию: `enabled`.
 
-Получить значения параметров сервиса метаданных вы можете вместе с [информацией о ВМ](../../compute/operations/vm-info/get-info.md#outside-instance) с помощью [CLI](../../cli/cli-ref/managed-services/compute/instance/get.md) и [API](../../compute/api-ref/Instance/get.md).
+Получить значения параметров сервиса метаданных вы можете вместе с [информацией о ВМ](../../compute/operations/vm-info/get-info.md#outside-instance) с помощью [CLI](../../cli/cli-ref/compute/cli-ref/instance/get.md) и [API](../../compute/api-ref/Instance/get.md).

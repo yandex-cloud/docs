@@ -195,7 +195,7 @@
       * `--id` — идентификатор каталога `example-folder`;
       * `--service-account-id` — идентификатор сервисного аккаунта `sa-arcsight`.
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
   
   1. [Роль](../../storage/security/#storage-uploader) `storage.uploader` на каталог с бакетом:
      

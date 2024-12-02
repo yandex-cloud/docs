@@ -1,6 +1,6 @@
 ---
-title: Deleting a {{ RD }} cluster
-description: After you delete a {{ RD }} database cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
+title: Deleting a Redis cluster
+description: After you delete a Redis database cluster, its backups are kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
 ---
 
 # Deleting a {{ RD }} cluster

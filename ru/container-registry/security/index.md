@@ -30,7 +30,7 @@ description: Управление доступом в сервисе для хр
 
 - CLI {#cli}
 
-  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/container/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/container/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
   * [Реестр](../concepts/registry.md)
   * [Репозиторий](../concepts/repository.md)

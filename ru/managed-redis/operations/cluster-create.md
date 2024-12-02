@@ -774,7 +774,7 @@ description: Следуя данной инструкции, вы сможете
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "{{ RD }}"
+      description    = "Redis"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -901,7 +901,7 @@ description: Следуя данной инструкции, вы сможете
     network_id = yandex_vpc_network.mynet.id
   
     ingress {
-      description    = "{{ RD }}"
+      description    = "Redis"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -1009,7 +1009,7 @@ description: Следуя данной инструкции, вы сможете
       network_id = yandex_vpc_network.mynet.id
 
       ingress {
-        description    = "{{ RD }}"
+        description    = "Redis"
         port           = {{ port-mrd }}
         protocol       = "TCP"
         v4_cidr_blocks = [

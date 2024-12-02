@@ -55,7 +55,7 @@ To create a network:
        --name ddos-network
      ```
 
-     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create [subnets](../../vpc/concepts/network.md#subnet) in each [availability zone](../../overview/concepts/geo-scope.md) by specifying the cloud network ID using the `--network-name` flag:
 
@@ -83,7 +83,7 @@ To create a network:
        --range 192.168.2.0/24
      ```
 
-     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 {% endlist %}
 
@@ -161,7 +161,7 @@ To create security groups:
 
   Where `security-group-id` is the `ddos-sg-balancer` security group ID.
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 {% endlist %}
 
@@ -223,11 +223,11 @@ To create an instance group:
 
   1. Get the resource IDs required to create an instance group using the following commands:
 
-     * [yc iam service-account get <service_account_name>](../../cli/cli-ref/managed-services/iam/service-account/get.md): For a service account.
-     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md): For `ddos-network`.
-     * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/managed-services/vpc/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-d` subnets.
-     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md): For the boot disk image.
-     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md): For the `ddos-sg-vms` security group.
+     * [yc iam service-account get <service_account_name>](../../cli/cli-ref/iam/cli-ref/service-account/get.md): For a service account.
+     * [yc vpc network get ddos-network](../../cli/cli-ref/vpc/cli-ref/network/get.md): For `ddos-network`.
+     * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/vpc/cli-ref/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-d` subnets.
+     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md): For the boot disk image.
+     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/vpc/cli-ref/security-group/get.md): For the `ddos-sg-vms` security group.
 
   1. Create a YAML file named `specification.yaml`.
   1. Add to it the description of the base instance configuration:
@@ -337,7 +337,7 @@ To create an instance group:
        target_group_id: ds78imh0ds2e********
      ```
 
-     For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+     For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 {% endlist %}
 
@@ -410,7 +410,7 @@ To create a backend group:
      created_at: "2021-08-08T20:46:21.688940670Z"
      ```
 
-     For more information about the `yc alb backend-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/create.md).
+     For more information about the `yc alb backend-group create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/create.md).
 
   1. Add a backend and health check to the group:
 
@@ -461,7 +461,7 @@ To create a backend group:
      created_at: "2021-08-08T07:59:22.922603189Z"
      ```
 
-     For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
+     For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/add-http-backend.md).
 
 {% endlist %}
 
@@ -510,7 +510,7 @@ To create an HTTP router and add a route to it:
      created_at: "2021-08-08T21:04:59.438292069Z"
      ```
 
-     For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Create a virtual host by specifying the name of the HTTP router:
 
@@ -520,7 +520,7 @@ To create an HTTP router and add a route to it:
        --authority alb-with-ddos.com
      ```
 
-     For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
   1. Add a route by specifying the router name and the routing parameters:
 
@@ -549,7 +549,7 @@ To create an HTTP router and add a route to it:
             timeout: 60s
      ```
 
-     For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 {% endlist %}
 
@@ -590,7 +590,7 @@ To create a load balancer:
        --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
      ```
 
-     For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Add a listener:
 
@@ -601,7 +601,7 @@ To create a load balancer:
        --external-ipv4-endpoint port=80, address=<IP_address_with_DDoS_protection>
      ```
 
-     For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 {% endlist %}
 

@@ -200,7 +200,7 @@ description: Следуя данной инструкции, вы сможете
            --request-idle-timeout <тайм-аут_ожидания_запроса>s
          ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
          Результат:
 
@@ -243,7 +243,7 @@ description: Следуя данной инструкции, вы сможете
            --request-idle-timeout <тайм-аут_ожидания_запроса>s
          ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host prepend-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-http-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host prepend-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
 
          Результат:
 
@@ -289,7 +289,7 @@ description: Следуя данной инструкции, вы сможете
            --request-idle-timeout <тайм-аут_ожидания_запроса>s
          ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
 
          Результат:
 
@@ -337,7 +337,7 @@ description: Следуя данной инструкции, вы сможете
              --request-idle-timeout <тайм-аут_ожидания_запроса>s
            ```
 
-           Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
+           Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
     
            Результат:
     
@@ -384,7 +384,7 @@ description: Следуя данной инструкции, вы сможете
            --request-max-timeout <таймаут>s 
          ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
          Результат:
 
@@ -425,7 +425,7 @@ description: Следуя данной инструкции, вы сможете
            --request-max-timeout <таймаут>s  
          ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host prepend-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-grpc-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host prepend-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
 
          Результат:
 
@@ -476,7 +476,7 @@ description: Следуя данной инструкции, вы сможете
           * `--backend-group-name` — имя группы бэкендов.
           * `--request-max-timeout` — таймаут, в секундах.
 
-         Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
+         Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
          Результат:
 
@@ -528,7 +528,7 @@ description: Следуя данной инструкции, вы сможете
           * `--backend-group-name` — имя группы бэкендов.
           * `--request-max-timeout` — таймаут, в секундах.
 
-          Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
+          Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
           Результат:
       

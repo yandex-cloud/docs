@@ -53,7 +53,7 @@
      name: vm-scale-scheduled-sa
      ```
 
-     Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+     Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
   1. Назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
      * `compute.admin` — для управления группой ВМ:
 
@@ -82,7 +82,7 @@
          --folder-name example-folder
        ```
 
-     Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+     Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -129,7 +129,7 @@
      name: vm-scale-scheduled-network
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
   1. Создайте подсеть `vm-scale-scheduled-subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
 
      ```bash
@@ -152,7 +152,7 @@
      - 192.168.1.0/24
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
   1. Создайте подсеть `vm-scale-scheduled-network-b` в зоне доступности `{{ region-id }}-b`:
 
      ```bash
@@ -239,7 +239,7 @@
        id: ajeab0cnib1p********
        ```
 
-       Подробнее о команде `yc iam service-account get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/get.md).
+       Подробнее о команде `yc iam service-account get` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/get.md).
      * Идентификатор сети `vm-scale-scheduled-network`:
 
        ```bash
@@ -253,7 +253,7 @@
        id: enpabce123hd********
        ```
 
-       Подробнее о команде `yc vpc network get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/get.md).
+       Подробнее о команде `yc vpc network get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/get.md).
      * Идентификатор подсети `vm-scale-scheduled-subnet-a`:
 
        ```bash
@@ -267,7 +267,7 @@
        id: e1lnabc23r1c********
        ```
 
-       Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
+       Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/get.md).
      * Идентификатор подсети `vm-scale-scheduled-subnet-b`:
 
        ```bash
@@ -281,7 +281,7 @@
        id: b1csa2b3clid********
        ```
 
-       Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
+       Подробнее о команде `yc vpc subnet get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/get.md).
   1. Получите идентификатор последней версии публичного образа [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts):
 
      ```bash
@@ -295,7 +295,7 @@
      id: fd83n3uou8m0********
      ```
 
-     Подробнее о команде `yc compute image get-latest-from-family` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md).
+     Подробнее о команде `yc compute image get-latest-from-family` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md).
   1. Вставьте полученные идентификаторы в файл `specification.yaml` со спецификацией группы ВМ:
 
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}

@@ -23,7 +23,7 @@
 
 - CLI {#cli}
 
-  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/logging/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/logging/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
   * [Лог-группа](../concepts/log-group.md)
   * [Приемник логов](../operations/create-sink.md)

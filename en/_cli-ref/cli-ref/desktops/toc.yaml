@@ -1,0 +1,62 @@
+name: desktops
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: desktop
+    items:
+      - name: Overview
+        href: cli-ref/desktop/index.md
+      - name: create
+        href: cli-ref/desktop/create.md
+      - name: delete
+        href: cli-ref/desktop/delete.md
+      - name: get
+        href: cli-ref/desktop/get.md
+      - name: get-rdp-file
+        href: cli-ref/desktop/get-rdp-file.md
+      - name: list
+        href: cli-ref/desktop/list.md
+      - name: list-operations
+        href: cli-ref/desktop/list-operations.md
+      - name: reset-password
+        href: cli-ref/desktop/reset-password.md
+      - name: restart
+        href: cli-ref/desktop/restart.md
+  - name: group
+    items:
+      - name: Overview
+        href: cli-ref/group/index.md
+      - name: add-access-bindings
+        href: cli-ref/group/add-access-bindings.md
+      - name: create
+        href: cli-ref/group/create.md
+      - name: delete
+        href: cli-ref/group/delete.md
+      - name: get
+        href: cli-ref/group/get.md
+      - name: list
+        href: cli-ref/group/list.md
+      - name: list-access-bindings
+        href: cli-ref/group/list-access-bindings.md
+      - name: list-desktops
+        href: cli-ref/group/list-desktops.md
+      - name: list-operations
+        href: cli-ref/group/list-operations.md
+      - name: remove-access-bindings
+        href: cli-ref/group/remove-access-bindings.md
+      - name: set-access-bindings
+        href: cli-ref/group/set-access-bindings.md
+  - name: image
+    items:
+      - name: Overview
+        href: cli-ref/image/index.md
+      - name: copy
+        href: cli-ref/image/copy.md
+      - name: delete
+        href: cli-ref/image/delete.md
+      - name: get
+        href: cli-ref/image/get.md
+      - name: list
+        href: cli-ref/image/list.md
+base: en/_cli-ref/cli-ref/desktops
+deepBase: 4

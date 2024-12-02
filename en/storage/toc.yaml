@@ -365,7 +365,7 @@ items:
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
   - name: YC CLI reference
-    href: ../cli/cli-ref/managed-services/storage/index.md
+    href: ../cli/cli-ref/storage/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

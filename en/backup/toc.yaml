@@ -92,7 +92,7 @@ items:
           - name: Before April 1, 2024
             href: pricing-archive/pricing-20240401.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/backup/index.md
+    href: ../cli/cli-ref/backup/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

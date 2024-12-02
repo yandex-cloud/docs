@@ -44,7 +44,7 @@ Configure the CLI to work on behalf of a service account:
      key_algorithm: RSA_2048
      ```
 
-    For more information about the `yc iam key create` command, see the [CLI reference](../cli/cli-ref/managed-services/iam/service-account/create.md).
+    For more information about the `yc iam key create` command, see the [CLI reference](../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
 1. Create a profile to execute operations on behalf of the service account:
 

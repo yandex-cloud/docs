@@ -6,7 +6,7 @@ Files are accessed via [signed links](#protected-link) with the limited validity
 
 You can also use secure tokens to specify a trusted IP address from which to access a CDN resource.
 
-You can [enable](../operations/resources/enable-secure-token.md#enable-secure-token) access to a CDN resource based on a secure token using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/managed-services/cdn/resource/update.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource), or [API](../api-ref/Resource/update.md). It may take up to 15 minutes for the changes to take effect.
+You can [enable](../operations/resources/enable-secure-token.md#enable-secure-token) access to a CDN resource based on a secure token using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource), or [API](../api-ref/Resource/update.md). It may take up to 15 minutes for the changes to take effect.
 
 If you enable access to a CDN resource via a secure token, content is only available via signed links. If you want some content to be accessible via regular links, [create](../operations/resources/create-resource.md) another CDN resource with a separate [origin](./origins.md) for this content.
 

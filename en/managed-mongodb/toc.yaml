@@ -132,7 +132,7 @@ items:
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-mongodb/index.md
+    href: ../cli/cli-ref/managed-mongodb/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

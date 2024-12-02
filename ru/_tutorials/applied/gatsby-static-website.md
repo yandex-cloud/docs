@@ -117,7 +117,7 @@ keywords:
       created_at: "2024-09-09T15:23:34.919887Z"
       ```
 
-      Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+      Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
   1. Включите в бакете хостинг статического сайта:
 
@@ -147,7 +147,7 @@ keywords:
         redirect_all_requests: {}
       ```
 
-      Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/update.md).
+      Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/update.md).
 
 - AWS CLI {#aws-cli}
 
@@ -243,7 +243,7 @@ keywords:
       public_visibility: {}
       ```
 
-      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
+      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
   1. Создайте ресурсную запись ANAME в публичной зоне DNS `gatsbytest-ru-zone`:
 
@@ -263,7 +263,7 @@ keywords:
       +--------+----------------+-------+---------------------------------------+-----+
       ```
 
-      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 
@@ -329,7 +329,7 @@ keywords:
       updated_at: "2023-12-24T14:36:39.299844798Z"
       ```
 
-      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/request.md).
+      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
       Сохраните идентификатор (`id`) созданного сертификата: он пригодится для прохождения проверки ваших прав на домен.
 
@@ -378,7 +378,7 @@ keywords:
                 value: iiyJJJlsaFIqQ7DMUzira0OKU3iXuaqiN7U********
           ```
 
-          Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/get.md).
+          Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
           Сохраните значение поля `value` из раздела с типом `CNAME` в блоке `challenges.dns_challenge`. Это значение понадобятся на следующем шаге.
 
@@ -404,7 +404,7 @@ keywords:
           +--------+----------------------------------+-------+------------------------------------------+-----+
           ```
 
-          Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+          Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
           Проверка прав на домены может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 

@@ -87,7 +87,7 @@ You can move [subnets](../concepts/network.md) between folders within a single [
         - 10.1.0.0/16
       dhcp_options: {}
      ```
-     For more information about the `yc vpc subnet move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
+     For more information about the `yc vpc subnet move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/move.md).
 
 - API {#api}
 

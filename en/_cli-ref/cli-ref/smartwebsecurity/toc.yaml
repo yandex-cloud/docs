@@ -1,0 +1,20 @@
+name: smartwebsecurity
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: security-profile
+    items:
+      - name: Overview
+        href: cli-ref/security-profile/index.md
+      - name: create
+        href: cli-ref/security-profile/create.md
+      - name: delete
+        href: cli-ref/security-profile/delete.md
+      - name: get
+        href: cli-ref/security-profile/get.md
+      - name: list
+        href: cli-ref/security-profile/list.md
+      - name: update
+        href: cli-ref/security-profile/update.md
+base: en/_cli-ref/cli-ref/smartwebsecurity
+deepBase: 4

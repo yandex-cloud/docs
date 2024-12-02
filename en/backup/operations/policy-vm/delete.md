@@ -37,7 +37,7 @@ description: In this tutorial, you will learn how to delete a backup policy in *
      yc backup policy delete <backup_policy_ID>
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
+     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/delete.md).
 
 - {{ TF }} {#tf}
 

@@ -248,7 +248,7 @@
 
       Выполнение команды не должно прерываться до завершения тестирования функции.
 
-      Подробнее о команде `yc iot mqtt subscribe` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iot/mqtt/subscribe.md).
+      Подробнее о команде `yc iot mqtt subscribe` читайте в [справочнике CLI](../../cli/cli-ref/iot/cli-ref/mqtt/subscribe.md).
 
     {% endlist %}
 

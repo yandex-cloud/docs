@@ -196,7 +196,7 @@ To create your first trail in {{ at-name }} and start the audit log management p
 
           {% endcut %}
 
-      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
 
 - {{ TF }} {#tf}
 

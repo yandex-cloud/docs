@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для со
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-В [консоли управления]({{ link-console-main }}), через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/kms/index.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-link }}) роль можно назначить на отдельные ресурсы сервиса:
+В [консоли управления]({{ link-console-main }}), через {{ yandex-cloud }} [CLI](../../cli/cli-ref/kms/cli-ref/index.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-link }}) роль можно назначить на отдельные ресурсы сервиса:
 
 {% include notitle [kms-resources](../../_includes/iam/resources-with-access-control/kms.md) %}
 

@@ -59,7 +59,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       name: backup-sa
       ```
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Assign the `backup.editor` role for the folder to the service account:
 
@@ -82,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
               type: serviceAccount
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -125,7 +125,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet named `cloud-network-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
 
@@ -149,7 +149,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
       - 10.1.0.0/16
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -250,7 +250,7 @@ A rule to enable VM access over SSH will also be added to the security group.
           - 0.0.0.0/0
   ```
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -420,7 +420,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
       Save the policy `id`.
 
-      For more information about the `yc backup policy create` command, see the [CLI reference](../../cli/cli-ref/managed-services/backup/policy/create.md).
+      For more information about the `yc backup policy create` command, see the [CLI reference](../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - API {#api}
 
@@ -505,7 +505,7 @@ You can create a new policy or use one of those automatically generated upon ser
         --service-account-name backup-sa
       ```
 
-      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 

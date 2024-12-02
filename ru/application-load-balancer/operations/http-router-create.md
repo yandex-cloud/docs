@@ -147,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
      * `--request-timeout` — тайм-аут запроса, в секундах.
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах.
 
-     Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
      Результат:
 

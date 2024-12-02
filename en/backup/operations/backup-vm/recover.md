@@ -61,7 +61,7 @@ If the current VM is down, [create](../#connect-vm) a new one with a connection 
       ...1s...6s...11s ... 9m4s...9m9s...done (9m9s)
       ```
 
-      For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
+      For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/recover.md).
 
 - API {#api}
 

@@ -158,7 +158,7 @@ items:
   - name: Pricing policy
     href: pricing/index.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-greenplum/index.md
+    href: ../cli/cli-ref/managed-greenplum/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

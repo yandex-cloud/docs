@@ -95,7 +95,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
      
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
   1. Создайте подсети во всех зонах доступности:
   
@@ -165,7 +165,7 @@
        - 10.3.0.0/16
        ```
        
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - {{ TF }} {#tf}
 
@@ -505,7 +505,7 @@
     predefined_target: loadbalancer_healthchecks
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - {{ TF }} {#tf}
 
@@ -643,7 +643,7 @@
      created_at: "2022-04-04T10:31:41.027649223Z"
      ```
      
-     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост `example-vh`:
   
@@ -662,7 +662,7 @@
      - cdn.yandexcloud.example
      ```
      
-     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
      
   1. Создайте маршрут `example-route` в виртуальном хосте `example-vh`:
   
@@ -691,7 +691,7 @@
            backend_group_id: ds7pbm5fj2v0********
      ```
 
-     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 - {{ TF }} {#tf}
 
@@ -796,7 +796,7 @@
      +----------------------+----------------------------------+----------------------+----------------------+----------------+-------------------+---------------+
      ```
      
-     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/list-subnets.md).
+     Подробнее о команде `yc vpc network list-subnets` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/list-subnets.md).
 
   1. Получите идентификатор группы безопасности `example-sg`:
   
@@ -810,7 +810,7 @@
      id: enpd133ngcnr********
      ```
      
-     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/get.md).
+     Подробнее о команде `yc vpc security-group get` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
   
   1. Создайте балансировщик `example-balancer`:
   
@@ -847,7 +847,7 @@
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
-     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
      
   1. Добавьте к балансировщику обработчик:
   
@@ -894,7 +894,7 @@
      created_at: "2022-04-04T10:55:49.134935148Z"
      ```
      
-     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 - {{ TF }} {#tf}
 
@@ -1046,7 +1046,7 @@
         enabled: true
       ```
 
-      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
   1. Скопируйте идентификатор группы источников `origin_group_id` из предыдущего шага и создайте CDN-ресурс, выполнив команду:
@@ -1073,7 +1073,7 @@
       ...
       ```
 
-      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+      Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
   1. Включите переадресацию клиентов для ресурса:
 
@@ -1250,7 +1250,7 @@
         public_visibility: {}
         ```
         
-        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
+        Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
         
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-********.edgecdn.ru`:
      
@@ -1260,7 +1260,7 @@
           --record "cdn CNAME cl-********.edgecdn.ru" \
         ```
 
-        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+        Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
    
    - {{ TF }} {#tf}
    

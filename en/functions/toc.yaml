@@ -483,9 +483,9 @@ items:
   - name: Access management
     href: security/index.md
   - name: CLI Functions reference
-    href: ../cli/cli-ref/managed-services/serverless/function/index.md
+    href: ../cli/cli-ref/serverless/cli-ref/function/index.md
   - name: CLI Triggers reference
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API Functions reference

@@ -130,7 +130,7 @@ The infrastructure support cost for this scenario includes:
            type: serviceAccount
      ```
 
-  For more information about the commands, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/index.md).
+  For more information about the commands, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
 
 - {{ TF }} {#tf}
 
@@ -202,7 +202,7 @@ The infrastructure support cost for this scenario includes:
   yc iam key create --service-account-name sa-function -o service_account_key_file.json
   ```
 
-  For more information about the `yc iam key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/key/create.md).
+  For more information about the `yc iam key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   If successful, the private part of the authorized key (`privateKey`) and the ID of its public part (`id`) will be written to the `service_account_key_file.json` file.
 

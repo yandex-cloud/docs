@@ -63,7 +63,7 @@
       default_security_group_id: enppne4l2eg5********
       ```
 
-      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть в зоне доступности `{{ region-id }}-b`:
 
@@ -87,7 +87,7 @@
         - 192.168.1.0/24
       ```
 
-      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -190,7 +190,7 @@
           - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
   Сохраните полученный идентификатор (`id`) группы безопасности — он понадобится при создании ВМ.
 
@@ -292,7 +292,7 @@
   placement_policy: {}
   ```
 
-  Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
+  Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -346,7 +346,7 @@
       public_visibility: {}
       ```
 
-      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
+      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
     - API {#api}
 
@@ -399,7 +399,7 @@
       +--------+--------------+------+---------------+-----+
       ```
 
-      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
     - API {#api}
 
@@ -455,7 +455,7 @@
       updated_at: "2023-12-24T14:36:39.299844798Z"
       ```
 
-      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/request.md).
+      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
       Сохраните идентификатор (`id`) созданного сертификата: он пригодится при создании CDN-ресурса.
 
@@ -548,7 +548,7 @@
                   value: iiyJJJlsaFIqQ7DMUzira0OKU3iXuaqiN7U********
             ```
 
-            Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/get.md).
+            Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
             Сохраните значения полей `value` из разделов с типом `CNAME` в блоках `challenges.dns_challenge` для обоих доменных имен. Эти значения понадобятся на следующем шаге.
 
@@ -576,7 +576,7 @@
             +--------+----------------------------------+-------+------------------------------------------+-----+
             ```
 
-            Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+            Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
             Проверка прав на домены может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
@@ -675,7 +675,7 @@
           created_at: "2023-12-22T18:11:23.028836Z"
           ```
 
-          Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+          Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
       1. Включите в бакете хостинг статического сайта:
 
@@ -699,7 +699,7 @@
             redirect_all_requests: {}
           ```
 
-          Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/update.md).
+          Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/update.md).
 
     - AWS CLI {#aws-cli}
 
@@ -842,7 +842,7 @@
         --type gcore
       ```
 
-      Подробнее о команде `yc cdn provider activate` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/provider/activate.md).
+      Подробнее о команде `yc cdn provider activate` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/provider/activate.md).
 
   1. Создайте ресурс:
   
@@ -903,7 +903,7 @@
             id: fpqia0s2fc21********
       ```
 
-      Подробнее о команде `yc cdn resource create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+      Подробнее о команде `yc cdn resource create` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - API {#api}
 
@@ -948,7 +948,7 @@
       folder_id: b1gt6g8ht345********
       ```
 
-      Подробнее о команде `yc cdn resource get-provider-cname` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/get-provider-cname.md).
+      Подробнее о команде `yc cdn resource get-provider-cname` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md).
 
       Сохраните полученное значение `cname`: оно пригодится на следующем шаге.
 
@@ -974,7 +974,7 @@
       +--------+------------------+-------+--------------------------+-----+
       ```
 
-      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 

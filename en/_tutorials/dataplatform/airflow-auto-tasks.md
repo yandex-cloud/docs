@@ -110,7 +110,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create subnets:
 
@@ -154,7 +154,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
           --range 10.3.0.0/16
         ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -250,7 +250,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
   shared_egress_gateway: {}
   ```
 
-  For more information about the `yc vpc gateway create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/gateway/create.md).
+  For more information about the `yc vpc gateway create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/gateway/create.md).
 
   Save the NAT gateway `id`. You will need it when creating a route table.
 
@@ -300,7 +300,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
       gateway_id: enpkq1sb7hed********
   ```
 
-  For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/create.md).
+  For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/route-table/create.md).
 
 
 - API {#api}
@@ -346,7 +346,7 @@ Link the route table to a subnet to route subnet traffic via the NAT gateway:
   dhcp_options: {}
   ```
 
-  For more information about the `yc vpc subnet update` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/update.md).
+  For more information about the `yc vpc subnet update` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/update.md).
 
 - API {#api}
 

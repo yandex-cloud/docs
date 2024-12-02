@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
      route_options: {}
      ```
 
-  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/update.md).
+  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - API {#api}
 

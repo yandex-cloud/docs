@@ -71,6 +71,6 @@ description: Следуя данной инструкции, вы сможете
         compute_instance_id: klmc87d7q49r********
       ```
 
-  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/execute.md).
+  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/execute.md).
 
 {% endlist %}

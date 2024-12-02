@@ -79,7 +79,7 @@ description: Из статьи вы узнаете, как получить ин
      ...
      ```
 
-  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/get.md).
+  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/get.md).
 
 - {{ TF }} {#tf}
 

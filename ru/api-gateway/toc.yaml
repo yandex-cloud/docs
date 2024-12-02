@@ -230,9 +230,9 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
+    href: ../cli/cli-ref/serverless/cli-ref/api-gateway/index.md
   - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -90,7 +90,7 @@ items:
     href: managed-opensearch/index.yaml
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
-  - name: Yandex Managed Service for Valkey™
+  - name: Managed Service for Redis
     href: managed-redis/index.yaml
   - name: Managed Service for Trino
     href: managed-trino/index.yaml

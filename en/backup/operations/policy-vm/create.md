@@ -123,7 +123,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
      folder_id: d2q792qpemb4********
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/create.md).
+     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - {{ TF }} {#tf}
 

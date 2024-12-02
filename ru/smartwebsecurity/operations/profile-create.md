@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2024-07-25T19:21:05.039610Z"
      ```
 
-  Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
+  Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
 
 - API {#api}
 

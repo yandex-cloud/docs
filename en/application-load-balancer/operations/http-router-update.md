@@ -200,7 +200,7 @@ To add a new route to an HTTP router's virtual host:
            --request-idle-timeout <request_idle_timeout>s
          ```
 
-         For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+         For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
          Result:
 
@@ -243,7 +243,7 @@ To add a new route to an HTTP router's virtual host:
            --request-idle-timeout <request_idle_timeout>s
          ```
 
-         For more information about the `yc alb virtual-host prepend-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-http-route.md).
+         For more information about the `yc alb virtual-host prepend-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
 
          Result:
 
@@ -289,7 +289,7 @@ To add a new route to an HTTP router's virtual host:
            --request-idle-timeout <request_idle_timeout>s
          ```
 
-         For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
+         For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
 
          Result:
 
@@ -337,7 +337,7 @@ To add a new route to an HTTP router's virtual host:
              --request-idle-timeout <request_idle_timeout>s
            ```
 
-           For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
+           For more information about the `yc alb virtual-host insert-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
     
            Result:
     
@@ -384,7 +384,7 @@ To add a new route to an HTTP router's virtual host:
            --request-max-timeout <timeout>s 
          ```
 
-         For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
+         For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
          Result:
 
@@ -425,7 +425,7 @@ To add a new route to an HTTP router's virtual host:
            --request-max-timeout <timeout>s  
          ```
 
-         For more information about the `yc alb virtual-host prepend-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-grpc-route.md).
+         For more information about the `yc alb virtual-host prepend-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
 
          Result:
 
@@ -476,7 +476,7 @@ To add a new route to an HTTP router's virtual host:
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
 
-         For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
+         For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
          Result:
 
@@ -528,7 +528,7 @@ To add a new route to an HTTP router's virtual host:
           * `--backend-group-name`: Backend group name.
           * `--request-max-timeout`: Timeout in seconds.
 
-          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
+          For more information about the `yc alb virtual-host insert-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
           Result:
       

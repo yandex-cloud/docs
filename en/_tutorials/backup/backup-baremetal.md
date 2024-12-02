@@ -275,7 +275,7 @@ yc backup policy execute \
 
 Wait for the operation to complete.
 
-Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/managed-services/backup/vm/list-tasks.md) command.
+Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
 
 ## Restore your server from backup {#server-recovery}
 
@@ -306,7 +306,7 @@ If the server had used a RAID array, we recommend that you restore the backup to
 
     Wait for the operation to complete.
 
-    Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/managed-services/backup/vm/list-tasks.md) command.
+    Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
 
 ## How to cancel a lease and delete resources {#clear-out}
 

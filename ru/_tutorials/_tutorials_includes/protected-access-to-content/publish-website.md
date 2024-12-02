@@ -25,7 +25,7 @@
       +----------------------+---------------+-----------------------------+---------------------+---------+--------+
       ```
 
-      Подробнее о команде `yc certificate-manager certificate list` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/certificate-manager/certificate/list.md).
+      Подробнее о команде `yc certificate-manager certificate list` читайте в [справочнике CLI](../../../cli/cli-ref/certificate-manager/cli-ref/certificate/list.md).
 
   1. Выгрузите ключ и сертификат, указав полученный на предыдущем шаге идентификатор:
 
@@ -36,7 +36,7 @@
         --key ./private_key.pem
       ```
 
-      Подробнее о команде `yc certificate-manager certificate content` читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/certificate-manager/certificate/content.md).
+      Подробнее о команде `yc certificate-manager certificate content` читайте в [справочнике CLI](../../../cli/cli-ref/certificate-manager/cli-ref/certificate/content.md).
 
 {% endlist %}
 

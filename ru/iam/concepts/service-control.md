@@ -64,7 +64,7 @@ _Сервисные агенты_ — это специальные систем
 {{ sd-full-name }} — [Контроль данных (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 
-В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке {{ yandex-cloud }}. С помощью [CLI](../../cli/cli-ref/managed-services/iam/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.
+В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке {{ yandex-cloud }}. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.
 
 {% include [service-control-access](../../_includes/iam/service-control-access.md) %}
 

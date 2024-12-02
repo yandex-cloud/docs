@@ -236,7 +236,7 @@ items:
           - name: До 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/vpc/index.md
+    href: ../cli/cli-ref/vpc/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -5,9 +5,9 @@ keywords:
   - backup
   - database backup
   - backups
-  - Valkey backups
-  - backup Valkey
-  - Valkey
+  - Redis backups
+  - backup Redis
+  - Redis
 ---
 
 # Backups in {{ mrd-name }}

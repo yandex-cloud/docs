@@ -1,0 +1,172 @@
+name: organization-manager
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: federation
+    items:
+      - name: Overview
+        href: cli-ref/federation/index.md
+      - name: group-mapping
+        items:
+          - name: Overview
+            href: cli-ref/federation/group-mapping/index.md
+          - name: add-mapping-items
+            href: cli-ref/federation/group-mapping/add-mapping-items.md
+          - name: create
+            href: cli-ref/federation/group-mapping/create.md
+          - name: delete
+            href: cli-ref/federation/group-mapping/delete.md
+          - name: get
+            href: cli-ref/federation/group-mapping/get.md
+          - name: list-mapping-items
+            href: cli-ref/federation/group-mapping/list-mapping-items.md
+          - name: remove-mapping-items
+            href: cli-ref/federation/group-mapping/remove-mapping-items.md
+          - name: update
+            href: cli-ref/federation/group-mapping/update.md
+      - name: saml
+        items:
+          - name: Overview
+            href: cli-ref/federation/saml/index.md
+          - name: add-labels
+            href: cli-ref/federation/saml/add-labels.md
+          - name: add-user-accounts
+            href: cli-ref/federation/saml/add-user-accounts.md
+          - name: certificate
+            items:
+              - name: Overview
+                href: cli-ref/federation/saml/certificate/index.md
+              - name: create
+                href: cli-ref/federation/saml/certificate/create.md
+              - name: delete
+                href: cli-ref/federation/saml/certificate/delete.md
+              - name: get
+                href: cli-ref/federation/saml/certificate/get.md
+              - name: list
+                href: cli-ref/federation/saml/certificate/list.md
+              - name: list-operations
+                href: cli-ref/federation/saml/certificate/list-operations.md
+              - name: update
+                href: cli-ref/federation/saml/certificate/update.md
+          - name: create
+            href: cli-ref/federation/saml/create.md
+          - name: delete
+            href: cli-ref/federation/saml/delete.md
+          - name: delete-user-accounts
+            href: cli-ref/federation/saml/delete-user-accounts.md
+          - name: get
+            href: cli-ref/federation/saml/get.md
+          - name: list
+            href: cli-ref/federation/saml/list.md
+          - name: list-operations
+            href: cli-ref/federation/saml/list-operations.md
+          - name: list-user-accounts
+            href: cli-ref/federation/saml/list-user-accounts.md
+          - name: remove-labels
+            href: cli-ref/federation/saml/remove-labels.md
+          - name: update
+            href: cli-ref/federation/saml/update.md
+  - name: group
+    items:
+      - name: Overview
+        href: cli-ref/group/index.md
+      - name: add-access-binding
+        href: cli-ref/group/add-access-binding.md
+      - name: add-members
+        href: cli-ref/group/add-members.md
+      - name: create
+        href: cli-ref/group/create.md
+      - name: delete
+        href: cli-ref/group/delete.md
+      - name: get
+        href: cli-ref/group/get.md
+      - name: list
+        href: cli-ref/group/list.md
+      - name: list-access-bindings
+        href: cli-ref/group/list-access-bindings.md
+      - name: list-members
+        href: cli-ref/group/list-members.md
+      - name: list-operations
+        href: cli-ref/group/list-operations.md
+      - name: remove-access-binding
+        href: cli-ref/group/remove-access-binding.md
+      - name: remove-members
+        href: cli-ref/group/remove-members.md
+      - name: set-access-bindings
+        href: cli-ref/group/set-access-bindings.md
+      - name: update
+        href: cli-ref/group/update.md
+  - name: organization
+    items:
+      - name: Overview
+        href: cli-ref/organization/index.md
+      - name: add-access-binding
+        href: cli-ref/organization/add-access-binding.md
+      - name: add-labels
+        href: cli-ref/organization/add-labels.md
+      - name: get
+        href: cli-ref/organization/get.md
+      - name: leave
+        href: cli-ref/organization/leave.md
+      - name: list
+        href: cli-ref/organization/list.md
+      - name: list-access-bindings
+        href: cli-ref/organization/list-access-bindings.md
+      - name: list-operations
+        href: cli-ref/organization/list-operations.md
+      - name: remove-access-binding
+        href: cli-ref/organization/remove-access-binding.md
+      - name: remove-labels
+        href: cli-ref/organization/remove-labels.md
+      - name: set-access-bindings
+        href: cli-ref/organization/set-access-bindings.md
+      - name: update
+        href: cli-ref/organization/update.md
+  - name: oslogin
+    items:
+      - name: Overview
+        href: cli-ref/oslogin/index.md
+      - name: get-settings
+        href: cli-ref/oslogin/get-settings.md
+      - name: profile
+        items:
+          - name: Overview
+            href: cli-ref/oslogin/profile/index.md
+          - name: create
+            href: cli-ref/oslogin/profile/create.md
+          - name: delete
+            href: cli-ref/oslogin/profile/delete.md
+          - name: get
+            href: cli-ref/oslogin/profile/get.md
+          - name: list
+            href: cli-ref/oslogin/profile/list.md
+          - name: set-default
+            href: cli-ref/oslogin/profile/set-default.md
+          - name: update
+            href: cli-ref/oslogin/profile/update.md
+      - name: update-settings
+        href: cli-ref/oslogin/update-settings.md
+      - name: user-ssh-key
+        items:
+          - name: Overview
+            href: cli-ref/oslogin/user-ssh-key/index.md
+          - name: create
+            href: cli-ref/oslogin/user-ssh-key/create.md
+          - name: delete
+            href: cli-ref/oslogin/user-ssh-key/delete.md
+          - name: get
+            href: cli-ref/oslogin/user-ssh-key/get.md
+          - name: list
+            href: cli-ref/oslogin/user-ssh-key/list.md
+          - name: update
+            href: cli-ref/oslogin/user-ssh-key/update.md
+  - name: user
+    items:
+      - name: Overview
+        href: cli-ref/user/index.md
+      - name: list
+        href: cli-ref/user/list.md
+      - name: remove
+        href: cli-ref/user/remove.md
+base: en/_cli-ref/cli-ref/organization-manager
+deepBase: 4

@@ -120,7 +120,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
       * `<VM_ID>`: ID of the virtual machine whose serial console you want to connect to.
       * `<OS_Login_username>`: {{ oslogin }} user ID in the organization. You can find the {{ oslogin }} username at the end of the exported certificate's name after the organization [ID](../../../organization/operations/organization-get-id.md).
 
-          You can also get the username using the `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/managed-services/organization-manager/oslogin/profile/list.md) command or in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
+          You can also get the username using the `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) command or in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) in the user profile on the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab.
 
           {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 

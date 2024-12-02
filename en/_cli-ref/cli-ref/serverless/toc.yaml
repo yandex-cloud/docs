@@ -1,0 +1,400 @@
+name: serverless
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: api-gateway
+    items:
+      - name: Overview
+        href: cli-ref/api-gateway/index.md
+      - name: add-access-binding
+        href: cli-ref/api-gateway/add-access-binding.md
+      - name: add-domain
+        href: cli-ref/api-gateway/add-domain.md
+      - name: create
+        href: cli-ref/api-gateway/create.md
+      - name: delete
+        href: cli-ref/api-gateway/delete.md
+      - name: get
+        href: cli-ref/api-gateway/get.md
+      - name: get-spec
+        href: cli-ref/api-gateway/get-spec.md
+      - name: list
+        href: cli-ref/api-gateway/list.md
+      - name: list-access-bindings
+        href: cli-ref/api-gateway/list-access-bindings.md
+      - name: list-operations
+        href: cli-ref/api-gateway/list-operations.md
+      - name: release-canary
+        href: cli-ref/api-gateway/release-canary.md
+      - name: remove-access-binding
+        href: cli-ref/api-gateway/remove-access-binding.md
+      - name: remove-domain
+        href: cli-ref/api-gateway/remove-domain.md
+      - name: rollback-canary
+        href: cli-ref/api-gateway/rollback-canary.md
+      - name: set-access-bindings
+        href: cli-ref/api-gateway/set-access-bindings.md
+      - name: update
+        href: cli-ref/api-gateway/update.md
+      - name: websocket
+        items:
+          - name: Overview
+            href: cli-ref/api-gateway/websocket/index.md
+          - name: disconnect
+            href: cli-ref/api-gateway/websocket/disconnect.md
+          - name: get
+            href: cli-ref/api-gateway/websocket/get.md
+          - name: send
+            href: cli-ref/api-gateway/websocket/send.md
+  - name: container
+    items:
+      - name: Overview
+        href: cli-ref/container/index.md
+      - name: add-access-binding
+        href: cli-ref/container/add-access-binding.md
+      - name: add-labels
+        href: cli-ref/container/add-labels.md
+      - name: allow-unauthenticated-invoke
+        href: cli-ref/container/allow-unauthenticated-invoke.md
+      - name: create
+        href: cli-ref/container/create.md
+      - name: delete
+        href: cli-ref/container/delete.md
+      - name: deny-unauthenticated-invoke
+        href: cli-ref/container/deny-unauthenticated-invoke.md
+      - name: get
+        href: cli-ref/container/get.md
+      - name: list
+        href: cli-ref/container/list.md
+      - name: list-access-bindings
+        href: cli-ref/container/list-access-bindings.md
+      - name: list-operations
+        href: cli-ref/container/list-operations.md
+      - name: remove-access-binding
+        href: cli-ref/container/remove-access-binding.md
+      - name: remove-labels
+        href: cli-ref/container/remove-labels.md
+      - name: revision
+        items:
+          - name: Overview
+            href: cli-ref/container/revision/index.md
+          - name: deploy
+            href: cli-ref/container/revision/deploy.md
+          - name: get
+            href: cli-ref/container/revision/get.md
+          - name: list
+            href: cli-ref/container/revision/list.md
+      - name: rollback
+        href: cli-ref/container/rollback.md
+      - name: set-access-bindings
+        href: cli-ref/container/set-access-bindings.md
+      - name: update
+        href: cli-ref/container/update.md
+  - name: eventrouter
+    items:
+      - name: Overview
+        href: cli-ref/eventrouter/index.md
+      - name: bus
+        items:
+          - name: Overview
+            href: cli-ref/eventrouter/bus/index.md
+          - name: add-access-binding
+            href: cli-ref/eventrouter/bus/add-access-binding.md
+          - name: create
+            href: cli-ref/eventrouter/bus/create.md
+          - name: delete
+            href: cli-ref/eventrouter/bus/delete.md
+          - name: get
+            href: cli-ref/eventrouter/bus/get.md
+          - name: list
+            href: cli-ref/eventrouter/bus/list.md
+          - name: list-access-bindings
+            href: cli-ref/eventrouter/bus/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/eventrouter/bus/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/eventrouter/bus/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/eventrouter/bus/set-access-bindings.md
+          - name: update
+            href: cli-ref/eventrouter/bus/update.md
+      - name: connector
+        items:
+          - name: Overview
+            href: cli-ref/eventrouter/connector/index.md
+          - name: add-access-binding
+            href: cli-ref/eventrouter/connector/add-access-binding.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/eventrouter/connector/create/index.md
+              - name: data-stream
+                href: cli-ref/eventrouter/connector/create/data-stream.md
+              - name: message-queue
+                href: cli-ref/eventrouter/connector/create/message-queue.md
+          - name: delete
+            href: cli-ref/eventrouter/connector/delete.md
+          - name: get
+            href: cli-ref/eventrouter/connector/get.md
+          - name: list
+            href: cli-ref/eventrouter/connector/list.md
+          - name: list-access-bindings
+            href: cli-ref/eventrouter/connector/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/eventrouter/connector/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/eventrouter/connector/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/eventrouter/connector/set-access-bindings.md
+          - name: start
+            href: cli-ref/eventrouter/connector/start.md
+          - name: stop
+            href: cli-ref/eventrouter/connector/stop.md
+          - name: update
+            href: cli-ref/eventrouter/connector/update.md
+      - name: put-event
+        href: cli-ref/eventrouter/put-event.md
+      - name: rule
+        items:
+          - name: Overview
+            href: cli-ref/eventrouter/rule/index.md
+          - name: add-access-binding
+            href: cli-ref/eventrouter/rule/add-access-binding.md
+          - name: create
+            href: cli-ref/eventrouter/rule/create.md
+          - name: delete
+            href: cli-ref/eventrouter/rule/delete.md
+          - name: disable
+            href: cli-ref/eventrouter/rule/disable.md
+          - name: enable
+            href: cli-ref/eventrouter/rule/enable.md
+          - name: get
+            href: cli-ref/eventrouter/rule/get.md
+          - name: list
+            href: cli-ref/eventrouter/rule/list.md
+          - name: list-access-bindings
+            href: cli-ref/eventrouter/rule/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/eventrouter/rule/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/eventrouter/rule/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/eventrouter/rule/set-access-bindings.md
+          - name: update
+            href: cli-ref/eventrouter/rule/update.md
+  - name: function
+    items:
+      - name: Overview
+        href: cli-ref/function/index.md
+      - name: add-access-binding
+        href: cli-ref/function/add-access-binding.md
+      - name: add-labels
+        href: cli-ref/function/add-labels.md
+      - name: allow-unauthenticated-invoke
+        href: cli-ref/function/allow-unauthenticated-invoke.md
+      - name: create
+        href: cli-ref/function/create.md
+      - name: delete
+        href: cli-ref/function/delete.md
+      - name: deny-unauthenticated-invoke
+        href: cli-ref/function/deny-unauthenticated-invoke.md
+      - name: get
+        href: cli-ref/function/get.md
+      - name: invoke
+        href: cli-ref/function/invoke.md
+      - name: list
+        href: cli-ref/function/list.md
+      - name: list-access-bindings
+        href: cli-ref/function/list-access-bindings.md
+      - name: list-operations
+        href: cli-ref/function/list-operations.md
+      - name: list-scaling-policies
+        href: cli-ref/function/list-scaling-policies.md
+      - name: logs
+        href: cli-ref/function/logs.md
+      - name: remove-access-binding
+        href: cli-ref/function/remove-access-binding.md
+      - name: remove-labels
+        href: cli-ref/function/remove-labels.md
+      - name: remove-scaling-policy
+        href: cli-ref/function/remove-scaling-policy.md
+      - name: runtime
+        items:
+          - name: Overview
+            href: cli-ref/function/runtime/index.md
+          - name: list
+            href: cli-ref/function/runtime/list.md
+      - name: set-access-bindings
+        href: cli-ref/function/set-access-bindings.md
+      - name: set-scaling-policy
+        href: cli-ref/function/set-scaling-policy.md
+      - name: tag-history
+        href: cli-ref/function/tag-history.md
+      - name: update
+        href: cli-ref/function/update.md
+      - name: version
+        items:
+          - name: Overview
+            href: cli-ref/function/version/index.md
+          - name: create
+            href: cli-ref/function/version/create.md
+          - name: delete
+            href: cli-ref/function/version/delete.md
+          - name: get
+            href: cli-ref/function/version/get.md
+          - name: get-by-tag
+            href: cli-ref/function/version/get-by-tag.md
+          - name: list
+            href: cli-ref/function/version/list.md
+          - name: logs
+            href: cli-ref/function/version/logs.md
+          - name: remove-tag
+            href: cli-ref/function/version/remove-tag.md
+          - name: set-tag
+            href: cli-ref/function/version/set-tag.md
+  - name: mdbproxy
+    items:
+      - name: Overview
+        href: cli-ref/mdbproxy/index.md
+      - name: add-labels
+        href: cli-ref/mdbproxy/add-labels.md
+      - name: create
+        items:
+          - name: Overview
+            href: cli-ref/mdbproxy/create/index.md
+          - name: clickhouse
+            href: cli-ref/mdbproxy/create/clickhouse.md
+          - name: postgresql
+            href: cli-ref/mdbproxy/create/postgresql.md
+      - name: delete
+        href: cli-ref/mdbproxy/delete.md
+      - name: get
+        href: cli-ref/mdbproxy/get.md
+      - name: list
+        href: cli-ref/mdbproxy/list.md
+      - name: list-operations
+        href: cli-ref/mdbproxy/list-operations.md
+      - name: remove-labels
+        href: cli-ref/mdbproxy/remove-labels.md
+      - name: update
+        items:
+          - name: Overview
+            href: cli-ref/mdbproxy/update/index.md
+          - name: clickhouse
+            href: cli-ref/mdbproxy/update/clickhouse.md
+          - name: postgresql
+            href: cli-ref/mdbproxy/update/postgresql.md
+  - name: network
+    items:
+      - name: Overview
+        href: cli-ref/network/index.md
+      - name: get-used
+        href: cli-ref/network/get-used.md
+      - name: list-connections
+        href: cli-ref/network/list-connections.md
+      - name: list-used
+        href: cli-ref/network/list-used.md
+      - name: trigger-used-cleanup
+        href: cli-ref/network/trigger-used-cleanup.md
+  - name: trigger
+    items:
+      - name: Overview
+        href: cli-ref/trigger/index.md
+      - name: add-labels
+        href: cli-ref/trigger/add-labels.md
+      - name: create
+        items:
+          - name: Overview
+            href: cli-ref/trigger/create/index.md
+          - name: billing-budget
+            href: cli-ref/trigger/create/billing-budget.md
+          - name: container-registry
+            href: cli-ref/trigger/create/container-registry.md
+          - name: internet-of-things
+            href: cli-ref/trigger/create/internet-of-things.md
+          - name: iot-broker
+            href: cli-ref/trigger/create/iot-broker.md
+          - name: logging
+            href: cli-ref/trigger/create/logging.md
+          - name: mail
+            href: cli-ref/trigger/create/mail.md
+          - name: message-queue
+            href: cli-ref/trigger/create/message-queue.md
+          - name: object-storage
+            href: cli-ref/trigger/create/object-storage.md
+          - name: timer
+            href: cli-ref/trigger/create/timer.md
+          - name: yds
+            href: cli-ref/trigger/create/yds.md
+      - name: delete
+        href: cli-ref/trigger/delete.md
+      - name: get
+        href: cli-ref/trigger/get.md
+      - name: list
+        href: cli-ref/trigger/list.md
+      - name: list-operations
+        href: cli-ref/trigger/list-operations.md
+      - name: pause
+        href: cli-ref/trigger/pause.md
+      - name: remove-labels
+        href: cli-ref/trigger/remove-labels.md
+      - name: resume
+        href: cli-ref/trigger/resume.md
+      - name: update
+        items:
+          - name: Overview
+            href: cli-ref/trigger/update/index.md
+          - name: billing-budget
+            href: cli-ref/trigger/update/billing-budget.md
+          - name: container-registry
+            href: cli-ref/trigger/update/container-registry.md
+          - name: internet-of-things
+            href: cli-ref/trigger/update/internet-of-things.md
+          - name: iot-broker
+            href: cli-ref/trigger/update/iot-broker.md
+          - name: logging
+            href: cli-ref/trigger/update/logging.md
+          - name: mail
+            href: cli-ref/trigger/update/mail.md
+          - name: message-queue
+            href: cli-ref/trigger/update/message-queue.md
+          - name: object-storage
+            href: cli-ref/trigger/update/object-storage.md
+          - name: timer
+            href: cli-ref/trigger/update/timer.md
+          - name: yds
+            href: cli-ref/trigger/update/yds.md
+  - name: workflow
+    items:
+      - name: Overview
+        href: cli-ref/workflow/index.md
+      - name: create
+        href: cli-ref/workflow/create.md
+      - name: delete
+        href: cli-ref/workflow/delete.md
+      - name: execution
+        items:
+          - name: Overview
+            href: cli-ref/workflow/execution/index.md
+          - name: get
+            href: cli-ref/workflow/execution/get.md
+          - name: get-history
+            href: cli-ref/workflow/execution/get-history.md
+          - name: list
+            href: cli-ref/workflow/execution/list.md
+          - name: start
+            href: cli-ref/workflow/execution/start.md
+          - name: stop
+            href: cli-ref/workflow/execution/stop.md
+          - name: terminate
+            href: cli-ref/workflow/execution/terminate.md
+      - name: get
+        href: cli-ref/workflow/get.md
+      - name: list
+        href: cli-ref/workflow/list.md
+      - name: list-operations
+        href: cli-ref/workflow/list-operations.md
+      - name: update
+        href: cli-ref/workflow/update.md
+base: en/_cli-ref/cli-ref/serverless
+deepBase: 4

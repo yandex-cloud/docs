@@ -48,7 +48,7 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
 
       {% endnote %}
 
-   For more information about the `yc smartwebsecurity security-profile delete` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/delete.md).
+   For more information about the `yc smartwebsecurity security-profile delete` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
 
 - API {#api}
 

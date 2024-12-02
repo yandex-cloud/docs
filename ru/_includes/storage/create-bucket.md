@@ -114,7 +114,7 @@
 
       {% endcut %}
 
-      Подробнее о команде `yc storage bucket create` см. в [Справочнике YC CLI](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+      Подробнее о команде `yc storage bucket create` см. в [Справочнике YC CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
 - AWS CLI {#aws-cli}
 

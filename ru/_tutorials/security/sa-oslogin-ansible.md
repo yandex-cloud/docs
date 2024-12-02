@@ -92,7 +92,7 @@
       expires_at: "2024-06-21T20:10:11.380653492Z"
       ```
 
-      Подробнее о команде `yc organization-manager oslogin user-ssh-key create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/organization-manager/oslogin/user-ssh-key/create.md).
+      Подробнее о команде `yc organization-manager oslogin user-ssh-key create` читайте в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/user-ssh-key/create.md).
 
     {% endlist %}
 

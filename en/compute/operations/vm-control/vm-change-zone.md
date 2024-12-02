@@ -7,7 +7,7 @@ description: Follow this guide to move a VM to a different availability zone.
 
 When creating a VM, you can choose the {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) where it will be located.
 
-You can move an existing VM to a different availability zone using a special command in the [management console]({{ link-console-main }}) or the [CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md) or by creating its copy in the target availability zone using [disk snapshots](../../concepts/snapshot.md).
+You can move an existing VM to a different availability zone using a special command in the [management console]({{ link-console-main }}) or the [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md) or by creating its copy in the target availability zone using [disk snapshots](../../concepts/snapshot.md).
 
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
@@ -211,7 +211,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
           If a VM has multiple network interfaces, specify the `--network-interface` parameter as many times as needed (for each network interface).
 
-      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       Example:
 
@@ -286,7 +286,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
         * `disk-placement-group-id`: ID of the disk placement group to place the disk in.
         * `disk-placement-group-partition`: Partition number in the disk placement group.
 
-      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
   Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
 

@@ -142,7 +142,7 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-kafka/index.md
+    href: ../cli/cli-ref/managed-kafka/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

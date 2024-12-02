@@ -18,7 +18,7 @@
 * логин пользовательского аккаунта идентичен имени этого пользователя в организации;
 * логин сервисного аккаунта формируется добавлением префикса `yc-sa-` к имени сервисного аккаунта. Например: сервисному аккаунту `my-robot` будет присвоен логин `yc-sa-my-robot`.
 
-Управлять профилями {{ oslogin }} пользователей вы можете в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}), а также с помощью [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/organization-manager/oslogin/index.md) и [API](../api-ref/OsLogin/index.md). Управлять профилями {{ oslogin }} сервисных аккаунтов можно только с помощью CLI или API.
+Управлять профилями {{ oslogin }} пользователей вы можете в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}), а также с помощью [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) и [API](../api-ref/OsLogin/index.md). Управлять профилями {{ oslogin }} сервисных аккаунтов можно только с помощью CLI или API.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 

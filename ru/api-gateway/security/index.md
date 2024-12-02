@@ -33,7 +33,7 @@ description: Управление доступом в сервисе API-шлю�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [API-шлюз](../concepts/index.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/serverless/api-gateway/add-access-binding.md) или [API](../api-ref/apigateway/authentication.md).
+На [API-шлюз](../concepts/index.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/api-gateway/add-access-binding.md) или [API](../api-ref/apigateway/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

@@ -144,7 +144,7 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/iot/index.md
+    href: ../cli/cli-ref/iot/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: Devices API reference

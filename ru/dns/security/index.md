@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для уп
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [зону DNS](../concepts/dns-zone.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/dns/zone/add-access-binding.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+На [зону DNS](../concepts/dns-zone.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/dns/cli-ref/zone/add-access-binding.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

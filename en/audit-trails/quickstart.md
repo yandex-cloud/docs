@@ -129,7 +129,7 @@ To create your first trail in {{ at-name }} and start the process of management 
       cloud_id: b1glti4eser3********
       ```
 
-      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
 
 - {{ TF }} {#tf}
 

@@ -156,7 +156,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
 
-      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md) command.
+      You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md) command.
    1. Sign the image in {{ container-registry-name }}:
 
       ```bash

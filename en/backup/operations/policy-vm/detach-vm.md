@@ -39,7 +39,7 @@
 
       Where `--instance-ids` are the IDs of the VMs you need to unlink from the backup policy. Multiple IDs should be comma-separated.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/revoke.md).
+  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
 - API {#api}
 
