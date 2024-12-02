@@ -131,7 +131,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--request-max-timeout`: Maximum request idle timeout in seconds.
 
-     For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
+     For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
      Result:
 

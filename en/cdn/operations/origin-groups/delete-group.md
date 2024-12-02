@@ -55,7 +55,7 @@ To delete an [origin group](../../concepts/origins.md):
      yc cdn origin-group delete --id <origin_group_ID>
      ```
 
-     For more information about the `yc cdn origin-group delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/delete.md).
+     For more information about the `yc cdn origin-group delete` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/delete.md).
 
 - {{ TF }} {#tf}
 

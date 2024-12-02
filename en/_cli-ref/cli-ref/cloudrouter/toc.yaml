@@ -1,0 +1,14 @@
+name: cloudrouter
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: routing-instance
+    items:
+      - name: Overview
+        href: cli-ref/routing-instance/index.md
+      - name: get
+        href: cli-ref/routing-instance/get.md
+      - name: list
+        href: cli-ref/routing-instance/list.md
+base: en/_cli-ref/cli-ref/cloudrouter
+deepBase: 4

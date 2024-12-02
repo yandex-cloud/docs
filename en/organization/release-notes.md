@@ -23,5 +23,5 @@ description: This section contains {{ org-name }} release notes.
 
 ## Q1 2024 {#q1-2024}
 
-* Added an option to delete federated users via the [CLI](../cli/cli-ref/managed-services/organization-manager/federation/saml/delete-user-accounts.md) and [API](saml/api-ref/Federation/deleteUserAccounts.md). {{ tag-cli }} {{ tag-api }}
+* Added an option to delete federated users via the [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/delete-user-accounts.md) and [API](saml/api-ref/Federation/deleteUserAccounts.md). {{ tag-cli }} {{ tag-api }}
 * Fixed the Replay Attack vulnerability for SAML.

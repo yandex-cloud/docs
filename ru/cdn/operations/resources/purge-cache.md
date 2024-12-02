@@ -95,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
       ```
       Если не указать флаг `--path` с путями к файлам, будет очищен кеш всех файлов.
 
-      Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
+      Подробнее о команде `yc cdn cache purge` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
 - API {#api}
 

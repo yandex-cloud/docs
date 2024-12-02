@@ -11,7 +11,7 @@ description: В данной статье описаны особенности 
 
 ## Получение открытого ключа ключевой пары {#acquire-public-key}
 
-Чтобы зашифровать сообщение, необходимо получить в {{ kms-short-name }} открытый ключ. Для этого нужно создать запрос к сервису с помощью [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/get-public-key.md) или [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
+Чтобы зашифровать сообщение, необходимо получить в {{ kms-short-name }} открытый ключ. Для этого нужно создать запрос к сервису с помощью [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/get-public-key.md) или [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/getPublicKey.md).
 
 Чтобы получить открытый ключ шифрования ключевой пары, пользователю или сервисному аккаунту необходимо [назначить роль](../operations/key-access.md) `kms.asymmetricEncryptionKeys.publicKeyViewer` на ключевую пару.
 
@@ -57,6 +57,6 @@ openssl pkeyutl \
 
 ## Расшифрование данных {#decryption}
 
-Расшифровать данные можно с помощью закрытого ключа ключевой пары в сервисе {{ kms-name }}. Для этого нужно создать запрос к сервису с помощью [CLI](../../cli/cli-ref/managed-services/kms/asymmetric-encryption-crypto/decrypt.md) или [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
+Расшифровать данные можно с помощью закрытого ключа ключевой пары в сервисе {{ kms-name }}. Для этого нужно создать запрос к сервису с помощью [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-encryption-crypto/decrypt.md) или [API](../asymmetricencryption/api-ref/grpc/AsymmetricEncryptionCrypto/decrypt.md).
 
 Чтобы расшифровать данные, пользователю или сервисному аккаунту необходимо [назначить роль](../operations/key-access.md) `kms.asymmetricEncryptionKeys.decrypter` на ключевую пару шифрования.

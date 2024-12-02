@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [profile-create-yaml-result](../../_includes/smartwebsecurity/profile-create-yaml-result.md) %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - API {#api}
 

@@ -248,7 +248,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
       The command should run without interruption until you finish testing the function.
 
-      For more information about the `yc iot mqtt subscribe` command, see the [CLI reference](../../cli/cli-ref/managed-services/iot/mqtt/subscribe.md).
+      For more information about the `yc iot mqtt subscribe` command, see the [CLI reference](../../cli/cli-ref/iot/cli-ref/mqtt/subscribe.md).
 
     {% endlist %}
 

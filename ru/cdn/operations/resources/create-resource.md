@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
+     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
   1. Получите значение [CNAME-записи](../../../dns/concepts/resource-record.md#cname) для CDN-ресурса:
 
      ```bash

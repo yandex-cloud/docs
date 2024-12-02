@@ -50,7 +50,7 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-airflow/index.md
+    href: ../cli/cli-ref/managed-airflow/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -48,7 +48,7 @@ description: In this tutorial, you will learn how to delete a VM backup in **{{ 
       * `--backup-id`: ID of the backup to delete.
       * `--instance-id`: ID of the VM instance whose backup you want to delete.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/delete.md).
+  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
 
 - API {#api}
 

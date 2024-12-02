@@ -66,7 +66,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet named `usergate-subnet-{{ region-id }}-a` in the `{{ region-id }}-a` availability zone:
 
@@ -90,7 +90,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      - 10.1.0.0/16
      ```
 
-     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 
 
@@ -177,7 +177,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   reserved: true
   ```
 
-  For more information about the `yc vpc address create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/create.md).
+  For more information about the `yc vpc address create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 - {{ TF }} {#tf}
 
@@ -283,7 +283,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      placement_policy: {}
      ```
 
-     For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+     For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 

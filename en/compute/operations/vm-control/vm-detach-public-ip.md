@@ -30,10 +30,10 @@ If you previously attached a public IP address to a VM's [network interface](../
 
   Where:
 
-  * `--id`: VM ID. You can get a list of available VM IDs in a folder using the `yc compute instance list` [CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) command.
+  * `--id`: VM ID. You can get a list of available VM IDs in a folder using the `yc compute instance list` [CLI](../../../cli/cli-ref/compute/cli-ref/instance/list.md) command.
   * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run the following command: `yc compute instance get <VM_ID>`.
 
-  For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
+  For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/remove-one-to-one-nat.md).
 
 - API {#api}
 

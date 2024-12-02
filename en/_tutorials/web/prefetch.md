@@ -349,7 +349,7 @@ You need to check that, when user requests are made, files are downloaded from t
       ...
       ```
 
-      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
    1. Enable a client redirect for a resource:
 
@@ -590,7 +590,7 @@ You need to check that, when user requests are made, files are downloaded from t
      --path /ycgame-update-v1.1.exe
    ```
 
-   For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+   For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API
 

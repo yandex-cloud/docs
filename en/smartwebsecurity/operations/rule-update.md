@@ -173,7 +173,7 @@ You can update basic [rules](../concepts/rules.md), as well as Smart Protection 
 
          {% endcut %}
 
-   For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+   For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - API {#api}
 

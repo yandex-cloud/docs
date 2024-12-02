@@ -92,7 +92,7 @@ description: Follow this guide to move a security group to a different folder.
      status: ACTIVE
      ```
 
-     For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
+     For more information about the `yc vpc security-group move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/move.md).
 
 - API {#api}
 

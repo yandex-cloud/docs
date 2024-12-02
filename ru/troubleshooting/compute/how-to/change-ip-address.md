@@ -14,7 +14,7 @@
 - CLI
 
     * [Установка и настройка CLI](../../../cli/quickstart.md);
-    * [Команда](../../../cli/cli-ref/managed-services/compute/instance/update-network-interface) `yc compute instance update-network-interface`.
+    * [Команда](../../../cli/cli-ref/compute/cli-ref/instance/update-network-interface) `yc compute instance update-network-interface`.
     Пример команды:
     ```
     yc compute instance update-network-interface <ID ВМ> --network-interface-index=0 --ipv4-address=<новый IP из диапазона подсети>

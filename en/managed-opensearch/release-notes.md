@@ -15,7 +15,7 @@ Added automatic increase of disk size. In the [cluster settings](operations/upda
 
 ## February 2024 {#feb-2024}
 
-* Now you can manage {{ OS }} clusters using the [CLI commands](../cli/cli-ref/managed-services/managed-opensearch/index.md) and [{{ TF }}](./tf-ref.md).
+* Now you can manage {{ OS }} clusters using the [CLI commands](../cli/cli-ref/managed-opensearch/cli-ref/index.md) and [{{ TF }}](./tf-ref.md).
 
 ## Q3 2023 {#q3-2023}
 

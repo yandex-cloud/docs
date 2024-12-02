@@ -1,0 +1,48 @@
+name: loadtesting
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: agent
+    items:
+      - name: Overview
+        href: cli-ref/agent/index.md
+      - name: create
+        href: cli-ref/agent/create.md
+      - name: delete
+        href: cli-ref/agent/delete.md
+      - name: get
+        href: cli-ref/agent/get.md
+      - name: list
+        href: cli-ref/agent/list.md
+  - name: test
+    items:
+      - name: Overview
+        href: cli-ref/test/index.md
+      - name: check-regression
+        href: cli-ref/test/check-regression.md
+      - name: create
+        href: cli-ref/test/create.md
+      - name: delete
+        href: cli-ref/test/delete.md
+      - name: get
+        href: cli-ref/test/get.md
+      - name: get-report-table
+        href: cli-ref/test/get-report-table.md
+      - name: list
+        href: cli-ref/test/list.md
+      - name: stop
+        href: cli-ref/test/stop.md
+      - name: wait
+        href: cli-ref/test/wait.md
+  - name: test-config
+    items:
+      - name: Overview
+        href: cli-ref/test-config/index.md
+      - name: create
+        href: cli-ref/test-config/create.md
+      - name: get
+        href: cli-ref/test-config/get.md
+      - name: list
+        href: cli-ref/test-config/list.md
+base: en/_cli-ref/cli-ref/loadtesting
+deepBase: 4

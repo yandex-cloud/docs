@@ -1,0 +1,26 @@
+name: managed-airflow
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: cluster
+    items:
+      - name: Overview
+        href: cli-ref/cluster/index.md
+      - name: create
+        href: cli-ref/cluster/create.md
+      - name: delete
+        href: cli-ref/cluster/delete.md
+      - name: get
+        href: cli-ref/cluster/get.md
+      - name: list
+        href: cli-ref/cluster/list.md
+      - name: list-operations
+        href: cli-ref/cluster/list-operations.md
+      - name: start
+        href: cli-ref/cluster/start.md
+      - name: stop
+        href: cli-ref/cluster/stop.md
+      - name: update
+        href: cli-ref/cluster/update.md
+base: en/_cli-ref/cli-ref/managed-airflow
+deepBase: 4

@@ -53,7 +53,7 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/cloud-registry/index.md
+    href: ../cli/cli-ref/cloud-registry/cli-ref/index.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

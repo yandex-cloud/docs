@@ -1,0 +1,56 @@
+name: load-balancer
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: network-load-balancer
+    items:
+      - name: Overview
+        href: cli-ref/network-load-balancer/index.md
+      - name: add-listener
+        href: cli-ref/network-load-balancer/add-listener.md
+      - name: attach-target-group
+        href: cli-ref/network-load-balancer/attach-target-group.md
+      - name: create
+        href: cli-ref/network-load-balancer/create.md
+      - name: delete
+        href: cli-ref/network-load-balancer/delete.md
+      - name: detach-target-group
+        href: cli-ref/network-load-balancer/detach-target-group.md
+      - name: get
+        href: cli-ref/network-load-balancer/get.md
+      - name: list
+        href: cli-ref/network-load-balancer/list.md
+      - name: list-operations
+        href: cli-ref/network-load-balancer/list-operations.md
+      - name: remove-listener
+        href: cli-ref/network-load-balancer/remove-listener.md
+      - name: start
+        href: cli-ref/network-load-balancer/start.md
+      - name: stop
+        href: cli-ref/network-load-balancer/stop.md
+      - name: target-states
+        href: cli-ref/network-load-balancer/target-states.md
+      - name: update
+        href: cli-ref/network-load-balancer/update.md
+  - name: target-group
+    items:
+      - name: Overview
+        href: cli-ref/target-group/index.md
+      - name: add-targets
+        href: cli-ref/target-group/add-targets.md
+      - name: create
+        href: cli-ref/target-group/create.md
+      - name: delete
+        href: cli-ref/target-group/delete.md
+      - name: get
+        href: cli-ref/target-group/get.md
+      - name: list
+        href: cli-ref/target-group/list.md
+      - name: list-operations
+        href: cli-ref/target-group/list-operations.md
+      - name: remove-targets
+        href: cli-ref/target-group/remove-targets.md
+      - name: update
+        href: cli-ref/target-group/update.md
+base: en/_cli-ref/cli-ref/load-balancer
+deepBase: 4

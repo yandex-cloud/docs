@@ -15,7 +15,7 @@ Horizontal scaling involves distributing datasets and load across multiple nodes
 
 You can read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://redis.io/topics/cluster-spec).
 
-## {{ RD }} Cluster structure {#valkey-cluster-structure}
+## {{ RD }} Cluster structure {#redis-cluster-structure}
 
 {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. {{ RD }} Cluster includes multiple hosts for storing your data. {{ RD }} Cluster is divided into shards, each consisting of a master and multiple replicas. Data from clients is written to the master hosts and then [replicated](replication.md).
 

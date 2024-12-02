@@ -370,7 +370,7 @@
      ...
      ```
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
   1. Включите переадресацию клиентов для ресурса:
 
      ```bash
@@ -600,7 +600,7 @@
     --path /ycgame-update-v1.1.exe
   ```
 
-  Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+  Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 

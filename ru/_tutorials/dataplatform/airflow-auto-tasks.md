@@ -110,7 +110,7 @@
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсети:
 
@@ -154,7 +154,7 @@
           --range 10.3.0.0/16
         ```
 
-      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -250,7 +250,7 @@
   shared_egress_gateway: {}
   ```
 
-  Подробнее о команде `yc vpc gateway create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/gateway/create.md).
+  Подробнее о команде `yc vpc gateway create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/gateway/create.md).
 
   Сохраните идентификатор (`id`) NAT-шлюза, он понадобится при создании таблицы маршрутизации.
 
@@ -300,7 +300,7 @@
       gateway_id: enpkq1sb7hed********
   ```
 
-  Подробнее о команде `yc vpc route-table create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/route-table/create.md).
+  Подробнее о команде `yc vpc route-table create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/route-table/create.md).
 
 
 - API {#api}
@@ -346,7 +346,7 @@
   dhcp_options: {}
   ```
 
-  Подробнее о команде `yc vpc subnet update` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/update.md).
+  Подробнее о команде `yc vpc subnet update` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/update.md).
 
 - API {#api}
 

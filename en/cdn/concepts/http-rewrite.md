@@ -9,7 +9,7 @@ You can [customize redirection](../operations/resources/setup-http-rewrite.md) o
 
 For example, you can use this option to reconfigure content request paths if the file and folder structure of the [origin](./origins.md) has changed. You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
 
-You can enable request redirection for a CDN resource using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/managed-services/cdn/resource/update.md), or [API](../api-ref/Resource/update.md).
+You can enable request redirection for a CDN resource using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), or [API](../api-ref/Resource/update.md).
 
 To configure request redirection, you need to set a [rewrite rule](#rewrite-rule) and specify a [flag](#flag).
 

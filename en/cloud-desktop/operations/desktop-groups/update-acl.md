@@ -64,7 +64,7 @@ description: In this tutorial, you will learn how to change access permissions f
         --access-binding role=editor,serviceAccount=ajel6l0jcb9s********
       ```
 
-      To assign a role to a subject without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/managed-services/desktops/group/add-access-bindings.md). For example, to assign a role to a service account:
+      To assign a role to a subject without rewriting its other roles, use the `yc desktops group add-access-bindings` [command](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md). For example, to assign a role to a service account:
 
       ```bash
       yc desktops group add-access-bindings \

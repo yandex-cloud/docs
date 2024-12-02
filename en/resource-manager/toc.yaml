@@ -66,7 +66,7 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/resource-manager/index.md
+    href: ../cli/cli-ref/resource-manager/cli-ref/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

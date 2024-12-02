@@ -87,7 +87,7 @@
         - 10.1.0.0/16
       dhcp_options: {}
      ```
-     Подробнее о команде `yc vpc subnet move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
+     Подробнее о команде `yc vpc subnet move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/move.md).
 
 - API {#api}
 

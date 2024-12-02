@@ -77,7 +77,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
      created_at: "2024-07-25T19:21:05.039610Z"
      ```
 
-  For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+  For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - API {#api}
 

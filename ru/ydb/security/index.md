@@ -42,7 +42,7 @@ sourcePath: overlay/security/start_auth.md
 
 - CLI {#cli}
 
-  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/ydb/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/ydb/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
   * [СУБД YDB](../concepts/index.md#ydb)
   * Резервная копия СУБД YDB

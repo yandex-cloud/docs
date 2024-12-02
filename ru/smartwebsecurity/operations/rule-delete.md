@@ -270,7 +270,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% endcut %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
 
 - API {#api}
 

@@ -88,7 +88,7 @@
       default_security_group_id: enc2ta63h3q2********
      ```
 
-     Подробнее о команде `yc vpc network move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/move.md).
+     Подробнее о команде `yc vpc network move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/move.md).
 
 - API {#api}
 

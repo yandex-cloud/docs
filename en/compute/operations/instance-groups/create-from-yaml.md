@@ -21,7 +21,7 @@ To create an [instance group](../../concepts/instance-groups/index.md) based on 
   {{ yc-compute-ig }} create --file specification.yaml
   ```
 
-  For more information about the `{{ yc-compute-ig}} create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+  For more information about the `{{ yc-compute-ig}} create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 - API {#api}
 

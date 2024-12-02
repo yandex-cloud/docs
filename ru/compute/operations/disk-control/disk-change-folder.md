@@ -78,7 +78,7 @@
       * `--id` – идентификатор диска, например `a7lqgbt0bb9s********`.
       * `--destination-folder-id` – идентификатор целевого каталога, например `b1gd129pp9ha********`.
 
-      Подробнее о команде `yc compute disk move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/move.md).
+      Подробнее о команде `yc compute disk move` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/move.md).
 
 - API {#api}
 

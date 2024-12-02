@@ -111,7 +111,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       * `--static-request-headers`: Adds request headers to the origin. You can remove them using the `--clear-static-request-headers` flag.
       * `--static-headers`: Adds client response headers. You can remove them using the `--clear-static-headers` flag.
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

@@ -262,7 +262,7 @@ To create a trail that exports audit logs from the cloud:
 
           {% endcut %}
 
-      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+      For more information about the `yc audit-trails trail create` command, see the [CLI reference](../../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
 
 - {{ TF }} {#tf}
 

@@ -262,7 +262,7 @@
 
           {% endcut %}
 
-      Подробнее о команде `yc audit-trails trail create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+      Подробнее о команде `yc audit-trails trail create` читайте в [справочнике CLI](../../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
 
 - {{ TF }} {#tf}
 

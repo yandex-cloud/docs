@@ -61,7 +61,7 @@
 
       Сохраните идентификатор (`id`) созданного сервисного аккаунта, он понадобится при назначении сервисному аккаунту ролей.
 
-      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте созданному сервисному аккаунту [роль](../../storage/security/index.md#storage-editor) `storage.editor` на каталог:
 
@@ -88,7 +88,7 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
   1. Аналогичным способом назначьте сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}` на каталог:
 
@@ -104,7 +104,7 @@
       STATIC_KEY=$(yc iam access-key create --service-account-name storage-bucket-sa)
       ```
 
-      Подробнее о команде `yc iam access-key create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+      Подробнее о команде `yc iam access-key create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
   1. Сохраните значения [идентификатора ключа](../../iam/concepts/authorization/access-key.md#key-id) и [секретного ключа](../../iam/concepts/authorization/access-key.md#private-key) в отдельные переменные `KEY_ID` и `KEY_VALUE`:
 
@@ -148,7 +148,7 @@
       deletion_protection: true
       ```
 
-      Подробнее о команде `yc lockbox secret create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/lockbox/secret/create.md).
+      Подробнее о команде `yc lockbox secret create` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/secret/create.md).
 
 {% endlist %}
 
@@ -167,7 +167,7 @@
       SECRET=$(yc lockbox payload get static-key)
       ```
 
-      Подробнее о команде `yc lockbox payload get` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/lockbox/payload/get.md).
+      Подробнее о команде `yc lockbox payload get` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
 
     {% endlist %}
 

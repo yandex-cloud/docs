@@ -1,5 +1,5 @@
 ---
-title: Monitoring the state of {{ RD }} clusters and hosts
+title: Monitoring the state of Redis clusters and hosts
 description: Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information as charts.
 ---
 
@@ -78,7 +78,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
       {% note info %}
 
-      The value of **maxmemory** for {{ RD }} hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
+      The value of **maxmemory** for Redis hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
 
       {% endnote %}
 

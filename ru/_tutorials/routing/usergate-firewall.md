@@ -66,7 +66,7 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
 
@@ -90,7 +90,7 @@
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 
 
@@ -177,7 +177,7 @@
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/create.md).
+  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 - {{ TF }} {#tf}
 
@@ -283,7 +283,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
+     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 

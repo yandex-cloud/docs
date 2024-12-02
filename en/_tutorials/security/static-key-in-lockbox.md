@@ -61,7 +61,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
       Save the ID (`id`) of the service account you created: you will need it to assign roles to the service account.
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
    1. Assign the `storage.editor` [role](../../storage/security/index.md#storage-editor) for the folder to the service account:
 
@@ -88,7 +88,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
               type: serviceAccount
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
    1. Similarly, assign the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer) for the folder to the service account:
 
@@ -104,7 +104,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
       STATIC_KEY=$(yc iam access-key create --service-account-name storage-bucket-sa)
       ```
 
-      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
    1. Save the [key ID](../../iam/concepts/authorization/access-key.md#key-id) and [secret key](../../iam/concepts/authorization/access-key.md#private-key) values to the separate `KEY_ID` and `KEY_VALUE` variables:
 
@@ -148,7 +148,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
       deletion_protection: true
       ```
 
-      For more information about the `yc lockbox secret create` command, see the [CLI reference](../../cli/cli-ref/managed-services/lockbox/secret/create.md).
+      For more information about the `yc lockbox secret create` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/secret/create.md).
 
 {% endlist %}
 
@@ -167,7 +167,7 @@ The service account's static access key is now saved inside the {{ lockbox-name 
       SECRET=$(yc lockbox payload get static-key)
       ```
 
-      For more information about the `yc lockbox payload get` command, see the [CLI reference](../../cli/cli-ref/managed-services/lockbox/payload/get.md).
+      For more information about the `yc lockbox payload get` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
 
    {% endlist %}
 

@@ -98,7 +98,7 @@ description: Следуя данному руководству, вы сможе
         done (1s)
         ```
 
-        Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
+        Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
     1. Роль `storage.uploader` на каталог `example-folder`:
 
@@ -116,7 +116,7 @@ description: Следуя данному руководству, вы сможе
         done (1s)
         ```
 
-        Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+        Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -140,7 +140,7 @@ description: Следуя данному руководству, вы сможе
     done (1s)
     ```
 
-    Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+    Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 

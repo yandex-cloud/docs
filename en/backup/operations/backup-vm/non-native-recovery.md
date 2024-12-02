@@ -97,7 +97,7 @@ To restore a VM from a backup of another VM:
      ...1s...6s...11s ... 9m4s...9m9s...done (9m9s)
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
+     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/recover.md).
 
   After the recovery the source VM you created the backup from will become outdated. To avoid conflicts between the two VMs when making backups, [delete](../../../compute/operations/vm-control/vm-delete.md) the outdated VM or [refresh](../refresh-connection.md) its connection to {{ backup-name }}:
 

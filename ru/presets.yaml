@@ -449,11 +449,11 @@ default:
   mpg-short-name: Managed Service for PostgreSQL
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
-  mrd-full-name: Yandex Managed Service for Valkey™
+  mrd-full-name: Yandex Managed Service for Redis
   mrd-host-class: hm2.nano
   mrd-memory-used: 75%
-  mrd-name: Yandex Managed Service for Valkey™
-  mrd-short-name: Yandex Managed Service for Valkey™
+  mrd-name: Managed Service for Redis
+  mrd-short-name: Managed Service for Redis
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
@@ -527,7 +527,7 @@ default:
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   prometheus-name: Prometheus
   promql-name: PromQL
-  RD: Valkey™
+  RD: Redis
   rd:
     docs: https://redis.io/docs
   region-id: ru-central1

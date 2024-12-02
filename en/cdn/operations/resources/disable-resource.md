@@ -88,7 +88,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
       yc cdn resource update <resource_ID> --active false
       ```
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

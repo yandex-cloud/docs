@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
       dhcp_options: {}
       ```
 
-      Подробнее о команде `yc vpc subnet relocate` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/relocate.md).
+      Подробнее о команде `yc vpc subnet relocate` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/relocate.md).
 
 - API {#api}
 

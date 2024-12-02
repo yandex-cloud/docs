@@ -140,7 +140,7 @@ items:
       - name: Режим с выделенными инстансами
         href: pricing/dedicated.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/ydb/index.md
+    href: ../cli/cli-ref/ydb/cli-ref/index.md
   - name: Document API, совместимый с Amazon DynamoDB
     items:
       - name: Инструменты

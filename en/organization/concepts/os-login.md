@@ -14,7 +14,7 @@ For each user and service account in an organization, you can create {{ oslogin 
 
 By default, [enabling {{ oslogin }} access](../operations/os-login-access.md) creates {{ oslogin }} profiles for all users within your organization. Also, you can [create](../operations/os-login-profile-create.md) additional profiles or edit the existing ones.
 
-You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/organization-manager/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). To manage {{ oslogin }} profiles for service accounts, you can only use the CLI or API.
+You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). To manage {{ oslogin }} profiles for service accounts, you can only use the CLI or API.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 

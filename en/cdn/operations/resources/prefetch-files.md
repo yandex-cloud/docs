@@ -91,7 +91,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
         --path <file_paths>
       ```
 
-      For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+      For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 

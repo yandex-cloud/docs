@@ -79,7 +79,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
      name: table-1
      network_id: encb4ubvmief********
      ```
-     For more information about the `yc vpc route-table move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
+     For more information about the `yc vpc route-table move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/route-table/move.md).
 
 - API {#api}
 

@@ -158,7 +158,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-     For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
+     For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
   1. Get the [CNAME record](../../../dns/concepts/resource-record.md#cname) value for the CDN resource:
 
      ```bash

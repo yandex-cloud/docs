@@ -77,14 +77,14 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
           - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
-      For more information about the `yc compute disk list` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/list.md).
+      For more information about the `yc compute disk list` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
       To get a list of disks added to a given schedule, you can also use the command:
 
       ```bash
       yc compute snapshot-schedule list-disks <name_or_ID_of_the_schedule>
       ```
-      See [more info](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
+      See [more info](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
    1. Get the name or ID of the schedule:
 

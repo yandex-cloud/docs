@@ -74,7 +74,7 @@ To create an [origin group](../../concepts/origins.md):
        enabled: true
      ```
 
-     For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/create.md).
+     For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 - {{ TF }} {#tf}
 

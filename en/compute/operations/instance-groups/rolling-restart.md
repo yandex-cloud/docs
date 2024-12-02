@@ -121,7 +121,7 @@ To restart group instances one by one:
       
       {{ ig-name }} will begin to restart the specified instances in the group one by one. The restarted instances will change their status to `Running`.
 
-  For more information about the `{{ yc-compute-ig }} rolling-restart` command parameters, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-restart.md).
+  For more information about the `{{ yc-compute-ig }} rolling-restart` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
 
 - API {#api}
 

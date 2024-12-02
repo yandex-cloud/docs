@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
       ...1s...6s...11s ... 9m4s...9m9s...done (9m9s)
       ```
 
-      Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/backup/recover.md).
+      Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/backup/recover.md).
 
 - API {#api}
 

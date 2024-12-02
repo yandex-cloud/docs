@@ -95,7 +95,7 @@ To [purge the cache](../../concepts/caching.md) of the resource:
       ```
       If you omit the `--path` flag with paths to files, the cache of all files will be purged.
 
-      For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
+      For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
 - API {#api}
 

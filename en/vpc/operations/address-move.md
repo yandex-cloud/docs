@@ -84,7 +84,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
       ip_version: IPV4
      ```
 
-     For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/address/move.md).
+     For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/address/move.md).
 
 - API {#api}
 

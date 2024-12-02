@@ -33,7 +33,7 @@ description: Управление доступом в сервисе предо�
 
 - CLI {#cli}
 
-  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-services/compute/index.md) вы можете назначить роли на следующие ресурсы:
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/compute/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
 
   {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
 

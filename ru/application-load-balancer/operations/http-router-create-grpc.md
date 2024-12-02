@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
      * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md).
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах.
 
-     Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
+     Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
      Результат:
 

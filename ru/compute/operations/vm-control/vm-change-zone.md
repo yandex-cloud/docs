@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 При создании виртуальной машины можно выбрать, в какой из [зон доступности](../../../overview/concepts/geo-scope.md) {{ yandex-cloud }} она будет размещена.
 
-Перенести существующую ВМ в другую зону доступности можно с помощью специальной команды в [консоли управления]({{ link-console-main }}) или [CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md), а также путем создания копии ВМ в нужной зоне доступности с помощью [снимков дисков](../../concepts/snapshot.md).
+Перенести существующую ВМ в другую зону доступности можно с помощью специальной команды в [консоли управления]({{ link-console-main }}) или [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md), а также путем создания копии ВМ в нужной зоне доступности с помощью [снимков дисков](../../concepts/snapshot.md).
 
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
@@ -211,7 +211,7 @@ description: Следуя данной инструкции, вы сможете
 
           Если у ВМ несколько сетевых интерфейсов, задайте параметр `--network-interface` необходимое количество раз (для каждого сетевого интерфейса).
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       Пример:
 
@@ -286,7 +286,7 @@ description: Следуя данной инструкции, вы сможете
         * `disk-placement-group-id` — идентификатор группы размещения дисков, в которую необходимо поместить диск.
         * `disk-placement-group-partition` — номер раздела в группе размещения дисков.
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
   Обратите внимание, что при подключении [сетевых интерфейсов](../../concepts/network.md) ВМ к новым подсетям изменится адресация. Если для сетевых интерфейсов ВМ требуется указать внутренние IP-адреса, используйте свойство `ipv4-address=<внутренний_IP-адрес>`, если публичные IP-адреса — свойство `nat-address=<публичный_IP-адрес>` параметра `network-interface`. В остальном установка параметров сетевых интерфейсов при переносе ВМ в другую зону доступности аналогична установке таких параметров при создании ВМ.
 

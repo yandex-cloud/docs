@@ -297,11 +297,11 @@ items:
   - name: Справочник CLI
     items:
       - name: Overview
-        href: ../cli/cli-ref/managed-services/datatransfer/index.md
+        href: ../cli/cli-ref/datatransfer/cli-ref/index.md
       - name: Transfer
-        href: ../cli/cli-ref/managed-services/datatransfer/transfer/index.md
+        href: ../cli/cli-ref/datatransfer/cli-ref/transfer/index.md
       - name: Endpoint
-        href: ../cli/cli-ref/managed-services/datatransfer/endpoint/index.md
+        href: ../cli/cli-ref/datatransfer/cli-ref/endpoint/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

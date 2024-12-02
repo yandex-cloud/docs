@@ -37,7 +37,7 @@ description: Из статьи вы узнаете, как удалить пол
      yc backup policy delete <идентификатор_политики_резервного_копирования>
      ```
 
-     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
+     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/delete.md).
 
 - {{ TF }} {#tf}
 

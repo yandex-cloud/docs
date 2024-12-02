@@ -560,7 +560,7 @@
   * `--batch-size` — максимальное количество сообщений, одновременно отправляемых в функцию.
   * `--batch-cutoff` — максимальное время между последовательными отправками сообщений в функцию.
   
-  Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-services/serverless/trigger/create/logging.md).
+  Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
   
 - API {#api}
 

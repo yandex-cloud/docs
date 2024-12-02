@@ -77,7 +77,7 @@ To edit an [origin group](../../concepts/origins.md):
        enabled: true
      ```
 
-     For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/update.md).
+     For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
 
 - API {#api}
 

@@ -73,7 +73,7 @@ The support cost includes:
       default_security_group_id: enppne4l2eg5********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet in the `{{ region-id }}-b` availability zone:
 
@@ -97,7 +97,7 @@ The support cost includes:
         - 192.168.1.0/24
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -200,7 +200,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
           - 0.0.0.0/0
   ```
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
   Save the obtained security group ID (`id`): you will need it to create a VM.
 
@@ -312,7 +312,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
   placement_policy: {}
   ```
 
-  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -366,7 +366,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       public_visibility: {}
       ```
 
-      For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
+      For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
     - API {#api}
 
@@ -419,7 +419,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       +--------+--------------+------+---------------+-----+
       ```
 
-      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
     - API {#api}
 
@@ -475,7 +475,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
       updated_at: "2023-12-24T14:36:39.299844798Z"
       ```
 
-      For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/request.md).
+      For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
       Save the ID (`id`) of the created certificate as you will need it when creating a CDN resource.
 
@@ -568,7 +568,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
                   value: iiyJJJlsaFIqQ7DMUzira0OKU3iXuaqiN7U********
             ```
 
-            For more information about the `yc certificate-manager certificate get` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/get.md).
+            For more information about the `yc certificate-manager certificate get` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
             Save the values of the `value` fields from the `CNAME`-type sections under `challenges.dns_challenge` for both domain names. You will need them in the next step.
 
@@ -596,7 +596,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             +--------+----------------------------------+-------+------------------------------------------+-----+
             ```
 
-            For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+            For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
             The domain permission check may take from a few minutes to a few days. Wait until it is complete. As the result, the certificate will be issued and get the `Issued` status.
 
@@ -695,7 +695,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
           created_at: "2023-12-22T18:11:23.028836Z"
           ```
 
-          For more information about the `yc storage bucket create` command, see the [CLI reference](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+          For more information about the `yc storage bucket create` command, see the [CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
       1. Enable static website hosting in the bucket:
 
@@ -719,7 +719,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             redirect_all_requests: {}
           ```
 
-          For more information about the `yc storage bucket update` command, see the [CLI reference](../../cli/cli-ref/managed-services/storage/bucket/update.md).
+          For more information about the `yc storage bucket update` command, see the [CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/update.md).
 
     - AWS CLI {#aws-cli}
 
@@ -858,7 +858,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
         --type gcore
       ```
 
-      For more information about the `yc cdn provider activate` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/provider/activate.md).
+      For more information about the `yc cdn provider activate` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/provider/activate.md).
 
   1. Create a resource:
   
@@ -919,7 +919,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
             id: fpqia0s2fc21********
       ```
 
-      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+      For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - API {#api}
 
@@ -964,7 +964,7 @@ The content on the new CDN resource will be accessible only via [signed links](.
       folder_id: b1gt6g8ht345********
       ```
 
-      For more information about the `yc cdn resource get-provider-cname` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/get-provider-cname.md).
+      For more information about the `yc cdn resource get-provider-cname` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md).
 
       Save the obtained `cname` value: you will need it in the next step.
 
@@ -990,7 +990,7 @@ The content on the new CDN resource will be accessible only via [signed links](.
       +--------+------------------+-------+--------------------------+-----+
       ```
 
-      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 
@@ -1030,7 +1030,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
       +----------------------+---------------+-----------------------------+---------------------+---------+--------+
       ```
 
-      For more information about the `yc certificate-manager certificate list` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/list.md).
+      For more information about the `yc certificate-manager certificate list` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/list.md).
 
   1. Download the key and certificate by specifying the ID you got in the previous step:
 
@@ -1041,7 +1041,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
         --key ./private_key.pem
       ```
 
-      For more information about the `yc certificate-manager certificate content` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/content.md).
+      For more information about the `yc certificate-manager certificate content` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/content.md).
 
 {% endlist %}
 
