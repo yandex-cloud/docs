@@ -14,7 +14,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc desktops desktop](desktop/index.md) — [PREVIEW] Manage desktop instances.
+- [yc desktops desktop](desktop/index.md) — [PREVIEW] Manage desktop instances
 	- [yc desktops desktop get](desktop/get.md) — Get information about a desktop
 	- [yc desktops desktop list](desktop/list.md) — List desktops
 	- [yc desktops desktop get-rdp-file](desktop/get-rdp-file.md) — Download desktop RDP file
@@ -34,6 +34,11 @@ Syntax:
 	- [yc desktops group set-access-bindings](group/set-access-bindings.md) — Set access bindings for the specified desktop group and delete all existing access bindings if there were any
 	- [yc desktops group add-access-bindings](group/add-access-bindings.md) — Add access binding for the specified desktop group
 	- [yc desktops group remove-access-bindings](group/remove-access-bindings.md) — Remove access binding for the specified desktop group
+- [yc desktops image](image/index.md) — [PREVIEW] Manage desktop images
+	- [yc desktops image get](image/get.md) — Get information about a desktop image
+	- [yc desktops image list](image/list.md) — List desktop images
+	- [yc desktops image delete](image/delete.md) — Delete the specified desktop image
+	- [yc desktops image copy](image/copy.md) — Create desktop image as copy of the specified desktop or compute image
 
 #### Global Flags
 

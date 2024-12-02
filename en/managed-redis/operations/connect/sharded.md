@@ -1,6 +1,6 @@
 # Connecting to a sharded {{ RD }} cluster
 
-To connect to a [sharded](../../concepts/sharding.md) Redis cluster, in connection strings, specify the FQDNs of master hosts in each shard.
+To connect to a [sharded](../../concepts/sharding.md) {{ RD }} cluster, in connection strings, specify the FQDNs of master hosts in each shard.
 
 Encrypted connection is supported via port `{{ port-mrd-tls }}` and unencrypted via port `{{ port-mrd }}`.
 

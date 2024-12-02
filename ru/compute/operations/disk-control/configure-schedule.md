@@ -8,8 +8,8 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете настроить для диска [расписания](../../concepts/snapshot-schedule.md), по которым будут создаваться [снимки](../../concepts/snapshot.md):
 
-* [{#T}](#add-schedule).
-* [{#T}](#remove-schedule).
+* [Добавить расписание к диску](#add-schedule).
+* [Отвязать расписание от диска](#remove-schedule).
 
 ## Добавить расписание к диску {#add-schedule}
 

@@ -32,6 +32,8 @@ Syntax:
 |`--disk-placement-group-id`|<b>`string`</b><br/>Placement group to create the disk in.|
 |`--disk-placement-group-name`|<b>`string`</b><br/>Placement group to create the disk in.|
 |`--disk-placement-group-partition`|<b>`int`</b><br/>Placement group partition. Used when a placement group is created with the partition strategy.|
+|`--kms-key-name`|<b>`string`</b><br/>KMS key used to encrypt the disk.|
+|`--kms-key-id`|<b>`string`</b><br/>An ID of the KMS key used to encrypt the disk.|
 |`--hardware-generation-id`|<b>`string`</b><br/>Specify an instance hardware generation ID to override the inherited or default one.|
 |`--hardware-features`|<b>`key=value[,key=value...]`</b><br/>Specify features of the instance hardware generation to override. Use together with --hardware-generation-id. This is a list of KEY=VALUE pairs, for example '--hardware-features pci_topology=v2,other_feature=some-id'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

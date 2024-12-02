@@ -78,3 +78,9 @@ Y | Показатель. Может быть указано несколько 
   ![area-chart-split](../../_assets/datalens/visualization-ref/area-chart/area-chart-split.png)
 
   {% endcut %}
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

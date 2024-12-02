@@ -32,6 +32,7 @@ Syntax:
 |`--sql-mode`|<b>`string`</b><br/>Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION|
 |`--skip-constraint-checks`|This option sets FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0. Disable for replication speed, but not if the schema contains cascading operations|
 |`--timezone`|<b>`string`</b><br/>For parsing timestamps for saving source timezones. Accepts values from IANA timezone database. Default: local timezone|
+|`--cleanup-policy`|<b>`string`</b><br/>Policy describes what to do with existing data on target. Options: drop, truncate, disabled (keep the data, which is default)|
 
 #### Global Flags
 

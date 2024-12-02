@@ -32,6 +32,7 @@ Syntax:
 |`--target-database`|<b>`string`</b><br/>Name of the database where user collections will be created. If not specified, the original database name will be used|
 |`--subnet-id`|<b>`string`</b><br/>Yandex Virtual Private Cloud subnet ID to access the MongoDB server through|
 |`--security-group`|<b>`value[,value]`</b><br/>Yandex Virtual Private Cloud security group ID to associate with the endpoint|
+|`--cleanup-policy`|<b>`string`</b><br/>Policy describes what to do with existing data on target. Options: drop, truncate, disabled (keep the data, which is default)|
 
 #### Global Flags
 

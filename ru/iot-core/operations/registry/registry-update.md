@@ -2,7 +2,7 @@
 
 Вы можете изменить [имя](registry-update.md#update-name) или [описание](registry-update.md#update-description) реестра, а также [управлять метками реестра](registry-update.md#manage-label).
 
-Для обращения к реестру используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя реестра, читайте в разделе [{#T}](registry-list.md).
+{% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}
 
 ## Изменить имя реестра {#update-name}
 

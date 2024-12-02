@@ -462,6 +462,35 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../postbox/security/index.md).
 
 
+## {{ cloud-registry-full-name }} {#cloud-registry-roles}
+
+#### cloud-registry.auditor {#cloud-registry-auditor}
+
+{% include [cloud-registry-auditor](../_roles/cloud-registry/auditor.md) %}
+
+#### cloud-registry.viewer {#cloud-registry-viewer}
+
+{% include [cloud-registry-viewer](../_roles/cloud-registry/viewer.md) %}
+
+#### cloud-registry.editor {#cloud-registry-editor}
+
+{% include [cloud-registry-editor](../_roles/cloud-registry/editor.md) %}
+
+#### cloud-registry.admin {#cloud-registry-admin}
+
+{% include [cloud-registry-admin](../_roles/cloud-registry/admin.md) %}
+
+#### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
+
+{% include [cloud-registry-artifacts-puller](../_roles/cloud-registry/artifacts/puller.md) %}
+
+#### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
+
+{% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
+
+Подробнее см. [{#T}](../cloud-registry/security/index.md).
+
+
 ## {{ video-full-name }} {#video-roles}
 
 #### video.auditor {#video-auditor}
@@ -1740,6 +1769,18 @@ description: В статье приведен полный справочник 
 #### vpc.securityGroups.admin {#vpc-sg-admin}
 
 {% include [vpc-securitygroups-admin](../_roles/vpc/securityGroups/admin.md) %}
+
+#### vpc.privateEndpoints.viewer {#vpc-privateEndpoints-viewer}
+
+{% include [vpc-privateEndpoints-viewer](../_roles/vpc/privateEndpoints/viewer.md) %}
+
+#### vpc.privateEndpoints.editor {#vpc-privateEndpoints-editor}
+
+{% include [vpc-privateEndpoints-editor](../_roles/vpc/privateEndpoints/editor.md) %}
+
+#### vpc.privateEndpoints.admin {#vpc-privateEndpoints-admin}
+
+{% include [vpc-privateEndpoints-admin](../_roles/vpc/privateEndpoints/admin.md) %}
 
 Подробнее см. [{#T}](../vpc/security/index.md).
 

@@ -49,6 +49,7 @@ Syntax:
 - [yc managed-opensearch](managed-services/managed-opensearch/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
 - [yc managed-kafka](managed-services/managed-kafka/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
 - [yc container](managed-services/container/index.md) — Manage Container resources.
+- [yc cloud-registry](managed-services/cloud-registry/index.md) — [PREVIEW] Manage CloudRegistry resources
 - [yc load-balancer](managed-services/load-balancer/index.md) — Manage Yandex Load Balancer resources
 - [yc datatransfer](managed-services/datatransfer/index.md) — Manage Data Transfer endpoints and transfers
 - [yc serverless](managed-services/serverless/index.md) — Manage Serverless resources.
