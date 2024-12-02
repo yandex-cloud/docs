@@ -447,7 +447,7 @@ PITR не поддерживается для кластеров с включе
 
 * Резервная копия для восстановления: `c9qlk4v13uq7********:...`.
 * Момент времени, на который нужно восстановить: `1597060810` (`2020-08-10 12:00:10`).
-* Версия: `5.0`.
+* Версия: `6.0`.
 * Имя нового кластера: `mynewmg`.
 * Окружение: `PRODUCTION`.
 * Сеть: `{{ network-name }}`.
@@ -467,7 +467,7 @@ PITR не поддерживается для кластеров с включе
   {{ yc-mdb-mg }} cluster restore \
      --backup-id c9qlk4v13uq7********:... \
      --recovery-target-timestamp 1597060810 \
-     --mongodb-version 5.0 \
+     --mongodb-version 6.0 \
      --name mynewmg \
      --environment PRODUCTION \
      --network-name {{ network-name }} \

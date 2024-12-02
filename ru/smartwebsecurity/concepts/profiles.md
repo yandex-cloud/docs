@@ -13,4 +13,4 @@ _Профиль безопасности_ — основной элемент с
 #### См. также {#see-also}
 
 * [Управление профилями безопасности](../operations/index.md#profiles)
-* [{#T}](../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps)
+* [Как настроить Ingress-контроллер и тестовые приложения](../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps)

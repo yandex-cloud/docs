@@ -79,3 +79,9 @@ X | Измерение. Может быть указано только одно
    * [{#T}](area-chart.md#create-diagram)
 
 1. Добавьте новый слой. Для этого нажмите значок ![](../../_assets/console-icons/plus.svg) справа от названия слоя.
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

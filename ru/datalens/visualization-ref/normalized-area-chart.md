@@ -112,3 +112,9 @@ Y | Показатель. Может быть указано несколько 
   {% endcut %}
 
 * Если вам нужно показать абсолютное значения переменных, используйте [накопительную диаграмму с областями](area-chart.md).
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

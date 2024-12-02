@@ -81,3 +81,9 @@
 * Описывайте контекст для понимания, что означает индикатор.
 
   ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

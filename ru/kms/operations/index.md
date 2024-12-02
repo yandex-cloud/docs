@@ -9,16 +9,16 @@ description: Пошаговые инструкции по работе с клю
 
 ### Ключ {#key}
 
-- [{#T}](key.md#create)
-- [{#T}](key.md#rotate)
-- [{#T}](key.md#update)
-- [{#T}](key.md#delete)
+- [Создать ключ](key.md#create)
+- [Ротировать ключ](key.md#rotate)
+- [Изменить ключ](key.md#update)
+- [Удалить ключ](key.md#delete)
 - [{#T}](key-access.md)
 
 ### Версия ключа {#version}
 
-- [{#T}](version.md#make-primary)
-- [{#T}](version.md#delete)
+- [Сделать версию основной](version.md#make-primary)
+- [Удалить версию ключа](version.md#delete)
 
 ### Шифрование данных {#symmetric-encrypt}
 

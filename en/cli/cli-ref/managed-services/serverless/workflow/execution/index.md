@@ -20,6 +20,7 @@ Syntax:
 - [yc serverless workflow execution list](list.md) — List Execution
 - [yc serverless workflow execution start](start.md) — Start Execution
 - [yc serverless workflow execution stop](stop.md) — Stop Execution
+- [yc serverless workflow execution terminate](terminate.md) — Terminate Execution
 
 #### Global Flags
 

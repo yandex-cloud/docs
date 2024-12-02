@@ -1,6 +1,6 @@
 ---
 title: '{{ mrd-name }} host classes'
-description: The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory.
+description: The host class determines the computing power allocated for each host in the Valkey™ cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Valkey™ hosts; the maximum amount of data is 75% of the available memory.
 ---
 
 # {{ RD }} host classes
@@ -10,7 +10,7 @@ The host class determines the computing power allocated for each host in a clust
 
 {% note info %}
 
-The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts; the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](memory-management.md).
+The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for {{ RD }} hosts; the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](memory-management.md).
 
 {% endnote %}
 

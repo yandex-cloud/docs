@@ -44,6 +44,8 @@ Syntax:
 |`--lfu-log-factor`|<b>`int`</b><br/>Determines how the frequency counter represents key hits.|
 |`--turn-before-switchover`|Allows to turn before switchover in RDSync.|
 |`--allow-data-loss`|Allows some data to be lost in favor of faster switchover/restart.|
+|`--use-luajit`|Use JIT for lua scripts and functions.|
+|`--io-threads-allowed`|Allow redis to use io-threads.|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
 |`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|

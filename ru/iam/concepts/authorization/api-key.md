@@ -32,8 +32,9 @@ _API-ключ_ — секретный ключ, используемый тол�
 
 Доступные области действия:
 
-* `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в {{ yds-full-name }}.
+* `yc.postbox.send` — для отправки писем через API [{{ postbox-name }}](../../../postbox/index.yaml).
 * `yc.ydb.tables.manage` — для работы с {{ ydb-short-name }} в режиме совместимости с {{ PG }}.
+* `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в {{ yds-full-name }}.
 
 ## Использование API-ключа {#use}
 
@@ -50,6 +51,7 @@ API-ключи в качестве способа аутентификации �
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
+* [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * {{ serverless-containers-full-name }} — [контейнеры](../../../serverless-containers/api-ref/containers/authentication.md) и [триггеры](../../../serverless-containers/api-ref/triggers/authentication.md)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

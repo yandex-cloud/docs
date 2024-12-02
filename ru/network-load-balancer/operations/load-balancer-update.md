@@ -13,15 +13,11 @@ description: Следуя данной инструкции, вы сможете
 
 После создания сетевого балансировщика вы можете:
 
-* [{#T}](#change-name-and-description).
-
-* [{#T}](#change-labels).
-
-* [{#T}](#change-target-group).
-
-* [{#T}](#add-target-group).
-
-* [{#T}](#add-listener).
+* [Изменить имя и описание балансировщика](#change-name-and-description).
+* [Изменить метки балансировщика](#change-labels).
+* [Изменить целевую группу или настройки проверки ее состояния](#change-target-group).
+* [Подключить целевую группу](#add-target-group).
+* [Добавить обработчик](#add-listener).
 
 ## Изменить имя и описание балансировщика {#change-name-and-description}
 

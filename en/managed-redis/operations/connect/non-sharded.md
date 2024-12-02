@@ -5,7 +5,7 @@ description: Follow this guide to connect to a non-sharded {{ RD }} cluster.
 
 # Connecting to a non-sharded {{ RD }} cluster
 
-You can connect to a non-sharded Redis cluster:
+You can connect to a non-sharded {{ RD }} cluster:
 
 * Using Redis Sentinel.
 

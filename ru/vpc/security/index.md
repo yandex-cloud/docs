@@ -81,6 +81,18 @@ description: Управление доступом в сервисе облач�
 
 {% include [vpc-securitygroups-admin](../../_roles/vpc/securityGroups/admin.md) %}
 
+#### vpc.privateEndpoints.viewer {#vpc-privateEndpoints-viewer}
+
+{% include [vpc-privateEndpoints-viewer](../../_roles/vpc/privateEndpoints/viewer.md) %}
+
+#### vpc.privateEndpoints.editor {#vpc-privateEndpoints-editor}
+
+{% include [vpc-privateEndpoints-editor](../../_roles/vpc/privateEndpoints/editor.md) %}
+
+#### vpc.privateEndpoints.admin {#vpc-privateEndpoints-admin}
+
+{% include [vpc-privateEndpoints-admin](../../_roles/vpc/privateEndpoints/admin.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

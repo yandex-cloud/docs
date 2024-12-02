@@ -30,6 +30,7 @@ Aliases:
 	- [yc serverless workflow execution list](execution/list.md) — List Execution
 	- [yc serverless workflow execution start](execution/start.md) — Start Execution
 	- [yc serverless workflow execution stop](execution/stop.md) — Stop Execution
+	- [yc serverless workflow execution terminate](execution/terminate.md) — Terminate Execution
 
 #### Global Flags
 

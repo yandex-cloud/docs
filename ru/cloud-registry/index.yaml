@@ -36,9 +36,18 @@ meta:
     Yandex Cloud Registry — сервис для хранения и управления артефактами
     разработки.
 links:
+  - title: Начало работы
+    description: Создайте первый реестр артефактов
+    href: quickstart/docker
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
   - title: Концепции
     description: Узнайте про концепции и ресурсы сервиса
     href: concepts/
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

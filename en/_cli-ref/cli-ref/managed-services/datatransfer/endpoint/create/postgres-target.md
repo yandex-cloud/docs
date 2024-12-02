@@ -28,6 +28,7 @@ Syntax:
 |`--user`|<b>`string`</b><br/>User name|
 |`--raw-password`|<b>`string`</b><br/>Raw password value (unsafe, consider --password-file)|
 |`--password-file`|<b>`string`</b><br/>Path to the file containing password|
+|`--cleanup-policy`|<b>`string`</b><br/>Policy describes what to do with existing data on target. Options: drop, truncate, disabled (keep the data, which is default)|
 
 #### Global Flags
 

@@ -4,7 +4,7 @@ editable: false
 
 # yc desktops desktop
 
-[PREVIEW] Manage desktop instances.
+[PREVIEW] Manage desktop instances
 
 #### Command Usage
 

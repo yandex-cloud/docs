@@ -822,6 +822,33 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 
 {% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
 
+#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
+
+{% include [iam.serviceAccounts.federatedCredentialViewer](../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
+
+#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
+
+{% include [iam.serviceAccounts.federatedCredentialEditor](../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
+
+#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
+
+{% include [iam.workloadIdentityFederations.auditor](../_roles/iam/workloadIdentityFederations/auditor.md) %}
+
+#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
+
+{% include [iam.workloadIdentityFederations.viewer](../_roles/iam/workloadIdentityFederations/viewer.md) %}
+
+#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
+
+{% include [iam.workloadIdentityFederations.user](../_roles/iam/workloadIdentityFederations/user.md) %}
+
+#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
+
+{% include [iam.workloadIdentityFederations.editor](../_roles/iam/workloadIdentityFederations/editor.md) %}
+
+#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
+
+{% include [iam.workloadIdentityFederations.admin](../_roles/iam/workloadIdentityFederations/admin.md) %}
 
 #### iam.auditor {#iam-auditor}
 
@@ -1451,9 +1478,70 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 {% include [searchapi-executor](../_roles/search-api/executor.md) %}
 
+#### search-api.webSearch.user {#search-api-webSearch-user}
+
+{% include [search-api-webSearch-user](../_roles/search-api/webSearch/user.md) %}
+
+#### search-api.auditor {#search-api-auditor}
+
+{% include [searchapi-auditor](../_roles/search-api/auditor.md) %}
+
+#### search-api.viewer {#search-api-viewer}
+
+{% include [searchapi-viewer](../_roles/search-api/viewer.md) %}
+
+#### search-api.editor {#search-api-editor}
+
+{% include [searchapi-editor](../_roles/search-api/editor.md) %}
+
+#### search-api.admin {#search-api-admin}
+
+{% include [searchapi-admin](../_roles/search-api/admin.md) %}
 
 For more information, see [{#T}](../search-api/security/index.md).
 
+
+## {{ sd-full-name }} {#security-deck-roles}
+
+### Access Transparency roles {#access-transparency-roles}
+
+#### access-transparency.viewer {#access-transparency-viewer}
+
+{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+
+#### access-transparency.editor {#access-transparency-editor}
+
+{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+
+#### access-transparency.admin {#access-transparency-admin}
+
+{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+
+For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
+
+### DSPM roles {#dspm-roles}
+
+#### dspm.inspector {#dspm-inspector}
+
+{% include [dspm.inspector](../_roles/dspm/inspector.md) %}
+
+#### dspm.auditor {#dspm-auditor}
+
+{% include [dspm.auditor](../_roles/dspm/auditor.md) %}
+
+#### dspm.viewer {#dspm-viewer}
+
+{% include [dspm.viewer](../_roles/dspm/viewer.md) %}
+
+#### dspm.editor {#dspm-editor}
+
+{% include [dspm.editor](../_roles/dspm/editor.md) %}
+
+#### dspm.admin {#dspm-admin}
+
+{% include [dspm.admin](../_roles/dspm/admin.md) %}
+
+For more information, see [Access management in DSPM](../security-deck/security/dspm-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -1651,6 +1739,18 @@ For more information, see [{#T}](../translate/security/index.md).
 #### vpc.securityGroups.admin {#vpc-sg-admin}
 
 {% include [vpc-securitygroups-admin](../_roles/vpc/securityGroups/admin.md) %}
+
+#### vpc.privateEndpoints.viewer {#vpc-privateEndpoints-viewer}
+
+{% include [vpc-privateEndpoints-viewer](../_roles/vpc/privateEndpoints/viewer.md) %}
+
+#### vpc.privateEndpoints.editor {#vpc-privateEndpoints-editor}
+
+{% include [vpc-privateEndpoints-editor](../_roles/vpc/privateEndpoints/editor.md) %}
+
+#### vpc.privateEndpoints.admin {#vpc-privateEndpoints-admin}
+
+{% include [vpc-privateEndpoints-admin](../_roles/vpc/privateEndpoints/admin.md) %}
 
 For more information, see [{#T}](../vpc/security/index.md).
 

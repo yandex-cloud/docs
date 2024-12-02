@@ -3,6 +3,13 @@
 You can only upgrade your {{ mmg-name }} cluster to a version that immediately follows the current one, such as 4.2 to 4.4. Upgrades to higher versions are performed in steps. For example, for {{ MG }}, the upgrade sequence from version 4.2 to 6.0 is: 4.2 → 4.4 → 5.0 → 6.0.
 
 
+{% note info %}
+
+Starting from February 3, 2025, clusters running {{ MG }} 5.0 will be [automatically upgraded](../qa/general.md#dbms-deprecated) to version 6.0, as version 5.0 [has been discontinued](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
+
+{% endnote %}
+
+
 {% note alert %}
 
 After upgrading, you cannot roll a cluster back to the previous version.

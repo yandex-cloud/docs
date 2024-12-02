@@ -129,7 +129,7 @@
 
 * `mimeType` — [MIME-тип](https://ru.wikipedia.org/wiki/Список_MIME-типов) передаваемых данных.
 * `languageCodes` — [язык текста](supported-languages.md). Для автоматического определения языка текста укажите `*`.
-* `model` — [модель распознавания](index.ms#models).
+* `model` — [модель распознавания](index.md#models).
 * `content` — изображение, [закодированное в Base64](../../operations/base64-encode.md).
 
 ### Ответ на запрос {#example-answer}
