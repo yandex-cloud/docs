@@ -370,7 +370,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      ...
      ```
 
-     For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/resource/create.md).
+     For more information about the `yc cdn resource create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/create.md).
   1. Enable a client redirect for a resource:
 
      ```bash
@@ -600,7 +600,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
     --path /ycgame-update-v1.1.exe
   ```
 
-  For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+  For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 

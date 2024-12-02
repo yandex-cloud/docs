@@ -66,7 +66,7 @@
 
       После завершения удаления облака, ответ будет содержать поле `done` со значением `true` (`done: true`).
 
-  Подробнее о команде `yc resource-manager cloud delete` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/resource-manager/cloud/delete.md).
+  Подробнее о команде `yc resource-manager cloud delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
 - {{ TF }} {#tf}
 

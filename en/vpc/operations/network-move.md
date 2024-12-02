@@ -88,7 +88,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       default_security_group_id: enc2ta63h3q2********
      ```
 
-     For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/move.md).
+     For more information about the `yc vpc network move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/move.md).
 
 - API {#api}
 

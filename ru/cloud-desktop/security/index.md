@@ -17,7 +17,7 @@ description: Управление доступом в сервисе {{ cloud-de
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [группу рабочих столов](../concepts/desktops-and-groups.md) роль можно назначить через [консоль управления]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-services/desktops/group/add-access-bindings.md) или [API](../api-ref/authentication.md).
+На [группу рабочих столов](../concepts/desktops-and-groups.md) роль можно назначить через [консоль управления]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md) или [API](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

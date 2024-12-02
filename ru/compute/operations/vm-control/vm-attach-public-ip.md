@@ -34,11 +34,11 @@
   ```
 
   Где:
-  * `--id` — идентификатор ВМ. Получите список идентификаторов ВМ, доступных в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
+  * `--id` — идентификатор ВМ. Получите список идентификаторов ВМ, доступных в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), с помощью [команды CLI](../../../cli/cli-ref/compute/cli-ref/instance/list.md) `yc compute instance list`.
   * `--network-interface-index` — номер сетевого интерфейса ВМ. По умолчанию — `0`. Чтобы получить список сетевых интерфейсов ВМ и их номера, выполните команду `yc compute instance get <идентификатор_ВМ>`.
   * `--nat-address` — публичный IP-адрес, который нужно присвоить ВМ. Необязательный параметр. Если параметр `--nat-address` не задан, публичный IP-адрес будет присвоен ВМ автоматически.
 
-    Получите список зарезервированных публичных IP-адресов, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. IP-адрес и ВМ должны находиться в одной зоне доступности.
+    Получите список зарезервированных публичных IP-адресов, доступных в каталоге, с помощью [команды CLI](../../../cli/cli-ref/vpc/cli-ref/address/list.md) `yc vpc address list`. IP-адрес и ВМ должны находиться в одной зоне доступности.
 
   Пример использования:
 
@@ -61,7 +61,7 @@
   placement_policy: {}
   ```
 
-  Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
+  Подробнее о команде `yc compute instance add-one-to-one-nat` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
 
 - {{ TF }} {#tf}
 

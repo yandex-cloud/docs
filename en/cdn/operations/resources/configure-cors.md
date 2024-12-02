@@ -96,7 +96,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       ```
       The `*` and `"$http_origin"` values grant access to content with any `Origin` header value. To only grant access to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

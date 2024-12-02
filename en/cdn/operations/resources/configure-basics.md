@@ -144,7 +144,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       To disable the IP-based access policy, use the `--clear-ip-address-acl` parameter.
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

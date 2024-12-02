@@ -65,7 +65,7 @@ To create a VM:
 
       * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
 
-      To specify other VM properties, use the `yc compute instance create` command parameters as described in the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/create.md). For more information, see [{#T}](../../concepts/vm.md) and [{#T}](../index.md#vm-create).
+      To specify other VM properties, use the `yc compute instance create` command parameters as described in the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/create.md). For more information, see [{#T}](../../concepts/vm.md) and [{#T}](../index.md#vm-create).
 
       Result:
 
@@ -98,7 +98,7 @@ To create a VM:
 
 Before creating a VM:
 
-1. [Create a dedicated host group](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/managed-services/compute/host-group/list.md).
+1. [Create a dedicated host group](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list.md).
 1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
 
 Create a VM with the following characteristics:

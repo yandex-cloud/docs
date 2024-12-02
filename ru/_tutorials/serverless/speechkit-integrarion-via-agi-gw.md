@@ -67,7 +67,7 @@
 
       Сохраните идентификатор сервисного аккаунта `speechkit-sa` (`id`) и каталога, в котором его создали (`folder_id`).
 
-      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте сервисному аккаунту роль `ai.speechkit-tts.user` на каталог, указав сохраненные ранее идентификаторы каталога и сервисного аккаунта:
 
@@ -77,7 +77,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -142,7 +142,7 @@
 
   Сохраните служебный домен созданного API-шлюза (значение поля `domain`). Он понадобится для проверки работы API-шлюза.
 
-  Подробнее о команде `yc serverless api-gateway create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/serverless/api-gateway/create.md).
+  Подробнее о команде `yc serverless api-gateway create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/api-gateway/create.md).
 
 - API {#api}
 

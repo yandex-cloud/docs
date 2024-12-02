@@ -4,10 +4,10 @@ For user data on the {{ mrd-name }} cluster hosts, {{ mrd-memory-used }} of the 
 
 By committing RAM on the host, you can:
 
-* [Improve the {{ RD }} process performance and stability](#valkey-performance).
+* [Improve the {{ RD }} process performance and stability](#redis-performance).
 * [Ensure backup stability](#backup-create).
 
-## Improving the performance and stability of the {{ RD }} process {#valkey-performance}
+## Improving the performance and stability of the {{ RD }} process {#redis-performance}
 
 {{ mrd-name }} cluster hosts use the `vm.overcommit_memory = 0` [Linux kernel setting](https://www.kernel.org/doc/Documentation/vm/overcommit-accounting). The {{ RD }} process leverages it to minimize the number of swap file accesses. This increases performance and ensures stable operation of the {{ RD }} process, for example, during [replication](replication.md) and [backups](#backup-create).
 

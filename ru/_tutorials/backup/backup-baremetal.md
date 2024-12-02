@@ -275,7 +275,7 @@ yc backup policy execute \
 
 Дождитесь завершения операции.
 
-Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/managed-services/backup/vm/list-tasks.md).
+Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
 
 ## Восстановите сервер из резервной копии {#server-recovery}
 
@@ -306,7 +306,7 @@ yc backup policy execute \
 
     Дождитесь завершения операции.
 
-    Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/managed-services/backup/vm/list-tasks.md).
+    Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
 
 ## Как отказаться от аренды и удалить ресурсы {#clear-out}
 

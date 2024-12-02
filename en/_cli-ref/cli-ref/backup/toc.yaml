@@ -1,0 +1,74 @@
+name: backup
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: agent
+    items:
+      - name: Overview
+        href: cli-ref/agent/index.md
+      - name: debug-info
+        href: cli-ref/agent/debug-info.md
+      - name: install
+        href: cli-ref/agent/install.md
+      - name: reinstall
+        href: cli-ref/agent/reinstall.md
+  - name: backup
+    items:
+      - name: Overview
+        href: cli-ref/backup/index.md
+      - name: delete
+        href: cli-ref/backup/delete.md
+      - name: get
+        href: cli-ref/backup/get.md
+      - name: list
+        href: cli-ref/backup/list.md
+      - name: list-archives
+        href: cli-ref/backup/list-archives.md
+      - name: recover
+        href: cli-ref/backup/recover.md
+  - name: policy
+    items:
+      - name: Overview
+        href: cli-ref/policy/index.md
+      - name: apply
+        href: cli-ref/policy/apply.md
+      - name: create
+        href: cli-ref/policy/create.md
+      - name: delete
+        href: cli-ref/policy/delete.md
+      - name: execute
+        href: cli-ref/policy/execute.md
+      - name: get
+        href: cli-ref/policy/get.md
+      - name: list
+        href: cli-ref/policy/list.md
+      - name: list-applications
+        href: cli-ref/policy/list-applications.md
+      - name: revoke
+        href: cli-ref/policy/revoke.md
+      - name: update
+        href: cli-ref/policy/update.md
+  - name: provider
+    items:
+      - name: Overview
+        href: cli-ref/provider/index.md
+      - name: activate
+        href: cli-ref/provider/activate.md
+  - name: vm
+    items:
+      - name: Overview
+        href: cli-ref/vm/index.md
+      - name: delete
+        href: cli-ref/vm/delete.md
+      - name: get
+        href: cli-ref/vm/get.md
+      - name: list
+        href: cli-ref/vm/list.md
+      - name: list-applicable-policies
+        href: cli-ref/vm/list-applicable-policies.md
+      - name: list-policies
+        href: cli-ref/vm/list-policies.md
+      - name: list-tasks
+        href: cli-ref/vm/list-tasks.md
+base: en/_cli-ref/cli-ref/backup
+deepBase: 4

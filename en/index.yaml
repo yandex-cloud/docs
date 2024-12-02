@@ -133,8 +133,8 @@ links:
   - title: Managed Service for PostgreSQL
     description: PostgreSQL database management
     href: managed-postgresql/
-  - title: Yandex Managed Service for Valkey™
-    description: Valkey™ database management
+  - title: Managed Service for Redis™
+    description: Redis database management
     href: managed-redis/
   - title: Yandex Cloud Marketplace
     description: Tools and solutions by leading vendors

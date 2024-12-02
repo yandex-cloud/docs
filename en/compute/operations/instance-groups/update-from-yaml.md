@@ -21,7 +21,7 @@ To update an [instance group](../../concepts/instance-groups/index.md) based on 
   {{ yc-compute-ig }} update <VM_group_name_or_ID> --file specification.yaml
   ```
 
-  For more information about the `{{ yc-compute-ig }} update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
+  For more information about the `{{ yc-compute-ig }} update` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/update.md).
 
 - API {#api}
 

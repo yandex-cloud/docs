@@ -65,7 +65,7 @@ Create a service account in the same folder where you create the trail, e.g., in
       name: maxpatrol-sa
       ```
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
 {% endlist %}
 
@@ -96,7 +96,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
       done (1s)
       ```
 
-      For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
+      For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
   1. The `yds.editor` role for a folder:
 
@@ -117,7 +117,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
       done (1s)
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -169,7 +169,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
   {% endnote %}
 
-  For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+  For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
 {% endlist %}
 
@@ -216,7 +216,7 @@ The database is required for the `{{ yds-name }}` data stream.
       ...
       ```
 
-      For more information about the `yc ydb database create` command, see the [CLI reference](../../cli/cli-ref/managed-services/ydb/database/create.md).
+      For more information about the `yc ydb database create` command, see the [CLI reference](../../cli/cli-ref/ydb/cli-ref/database/create.md).
 
   1. Check the status of the created database:
 

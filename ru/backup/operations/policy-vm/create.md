@@ -123,7 +123,7 @@ description: Из статьи вы узнаете, как создать пол
      folder_id: d2q792qpemb4********
      ```
 
-     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/create.md).
+     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - {{ TF }} {#tf}
 

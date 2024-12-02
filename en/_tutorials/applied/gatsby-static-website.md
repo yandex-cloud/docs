@@ -117,7 +117,7 @@ To host your static website in the cloud, [create](../../storage/operations/buck
       created_at: "2024-09-09T15:23:34.919887Z"
       ```
 
-      For more information about the `yc storage bucket create` command, see the [CLI reference](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+      For more information about the `yc storage bucket create` command, see the [CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
   1. Enable static website hosting in the bucket:
 
@@ -147,7 +147,7 @@ To host your static website in the cloud, [create](../../storage/operations/buck
         redirect_all_requests: {}
       ```
 
-      For more information about the `yc storage bucket update` command, see the [CLI reference](../../cli/cli-ref/managed-services/storage/bucket/update.md).
+      For more information about the `yc storage bucket update` command, see the [CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/update.md).
 
 - AWS CLI {#aws-cli}
 
@@ -243,7 +243,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
       public_visibility: {}
       ```
 
-      For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
+      For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
   1. Create an ANAME resource record in the `gatsbytest-ru-zone` public DNS zone:
 
@@ -263,7 +263,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
       +--------+----------------+-------+---------------------------------------+-----+
       ```
 
-      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 
@@ -329,7 +329,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
       updated_at: "2023-12-24T14:36:39.299844798Z"
       ```
 
-      For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/request.md).
+      For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
       Save the ID (`id`) of the created certificate as you will need it to pass the domain rights check.
 
@@ -378,7 +378,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
                 value: iiyJJJlsaFIqQ7DMUzira0OKU3iXuaqiN7U********
           ```
 
-          For more information about the `yc certificate-manager certificate get` command, see the [CLI reference](../../cli/cli-ref/managed-services/certificate-manager/certificate/get.md).
+          For more information about the `yc certificate-manager certificate get` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
           Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value in the next step.
 
@@ -404,7 +404,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
           +--------+----------------------------------+-------+------------------------------------------+-----+
           ```
 
-          For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+          For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
           The domain permission check may take from a few minutes to a few days. Wait until it is complete. As the result, the certificate will be issued and get the `Issued` status.
 

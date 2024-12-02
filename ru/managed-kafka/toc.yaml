@@ -142,7 +142,7 @@ items:
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-kafka/index.md
+    href: ../cli/cli-ref/managed-kafka/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

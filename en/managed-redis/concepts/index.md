@@ -25,7 +25,7 @@ When creating a cluster, specify:
 
 {% note info %}
 
-The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for {{ RD }} hosts; the maximum amount of data is 75% of the available memory. For example, for a host class with 8 GB RAM, the `maxmemory` value will be 6 GB.
+The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts; the maximum amount of data is 75% of the available memory. For example, for a host class with 8 GB RAM, the `maxmemory` value will be 6 GB.
 
 {% endnote %}
 

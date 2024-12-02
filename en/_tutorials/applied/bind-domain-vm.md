@@ -77,7 +77,7 @@ The support cost includes:
       default_security_group_id: enppne4l2eg5********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet in the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md):
 
@@ -101,7 +101,7 @@ The support cost includes:
         - 192.168.1.0/24
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - {{ TF }} {#tf}
 
@@ -208,7 +208,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
           - 0.0.0.0/0
   ```
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
   Save the security group ID (`id`) as you will need it to create a VM.
 
@@ -317,7 +317,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
   placement_policy: {}
   ```
 
-  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 
@@ -376,7 +376,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
   public_visibility: {}
   ```
 
-  For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
+  For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
 - {{ TF }} {#tf}
 
@@ -465,7 +465,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
   +--------+--------------+------+---------------+-----+
   ```
 
-  For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+  For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - {{ TF }} {#tf}
 

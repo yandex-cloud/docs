@@ -69,7 +69,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
       name: vm-scale-scheduled-sa
       ```
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
    1. Assign the service account the following [roles](../../iam/concepts/access-control/roles.md):
 
@@ -100,7 +100,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
            --folder-name example-folder
          ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API
 
@@ -155,7 +155,7 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       name: vm-scale-scheduled-network
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
    1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` zone:
 
@@ -179,7 +179,7 @@ Your instance group will be hosted in the [cloud network](../../vpc/concepts/net
       - 192.168.1.0/24
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
    1. Create a subnet named `vm-scale-scheduled-network-b` in the `{{ region-id }}-b` zone:
 
@@ -289,7 +289,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          id: ajeab0cnib1pdefe21dm
          ```
 
-         For more information about the `yc iam service-account get` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/get.md).
+         For more information about the `yc iam service-account get` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/get.md).
 
       * The `vm-scale-scheduled-network` ID:
 
@@ -304,7 +304,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          id: enpabce123hde4ft1r3t
          ```
 
-         For more information about the `yc vpc network get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/get.md).
+         For more information about the `yc vpc network get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/get.md).
 
       * The `vm-scale-scheduled-subnet-a` ID:
 
@@ -319,7 +319,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          id: e1lnabc23r1c9d0efoje
          ```
 
-         For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
+         For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/get.md).
 
       * The `vm-scale-scheduled-subnet-b` ID:
 
@@ -334,7 +334,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
          id: b1csa2b3clideftjb121
          ```
 
-         For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/get.md).
+         For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/get.md).
 
    1. Get the ID of the latest version of the Ubuntu 20.04 LTS public image:
 
@@ -349,7 +349,7 @@ An instance group is created with manual [scaling](../../compute/concepts/instan
       id: fd83n3uou8m03iq9gavu
       ```
 
-      For more information about the `yc compute image get-latest-from-family` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md).
+      For more information about the `yc compute image get-latest-from-family` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md).
 
 
    1. Insert the obtained IDs in the `specification.yaml` file with the instance group specification:

@@ -1,4 +1,4 @@
-title: Yandex Managed Service for Valkey™
+title: Yandex Managed Service for Redis
 href: index.yaml
 items:
   - name: Начало работы
@@ -102,7 +102,7 @@ items:
           - name: До 1 февраля 2020 года
             href: pricing-archive/pricing-01022020.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-redis/index.md
+    href: ../cli/cli-ref/managed-redis/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

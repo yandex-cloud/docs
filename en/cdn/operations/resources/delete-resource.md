@@ -50,7 +50,7 @@ description: Follow this guide to delete a resource.
      yc cdn resource delete <resource_ID>
      ```
 
-     For more information about the `yc cdn resource delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).
+     For more information about the `yc cdn resource delete` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/delete.md).
   1. Make sure that the delete operation was successful. To do this, view the folder's resource list again:
 
      ```bash

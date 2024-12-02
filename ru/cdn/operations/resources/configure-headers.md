@@ -111,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
       * `--static-request-headers` добавляет заголовки запроса к источнику. Удалить их можно с помощью флага `--clear-static-request-headers`.
       * `--static-headers` добавляет заголовки ответа клиента. Удалить их можно с помощью флага `--clear-static-headers`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

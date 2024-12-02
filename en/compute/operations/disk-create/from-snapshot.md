@@ -76,7 +76,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
       ```
       You can use the `--source-snapshot-name` or `--source-snapshot-id` parameter to specify the snapshot.
 
-      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/create.md).
+      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Get a list of disks in the default folder:
 

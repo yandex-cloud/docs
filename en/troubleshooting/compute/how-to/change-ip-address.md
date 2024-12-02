@@ -14,7 +14,7 @@ The internal address of the VM instance can be changed using CLI, Terraform, and
 - CLI
 
    - [Installing and setting up the CLI](https://cloud.yandex.ru/docs/cli/quickstart)
-   - The `yc compute instance update-network-interface` [command](https://cloud.yandex.ru/docs/cli/cli-ref/managed-services/compute/instance/update-network-interface).
+   - The `yc compute instance update-network-interface` [command](https://cloud.yandex.ru/docs/cli/cli-ref/compute/cli-ref/instance/update-network-interface).
       Command example:
    ```
    yc compute instance update-network-interface <VM ID> --network-interface-index=0 --ipv4-address=<new IP from subnet range>

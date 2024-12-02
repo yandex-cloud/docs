@@ -226,7 +226,7 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 **Guides and solutions to use:**
 
-[Delete](../../../cli/cli-ref/managed-services/vpc/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
+[Delete](../../../cli/cli-ref/vpc/cli-ref/security-group/index.md) the dangerous rule in each security group or specify trusted IPs.
 
 #### 2.5 DDoS protection is enabled {#ddos-protection}
 

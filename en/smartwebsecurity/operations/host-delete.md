@@ -101,7 +101,7 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
      route_options: {}
      ```
 
-  For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/update.md).
+  For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
 
 - API {#api}
 

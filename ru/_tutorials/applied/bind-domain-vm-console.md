@@ -59,7 +59,7 @@
       default_security_group_id: enppne4l2eg5********
       ```
 
-      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`:
 
@@ -83,7 +83,7 @@
         - 192.168.1.0/24
       ```
 
-      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -186,7 +186,7 @@
           - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
   Сохраните полученный идентификатор (`id`) группы безопасности: он пригодится при создании виртуальной машины.
 
@@ -288,7 +288,7 @@
   placement_policy: {}
   ```
 
-  Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
+  Подробнее о команде `yc compute instance create` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -343,7 +343,7 @@
   public_visibility: {}
   ```
 
-  Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
+  Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
 - API {#api}
 
@@ -406,7 +406,7 @@
   +--------+--------------+------+---------------+-----+
   ```
 
-  Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+  Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 

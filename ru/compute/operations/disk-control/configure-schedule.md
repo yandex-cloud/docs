@@ -77,14 +77,14 @@ description: Следуя данной инструкции, вы сможете
           - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
-      Подробнее о команде `yc compute disk list` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/list.md).
+      Подробнее о команде `yc compute disk list` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
       Чтобы получить список дисков, привязанных к отдельному расписанию, можно также воспользоваться командой:
 
       ```bash
       yc compute snapshot-schedule list-disks <имя_или_идентификатор_расписания>
       ```
-      См. [подробнее](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
+      См. [подробнее](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
   1. Получите имя и идентификатор расписания:
 

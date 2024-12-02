@@ -79,7 +79,7 @@ Information on policies becomes available for viewing after you [activate](../..
      ...
      ```
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/get.md).
+  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/get.md).
 
 - {{ TF }} {#tf}
 

@@ -76,7 +76,7 @@ Register the `rollup` configuration in your cluster to decimate and aggregate or
       * `<cluster_ID>`: Cluster ID.
       * `--rollup-file-name`: Path to `graphite-rollup.yaml`.
 
-      For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
+      For more information about the `managed-clickhouse cluster add-graphite-rollup` command, see the [CLI reference](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-graphite-rollup.md).
 
 - API {#api}
   
@@ -219,7 +219,7 @@ To remove the `rollup` configuration from a cluster:
 1. Delete all the tables that use this configuration.
 1. Run the `yc managed-clickhouse cluster remove-graphite-rollup` command.
 
-For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
+For more information about the command, see the [CLI reference](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup.md).
 
 {% note alert %}
 

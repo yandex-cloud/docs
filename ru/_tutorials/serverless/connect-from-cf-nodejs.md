@@ -130,7 +130,7 @@
            type: serviceAccount
      ```
 
-  Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/index.md).
+  Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
 
 - {{ TF }} {#tf}
 
@@ -202,7 +202,7 @@
   yc iam key create --service-account-name sa-function -o service_account_key_file.json
   ```
 
-  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/key/create.md).
+  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   В случае успеха в файл `service_account_key_file.json` будет записан закрытая часть авторизованного ключа (`privateKey`) и идентификатор открытой части (`id`).
 

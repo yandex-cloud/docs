@@ -86,7 +86,7 @@ To move a subnet to a different availability zone:
       dhcp_options: {}
       ```
 
-      For more information about the `yc vpc subnet relocate` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/relocate.md).
+      For more information about the `yc vpc subnet relocate` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/relocate.md).
 
 - API {#api}
 

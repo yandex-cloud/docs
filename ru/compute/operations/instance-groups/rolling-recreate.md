@@ -121,7 +121,7 @@
       
       {{ ig-name }} начнет по очереди пересоздавать заданные ВМ в группе. Пересозданные ВМ перейдут в статус `Running`.
 
-  Подробную информацию о параметрах команды `{{ yc-compute-ig }} rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/rolling-recreate.md).
+  Подробную информацию о параметрах команды `{{ yc-compute-ig }} rolling-recreate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 
 - API {#api}
 

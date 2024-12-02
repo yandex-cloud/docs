@@ -147,7 +147,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      * `--request-timeout`: Request timeout in seconds.
      * `--request-max-timeout`: Maximum request idle timeout in seconds.
 
-     For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     For more information about the `yc alb virtual-host append-http-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
      Result:
 

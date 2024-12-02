@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
      
      {% endnote %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile delete` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/delete.md).
+  Подробнее о команде `yc smartwebsecurity security-profile delete` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
 
 - API {#api}
 

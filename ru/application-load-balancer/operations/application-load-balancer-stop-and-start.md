@@ -88,7 +88,7 @@ description: Из статьи вы узнаете, как остановить 
      yc application-load-balancer load-balancer stop <имя_балансировщика>
      ```
 
-     Подробнее о команде `application-load-balancer load-balancer stop` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/stop.md).
+     Подробнее о команде `application-load-balancer load-balancer stop` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
 
 - API {#api}
 
@@ -177,7 +177,7 @@ description: Из статьи вы узнаете, как остановить 
      yc application-load-balancer load-balancer start <имя_балансировщика>
      ```
 
-     Подробнее о команде `application-load-balancer load-balancer start` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/start.md).
+     Подробнее о команде `application-load-balancer load-balancer start` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
 
 - API {#api}
 

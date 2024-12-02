@@ -114,7 +114,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
       {% endcut %}
 
-      For more information about the `yc storage bucket create` command, see the [YC CLI reference](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+      For more information about the `yc storage bucket create` command, see the [YC CLI reference](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
 - AWS CLI {#aws-cli}
 

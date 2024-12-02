@@ -67,7 +67,7 @@ The cost of support for the new infrastructure includes:
 
       Save the `id` of the `speechkit-sa` service account and the folder where it was created (`folder_id`).
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Assign the `ai.speechkit-tts.user` role for the folder to the service account by specifying the folder and service account IDs you previously saved:
 
@@ -77,7 +77,7 @@ The cost of support for the new infrastructure includes:
         --subject serviceAccount:<service_account_ID>
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -142,7 +142,7 @@ The cost of support for the new infrastructure includes:
 
   Save the service domain (the `domain` filed value) of the API gateway you created. You will need it later to check how the API gateway works.
 
-  For more information about the `yc serverless api-gateway create` command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/api-gateway/create.md).
+  For more information about the `yc serverless api-gateway create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/api-gateway/create.md).
 
 - API {#api}
 

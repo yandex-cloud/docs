@@ -1,0 +1,96 @@
+name: managed-kafka
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: cluster
+    items:
+      - name: Overview
+        href: cli-ref/cluster/index.md
+      - name: create
+        href: cli-ref/cluster/create.md
+      - name: delete
+        href: cli-ref/cluster/delete.md
+      - name: get
+        href: cli-ref/cluster/get.md
+      - name: list
+        href: cli-ref/cluster/list.md
+      - name: list-hosts
+        href: cli-ref/cluster/list-hosts.md
+      - name: list-logs
+        href: cli-ref/cluster/list-logs.md
+      - name: list-operations
+        href: cli-ref/cluster/list-operations.md
+      - name: move
+        href: cli-ref/cluster/move.md
+      - name: reschedule-maintenance
+        href: cli-ref/cluster/reschedule-maintenance.md
+      - name: start
+        href: cli-ref/cluster/start.md
+      - name: stop
+        href: cli-ref/cluster/stop.md
+      - name: update
+        href: cli-ref/cluster/update.md
+  - name: connector
+    items:
+      - name: Overview
+        href: cli-ref/connector/index.md
+      - name: delete
+        href: cli-ref/connector/delete.md
+      - name: get
+        href: cli-ref/connector/get.md
+      - name: list
+        href: cli-ref/connector/list.md
+      - name: pause
+        href: cli-ref/connector/pause.md
+      - name: resume
+        href: cli-ref/connector/resume.md
+  - name: connector-mirrormaker
+    items:
+      - name: Overview
+        href: cli-ref/connector-mirrormaker/index.md
+      - name: create
+        href: cli-ref/connector-mirrormaker/create.md
+      - name: update
+        href: cli-ref/connector-mirrormaker/update.md
+  - name: connector-s3-sink
+    items:
+      - name: Overview
+        href: cli-ref/connector-s3-sink/index.md
+      - name: create
+        href: cli-ref/connector-s3-sink/create.md
+      - name: update
+        href: cli-ref/connector-s3-sink/update.md
+  - name: topic
+    items:
+      - name: Overview
+        href: cli-ref/topic/index.md
+      - name: create
+        href: cli-ref/topic/create.md
+      - name: delete
+        href: cli-ref/topic/delete.md
+      - name: get
+        href: cli-ref/topic/get.md
+      - name: list
+        href: cli-ref/topic/list.md
+      - name: update
+        href: cli-ref/topic/update.md
+  - name: user
+    items:
+      - name: Overview
+        href: cli-ref/user/index.md
+      - name: create
+        href: cli-ref/user/create.md
+      - name: delete
+        href: cli-ref/user/delete.md
+      - name: get
+        href: cli-ref/user/get.md
+      - name: grant-permission
+        href: cli-ref/user/grant-permission.md
+      - name: list
+        href: cli-ref/user/list.md
+      - name: revoke-permission
+        href: cli-ref/user/revoke-permission.md
+      - name: update
+        href: cli-ref/user/update.md
+base: en/_cli-ref/cli-ref/managed-kafka
+deepBase: 4

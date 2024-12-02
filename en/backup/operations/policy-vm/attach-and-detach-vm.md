@@ -46,7 +46,7 @@ You can only link a VM to a policy if it is connected to {{ backup-full-name }}.
 
       Where `--instance-ids` are the IDs of the VMs you need to link to the backup policy. Multiple IDs should be comma-separated.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/apply.md).
+  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
 - API {#api}
 

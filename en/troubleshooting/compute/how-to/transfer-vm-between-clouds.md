@@ -90,6 +90,6 @@ You need to transfer a VM instance from one cloud or folder to another cloud or 
              --destination-folder-id b1gd129pp9ha0vnvf5g7
          ```
 
-         For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+         For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
 
 {% endlist %}

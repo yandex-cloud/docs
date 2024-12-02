@@ -1,12 +1,12 @@
-title: Yandex Managed Service for Valkey™
+title: Yandex Managed Service for Redis
 description:
   - >-
-    Сервис Yandex Managed Service for Valkey™ помогает разворачивать и
-    поддерживать кластеры серверов Valkey™ 7.2 в инфраструктуре Yandex Cloud.
-    Valkey™ — это высокопроизводительная СУБД класса NoSQL с открытым исходным
-    кодом, работающая с данными типа «ключ-значение».
+    Сервис Managed Service for Redis помогает разворачивать и поддерживать
+    кластеры серверов <a href="https://redis.io/">Redis</a> 7.2 в инфраструктуре
+    Yandex Cloud. Redis — это высокопроизводительная СУБД класса NoSQL с
+    открытым исходным кодом, работающая с данными типа «ключ-значение».
   - |-
-    Yandex Managed Service for Valkey™ часто используется, чтобы: <ul>
+    Managed Service for Redis часто используется, чтобы: <ul>
       <li>Создавать сервер очередей (механизм «публикация-подписка»).</li>
       <li>Кешировать результаты запросов к основной базе данных.</li>
       <li>Кешировать промежуточные результаты при обработке данных.</li>
@@ -22,10 +22,10 @@ description:
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
 meta:
-  title: Yandex Managed Service for Valkey™
+  title: Yandex Managed Service for Redis
   description: >-
-    Сервис Yandex Managed Service for Valkey™ помогает разворачивать и
-    поддерживать кластеры серверов Valkey™ 7.2 в инфраструктуре Yandex Cloud.
+    Сервис Managed Service for Redis помогает разворачивать и поддерживать
+    кластеры серверов Redis 7.2 в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных

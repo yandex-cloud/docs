@@ -45,7 +45,7 @@ You can set up policies for accessing a [registry](../../concepts/registry.md) f
       * `--pull`: Flag that allows pulling [Docker images](../../concepts/docker-image.md) from the registry.
       * `--push`: Flag that allows pushing Docker images to the registry.
 
-      To learn more about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/container/registry/set-ip-permissions).
+      To learn more about the command, see the [CLI reference](../../../cli/cli-ref/container/cli-ref/registry/set-ip-permissions).
 
       As a result of executing this command, all the permissions set for IP addresses will be deleted. To continue, type `yes` and press **Enter**.
 

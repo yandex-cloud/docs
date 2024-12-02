@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
      yc cdn resource delete <идентификатор_ресурса>
      ```
 
-     Подробнее о команде `yc cdn resource delete`  см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).
+     Подробнее о команде `yc cdn resource delete`  см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/delete.md).
   1. Убедитесь, что удаление прошло успешно. Для этого снова посмотрите список ресурсов в каталоге:
 
      ```bash

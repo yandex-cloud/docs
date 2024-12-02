@@ -92,7 +92,7 @@ To change basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
       * `--start-at`: Start date and time. You can also specify a period related to the current time point. For example: `"2022-12-31T16:39:00+05:00"`, `"2h"`.
       * `--labels`: List of labels in `key=value` format.
 
-      For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/update.md).
+      For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
 
       Result:
 

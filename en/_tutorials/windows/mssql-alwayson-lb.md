@@ -352,7 +352,7 @@ Learn more about security best practices for Active Directory on the [official w
 
 
 
-Make sure to create your VM instances on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command (to learn more about this command, see the [reference](../../cli/cli-ref/managed-services/compute/host-group/list-hosts.md)).
+Make sure to create your VM instances on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command (to learn more about this command, see the [reference](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
 
 
 

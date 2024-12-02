@@ -90,7 +90,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
      name: router-1
      shared_egress_gateway: {}
      ```
-     For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/gateway/move.md).
+     For more information about the `yc vpc address move` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
 
 - API {#api}
 

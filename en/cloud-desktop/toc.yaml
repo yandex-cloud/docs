@@ -63,7 +63,7 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/desktops/index.md
+    href: ../cli/cli-ref/desktops/cli-ref/index.md
   - name: API reference
     items:
       - name: Authentication with the API

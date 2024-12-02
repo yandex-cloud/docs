@@ -5,9 +5,9 @@ keywords:
   - бекап
   - backup
   - резервное копирование
-  - резервное копирование Valkey
-  - backup Valkey
-  - Valkey
+  - резервное копирование Redis
+  - backup Redis
+  - Redis
 ---
 
 # Резервные копии в {{ mrd-name }}

@@ -64,7 +64,7 @@ description: Из статьи вы узнаете, как изменить пр
         --access-binding role=editor,serviceAccount=ajel6l0jcb9s********
       ```
 
-      Чтобы назначить роль субъекту без перезаписи остальных ролей, используйте [команду](../../../cli/cli-ref/managed-services/desktops/group/add-access-bindings.md) `yc desktops group add-access-bindings`. Например, чтобы назначить роль сервисному аккаунту:
+      Чтобы назначить роль субъекту без перезаписи остальных ролей, используйте [команду](../../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md) `yc desktops group add-access-bindings`. Например, чтобы назначить роль сервисному аккаунту:
 
       ```bash
       yc desktops group add-access-bindings \

@@ -101,7 +101,7 @@ items:
           - name: До 1 апреля 2024 года
             href: pricing-archive/pricing-20240401.md
   - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/backup/index.md
+    href: ../cli/cli-ref/backup/cli-ref/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

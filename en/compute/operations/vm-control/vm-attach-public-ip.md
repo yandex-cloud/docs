@@ -34,11 +34,11 @@ If a VM has multiple [network interfaces](../../concepts/network.md), you can as
   ```
 
   Where:
-  * `--id`: VM ID. You can get a list of available VM IDs in a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md).
+  * `--id`: VM ID. You can get a list of available VM IDs in a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) using the `yc compute instance list` [CLI command](../../../cli/cli-ref/compute/cli-ref/instance/list.md).
   * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run the following command: `yc compute instance get <VM_ID>`.
   * `--nat-address`: Public IP address to assign to the VM. This is an optional parameter. If you do not specify the `--nat-address` parameter, a public IP address will be assigned to the VM automatically.
 
-    You can get a list of reserved public IP addresses available in a folder using the `yc vpc address list` [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md). The IP address and the VM must be in the same availability zone.
+    You can get a list of reserved public IP addresses available in a folder using the `yc vpc address list` [CLI command](../../../cli/cli-ref/vpc/cli-ref/address/list.md). The IP address and the VM must be in the same availability zone.
 
   Usage example:
 
@@ -61,7 +61,7 @@ If a VM has multiple [network interfaces](../../concepts/network.md), you can as
   placement_policy: {}
   ```
 
-  For more information about the `yc compute instance add-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md).
+  For more information about the `yc compute instance add-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/add-one-to-one-nat.md).
 
 - {{ TF }} {#tf}
 

@@ -113,7 +113,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+     For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
   1. Save the `key_id` and the `secret` key. You will not be able to get the key value again.
 
 - API {#api}

@@ -76,7 +76,7 @@
       ```
       Указать образ можно с помощью параметра `--source-image-name` или `--source-image-id`.
 
-      Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/create.md).
+      Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Получите список дисков в каталоге по умолчанию:
 

@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-compute-ig }} create --file specification.yaml
   ```
 
-  Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+  Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 - API {#api}
 

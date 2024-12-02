@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-compute-ig }} update <имя_или_идентификатор_группы_ВМ> --file specification.yaml
   ```
 
-  Подробнее о команде `{{ yc-compute-ig }} update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/update.md).
+  Подробнее о команде `{{ yc-compute-ig }} update` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/update.md).
 
 - API {#api}
 

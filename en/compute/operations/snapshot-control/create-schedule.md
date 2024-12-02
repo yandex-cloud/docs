@@ -76,7 +76,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
       * `--start-at "2022-12-31T16:39:00+05:00"`: The schedule starts on December 31, 2022 at 16:39 UTC+5.
       * `--start-at "2h"`: The schedule starts two hours before the current time point.
 
-      For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/create.md).
+      For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
    1. To add disks to the schedule, get [disk](../../concepts/disk.md) IDs:
 
       ```bash

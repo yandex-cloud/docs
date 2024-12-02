@@ -1,0 +1,28 @@
+name: config
+items:
+  - name: Overview
+    href: cli-ref/index.md
+  - name: get
+    href: cli-ref/get.md
+  - name: list
+    href: cli-ref/list.md
+  - name: profile
+    items:
+      - name: Overview
+        href: cli-ref/profile/index.md
+      - name: activate
+        href: cli-ref/profile/activate.md
+      - name: create
+        href: cli-ref/profile/create.md
+      - name: delete
+        href: cli-ref/profile/delete.md
+      - name: get
+        href: cli-ref/profile/get.md
+      - name: list
+        href: cli-ref/profile/list.md
+  - name: set
+    href: cli-ref/set.md
+  - name: unset
+    href: cli-ref/unset.md
+base: en/_cli-ref/cli-ref/config
+deepBase: 4

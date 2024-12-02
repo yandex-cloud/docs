@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
       ```
       Значения `*` и `"$http_origin"` разрешают доступ к контенту при любом значении заголовка `Origin`. Чтобы разрешить доступ только определенным источникам, укажите `"$http_origin"` и доменные имена источников: `["domain.com", "second.dom.com"]`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

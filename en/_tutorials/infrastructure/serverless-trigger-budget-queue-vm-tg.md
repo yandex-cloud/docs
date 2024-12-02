@@ -88,7 +88,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Save the service account ID (`id`): you will need it in the next step.
 
-          For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+          For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
       1. Assign the service account the `editor` role for your folder:
 
@@ -116,7 +116,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
                   type: serviceAccount
           ```
 
-          For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+          For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
     - API {#api}
 
@@ -168,7 +168,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Save the ID (`key_id`) and secret key (`secret`). You will not be able to get this key value again.
 
-      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
     - API {#api}
 
@@ -215,7 +215,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       default_security_group_id: enp9uobl2c33********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create a subnet named `sample-subnet-{{ region-id }}-b` in the `{{ region-id }}-b` availability zone:
 
@@ -239,7 +239,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         - 192.168.1.0/24
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -383,7 +383,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           status: ACTIVE
           ```
 
-          For more information about the `yc serverless function create` command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/function/create.md).
+          For more information about the `yc serverless function create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/function/create.md).
 
       1. Create a version of the `budget-trigger-handler` function:
 
@@ -441,7 +441,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
             folder_id: b1g9d2k0itu4********
           ```
 
-          For more information about the `yc serverless function version create` command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/function/version/create.md).
+          For more information about the `yc serverless function version create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
 
     - API {#api}
 
@@ -509,7 +509,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   status: ACTIVE
   ```
 
-  For more information about the `yc serverless trigger create billing-budget` command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/billing-budget.md).
+  For more information about the `yc serverless trigger create billing-budget` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/billing-budget.md).
 
 - API {#api}
 
@@ -766,7 +766,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   status: ACTIVE
   ```
 
-  For more information about the `yc serverless trigger create message-queue` command, see the [CLI reference](../../cli/cli-ref/managed-services/serverless/trigger/create/message-queue.md).
+  For more information about the `yc serverless trigger create message-queue` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/message-queue.md).
 
 - API {#api}
 
@@ -866,7 +866,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   placement_policy: {}
   ```
 
-  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+  For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 

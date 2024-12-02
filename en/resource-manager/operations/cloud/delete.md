@@ -66,7 +66,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       After cloud deletion is complete, the response will contain the `done` field set to `true` (`done: true`).
 
-  For more information about the `yc resource-manager cloud delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/resource-manager/cloud/delete.md).
+  For more information about the `yc resource-manager cloud delete` command, see the [CLI reference](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
 - {{ TF }} {#tf}
 

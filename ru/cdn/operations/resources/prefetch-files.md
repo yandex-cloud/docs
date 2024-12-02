@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
         --path <пути_к_файлам>
       ```
 
-      Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+      Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 

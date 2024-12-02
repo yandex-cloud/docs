@@ -90,7 +90,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       yc cdn resource update <resource_ID> --slice true
       ```
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

@@ -76,7 +76,7 @@ To create a disk from an [image](../../concepts/image.md):
       ```
       You can use either `--source-image-name` or `--source-image-id` to specify the image.
 
-      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/create.md).
+      For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
   1. Get a list of disks in the default folder:
 

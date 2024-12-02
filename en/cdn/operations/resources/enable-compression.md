@@ -96,7 +96,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
       yc cdn resource update <resource_ID> --gzip-on
       ```
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

@@ -65,7 +65,7 @@ Service | ID
 {{ sd-full-name }}: [Data Security Posture Management (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 
-Moving forward, cloud administrators will be able to manage access of all the services that require permissions for actions with resources in {{ yandex-cloud }}. With [CLI](../../cli/cli-ref/managed-services/iam/service-control/list.md), you can [get](../operations/service-control/list-get.md#list) an up-to-date list of services whose access you can manage.
+Moving forward, cloud administrators will be able to manage access of all the services that require permissions for actions with resources in {{ yandex-cloud }}. With [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md), you can [get](../operations/service-control/list-get.md#list) an up-to-date list of services whose access you can manage.
 
 {% include [service-control-access](../../_includes/iam/service-control-access.md) %}
 
