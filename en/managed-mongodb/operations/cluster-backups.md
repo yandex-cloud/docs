@@ -447,7 +447,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 
 * Recovery backup: `c9qlk4v13uq7********:...`.
 * Time point to recover to: `1597060810` (`2020-08-10 12:00:10`).
-* Version: `5.0`.
+* Version: `6.0`.
 * Name of the new cluster: `mynewmg`.
 * Environment: `PRODUCTION`.
 * Network: `{{ network-name }}`.
@@ -467,7 +467,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
   {{ yc-mdb-mg }} cluster restore \
      --backup-id c9qlk4v13uq7********:... \
      --recovery-target-timestamp 1597060810 \
-     --mongodb-version 5.0 \
+     --mongodb-version 6.0 \
      --name mynewmg \
      --environment PRODUCTION \
      --network-name {{ network-name }} \

@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Для обращения к реестру используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](registry-list.md).
+{% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}
 
 {% list tabs group=instructions %}
 

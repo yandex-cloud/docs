@@ -32,3 +32,9 @@ _Геослои_ — визуализация показателей по точ
 Создание карт не поддерживается в [QL-чартах](../concepts/chart/index.md#sql-charts).
 
 {% endnote %}
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

@@ -18,7 +18,8 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--desktop-group-id`|<b>`string`</b><br/>Desktop group id.|
-|`--subject-id`|<b>`value[,value]`</b><br/>Desktop subject id.|
+|`--user-account-id`|<b>`value[,value]`</b><br/>Desktop user account id.|
+|`--subnet-id`|<b>`string`</b><br/>Desktop subnet id.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

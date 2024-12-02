@@ -13,7 +13,10 @@ description: Страница содержит все инструкции дл�
 * Поиск данных:
 
   * [{#T}](data/search-data-grpc.md)
-  * [{#T}](data/search-data-rest.md)
+  * Поиск данных через REST API:
+    * [{#T}](data/rest-full-text-search.md)
+    * [{#T}](data/rest-search-filters.md)
+    * [{#T}](data/rest-get-dialog-data.md)
 
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)

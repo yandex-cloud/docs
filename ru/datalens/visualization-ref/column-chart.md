@@ -166,3 +166,9 @@ Y | Показатель. Может быть указано несколько 
   ![bar-chart-split](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-split.png)
 
   {% endcut %}
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

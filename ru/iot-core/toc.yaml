@@ -35,6 +35,8 @@ items:
             href: operations/registry/registry-create.md
           - name: Изменение реестра
             href: operations/registry/registry-update.md
+          - name: Отключение и включение реестра
+            href: operations/registry/registry-disabling.md
           - name: Удаление реестра
             href: operations/registry/registry-delete.md
       - name: Управление устройствами

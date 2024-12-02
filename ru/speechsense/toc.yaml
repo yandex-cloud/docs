@@ -15,12 +15,16 @@ items:
             href: operations/data/upload-chat-text.md
           - name: Поиск данных
             items:
-              - name: Обзор
-                href: operations/data/search-data.md
               - name: Поиск данных через gRPC API
                 href: operations/data/search-data-grpc.md
               - name: Поиск данных через REST API
-                href: operations/data/search-data-rest.md
+                items:
+                  - name: Полнотекстовый поиск в REST API
+                    href: operations/data/rest-full-text-search.md
+                  - name: Фильтрация по параметрам в REST API
+                    href: operations/data/rest-search-filters.md
+                  - name: Получение информации о диалоге в REST API
+                    href: operations/data/rest-get-dialog-data.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Просмотр связанных диалогов

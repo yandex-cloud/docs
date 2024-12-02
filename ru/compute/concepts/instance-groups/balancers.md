@@ -82,7 +82,7 @@ load_balancer_spec:
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Имя целевой группы. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Описание целевой группы. |
 | `labels` | [Метки](../../../resource-manager/concepts/labels.md) целевой группы в формате `<имя_метки>: <значение_метки>`. |
-| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [{#T}](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
 | `ignore_health_checks` | Игнорировать проверки состояния от балансировщика. Возможные значения `true` или `false`. |
 
 ### Настройки интеграции с {{ alb-name }} {#settings-alb}
@@ -108,5 +108,5 @@ application_load_balancer_spec:
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Имя целевой группы. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Описание целевой группы. |
 | `labels` | [Метки](../../../resource-manager/concepts/labels.md) целевой группы в формате `<имя_метки>: <значение_метки>`. |
-| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [{#T}](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
 | `ignore_health_checks` | Игнорировать проверки состояния от балансировщика. Возможные значения `true` или `false`. |

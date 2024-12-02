@@ -2,9 +2,9 @@
 title: Replication and fault tolerance in {{ RD }}
 description: '{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.'
 keywords:
-  - redis replication
-  - redis
-  - redis dbms
+  - Valkey replication
+  - Valkey
+  - Valkey dbms
 ---
 
 # Replication and fault tolerance

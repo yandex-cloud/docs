@@ -31,12 +31,13 @@ Syntax:
 |`--password-file`|<b>`string`</b><br/>Path to the file containing password|
 |`--subnet-id`|<b>`string`</b><br/>Yandex Virtual Private Cloud subnet ID to access the ClickHouse server through|
 |`--security-group`|<b>`value[,value]`</b><br/>Yandex Virtual Private Cloud security group ID to associate with the endpoint|
-|`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster. For Managed ClickHouse this defaults to the cluster ID|
+|`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster. For Managed ClickHouse that is name of ShardGroup|
 |`--alt-name`|<b>`value[,value]`</b><br/>Alternative table names in target; the format is {source_table_name}:{target_table_name}. The colon itself is specified as \:, and the backslash is specified as \\|
 |`--shard-by-column-hash`|<b>`string`</b><br/>Calculate ClickHouse destination shard name using hash of the specified column|
 |`--custom-sharding-column-name`|<b>`string`</b><br/>Look up ClickHouse destination shard name using the specified column's value and the mapping specified with --custom-sharding-mapping|
 |`--custom-sharding-mapping-string`|<b>`value[,value]`</b><br/>Put all the rows where the string value of sharding column is {column_value} into the shard {shard_name}. The format is {column_value}:{shard_name}. The colon itself is specified as \:, and the backslash is specified as \\. Sharding column is specified using option --custom-sharding-column-name|
 |`--shard-by-transfer-id`|Select ClickHouse destination shard name using transfer ID|
+|`--cleanup-policy`|<b>`string`</b><br/>Policy describes what to do with existing data on target. Options: drop, truncate, disabled (keep the data, which is default)|
 
 #### Global Flags
 

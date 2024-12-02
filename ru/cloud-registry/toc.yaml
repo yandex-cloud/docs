@@ -2,17 +2,157 @@ title: Yandex Cloud Registry
 stage: preview
 href: index.yaml
 items:
+  - name: Начало работы
+    href: quickstart/docker.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создание реестра
+        href: operations/registry/create.md
+      - name: Управление артефактами
+        items:
+          - name: Docker-образ
+            items:
+              - name: Установить и настроить Docker
+                href: operations/docker/installation.md
+              - name: Аутентифицироваться в {{ cloud-registry-name }}
+                href: operations/docker/authentication.md
+              - name: Создать Docker-образ
+                href: operations/docker/create.md
+              - name: Загрузить Docker-образ в реестр
+                href: operations/docker/push.md
+              - name: Скачать Docker-образ из реестра
+                href: operations/docker/pull.md
+          - name: Java-артефакт
+            items:
+              - name: Настроить Maven
+                href: operations/maven/installation.md
+          - name: Node.js-артефакт
+            items:
+              - name: Настроить npm
+                href: operations/npm/installation.md
   - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Артефакты
-        href: concepts/artifacts.md
       - name: Реестр
         href: concepts/registry.md
-      - name: Java-артефакт
-        href: concepts/art-java.md
+      - name: Артефакты
+        items:
+          - name: Обзор
+            href: concepts/artifacts.md
+          - name: Docker-образ
+            href: concepts/docker-image.md
+          - name: Java-артефакт
+            href: concepts/art-java.md
+          - name: Node.js-артефакт
+            href: concepts/art-nodejs.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI
+    href: ../cli/cli-ref/managed-services/cloud-registry/index.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Artifact
+            items:
+              - name: Overview
+                href: api-ref/grpc/Artifact/index.md
+              - name: Get
+                href: api-ref/grpc/Artifact/get.md
+              - name: Delete
+                href: api-ref/grpc/Artifact/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/grpc/Registry/index.md
+              - name: Get
+                href: api-ref/grpc/Registry/get.md
+              - name: List
+                href: api-ref/grpc/Registry/list.md
+              - name: Create
+                href: api-ref/grpc/Registry/create.md
+              - name: Update
+                href: api-ref/grpc/Registry/update.md
+              - name: Delete
+                href: api-ref/grpc/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Registry/updateAccessBindings.md
+              - name: ListIpPermissions
+                href: api-ref/grpc/Registry/listIpPermissions.md
+              - name: SetIpPermissions
+                href: api-ref/grpc/Registry/setIpPermissions.md
+              - name: UpdateIpPermissions
+                href: api-ref/grpc/Registry/updateIpPermissions.md
+              - name: ListArtifacts
+                href: api-ref/grpc/Registry/listArtifacts.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Artifact
+            items:
+              - name: Overview
+                href: api-ref/Artifact/index.md
+              - name: Get
+                href: api-ref/Artifact/get.md
+              - name: Delete
+                href: api-ref/Artifact/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/Registry/index.md
+              - name: Get
+                href: api-ref/Registry/get.md
+              - name: List
+                href: api-ref/Registry/list.md
+              - name: Create
+                href: api-ref/Registry/create.md
+              - name: Update
+                href: api-ref/Registry/update.md
+              - name: Delete
+                href: api-ref/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Registry/updateAccessBindings.md
+              - name: ListIpPermissions
+                href: api-ref/Registry/listIpPermissions.md
+              - name: SetIpPermissions
+                href: api-ref/Registry/setIpPermissions.md
+              - name: UpdateIpPermissions
+                href: api-ref/Registry/updateIpPermissions.md
+              - name: ListArtifacts
+                href: api-ref/Registry/listArtifacts.md
 base: ru/cloud-registry
 deepBase: 2

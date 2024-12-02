@@ -62,3 +62,9 @@
 ## Рекомендации {#recomendations}
 
 * Используйте цветовые палитры, соответствующие целям и задачам визуализации.
+
+#### См. также {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

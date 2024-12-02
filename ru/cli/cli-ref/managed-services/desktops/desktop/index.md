@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/managed-services/desktops/desktop/index.md
 
 # yc desktops desktop
 
-[PREVIEW] Manage desktop instances.
+[PREVIEW] Manage desktop instances
 
 #### Command Usage
 

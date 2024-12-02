@@ -56,7 +56,7 @@
       Где:
       
       * `--service-account-name` — имя сервисного аккаунта. Обязательный параметр.
-      * `--scope` — область действия ключа. Необязательный параметр.
+      * `--scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
       * `--expires-at` — дата и время истечения срока действия ключа. Необязательный параметр.
       * `api_key.yaml` — файл, в который сохраняется ответ.
       
@@ -78,12 +78,14 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле {{ TF }}параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<идентификатор_сервисного_аккаунта>"
         description        = "<описание_ключа>"
+        scope              = "<область_действия>"
+        expires_at         = "<дата_и_время>"
         pgp_key            = "<pgp-ключ>"
       }
       ```
@@ -92,6 +94,8 @@
 
       * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
       * `description` — описание ключа. Необязательный параметр.
+      * `scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
+      * `expires_at` — дата и время истечения срока действия ключа в формате `YYYY-MM-DDThh:mm:ssZ`. Необязательный параметр.
       * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`. Необязательный параметр.
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
@@ -129,7 +133,7 @@
 
   * `SERVICEACCOUNT_ID` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
   * `IAM_TOKEN` — [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
-  * `scope` — область действия для [ключа с ограниченным доступом](../../concepts/authorization/api-key.md#scoped-api-keys). Необязательный параметр.
+  * `scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
   * `expiresAt` — дата и время истечения срока действия ключа с ограниченным доступом. Необязательный параметр.
 
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md).
@@ -151,6 +155,7 @@
   Результат:
 
   ```text
+  {% if region == "ru" or region == "int" %}- yc.postbox.send{% endif %}
   - yc.ydb.tables.manage
   - yc.ydb.topics.manage
   ```

@@ -63,7 +63,7 @@ links:
     href: container-registry/
   - title: Cloud Registry
     description: Управление артефактами
-    href: registry/
+    href: cloud-registry/
   - title: Container Solution
     description: Сценарии использования виртуальных машин
     href: cos/
@@ -142,8 +142,8 @@ links:
   - title: Managed Service for PostgreSQL
     description: Управление базой данных PostgreSQL
     href: managed-postgresql/
-  - title: Managed Service for Redis™
-    description: Управление базой данных Redis
+  - title: Yandex Managed Service for Valkey™
+    description: Управление базой данных Valkey™
     href: managed-redis/
   - title: Yandex Cloud Marketplace
     description: Инструменты и решения от ведущих вендоров

@@ -17,7 +17,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--id`|<b>`string`</b><br/>Desktop id.|
-|`--subject-id`|<b>`string`</b><br/>Desktop subject id.|
+|`--user-account-id`|<b>`string`</b><br/>Desktop user account ID.|
 
 #### Global Flags
 

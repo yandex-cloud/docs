@@ -443,11 +443,11 @@ default:
   mpg-short-name: Managed Service for PostgreSQL
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
-  mrd-full-name: Yandex Managed Service for Redis
+  mrd-full-name: Yandex Managed Service for Valkey™
   mrd-host-class: hm2.nano
   mrd-memory-used: 75%
-  mrd-name: Managed Service for Redis
-  mrd-short-name: Managed Service for Redis
+  mrd-name: Yandex Managed Service for Valkey™
+  mrd-short-name: Yandex Managed Service for Valkey™
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
@@ -521,7 +521,7 @@ default:
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   prometheus-name: Prometheus
   promql-name: PromQL
-  RD: Redis
+  RD: Valkey™
   rd:
     docs: https://redis.io/docs
   region-id: ru-central1
@@ -7123,7 +7123,7 @@ default:
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
-            label_managed-redis: Managed Service for&nbsp;Redis
+            label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
@@ -7166,6 +7166,8 @@ default:
               button_create-key-popup: Create new key
               column_key_last-used-at: Date of last use
               field_key-description: Description
+              field_key-expires-at: Expires at
+              field_key-scope: Scope
               label_id: ID
               label_title: Overview
               popup-confirm_button_delete: Delete
@@ -10209,7 +10211,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.15.0
+        tag: 1.15.1
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
