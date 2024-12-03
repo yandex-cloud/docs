@@ -12,6 +12,12 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+{% note warning %}
+
+{% include [connect-metastore-to-s3-with-policy](../../_tutorials_includes/metastore-to-s3-with-policy.md) %}
+
+{% endnote %}
+
 {% note info %}
 
 {{ metastore-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
@@ -154,12 +160,6 @@
 
 {% endlist %}
 
-{% note warning %}
-
-Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
-
-{% endnote %}
-
 ## Создайте тестовую таблицу {#create-table}
 
 В кластере `dataproc-source` создайте тестовую таблицу `countries`:
@@ -285,6 +285,7 @@
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
 1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
+1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -302,21 +303,6 @@
 
     - {{ TF }} {#tf}
 
-        1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `metastore-import.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `metastore-import.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

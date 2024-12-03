@@ -56,7 +56,7 @@
         * `--columns` — список колонок для вывода информации:
             * `hostname` — [имя хоста](hosts.md#list-hosts).
             * `db` — [имя базы данных](databases.md#list-db).
-            * `level` — уровень логирования, например, `info`.
+            * `level` — уровень логирования, например `info`.
             * `pid` — идентификатор серверного процесса текущей сессии.
             * `text` — сообщение, которое выводит компонент.
 
@@ -80,23 +80,42 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.listLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:logs?serviceType=<тип_сервиса>&columnFilter=<список_колонок>&fromTime=<левая_граница_временного_диапазона>&toTime=<правая_граница_временного_диапазона>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:logs' \
+       --url-query serviceType=<тип_сервиса> \
+       --url-query columnFilter=<список_колонок> \
+       --url-query fromTime=<левая_граница_временного_диапазона> \
+       --url-query toTime=<правая_граница_временного_диапазона>
      ```
 
      Где:
 
      * `serviceType` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — логи операций {{ PG }};
-       * `POOLER` — логи операций менеджера подключений.
+       * `POSTGRESQL` — операции {{ PG }};
+       * `POOLER` — операции менеджера подключений.
 
-     * `columnFilter` — список колонок, информацию по которым нужно вывести. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `columnFilter` — название колонки для вывода информации:
+
+       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `db` — [имя базы данных](databases.md#list-db).
+       * `level` — уровень логирования, например `info`.
+       * `pid` — идентификатор серверного процесса текущей сессии.
+       * `text` — сообщение, которое выводит компонент.
+
+       {% note info %}
+
+       Список выводимых колонок зависит от выбранного типа сервиса `serviceType`. В примере приведены только основные колонки для типа `POOLER`.
+
+       {% endnote %}
+
+       {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
      * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
      * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -111,7 +130,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -137,10 +156,25 @@
 
      * `service_type` — тип сервиса, логи которого нужно получить:
 
-       * `POSTGRESQL` — логи операций {{ PG }};
-       * `POOLER` — логи операций менеджера подключений.
+       * `POSTGRESQL` — операции {{ PG }};
+       * `POOLER` — операции менеджера подключений.
 
-     * `column_filter` — массив колонок, информацию по которым нужно вывести. Массив состоит из строк, каждая из которых содержит название колонки. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `column_filter` — список колонок для вывода информации:
+
+       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `db` — [имя базы данных](databases.md#list-db).
+       * `level` — уровень логирования, например `info`.
+       * `pid` — идентификатор серверного процесса текущей сессии.
+       * `text` — сообщение, которое выводит компонент.
+
+       {% note info %}
+
+       Список выводимых колонок зависит от выбранного типа сервиса `service_type`. В примере приведены только основные колонки для типа `POOLER`.
+
+       {% endnote %}
+
+       {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
      * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
      * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 
@@ -176,13 +210,15 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:stream_logs?serviceType=<тип_сервиса>&columnFilter=<список_колонок>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>:stream_logs' \
+       --url-query serviceType=<тип_сервиса> \
+       --url-query columnFilter=<список_колонок>
      ```
 
      Где:
@@ -192,7 +228,21 @@
        * `POSTGRESQL` — логи операций {{ PG }};
        * `POOLER` — логи операций менеджера подключений.
 
-     * `columnFilter` — список колонок, информацию по которым нужно вывести. В качестве значений используйте поля объекта `message` из ответа на запрос.
+     * `columnFilter` — название колонки для вывода информации:
+
+       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `db` — [имя базы данных](databases.md#list-db).
+       * `level` — уровень логирования, например `info`.
+       * `pid` — идентификатор серверного процесса текущей сессии.
+       * `text` — сообщение, которое выводит компонент.
+
+       {% note info %}
+
+       Список выводимых колонок зависит от выбранного типа сервиса `serviceType`. В примере приведены только основные колонки для типа `POOLER`.
+
+       {% endnote %}
+
+       {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -207,7 +257,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -234,9 +284,21 @@
        * `POSTGRESQL` — логи операций {{ PG }};
        * `POOLER` — логи операций менеджера подключений.
 
-     * `column_filter` — массив колонок, информацию по которым нужно вывести. Массив состоит из строк, каждая из которых содержит название колонки. В качестве значений используйте поля объекта `message` из ответа на запрос.
-     * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2024-09-18T15:04:05Z`.
-     * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
+     * `column_filter` — список колонок для вывода информации:
+
+       * `hostname` — [имя хоста](hosts.md#list-hosts).
+       * `db` — [имя базы данных](databases.md#list-db).
+       * `level` — уровень логирования, например `info`.
+       * `pid` — идентификатор серверного процесса текущей сессии.
+       * `text` — сообщение, которое выводит компонент.
+
+       {% note info %}
+
+       Список выводимых колонок зависит от выбранного типа сервиса `service_type`. В примере приведены только основные колонки для типа `POOLER`.
+
+       {% endnote %}
+
+       {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -14,6 +14,7 @@ description: Различные сценарии использования се
 * [{#T}](high-accessible-dmz.md)
 * [{#T}](network-segmentation-checkpoint.md)
 * [{#T}](high-accessible-dmz-usergate.md)
+* [{#T}](cic-with-ngfw.md)
 * [{#T}](gre-over-ipsec.md)
 * [{#T}](dataproc-nat-instance.md)
 * [{#T}](./storage-vpc-access.md)

@@ -22,6 +22,7 @@ description: Пошаговые инструкции по работе с {{ met
 * [{#T}](metastore/configure-security-group.md)
 * [{#T}](metastore/dataproc-connect.md)
 * [{#T}](metastore/export-and-import.md)
+* [{#T}](metastore/s3-policy-connect.md)
 * [{#T}](metastore/logging.md)
 * [{#T}](metastore/cluster-delete.md)
 

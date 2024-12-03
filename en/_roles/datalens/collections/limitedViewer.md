@@ -1,4 +1,4 @@
-You can assign the `datalens.collections.limitedViewer` role to a collection. It allows you to view the info on it and its nested collections and workbooks, which includes viewing charts and dashboards of the nested workbook workbooks. In the DataLens UI, this role is referred to as `Limited viewer`.
+You can assign the `datalens.collections.limitedViewer` role to a collection. It allows you to view the info on it and its nested collections and workbooks, which includes viewing charts and dashboards of the nested workbook workbooks. In the DataLens UI, this role is referred to as `Limited viewer`. You may want to only assign this role through the DataLens UI.
 
 Users with this role can:
 * View info on the relevant collection and its nested [workbooks and collections](../../../datalens/workbooks-collections/index.md).

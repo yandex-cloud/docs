@@ -1,11 +1,5 @@
 # Migration to the {{ region-id }}-d availability zone
 
-{% note info %}
-
-{% include [zone-c-deprecation](../vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 If you created [subnets](../../vpc/concepts/network.md#subnet) for {{ sf-name }} [functions](../../functions/concepts/function.md), {{ serverless-containers-name }} [containers](../../serverless-containers/concepts/container.md), or {{ api-gw-name }} [API gateways](../../api-gateway/concepts/index.md) and submitted a request to use them to technical support, follow the steps below to migrate resources from the `{{ region-id }}-c` availability zone:
 
 1. In the [cloud network](../../vpc/concepts/network.md#network) hosting the subnets, [create](../../vpc/operations/subnet-create.md) a new subnet.

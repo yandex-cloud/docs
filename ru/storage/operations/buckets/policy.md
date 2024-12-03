@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы научите
 
 {% note warning %}
 
-Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md), не назначайте на бакет политику доступа. Иначе кластер не сможет записывать данные в бакет.
+{% include [s3-with-policy-access](../../../_includes/storage/s3-with-policy-access.md) %}
 
 {% endnote %}
 
@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы научите
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
-        
+
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
@@ -396,7 +396,7 @@ description: Следуя данной инструкции, вы научите
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Если вы применили политику доступа к бакету при помощи {{ TF }}, вы можете удалить её:
+  Если вы применили политику доступа к бакету при помощи {{ TF }}, вы можете удалить ее:
   1. Найдите в конфигурационном файле параметры созданной ранее политики доступа, которую необходимо удалить:
 
      ```hcl

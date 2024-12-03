@@ -190,13 +190,13 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы включить отказоустойчивость для кластера, воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и передайте в запросе:
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Настройки для трех хостов {{ ZK }} в параметре `hostSpecs`.
-  * Необходимость преобразования нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables) в параметре `convertTablesToReplicated`.
+- gRPC API {#grpc-api}
+
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
 
@@ -284,11 +284,99 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы добавить хост {{ ZK }}, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
-  * Идентификатор кластера, в котором нужно разместить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Настройки для хоста в параметре `hostSpecs` (в том числе укажите тип `ZOOKEEPER` в параметре `hostSpecs.type`). Не указывайте настройки для нескольких хостов в этом параметре — хосты {{ ZK }} добавляются в кластер по одному, в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+            --data '{
+                      "hostSpecs": [
+                        {
+                          "type": "ZOOKEEPER",
+                          "zoneId": "<зона_доступности>",
+                          "subnetId": "<идентификатор_подсети>",
+                          "assignPublicIp": <публичный_доступ_к_хосту>
+                        }
+                      ]
+                    }'
+        ```
+
+        Где `hostSpecs` — массив, содержащий настройки создаваемого хоста.
+
+        {% note warning %}
+
+        Не указывайте настройки для нескольких хостов в параметре `hostSpecs`. Хосты {{ ZK }} добавляются в кластер по одному в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
+
+        {% endnote %}
+
+        Один элемент массива `hostSpecs` содержит настройки для одного хоста и имеет следующую структуру:
+
+        * `type` — тип хоста `ZOOKEEPER`;
+        * `zoneId` — зона доступности;
+        * `subnetId` — идентификатор подсети;
+        * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "host_specs": [
+                        {
+                            "type": "ZOOKEEPER",
+                            "zone_id": "<зона_доступности>",
+                            "subnet_id": "<идентификатор_подсети>",
+                            "assign_public_ip": <публичный_доступ_к_хосту>
+                        }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+        ```
+
+        Где `host_specs` — массив, содержащий настройки создаваемых хостов.
+
+        {% note warning %}
+
+        Не указывайте настройки для нескольких хостов в параметре `hostSpecs`. Хосты {{ ZK }} добавляются в кластер по одному в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
+
+        {% endnote %}
+
+        Один элемент массива `host_specs` содержит настройки для одного хоста и имеет следующую структуру:
+
+        * `type` — тип хоста `ZOOKEEPER`;
+        * `zone_id` — зона доступности;
+        * `subnet_id` — идентификатор подсети;
+        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -345,126 +433,11 @@ description: Следуя данной инструкции, вы сможете
 
 - REST API {#api}
 
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-  1. Воспользуйтесь методом [Cluster.addZookeeper](../api-ref/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
-
-     ```bash
-     curl \
-       --request POST \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>:addZookeeper' \
-       --data '{
-                "resources": {
-                  "resourcePresetId": "<класс_хостов>",
-                  "diskSize": "<размер_хранилища_в_байтах>",
-                  "diskTypeId": "<тип_диска>"
-                },
-                "hostSpecs": [
-                  {
-                    "zoneId": "<зона_доступности>",
-                    "type": "ZOOKEEPER",
-                    "subnetId": "<идентификатор_подсети>",
-                    "shardName": "<имя_шарда>",
-                    "assignPublicIp": <публичный_доступ_к_хосту>
-                  },
-                  { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
-                  { ... },
-                  { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
-                ],
-                "convertTablesToReplicated": true
-              }'
-     ```
-
-     Где:
-
-     * `resources` — набор ресурсов для хостов {{ ZK }}:
-
-       * `resourcePresetId` — [класс хостов](../concepts/instance-types.md).
-       * `diskSize` — размер диска в байтах.
-       * `diskTypeId` — [тип диска](../concepts/storage.md).
-
-     * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}. Элемент массива имеет следующую структуру:
-
-       * `type` — тип хоста, всегда `ZOOKEEPER` для хостов {{ ZK }}.
-       * `zoneId` — зона доступности.
-       * `subnetId` — идентификатор подсети.
-       * `shardName` — имя [шарда](../concepts/sharding.md), к которому добавляется хост.
-       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-
-     * `convertTablesToReplicated` — преобразование нереплицируемых таблиц на движке семейства `MergeTree` в реплицируемые на движке семейства `ReplicatedMergeTree`: `true` или `false`.
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addZookeeper.md#responses).
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
 
 - gRPC API {#grpc-api}
 
-  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
-
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "resources": {
-               "resource_preset_id": "<класс_хостов>",
-               "disk_size": "<размер_хранилища_в_байтах>",
-               "disk_type_id": "<тип_диска>"
-             },
-             "host_specs": [
-               {
-                 "type": "ZOOKEEPER",
-                 "zone_id": "<зона_доступности>",
-                 "subnet_id": "<идентификатор_подсети>",
-                 "shard_name": "<имя_шарда>",
-                 "assign_public_ip": <публичный_доступ_к_хосту>
-               },
-               { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
-             ],
-             "convert_tables_to_replicated": true
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.clickhouse.v1.ClusterService.AddZookeeper
-     ```
-
-     Где:
-
-     * `resources` — набор ресурсов для хостов {{ ZK }}:
-
-       * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
-       * `disk_size` — размер диска в байтах.
-       * `disk_type_id` — [тип диска](../concepts/storage.md).
-
-     * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}.
-
-       Элемент массива имеет следующую структуру:
-
-       * `type` — тип хоста, всегда `ZOOKEEPER` для хостов {{ ZK }}.
-       * `zone_id` — зона доступности.
-       * `subnet_id` — идентификатор подсети.
-       * `shard_name` — имя [шарда](../concepts/sharding.md), к которому добавляется хост.
-       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-
-     * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц на движке семейства `MergeTree` в реплицируемые на движке семейства `ReplicatedMergeTree`: `true` или `false`.
-
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addZookeeper.md#yandex.cloud.operation.Operation).
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
 
@@ -512,11 +485,13 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы удалить хост {{ ZK }}, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
-  * Идентификатор кластера, в котором находится хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя хоста в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list-hosts).
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/delete-zk-hosts-rest.md) %}
+
+- gRPC API {#grpc-api}
+
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/delete-zk-hosts-grpc.md) %}
 
 {% endlist %}
 

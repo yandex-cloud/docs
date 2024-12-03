@@ -246,6 +246,7 @@
 
 * [Трансфер](../../data-transfer/operations/transfer.md#delete).
 * [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+* [Объекты](../../storage/operations/objects/delete.md) из бакета.
 * Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -258,23 +259,6 @@
 
     - С помощью {{ TF }} {#tf}
 
-        Если вы создавали ресурсы с помощью {{ TF }}:
-
-        1. Удалите все объекты из бакета.
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `object-storage-to-ydb.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `object-storage-to-ydb.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

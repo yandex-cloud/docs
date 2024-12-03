@@ -38,6 +38,10 @@ items:
             href: operations/metastore/dataproc-connect.md
           - name: Экспорт и импорт кластера {{ metastore-name }}
             href: operations/metastore/export-and-import.md
+          - name: >-
+              Подключение к бакету {{ objstorage-full-name }} с политикой
+              доступа
+            href: operations/metastore/s3-policy-connect.md
           - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
             href: operations/metastore/logging.md
           - name: Удаление кластера {{ metastore-name }}

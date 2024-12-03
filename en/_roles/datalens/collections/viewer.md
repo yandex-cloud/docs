@@ -1,4 +1,4 @@
-You can assign the `datalens.collections.viewer` role to a collection. It allows you to view the info on it and its nested collections and workbooks, as well as view all nested workbook objects. In the DataLens UI, this role is referred to as `Viewer`.
+You can assign the `datalens.collections.viewer` role to a collection. It allows you to view the info on it and its nested collections and workbooks, as well as view all nested workbook objects. In the DataLens UI, this role is referred to as `Viewer`. You may want to only assign this role through the DataLens UI.
 
 Users with this role can:
 * View info on the relevant collection and its nested [workbooks and collections](../../../datalens/workbooks-collections/index.md).

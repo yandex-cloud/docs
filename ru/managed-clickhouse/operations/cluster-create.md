@@ -422,7 +422,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -447,7 +447,7 @@ description: Следуя данной инструкции, вы сможете
               ],
               "configSpec": {
                 "version": "<версия_{{ CH }}>",
-                "embeddedKeeper": <использование_{{ CK }}>,
+                "embeddedKeeper": <использование_ClickHouse®_Keeper>,
                 "clickhouse": {
                   "resources": {
                     "resourcePresetId": "<класс_хостов_{{ CH }}>",
@@ -618,7 +618,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 

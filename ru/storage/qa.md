@@ -55,7 +55,6 @@ description: На странице представлены вопросы и о
 
 Вы можете удалить несколько объектов через консоль управления {{ yandex-cloud }} или через [API](../glossary/rest-api.md) с помощью метода [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md).
 
-
 #### Почему сервисный аккаунт не может получить доступ в бакет? {#sa-bucket-access}
 
 
@@ -76,17 +75,14 @@ yc kms symmetric-key add-access-binding \
 * `--service-account-id` — идентификатор сервисного аккаунта.
 
 
-
 #### Что {{ yandex-cloud }} делает с данными, которые я храню в {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
 Данные сохраняются в том виде, в котором их передал пользователь.
 
 
-
 #### Использует ли Яндекс {{ objstorage-name }} для размещения своих данных? {#qa-usage-by-yandex}
 
 Да. {{ objstorage-name }} используется в инфраструктуре Яндекса. Несколько сервисов Яндекса держат в хранилище статические данные для своих сайтов.
-
 
 
 #### Какую модель консистентности данных использует {{ objstorage-full-name }}? {#qa-consistency}
@@ -100,11 +96,9 @@ yc kms symmetric-key add-access-binding \
 * Некоторые методы HTTP API. Полный список поддерживаемых методов смотрите в [Справочнике API](s3/api-ref/index.md).
 
 
-
 #### Где хранятся мои данные? {#qa-where}
 
 Данные хранятся в нескольких географически распределенных дата-центрах на территории России. Подробнее см. в разделе [{#T}](../overview/concepts/geo-scope.md).
-
 
 
 #### Как защищены мои данные в {{ objstorage-full-name }}? {#qa-data-security}
@@ -127,12 +121,10 @@ yc kms symmetric-key add-access-binding \
 Из-за этого мы не можем указать конкретное значение времени ответа. При этом мы не считаем нормой резкое увеличение времени ответа или заметное снижение скорости отправки данных и постоянно работаем над улучшением технических характеристик {{ objstorage-name }}.
 
 
-
 {% include [fz-152.md](../_qa/fz-152.md) %}
 
 
 {% include [logs.md](../_qa/logs.md) %}
-
 
 
 #### Как подключить собственный домен к бакету {{ objstorage-name }}? {#domain-bucket}
@@ -161,7 +153,7 @@ yc kms symmetric-key add-access-binding \
 * Если к бакету применена политика доступа без правил, то доступ будет запрещен всем пользователям. Чтобы отключить проверки запросов по политике доступа, [удалите](operations/buckets/policy.md#delete-policy) ее.
 
 
-* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) и на бакет назначена политика доступа, кластер не сможет записывать данные в бакет. Чтобы это исправить, удалите политику.
+* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) или [{{ maf-full-name}}](../managed-airflow/concepts/index.md) и на бакет назначена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) и [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### Как получить доступ к {{ objstorage-name }} из облачной сети {{ vpc-name }}? {#qa-from-vpc}

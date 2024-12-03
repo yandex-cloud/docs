@@ -2,24 +2,19 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `my-account` с ролью `storage.uploader`.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `my-account`. Сохраните идентификатор и секретный ключ — они понадобятся для работы с [{{ objstorage-full-name }}](../../../storage/index.yaml).
-1. [Настройте сеть и создайте кластер](cluster-create.md) {{ metastore-name }}. При создании укажите параметры статического ключа доступа.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `my-account`  ролями `storage.uploader` и `managed-metastore.integrationProvider`.
+1. [Настройте сеть и создайте кластер](cluster-create.md) {{ metastore-name }}. При создании укажите сервисный аккаунт `my-account`.
 
    {% note warning %}
 
    Экспорт и импорт данных доступны в кластерах {{ metastore-name }} только со статическим ключом доступа.
 
    {% endnote %}
-
-1. [Создайте бакет](../../../storage/operations/buckets/create.md) `my-bucket` в {{ objstorage-name }}. В нем будет храниться файл с метаданными для импорта и экспорта.
+   
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) `my-bucket` в {{ objstorage-full-name }}. В нем будет храниться файл с метаданными для импорта и экспорта.
 1. [Выдайте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` сервисному аккаунту `my-account` на бакет `my-bucket`.
 
-{% note warning %}
-
-Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
-
-{% endnote %}
+Подробнее о подключении к бакету, в котором настроены политики доступа, см. в [инструкции](s3-policy-connect.md).
 
 ## Экспортируйте данные {#export}
 

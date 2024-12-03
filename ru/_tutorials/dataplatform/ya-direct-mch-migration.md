@@ -288,6 +288,7 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
@@ -304,22 +305,7 @@
 
 - {{ TF }} {#tf}
 
-    1. [Удалите объекты из бакета](../../storage/operations/objects/delete.md).
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `ya-direct-to-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `ya-direct-to-mch.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

@@ -236,16 +236,7 @@
 
     - {{ TF }} {#tf}
 
-        1. В терминале перейдите в рабочую директорию с конфигурационным файлом `opensearch-to-clickhouse.tf`.
-        1. Удалите ресурсы с помощью команды:
-
-            ```bash
-            terraform destroy
-            ```
-
-        1. Введите слово `yes` и нажмите **Enter**.
-
-            Все ресурсы, которые были описаны в конфигурационном файле `opensearch-to-clickhouse.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

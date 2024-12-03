@@ -767,6 +767,10 @@ items:
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе UserGate NGFW
         href: routing/high-accessible-dmz-usergate.md
+      - name: >-
+          Организация доступа через {{ interconnect-name }} к облачным сетям,
+          размещенным за NGFW
+        href: routing/cic-with-ngfw.md
       - name: Настройка защищенного туннеля GRE поверх IPsec
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}

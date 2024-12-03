@@ -1,14 +1,6 @@
 # {{ ig-name }} concepts
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-If you have instance groups in the `{{ region-id }}-c` availability zone, [move](../../operations/instance-groups/move-group.md) them.
-
-{% endnote %}
-
 {{ ig-name }} is a {{ compute-name }} component that allows you to create and manage VM instance groups.
 {{ ig-name }} can automatically identify and fix unhealthy instances in a group to ensure their optimal performance.
 

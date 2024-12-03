@@ -6,14 +6,6 @@ description: In this article, you will learn how to move a {{ compute-name }} in
 # Moving an instance group to a different availability zone
 
 
-
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
-
 If your instance group is attached to a load balancer, follow these guides:
 * [{#T}](move-group-with-nlb.md)
 * [{#T}](move-group-with-alb.md)
