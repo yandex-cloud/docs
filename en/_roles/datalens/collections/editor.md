@@ -1,4 +1,4 @@
-You can assign the `datalens.collections.editor` role to a collection. It allows you to edit the relevant collection and all its nested collections, workbooks, and all objects within such workbooks. In the DataLens UI, this role is referred to as `Editor`.
+You can assign the `datalens.collections.editor` role to a collection. It allows you to edit the relevant collection and all its nested collections, workbooks, and all objects within such workbooks. In the DataLens UI, this role is referred to as `Editor`. You may want to only assign this role through the DataLens UI.
 
 Users with this role can:
 * View info on the relevant collection and its nested [collections and workbooks](../../../datalens/workbooks-collections/index.md).

@@ -15,7 +15,7 @@
 
     {% endnote %}
 
-1. [Добавьте пользователю](../grant.md#grant-privilege), который будет управлять задачами, [роль `mdb_admin`](../../concepts/roles.md#mdb-admin).
+1. [Добавьте пользователю](../grant.md#grant-privilege), который будет управлять задачами, [роль `mdb_admin`](../../concepts/roles.md#mdb-admin) или [роль `mdb_superuser`](../../concepts/roles.md#mdb-superuser).
 
 В выбранной базе данных появится схема `cron` с таблицами и функциями, необходимыми для работы расширения:
 

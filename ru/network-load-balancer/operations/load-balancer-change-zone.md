@@ -6,12 +6,6 @@ description: Следуя данной инструкции, вы сможете
 # Переместить ВМ в целевую группу в новой зоне доступности
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 Чтобы перенести виртуальные машины за сетевым балансировщиком в целевую группу в другой [зоне доступности](../../overview/concepts/geo-scope.md):
 
 1. [Перенесите](../../compute/operations/vm-control/vm-change-zone.md) виртуальные машины в новую зону доступности.

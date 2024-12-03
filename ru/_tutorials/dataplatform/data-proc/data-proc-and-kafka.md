@@ -282,40 +282,25 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-{% list tabs group=instructions %}
+1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакета.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-* Вручную {#manual}
+    {% list tabs group=instructions %}
 
-   Удалите:
+    * Вручную {#manual}
 
-   1. [Кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
-   1. [Кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-   1. [Объекты из бакета {{ objstorage-name }}](../../../storage/operations/objects/delete.md).
-   1. [Бакет](../../../storage/operations/buckets/delete.md).
-   1. [Группу безопасности](../../../vpc/operations/security-group-delete.md).
-   1. [Подсеть](../../../vpc/operations/subnet-delete.md).
-   1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
-   1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
-   1. [Сеть](../../../vpc/operations/network-delete.md).
-   1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
+        1. [Кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-delete.md).
+        1. [Кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Бакет](../../../storage/operations/buckets/delete.md).
+        1. [Группу безопасности](../../../vpc/operations/security-group-delete.md).
+        1. [Подсеть](../../../vpc/operations/subnet-delete.md).
+        1. [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+        1. [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Сеть](../../../vpc/operations/network-delete.md).
+        1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
-* {{ TF }} {#tf}
+    * {{ TF }} {#tf}
 
-   1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакетов.
-   1. В терминале перейдите в директорию с планом инфраструктуры.
-   1. Удалите конфигурационный файл `kafka-and-data-proc.tf`.
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-      Все ресурсы, которые были описаны в конфигурационном файле `kafka-and-data-proc.tf`, будут удалены.
-
-{% endlist %}
+    {% endlist %}

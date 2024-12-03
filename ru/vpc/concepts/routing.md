@@ -106,3 +106,4 @@ default via 192.168.10.1 dev eth0 proto dhcp src 192.168.10.5 metric 100
 1. [Создание туннеля IPSec VPN](../../tutorials/routing/ipsec/index.md).
 1. [Создание и настройка шлюза UserGate в режиме межсетевого экрана](../../tutorials/routing/usergate-firewall.md).
 1. [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Next-Generation Firewall](../../tutorials/routing/high-accessible-dmz.md).
+1. [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](../../tutorials/routing/cic-with-ngfw.md).

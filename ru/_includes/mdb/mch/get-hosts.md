@@ -37,7 +37,7 @@
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.listHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -58,7 +58,7 @@
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -70,7 +70,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 

@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
+      - name: Подключение к бакету {{ objstorage-full-name }} с политикой доступа
+        href: operations/s3-policy-connect.md
       - name: Загрузка DAG-файлов в кластер
         href: operations/upload-dags.md
       - name: Передача логов {{ AF }} в {{ cloud-logging-name }}

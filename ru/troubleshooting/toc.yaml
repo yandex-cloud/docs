@@ -556,11 +556,6 @@ items:
           type information`
         href: >-
           data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
-      - name: >-
-          Устранение ошибки `The transfer is located in zone ru-central1-c and
-          will be removed`
-        href: >-
-          data-transfer/known-issues/error-the-transfer-is-located-in-zone-ru-central1-c-and-will-be-removed.md
       - name: Примеры конфигураций и сценариев {{ data-transfer-name }}
         href: data-transfer/how-to/index.md
         hidden: true

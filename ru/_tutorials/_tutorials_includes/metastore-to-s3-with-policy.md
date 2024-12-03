@@ -1,0 +1,1 @@
+Если вы хотите назначить [политику доступа](../../storage/concepts/policy.md) на бакет и подключаться к нему из кластера {{ metastore-full-name }}, вам потребуется дополнительная настройка инфраструктуры. Подробнее см. в [инструкции](../../metadata-hub/operations/metastore/s3-policy-connect.md).

@@ -1,10 +1,10 @@
-Роль `dataproc.admin` позволяет управлять кластерами Yandex Data Proc, запускать задания и просматривать информацию о них, а также предоставляет доступ к веб-интерфейсам компонентов сервиса.
+Роль `dataproc.admin` позволяет управлять кластерами Yandex Data Processing, запускать задания и просматривать информацию о них, а также предоставляет доступ к веб-интерфейсам компонентов сервиса.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
-* просматривать информацию о [кластерах](../../data-proc/concepts/index.md#resources) Yandex Data Proc, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
+* просматривать информацию о [кластерах](../../data-proc/concepts/index.md#resources) Yandex Data Processing, а также создавать, изменять, запускать, останавливать и удалять такие кластеры;
 * просматривать информацию о [заданиях](../../data-proc/concepts/jobs.md), а также создавать задания;
-* использовать веб-интерфейс для доступа к компонентам Yandex Data Proc;
+* использовать веб-интерфейс для доступа к компонентам Yandex Data Processing;
 * просматривать информацию о кластерах [ClickHouse®](../../managed-clickhouse/concepts/index.md), [Greenplum®](../../managed-greenplum/concepts/index.md), [Apache Kafka®](../../managed-kafka/concepts/index.md), [MongoDB](../../managed-mongodb/concepts/index.md), [MySQL®](../../managed-mysql/concepts/index.md), [PostgreSQL](../../managed-postgresql/concepts/index.md), [Redis](../../managed-redis/concepts/index.md), [OpenSearch](../../managed-opensearch/concepts/index.md) и SQL Server;
 * просматривать информацию о хостах кластеров [Greenplum®](../../managed-greenplum/concepts/instance-types.md), [MongoDB](../../managed-mongodb/concepts/instance-types.md), [MySQL®](../../managed-mysql/concepts/instance-types.md), [PostgreSQL](../../managed-postgresql/concepts/instance-types.md), [Redis](../../managed-redis/concepts/instance-types.md) и SQL Server;
 * просматривать информацию о резервных копиях БД кластеров [Greenplum®](../../managed-greenplum/concepts/backup.md), [MongoDB](../../managed-mongodb/concepts/backup.md), [MySQL®](../../managed-mysql/concepts/backup.md), [PostgreSQL](../../managed-postgresql/concepts/backup.md), [Redis](../../managed-redis/concepts/backup.md) и SQL Server;

@@ -418,17 +418,16 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
-1. Выберите сервис **{{ container-registry-name }}**.
-1. Выберите реестр `test-registry`.
-1. Выберите репозиторий `hello-world`.
-1. Для каждого Docker-образа в репозитории нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
-1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
-1. Чтобы удалить ресурсы, созданные с помощью {{ TF }}, выполните команду `terraform destroy`.
+* Вручную {#manual}
 
-   {% note warning %}
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
+    1. Выберите сервис **{{ container-registry-name }}**.
+    1. Выберите реестр `test-registry`.
+    1. Выберите репозиторий `hello-world`.
+    1. Для каждого Docker-образа в репозитории нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
+    1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
-   {{ TF }} удалит все ресурсы, которые были созданы при развертывании решения, без возможности восстановления.
+* С помощью {{ TF }} {#tf}
 
-   {% endnote %}
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}

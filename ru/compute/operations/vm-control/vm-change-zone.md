@@ -66,34 +66,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  {% note warning %}
-
-  В настоящий момент консоль управления позволяет переносить виртуальные машины только из зоны доступности `{{ region-id }}-c`. Для того чтобы перенести ВМ из других зон доступности, используйте CLI или снимки дисков.
-
-  {% endnote %}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. В открывшемся окне:
-
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, в которую необходимо перенести ВМ, например `{{ region-id }}-d`.
-      1. В секции **{{ ui-key.yacloud.compute.instances.create.section_network }}** для каждого [сетевого интерфейса](../../concepts/network.md) ВМ выполните настройки:
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть, соответствующую выбранной зоне доступности.
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения публичного адреса:
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае вы сможете включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции в дополнительных настройках.
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
-
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md).
-          1. Чтобы настроить внутренний IP-адрес виртуальной машины и защиту от DDoS-атак, разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы вручную задать внутренний IP-адрес ВМ.
-          1. При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
-
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}**, чтобы запустить процесс переноса ВМ в другую зону доступности.
 
 - CLI {#cli}
 

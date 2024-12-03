@@ -10,6 +10,12 @@
 
 Если в кластере {{ dataproc-name }} есть таблицы, которые должны быть доступны в другом кластере {{ dataproc-name }}, [перенесите таблицы](../../../data-proc/tutorials/metastore-import.md) в нужный кластер с помощью {{ metastore-name }}.
 
+{% note warning %}
+
+{% include [connect-metastore-to-s3-with-policy](../../_tutorials_includes/metastore-to-s3-with-policy.md) %}
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -82,12 +88,6 @@
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
-
-{% note warning %}
-
-Не назначайте на бакет [политику доступа](../../../storage/security/policy.md), иначе кластер {{ metastore-name }} не сможет записывать данные в бакет.
-
-{% endnote %}
 
 ## Подключите {{ dataproc-name }} к {{ metastore-name }} {#connect}
 
@@ -198,6 +198,7 @@
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
 1. [Удалите кластер {{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md).
+1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакетов.
 1. Удалите остальные ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -214,21 +215,6 @@
 
     - {{ TF }} {#tf}
 
-        1. [Удалите объекты](../../../storage/operations/objects/delete.md) из бакетов.
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `dataproc-to-dataproc.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `dataproc-to-dataproc.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

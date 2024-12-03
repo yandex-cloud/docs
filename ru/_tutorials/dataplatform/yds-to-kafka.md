@@ -239,14 +239,6 @@
 
 - {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    
-    1. Выполните команду:
-
-        ```bash
-        terraform destroy
-        ```
-
-    1. Подтвердите удаление ресурсов.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

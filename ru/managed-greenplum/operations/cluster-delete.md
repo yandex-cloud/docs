@@ -34,25 +34,9 @@ description: Из статьи вы узнаете, как удалить кла
 
 - {{ TF }} {#tf}
 
-  Чтобы удалить инфраструктуру, созданную с помощью {{ TF }}:
+    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл {{ TF }} нужного кластера.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-       Все ресурсы, которые были описаны в конфигурационном файле, будут удалены.
-
-  {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
 
 - REST API {#api}
 

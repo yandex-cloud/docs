@@ -11,11 +11,7 @@ keywords:
 
 # Начало работы с {{ er-name }}
 
-{% note info %}
-
-{{ er-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
+{% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 С помощью этой инструкции вы создадите очередь [{{ message-queue-name }}](../../message-queue/) и отправите в нее сообщение, которое через [шину](../concepts/eventrouter/bus.md) будет передано в функцию [{{ sf-name }}](../../functions/).
 

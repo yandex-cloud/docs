@@ -385,21 +385,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 - {{ TF }} {#tf}
 
-   1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-   1. Удалите конфигурационные файлы `k8s-cluster-with-no-internet.tf` и `virtual-machine-for-k8s.tf`.
-   1. Проверьте корректность конфигурации {{ TF }} с помощью команды:
-
-      ```bash
-      terraform validate
-      ```
-
-      Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      Все ресурсы, которые были описаны в конфигурационных файлах `k8s-cluster-with-no-internet.tf` и `virtual-machine-for-k8s.tf`, будут удалены.
+   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

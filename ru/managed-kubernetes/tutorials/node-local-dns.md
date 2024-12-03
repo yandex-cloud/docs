@@ -621,31 +621,18 @@ service "node-local-dns" deleted
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs group=instructions %}
+1. Удалите ресурсы в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-  1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
+    - Вручную {#manual}
 
-- {{ TF }} {#tf}
+        [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-node-local-dns.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    - {{ TF }} {#tf}
 
-     ```bash
-     terraform validate
-     ```
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  
-  1. Подтвердите изменение ресурсов.
+    {% endlist %}
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-node-local-dns.tf`, будут удалены.
-
-  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.
-
-{% endlist %}
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses), освободите и [удалите](../../vpc/operations/address-delete.md) их.

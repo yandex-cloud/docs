@@ -343,82 +343,77 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
 
-     ```bash
-     curl \
-       --request POST \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
-       --data '{
-                 "folderId": "<идентификатор_каталога>",
-                 "name": "<имя_кластера>",
-                 "environment": "<окружение>",
-                 "networkId": "<идентификатор_сети>",
-                 "securityGroupIds": [
-                   "<идентификатор_группы_безопасности_1>",
-                   "<идентификатор_группы_безопасности_2>",
-                   ...
-                   "<идентификатор_группы_безопасности_N>"
-                 ],
-                 "deletionProtection": <защита_от_удаления:_true_или_false>,
-                 "configSpec": {
-                   "version": "<версия_{{ PG }}>",
-                   "resources": {
-                     "resourcePresetId": "<класс_хостов>",
-                     "diskSize": "<размер_хранилища_в_байтах>",
-                     "diskTypeId": "<тип_диска>"
-                   },
-                   "access": {
-                     "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                     "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                     "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                     "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
-                     "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <активация_сбора_статистики:_true_или_false>,
-                     "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                     "statementsSamplingInterval": "<интервал_сбора_запросов>"
-                   }
-                 },
-                 "databaseSpecs": [
-                   {
-                     "name": "<имя_БД>",
-                     "owner": "<имя_владельца_БД>"
-                   },
-                   { <аналогичный_набор_настроек_для_БД_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_БД_N> }
-                 ],
-                 "userSpecs": [
-                   {
-                     "name": "<имя_пользователя>",
-                     "password": "<пароль_пользователя>",
-                     "permissions": [
-                       {
-                         "databaseName": "<имя_БД>"
-                       }
-                     ],
-                     "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
-                   },
-                   { <аналогичный_набор_настроек_для_пользователя_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_пользователя_N> }
-                 ],
-                 "hostSpecs": [
-                   {
-                     "zoneId": "<зона_доступности>",
-                     "subnetId": "<идентификатор_подсети>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
-                   },
-                   { <аналогичный_набор_настроек_для_хоста_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_хоста_N> }
-                 ]
-               }'
+     ```json
+     {
+       "folderId": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "networkId": "<идентификатор_сети>",
+       "securityGroupIds": [
+         "<идентификатор_группы_безопасности_1>",
+         "<идентификатор_группы_безопасности_2>",
+         ...
+         "<идентификатор_группы_безопасности_N>"
+       ],
+       "deletionProtection": <защита_от_удаления:_true_или_false>,
+       "configSpec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resourcePresetId": "<класс_хостов>",
+           "diskSize": "<размер_хранилища_в_байтах>",
+           "diskTypeId": "<тип_диска>"
+         },
+         "access": {
+           "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+           "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
+           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+           "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
+           "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
+         },
+         "performanceDiagnostics": {
+           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+           "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         }
+       },
+       "databaseSpecs": [
+         {
+           "name": "<имя_БД>",
+           "owner": "<имя_владельца_БД>"
+         },
+         { <аналогичный_набор_настроек_для_БД_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_БД_N> }
+       ],
+       "userSpecs": [
+         {
+           "name": "<имя_пользователя>",
+           "password": "<пароль_пользователя>",
+           "permissions": [
+             {
+               "databaseName": "<имя_БД>"
+             }
+           ],
+           "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
+         },
+         { <аналогичный_набор_настроек_для_пользователя_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_пользователя_N> }
+       ],
+       "hostSpecs": [
+         {
+           "zoneId": "<зона_доступности>",
+           "subnetId": "<идентификатор_подсети>",
+           "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+         },
+         { <аналогичный_набор_настроек_для_хоста_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_хоста_N> }
+       ]
+     }
      ```
 
 
@@ -479,6 +474,17 @@ description: Следуя данной инструкции, вы сможете
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
+       --data "@body.json"
+     ```
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -488,85 +494,77 @@ description: Следуя данной инструкции, вы сможете
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "folder_id": "<идентификатор_каталога>",
-             "name": "<имя_кластера>",
-             "environment": "<окружение>",
-             "network_id": "<идентификатор_сети>",
-             "security_group_ids": [
-               "<идентификатор_группы_безопасности_1>",
-               "<идентификатор_группы_безопасности_2>",
-               ...
-               "<идентификатор_группы_безопасности_N>"
-             ],
-             "deletion_protection": <защита_от_удаления:_true_или_false>,
-             "config_spec": {
-               "version": "<версия_{{ PG }}>",
-               "resources": {
-                 "resource_preset_id": "<класс_хостов>",
-                 "disk_size": "<размер_хранилища_в_байтах>",
-                 "disk_type_id": "<тип_диска>"
-               },
-               "access": {
-                 "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                 "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                 "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                 "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
-                 "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <активация_сбора_статистики:_true_или_false>,
-                 "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                 "statements_sampling_interval": "<интервал_сбора_запросов>"
-               }
-             },
-             "database_specs": [
-               {
-                 "name": "<имя_БД>",
-                 "owner": "<имя_владельца_БД>"
-               },
-               { <аналогичный_набор_настроек_для_БД_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_БД_N> }
-             ],
-             "user_specs": [
-               {
-                 "name": "<имя_пользователя>",
-                 "password": "<пароль_пользователя>",
-                 "permissions": [
-                   {
-                     "database_name": "<имя_БД>"
-                   }
-                 ],
-                 "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
-               },
-               { <аналогичный_набор_настроек_для_пользователя_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_пользователя_N> }
-             ],
-             "host_specs": [
-               {
-                 "zone_id": "<зона_доступности>",
-                 "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
-               },
-               { <аналогичный_набор_настроек_для_хоста_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_хоста_N> }
-             ]
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Create
+     ```json
+     {
+       "folder_id": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "network_id": "<идентификатор_сети>",
+       "security_group_ids": [
+         "<идентификатор_группы_безопасности_1>",
+         "<идентификатор_группы_безопасности_2>",
+         ...
+         "<идентификатор_группы_безопасности_N>"
+       ],
+       "deletion_protection": <защита_от_удаления:_true_или_false>,
+       "config_spec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resource_preset_id": "<класс_хостов>",
+           "disk_size": "<размер_хранилища_в_байтах>",
+           "disk_type_id": "<тип_диска>"
+         },
+         "access": {
+           "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+           "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
+           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+           "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
+           "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
+         },
+         "performance_diagnostics": {
+           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "sessions_sampling_interval": "<интервал_сбора_сессий>",
+           "statements_sampling_interval": "<интервал_сбора_запросов>"
+         }
+       },
+       "database_specs": [
+         {
+           "name": "<имя_БД>",
+           "owner": "<имя_владельца_БД>"
+         },
+         { <аналогичный_набор_настроек_для_БД_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_БД_N> }
+       ],
+       "user_specs": [
+         {
+           "name": "<имя_пользователя>",
+           "password": "<пароль_пользователя>",
+           "permissions": [
+             {
+               "database_name": "<имя_БД>"
+             }
+           ],
+           "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
+         },
+         { <аналогичный_набор_настроек_для_пользователя_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_пользователя_N> }
+       ],
+       "host_specs": [
+         {
+           "zone_id": "<зона_доступности>",
+           "subnet_id": "<идентификатор_подсети>",
+           "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+         },
+         { <аналогичный_набор_настроек_для_хоста_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_хоста_N> }
+       ]
+     }
      ```
 
 
@@ -626,6 +624,21 @@ description: Следуя данной инструкции, вы сможете
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Create \
+       < body.json
+     ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 

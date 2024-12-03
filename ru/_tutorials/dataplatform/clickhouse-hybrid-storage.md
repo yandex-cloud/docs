@@ -274,22 +274,6 @@ LIMIT 10
 
 - {{ TF }} {#tf}
 
-    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите файл `clickhouse-hybrid-storage.tf`.
-    1. Выполните команду:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в файле `clickhouse-hybrid-storage.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

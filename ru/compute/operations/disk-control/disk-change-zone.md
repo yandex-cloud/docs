@@ -45,20 +45,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  {% note warning %}
-
-  В настоящий момент консоль управления позволяет переносить диски только из зоны доступности `{{ region-id }}-c`. Для того чтобы перенести диски из других зон доступности, используйте CLI или снимки.
-
-  {% endnote %}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. В строке с нужным диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. В открывшемся окне:
-      1. В поле **{{ ui-key.yacloud.compute.field_new-availability-zone }}** выберите зону доступности, в которую необходимо перенести диск, например `{{ region-id }}-d`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}**, чтобы запустить процесс переноса диска в другую зону доступности.
 
 - CLI {#cli}
 

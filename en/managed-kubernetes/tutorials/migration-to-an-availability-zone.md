@@ -1,12 +1,6 @@
 # Migrating {{ managed-k8s-name }} resources to a different availability zone
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 To migrate {{ managed-k8s-name }} resources from one availability zone to another:
 
 1. [Migrate a master host](#transfer-a-master).

@@ -1,4 +1,4 @@
-You can assign the `datalens.workbooks.admin` role to a workbook. With it, you can manage the relevant workbook and access to it, as well as all its nested objects. In the DataLens UI, this role is referred to as `Admin`.
+You can assign the `datalens.workbooks.admin` role to a workbook. With it, you can manage the relevant workbook and access to it, as well as all its nested objects. In the DataLens UI, this role is referred to as `Admin`. You may want to only assign this role through the DataLens UI.
 
 Users with this role can:
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant [workbook](../../../datalens/workbooks-collections/index.md) and modify such permissions.
