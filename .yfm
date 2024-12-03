@@ -1,4 +1,5 @@
 allowHTML: true
+included: true
 connector:
     type: github
     github: 
