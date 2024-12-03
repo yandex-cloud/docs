@@ -1,4 +1,4 @@
-The `dataproc.provisioner` role grants access to the API to create, update, and delete Yandex Data Proc cluster objects.
+The `dataproc.provisioner` role grants access to the API to create, update, and delete Yandex Data Processing cluster objects.
 
 {% cut "Users with this role can:" %}
 

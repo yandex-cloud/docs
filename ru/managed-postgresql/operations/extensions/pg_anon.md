@@ -16,7 +16,7 @@
 1. [Подключите к кластеру библиотеку общего пользования](./cluster-extensions.md#libraries-connection) с именем `anon`.
 1. [Добавьте расширение](./cluster-extensions.md#update-extensions) `anon` к базе данных.
 
-1. [Назначьте владельцу этой базы данных](../grant.md#grant-role) роль `mdb_admin`, если это еще не сделано.
+1. [Назначьте владельцу этой базы данных](../grant.md#grant-role) роль `mdb_admin` или `mdb_superuser`, если это еще не сделано.
 
     Имя владельца можно запросить со [списком баз данных в кластере](../databases.md#list-db).
 

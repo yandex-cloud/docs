@@ -6,12 +6,6 @@ description: In this article, you will learn how to move a {{ compute-full-name 
 # Moving an instance group with an L7 load balancer to a different availability zone
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 To move an [instance group](../../concepts/instance-groups/index.md) with an [[{{ alb-full-name }}](../../../application-load-balancer/)](../../../application-load-balancer/concepts/application-load-balancer.md) L7 load balancer:
 
 1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your [instance](../../concepts/vm.md) group.

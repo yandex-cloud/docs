@@ -827,8 +827,10 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: История изменений
     items:
-      - name: Октябрь 2024
+      - name: Ноябрь 2024
         href: release-notes/index.md
+      - name: Октябрь 2024
+        href: release-notes/2410.md
       - name: Сентябрь 2024
         href: release-notes/2409.md
       - name: Август 2024
@@ -837,10 +839,10 @@ items:
         href: release-notes/2407.md
       - name: Июнь 2024
         href: release-notes/2406.md
-      - name: Май 2024
-        href: release-notes/2405.md
       - name: Архив
         items:
+          - name: Май 2024
+            href: release-notes/2405.md
           - name: Апрель 2024
             href: release-notes/2404.md
           - name: Март 2024

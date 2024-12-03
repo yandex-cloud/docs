@@ -29,19 +29,17 @@ keywords:
 * настраивать пайпланы CI/CD;
 * разрабатывать событийно-ориентированные приложения на базе serverless, используя оркестрацию и хореографию, чтобы организовывать взаимодействие между событиями и управлять ими.
 
-## Доступные инструменты {#instruments}
-
-{% note info %}
-
-{{ sw-name }} и {{ er-name }} находятся на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
+## Доступные функциональности {#instruments}
 
 ### {{ sw-name }} {#workflows}
+
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 Выстраивайте и автоматизируйте рабочие процессы при помощи декларативной спецификации Yandex Workflows Language (YaWL).
 
 ### {{ er-name }} {#eventrouter}
+
+{% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 Настраивайте обмен событиями между вашими сервисами и сервисами {{ yandex-cloud }} с возможностью их фильтрации, трансформации и маршрутизации.
 

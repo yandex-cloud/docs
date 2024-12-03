@@ -69,4 +69,8 @@ keywords:
 
 Для проверки возможностей резервного копирования [восстановите кластер из резервной копии](../operations/cluster-backups.md) и проверьте целостность ваших данных.
 
+## Удаление резервной копии {#deletion}
+
+Удалить можно только резервные копии, созданные вручную. Чтобы удалить такую резервную копию, [следуйте инструкции](../operations/cluster-backups.md#delete-backup).
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -6,12 +6,6 @@ description: In this article, you will learn how to move a {{ compute-full-name 
 # Moving an instance group with a network load balancer to a different availability zone
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) [network load balancer](../../../network-load-balancer/concepts/index.md):
 1. [Create](../../../vpc/operations/subnet-create.md) a [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you want to move your instance group.
 1. Add the group instances to the new availability zone:

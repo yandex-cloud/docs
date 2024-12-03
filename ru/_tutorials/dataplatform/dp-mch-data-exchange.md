@@ -271,36 +271,23 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs group=instructions %}
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-    1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-    1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
-    1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    1. [Подсеть](../../vpc/operations/subnet-delete.md).
-    1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
-    1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
-    1. [Облачную сеть](../../vpc/operations/network-delete.md).
-    1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
+    - Вручную {#manual}
 
-- {{ TF }} {#tf}
+        1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+        1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Подсеть](../../vpc/operations/subnet-delete.md).
+        1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+        1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+        1. [Облачную сеть](../../vpc/operations/network-delete.md).
+        1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-proc-data-exchange-with-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-proc-data-exchange-with-mch.tf`, будут удалены.
-
-{% endlist %}
+    {% endlist %}

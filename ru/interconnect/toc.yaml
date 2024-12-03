@@ -41,6 +41,10 @@ items:
         href: tutorials/pub-add.md
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md
+      - name: >-
+          Организация доступа через {{ interconnect-name }} к облачным сетям,
+          размещенным за NGFW
+        href: tutorials/cic-with-ngfw
   - name: Концепции
     expanded: true
     items:

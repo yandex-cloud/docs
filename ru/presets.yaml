@@ -1642,6 +1642,19 @@ default:
     vip_bytes:
       egress|string: "0,30\_₸"
       ingress|string: "0,30\_₸"
+  sku|KZT|postbox:
+    email:
+      count:
+        v1|pricingRate:
+          10|number: 345
+          10|string: "345,00\_₸"
+          100|string: "195,00\_₸"
+          2|number: 395
+          2|string: "395,00\_₸"
+          250|string: "145,00\_₸"
+          50|number: 295
+          50|string: "295,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|searchapi:
     requests:
       day:
@@ -2864,6 +2877,19 @@ default:
     vip_bytes:
       egress|string: "0,06\_₽"
       ingress|string: "0,06\_₽"
+  sku|RUB|postbox:
+    email:
+      count:
+        v1|pricingRate:
+          10|number: 69
+          10|string: "69,00\_₽"
+          100|string: "39,00\_₽"
+          2|number: 79
+          2|string: "79,00\_₽"
+          250|string: "29,00\_₽"
+          50|number: 59
+          50|string: "59,00\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|searchapi:
     requests:
       day:
@@ -4065,6 +4091,19 @@ default:
     vip_bytes:
       egress|string: "0,000480\_$"
       ingress|string: "0,000480\_$"
+  sku|USD|postbox:
+    email:
+      count:
+        v1|pricingRate:
+          10|number: 0.552
+          10|string: "0,552000\_$"
+          100|string: "0,312000\_$"
+          2|number: 0.632
+          2|string: "0,632000\_$"
+          250|string: "0,232000\_$"
+          50|number: 0.472
+          50|string: "0,472000\_$"
+        v1|string: Не тарифицируется
   sku|USD|searchapi:
     requests:
       day:

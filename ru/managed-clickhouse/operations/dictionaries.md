@@ -55,7 +55,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.listExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -76,7 +76,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -164,7 +164,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.CreateExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -257,7 +257,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -385,7 +385,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.updateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.UpdateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -475,7 +475,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -598,7 +598,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.DeleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -625,7 +625,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

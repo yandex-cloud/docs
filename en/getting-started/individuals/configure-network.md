@@ -19,14 +19,6 @@ For your internet service to run, you need two static public IP addresses: one t
     1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}** once again.
     1. In the window that opens, select the `{{ region-id }}-a` availability zone. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
-
-    {% note info %}
-
-    {% include [zone-c-deprecation](../../_includes/vpc/zone-c-deprecation.md) %}
-
-    {% endnote %}
-
-
 {% endlist %}
 
 ## Create VMs for the service in all availability zones {#create-vms}

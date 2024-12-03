@@ -307,49 +307,23 @@ Thumbor удобно использовать для подготовки изо
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs group=instructions %}
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-   Удалите:
+    - Вручную {#manual}
 
-   1. [CDN-ресурс](../../cdn/operations/resources/delete-resource.md).
-   1. [Группу источников CDN](../../cdn/operations/origin-groups/delete-group.md).
-   1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. [Кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. [Публичный статический IP-адрес](../../vpc/operations/address-delete.md), если вы зарезервировали его для кластера.
-   1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
-   1. [Бакеты](../../storage/operations/buckets/delete.md) и [объекты в них](../../storage/operations/objects/delete.md).
+        1. [CDN-ресурс](../../cdn/operations/resources/delete-resource.md).
+        1. [Группу источников CDN](../../cdn/operations/origin-groups/delete-group.md).
+        1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md).
+        1. [Кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        1. [Публичный статический IP-адрес](../../vpc/operations/address-delete.md), если вы зарезервировали его для кластера.
+        1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
+        1. [Бакеты](../../storage/operations/buckets/delete.md).
 
-- {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-   1. В терминале перейдите в директорию с планом инфраструктуры.
-   1. Удалите конфигурационный файл `images-for-thumbor.tf`. Чтобы удалить бакет, сначала удалите объекты в нем.
-   1. Проверьте корректность изменений с помощью команды:
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   1. Удалите конфигурационный файл `k8s-for-thumbor.tf`.
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      Все ресурсы, которые были описаны в конфигурационном файле `k8s-for-thumbor.tf`, будут удалены.
-
-{% endlist %}
+    {% endlist %}

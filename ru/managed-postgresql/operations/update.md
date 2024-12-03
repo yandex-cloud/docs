@@ -133,7 +133,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -172,7 +172,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -307,7 +307,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -351,7 +351,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -600,52 +600,47 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 
-     ```bash
-     curl \
-       --request PATCH \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
-       --data '{
-                 "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
-                 "configSpec": {
-                   "poolerConfig": {
-                     "poolingMode": "<режим_управления_соединениями>",
-                     "poolDiscard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
-                   },
-                   "backupWindowStart": {
-                     "hours": "<часы>",
-                     "minutes": "<минуты>",
-                     "seconds": "<секунды>",
-                     "nanos": "<наносекунды>"
-                   },
-                   "backupRetainPeriodDays": "<количество_дней>",
-                   "access": {
-                     "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                     "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                     "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                     "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
-                     "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <активация_сбора_статистики:_true_или_false>,
-                     "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                     "statementsSamplingInterval": "<интервал_сбора_запросов>"
-                   }
-                 },
-                 "maintenanceWindow": {
-                   "weeklyMaintenanceWindow": {
-                     "day": "<день_недели>",
-                     "hour": "<час>"
-                   }
-                 },
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
-               }'
+     ```json
+     {
+       "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
+       "configSpec": {
+         "poolerConfig": {
+           "poolingMode": "<режим_управления_соединениями>",
+           "poolDiscard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+         },
+         "backupWindowStart": {
+           "hours": "<часы>",
+           "minutes": "<минуты>",
+           "seconds": "<секунды>",
+           "nanos": "<наносекунды>"
+         },
+         "backupRetainPeriodDays": "<количество_дней>",
+         "access": {
+           "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+           "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
+           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+           "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
+           "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
+         },
+         "performanceDiagnostics": {
+           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+           "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         }
+       },
+       "maintenanceWindow": {
+         "weeklyMaintenanceWindow": {
+           "day": "<день_недели>",
+           "hour": "<час>"
+         }
+       },
+       "deletionProtection": <защита_от_удаления:_true_или_false>
+     }
      ```
 
 
@@ -706,6 +701,17 @@ description: Из статьи вы узнаете, как изменить на
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data "@body.json"
+     ```
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -715,69 +721,63 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "update_mask": {
-               "paths": [
-                 "config_spec.pooler_config",
-                 "config_spec.backup_window_start",
-                 "config_spec.backup_retain_period_days",
-                 "config_spec.access",
-                 "config_spec.performance_diagnostics.sessions_sampling_interval",
-                 "config_spec.performance_diagnostics.statements_sampling_interval",
-                 "maintenance_window",
-                 "deletion_protection"
-               ]
-             },
-             "config_spec": {
-               "pooler_config": {
-                 "pooling_mode": "<режим_управления_соединениями>",
-                 "pool_discard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
-               },
-               "backup_window_start": {
-                 "hours": "<часы>",
-                 "minutes": "<минуты>",
-                 "seconds": "<секунды>",
-                 "nanos": "<наносекунды>"
-               },
-               "backup_retain_period_days": "<количество_дней>",
-               "access": {
-                 "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                 "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                 "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                 "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
-                 "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <активация_сбора_статистики:_true_или_false>,
-                 "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                 "statements_sampling_interval": "<интервал_сбора_запросов>"
-               }
-             },
-             "maintenance_window": {
-               "weekly_maintenance_window": {
-                 "day": "<день_недели>",
-                 "hour": "<час>"
-               }
-             },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```json
+     {
+       "cluster_id": "<идентификатор_кластера>",
+       "update_mask": {
+         "paths": [
+           "config_spec.pooler_config",
+           "config_spec.backup_window_start",
+           "config_spec.backup_retain_period_days",
+           "config_spec.access",
+           "config_spec.performance_diagnostics.sessions_sampling_interval",
+           "config_spec.performance_diagnostics.statements_sampling_interval",
+           "maintenance_window",
+           "deletion_protection"
+         ]
+       },
+       "config_spec": {
+         "pooler_config": {
+           "pooling_mode": "<режим_управления_соединениями>",
+           "pool_discard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+         },
+         "backup_window_start": {
+           "hours": "<часы>",
+           "minutes": "<минуты>",
+           "seconds": "<секунды>",
+           "nanos": "<наносекунды>"
+         },
+         "backup_retain_period_days": "<количество_дней>",
+         "access": {
+           "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
+           "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
+           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
+           "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
+           "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
+         },
+         "performance_diagnostics": {
+           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "sessions_sampling_interval": "<интервал_сбора_сессий>",
+           "statements_sampling_interval": "<интервал_сбора_запросов>"
+         }
+       },
+       "maintenance_window": {
+         "weekly_maintenance_window": {
+           "day": "<день_недели>",
+           "hour": "<час>"
+         }
+       },
+       "deletion_protection": <защита_от_удаления:_true_или_false>
+     }
      ```
 
+
+     Где:
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `config_spec` — настройки кластера:
@@ -833,6 +833,21 @@ description: Из статьи вы узнаете, как изменить на
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update \
+       < body.json
+     ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
@@ -912,7 +927,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.startFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -938,7 +953,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1004,7 +1019,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1030,7 +1045,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1124,7 +1139,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1164,7 +1179,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

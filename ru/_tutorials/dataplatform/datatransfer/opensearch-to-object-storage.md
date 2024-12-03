@@ -202,6 +202,7 @@
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите](../../../storage/operations/objects/delete.md) из созданного бакета папку `from_MOS`.
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 
@@ -215,21 +216,6 @@
 
 - {{ TF }} {#tf}
 
-    1. В [консоли управления]({{ link-console-main }}) удалите из созданного бакета папку `from_MOS`
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `opensearch-to-object-storage.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, описанные в конфигурационном файле `opensearch-to-object-storage.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

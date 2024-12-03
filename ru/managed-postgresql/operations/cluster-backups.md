@@ -242,37 +242,32 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-     ```bash
-     curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
-        --data '{
-                  "backupId": "<идентификатор_резервной_копии>",
-                  "time": "<время>",
-                  "folderId": "<идентификатор_каталога>",
-                  "name": "<имя_кластера>",
-                  "environment": "<окружение>",
-                  "networkId": "<идентификатор_сети>",
-                  "configSpec": {
-                    "version": "<версия_{{ PG }}>",
-                    "resources": {
-                      "resourcePresetId": "<класс_хостов>",
-                      "diskSize": "<размер_хранилища_в_байтах>",
-                      "diskTypeId": "<тип_диска>"
-                    }
-                  },
-                  "hostSpecs": [
-                    {
-                      "zoneId": "<зона_доступности>",
-                      "subnetId": "<идентификатор_подсети>",
-                      "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
-                    }
-                  ]
-                }'
+     ```json
+     {
+       "backupId": "<идентификатор_резервной_копии>",
+       "time": "<время>",
+       "folderId": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "networkId": "<идентификатор_сети>",
+       "configSpec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resourcePresetId": "<класс_хостов>",
+           "diskSize": "<размер_хранилища_в_байтах>",
+           "diskTypeId": "<тип_диска>"
+         }
+       },
+       "hostSpecs": [
+         {
+           "zoneId": "<зона_доступности>",
+           "subnetId": "<идентификатор_подсети>",
+           "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+         }
+       ]
+     }
      ```
 
      Где:
@@ -302,6 +297,17 @@ description: Вы можете создавать резервные копии 
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
+  1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
+       --data "@body.json"
+     ```
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -311,41 +317,35 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "backup_id": "<идентификатор_резервной_копии>",
-             "time": "<время>",
-             "folder_id": "<идентификатор_каталога>",
-             "name": "<имя_кластера>",
-             "environment": "<окружение>",
-             "network_id": "<идентификатор_сети>",
-             "config_spec": {
-               "version": "<версия_{{ PG }}>",
-               "resources": {
-                 "resource_preset_id": "<класс_хостов>",
-                 "disk_size": "<размер_хранилища_в_байтах>",
-                 "disk_type_id": "<тип_диска>"
-               }
-             },
-             "host_specs": [
-               {
-                 "zone_id": "<зона_доступности>",
-                 "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
-               }
-             ]
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
+     ```json
+     {
+       "backup_id": "<идентификатор_резервной_копии>",
+       "time": "<время>",
+       "folder_id": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "network_id": "<идентификатор_сети>",
+       "config_spec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resource_preset_id": "<класс_хостов>",
+           "disk_size": "<размер_хранилища_в_байтах>",
+           "disk_type_id": "<тип_диска>"
+         }
+       },
+       "host_specs": [
+         {
+           "zone_id": "<зона_доступности>",
+           "subnet_id": "<идентификатор_подсети>",
+           "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+         }
+       ]
+     }
      ```
+
+     Где:
 
      * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
      * `time` — момент времени, на который нужно восстановить состояние кластера {{ PG }}, в формате `yyyy-mm-ddThh:mm:ssZ`.
@@ -372,7 +372,22 @@ description: Вы можете создавать резервные копии 
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Restore \
+       < body.json
+     ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -415,7 +430,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -436,7 +451,7 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Backup) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md#yandex.cloud.mdb.postgresql.v1.Backup) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -454,7 +469,7 @@ description: Вы можете создавать резервные копии 
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -501,7 +516,7 @@ description: Вы можете создавать резервные копии 
 
   1. Чтобы получить список резервных копий кластера:
 
-     1. Воспользуйтесь методом [Cluster.listBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -516,13 +531,14 @@ description: Вы можете создавать резервные копии 
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-     1. Воспользуйтесь методом [Backup.list](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups?folderId=<идентификатор_каталога>'
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups' \
+           --url-query folderId=<идентификатор_каталога>
         ```
 
 
@@ -540,7 +556,7 @@ description: Вы можете создавать резервные копии 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Чтобы получить список резервных копий кластера:
 
-     1. Воспользуйтесь вызовом [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+     1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -562,7 +578,7 @@ description: Вы можете создавать резервные копии 
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
-     1. Воспользуйтесь вызовом [BackupService/List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+     1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -620,7 +636,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Backup.get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -640,7 +656,7 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [BackupService/Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -742,7 +758,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -791,7 +807,7 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -910,7 +926,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1.  Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1.  Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -942,7 +958,6 @@ description: Вы можете создавать резервные копии 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
-
 - gRPC API {#grpc-api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -951,7 +966,7 @@ description: Вы можете создавать резервные копии 
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -989,7 +1004,7 @@ description: Вы можете создавать резервные копии 
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
 
@@ -1036,7 +1051,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Backup.delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1056,7 +1071,7 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [BackupService/Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

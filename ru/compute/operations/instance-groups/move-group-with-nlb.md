@@ -6,12 +6,6 @@ description: Из статьи вы узнаете, как можно перен
 # Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) c [сетевым балансировщиком нагрузки](../../../network-load-balancer/concepts/index.md) [{{ network-load-balancer-full-name }}](../../../network-load-balancer/):
 1. [Создайте](../../../vpc/operations/subnet-create.md) [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу ВМ.
 1. Добавьте ВМ группы в новую зону доступности:

@@ -15,11 +15,7 @@ keywords:
 
 # Начало работы с {{ sw-name }}
 
-{% note info %}
-
-{{ sw-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
-
-{% endnote %}
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 С помощью этой инструкции вы создадите [рабочий процесс](../concepts/workflows/workflow.md) и запустите его. Во время выполнения рабочего процесса будут вызываться функции [{{ sf-full-name }}](../../functions/).
 
