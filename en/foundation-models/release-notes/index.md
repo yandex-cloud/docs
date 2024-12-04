@@ -5,6 +5,10 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 21/11/24 {#211124}
+
+The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now available to all {{ foundation-models-full-name }} users at the [Preview](../../overview/concepts/launch-stages.md) stage.
+
 ## Release as of 01/11/2024 {#011124}
 
 1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed according to the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
@@ -14,7 +18,7 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 ## Release as of 24/10/2024 {#241024}
 
-1. The {{ yagpt-name }} 4th generation model is available for testing (`RC` branch). Compared to the previous generation of models, this model's request response speed has increased by an average of 2.5 times. In addition, the maximum context that the model operates on has increased. In asynchronous mode, 4th generation models can process up to 32,000 tokens. And the {{ gpt-pro }} 32k model has been added to handle large contexts in synchronous mode. For more information on model limitations, see [{#T}](../concepts/limits.md).
+1. The {{ yagpt-name }} 4th generation model is available for testing (`RC` branch). Compared to the previous generation, the model's response speed has increased by an average of 2.5 times. The maximum context the model operates has also been increased. In asynchronous mode, 4th generation models can process up to 32,000 tokens. And now there is the {{ gpt-pro }} 32k model added to process large contexts in synchronous mode. For more information on model limitations, see [{#T}](../concepts/limits.md).
 1. Increased the maximum number of tokens per response in the management console.
 
 ## Release as of 10/10/24 {#101024}

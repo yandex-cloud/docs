@@ -1,3 +1,8 @@
+---
+title: Signing requests
+description: Follow this guide to set up request signature.
+---
+
 # Signing requests
 
 
@@ -11,7 +16,7 @@ The signing process consists of the following stages:
 1. [Generating a signing key](#signing-key-gen).
 1. [Signing a string with a key](#signing).
 
-Use [HMAC](https://ru.wikipedia.org/wiki/HMAC) with the [SHA256](https://ru.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume the existence of the `sign(KEY, STRING)` function that encodes the input string with the specified key.
+Use [HMAC](https://ru.wikipedia.org/wiki/HMAC) with the [SHA256](https://ru.wikipedia.org/wiki/SHA-2) hash function to sign. Many programming languages support relevant methods. The examples assume that there is a `sign(KEY, STRING)` function that encodes the input string with the specified key.
 
 ## Generate a string to sign {#string-to-sign-gen}
 
@@ -37,7 +42,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 ## Debugging using the AWS CLI {#debugging}
 
-To debug the process of generating a [сanonical request](../concepts/pre-signed-urls.md#canonical-request), [signature string](../concepts/pre-signed-urls.md#composing-string-to-sign), and [signing key](../concepts/pre-signed-urls.md#signing-key-gen), use the [AWS CLI](../tools/aws-cli.md) utility with the `--debug` parameter.
+To debug the process of generating a [canonical request](../concepts/pre-signed-urls.md#canonical-request), [signature string](../concepts/pre-signed-urls.md#composing-string-to-sign), and [signing key](../concepts/pre-signed-urls.md#signing-key-gen), use the [AWS CLI](../tools/aws-cli.md) utility with the `--debug` parameter. 
 
 {% note info %}
 

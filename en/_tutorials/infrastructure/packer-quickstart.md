@@ -204,7 +204,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 ## Prepare the image configuration {#prepare-image-config}
 
 1. [Get](../../resource-manager/operations/folder/get-id.md) the folder ID.
-1. [Get](../../vpc/operations/subnet-get-info.md) the subnet ID.
+1. [Get](../../vpc/operations/subnet-get-info.md) the subnet ID and [availability zone](../../overview/concepts/geo-scope.md) it resides in.
 1. Prepare the subnet ID by running the `yc vpc subnet list` command.
 1. Create a JSON file with any name, e.g., `image.json`. Add to it the following configuration:
 
@@ -216,7 +216,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
           "type":      "yandex",
           "token":     "<OAuth_token_or_IAM_token>",
           "folder_id": "<folder_ID>",
-          "zone":      "{{ region-id }}-a",
+          "zone":      "<availability_zone>",
 
           "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
           "image_family":      "debian-web-server",
@@ -249,6 +249,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 
 
     Where:
+    * `<availability_zone>`: [Availability zone](../../overview/concepts/geo-scope.md) to create the VM in. For example: `{{ region-id }}-d`.
     * `token`: OAuth token for a Yandex account or an IAM token for a federated account.
     * `folder_id`: ID of the folder to create a VM and its image in.
     * `subnet_id`: ID of the subnet to create a VM and its image in.

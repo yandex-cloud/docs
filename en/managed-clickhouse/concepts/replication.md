@@ -7,8 +7,8 @@ description: In this tutorial, you will learn how cluster host replication works
 
 With {{ mch-name }}, you can use one of the following tools to manage replication and query distribution:
 
-* [{#T}](#ck)
-* [{#T}](#zk) (default)
+* [{{ CK }}](#ck).
+* [{{ ZK }}](#zk) (default).
 
 You can create [replicated tables](#replicated-tables) in a cluster with enabled replication. Meanwhile, the replication is managed automatically.
 
@@ -25,7 +25,7 @@ Using {{ CK }} is associated with the following limitations:
 * You cannot switch clusters using {{ ZK }} hosts to {{ CK }}.
 * [To migrate a host](../operations/host-migration.md) from {{ CK }} to a different availability zone, you have to contact [support]({{ link-console-support }}).
 
-For more information about {{ CK }}, see the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
+You can learn more about {{ CK }} in the [{{ CH }} documentation]({{ ch.docs }}/operations/clickhouse-keeper/).
 
 ## {{ ZK }} {#zk}
 
@@ -44,8 +44,8 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
 | Total number of {{ CH }} host cores | Minimum number of cores per {{ ZK }} host |
 |-------------------------------------------|-------------------------------------------------------|
-| Less than 48 | 2 |
-| 48 or higher | 4 |
+| Less than 48                                  | 2                                                     |
+| 48 or higher                                | 4                                                     |
 
 The {{ ZK }} host class can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). You cannot change {{ ZK }} settings or connect to such hosts.
 

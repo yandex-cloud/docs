@@ -32,18 +32,18 @@ Home appliances |	Health and beauty equipment |	Pickup |	2 387 410 |	550 |	581
 To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
 
 * [Renaming columns](#change-columns-names)
-* [Adding a tooltip to a table header](#hint-column)
+* [Adding tooltips to table headers](#hint-column)
 * [Setting up table data sorting by multiple columns](#sorting-columns)
-* [Setting the width of table columns](#set-column-width)
+* [Setting up column width](#set-column-width)
 * [Freezing table columns](#column-fixation)
 * [Adding a row with totals](#add-totals)
 * [Adding row color](#add-column-color)
-* [Setting the field fill color](#set-field-color)
+* [Setting field fill color](#set-field-color)
 * [Adding a linear indicator to a column with a measure](#add-linear-indicator)
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 Columns | Dimensions and measures to be used as columns. The field name appears in the column header. You can use [markup functions](../function-ref/markup-functions.md) in columns.
 Colors | Measure. Affects color fill of all cells within a row. It may only contain one measure.

@@ -32,6 +32,8 @@ items:
         items:
           - name: Creating a {{ metastore-name }} cluster
             href: operations/metastore/cluster-create.md
+          - name: Configuring security groups
+            href: operations/metastore/configure-security-group.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
             href: operations/metastore/dataproc-connect.md
           - name: Exporting and importing a {{ metastore-name }} cluster
@@ -51,7 +53,7 @@ items:
           - name: Schemas
             items:
               - name: Uploading a schema to a new subject
-                href: operations/create-subject.md
+                href: operations/upload-schema-to-subject.md
               - name: Adding a schema to an existing subject
                 href: operations/add-schema.md
               - name: Deleting a schema
@@ -60,6 +62,8 @@ items:
                 href: operations/compare-schemas.md
           - name: Subjects
             items:
+              - name: Creating a subject
+                href: operations/create-subject.md
               - name: Changing a subject
                 href: operations/update-subject.md
               - name: Deleting a subject

@@ -1,5 +1,6 @@
 ---
 title: How to get information about a GPU cluster in {{ compute-full-name }}
+description: Follow this guide to get information about a GPU cluster.
 ---
 
 # Getting information about a GPU cluster

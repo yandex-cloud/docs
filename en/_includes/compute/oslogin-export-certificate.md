@@ -33,8 +33,8 @@ To export the SSH certificate of a {{ org-name }} organization user or [service 
       Result:
 
       ```text
-      Identity: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername
-      Certificate: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername-cert.pub
+      Identity: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-<username_in_OS_Login_profile>
+      Certificate: /home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-<username_in_OS_Login_profile>-cert.pub
       ```
 
       If you save the exported certificate to a directory different from the default one, make sure that only the current user can access the certificate files saved. If you need to, update the user permissions using the `chmod` command on Linux and macOS or on the **Security** tab in Windows Explorer's file properties.

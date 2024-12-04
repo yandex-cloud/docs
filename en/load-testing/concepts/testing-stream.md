@@ -56,9 +56,9 @@ An example of configuring testing threads to generate 200 requests per second ov
               type: once
               times: 10         # Number of threads
             rps:
-              - duration: 300s # Test duration
-                type: step # Load type
-                ops: 200        # Number of requests per second
+              - duration: 300s  # test duration
+                type: const     # load type
+                ops: 200        # number of requests per second
         log:
           level: error
         monitoring:
@@ -78,8 +78,14 @@ An example of configuring testing threads to generate 200 requests per second ov
       instances: 10             # Number of threads
       load_profile:
         load_type: rps
-        schedule: const(200,5m) # Load schedule: 200 requests per second over 5 minutes
+        schedule: const(200,5m) # load schedule: 200 requests per second over 5 minutes
       uris: ['/']
 	```
 
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)

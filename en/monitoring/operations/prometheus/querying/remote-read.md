@@ -1,11 +1,11 @@
 ---
-title: How to read metrics via the Remote API
-description: Use this guide to read metrics via the Remote API.
+title: "How to read\_metrics via the Remote API"
+description: "Use this guide to read\_metrics via the Remote API."
 ---
 
 # Reading metrics via the Remote API
 
-1. In the [management console]({{ link-console-main }}), select the folder where data is stored.
+1. In the [management console]({{ link-console-main }}), select the folder where the data is stored.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
 1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
 1. Add the endpoint (`url`) to the `remote_read` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read):
@@ -13,25 +13,25 @@ description: Use this guide to read metrics via the Remote API.
    ...
    remote_read:
      ...
-     - url: '<URL>' # provided upon request
+     - url: '<URL>' # Available on request
        bearer_token: '<API_key>'
        # Or via a file (recommended):
-       # bearer_token_file: '<name_of_the_file_with_the_API_key>'
+       # bearer_token_file: '<name_of_file_with_API_key>'
 
-       # We recommend adding a user-defined X-Lookback-Delta header.
-       # If you did not change the lookback-delta parameter value in the configuration
-       # of your Prometheus instance, specify the default value, 5m.
-       # This info is required for optimized decimation.
+       # We recommend adding the X-Lookback-Delta custom header.
+       # If you did not change the lookback-delta parameter value in
+       # your Prometheus instance configuration, specify the default value, 5m.
+       # This information is required for optimized decimation.
        headers:
          X-Lookback-Delta: 5m
 
        # By default, data is only requested for the time ranges
        # not featured in the Prometheus local storage (older than the Storage retention).
-       # If you want to request data at any time, which makes sense if read and write operations
-       # are performed from different Prometheus instances, enable the following option:
+       # If you want to be able to request data always, which makes sense if read and write operations
+       # are made from different Prometheus instances, enable the following option:
        # [ read_recent: true ]
 
-       # If you want to read only some of the metrics via the Remote API, specify their labels:
+       # If you want to read only some metrics via the Remote API, specify their labels:
        # required_matchers:
        # [ <label_name>: <label_value> ... ]
    ```
@@ -49,9 +49,13 @@ description: Use this guide to read metrics via the Remote API.
 
 ## {{ prometheus-name }} metrics {#metrics}
 
-| Metric name | Units | Explanations |
+| Metric name | Units | Comment |
 |----|----|----|
-| `prometheus_remote_storage_read_queries_total` | Invocations | Total number of read requests |
-| `prometheus_remote_storage_read_request_duration_seconds` | Seconds | Read request execution time histogram |
+`prometheus_remote_storage_read_queries_total` | Invocations | Total number of read requests
+`prometheus_remote_storage_read_request_duration_seconds` | Seconds | Read request execution time histogram
+
+## Current limitations {#restrictions}
+
+{% include [maximum-time-lines](../../../../_includes/monitoring/maximum-time-lines.md) %}
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

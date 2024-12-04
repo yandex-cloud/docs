@@ -2,17 +2,8 @@ title: Yandex Smart Web Security
 href: index.yaml
 items:
   - name: Getting started
-    expanded: true
-    items:
-      - name: Overview
-        href: quickstart/index.md
-      - name: Getting started with {{ sws-name }}
-        href: quickstart.md
-      - name: Getting started with WAF
-        href: quickstart/quickstart-waf.md
-      - name: Getting started with ARL
-        href: quickstart/quickstart-arl.md
-  - name: Step-by-step guides
+    href: quickstart.md
+  - name: Step-by-step guide
     items:
       - name: All guides
         href: operations/index.md

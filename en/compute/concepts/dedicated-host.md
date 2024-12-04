@@ -1,5 +1,6 @@
 ---
-title: Dedicated hosts in {{ compute-full-name }}
+title: Dedicated host in {{ compute-full-name }}
+description: In this article, you will learn about dedicated hosts, relationship between the host configuration and type, host maintenance in {{ compute-name }}, host troubleshooting, etc.
 ---
 
 # Dedicated hosts
@@ -15,7 +16,7 @@ Dedicated hosts provide the following advantages:
 * Security and compliance:
   You can use a dedicated host to physically isolate your VM in the public cloud if this is required by your company's information security service or industry standards, such as medical or financial ones.
 * Using your own licenses:
-  If your company has Microsoft or other vendor licenses that require linking to physical resources, you can use them in {{ yandex-cloud }} on a <q>Bring your own license</q> (BYOL) basis.
+  If your company has Microsoft licenses or those from other vendors that require linking to physical resources, you can use them in {{ yandex-cloud }} based on the <q>Bring your own license</q> (BYOL) model.
 * Managing your VM allocation:
   You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
@@ -83,9 +84,9 @@ For example, a dedicated host of the `intel-6354-c56-m454-n3200x6` type has:
 * Two Intel® Xeon® Gold 6354 CPUs.
 * 32 vCPUs on each processor, where:
     * 4 vCPUs are allocated for system usage.
-    * 28 vCPUs are available to run user VMs.
+    * 28 vCPUs are available to run user VMs. 
 
-When creating a VM on a dedicated host, you may encounter resource fragmentation, when the number of free vCPUs is sufficient, but you are unable to run your VM.
+When creating a VM on a dedicated host, you may encounter resource fragmentation, when the number of free vCPUs is sufficient, but you are unable to run your VM. 
 
 ![Resource fragmentation](../../_assets/compute/resource-fragmentation.svg "Resource fragmentation")
 
@@ -256,7 +257,7 @@ host_id: <host_ID>                # Actual VM location
 ...
 ```
 
-Rules in `host_affinity_rules` are combined via `OR`. For example, the following rules allow you to run VMs on any host of the `<host_group_ID>` group or on `<host_ID>`:
+Rules in `host_affinity_rules` are combined via `OR`. For example, the following rules allow you to run VMs on any host of the `<host_group_ID>` group or the `<host_ID>` host:
 
 ```
 placement_policy:

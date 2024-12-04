@@ -34,19 +34,19 @@ To get started with {{ managed-k8s-name }}:
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
+1. In the management console, select the folder where you want to create a {{ managed-k8s-name }} cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
 1. (Optional) Enter the {{ managed-k8s-name }} cluster description.
-1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` and `vpc.publicAdmin` roles which you intend to use to create resources.
+1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` annd `vpc.publicAdmin` roles to use for creating resources.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify a service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role that {{ managed-k8s-name }} nodes will use to access the Docker image registry.
-1. Specify a [release channel](concepts/release-channels-and-updates.md). You cannot edit this setting after you create a {{ managed-k8s-name }} cluster.
+1. Specify a [release channel](concepts/release-channels-and-updates.md). You will not be able to edit this setting once you create a {{ managed-k8s-name }} cluster.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
-   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select a {{ k8s }} version to install on the [{{ managed-k8s-name }} master](concepts/index.md#master).
+   * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select a {{ k8s }} version to install on the [{{ managed-k8s-name }}](concepts/index.md#master) master.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Not to assign a public IP address.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
@@ -59,57 +59,20 @@ To get started with {{ managed-k8s-name }}:
 
 For more information, see the [step-by-step guide for creating a {{ managed-k8s-name }} cluster](operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
-## Add credentials to the kubectl configuration file {#add-conf}
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
-  To add {{ managed-k8s-name }} cluster credentials to the `kubectl` configuration file:
-  1. Run this command:
-
-     ```bash
-     yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
-     ```
-
-     * By default, credentials are added to the `$HOME/.kube/config` directory.
-     * If you need to change the configuration location, use the `--kubeconfig <file_path>` flag.
-  1. Check the kubectl configuration after adding the credentials:
-
-     ```bash
-     kubectl config view
-     ```
-
-     Result:
-
-     ```yml
-     apiVersion: v1
-     clusters:
-       - cluster:
-         certificate-authority-data: DATA+OMITTED
-     ...
-     ```
-
-{% endlist %}
-
 ## Create a node group {#node-group-create}
 
 To create a {{ managed-k8s-name }} node group:
 1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
-1. On the {{ managed-k8s-name }} cluster page, click the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
 1. Enter a name and description for the {{ managed-k8s-name }} node group.
 1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**, select its type:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}`, to keep the number of nodes in the {{ managed-k8s-name }} group constant. Specify the number of nodes in the {{ managed-k8s-name }} group.
-   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to control the number of nodes in the {{ managed-k8s-name }} group via [{{ managed-k8s-name }} cluster autoscaling](concepts/autoscale.md#ca).
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../compute/concepts/vm.md) by which you can exceed or decrease the size of the {{ managed-k8s-name }} group.
+   * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to control the number of nodes in the {{ managed-k8s-name }} group via [{{ managed-k8s-name }}](concepts/autoscale.md#ca) cluster autoscaling.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Choose a [platform](../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
@@ -128,7 +91,7 @@ To create a {{ managed-k8s-name }} node group:
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for IP address assignment:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Not to assign a public IP address.
    * Select [security groups](operations/connect/security-groups.md).
    * Select an availability zone and subnet to deploy the {{ managed-k8s-name }} group nodes in.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} group nodes over SSH:
@@ -137,6 +100,65 @@ To create a {{ managed-k8s-name }} node group:
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
 For more information, see the [step-by-step guide for creating {{ managed-k8s-name }} node groups](operations/node-group/node-group-create.md).
+
+## Add credentials to the `kubectl` configuration file {#add-conf}
+
+With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure the utility to work with the created cluster, add its credentials to the kubectl configuration file:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+  1. Run this command:
+
+     ```bash
+     yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
+     ```
+
+     {% note tip %}
+
+     {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
+
+     {% endnote %}
+
+     * By default, credentials are added to the `$HOME/.kube/config` directory.
+     * If you need to change the configuration location, use `--kubeconfig <file_path>`.
+     
+  1. Check the `kubectl` configuration after adding the credentials:
+
+     ```bash
+     kubectl config view
+     ```
+
+     Result:
+
+     ```yml
+     apiVersion: v1
+     clusters:
+       - cluster:
+         certificate-authority-data: DATA+OMITTED
+     ...
+     ```
+  1. Check the connection to the cluster:
+  
+     ```bash
+     kubectl get nodes
+     ```
+
+     The command will return information about the node group you created:
+   
+     ```bash
+     NAME                       STATUS  ROLES   AGE  VERSION
+     cl17i6943n92********-itif  Ready   <none>  31m  v1.13.3
+     ```
+  
+     To learn more about connecting to a {{ managed-k8s-name }} cluster, see [Connection method overview](operations/connect/index.md).
+
+{% endlist %}
 
 ## What's next {#what-is-next}
 

@@ -1,7 +1,7 @@
 > 3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|string }} = {% calc [currency=USD] 3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|number }} %}
 > 20,000 / 10,000 × {{ sku|USD|lockbox.api.v1.get|string }} = {% calc [currency=USD] 20000 / 10000 × {{ sku|USD|lockbox.api.v1.get|number }} %}
 
-> Total: {% calc [currency=USD] 3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|number }} %} + {% calc [currency=USD] 20000 / 10000 × {{ sku|USD|lockbox.api.v1.get|number }} %} = {% calc [currency=USD] (3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|number }}) + (20000 / 10000 × {{ sku|USD|lockbox.api.v1.get|number }}) %}, representing the cost of using {{ lockbox-name }} for one month, incl. VAT.
+> Total: {% calc [currency=USD] 3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|number }} %} + {% calc [currency=USD] 20000 / 10000 × {{ sku|USD|lockbox.api.v1.get|number }} %} = {% calc [currency=USD] (3 × 5 × {{ sku|USD|lockbox.storage.v1.active_secrets|month|number }}) + (20,000 / 10,000 × {{ sku|USD|lockbox.api.v1.get|number }}) %}, cost of using {{ lockbox-name }} per month, incl. VAT.
 
 Where:
 * 3 × 5: Number of versions of all secrets.

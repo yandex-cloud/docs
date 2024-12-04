@@ -1,3 +1,8 @@
+---
+title: Creating a new {{ k8s }} project in {{ yandex-cloud }}
+description: Follow this guide to create a new {{ k8s }} project in {{ yandex-cloud }}.
+---
+
 # Creating a new {{ k8s }} project in {{ yandex-cloud }}
 
 
@@ -78,7 +83,7 @@ For a {{ managed-k8s-name }} cluster and [load balancer](../../application-load-
   * [alb.editor](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
   * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin): To manage [external connectivity](../../vpc/security/index.md#roles-list).
   * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-name }}](../../certificate-manager/).
-  * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+  * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
 
 ### Service account for resources {#res-sa}
 
@@ -462,19 +467,19 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
                         name: http
       ---
       apiVersion: v1
-        kind: Service
-        metadata:
-          name: service-hello
-        spec:
-          selector:
-            run: hello-nginx
-          type: NodePort
-          ports:
-            - name: http
-              port: 80
-              targetPort: 80
-              protocol: TCP
-              nodePort: 30080
+      kind: Service
+      metadata:
+        name: service-hello
+      spec:
+        selector:
+          run: hello-nginx
+        type: NodePort
+        ports:
+          - name: http
+            port: 80
+            targetPort: 80
+            protocol: TCP
+            nodePort: 30080
       ```
 
       Where:

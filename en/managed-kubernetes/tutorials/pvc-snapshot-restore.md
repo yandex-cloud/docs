@@ -1,3 +1,8 @@
+---
+title: Working with snapshots
+description: Follow this guide to learn how to work with snapshots.
+---
+
 # Working with snapshots
 
 
@@ -61,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare a test environment {#create-pvc-pod}
 
-To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and a [pod](../concepts/index.md#pod) to simulate the workload will be created.
+To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
 1. Create the `01-pvc.yaml` file with the `PersistentVolumeClaim` manifest:
 
 
@@ -82,7 +87,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 
 
-1. Create a `PersistentVolumeClaim`:
+1. Create the `PersistentVolumeClaim`:
 
    ```bash
    kubectl apply -f 01-pvc.yaml
@@ -126,7 +131,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl apply -f 02-pod.yaml
    ```
 
-1. Make sure the pod has entered the `Running` state:
+1. Make sure the pod status changed to `Running`:
 
    ```bash
    kubectl get pod pod-source
@@ -213,7 +218,7 @@ To restore the snapshot:
 
    {% note tip %}
 
-   You can resize the new `PersistentVolumeClaim`. To do this, specify its new size in the `spec.resources.requests.storage` setting value.
+   You can change the size of the `PersistentVolumeClaim` being created. To do this, specify the desired size in the `spec.resources.requests.storage` setting value.
 
    {% endnote %}
 
@@ -260,13 +265,13 @@ To restore the snapshot:
    kubectl apply -f 05-pod-restore.yaml
    ```
 
-1. Make sure the pod has entered the `Running` state:
+1. Make sure the pod status changed to `Running`:
 
    ```bash
    kubectl get pod pod-restore
    ```
 
-1. Make sure the new `PersistentVolumeClaim` has entered the `Bound` state:
+1. Make sure the status of the new `PersistentVolumeClaim` changed to `Bound`:
 
    ```bash
    kubectl get pvc pvc-restore

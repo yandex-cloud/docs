@@ -29,7 +29,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
 
 To connect to a cluster:
 
-1. [Install kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
+1. Install [kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
 
 1. Add credentials to the `kubectl` configuration file depending on the type of the IP address of the cluster you are connecting to:
 
@@ -44,6 +44,8 @@ To connect to a cluster:
          get-credentials <cluster_name_or_ID> \
          --external
       ```
+ 
+      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
       If you [created your cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with no public IP address, this cluster can only be connected to using its internal IP.
 
@@ -56,6 +58,8 @@ To connect to a cluster:
          get-credentials <cluster_name_or_ID> \
          --internal
       ```
+      
+      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
    {% endlist %}
 
@@ -71,7 +75,7 @@ To connect to a cluster:
    kubectl cluster-info
    ```
 
-   If `kubectl` is configured correctly, the command returns cluster information.
+   If `kubectl` is configured correctly, the command will return cluster information.
 
 ## Connecting using a static configuration {#static-conf-connect}
 

@@ -60,7 +60,7 @@ Prepare the infrastructure:
         * {{ MY }} and {{ PG }} versions
         * {{ MY }} and {{ PG }} user passwords
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -136,7 +136,7 @@ Prepare the infrastructure:
 
     1. In the `mysql-postgresql.tf` file, set the `transfer_enabled` parameter to `1`.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -209,7 +209,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     1. In the terminal window, go to the directory containing the infrastructure plan.
     1. Delete the `mysql-postgresql.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

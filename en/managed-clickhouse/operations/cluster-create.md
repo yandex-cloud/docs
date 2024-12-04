@@ -35,14 +35,15 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
     {% endnote %}
 
+
 ## Roles for creating a cluster {#roles}
 
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) role or higher.
 
-To bind your service account to a cluster, e.g., for [accessing {{ objstorage-full-name }}](s3-access.md), make sure your account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher in {{ yandex-cloud }}.
+To link your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
-For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
 
 ## Creating a cluster {#create-cluster}
@@ -482,7 +483,7 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
                   "moveFactor": "<share_of_free_space>",
                   "dataCacheEnabled": <temporary_file_storage>,
                   "dataCacheMaxSize": "<maximum_cache_size_for_file_storage>",
-                  "preferNotToMerge": <disabling_merging_data_parts>
+                  "preferNotToMerge": <disabling_merge_of_data_parts>
                 },
                 "adminPassword": "<admin_user_password>",
                 "sqlUserManagement": <user_management_via_SQL>,
@@ -575,7 +576,7 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs`: Database settings as an array of `name` element parameters. Each parameter contains the name of a separate database.
+            * `databaseSpecs`: Database settings as an array of `name` element parameters. Each parameter contains a name of a separate database.
 
             * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
@@ -678,7 +679,7 @@ For more info on assigning roles, see the [{{ iam-full-name }}](../../iam/operat
                   "move_factor": "<share_of_free_space>",
                   "data_cache_enabled": <temporary_file_storage>,
                   "data_cache_max_size": "<maximum_cache_size_for_file_storage>",
-                  "prefer_not_to_merge": <disabling_merging_data_parts>
+                  "prefer_not_to_merge": <disabling_merge_of_data_parts>
                 },
                 "admin_password": "<admin_user_password>",
                 "sql_user_management": <user_management_via_SQL>,
@@ -856,7 +857,7 @@ To create a {{ CH }} cluster copy:
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ CH }} cluster into the {{ TF }} configuration:
 

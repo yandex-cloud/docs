@@ -21,7 +21,7 @@ items:
         href: operations/payload-dispatcher.md
       - name: Creating and configuring a regression dashboard
         href: operations/regressions.md
-      - name: Checking the threshold exceeding of regression metrics
+      - name: Checking regression metrics for exceeded thresholds
         href: operations/check-regression.md
       - name: Saving test artifacts to {{ objstorage-name }}
         href: operations/save-artifacts.md
@@ -29,6 +29,8 @@ items:
         href: operations/operation-logs.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Load testing a gRPC service
         href: tutorials/loadtesting-grpc.md
       - name: Deploying and load testing a gRPC service with scaling

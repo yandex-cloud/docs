@@ -17,6 +17,8 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) via the management console, {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md), or [API](../api-ref/authentication.md).
+
 ## Which roles exist in the service {#roles-list}
 
 ### Service roles {#service-roles}
@@ -33,7 +35,7 @@ In this section, you will learn:
 
 {% include [vdi.admin](../../_roles/vdi/admin.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Primitive roles {#primitive-roles}
 

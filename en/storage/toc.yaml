@@ -207,8 +207,6 @@ items:
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Static website in {{ objstorage-full-name }}
-      - name: Visualizing {{ yq-full-name }} data
-        href: tutorials/data-from-yandex-query-visualization.md
         items:
           - name: Overview
             href: tutorials/static/index.md
@@ -216,6 +214,8 @@ items:
             href: tutorials/static/console.md
           - name: Terraform
             href: tutorials/static/terraform.md
+      - name: Visualizing {{ yq-full-name }} data
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
       - name: Backing up a VM with Hystax Acura Backup

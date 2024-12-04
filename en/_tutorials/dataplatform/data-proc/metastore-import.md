@@ -1,4 +1,4 @@
-# Transferring data between {{ dataproc-name }} clusters using {{ metastore-name }}
+# Transferring metadata between {{ dataproc-name }} clusters using {{ metastore-name }}
 
 You can migrate metadata between [{{ dataproc-full-name }} clusters](../../../data-proc/concepts/index.md) with a Hive DBMS. First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
@@ -138,7 +138,7 @@ Prepare the infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -305,7 +305,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
         1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
         1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `metastore-import.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

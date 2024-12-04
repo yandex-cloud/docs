@@ -13,3 +13,7 @@ description: Various {{ network-load-balancer-full-name }} use cases in {{ yande
 * [{#T}](./dns-integration.md)
 * [{#T}](./exchange.md)
 * [{#T}](./mssql-alwayson-lb.md)
+* [{#T}](./route-switcher.md)
+* [{#T}](./storage-vpc-access.md)
+* [{#T}](./updating-under-load.md)
+* [{#T}](./vpc-cr-access.md)

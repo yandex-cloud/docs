@@ -1,3 +1,8 @@
+---
+title: Creating a VM on a dedicated host
+description: Use this guide to create a VM on a dedicated host.
+---
+
 # Creating a VM on a dedicated host
 
 
@@ -121,13 +126,13 @@ Before creating a VM:
 1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
 
 Create a VM with the following characteristics:
-* Location: Dedicated host
-* Platform: Intel Ice Lake
-* Number of vCPUs: 64
-* Amount of RAM: 704 GB
-* Number of local disks: 1
-* Local disk size: 3,198,924,357,632 B (~2.91 TB)
-* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
+* Location: Dedicated host.
+* Platform: Intel Ice Lake.
+* Number of vCPUs: 64.
+* Amount of RAM: 704 GB.
+* Number of local disks: 1.
+* Local disk size: 3,198,924,357,632 B (~2.91 TB).
+* Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 To do this, follow these steps:
 

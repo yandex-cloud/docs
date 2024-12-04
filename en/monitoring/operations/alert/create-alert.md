@@ -1,3 +1,8 @@
+---
+title: Create alert
+description: Follow this guide to create an alert.
+---
+
 # Creating alerts
 
 

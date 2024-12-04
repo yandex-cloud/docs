@@ -1,4 +1,6 @@
 ---
+title: Running a VM group with autoscaling using {{ TF }}
+description: Follow this guide to configure a VM group with an autoscaling policy using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform'
 ---
 

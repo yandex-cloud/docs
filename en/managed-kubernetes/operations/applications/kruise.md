@@ -1,3 +1,8 @@
+---
+title: Installing Kruise
+description: Follow this guide to install Kruise.
+---
+
 # Installing Kruise
 
 

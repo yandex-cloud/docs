@@ -7,32 +7,19 @@ description: Follow this guide to change {{ CH }} cluster settings.
 
 After creating a cluster, you can:
 
-
 * [Change service account settings](#change-service-account).
-
-
-* [{#T}](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
-* [{#T}](#SQL-management).
-
+* [Change the host class](#change-resource-preset).
+* [Increase storage size](#change-disk-size).
+* [Enable user and database management via SQL](#SQL-management).
 * [Change additional cluster settings](#change-additional-settings).
-
 * [Move a cluster](#move-cluster) to another folder.
-
-
 * [Change cluster security groups](#change-sg-set).
-
-
 * [Changing hybrid storage settings](#change-hybrid-storage).
 
 Learn more about other cluster updates:
 
 * [Migrating a cluster to a different availability zone](host-migration.md).
-
 * [Configuring {{ CH }} servers](change-server-level-settings.md) as described in the [{{ CH }} documentation]({{ ch.docs }}/operations/server-configuration-parameters/settings).
-
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
@@ -174,7 +161,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Request a list of available host classes:
 
-        1. Use the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -185,7 +172,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         1. View the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure the request was successful.
 
-    1. Change the host class to the one you need:
+    1. Change the host class as appropriate:
 
         1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -222,12 +209,12 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
                 * `configSpec.clickhouse.resources.resourcePresetId`: If you need to change the {{ CH }} host class.
                 * `configSpec.zookeeper.resources.resourcePresetId`: If you need to change the {{ ZK }} host class.
 
-                There are both {{ CH }} and {{ ZK }} host classes in the query example.
+                Both {{ CH }} and {{ ZK }} host classes are changed in the request example.
 
             * `configSpec.clickhouse.resources.resourcePresetId`: {{ CH }} host class ID.
             * `configSpec.zookeeper.resources.resourcePresetId`: {{ ZK }} host class ID.
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). A list of available host classes with their IDs you got earlier.
+            You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -241,7 +228,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
     1. Request a list of available host classes:
 
-        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -256,7 +243,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
         1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure the request was successful.
 
-    1. Change the host class to the one you need:
+    1. Change the host class as appropriate:
 
         1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -302,12 +289,12 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
                 * `config_spec.clickhouse.resources.resource_preset_id`: If you need to change the {{ CH }} host class.
                 * `config_spec.zookeeper.resources.resource_preset_id`: If you need to change the {{ ZK }} host class.
 
-                There are both {{ CH }} and {{ ZK }} host classes in the query example.
+                Both {{ CH }} and {{ ZK }} host classes are changed in the request example.
 
             * `config_spec.clickhouse.resources.resource_preset_id`: {{ CH }} host class ID.
             * `config_spec.zookeeper.resources.resource_preset_id`: {{ ZK }} host class ID.
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). A list of available host classes with their IDs you got earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -439,12 +426,12 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
             * `configSpec.clickhouse.resources.diskSize`: If you need to increase {{ CH }} host storage size.
             * `configSpec.zookeeper.resources.diskSize`: If you need to increase {{ ZK }} host storage size.
 
-            Both {{ CH }} and {{ ZK }} host storage sizes are increased in the query example.
+            Both {{ CH }} and {{ ZK }} host storage sizes are increased in the request example.
 
         * `configSpec.clickhouse.resources.diskSize`: {{ CH }} host storage size in bytes.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size in bytes.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -500,12 +487,12 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
             * `config_spec.clickhouse.resources.disk_size`: If you need to increase {{ CH }} host storage size.
             * `config_spec.zookeeper.resources.disk_size`: If you need to increase {{ ZK }} host storage size.
 
-            Both {{ CH }} and {{ ZK }} host storage sizes are increased in the query example.
+            Both {{ CH }} and {{ ZK }} host storage sizes are increased in the request example.
 
         * `config_spec.clickhouse.resources.disk_size`: {{ CH }} host storage size in bytes.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size in bytes.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -620,16 +607,16 @@ Once enabled, user and database management settings for SQL cannot be disabled.
             Specify relevant parameters:
 
             * `configSpec.adminPassword`: Password of the `admin` account used for management.
-            * `configSpec.sqlUserManagement`: To enable user management via SQL.
-            * `configSpec.sqlDatabaseManagement`: To enable database management via SQL.
+            * `configSpec.sqlUserManagement`: If you want to enable user management via SQL.
+            * `configSpec.sqlDatabaseManagement`: If you want to enable database management via SQL.
 
-            Managing both users and databases via SQL are enabled in the query example.
+            Both user and database management via SQL are enabled in the request example.
 
         * `configSpec.adminPassword`: `admin` user password.
-        * `configSpec.sqlUserManagement`: Managing users via SQL mode: `true` or `false`.
-        * `configSpec.sqlDatabaseManagement`: Mode to Manage databases via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
+        * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
+        * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -678,16 +665,16 @@ Once enabled, user and database management settings for SQL cannot be disabled.
             Specify relevant parameters:
 
             * `config_spec.admin_password`: Password of the `admin` account used for management.
-            * `config_spec.sql_user_management`: To enable user management via SQL.
-            * `config_spec.sql_database_management`: To enable database management via SQL.
+            * `config_spec.sql_user_management`: If you want to enable user management via SQL.
+            * `config_spec.sql_database_management`: If you want to enable database management via SQL.
 
-            Managing both users and databases via SQL are enabled in the query example.
+            Both user and database management via SQL are enabled in the request example.
 
         * `config_spec.admin_password`: `admin` user password.
-        * `config_spec.sql_user_management`: Managing users via SQL mode: `true` or `false`.
-        * `config_spec.sql_database_management`: Mode to Manage databases via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
+        * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
+        * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -788,7 +775,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
         }
         ```
 
-    1. To enable cluster access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, change the values of the appropriate fields in the `access` section:
+    1. To enable access to the cluster from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit the values of the appropriate fields in the `access` section:
 
 
         ```hcl
@@ -879,7 +866,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                 "anytime": {},
                 "weeklyMaintenanceWindow": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_in_UTC>"
+                  "hour": "<hour_UTC>"
                 }
               },
               "deletionProtection": <deletion_protection>
@@ -893,18 +880,18 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
 
-            * `configSpec.access`: Settings that allow accessing the cluster from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+            * `configSpec.access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                 {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
             * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
 
-                * `anytime`: At any time (default).
-                * `weeklyMaintenanceWindow`: On schedule:
+                * `anytime` (default): Any time.
+                * `weeklyMaintenanceWindow`: On a schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: Hour (UTC) in `HH` format: from `1` to `24`.
 
-            * `deletionProtection`: Protecting the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -919,7 +906,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
               --data '@body.json'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -966,7 +953,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                 "anytime": {},
                 "weekly_maintenance_window": {
                   "day": "<day_of_week>",
-                  "hour": "<hour_in_UTC>"
+                  "hour": "<hour_UTC>"
                 }
               },
               "deletion_protection": <deletion_protection>
@@ -980,22 +967,22 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
 
-            * `config_spec.access`: Settings that allow accessing the cluster from other services and [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
+            * `config_spec.access`: Settings enabling access to the cluster from other services and [SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}:
 
                 {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
             * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
 
-                * `anytime`: At any time (default).
-                * `weekly_maintenance_window`: On schedule:
+                * `anytime` (default): Any time.
+                * `weekly_maintenance_window`: On a schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: Hour (UTC) in `HH` format: from `1` to `24`.
 
-            * `deletion_protection`: Protecting the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -1070,7 +1057,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                     }'
         ```
 
-        Where `destinationFolderId` is the ID of the destination folder to move the cluster to. You can get this ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destinationFolderId` is the ID of the destination folder for the cluster. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -1101,9 +1088,9 @@ Once enabled, user and database management settings for SQL cannot be disabled.
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Move
         ```
 
-        Where `destination_folder_id` is the ID of the destination folder to move the cluster to. You can get this ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destination_folder_id` is the ID of the destination folder for the cluster. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1198,7 +1185,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             Here only one parameter is specified: `securityGroupIds`.
 
-        * `securityGroupIds`: Array of strings. Each string is a security group ID.
+        * `securityGroupIds`: Array of strings. Each string is the security group ID.
 
             {% note warning %}
 
@@ -1208,7 +1195,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -1251,7 +1238,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             Here only one parameter is specified: `security_group_ids`.
 
-        * `security_group_ids`: Array of strings. Each string is a security group ID.
+        * `security_group_ids`: Array of strings. Each string is the security group ID.
 
             {% note warning %}
 
@@ -1261,7 +1248,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1339,7 +1326,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                           "moveFactor": "<percentage_of_free_space>",
                           "dataCacheEnabled": <temporary_file_storage>,
                           "dataCacheMaxSize": "<maximum_cache_size_for_file_storage>",
-                          "preferNotToMerge": <disabling_merge_of_data_parts>
+                          "preferNotToMerge": <disabling_merging_data_parts>
                         }
                       }
                     }'
@@ -1353,7 +1340,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -1389,7 +1376,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                       "move_factor": "<percentage_of_free_space>",
                       "data_cache_enabled": <temporary_file_storage>,
                       "data_cache_max_size": "<maximum_cache_size_for_file_storage>",
-                      "prefer_not_to_merge": <disabling_merge_of_data_parts>
+                      "prefer_not_to_merge": <disabling_merging_data_parts>
                     }
                   }
                 }' \
@@ -1404,7 +1391,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

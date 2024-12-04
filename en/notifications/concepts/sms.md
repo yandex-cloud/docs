@@ -1,3 +1,8 @@
+---
+title: SMS in {{ cns-full-name }}
+description: In this article, you will learn about SMS in {{ cns-name }}, types of senders, and the sandbox.
+---
+
 # SMS in {{ cns-full-name }}
 
 

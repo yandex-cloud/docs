@@ -1,4 +1,9 @@
-# Creating an {{ MG }} cluster
+---
+title: Creating a {{ MG }} cluster
+description: Follow this guide to create a {{ MG }} cluster.
+---
+
+# Creating a {{ MG }} cluster
 
 A {{ MG }} cluster is one or more database hosts across which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
 
@@ -11,6 +16,7 @@ A {{ MG }} cluster is one or more database hosts across which you can configure 
 
 
 {% endnote %}
+
 
 
 
@@ -53,7 +59,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the storage size to be used for data and backups. For more information on how backups consume storage space, see [Backups](../concepts/backup.md).
+      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -317,9 +323,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ MG }} cluster copy:
+To create a {{ MG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -342,7 +348,7 @@ To create an {{ MG }} cluster copy:
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ MG }} cluster into the {{ TF }} configuration:
 
@@ -404,15 +410,15 @@ To create an {{ MG }} cluster copy:
   Create a {{ mmg-name }} cluster with the following test specifications:
 
 
-  * Name: `mymg`
-  * Environment: `production`
-  * Network: `{{ network-name }}`
-  * Security group ID: `{{ security-group }}`
-  * Host: `{{ host-class }}`, subnet:`b0rcctk2rvtr********`, availability zone: `{{ region-id }}-a`
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-  * User: `user1`, password: `user1user1`
-  * Database: `db1`
-  * Protection against accidental cluster deletion: Enabled
+  * Name: `mymg`.
+  * Environment: `production`.
+  * Network: `{{ network-name }}`.
+  * Security group ID: `{{ security-group }}`.
+  * One `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+  * One user: `user1`, password: `user1user1`.
+  * One database: `db1`.
+  * Protection against accidental cluster deletion.
 
 
   Run the following command:
@@ -445,7 +451,7 @@ To create an {{ MG }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * Network: `mynet`.
   * Host class: `{{ host-class }}`.
-  * Number of `host` blocks: One.
+  * Number of `host` blocks: 1.
   * Subnet: `mysubnet`. Network settings:
 
     * Availability zone: `{{ region-id }}-a`.
@@ -457,7 +463,7 @@ To create an {{ MG }} cluster copy:
 
   * Network SSD storage: `{{ disk-type-example }}`.
   * Storage size: 20 GB.
-  * User: `user1`.
+  * `user1` user.
   * Password: `user1user1`.
   * Database: `db1`.
   * Protection against accidental cluster deletion: Enabled.
@@ -554,7 +560,7 @@ Cluster test specifications:
 * Protection against accidental cluster deletion: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* User: `user1`.
+* `user1` user.
 * Password: `user1user1`.
 * `MONGOD` host class: `{{ host-class }}`.
 * `MONGOINFRA` host class: `c3-c2-m4`.
@@ -716,7 +722,7 @@ Cluster test specifications:
 * Protection against accidental cluster deletion: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* User: `user1`.
+* `user1` user.
 * Password: `user1user1`.
 * Host class: `{{ host-class }}`.
 * Network SSD storage: `{{ disk-type-example }}`.
@@ -734,7 +740,7 @@ Network specifications:
 
 - CLI {#cli}
 
-  To create a {{ mmg-name }} cluster with extended sharding, run this command:
+  To create a {{ mmg-name }} cluster with advanced sharding, run this command:
 
   ```bash
   {{ yc-mdb-mg }} cluster create \

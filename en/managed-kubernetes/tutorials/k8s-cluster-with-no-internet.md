@@ -1,3 +1,8 @@
+---
+title: Creating and configuring a {{ managed-k8s-full-name }} cluster with no internet access
+description: Follow this guide to create and configure a {{ managed-k8s-name }} cluster with no internet access.
+---
+
 # Creating and configuring a {{ managed-k8s-name }} cluster with no internet access
 
 
@@ -90,7 +95,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the library pages.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -149,7 +154,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Username to be used for connection to the VM over SSH.
          * Absolute path to the public part of the SSH key for connection to the VM.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
          ```bash
          terraform validate

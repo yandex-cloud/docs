@@ -1,3 +1,8 @@
+---
+title: Как восстановить диск с помощью образа в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете восстановить диск с помощью образа.
+---
+
 # Восстановить диск с помощью образа
 
 {% note info %}
@@ -24,11 +29,7 @@
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
   1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), а также [размер блока](../../concepts/disk.md#maximum-disk-size) и [размер диска](../../concepts/disk.md#maximum-disk-size).
   1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже отметьте нужный образ. Для поиска образа воспользуйтесь фильтром.
-
-
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться снимки, или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

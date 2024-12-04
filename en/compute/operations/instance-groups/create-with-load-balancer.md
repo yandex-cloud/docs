@@ -1,3 +1,8 @@
+---
+title: Creating a fixed-size instance group with an L7 load balancer
+description: Follow this guide to create a fixed-size instance group with an L7 load balancer.
+---
+
 # Creating a fixed-size instance group with an L7 load balancer
 
 
@@ -31,7 +36,7 @@ To create an instance group with an L7 load balancer:
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
      * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option, if needed. You cannot delete a group with this option enabled.
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. VM groups may reside in [different availability zones](../../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instance groups may reside in [different availability zones](../../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../concepts/disk.md).
@@ -48,7 +53,7 @@ To create an instance group with an L7 load balancer:
 
        {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
 
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the instance:
        * Select a service account to link to the instance.
        * If you selected a Linux [image](../../concepts/image.md), fill out the fields **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For a key, use the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
        * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if needed.
@@ -187,9 +192,9 @@ To create an instance group with an L7 load balancer:
        ```
 
        Where:
-       * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
-       * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
-       * `allocation_policy`: [Allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) of instances across [availability zones](../../../overview/concepts/geo-scope.md).
+       * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
+       * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
+       * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
      * {{ alb-full-name }} [target group](../../../application-load-balancer/concepts/target-group.md):
 
        ```yaml
@@ -252,7 +257,7 @@ To create an instance group with an L7 load balancer:
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates a group of three same-type VMs with the following configuration:
+     This command creates a group of three same-type instances with the following configuration:
      * Name: `first-fixed-group-with-l7-balancer`
      * OS: CentOS 7
      * Network: `default-net`
@@ -350,9 +355,9 @@ To create an instance group with an L7 load balancer:
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
-     * `yandex_compute_instance_group`: Description of the instance group.
-       * General information about the VM group:
-         * `name`: VM group name.
+     * `yandex_compute_instance_group`: Instance group description:
+       * General information about the instance group:
+         * `name`: Instance group name.
          * `folder_id`: Folder ID.
          * `service_account_id`: Service account ID.
          * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
@@ -365,9 +370,9 @@ To create an instance group with an L7 load balancer:
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
          * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for SSH access to the instance. For more information, see [{#T}](../../concepts/vm-metadata.md).
        * [Policies](../../concepts/instance-groups/policies/index.md):
-         * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
-         * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
-         * `allocation_policy`: [Allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) of instances across [availability zones](../../../overview/concepts/geo-scope.md).
+         * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
+         * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
+         * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
        * {{ alb-full-name }} [target group](../../../application-load-balancer/concepts/target-group.md):
          * `target_group_name`: Target group name.
          * `target_group_description`: Description of the target group.

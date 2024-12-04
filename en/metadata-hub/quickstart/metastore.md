@@ -54,13 +54,17 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
-1. [Create a service account](../../iam/operations/sa/create.md#create-sa) for a {{ dataproc-name }} cluster with the `dataproc.agent` and `dataproc.provisioner` roles.
+1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `dataproc.agent`, `dataproc.provisioner`, and `{{ roles.metastore.integrationProvider }}` roles.
 
-1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) to use with the {{ dataproc-name }} cluster.
+1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) to work with a {{ dataproc-name }} cluster.
 
-1. In the network you created earlier, [create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md#create-cluster). Configure it as follows:
-   * Select `SPARK` and `YARN`.
-   * Set the `spark:spark.sql.hive.metastore.sharedPrefixes` property to `com.amazonaws,ru.yandex.cloud`.
+1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster) cluster. In the settings, specify the following:
+
+   * `SPARK` and `YARN` services.
+   * Service account you previously created.
+   * `com.amazonaws,ru.yandex.cloud` value for the `spark:spark.sql.hive.metastore.sharedPrefixes` property. It is required for PySpark jobs and integration with {{ metastore-name }}.
+   * Bucket you created earlier.
+   * Security group you configured earlier.
 
 ## Create a {{ metastore-name }} cluster {#create-metastore-cluster}
 
@@ -73,8 +77,10 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
     1. In the left-hand panel, select the ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet you created earlier.
-    1. Under **{{ ui-key.yacloud.mdb.forms.field_security-group }}**, select the security group you created earlier.
+    1. Select a [service account](../../iam/concepts/users/service-accounts.md) under which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services or [create](../../iam/operations/sa/create.md) a new one.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet you created earlier. Specify the security group you configured previously.
+    1. Optionally, under **{{ ui-key.yacloud.logging.label_title }}**, enable logging, select the minimum logging level, and specify the folder or [log group](../../logging/concepts/log-group.md).
+    1. If required, enable protection of the cluster from accidental deletion by a user.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -91,7 +97,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
         spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
         ```
 
-        To find out the {{ metastore-name }} cluster IP address, select {{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console, then **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel, and open the relevant cluster. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console, then **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel, and open the relevant cluster. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
 
     1. Add the following outgoing traffic rule to the security group:
 

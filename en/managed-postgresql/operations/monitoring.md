@@ -1,9 +1,9 @@
 ---
 title: Monitoring the state of PostgreSQL clusters and hosts
-description: Using monitoring tools in the management console, you can track the state of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically.
+description: You can track the state of a {{ mpg-name }} cluster and its individual hosts with the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure alerts in {{ monitoring-full-name }} to monitor the cluster state automatically.
 ---
 
-# Monitoring the state of {{ PG }} clusters and hosts
+# Monitoring the state of a {{ PG }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,7 +13,9 @@ description: Using monitoring tools in the management console, you can track the
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
+
 To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze and monitor the cluster state.
+
 
 ## Monitoring cluster state {#monitoring-cluster}
 

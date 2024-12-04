@@ -19,6 +19,8 @@ items:
         href: operations/af-interfaces.md
       - name: Uploading DAG files to a cluster
         href: operations/upload-dags.md
+      - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}
+        href: operations/af-logging.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
   - name: Tutorials

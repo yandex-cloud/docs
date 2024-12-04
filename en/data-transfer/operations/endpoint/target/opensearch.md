@@ -25,7 +25,7 @@ description: In this article, you will learn how to set up an {{ OS }} target en
     * [Migration with change of storage from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
     * [Migration with change of storage from {{ PG }} to {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
 
@@ -62,7 +62,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}` role](../../../../managed-opensearch/security/index.md#mos-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mos.viewer }}`](../../../../managed-opensearch/security/index.md#mos-viewer) role or the [`viewer`](../../../../iam/roles-reference.md#viewer) primitive role assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 

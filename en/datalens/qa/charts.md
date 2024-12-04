@@ -1,3 +1,8 @@
+---
+title: Charts
+description: This page addresses FAQs about charts.
+---
+
 # Charts
 
 

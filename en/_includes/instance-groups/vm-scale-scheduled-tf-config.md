@@ -1,11 +1,19 @@
 ```hcl
-locals {
-  token            = "<OAuth_or_IAM_token>"
-  cloud_id         = "<cloud_ID>"
-  folder_id        = "<folder_ID>"
-  username         = "<VM_user_name>"
-  ssh_key_path     = "<path_to_public_SSH_key>"
+# Declaring variables for confidential parameters
+
+variable "folder_id" {
+  type = string
 }
+
+variable "username" {
+  type = string
+}
+
+variable "ssh_key_path" {
+  type = string
+}
+
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -17,32 +25,34 @@ terraform {
 }
 
 provider "yandex" {
-  token     = local.token
-  cloud_id  = local.cloud_id
-  folder_id = local.folder_id
+  folder_id = var.folder_id
 }
+
+# Creating a service account and assigning roles to it
 
 resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
   name      = "vm-scale-scheduled-sa"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-compute" {
-  folder_id = "<folder_ID>"
+  folder_id = var.folder_id
   role      = "compute.admin"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-iam" {
-  folder_id = "<folder_ID>"
+  folder_id = var.folder_id
   role      = "iam.serviceAccounts.user"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-functions" {
-  folder_id = "<folder_ID>"
-  role      = "{{ roles-functions-invoker }}"
+  folder_id = var.folder_id
+  role      = "functions.functionInvoker"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
+
+# Creating a cloud network and subnets
 
 resource "yandex_vpc_network" "vm-scale-scheduled-network" {
   name = "vm-scale-scheduled-network"
@@ -62,9 +72,13 @@ resource "yandex_vpc_subnet" "vm-scale-scheduled-subnet-b" {
   network_id     = yandex_vpc_network.vm-scale-scheduled-network.id
 }
 
+# Creating an image
+
 resource "yandex_compute_image" "vm-scale-scheduled-image" {
   source_family = "ubuntu-2004-lts"
 }
+
+# Creating an instance group
 
 resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
   name               = "vm-scale-scheduled-ig"
@@ -102,7 +116,7 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: ${local.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${local.ssh_key_path}")}"
+      user-data = "#cloud-config\nusers:\n  - name: ${var.username}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
     }
   }
 
@@ -125,6 +139,8 @@ resource "yandex_compute_instance_group" "vm-scale-scheduled-ig" {
   ]
 }
 
+# Creating a function
+
 resource "yandex_function" "vm-scale-scheduled-function" {
   name               = "vm-scale-scheduled-function"
   runtime            = "bash"
@@ -142,13 +158,15 @@ resource "yandex_function" "vm-scale-scheduled-function" {
   environment = {
     IG_NAME      = yandex_compute_instance_group.vm-scale-scheduled-ig.name
     IG_BASE_SIZE = "2"
-    FOLDER_ID    = local.folder_id
+    FOLDER_ID    = var.folder_id
   }
 
   depends_on = [
     yandex_resourcemanager_folder_iam_member.vm-scale-scheduled-sa-role-functions
   ]
 }
+
+# Creating a trigger
 
 resource "yandex_function_trigger" "vm-scale-scheduled-trigger" {
   name = "vm-scale-scheduled-trigger"

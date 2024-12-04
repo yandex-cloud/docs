@@ -7,10 +7,11 @@ _{{ baremetal-name }} and the server backup feature will be released at the [Pre
 For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
 The following server operating systems are supported: {#os-support}
-* Ubuntu 22.04 LTS
-* Ubuntu 20.04 LTS
-* Ubuntu 18.04 LTS
+* Debian 11
 * Ubuntu 16.04 LTS
+* Ubuntu 18.04 LTS
+* Ubuntu 20.04 LTS
+* Ubuntu 22.04 LTS
 
 To connect a server to {{ backup-name }}:
 1. [Prepare your cloud](#before-you-begin).

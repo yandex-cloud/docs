@@ -1,3 +1,8 @@
+---
+title: Installing the password reset agent on a Windows Server VM
+description: Follow this guide to install the password reset agent on a Windows Server VM.
+---
+
 # Installing the password reset agent on a Windows Server VM
 
 

@@ -154,7 +154,7 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 
 #### 8.9 Use a {{ sws-full-name }} security profile {#use-sws}
 
-[{{ sws-full-name }}](../../../smartwebsecurity/quickstart/index.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}.
+[{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}.
 
 In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 
@@ -190,7 +190,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 **Guides and solutions to use**:
 
-[Creating a WAF profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart/quickstart-waf.md).
+[Creating a WAF profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
 #### 8.11 Use Advanced Rate Limiter {#use-arl}
 
@@ -210,7 +210,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 
 **Guides and solutions to use**:
 
-[Creating an ARL profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart/quickstart-arl.md).
+[Creating an ARL profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
 
 #### 8.12 Set up approval rules {#setup-code-review}
 

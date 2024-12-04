@@ -74,7 +74,6 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: Yandex Code Assistant
   ca-name: Code Assistant
-  ca-short-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -337,6 +336,7 @@ default:
         https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
     helm:
       install: https://helm.sh/ru/docs/intro/install/
+  llama: Llama
   load-testing-full-name: Yandex Load Testing
   load-testing-name: Load Testing
   local-ssd-v3-max: 2944 ГБ
@@ -385,6 +385,9 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  meta-disclaimer: >-
+    Llama создана компанией Meta. Meta признана экстремистской организацией, ее
+    деятельность в России запрещена.
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
@@ -791,7 +794,7 @@ default:
   wiki-name: Wiki
   ya-360: Яндекс 360 для бизнеса
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: 8192
+  yagpt-max-tokens: 8 192
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
@@ -895,6 +898,51 @@ default:
     logs:
       raw|string: "25\_000,00\_₸"
       shielding|string: "17\_500,00\_₸"
+  sku|KZT|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: "5,25\_₸"
+              v3|string: "1,80\_₸"
+              v3i|string: "4,50\_₸"
+            t4i|string: "5,25\_₸"
+            v3|string: "4,50\_₸"
+            v3i|string: "4,50\_₸"
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: "720,00\_₸"
+            v2|string: "312,00\_₸"
+            v3|string: "743,40\_₸"
+            v3i|string: "8\_336,50\_₸"
+          preemptible|string: "312,00\_₸"
+          t4i|string: "720,00\_₸"
+          v2|string: "1\_247,60\_₸"
+          v3|string: "1\_858,50\_₸"
+          v3i|string: "8\_336,50\_₸"
+        gpu-standard|string: "1\_247,60\_₸"
+        infiniband:
+          ic_v3i:
+            preemptible|string: "3\_702,00\_₸"
+          ic_v3i|string: "3\_702,00\_₸"
+          ic:
+            preemptible|string: "318,00\_₸"
+          ic|string: "318,00\_₸"
+        standard:
+          v3-t4:
+            preemptible|string: "80,00\_₸"
+          v3-t4|string: "320,00\_₸"
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: "1,40\_₸"
+            v3|string: "0,55\_₸"
+            v3i|string: "1,40\_₸"
+          t4i|string: "1,40\_₸"
+          v3|string: "1,40\_₸"
+          v3i|string: "1,40\_₸"
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -930,12 +978,6 @@ default:
           v2|string: "0,80\_₸"
         c05|string: "1,55\_₸"
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: "5,25\_₸"
-              v3|string: "1,80\_₸"
-            t4i|string: "5,25\_₸"
-            v3|string: "4,50\_₸"
           highfreq-v3|string: "8,80\_₸"
           preemptible:
             v2|string: "1,60\_₸"
@@ -959,32 +1001,7 @@ default:
             v2|string: "1,10\_₸"
             v3|string: "1,00\_₸"
           v3|string: "3,20\_₸"
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: "720,00\_₸"
-            v2|string: "312,00\_₸"
-            v3|string: "743,40\_₸"
-          preemptible|string: "312,00\_₸"
-          t4i|string: "720,00\_₸"
-          v2|string: "1\_247,60\_₸"
-          v3|string: "1\_858,50\_₸"
-        gpu-standard|string: "1\_247,60\_₸"
-        infiniband:
-          ic:
-            preemptible|string: "318,00\_₸"
-          ic|string: "318,00\_₸"
-        standard:
-          v3-t4:
-            preemptible|string: "80,00\_₸"
-          v3-t4|string: "320,00\_₸"
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: "1,40\_₸"
-            v3|string: "0,55\_₸"
-          t4i|string: "1,40\_₸"
-          v3|string: "1,40\_₸"
         highfreq-v3|string: "1,60\_₸"
         preemptible:
           v2|string: "0,35\_₸"
@@ -2129,6 +2146,51 @@ default:
     logs:
       raw|string: "5\_000,00\_₽"
       shielding|string: "3\_500,00\_₽"
+  sku|RUB|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: "1,05\_₽"
+              v3|string: "0,36\_₽"
+              v3i|string: "0,90\_₽"
+            t4i|string: "1,05\_₽"
+            v3|string: "0,90\_₽"
+            v3i|string: "0,90\_₽"
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: "144,00\_₽"
+            v2|string: "62,40\_₽"
+            v3|string: "148,68\_₽"
+            v3i|string: "1\_667,30\_₽"
+          preemptible|string: "62,40\_₽"
+          t4i|string: "144,00\_₽"
+          v2|string: "249,52\_₽"
+          v3|string: "371,70\_₽"
+          v3i|string: "1\_667,30\_₽"
+        gpu-standard|string: "249,52\_₽"
+        infiniband:
+          ic_v3i:
+            preemptible|string: "740,40\_₽"
+          ic_v3i|string: "740,40\_₽"
+          ic:
+            preemptible|string: "63,60\_₽"
+          ic|string: "63,60\_₽"
+        standard:
+          v3-t4:
+            preemptible|string: "16,00\_₽"
+          v3-t4|string: "64,00\_₽"
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: "0,28\_₽"
+            v3|string: "0,11\_₽"
+            v3i|string: "0,28\_₽"
+          t4i|string: "0,28\_₽"
+          v3|string: "0,28\_₽"
+          v3i|string: "0,28\_₽"
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2164,12 +2226,6 @@ default:
           v2|string: "0,16\_₽"
         c05|string: "0,31\_₽"
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: "1,05\_₽"
-              v3|string: "0,36\_₽"
-            t4i|string: "1,05\_₽"
-            v3|string: "0,90\_₽"
           highfreq-v3|string: "1,76\_₽"
           preemptible:
             v2|string: "0,32\_₽"
@@ -2193,32 +2249,7 @@ default:
             v2|string: "0,22\_₽"
             v3|string: "0,20\_₽"
           v3|string: "0,64\_₽"
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: "144,00\_₽"
-            v2|string: "62,40\_₽"
-            v3|string: "148,68\_₽"
-          preemptible|string: "62,40\_₽"
-          t4i|string: "144,00\_₽"
-          v2|string: "249,52\_₽"
-          v3|string: "371,70\_₽"
-        gpu-standard|string: "249,52\_₽"
-        infiniband:
-          ic:
-            preemptible|string: "63,60\_₽"
-          ic|string: "63,60\_₽"
-        standard:
-          v3-t4:
-            preemptible|string: "16,00\_₽"
-          v3-t4|string: "64,00\_₽"
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: "0,28\_₽"
-            v3|string: "0,11\_₽"
-          t4i|string: "0,28\_₽"
-          v3|string: "0,28\_₽"
         highfreq-v3|string: "0,32\_₽"
         preemptible:
           v2|string: "0,07\_₽"
@@ -3364,6 +3395,51 @@ default:
     logs:
       raw|string: "40,000000\_$"
       shielding|string: "28,000000\_$"
+  sku|USD|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: "0,008400\_$"
+              v3|string: "0,002880\_$"
+              v3i|string: "0,007200\_$"
+            t4i|string: "0,008400\_$"
+            v3|string: "0,007200\_$"
+            v3i|string: "0,007200\_$"
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: "1,152000\_$"
+            v2|string: "0,499200\_$"
+            v3|string: "1,189440\_$"
+            v3i|string: "13,338400\_$"
+          preemptible|string: "0,499200\_$"
+          t4i|string: "1,152000\_$"
+          v2|string: "1,996160\_$"
+          v3|string: "2,973600\_$"
+          v3i|string: "13,338400\_$"
+        gpu-standard|string: "1,996160\_$"
+        infiniband:
+          ic_v3i:
+            preemptible|string: "5,923200\_$"
+          ic_v3i|string: "5,923200\_$"
+          ic:
+            preemptible|string: "0,508800\_$"
+          ic|string: "0,508800\_$"
+        standard:
+          v3-t4:
+            preemptible|string: "0,128000\_$"
+          v3-t4|string: "0,512000\_$"
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: "0,002240\_$"
+            v3|string: "0,000880\_$"
+            v3i|string: "0,002240\_$"
+          t4i|string: "0,002240\_$"
+          v3|string: "0,002240\_$"
+          v3i|string: "0,002240\_$"
   sku|USD|compute:
     filesystem:
       hdd:
@@ -3399,12 +3475,6 @@ default:
           v2|string: "0,001280\_$"
         c05|string: "0,002480\_$"
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: "0,008400\_$"
-              v3|string: "0,002880\_$"
-            t4i|string: "0,008400\_$"
-            v3|string: "0,007200\_$"
           highfreq-v3|string: "0,014080\_$"
           preemptible:
             v2|string: "0,002560\_$"
@@ -3428,32 +3498,7 @@ default:
             v2|string: "0,001760\_$"
             v3|string: "0,001600\_$"
           v3|string: "0,005120\_$"
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: "1,152000\_$"
-            v2|string: "0,499200\_$"
-            v3|string: "1,189440\_$"
-          preemptible|string: "0,499200\_$"
-          t4i|string: "1,152000\_$"
-          v2|string: "1,996160\_$"
-          v3|string: "2,973600\_$"
-        gpu-standard|string: "1,996160\_$"
-        infiniband:
-          ic:
-            preemptible|string: "0,508800\_$"
-          ic|string: "0,508800\_$"
-        standard:
-          v3-t4:
-            preemptible|string: "0,128000\_$"
-          v3-t4|string: "0,512000\_$"
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: "0,002240\_$"
-            v3|string: "0,000880\_$"
-          t4i|string: "0,002240\_$"
-          v3|string: "0,002240\_$"
         highfreq-v3|string: "0,002560\_$"
         preemptible:
           v2|string: "0,000560\_$"
@@ -3617,15 +3662,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 0.1152
           v1|string: "0,115200\_$"
+        v1|number: 0.04608
         v1|string: "0,046080\_$"
       v1:
+        encryptdecrypt|number: 0.02304
         encryptdecrypt|string: "0,023040\_$"
     storage:
       asymmetric:
+        v1|number: 0.02304
         v1|string: "0,023040\_$"
       v1:
         hsm|month|string: "2,880000\_$"
+        software|month|number: 0.02304
         software|month|string: "0,023040\_$"
   sku|USD|lockbox:
     api:
@@ -3863,6 +3913,7 @@ default:
         mysql|month|string: "0,104080\_$"
         opensearch|month|string: "0,104080\_$"
         pg|month|string: "0,104080\_$"
+        redis|month|number: 0.10408
         redis|month|string: "0,104080\_$"
       network-ssd-io-m3:
         ch|month|string: "0,174240\_$"
@@ -3896,10 +3947,12 @@ default:
         v3:
           cpu:
             c100|month|string: "9,676800\_$"
+            c100|number: 0.01344
             c100|string: "0,013440\_$"
             c50|month|string: "3,870720\_$"
             c50|string: "0,005376\_$"
           ram|month|string: "4,032000\_$"
+          ram|number: 0.0056
           ram|string: "0,005600\_$"
       pg:
         backup|month|string: "0,015360\_$"
@@ -3959,10 +4012,12 @@ default:
         v3:
           cpu:
             c100|month|string: "8,697600\_$"
+            c100|number: 0.01208
             c100|string: "0,012080\_$"
             c50|month|string: "5,241600\_$"
             c50|string: "0,007280\_$"
           ram|month|string: "2,304000\_$"
+          ram|number: 0.0032
           ram|string: "0,003200\_$"
     dataproc:
       v2:
@@ -6612,6 +6667,7 @@ default:
           label_disk-encryption: Зашифрованный диск
           label_disk-kms-key: Ключ KMS
           label_service-account: Сервисный аккаунт
+          section_encryption: Шифрование
         disk:
           overview:
             label_snapshot: Снимок

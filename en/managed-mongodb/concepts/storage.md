@@ -1,3 +1,8 @@
+---
+title: Storage in {{ mmg-full-name }}
+description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
+---
+
 # Storage in {{ mmg-name }}
 
 
@@ -9,7 +14,7 @@
 
 The number of hosts you can create together with a {{ MG }} cluster depends on the selected disk type:
 
-* When using storage on local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
+* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
 
    This cluster will be fault-tolerant.
 
@@ -24,24 +29,24 @@ For more information about limits on the number of hosts per cluster or [shard](
 
 {% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}
 
-After a transition to read-only mode:
+After switching to read-only mode:
 
 * Write queries stop being allowed on the host. You can only make read queries.
-* If the host was a [primary replica](replication.md) before switching to read-only mode, this role will be automatically assigned to another cluster host, because the primary replica role requires permission to write to the disk.
+* If the host was a [primary replica](replication.md) before switching to read-only mode, this role will be automatically assigned to another cluster host as the primary replica should be able to write to the disk.
 
-If the amount of data in the cluster keeps growing, all hosts will switch to read-only mode one by one and the cluster will stop accepting data to write.
+If the cluster's data volume keeps growing, all hosts will enter read-only mode one by one and the cluster will eventually stop accepting data for writing.
 
 ### Maintaining a cluster in operable condition {#read-only-solutions}
 
 To keep your cluster up and running as the host is switching over to read-only:
 * [Increase the disk space on the host](../operations/update.md#change-disk-size). Once there is enough space on the host, {{ yandex-cloud }} will clear read-only mode automatically.
-* [Add more shards to the cluster](../operations/shards.md#add-shard). The read-only mode will not be cleared on this host, but the cluster will be able to keep working normally as long as there is free disk space on the other shards.
-* Ask [support]({{ link-console-support }}) to temporarily suspend read-only mode on this host to manually delete some of the data.
+* [Add more shards to the cluster](../operations/shards.md#add-shard). Read-only mode will not be cleared on this host, but the cluster will be able to keep working normally as long as there is free disk space on the other shards.
+* Ask [support]({{ link-console-support }}) to temporarily suspend the read-only mode on this host to manually delete some of the data.
 
    {% note alert %}
 
    If free disk space drops to zero, {{ MG }} will crash and the cluster will stop operating.
-
+  
    {% endnote %}
 
 * [Force data synchronization](../operations/hosts.md#resetup) between hosts. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).

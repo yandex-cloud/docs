@@ -1,3 +1,8 @@
+---
+title: Installing HashiCorp Vault with {{ kms-full-name }} support
+description: Follow this guide to install HashiCorp Vault with {{ kms-full-name }} support.
+---
+
 # Installing HashiCorp Vault with {{ kms-name }} support
 
 
@@ -99,8 +104,8 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    Command parameters:
-   * `<path_to_file_with_authorized_key>`: Path to the `authorized-key.json` file you [saved before](#before-you-begin).
-   * `<namespace>`: New namespace to create for HashiCorp Vault.
+   * `<path_to_file_with_authorized_key>`: Path to the `authorized-key.json` file you [saved earlier](#before-you-begin).
+   * `<namespace>`: New namespace that will be created for HashiCorp Vault.
    * `<KMS_key_ID>`: [Previously obtained](#before-you-begin) {{ kms-name }} key ID.
 
    This command will install HashiCorp Vault with KMS support and the [Agent injector](https://developer.hashicorp.com/vault/docs/platform/k8s/injector) secret delivery tool to the cluster. To use the alternative [Vault CSI provider](https://developer.hashicorp.com/vault/docs/platform/k8s/csi) mechanism, add the following parameters to the command:

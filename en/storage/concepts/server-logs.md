@@ -1,3 +1,8 @@
+---
+title: Bucket actions logging mechanism
+description: In this article, you will learn about the bucket actions logging mechanism, source and target bucket requirements, log object key format, and logging features.
+---
+
 # Bucket actions logging mechanism
 
 
@@ -39,9 +44,9 @@ To start writing logs, do the following:
 
 Where:
 
-* `<prefix>`: [Prefix of the key](#key-prefix) of the log object. You can specify the prefix yourself when enabling logging.
+* `<prefix>`: [Prefix of the key](#key-prefix) for the log object. You can specify the prefix yourself when enabling logging.
 * `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (UTC format).
-* `<identifier>`: Unique record ID that prevents overwriting the object.
+* `<ID>`: Unique record ID that prevents the object from being overwritten.
 
 ### Prefix of the key {#key-prefix}
 

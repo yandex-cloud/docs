@@ -16,11 +16,11 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 1. Prepare a file with a format schema (see the documentation for [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
 
 
-1. To bind your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) that your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 1. [Import](../../storage/operations/objects/upload.md) the file with the data format schema to {{ objstorage-full-name }}.
-1. [Connect a service account to a cluster](s3-access.md#connect-service-account). Use your service account to configure access permissions for the schema file.
-1. [Assign the `storage.viewer` role](s3-access.md#configure-acl) to the service account.
-1. In the bucket's ACL, [add the `READ` permission](../../storage/operations/buckets/edit-acl.md) to the service account.
+1. [Connect the service account to the cluster](s3-access.md#connect-service-account). You will use this service account to configure permissions to access the schema file.
+1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
+1. In the bucket's ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
 
 
@@ -61,7 +61,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
       --uri="<link_to_file_in_Object_Storage>"
     ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -69,7 +69,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add a `format_schema` section to the {{ mch-name }} cluster description:
+    1. Add a `format_schema` block to the {{ mch-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -82,7 +82,7 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
         }
         ```
 
-        Where `type` is the schema type: `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
+        Where `type` is the schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
 
     1. Make sure the settings are correct.
 
@@ -101,9 +101,9 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
     To create a format schema, use the [create](../api-ref/FormatSchema/create.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Create](../api-ref/grpc/FormatSchema/create.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name, in the `formatSchemaName` parameter.
-    * Schema type: `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`, in the `type` parameter.
-    * Link to the file in {{ objstorage-full-name }}, in the `uri` parameter.
+    * Format schema name in the `formatSchemaName` parameter.
+    * Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`, in the `type` parameter.
+    * Link to the file in {{ objstorage-full-name }} in the `uri` parameter.
 
 {% endlist %}
 
@@ -179,9 +179,9 @@ To update the contents of a schema that is already connected to the cluster:
     To update a data format schema, use the [update](../api-ref/FormatSchema/update.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Update](../api-ref/grpc/FormatSchema/update.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name, in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
-    * New link to the file in {{ objstorage-full-name }}, in the `uri` parameter.
-    * List of cluster configuration fields to update, in the `updateMask` parameter.
+    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
+    * New link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+    * List of cluster configuration fields to update in the `updateMask` parameter.
 
         {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -192,7 +192,7 @@ To update the contents of a schema that is already connected to the cluster:
 {% note info %}
 
 
-After disabling a format schema, the corresponding object is kept in the {{ objstorage-full-name }} bucket. If this object with the format schema is no longer needed, you can [delete](../../storage/operations/objects/delete.md) it.
+After disabling a format schema, the corresponding object is kept in the {{ objstorage-full-name }} bucket. If you no longer need this format schema object, you can [delete](../../storage/operations/objects/delete.md) it.
 
 
 {% endnote %}
@@ -226,7 +226,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Delete the `format_schema` block describing the required data format schema from the {{ mch-name }} cluster description.
+    1. Delete the `format_schema` description section for the appropriate data format schema from the {{ mch-name }} cluster description.
 
     1. Make sure the settings are correct.
 
@@ -245,7 +245,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
     To delete a data format schema, use the [delete](../api-ref/FormatSchema/delete.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Delete](../api-ref/grpc/FormatSchema/delete.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name, in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
+    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
 
 {% endlist %}
 
@@ -270,7 +270,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
   {{ yc-mdb-ch }} format-schema list --cluster-name="<cluster_name>"
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -304,7 +304,7 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
     To get detailed information about a data format schema, use the [get](../api-ref/FormatSchema/get.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Get](../api-ref/grpc/FormatSchema/get.md) gRPC API call and provide the following in the request:
 
     * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name, in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
+    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
 
 {% endlist %}
 

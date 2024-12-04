@@ -1,3 +1,8 @@
+---
+title: Using Istio
+description: In this tutorial, you will learn how to use Istio.
+---
+
 # Using Istio
 
 
@@ -8,10 +13,10 @@ To view Istio usage options:
 1. [Install Istio](#istio-install).
 1. [Install a test application](#test-application).
 1. [View a service network diagram on the Kiali dashboard](#visualization-service-network).
-1. [Route requests](#request-routing).
+1. [Route service requests](#request-routing).
 1. [Simulate a service failure](#injection-failures).
 1. [Redistribute traffic](#traffic-redistribution).
-1. [Set up mutual TLS authentication](#mutual-tls).
+1. [Set authentication mode using mutual TLS](#mutual-tls).
 1. [View Istio metrics on the {{ prometheus-name }} dashboard](#viewing-metrics-prometheus).
 1. [View Istio metrics on the {{ grafana-name }} dashboard](#viewing-metrics-grafana).
 
@@ -56,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [Network](../../../vpc/concepts/network.md#network).
             * [Subnet](../../../vpc/concepts/network.md#subnet).
             * {{ k8s }} cluster.
-            * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
+            * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
             * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
                 {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -92,7 +97,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Install](../../operations/applications/istio.md#marketplace-install) [Istio](/marketplace/products/yc/istio) from the {{ marketplace-full-name }} application catalog. When installing the application:
 
     1. Create a new [namespace](../../concepts/index.md#namespace) called `istio-system`.
-    1. Install Istio add-ons: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger.
+    1. Install add-ons for Istio: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, and Jaeger.
 
 1. Make sure all the [pods](../../concepts/index.md#pod) of Istio and its add-ons have changed their status to `Running`:
 

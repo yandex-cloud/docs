@@ -1,11 +1,17 @@
 ---
-title: How to send a series of requests in chat mode to {{ yagpt-full-name }}
+title: How to send multiple requests in chat mode to {{ yagpt-full-name }}
 description: Follow this guide to learn how to use {{ yagpt-full-name }} in chat mode.
 ---
 
 # How to create a chat with {{ yagpt-name }}
 
-{{ yagpt-full-name }} models do not retain the context of previous messages, so to have a continuous dialog with the model, you need to save the message history on your device and send it with each request to the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of a series of prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can work with context of up to {{ yagpt-max-tokens }} [tokens](../../concepts/yandexgpt/tokens.md).
+{{ yagpt-full-name }} models do not retain the context of previous messages, so to have a continuous dialog with a model, you need to save the message history on your device and send it each time you are requesting the model. The [chat](../../concepts/yandexgpt/index.md) available in {{ foundation-models-name }} Playground consists of multiple prompts where the context of each new request includes the model's responses to previous ones. {{ yagpt-full-name }} models can work with context of up to {{ yagpt-max-tokens }} [tokens](../../concepts/yandexgpt/tokens.md).
+
+{% note tip %}
+
+Use {{ assistant-api }} to create a chat with the model. For an example of a chat implemented using assistants and threads, see the [{#T}](../assistant/create.md) guide.
+
+{% endnote %}
 
 To create a chat with a model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
 
@@ -123,7 +129,7 @@ To create a chat:
         export API_KEY=<API_key>
         ```
 
-     1. Run the file you created:
+     1. Run the created file:
 
         ```bash
         python index.py

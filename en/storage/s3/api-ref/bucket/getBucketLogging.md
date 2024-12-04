@@ -1,3 +1,8 @@
+---
+title: getBucketLogging method
+description: In this article, you will learn what the getBucketLogging method is, and what its request and response look like.
+---
+
 # getBucketLogging method
 
 
@@ -5,7 +10,7 @@ Returns the settings for [bucket actions logging](../../../concepts/server-logs.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
-## Request {#request}
+## Query {#request}
 
 ```http
 GET /{bucket}?logging HTTP/2

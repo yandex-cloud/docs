@@ -16,7 +16,7 @@ When this migration type is selected, the object is transferred to the [workbook
 * Object IDs remain the same.
 * Links to objects do not change and lead to the workbook.
 
-During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you to start your migration from any object. For example, from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then, it will perform a search for links for the objects it has found. Once finished, the service will prompt you to place all found objects in a workbook.
+During migration, {{ datalens-short-name }} finds linked objects recursively across all links. Therefore, you to start your migration from any object. For example, from a dashboard. {{ datalens-short-name }} will find all linked charts, datasets, and connections. Then it will search for the links of the objects it found. Finally, it will prompt you to put all the objects it found into a single workbook.
 
 {% note warning %}
 
@@ -40,11 +40,11 @@ You can start copying from any object. Unlike in a transfer, linked objects are 
 * The connection on which the dataset is built is copied with the dataset.
 * The connection is copied separately.
 
-{{ datalens-short-name }} will suggest placing the objects it finds into a single workbook.
+{{ datalens-short-name }} will prompt you to put the objects it found into a single workbook.
 
 {% note warning %}
 
-Copying the [Files](../operations/connection/create-file.md) and [Google Sheets](../operations/connection/create-google-sheets.md) connections is not available.
+Copying the [Files](../operations/connection/create-file.md), [Google Sheets](../operations/connection/create-google-sheets.md), and [Yandex Documents](../operations/connection/create-yadocs.md) connections is not available.
 
 {% endnote %}
 

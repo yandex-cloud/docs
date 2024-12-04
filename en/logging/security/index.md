@@ -17,9 +17,24 @@ Roles for a resource can be assigned by users who have the `logging.admin` role 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
-{% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/logging/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Log group](../concepts/log-group.md)
+  * [Log target](../operations/create-sink.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  {% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+
+{% endlist %}
 
 ## Which roles exist in the service {#roles-list}
 

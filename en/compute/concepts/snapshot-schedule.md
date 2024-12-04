@@ -1,3 +1,8 @@
+---
+title: Creating scheduled disk snapshots
+description: In this tutorial, you will learn how to create scheduled disk snapshots.
+---
+
 # Creating scheduled disk snapshots
 
 
@@ -6,7 +11,7 @@ You can configure automatic [disk snapshot](snapshot.md) creation based on a _sc
 In the schedule, you specify:
 
 * Disks for which the snapshots will be created. One schedule can include multiple disks, and one disk can be added to multiple schedules.
-* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). The time is provided for the [UTC](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
+* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * [Snapshot retention](#retention) settings.
 * Scheduled snapshot description and [labels](../../resource-manager/concepts/labels.md) (you can only use the API to add them to the schedule settings).
 
@@ -29,22 +34,22 @@ Schedules can be used free of charge. You only pay for storing the snapshots. Fo
 
 ## Cron expressions {#cron}
 
-You can specify a snapshot schedule using [cron expressions](https://{{ lang }}.wikipedia.org/wiki/Cron), which include five [fields](#cron-fields): `Minutes Hours Day-of-month Month Day-of-week`. You can also use [special expressions](#cron-predefined), e.g., to create snapshots every hour or every day.
+You can specify a snapshot schedule using a [cron expression](https://{{ lang }}.wikipedia.org/wiki/Cron) consisting of five [fields](#cron-fields): `Minutes Hours Day-of-month Month Day-of-week`. You can also use [special expressions](#cron-predefined), e.g., to create snapshots every hour or every day.
 
 
 ### Possible field values {#cron-fields}
 
-| Field <br>name | Acceptable <br>values | Supported<br>[special <br>characters](#cron-special-characters) |
+| Field <br>name | Acceptable <br>values | Supported <br>[special <br>characters](#cron-special-characters) |
 |----|----|----|
-| `Minutes` | `0`-`59` | `,`, `-`, `*`, `/` |
-| `Hours` | `0`-`23` (UTC) | `,`, `-`, `*`, `/` |
-| `Day of month` | `1`-`31` | `,`, `-`, `*`, `?`, `/` |
-| `Month` | `1`-`12`, <br>`JAN`-`DEC` | `,`, `-`, `*`, `/` |
-| `Day of week` | `1`-`7`, <br>`MON`-`SUN` | `,`, `-`, `*`, `?`, `/` |
+|`Minutes` | `0`–`59` | `,`, `-`, `*`, `/` |
+|`Hours` | `0`–`23` (UTC+0)| `,`, `-`, `*`, `/` |
+|`Day of month`| `1`–`31` | `,`, `-`, `*`, `?`, `/` |
+|`Month`| `1`–`12` <br>`JAN`–`DEC` | `,`, `-`, `*`, `/` |
+|`Day of week`| `1`–`7` <br>`MON`–`SUN` | `,`, `-`, `*`, `?`, `/` |
 
 {% note info %}
 
-The names of months and days are case-insensitive, i.e., `MON` is the same as `mon`.
+The names of and days are case-insensitive, i.e., `MON` is the same as `mon`.
 
 {% endnote %}
 
@@ -57,7 +62,7 @@ You can use the following special characters in cron expressions:
 
   > `*` character in the `Hours` field: Snapshots are created every hour.
 
-* `?`: Select any field value. You cannot specify `Day of month` and `Day of week` at the same time. If you entered a value or `*` in one of these fields, enter `?`. in the other.
+* `?`: Select any field value. You cannot specify `Day of month` and `Day of week` at the same time. If you entered a value or `*` in one of these fields, enter `?` in the other.
 
   > `10` in `Day of month` and `?` in `Day of week`: Snapshots are created every tenth day of the month.
 
@@ -100,24 +105,24 @@ With schedules, you can set and configure a _snapshot retention policy_. For eac
 
 * All created scheduled snapshots.
 * Only the last few snapshots. The oldest snapshots created on schedule are automatically deleted once the specified number is exceeded. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, etc.
-* Only the snapshots younger than a certain age, e.g., those created for the last few days. The oldest snapshots created on schedule are automatically deleted once the specified age is reached.
+* Only the snapshots younger than a certain age, e.g., those created during the last few days. The oldest snapshots created on schedule are automatically deleted once the specified age is reached.
 
 The retention policy applies to all disks in a schedule.
 
-Snapshots are deleted only while the schedule is at the `ACTIVE` [status](#statuses).
+Snapshots are deleted only while the schedule is active (its [status](#statuses) is `ACTIVE`).
 
 
 ## Snapshot names {#names}
 
 For a scheduled snapshot, a name up to 63 characters long is generated. The name consists of the following items separated with underscores:
 
-* Name of a virtual machine the disk is attached to (up to 24 characters), or the `unattached` line, if the disk is not attached to any VM.
+* Name of a virtual machine the disk is attached to (up to 24 characters) or the `unattached` line if the disk is not attached to any VM.
 * Disk name (up 20 characters).
 * Snapshot creation date and time (UTC) in `YYYYMMDDhhmm` format (year, month, day, hour, and minute).
 * Line consisting of four random alphanumeric characters.
 
-> For example, if the `test-disk-with-a-long-name` disk is attached to the `test-vm` VM, its scheduled snapshot created on September 1, 2022 at 03:30 p.m. UTC will have the following name:
->
+> For example, if `test-disk-with-a-long-name` is attached to `test-vm`, its scheduled snapshot created on September 1, 2022 at 03:30 p.m. UTC will have the following name:
+> 
 > ```
 > test-vm_test-disk-with-a-lon_202209011530_pd2k
 > ```
@@ -125,12 +130,12 @@ For a scheduled snapshot, a name up to 63 characters long is generated. The name
 ## Schedule statuses {#statuses}
 
 * `CREATING`: Schedule is being created.
-* `ACTIVE`: Schedule is on: based on it, new disk snapshots are created and old ones are deleted (if the respective parameter has been specified in [snapshot retention](#retention)).
-* `UPDATING`: Changes are being made to the schedule settings or the list of attached disks.
+* `ACTIVE`: Schedule is active: it is used to create new disk snapshots and delete the old ones (if you selected the relevant option in the [snapshot retention](#retention) settings).
+* `UPDATING`: Schedule settings or the list of attached disks are being updated.
 * `INACTIVE`: Schedule has been paused, snapshots are not created or deleted.
 * `DELETING`: Schedule is being deleted.
 
-All snapshot creation or deletion operations that started prior to changing, pausing, or deleting the schedule will be completed.
+All snapshot creation or deletion operations that started prior to changing, interrupting or deleting the schedule will be completed.
 
 #### See also {#see-also}
 

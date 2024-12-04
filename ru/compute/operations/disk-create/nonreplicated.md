@@ -1,5 +1,5 @@
 ---
-title: Создать нереплицируемый диск
+title: Как создать нереплицируемый диск в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать нереплицируемый диск.
 ---
 
@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      При создании диска для него можно выбрать только одно расписание снимков. Если требуется, после создания диска вы можете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).

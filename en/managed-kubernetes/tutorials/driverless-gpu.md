@@ -1,3 +1,8 @@
+---
+title: Using node groups with GPUs and no pre-installed drivers
+description: In this tutorial, you will learn how to use node groups with GPUs and no pre-installed drivers.
+---
+
 # Using node groups with GPUs and no pre-installed drivers
 
 
@@ -5,7 +10,7 @@ You can use {{ managed-k8s-name }} node groups for workloads on [GPUs](../../com
 
 To prepare your cluster and {{ managed-k8s-name }} node group without pre-installed drivers for running workloads:
 
-1. [Install the GPU Operator](#install-gpu-operator).
+1. [Install the GPU operator](#install-gpu-operator).
 1. [Check that drivers are installed correctly](#check-install).
 
 If you no longer need the resources you created, [delete them](#clear-out).

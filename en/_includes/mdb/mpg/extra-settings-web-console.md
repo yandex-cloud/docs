@@ -23,9 +23,11 @@
 
 
 
+
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Allows you to use the [Performance diagnostics](../../../managed-postgresql/operations/performance-diagnostics.md) tool in a cluster. If this option is enabled, also set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** using the sliders. Both are measured in seconds.
 
     This feature is at the [Preview stage](../../../overview/concepts/launch-stages.md).
+
 
 - **Autofailover**: Enable this option so that when the master host changes, the replication source for every replica host is automatically switched over to the new master host. To learn more, see [Replication](../../../managed-postgresql/concepts/replication.md).
 

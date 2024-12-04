@@ -1,3 +1,8 @@
+---
+title: Creating a fixed-size instance group with a network load balancer
+description: Follow this guide to create a fixed-size instance group with a network load balancer.
+---
+
 # Creating a fixed-size instance group with a network load balancer
 
 
@@ -166,7 +171,7 @@ To create an instance group with a network load balancer:
          * `false` (default): Create a regular instance.
 
          When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
-       * `placement_policy`: (Optional) [Instance placement group](../../concepts/placement-groups.md) parameters:
+       * `placement_policy` (optional): [Instance placement group](../../concepts/placement-groups.md) parameters:
          * `placement_group_id`: Placement group ID.
      * [Policies](../../concepts/instance-groups/policies/index.md):
 
@@ -288,7 +293,7 @@ To create an instance group with a network load balancer:
        instance_template {
          platform_id = "standard-v3"
          resources {
-           memory = <RAM_GB>
+           memory = <RAM_size_GB>
            cores  = <number_of_vCPU_cores>
          }
 
@@ -410,7 +415,7 @@ To create an instance group with a network load balancer:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

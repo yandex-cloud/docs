@@ -27,6 +27,12 @@ items:
             href: operations/classifier/readymade.md
           - name: Using fine-tuned classifiers
             href: operations/classifier/additionally-trained.md
+      - name: '{{ assistant-api }}'
+        items:
+          - name: Creating a simple assistant
+            href: operations/assistant/create.md
+          - name: Creating a search assistant
+            href: operations/assistant/create-with-searchindex.md
       - name: '{{ yandexart-name }}'
         items:
           - name: Generating an image
@@ -51,6 +57,8 @@ items:
             href: concepts/classifier/index.md
           - name: Models
             href: concepts/classifier/models.md
+      - name: '{{ assistant-api }}'
+        href: concepts/assistant/index.md
       - name: '{{ yandexart-name }}'
         items:
           - name: '{{ yandexart-name }} overview'
@@ -71,8 +79,6 @@ items:
         href: concepts/api.md
       - name: Authentication with the API
         href: api-ref/authentication.md
-      - name: Migration to YandexGPT API v1 and Embeddings API v1
-        href: api-ref/migration-to-v1.md
       - name: '{{ yagpt-full-name }}'
         items:
           - name: REST
@@ -193,7 +199,303 @@ items:
                   - name: FewShotClassify
                     href: >-
                       text-classification/api-ref/grpc/TextClassification/fewShotClassify.md
-      - name: '{{ yandexart-name }}'
+      - name: '{{ assistant-api }}'
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: assistants/api-ref/index.md
+              - name: Assistant
+                items:
+                  - name: Overview
+                    href: assistants/api-ref/Assistant/index.md
+                  - name: Create
+                    href: assistants/api-ref/Assistant/create.md
+                  - name: Get
+                    href: assistants/api-ref/Assistant/get.md
+                  - name: Update
+                    href: assistants/api-ref/Assistant/update.md
+                  - name: Delete
+                    href: assistants/api-ref/Assistant/delete.md
+                  - name: List
+                    href: assistants/api-ref/Assistant/list.md
+                  - name: ListVersions
+                    href: assistants/api-ref/Assistant/listVersions.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: assistants/api-ref/Operation/index.md
+                  - name: Get
+                    href: assistants/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: assistants/api-ref/Operation/cancel.md
+              - name: Runs
+                items:
+                  - name: Overview
+                    href: runs/api-ref/index.md
+                  - name: Run
+                    items:
+                      - name: Overview
+                        href: runs/api-ref/Run/index.md
+                      - name: Create
+                        href: runs/api-ref/Run/create.md
+                      - name: Listen
+                        href: runs/api-ref/Run/listen.md
+                      - name: Get
+                        href: runs/api-ref/Run/get.md
+                      - name: GetLastByThread
+                        href: runs/api-ref/Run/getLastByThread.md
+                      - name: List
+                        href: runs/api-ref/Run/list.md
+              - name: Search Index
+                items:
+                  - name: Overview
+                    href: searchindex/api-ref/index.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/Operation/index.md
+                      - name: Get
+                        href: searchindex/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: searchindex/api-ref/Operation/cancel.md
+                  - name: SearchIndexFile
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/SearchIndexFile/index.md
+                      - name: Get
+                        href: searchindex/api-ref/SearchIndexFile/get.md
+                      - name: List
+                        href: searchindex/api-ref/SearchIndexFile/list.md
+                  - name: SearchIndex
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/SearchIndex/index.md
+                      - name: Create
+                        href: searchindex/api-ref/SearchIndex/create.md
+                      - name: Get
+                        href: searchindex/api-ref/SearchIndex/get.md
+                      - name: Update
+                        href: searchindex/api-ref/SearchIndex/update.md
+                      - name: Delete
+                        href: searchindex/api-ref/SearchIndex/delete.md
+                      - name: List
+                        href: searchindex/api-ref/SearchIndex/list.md
+              - name: Threads
+                items:
+                  - name: Overview
+                    href: threads/api-ref/index.md
+                  - name: Message
+                    items:
+                      - name: Overview
+                        href: threads/api-ref/Message/index.md
+                      - name: Create
+                        href: threads/api-ref/Message/create.md
+                      - name: Get
+                        href: threads/api-ref/Message/get.md
+                      - name: List
+                        href: threads/api-ref/Message/list.md
+                  - name: Thread
+                    items:
+                      - name: Overview
+                        href: threads/api-ref/Thread/index.md
+                      - name: Create
+                        href: threads/api-ref/Thread/create.md
+                      - name: Get
+                        href: threads/api-ref/Thread/get.md
+                      - name: Update
+                        href: threads/api-ref/Thread/update.md
+                      - name: Delete
+                        href: threads/api-ref/Thread/delete.md
+                      - name: List
+                        href: threads/api-ref/Thread/list.md
+              - name: Users
+                items:
+                  - name: Overview
+                    href: users/api-ref/index.md
+                  - name: User
+                    items:
+                      - name: Overview
+                        href: users/api-ref/User/index.md
+                      - name: Create
+                        href: users/api-ref/User/create.md
+                      - name: Get
+                        href: users/api-ref/User/get.md
+                      - name: Update
+                        href: users/api-ref/User/update.md
+                      - name: Delete
+                        href: users/api-ref/User/delete.md
+                      - name: List
+                        href: users/api-ref/User/list.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: assistants/api-ref/grpc/index.md
+              - name: Assistant
+                items:
+                  - name: Overview
+                    href: assistants/api-ref/grpc/Assistant/index.md
+                  - name: Create
+                    href: assistants/api-ref/grpc/Assistant/create.md
+                  - name: Get
+                    href: assistants/api-ref/grpc/Assistant/get.md
+                  - name: Update
+                    href: assistants/api-ref/grpc/Assistant/update.md
+                  - name: Delete
+                    href: assistants/api-ref/grpc/Assistant/delete.md
+                  - name: List
+                    href: assistants/api-ref/grpc/Assistant/list.md
+                  - name: ListVersions
+                    href: assistants/api-ref/grpc/Assistant/listVersions.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: assistants/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: assistants/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: assistants/api-ref/grpc/Operation/cancel.md
+              - name: Runs
+                items:
+                  - name: Overview
+                    href: runs/api-ref/grpc/index.md
+                  - name: Run
+                    items:
+                      - name: Overview
+                        href: runs/api-ref/grpc/Run/index.md
+                      - name: Create
+                        href: runs/api-ref/grpc/Run/create.md
+                      - name: Listen
+                        href: runs/api-ref/grpc/Run/listen.md
+                      - name: Get
+                        href: runs/api-ref/grpc/Run/get.md
+                      - name: GetLastByThread
+                        href: runs/api-ref/grpc/Run/getLastByThread.md
+                      - name: List
+                        href: runs/api-ref/grpc/Run/list.md
+              - name: Search Index
+                items:
+                  - name: Overview
+                    href: searchindex/api-ref/grpc/index.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: searchindex/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: searchindex/api-ref/grpc/Operation/cancel.md
+                  - name: SearchIndexFile
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/grpc/SearchIndexFile/index.md
+                      - name: Get
+                        href: searchindex/api-ref/grpc/SearchIndexFile/get.md
+                      - name: List
+                        href: searchindex/api-ref/grpc/SearchIndexFile/list.md
+                  - name: SearchIndex
+                    items:
+                      - name: Overview
+                        href: searchindex/api-ref/grpc/SearchIndex/index.md
+                      - name: Create
+                        href: searchindex/api-ref/grpc/SearchIndex/create.md
+                      - name: Get
+                        href: searchindex/api-ref/grpc/SearchIndex/get.md
+                      - name: Update
+                        href: searchindex/api-ref/grpc/SearchIndex/update.md
+                      - name: Delete
+                        href: searchindex/api-ref/grpc/SearchIndex/delete.md
+                      - name: List
+                        href: searchindex/api-ref/grpc/SearchIndex/list.md
+              - name: Threads
+                items:
+                  - name: Overview
+                    href: threads/api-ref/grpc/index.md
+                  - name: Message
+                    items:
+                      - name: Overview
+                        href: threads/api-ref/grpc/Message/index.md
+                      - name: Create
+                        href: threads/api-ref/grpc/Message/create.md
+                      - name: Get
+                        href: threads/api-ref/grpc/Message/get.md
+                      - name: List
+                        href: threads/api-ref/grpc/Message/list.md
+                  - name: Thread
+                    items:
+                      - name: Overview
+                        href: threads/api-ref/grpc/Thread/index.md
+                      - name: Create
+                        href: threads/api-ref/grpc/Thread/create.md
+                      - name: Get
+                        href: threads/api-ref/grpc/Thread/get.md
+                      - name: Update
+                        href: threads/api-ref/grpc/Thread/update.md
+                      - name: Delete
+                        href: threads/api-ref/grpc/Thread/delete.md
+                      - name: List
+                        href: threads/api-ref/grpc/Thread/list.md
+              - name: Users
+                items:
+                  - name: Overview
+                    href: users/api-ref/grpc/index.md
+                  - name: User
+                    items:
+                      - name: Overview
+                        href: users/api-ref/grpc/User/index.md
+                      - name: Create
+                        href: users/api-ref/grpc/User/create.md
+                      - name: Get
+                        href: users/api-ref/grpc/User/get.md
+                      - name: Update
+                        href: users/api-ref/grpc/User/update.md
+                      - name: Delete
+                        href: users/api-ref/grpc/User/delete.md
+                      - name: List
+                        href: users/api-ref/grpc/User/list.md
+      - name: Files API
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: files/api-ref/index.md
+              - name: File
+                items:
+                  - name: Overview
+                    href: files/api-ref/File/index.md
+                  - name: Create
+                    href: files/api-ref/File/create.md
+                  - name: Get
+                    href: files/api-ref/File/get.md
+                  - name: GetUrl
+                    href: files/api-ref/File/getUrl.md
+                  - name: Update
+                    href: files/api-ref/File/update.md
+                  - name: Delete
+                    href: files/api-ref/File/delete.md
+                  - name: List
+                    href: files/api-ref/File/list.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: files/api-ref/grpc/index.md
+              - name: File
+                items:
+                  - name: Overview
+                    href: files/api-ref/grpc/File/index.md
+                  - name: Create
+                    href: files/api-ref/grpc/File/create.md
+                  - name: Get
+                    href: files/api-ref/grpc/File/get.md
+                  - name: GetUrl
+                    href: files/api-ref/grpc/File/getUrl.md
+                  - name: Update
+                    href: files/api-ref/grpc/File/update.md
+                  - name: Delete
+                    href: files/api-ref/grpc/File/delete.md
+                  - name: List
+                    href: files/api-ref/grpc/File/list.md
+      - name: ' {{ yandexart-name }}'
         items:
           - name: REST
             items:
@@ -233,84 +535,6 @@ items:
                     href: image-generation/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: image-generation/api-ref/grpc/Operation/cancel.md
-      - name: API v1alpha (DEPRECATED)
-        items:
-          - name: REST
-            items:
-              - name: Overview
-                href: api-ref/v1alpha/index.md
-              - name: Embeddings
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/Embeddings/index.md
-                  - name: Embedding
-                    href: api-ref/v1alpha/Embeddings/embedding.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/Operation/index.md
-                  - name: Get
-                    href: api-ref/v1alpha/Operation/get.md
-                  - name: Cancel
-                    href: api-ref/v1alpha/Operation/cancel.md
-              - name: TextGenerationAsync
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/TextGenerationAsync/index.md
-                  - name: Instruct
-                    href: api-ref/v1alpha/TextGenerationAsync/instruct.md
-              - name: TextGeneration
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/TextGeneration/index.md
-                  - name: Instruct
-                    href: api-ref/v1alpha/TextGeneration/instruct.md
-                  - name: Chat
-                    href: api-ref/v1alpha/TextGeneration/chat.md
-              - name: Tokenizer
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/Tokenizer/index.md
-                  - name: Tokenize
-                    href: api-ref/v1alpha/Tokenizer/tokenize.md
-          - name: gRPC
-            items:
-              - name: Overview
-                href: api-ref/v1alpha/grpc/index.md
-              - name: Embeddings
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/grpc/Embeddings/index.md
-                  - name: Embedding
-                    href: api-ref/v1alpha/grpc/Embeddings/embedding.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/grpc/Operation/index.md
-                  - name: Get
-                    href: api-ref/v1alpha/grpc/Operation/get.md
-                  - name: Cancel
-                    href: api-ref/v1alpha/grpc/Operation/cancel.md
-              - name: TextGenerationAsync
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/grpc/TextGenerationAsync/index.md
-                  - name: Instruct
-                    href: api-ref/v1alpha/grpc/TextGenerationAsync/instruct.md
-              - name: TextGeneration
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/grpc/TextGeneration/index.md
-                  - name: Instruct
-                    href: api-ref/v1alpha/grpc/TextGeneration/instruct.md
-                  - name: Chat
-                    href: api-ref/v1alpha/grpc/TextGeneration/chat.md
-              - name: Tokenizer
-                items:
-                  - name: Overview
-                    href: api-ref/v1alpha/grpc/Tokenizer/index.md
-                  - name: Tokenize
-                    href: api-ref/v1alpha/grpc/Tokenizer/tokenize.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Access management

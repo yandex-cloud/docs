@@ -49,16 +49,39 @@ You pay for the following:
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **{{ RD }}** hosts: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of SSD network storage.
+
+Cost calculation for {{ RD }} hosts:
+
+
+
+
+{% include [usd-redis-host](../_pricing_examples/managed-redis/usd-host.md) %}
+
+
+Calculation for the storage cost and total cost:
+
+
+
+
+{% include [usd-redis-storage](../_pricing_examples/managed-redis/usd-storage.md) %}
+
+
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mrd-name }} Provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mrd-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 

@@ -6,11 +6,11 @@
 
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
-The {{ ca-name }} plugin is available for [Visual Studio Code](https://code.visualstudio.com/) and [JetBrains IDE](https://www.jetbrains.com/ides/) versions 2024.1 and 2024.2.
+{% include [supported-versions](../../_includes/code-assistant/supported-versions.md) %}
 
 {% note info %}
 
-To work with {{ ca-name }}, you need continuous internet access.
+To work with {{ ca-name }}, you will need continuous internet access.
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-sourc
 * Inline completion: Provides suggestions as you type. Works for code, texts, and documents.
 * Full-function completion: Provides autocompletion for entire functions or methods.
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../quickstart.md)
 * [{{ ca-full-name }} terms of use](https://yandex.com/legal/cloud_terms_code_assistant/)

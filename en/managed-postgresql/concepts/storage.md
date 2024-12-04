@@ -1,3 +1,8 @@
+---
+title: Storage in {{ mpg-full-name }}
+description: In this article, you will learn what storage is in {{ mpg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
+---
+
 # Storage in {{ mpg-name }}
 
 
@@ -37,7 +42,7 @@ You can monitor storage utilization on cluster hosts [by setting up alerts in {{
 
 Use one of these methods:
 
-* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} Will then disable read-only mode automatically.
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} will then disable read-only mode automatically.
 
 * [Disable read-only mode manually](../operations/storage-space.md#read-only-solutions) and free up storage space by deleting some data.
 
@@ -54,10 +59,10 @@ Automatic storage size increase prevents situations where the disk runs out of f
 * Scheduled increase threshold. When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
 * Immediate increase threshold. When reached, the storage size increases immediately.
 
-You can use either one or both of these thresholds. If both thresholds are set, make sure the immediate increase threshold is higher than the scheduled one.
+You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
 
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If the scheduled increase threshold is set, configure the maintenance window schedule.
+You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

@@ -1,4 +1,9 @@
-# {{ ddos-protection-full-name }} in {{ vpc-name }}
+---
+title: '{{ ddos-protection-full-name }} at {{ vpc-full-name }}'
+description: In this tutorial, you will learn about {{ ddos-protection-name }} and extended protection.
+---
+
+# {{ ddos-protection-full-name }} to {{ vpc-name }}
 
 
 {{ ddos-protection-full-name }} is a {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. It is provided in partnership with Qrator Labs.
@@ -25,7 +30,7 @@ You can request protection at the application level by contacting our tech suppo
 
 ## Advanced protection {#advanced-protection}
 
-Advanced protection operates at levels 3 and 7 of the OSI model. You can also track load and attack metrics and enable Soundwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or our tech support.
+Advanced protection operates at levels 3 and 7 of the OSI model. You can also track load and attack metrics and enable Soundwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
 
 Make sure to provide the following information in your request:
 

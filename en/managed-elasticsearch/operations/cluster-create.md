@@ -20,6 +20,7 @@ A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {
 
 {% endnote %}
 
+
 ## Creating a cluster {#create-cluster}
 
 {% note info %}

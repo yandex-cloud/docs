@@ -1,4 +1,6 @@
 ---
+title: '{{ maf-full-name }} pricing policy'
+description: This article provides the {{ maf-name }} pricing policy.
 editable: false
 ---
 
@@ -6,7 +8,7 @@ editable: false
 
 
 
-This section presents {{ maf-name }} pricing [rules](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 

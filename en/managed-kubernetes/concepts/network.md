@@ -59,7 +59,7 @@ For example, when [creating a cluster](../operations/kubernetes-cluster/kubernet
 
 The cluster will have:
 * Ranges of IP addresses for nodes: `10.1.128.0/24` – `10.1.255.0/24`.
-* IP addresses for pods on each node: `10.1.128.2` – `10.1.128.255`, `10.1.129.2` – `10.1.129.255`, and so on.
+* IP addresses for pods on each node: `10.1.128.2` – `10.1.128.255`, `10.1.129.2` – `10.1.129.255`, etc.
 
 ## Node name and FQDN {#hostname}
 

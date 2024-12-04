@@ -1,4 +1,6 @@
 ---
+title: Integration with {{ tracker-full-name }}
+description: 'Follow this guide to configure integration with {{ tracker-name }}. '
 canonical: '{{ link-docs }}/tutorials/dev/gitlab-tracker-integration'
 ---
 

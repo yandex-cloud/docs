@@ -488,11 +488,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+
     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
         * `enabled`: If `true`, enables collecting statistics. The default value is `false`.
         * `sessions-sampling-interval`: Session sampling interval, seconds. The values range from `1` to `86400`.
         * `statements-sampling-interval`: Statement sampling interval, seconds. The values range from `60` to `86400`.
+
 
     You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -561,7 +563,9 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
 
   1. To enable protection of the cluster, its databases, and users against accidental deletion, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -676,11 +680,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
+
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
@@ -793,7 +799,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
 
-       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -802,11 +808,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `yandex_query`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
+
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enables statistics collection.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
+
 
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -1141,7 +1149,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
@@ -1189,7 +1197,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 

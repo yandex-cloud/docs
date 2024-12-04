@@ -268,7 +268,7 @@ Assign the [{{ roles.metastore.integrationProvider }}](../../metadata-hub/securi
 ## Create a {{ metastore-name }} cluster {#create-metastore}
 
 1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet the cluster will connect to. This will enable the cluster to work with {{ yandex-cloud }} services.
-1. [Configure security groups](../../metadata-hub/operations/metastore/cluster-create.md#set-up-security-groups).
+1. [Configure the security group](../../metadata-hub/operations/metastore/configure-security-group.md).
 1. Create a {{ metastore-name }} cluster:
 
     {% list tabs group=instructions %}

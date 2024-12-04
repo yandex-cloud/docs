@@ -1,4 +1,6 @@
 ---
+title: '{{ sws-full-name }} pricing policy'
+description: This article provides the {{ sws-name }} pricing policy.
 editable: false
 ---
 
@@ -12,7 +14,7 @@ editable: false
 
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
-The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#rule-action) requests.
+In {{ sws-name }}, you pay for the actual number of [legitimate](concepts/rules.md#rule-action) requests.
 
 ## Prices for the Russia region {#prices}
 
@@ -27,11 +29,11 @@ The {{ sws-name }} cost depends on the number of [legitimate](concepts/rules.md#
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests.md) %}
 
 
-### Requests, processed by WAF rules {#requests-smart}
+### Requests processed by WAF rules {#requests-waf}
 
 {% note warning %}
 
-The prices listed below will come into effect starting October 1, 2024.
+The pricing below will apply starting October 1, 2024.
 
 {% endnote %}
 
@@ -40,13 +42,13 @@ The prices listed below will come into effect starting October 1, 2024.
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
 
-### Request cost calculations {#query-examples}
+### Pre-calculated costs of requests {#query-examples}
 
 
-To use DDoS protection at levels 3 and 4 of the OSI model, enable [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). The service is charged for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
+To use additional protection against DDoS attacks at OSI layers 3 and 4, connect [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). You will be billed for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection) usage.
 
 
-## Cost calculation example for {{ sws-name }} {#price-example}
+## {{ sws-name }} cost calculation example {#price-example}
 
 
 

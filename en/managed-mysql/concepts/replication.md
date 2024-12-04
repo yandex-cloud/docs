@@ -34,7 +34,7 @@ Specifics of automatic replication in {{ mmy-name }}:
 * If the master host fails, its replica becomes a new master.
 * When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
-For more information, see [{#T}](#master-failover).
+For more information on master host selection, see [Selecting a master if the primary master fails](#master-failover).
 
 ### Manual cluster configuration management {#manual-source}
 

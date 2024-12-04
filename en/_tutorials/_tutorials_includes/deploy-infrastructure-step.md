@@ -1,8 +1,8 @@
 ## Deploy the configuration {#deploy}
 
-In this example, we will create two [VMs](../../compute/concepts/vm.md): `terraform1` and `terraform2`. They will be connected to a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-1` in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). The subnet will belong to the `network-1` [cloud network](../../vpc/concepts/network.md#network).
+In this example, we will create two [VMs](../../compute/concepts/vm.md): `terraform1` and `terraform2`. These will be connected to a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-1` in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` [cloud network](../../vpc/concepts/network.md#network).
 
-The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.md) configurations: 1 vCPU and 2 GB of RAM for `terraform1` and 2 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get [public](../../vpc/concepts/address.md#public-addresses) and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VMs will run Ubuntu OS and host the public part of the key to enable SSH access to the VMs.
+The VMs will have different [vCPU and memory configurations](../../compute/concepts/vm-platforms.md): 1 vCPU and 2 GB of RAM for `terraform1` and 2 vCPUs and 4 GB of RAM for `terraform2`. The VMs will automatically get [public](../../vpc/concepts/address.md#public-addresses) and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VMs will run Ubuntu OS and host the public part of the key to enable SSH access to the VMs.
 1. Save the following configuration to `example.tf`:
 
    ```hcl
@@ -23,13 +23,14 @@ The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.m
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # This option is required to describe backend for {{ TF }} version 1.6.1 or higher.
-       skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
+       skip_requesting_account_id  = true # This option is required to describe a backend for {{ TF }} version 1.6.1 or higher.
+       skip_s3_checksum            = true # This option is required to describe a backend for {{ TF }} version 1.6.3 or higher.
+
      }
    }
 
    provider "yandex" {
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ region-id }}-d"
    }
 
    resource "yandex_compute_image" "ubuntu_2004" {
@@ -39,7 +40,7 @@ The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.m
    resource "yandex_compute_disk" "boot-disk-vm1" {
      name     = "boot-disk-1"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -47,7 +48,7 @@ The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.m
    resource "yandex_compute_disk" "boot-disk-vm2" {
      name     = "boot-disk-2"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -102,7 +103,7 @@ The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.m
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ region-id }}-d"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }
@@ -132,6 +133,5 @@ The VMs will have different [vCPU and RAM](../../compute/concepts/vm-platforms.m
    * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
    * `ssh-keys`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
 1. Check the configuration using the `terraform plan` command.
 1. Deploy the configuration using the `terraform apply` command.

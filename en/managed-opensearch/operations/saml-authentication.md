@@ -76,7 +76,7 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: SAML response parameter that stores the subject. If it is not set, the `NameID` parameter is used.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime in minutes. Specify if the identity provider has not set a timeout of their own.
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime in minutes. Specify if not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
 
@@ -84,25 +84,103 @@ Incorrect settings may cause the cluster to fail.
 
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
 
-- API {#api}
+- REST API {#api}
 
-    1. Convert the metadata file received from the Identity Provider Issuer to Base64 format.
-    1. To set identity provider settings on the cluster side, use the [updateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) gRPC API call, and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-        * Cluster ID in the `clusterId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-          {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+    1. Use the [Cluster.UpdateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-        * `true` in the `enabled` parameter.
-        * ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp), in the `idpEntityId` parameter.
-        * Path to the Base64 metadata file, in the `idpMetadataFile` parameter.
-        * URI of the SP Entity ID (Audience URI) application in the `spEntityId` parameter. Use the URI you specified when [configuring the IdP](#configuration-idp).
-        * URL of the {{ OS }} host with the `DASHBOARDS` role, in the `dashboardsUrl` parameter.
-        * (Optional) SAML response parameter that stores the roles, in the `rolesKey` parameter.
-        * (Optional) SAML response parameter that stores the subject, in the `subjectKey` parameter.
-        * (Optional) Session lifetime in minutes in the `jwtDefaultExpirationTimeout` parameter. Specify if the identity provider has not set a timeout of their own.
+        ```bash
+        curl \
+            --request PUT \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/auth' \
+            --data '{
+                        "settings": {
+                            "saml": {
+                                "enabled": "<enable_SSO:_true_or_false>",
+                                "idpEntityId": "<IdP_issuer_ID>",
+                                "idpMetadataFile": "<metadata_file>",
+                                "spEntityId": "<SP_Entity_ID_app_URI>",
+                                "dashboardsUrl": "<Dashboards_host_URL>",
+                                "rolesKey": "<parameter_with_roles_in_SAML_response>",
+                                "subjectKey": "<parameter_with_topic_in_SAML_response>",
+                                "jwtDefaultExpirationTimeout": "<session_lifetime>"
+                            }
+                        }
+                    }'
+        ```
+
+        Where `settings` is a set of SSO settings. Contains the `saml` section with the following parameters:
+
+        * `enabled`: Enable SSO.
+        * `idpEntityId`: ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
+        * `idpMetadataFile`: Path to the Base64 metadata file.
+        * `spEntityId`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+        * `dashboardsUrl`: URL of the host with the `DASHBOARDS` role.
+        * `rolesKey`: SAML response parameter that stores the roles.
+        * `subjectKey`: SAML response parameter that stores the subject.
+        * `jwtDefaultExpirationTimeout`: Session lifetime in minutes. Specify if not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "settings": {
+                    "saml": {
+                        "enabled": "<enable_SSO:_true_or_false>",
+                        "idp_entity_id": "<IdP_issuer_ID>",
+                        "idp_metadata_file": "<metadata_file>",
+                        "sp_entity_id": "<SP_Entity_ID_app_URI>",
+                        "dashboards_url": "<Dashboards_host_URL>",
+                        "roles_key": "<parameter_with_roles_in_SAML_response>",
+                        "subject_key": "<parameter_with_topic_in_SAML_response>",
+                        "jwt_default_expiration_timeout": "<session_lifetime>"
+                    }
+                }
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.UpdateAuthSettings
+        ```
+
+        Where `settings` is a set of SSO settings. Contains the `saml` section with the following parameters:
+
+        * `enabled`: Enable SSO.
+        * `idp_entity_id`: ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
+        * `idp_metadata_file`: Path to the Base64 metadata file.
+        * `sp_entity_id`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).
+        * `dashboards_url`: URL of the host with the `DASHBOARDS` role.
+        * `roles_key`: SAML response parameter that stores the roles.
+        * `subject_key`: SAML response parameter that stores the subject.
+        * `jwt_default_expiration_timeout`: Session lifetime in minutes. Specify if not set by the identity provider.
+
+            If there is no value or `0`, the session lifetime is unlimited (default).
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

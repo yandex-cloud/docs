@@ -13,20 +13,16 @@ keywords:
 
 After creating a cluster, you can:
 
-
 * [Change service account settings](#change-service-account).
-
-
-* [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size).
+* [Change the host class](#change-resource-preset).
+[Increase storage size](#change-disk-size).
 * [Configure](#change-elasticsearch-config) {{ ES }} servers as described in the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html).
-* [{#T}](#change-admin-password).
-* [{#T}](#change-additional-settings).
+* [Change the admin password](#change-admin-password).
+* [Change additional cluster settings](#change-additional-settings).
 
 Learn more about other cluster updates:
 
 * [{#T}](cluster-version-update.md).
-
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 
@@ -61,7 +57,7 @@ Learn more about other cluster updates:
           --service-account-id <service_account_ID>
         ```
 
-        You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     {{ mes-short-name }} will run the service account update for the cluster.
 
@@ -145,7 +141,7 @@ Learn more about other cluster updates:
           --masternode-resource-preset <class_of_hosts_with_the_Master_node_role>
         ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -255,7 +251,7 @@ Learn more about other cluster updates:
         * `--datanode-disk-size`: Storage size in GB for hosts with the Data node role.
         * `--masternode-disk-size`: Storage size in GB for hosts with the Master node role.
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -472,7 +468,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
     {% include [get-cluster-id](../../_includes/managed-elasticsearch/get-cluster-id.md) %}
 
   * New password in the `configSpec.adminPassword` parameter. The maximum password length is 128 characters.
-  * List of settings to update (in this case, `configSpec.adminPassword`), in the `updateMask` parameter.
+  * List of settings to update (in this case, `configSpec.adminPassword`) in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -531,7 +527,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    You can get the cluster ID and name [with a list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

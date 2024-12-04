@@ -1,3 +1,8 @@
+---
+title: Creating a {{ KF }} cluster
+description: Follow this guide to create a {{ KF }} cluster.
+---
+
 # Creating an {{ KF }} cluster
 
 

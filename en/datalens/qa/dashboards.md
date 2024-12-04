@@ -1,3 +1,8 @@
+---
+title: Dashboards
+description: This page addresses FAQs about dashboards.
+---
+
 # Dashboards
 
 
@@ -11,9 +16,9 @@
 
 {% include [making-available-chart](../../_qa/datalens/making-available-chart.md) %}
 
-### How do I make a dashboard containing Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
+### How do I publish a dashboard containing Metrica or AppMetrica data? {#how-metrica-appmetrica-share}
 
-You cannot publish a dashboard like this.
+You cannot publish such a dashboard.
 
 To share a dashboard containing Metrica or AppMetrica data, use one of the following methods:
 

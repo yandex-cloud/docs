@@ -1,7 +1,12 @@
+---
+title: AWS SDK for Java
+description: In this tutorial, you will learn what the AWS SDK for Java is, how to install and configure it, and will also see some code snippets.
+---
+
 # AWS SDK for Java
 
 
-The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is a set of tools for developers working with AWS services.
+The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is a software development kit for integration with AWS services.
 
 ## Getting started {#before-you-begin}
 
@@ -18,9 +23,9 @@ The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is a set of tool
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
 
-## Code samples {#java-sdk-examples}
+## Code snippets {#java-sdk-examples}
 
-For a code sample, see `aws-java-sdk/samples/AmazonS3` in the archive with the SDK distribution package.
+The sample code is located in the `aws-java-sdk/samples/AmazonS3` folder in the SDK distribution archive.
 
 To connect to {{ objstorage-name }}, replace the code in the sample:
 

@@ -1,11 +1,13 @@
 ---
+title: '{{ sk-hybrid-full-name }} pricing policy'
+description: This article provides the {{ sk-hybrid-name }} pricing policy.
 editable: false
 ---
 
-# {{ sk-hybrid-full-name }} pricing
+# {{ sk-hybrid-full-name }} pricing policy
 
 
-{{ sk-hybrid-full-name }} cost depends on the [licensing model](architecture.md) and [system requirements](system-requirements.md), and we discuss it on case-by-case basis. {{ sk-hybrid-name }} offers two licensing models: Cloud Billing and Yubikey.
+{{ sk-hybrid-full-name }} cost depends on the [licensing model](architecture.md) and [system requirements](system-requirements.md) and is discussed on case-by-case basis. {{ sk-hybrid-name }} provides two licensing models: Cloud Billing and Yubikey.
 
 ### Cloud Billing {#billing}
 

@@ -11,7 +11,7 @@ A selector can be linked to a chart or another selector. For more information, s
 In a single widget, you can [group](../operations/dashboard/add-selector.md) multiple selectors. Each of them will work within one dashboard tab. When working with a selector group:
 * You can add **Apply** and **Reset** buttons to a widget with a selector group.
 * To fix selectors inside the widget, specify the exact width for each one either in pixels or percent of widget width.
-* To place selectors one on top of the other, specify `100%` width for each one of them.
+* To place selectors one under the other, specify `100%` width for each one of them.
 * You can copy selectors and paste them into a group.
 
 {{ datalens-short-name }} supports multiple selector types:

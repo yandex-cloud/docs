@@ -1,4 +1,6 @@
 ---
+title: '{{ dataproc-full-name }} pricing policy'
+description: This article provides the {{ dataproc-name }} pricing policy.
 editable: false
 ---
 

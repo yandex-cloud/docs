@@ -1,3 +1,8 @@
+---
+title: Authentication with the {{ data-transfer-full-name }} API
+description: To perform operations through the API in {{ data-transfer-name }}, get an IAM token for your account.
+---
+
 # Authentication with the {{ data-transfer-name }} API
 
 

@@ -6,7 +6,7 @@ User authentication in {{ mgp-name }} is set up under **{{ ui-key.yacloud.greenp
 * Using system databases and users is not allowed.
 * Special values and regular expressions for databases and users are not available.
 
-For more information about these limitations, see [{#T}](#auth-settings).
+For more information about these limitations, see [Authentication rule settings](#auth-settings).
 
 Each authentication rule determines the connection type, DB name, user name or user group name, host FQDN or IP range to connect from, and authentication method. Rules are read from top to bottom, and the first suitable one is applied for authentication. If authentication based on the first suitable rule fails, other rules are not applied.
 
@@ -24,14 +24,14 @@ Available connection types:
 
 The following is not available to databases and users:
 
-* System databases, e.g., `postgres`
-* System users, e.g., [mdb_admin](cluster-users.md#mdb_admin)
-* Special values, e.g., `all` or `sameuser`
+* System databases, e.g., `postgres`.
+* System users, e.g., [mdb_admin](cluster-users.md#mdb_admin).
+* Special values, e.g., `all` or `sameuser`.
 * [Regular expressions]({{ pg-docs }}/functions-matching.html#POSIX-SYNTAX-DETAILS)
 
-A DB user group name should begin with the `+` sign, e.g, `+dbwriters`.
+The name of a database user group must begin with `+`, e.g, `+dbwriters`.
 
-As an address, you can use a host's FQDN or IP range and the `all` special value that allows connections from any host:
+As an address, you can use a host's FQDN, IP range, or the special `all` value that allows connections from any host:
 
 * `rc1b-drajz6j1rv******.mdb.yandexcloud.net`
 * `172.20.143.89/32`

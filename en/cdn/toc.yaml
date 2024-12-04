@@ -74,7 +74,13 @@ items:
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
       - name: Providing secure access to content
-        href: tutorials/protected-access-to-content.md
+        items:
+          - name: Overview
+            href: tutorials/protected-access-to-content/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: tutorials/protected-access-to-content/terraform.md
   - name: Concepts
     items:
       - name: Service overview

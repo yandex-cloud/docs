@@ -7,19 +7,12 @@ description: Follow this guide to change {{ MG }} cluster settings.
 
 After creating a cluster, you can:
 
-- [Change the host class](#change-resource-preset).
-
-- [{#T}](#change-disk-size).
-
-- [Configure](#change-mongod-config) {{ MG }} servers as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
-
-- [Change additional cluster settings](#change-additional-settings).
-
-- [Move a cluster](#move-cluster) to another folder.
-
-
-- [{#T}](#change-sg-set).
-
+* [Change the host class](#change-resource-preset).
+* [Increase storage size](#change-disk-size).
+* [Configure](#change-mongod-config) {{ MG }} servers as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
+* [Change additional cluster settings](#change-additional-settings).
+* [Move a cluster](#move-cluster) to another folder.
+* [Change security groups](#change-sg-set).
 
 To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
@@ -366,7 +359,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       Changing the retention period affects both new automatic backups and existing backups.
 
-      For example, if the original retention period is 7 days, and the remaining lifetime of a separate automatic backup is 1 day, then increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
+      For example, if the original retention period was 7 days, and the remaining lifetime of a separate automatic backup is 1 day, then increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 

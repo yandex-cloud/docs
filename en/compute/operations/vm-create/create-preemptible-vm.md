@@ -1,3 +1,8 @@
+---
+title: Making a VM preemptible
+description: Follow this guide to make a VM preemptible.
+---
+
 # Making a VM preemptible
 
 
@@ -15,11 +20,11 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md) and an OS version.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md) and OS version.
 
       {% include [change-custom-disk-settings-image](../../../_includes/compute/create/change-custom-disk-settings-image.md) %}
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) that will host your preemptible VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to host your preemptible VM.
   1. (Optional) Configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -126,7 +131,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
        resources {
          cores  = <number_of_vCPU_cores>
-         memory = <RAM_size_GB>
+         memory = <RAM_in_GB>
        }
 
        boot_disk {
@@ -161,7 +166,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      Where:
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
-       * `type`: [Type](../../concepts/disk.md#disks_types) of the disk being created.
+       * `type`: Disk [type](../../concepts/disk.md#disks_types).
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the preemptible VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
@@ -302,7 +307,7 @@ To change the type of a VM, for example, make it preemptible:
      }
      ```
 
-  1. Delete the `scheduling_policy` field with `preemptible = true` value.
+  1. Delete the `scheduling_policy` field with the `preemptible = true` value.
 
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
@@ -321,7 +326,7 @@ To change the type of a VM, for example, make it preemptible:
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

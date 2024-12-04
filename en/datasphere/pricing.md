@@ -1,4 +1,6 @@
 ---
+title: '{{ ml-platform-full-name }} pricing policy'
+description: This article provides the {{ ml-platform-name }} pricing policy.
 editable: false
 ---
 

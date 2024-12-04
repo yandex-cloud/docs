@@ -12,7 +12,7 @@ Condition key | Description
 `aws:principaltype` | Indicates the type of entity the request was sent to.
 `aws:referer` | Compares the request's Referer with the one specified in the policy.
 `aws:securetransport` | Indicates whether the request was sent using SSL encryption.
-`aws:sourceip` | Compares the request's IP address with those specified in the policy.
+`aws:sourceip` | Compares the IP address the request came from and the IP addresses of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), e.g., the ones provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, with the IP addresses specified in the policy.<br/><br/>The condition is satisfied if at least one IP address matches those in the policy. For more information, see [Bucket access via a chain of reverse proxy servers](../../../concepts/policy.md#access-via-reverse-proxy).
 `aws:useragent` | Compares the request's UserAgent with those specified in the policy.
 `aws:userid` | Compares the user ID in {{ iam-short-name }} with the one specified in the policy.
 `s3:authtype` | Restricts incoming requests to use a specific authentication method.
@@ -22,14 +22,14 @@ Condition key | Description
 `s3:signatureage` | Sets the length of time that a signature is valid in an authenticated request.
 `s3:signatureversion` | Identifies the version of AWS Signature for authenticated requests.
 `s3:versionid` | Filters access by a specific object version.
-`s3:x-amz-acl` | Requires the request to include the `X-Amz-Acl` header with the ACL specified.
+`s3:x-amz-acl` | Requires the request to contain the `X-Amz-Acl` header with the specified ACL.
 `s3:x-amz-content-sha256` | Prohibits unsigned content in a request.
 `s3:x-amz-copy-source` | Restricts the copy source to a specific bucket, prefix, or object.
-`s3:x-amz-grant-full-control` | Requires the request to include the `X-Amz-Grant-Full-Control` (full control) header.
-`s3:x-amz-grant-read` | Requires the request to include the `X-Amz-Grant-Read` (read access) header.
-`s3:x-amz-grant-read-acp` | Requires the request to include the `X-Amz-Grant-Read` (read permissions for the ACL) header.
-`s3:x-amz-grant-write` | Requires the request to include the `X-Amz-Grant-Write` (write access) header.
-`s3:x-amz-grant-write-acp` | Requires the request to include the `X-Amz-Grant-Write` (write permissions for the ACL) header.
+`s3:x-amz-grant-full-control` | Requires the request to contain the `X-Amz-Grant-Full-Control` (full access) header.
+`s3:x-amz-grant-read` | Requires the request to contain the `X-Amz-Grant-Read` (read access) header.
+`s3:x-amz-grant-read-acp` | Requires the request to contain the `X-Amz-Grant-Read` (ACL read access) header.
+`s3:x-amz-grant-write` | Requires the request to contain the `X-Amz-Grant-Write` (write access) header.
+`s3:x-amz-grant-write-acp` | Requires the request to contain the `X-Amz-Grant-Write` (ACL write access) header.
 `s3:x-amz-metadata-directive` | Sets the forced choice of COPY or REPLACE behavior when copying objects.
 `s3:x-amz-server-side-encryption` | Requires server-side encryption.
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Requires a specific key for server-side encryption.
@@ -39,7 +39,7 @@ Condition key | Description
 
 {% include [conditions-combining-and](../../../../_includes/storage/conditions-combining-and.md) %}
 
-{% cut "Examples of policies which use the `AND` logic to check the conditions" %}
+{% cut "Examples of policies in which conditions are checked with the `AND` logic" %}
 
 {% list tabs %}
 
@@ -93,7 +93,7 @@ Condition key | Description
 
 {% include [conditions-combining-or](../../../../_includes/storage/conditions-combining-or.md) %}
 
-{% cut "Example of a policy which uses the `OR` logic to check the conditions" %}
+{% cut "Examples of policies in which conditions are checked with the `OR` logic" %}
 
 ```json
 {

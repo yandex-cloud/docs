@@ -44,7 +44,7 @@ To create a polyline map:
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
-1. Select the **Map** chart type.
+1. Select **Map** for chart type.
 1. Select the **Polylines (Geopoints)** layer type.
 1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Specify a group of points that defines polylines. Move the measure to the **Grouping** section.

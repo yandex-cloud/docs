@@ -164,9 +164,9 @@ For more information about calculating, see the [cluster-proportional-autoscaler
 1. Set new parameters.
 
    Change the configuration as follows:
-   * `coresPerReplica`: `4`
-   * `nodesPerReplica`: `2`
-   * `preventSinglePointFailure`: `true`
+   * `coresPerReplica`: `4`.
+   * `nodesPerReplica`: `2`.
+   * `preventSinglePointFailure`: `true`.
 
    ```text
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3

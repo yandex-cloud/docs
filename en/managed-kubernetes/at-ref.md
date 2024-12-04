@@ -1,8 +1,13 @@
+---
+title: '{{ managed-k8s-full-name }} event reference in {{ at-full-name }}'
+description: This page gives a reference for {{ managed-k8s-name }} events tracked in {{ at-name }}.
+---
+
 # {{ at-full-name }} event reference
 
 {{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) events for {{ managed-k8s-full-name }}.
 
-The general view of the `event_type` field value is as follows:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.k8s.<event_name>

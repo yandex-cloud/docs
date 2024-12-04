@@ -25,7 +25,7 @@
 
 ## Подготовьте цель тестирования {#target-prepare}
 
-В качестве цели тестирования [создайте виртуальную машину](../compute/operations/vm-create/create-linux-vm) из публичного образа Linux.
+В качестве цели тестирования [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа Linux.
 
 В этом примере будет тестироваться сервис с [внутренним IP-адресом](../../vpc/concepts/address.md#internal-addresses) `172.17.0.10` в той же [подсети](../../vpc/concepts/network.md#subnet), где будет размещен агент.
 

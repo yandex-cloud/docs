@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ compute-full-name }}
-description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing VM instances. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Access management in {{ compute-full-name }}, a service providing scalable computing capacities for creating and managing virtual machines. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ compute-name }}
@@ -21,9 +21,35 @@ Roles for a resource can be assigned by users who have the `compute.admin` role 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-In the management console, you can assign a role through the YC CLI or the {{ yandex-cloud }} API for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
-{% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  Use the [management console]({{ link-console-main }}) to assign roles for the following resources:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/compute/cli-ref/index.md) to assign roles for the following resources:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+
+  {% include notitle [compute-resources-tf](../../_includes/iam/resources-with-access-control/compute-tf.md) %}
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  {% include notitle [compute-resources](../../_includes/iam/resources-with-access-control/compute.md) %}
+
+{% endlist %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -81,7 +107,7 @@ In the management console, you can assign a role through the YC CLI or the {{ ya
 
 {% include [iam.serviceAccounts.user](../../_roles/iam/serviceAccounts/user.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Primitive roles {#primitive-roles}
 

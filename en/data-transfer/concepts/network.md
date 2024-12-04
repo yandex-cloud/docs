@@ -1,9 +1,14 @@
+---
+title: Networking in {{ data-transfer-full-name }}
+description: In this article, you will learn about network in {{ data-transfer-full-name }}.
+---
+
 # Networking in {{ data-transfer-full-name }}
 
 
 When creating endpoints of certain types, you can select a [cloud subnet](../../vpc/concepts/network.md). The transfer will use the above subnet to access source or target endpoint hosts.
 
-You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network that the selected subnet belongs to is referred to as the __selected network__.
+You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network the selected subnet belongs to is referred to as the __selected network__.
 
 If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail, since an arbitrary DNS server is used for transfer service name resolution in the subnet. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
@@ -39,7 +44,7 @@ To launch a successful transfer in the selected endpoint subnet address range, t
 
 An IP address __belongs to a network__ if it belongs to any CIDR of any subnet on this network. For example, if there is a network named `my-network` with the `my-network-a` (CIDR `192.168.0.0/24`) and `my-network-b` (CIDR `192.168.1.0/24`) subnets, then the `192.168.0.100` and `192.168.1.50` addresses belong to `my-network` while `1.2.3.4` does not.
 
-An IP address __is available via a subnet__ if it belongs to this subnet's network, or the network this subnet belongs to has properly configured routing for the IP address in question. `192.168.0.100` and `192.168.1.50` will be available via the `my-network-a` subnet (as well as via `my-network-b`). `1.2.3.4` will be available through these subnets in the following cases only:
+An IP address is __available via a subnet__ if it belongs to this subnet's network, or if the network this subnet belongs to has routing correctly configured for the IP address. `192.168.0.100` and `192.168.1.50` will be available via the `my-network-a` subnet (as well as via `my-network-b`). `1.2.3.4` will be available through these subnets in the following cases only:
 * An egress [NAT gateway](../../vpc/concepts/gateways.md) is enabled in `my-network`; this will cause traffic to be routed to the internet.
 * `my-network` has a static route configured to process the address in question (`1.2.3.4`). This will cause traffic to be directed to the next-hop address specified in the route.
 
@@ -72,6 +77,6 @@ You can provide access to a source on an external network using one of the follo
 
 If you need to migrate data between {{ yandex-cloud }} and a third-party cloud, allow incoming connections to the third-party cloud database from the internet from [IP addresses used by {{ data-transfer-name }}](https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0).
 
-To run transfers requiring internet access, the [`data-transfer.admin`](../security/index.md) role is required. To create endpoints with a subnet specified in their settings, assign to the user the [`vpc.user`](../../vpc/security/index.md) role for the folder the subnet resides in.
+To run transfers requiring internet access, the [`data-transfer.admin`](../security/index.md) role is required. To create endpoints with a subnet specified in their settings, assign the [`vpc.user`](../../vpc/security/index.md) role to the user for the folder the subnet is in.
 
 

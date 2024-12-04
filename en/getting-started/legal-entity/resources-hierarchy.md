@@ -1,6 +1,6 @@
 # Configure your cloud
 
-When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. The `default` folder and `default` network will be created in the cloud.
+When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. In this cloud, the `default` folder and `default` network will be created.
 
 The owner can create new folders and resources in this cloud, and manage access rights to them.
 
@@ -56,7 +56,7 @@ The management console only allows you to change the name of a folder. To change
 - Management console {#console}
 
   1. On the management console [home page]({{ link-console-main }}), select the folder. This page displays folders for the selected cloud. You can [switch to another cloud](../../resource-manager/operations/cloud/switch-cloud.md), if required.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the folder and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Enter a new name for the folder.
   1. Click **{{ ui-key.yacloud.iam.cloud.folders.popup-edit_button_save }}**.
 
@@ -128,10 +128,11 @@ The management console only allows you to change the name of a folder. To change
 
 - Management console {#console}
 
-  1. {% include [grant-role-console-first-steps](../../_includes/iam/grant-role-console-first-steps.md) %}
-  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
-  1. Select a folder in the **Roles in folders** section and click ![image](../../_assets/console-icons/plus.svg).
-  1. Select a role from the list.
+  1. In the [management console]({{ link-console-main }}), select the appropriate [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) from the list on the left.
+  1. Go to the [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-iam-users }}) tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the user and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_billing.common.resource-acl.button_assign-binding }}**.
+  1. In the window that opens, click![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -209,7 +210,7 @@ The management console only allows you to change the name of a folder. To change
       
       ```bash
       curl \
-        --header "Authorization: Bearer <IAM-TOKEN>" \
+          --header "Authorization: Bearer <IAM-TOKEN>" \
           https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
 
       {
@@ -248,9 +249,7 @@ The management console only allows you to change the name of a folder. To change
 
 - Management console {#console}
 
-  Follow the guide at the [beginning of the section](#access-to-user) and assign the user multiple roles.
-
-  To assign a role to another user, select the user on the [Users and roles]({{ link-console-access-management }}) tab and click **Configure roles**.
+  Follow the [steps above](#access-to-user) to assign multiple roles to the user.
 
 - CLI {#cli}
 
@@ -278,7 +277,7 @@ The management console only allows you to change the name of a folder. To change
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another:
+  Assign the `editor` role to one user and the `viewer` role to another user:
 
   ```bash
   curl \

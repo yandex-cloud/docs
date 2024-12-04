@@ -90,15 +90,15 @@ description: Ознакомьтесь с историей изменений в 
 Исправлено некорректное отображение превью чарта в [навигаторе](../operations/chart/config-chart-navigator.md) при клике на легенду.
 
 
-### Настройка экспорта данных для непубличного встраивания {#private-embed-data-export}
-
-Добавлена настройка **Разрешить экспорт данных** для [непубличного встраивания](../security/private-embedded-objects.md#how-to-private-embed), позволяющая включить экспорт данных с чарта в форматах: XSLX, CSV и Markdown.
-
 ## Изменения, доступные в тарифном плане Business {#business}
 
 ### Стилизация интерфейса при встраивании непубличных объектов {#private-embedded-stylization}
 
 Теперь при [встраивании непубличных объектов](../security/private-embedded-objects.md) объектов используется [стилизация интерфейса](../settings/ui-customization.md) экземпляра {{ datalens-short-name }}, в котором они созданы.
+
+### Настройка экспорта данных для непубличного встраивания {#private-embed-data-export}
+
+Добавлена настройка **Разрешить экспорт данных** для [непубличного встраивания](../security/private-embedded-objects.md#how-to-private-embed), позволяющая включить экспорт данных с чарта в форматах: XSLX, CSV и Markdown.
 
 ### Блокирование селекторов при непубличном встраивании дашборда {#private-embedded-selector-block}
 

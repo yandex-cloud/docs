@@ -1,3 +1,8 @@
+---
+title: Creating a {{ GP }} cluster
+description: Follow this guide to create {{ GP }} clusters.
+---
+
 # Creating a {{ GP }} cluster
 
 
@@ -6,6 +11,7 @@ A {{ mgp-name }} cluster consists of master hosts that accept client queries and
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 For more information, see [{#T}](../concepts/index.md).
+
 
 ## Creating a cluster {#create-cluster}
 
@@ -237,7 +243,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
 
-    1. To allow accessing the cluster from different services, provide the `true` value in the relevant parameters when creating a cluster:
+    1. To enable cluster access from different services, provide the `true` value in the relevant parameters when creating the cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
@@ -405,7 +411,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ GP }} cluster copy:
 
@@ -430,7 +436,7 @@ To create a {{ GP }} cluster copy:
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-greenplum/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-greenplum/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ GP }} cluster into the {{ TF }} configuration:
 
@@ -478,7 +484,7 @@ To create a {{ GP }} cluster copy:
 
 ## Examples {#examples}
 
-### Creating an cluster {#create-example}
+### Creating a {#create-example} cluster
 
 {% list tabs group=instructions %}
 
@@ -489,13 +495,13 @@ To create a {{ GP }} cluster copy:
 
     * Name: `gp-cluster`
     * Version: `{{ versions.cli.latest }}`.
-    * Environment: `PRODUCTION`
+    * Environment: `PRODUCTION`.
     * Network: `default`
     * User: `user1`.
     * Password: `user1user1`.
     * Master and segment hosts:
 
-        * Class: `s2.medium`
+        * Class: `s2.medium`.
         * With 100 GB local SSD (`local-ssd`) storage
 
     * Availability zone: `{{ region-id }}-a`; subnet: `{{ subnet-id }}`.

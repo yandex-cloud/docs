@@ -10,12 +10,12 @@ description: Various use cases for core infrastructure management systems in {{ 
 ## Fault tolerance and scaling {#fault-tolerance}
 
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
-* [Fault-tolerant website with load balancing using {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
+* [Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
 * [Fault-tolerant website with load balancing using {{ alb-full-name }}](../web/application-load-balancer-website.md)
 * [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
-* [Running instance groups with auto-scaling](../infrastructure-management/vm-autoscale/index.md)
-* [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled.md)
-* [Automatically scaling an instance group to process messages from a queue in {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
+* [Running an instance group with autoscaling](../infrastructure-management/vm-autoscale/index.md)
+* [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled/index.md)
+* [Autoscaling an instance group to process messages enqueued in {{ message-queue-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Updating an instance group under load](../infrastructure-management/updating-under-load.md)
 * [Creating a trigger for budgets that invokes a {{ sf-full-name }} function to stop VM instances](../infrastructure-management/serverless-trigger-budget-vm.md)
 * [Deploying a fault-tolerant architecture with preemptible VMs](../infrastructure/nodejs-cron-restart-vm.md)

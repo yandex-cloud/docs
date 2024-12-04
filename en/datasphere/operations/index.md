@@ -1,6 +1,6 @@
 ---
 title: Guides on using {{ ml-platform-full-name }}
-description: The page presents all the guides on how to use {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice.
+description: The page contains all guides on how to use {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice.
 ---
 
 # Step-by-step guides for {{ ml-platform-name }}
@@ -11,6 +11,7 @@ description: The page presents all the guides on how to use {{ ml-platform-full-
 * [{#T}](community/add-user.md)
 * [{#T}](community/manage-community-labels.md)
 * [{#T}](community/manage-community-config.md)
+* [{#T}](community/create-ssa.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)

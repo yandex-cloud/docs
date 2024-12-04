@@ -36,7 +36,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
 
-   * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) or create a new one.
+   * **Namespace**: Select a [namespace](../../managed-kubernetes/concepts/index.md#namespace) other than `default` or create a new one. If you select the default namespace, ALB Ingress Controller may not work correctly.
    * **Application name**: Specify the app name.
    * **Folder ID**: Specify a [folder ID](../../resource-manager/operations/folder/get-id.md).
    * **Cluster ID**: Specify a [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
@@ -82,6 +82,8 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```
 
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+   If you specify the default `namespace`, ALB Ingress Controller may not work correctly. We recommend using other values rather than `default`.
 
    The `enableDefaultHealthChecks` parameter enables health checks for applications in a cluster. To do this, the Ingress controller installs the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) resource in the node group network.
 

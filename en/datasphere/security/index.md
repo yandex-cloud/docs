@@ -1,13 +1,13 @@
 ---
 title: Access management in {{ ml-platform-full-name }}
-description: Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources, assign the necessary roles from the list below to the user.
+description: Access management in {{ ml-platform-full-name }}, a service providing an ML development environment. For access to {{ ml-platform-name }} resources, assign to the user the required roles from the list below.
 ---
 
 # Access management in {{ ml-platform-name }}
 
 User access to {{ ml-platform-full-name }} depends on relevant permissions granted within an organization. Organizations are managed using [{{ org-full-name }}](../../organization/).
 
-The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about managing access to {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
+The operations available to {{ ml-platform-short-name }} users are determined by their roles. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). For more information about access management in {{ yandex-cloud }}, see [{#T}](../../iam/concepts/access-control/index.md).
 
 ## Which resources you can assign a role for {#resources}
 
@@ -16,11 +16,11 @@ Access control is implemented at the [community](../concepts/community.md) and [
 ## How to assign a role {#grant-role}
 
 You can assign a role to a user in the {{ ml-platform-name }} interface:
-* [{#T}](../operations/community/add-user.md)
-* [{#T}](../operations/projects/add-user.md)
+* [{#T}](../operations/community/add-user.md).
+* [{#T}](../operations/projects/add-user.md).
 * [Share resources with community members](../operations/index.md#share).
 
-You can also [grant access permissions](../../organization/security/index.md) through the {{ org-name }} interface.
+You can also grant access permissions through the [{{ org-name }} interface in {{ cloud-center }}]({{ link-org-cloud-center }}) using [{{ TF }}]({{ tf-provider-link }}) and the [{{ yandex-cloud }} API](../api-ref/authentication.md).
 
 ## Which roles exist in the service {#roles-list}
 
@@ -68,28 +68,28 @@ You can also [grant access permissions](../../organization/security/index.md) th
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign `Editor` instead of `Viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `Editor` role instead of `Viewer`.
 
 #|
 || **Action** | **Required roles** ||
-|| **Viewing information** ||
-|| Viewing a project, its settings and users | `Viewer` for the project ||
-|| Viewing a community, its settings, and users | `Viewer` for the community ||
-|| **Managing a project** ||
-|| [Creating a project](../operations/projects/create.md) | `Developer` for the community ||
-|| Running an IDE | `Developer` for the project ||
-|| Using resources | `Developer` for the project ||
-|| Creating resources | `Developer` for the project ||
-|| Deleting resources | `Developer` for the project ||
-|| Publishing resources in a community | `Editor` for the project and `Developer` for the community ||
-|| [Editing project settings](../operations/projects/update.md) | `Editor` for the project ||
-|| [Deleting a project](../operations/projects/delete.md) | `Editor` for the project ||
-|| [Granting a role](#grant-role) in a project | `Admin` for the project ||
-|| **Managing a community** ||
-|| Editing community settings | `Editor` for the community ||
-|| [Linking a billing account](../operations/community/link-ba.md) | `Editor` for the community and `billing.accounts.editor` for the billing account ||
-|| [Deleting a community](../operations/community/delete.md) | `Editor` for the community ||
-|| [Granting a role](#grant-role) in a community | `Admin` for the community ||
+|| **Viewing data** ||
+|| Viewing a project, its settings, and users | `Viewer` for a project ||
+|| Viewing a project, its settings, and users | `Viewer` for a community ||
+|| **Project management** ||
+|| [Creating a project](../operations/projects/create.md) | `Developer` for a community ||
+|| Running the IDE | `Developer` for a project ||
+|| Using resources | `Developer` for a project ||
+|| Creating resources | `Developer` for a project ||
+|| Deleting resources | `Developer` for a project ||
+|| Publishing resources in a community | `Editor` for a project and `Developer` for a community ||
+|| [Editing project settings](../operations/projects/update.md) | `Editor` for a project ||
+|| [Deleting a project](../operations/projects/delete.md) | `Editor` for a project ||
+|| [Granting a role](#grant-role) in a project | `Admin` for a project ||
+|| **Community management** ||
+|| Editing community settings | `Editor` for a community ||
+|| [Linking a billing account](../operations/community/link-ba.md) | `Editor` for a community and `{{ roles-admin }}` for a billing account ||
+|| [Deleting a community](../operations/community/delete.md) | `Editor` for a community ||
+|| [Granting a role](#grant-role) in a community | `Admin` for a community ||
 |#
 
 #### See also {#see-also}

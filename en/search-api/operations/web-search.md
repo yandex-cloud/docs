@@ -19,9 +19,9 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
 ## Create a search query {#form-request}
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   1. Create a file with the request body, e.g., `body.json`:
 
@@ -103,11 +103,11 @@ Wait until {{ search-api-name }} executes the query and generates a response. Th
 
 Make sure the query was executed successfully:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
-  Run an HTTP query:
+  Run an http query:
 
   ```bash
   curl \
@@ -181,9 +181,9 @@ After {{ search-api-name }} has successfully processed the query:
 
 1. Get the result:
 
-    {% list tabs group=api_type %}
+    {% list tabs group=instructions %}
 
-    - REST API {#rest-api}
+    - REST API {#api}
 
       ```bash
       curl \

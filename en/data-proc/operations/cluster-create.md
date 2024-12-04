@@ -83,7 +83,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ dataproc-name }} cluster.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** in the drop-down list.
-  1. Enter a cluster name and an optional description {{ dataproc-name }}.
+  1. Enter a name for the {{ dataproc-name }} cluster. Optionally, add cluster description.
 
      The naming requirements are as follows:
 
@@ -91,10 +91,10 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
-  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). Use them to divide or put resources into logical groups.
+  1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Specify the following cluster settings:
 
-     * [Image version](../concepts/environment.md) and the services you want to use in the {{ dataproc-name }} cluster.
+     * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
 
         {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -156,7 +156,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * Storage size and type.
      * Subnet.
 
-        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [{#T}](#setup-network).
+        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure a network](#setup-network).
 
      * Access to {{ dataproc-name }} subcluster hosts from the internet. Select the **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** option to enable access. In this case, you can only connect to {{ dataproc-name }} subcluster hosts using SSL. For more information, see [{#T}](connect.md).
 
@@ -615,7 +615,7 @@ To create a {{ dataproc-name }} cluster copy:
      export DATAPROC_CLUSTER_ID=<cluster_ID>
      ```
 
-     You can request the ID with a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+     You can request the ID with the [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
 
   1. Import the settings of the initial {{ dataproc-name }} cluster into the {{ TF }} configuration:
 
@@ -656,7 +656,7 @@ To create a {{ dataproc-name }} cluster copy:
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
   1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

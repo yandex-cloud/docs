@@ -1,3 +1,8 @@
+---
+title: Deleting a network interface from a virtual machine
+description: Follow this guide to delete a network interface from a virtual machine.
+---
+
 # Deleting a network interface from a virtual machine
 
 
@@ -31,7 +36,7 @@ To delete a network interface from a virtual machine:
 
       Save the ID of the VM from which you want to delete a network interface.
 
-  1. Stop the selected VM, if required, by specifying its ID:
+  1. Stop the selected VM if needed by specifying its ID:
 
       {% note info %}
 

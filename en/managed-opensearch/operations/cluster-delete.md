@@ -1,5 +1,5 @@
 ---
-title: Deleting a {{ OS }} cluster
+title: Deleting an {{ OS }} cluster
 description: You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from.
 keywords:
   - Creating an OpenSearch cluster
@@ -7,7 +7,7 @@ keywords:
   - OpenSearch
 ---
 
-# Deleting a {{ OS }} cluster
+# Deleting an {{ OS }} cluster
 
 You can delete an {{ OS }} cluster if you no longer need it. All data in the cluster will be deleted.
 
@@ -41,7 +41,7 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
   {{ yc-mdb-os }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -49,10 +49,46 @@ You can delete an {{ OS }} cluster if you no longer need it. All data in the clu
 
   {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) gRPC API call and provide the ID of the cluster to delete in the `clusterId` request parameter.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.Delete](../api-ref/Cluster/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
+      ```
+
+  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "cluster_id": "<cluster_ID>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.opensearch.v1.ClusterService.Delete
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

@@ -4,7 +4,9 @@
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
+
 To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze the cluster state along with its logs.
+
 
 ## Getting a cluster log {#get-log}
 
@@ -19,7 +21,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
     A list of log entries for the selected time period will be displayed. To view detailed information about an event, click the respective entry in the list.
 
-    If there are too many records and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
+    If there are too many entries and not all of them are displayed, click **{{ ui-key.yacloud.common.label_load-more }}** at the end of the list.
 
 - CLI {#cli}
 
@@ -40,7 +42,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
            --limit <entry_number_limit> \
            --format <output_format> \
            --service-type <service_type> \
-           --columns <list_of_columns_for_data_output> \
+           --columns <list_of_data_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_left_boundary> \
            --until <time_range_right_boundary>
@@ -50,8 +52,8 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
-        * `--service-type`: Type of the service for which you want to output records (`postgresql` or `pooler`).
-        * `--columns`: List of columns for data output:
+        * `--service-type`: Type of the service for which you want to output entries (`postgresql` or `pooler`).
+        * `--columns`: List of data columns:
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `db`: [Database name](databases.md#list-db).
             * `level`: Logging level, e.g., `info`.
@@ -60,7 +62,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
             {% note info %}
 
-            The example only contains the main columns. A list of columns to output depends on the selected `--service-type`.
+            The example shows only the main columns. The list of data columns depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -70,7 +72,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -166,7 +168,7 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-pg }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 

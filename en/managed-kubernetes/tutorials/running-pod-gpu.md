@@ -1,3 +1,8 @@
+---
+title: Running workloads with GPUs
+description: Follow this guide to run workloads with GPUs.
+---
+
 # Running workloads with GPUs
 
 
@@ -30,7 +35,7 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 ## Create a pod with a GPU {#create-pod-gpu}
 
-1. Save your GPU pod creation specification to a YAML file named `cuda-vector-add.yaml`:
+1. Save the GPU pod creation specification to a YAML file named `cuda-vector-add.yaml`:
 
    ```yaml
    apiVersion: v1

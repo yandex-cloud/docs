@@ -211,8 +211,6 @@ items:
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
       - name: Статический веб-сайт в {{ objstorage-full-name }}
-      - name: Визуализация данных {{ yq-full-name }}
-        href: tutorials/data-from-yandex-query-visualization.md
         items:
           - name: Обзор
             href: tutorials/static/index.md
@@ -220,6 +218,8 @@ items:
             href: tutorials/static/console.md
           - name: Terraform
             href: tutorials/static/terraform.md
+      - name: Визуализация данных {{ yq-full-name }}
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup

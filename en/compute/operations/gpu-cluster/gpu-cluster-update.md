@@ -1,3 +1,8 @@
+---
+title: Updating a GPU cluster
+description: Follow this guide to update a GPU cluster.
+---
+
 # Updating a GPU cluster
 
 
@@ -9,62 +14,62 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the [CLI](../../../cli/) command for updating GPU cluster parameters:
+  1. View the description of the [CLI](../../../cli/) command for updating GPU cluster parameters:
 
-      ```bash
-      yc compute gpu-cluster update --help
-      ```
+     ```bash
+     yc compute gpu-cluster update --help
+     ```
 
-   1. Get a list of GPU clusters in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of GPU clusters in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-      ```bash
-      yc compute gpu-cluster list
-      ```
+     ```bash
+     yc compute gpu-cluster list
+     ```
 
-   1. Select the `ID` or `NAME` of the appropriate GPU cluster, e.g., `first-gpu-cluster`.
-   1. Change the GPU cluster parameters, e.g., rename it:
+  1. Select the `ID` or `NAME` of the GPU cluster you need, e.g., `first-gpu-cluster`.
+  1. Change the GPU cluster parameters, e.g., rename it:
 
-      ```bash
-      yc compute instance update first-gpu-cluster \
-        --new-name updated-gpu-cluster
-      ```
+     ```bash
+     yc compute instance update first-gpu-cluster \
+       --new-name updated-gpu-cluster
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   1. Open the {{ TF }} configuration file and edit the fragment with the GPU cluster description:
+  1. Open the {{ TF }} configuration file and edit the fragment with the GPU cluster description:
 
-      {% cut "Sample GPU cluster description in the {{ TF }} configuration" %}
+     {% cut "Sample GPU cluster description in the {{ TF }} configuration" %}
 
-      ```hcl
-      ...
-      resource "yandex_compute_gpu_cluster" "default" {
-        name               = "gpu-cluster-name"
-        interconnect_type  = "infiniband"
-        zone               = "{{ region-id }}-a"
+     ```hcl
+     ...
+     resource "yandex_compute_gpu_cluster" "default" {
+       name               = "gpu-cluster-name"
+       interconnect_type  = "infiniband"
+       zone               = "{{ region-id }}-a"
 
-        labels = {
-          environment = "test"
-        }
-      }
-      ...
-      ```
+       labels = {
+         environment = "test"
+       }
+     }
+     ...
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
-   1. Apply the changes:
+  1. Apply the changes:
 
-      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   You can check the GPU cluster update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  You can check the GPU cluster update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
-   ```bash
-   yc compute gpu-cluster get <GPU_cluster_name>
-   ```
+  ```bash
+  yc compute gpu-cluster get <GPU_cluster_name>
+  ```
 
 {% endlist %}

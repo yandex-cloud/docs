@@ -1,4 +1,6 @@
 ---
+title: '{{ translate-full-name }} pricing policy'
+description: This article provides the {{ translate-name }} pricing policy.
 editable: false
 ---
 

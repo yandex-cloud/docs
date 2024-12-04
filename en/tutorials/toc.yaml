@@ -95,7 +95,7 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: infrastructure-management/gitlab-containers.md
-      - name: Testing applications with {{ GL }}
+      - name: App testing with {{ GL }}
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
@@ -123,6 +123,8 @@ items:
           Getting statistics of queries to {{ objstorage-name }} objects using
           {{ yq-name }}
         href: testing/server-logs-yq.md
+      - name: Invoking load testing from {{ GL }} CI
+        href: testing/loadtesting-gitlab-ci.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
@@ -157,10 +159,16 @@ items:
                 href: infrastructure-management/vm-autoscale/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/vm-autoscale/terraform.md
-          - name: Scheduled scaling of an instance group
-            href: infrastructure-management/vm-scale-scheduled.md
+          - name: Scheduled scaling of instance groups
+            items:
+              - name: Overview
+                href: infrastructure-management/vm-scale-scheduled/index.md
+              - name: Management console, CLI, and API
+                href: infrastructure-management/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-scale-scheduled/terraform.md
           - name: >-
-              Autoscaling an instance group to process messages enqueued in{{
+              Autoscaling an instance group to process messages enqueued in {{
               message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
@@ -227,7 +235,6 @@ items:
                 href: routing/ipsec/ipsec-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: routing/ipsec/sgw.md
-            href: routing/ipsec/index.md
           - name: Connecting to a cloud network using OpenVPN
             href: routing/openvpn.md
           - name: Creating and configuring a UserGate gateway in proxy server mode
@@ -315,7 +322,13 @@ items:
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
           - name: Assigning a domain name to a VM with a web server
-            href: web/bind-domain-vm.md
+            items:
+              - name: Overview
+                href: web/bind-domain-vm/index.md
+              - name: Management console, CLI, and API
+                href: web/bind-domain-vm/console.md
+              - name: '{{ TF }}'
+                href: web/bind-domain-vm/terraform.md
           - name: Creating a Python web application with Flask
             href: web/flask.md
           - name: Hosting a static Gatsby website
@@ -424,7 +437,7 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
+      - name: Configuring Kafka Connect to use a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -727,8 +740,8 @@ items:
           dedicated DMZ based on the Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
-          Cloud infrastructure segmentation with the Check Point next-generation
-          firewall
+          Cloud infrastructure segmentation with Check Point Next-Generation
+          Firewall
         href: routing/network-segmentation-checkpoint.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
@@ -738,10 +751,21 @@ items:
         href: routing/gre-over-ipsec.md
       - name: Configuring a network for {{ dataproc-name }}
         href: routing/dataproc-nat-instance.md
+      - name: Setting up PT Application Firewall
+        href: routing/pt-application-firewall.md
+        hidden: true
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
       - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
         href: routing/vpc-cr-access.md
+      - name: Creating a direct trunk and a private connection in it
+        href: routing/trunk-priv-add.md
+      - name: Creating a direct trunk and a public connection in it
+        href: routing/trunk-pub-add.md
+      - name: Adding a private connection to a direct or partner trunk
+        href: routing/priv-add.md
+      - name: Adding a public connection to a direct or partner trunk
+        href: routing/pub-add.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials

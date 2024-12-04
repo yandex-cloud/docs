@@ -1,7 +1,12 @@
+---
+title: Changing VM computing resources
+description: Follow this guide to change the computing resources of a VM.
+---
+
 # Changing VM computing resources
 
 
-After you create a VM, you can change its computing resources. For more information about how to change a VM name, description, and tags, see [{#T}](vm-update.md).
+After you create a VM, you can change its computing resources. For more information on how to change a VM name, description, and tags, see [{#T}](vm-update.md).
 
 ## Changing the vCPU and RAM configuration {#update-vcpu-ram}
 
@@ -117,7 +122,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
 
-      * Select one of the available configurations, with the needed GPUs, vCPUs, and the amount of RAM.
+      * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
 
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner of the page.
@@ -205,7 +210,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
 
-      * Select one of the available configurations, with the needed GPUs, vCPUs, and the amount of RAM.
+      * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
 
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner of the page.

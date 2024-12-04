@@ -1,0 +1,3 @@
+For example, if 40,000 operations for the ECDSA algorithm are performed with one asymmetric key version and 30,000 operations for the RSA3072 algorithm with another, the cost per month will be:
+
+> {{ sku|USD|kms.storage.asymmetric.v1|string }} × 2 + ({{ sku|USD|kms.api.asymmetric.v1|string }} × 40,000 /10,000) + ({{ sku|USD|kms.api.asymmetric.heavy.v1|string }}&nbsp;×&nbsp;30,000&nbsp;/&nbsp;10,000) = {% calc [currency=USD] {{ sku|USD|kms.storage.asymmetric.v1|number }} × 2 + ({{ sku|USD|kms.api.asymmetric.v1|number }} × 40,000 / 10,000) + ({{ sku|USD|kms.api.asymmetric.heavy.v1|number }} × 30,000 / 10,000) %}

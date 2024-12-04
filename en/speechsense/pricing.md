@@ -1,4 +1,6 @@
 ---
+title: '{{ speechsense-full-name }} pricing policy'
+description: This article provides the {{ speechsense-name }} pricing policy.
 editable: false
 ---
 

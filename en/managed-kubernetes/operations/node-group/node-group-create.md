@@ -1,3 +1,8 @@
+---
+title: Creating a node group
+description: Follow this guide to create node groups.
+---
+
 # Creating a node group
 
 

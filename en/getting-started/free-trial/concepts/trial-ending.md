@@ -1,3 +1,8 @@
+---
+title: End of trial period
+description: In this article, you will learn about trial period termination.
+---
+
 # End of trial period
 
 Your trial period will end automatically depending on the payment method you selected when [creating your billing account for businesses](../../../billing/quickstart/index.md).

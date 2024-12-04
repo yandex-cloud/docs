@@ -1,10 +1,12 @@
 ---
+title: '{{ mmg-full-name }} metrics'
+description: In this article, you will learn about {{ mmg-name }} metrics.
 editable: false
 ---
 
 # {{ mmg-full-name }} metrics
 
 
-This section describes the [{{ mmg-name }}](../../managed-mongodb/) metrics delivered to {{ monitoring-name }}.
+This section describes [{{ mmg-name }}](../../managed-mongodb/) metrics delivered to {{ monitoring-name }}.
 
 {% include [managed-mongodb.md](../../_includes/monitoring/metrics-ref/managed-mongodb.md) %}

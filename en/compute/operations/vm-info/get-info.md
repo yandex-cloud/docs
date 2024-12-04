@@ -1,3 +1,8 @@
+---
+title: Getting information about a VM
+description: Follow this guide to get information about a VM.
+---
+
 # Getting information about a VM
 
 
@@ -273,7 +278,7 @@ To set up metadata service parameters for a VM instance:
      ```hcl
      ...
      resource "yandex_compute_instance" "test-vm" {
-       ...
+       ... 
        metadata_options {
          aws_v1_http_endpoint = 2
          aws_v1_http_token    = 2

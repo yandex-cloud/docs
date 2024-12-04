@@ -1,17 +1,17 @@
 ---
-title: How to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone
-description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone.
+title: How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone
+description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone.
 ---
 
 # Integrating into a corporate DNS zone
 
 
-To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) with a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
+To integrate a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) into a private corporate DNS [zone](../../dns/concepts/dns-zone.md):
 
 1. [Configure the DNS server](#setup-dns).
 1. [Specify a corporate DNS zone](#setup-zone).
-1. [Create a dns-utils pod](#create-pod).
-1. [Check DNS integration](#verify-dns).
+1. [Create a `dns-utils` pod](#create-pod).
+1. [Verify DNS integration](#verify-dns).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -137,7 +137,7 @@ When configuring, it is important to achieve IP connectivity between the {{ mana
    ...
    ```
 
-## Check DNS integration {#verify-dns}
+## Verify DNS integration {#verify-dns}
 
 Run the `nslookup` command in the active container:
 

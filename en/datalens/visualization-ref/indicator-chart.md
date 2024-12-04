@@ -24,8 +24,8 @@ You can set up the size and color of an indicator.
 
 | Wizard<br/> section | Description |
 ----- | ----
-| Measure | Measure. One measure that determines the indicator value. |
-| Filters | Dimension or measure. Used as a filter. |
+Measure | Measure. One measure that determines the indicator value.
+Filters | Dimension or measure. Used as a filter.
 
 ## Creating an indicator {#create-diagram}
 

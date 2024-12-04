@@ -1,3 +1,8 @@
+---
+title: Billing cycle for businesses and individual entrepreneurs
+description: In this article, you will learn about the billing cycle for businesses and individual entrepreneurs.
+---
+
 # Billing cycle for businesses and individual entrepreneurs
 
 The diagram shows the cycle of issuing and paying invoices for businesses and individual entrepreneurs, as well as suspending and blocking access to the use of resources.
@@ -54,7 +59,8 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 1. Payment is made for consumed {{ yandex-cloud }} resources:
 
      * [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement.
-     * If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and debits it from that card.
+     * If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and debits it from that card.   
+
    {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
    1. Verification of payment for consumed resources:

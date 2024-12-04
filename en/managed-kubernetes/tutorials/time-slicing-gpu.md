@@ -1,3 +1,8 @@
+---
+title: Setting up Time-Slicing GPUs
+description: Follow this guide to set up Time-Slicing GPUs.
+---
+
 # Setting up Time-Slicing GPUs
 
 
@@ -164,7 +169,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       deployment.apps/nvidia-plugin-test created
       ```
 
-1. Make sure all the app's five [{{ managed-k8s-name }} pods](../concepts/index.md#pod) are `Running`:
+1. Make sure all the five [{{ managed-k8s-name }} pods](../concepts/index.md#pod) of the app are `Running`:
 
    ```bash
    kubectl get pods | grep nvidia-plugin-test

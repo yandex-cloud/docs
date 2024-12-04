@@ -135,6 +135,5 @@ These metrics are collected from the `/proc/net/dev` structure.
 | `sys.system.UpTime` | `RATE` |
 | `sys.system.UpTimeRaw` | `DGAUGE` |
 | `sys.system.UserTime` | `RATE` |
-| `sys.system.CpuUsagePercent` | `DGAUGE` |
 
 See the description of Linux system metrics in the documentation, e.g., [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).

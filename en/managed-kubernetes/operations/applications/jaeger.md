@@ -1,3 +1,8 @@
+---
+title: Installing Jaeger over {{ ydb-short-name }} Backend
+description: Follow this guide to install Jaeger over {{ ydb-short-name }} Backend.
+---
+
 # Installing Jaeger over {{ ydb-short-name }} Backend
 
 
@@ -13,25 +18,25 @@ Jaeger is able to use the following types of data storage:
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Install the [`jq` utility](https://stedolan.github.io/jq/) for JSON filtering:
+1. Install the [`jq`](https://stedolan.github.io/jq/) JSON stream processor.
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
 1. To enable [pods](../../concepts/index.md#pod) in the {{ k8s }} cluster to connect to {{ ydb-name }}, configure [security groups](../connect/security-groups.md). Add a rule for incoming traffic:
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `2135`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `2135`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`)
 
-### {{ ydb-name }} setup {#create-ydb}
+### Preparing {{ ydb-name }} {#create-ydb}
 
-1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration, selecting `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
+1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration and `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
 
    {% note warning %}
 
@@ -84,13 +89,13 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 ### Installing Jaeger {#install-jaeger}
 
 1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) tab.
+1. Click the name of the cluster you need and select the ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-   * **Application name**: Enter a name for the application.
+   * **Application name**: Specify the app name.
    * **{{ ydb-name }} endpoint**: Specify a name for the {{ ydb-name }} endpoint, e.g., `lb.etnk1hv0jol3********.{{ ydb.host-dedicated }}:{{ ydb.port-dedicated }}`.
-   * **Database**: Specify a database name, for example, `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
+   * **Database**: Specify a database name, e.g., `/{{ region-id }}/b1gkgm9daf46********/etnk2hv0jol5********`.
    * **Database directory**: `jaeger`.
    * **Use metadata to authenticate from inside a VM**: Select this option if authentication in the virtual machine is required.
    * **Service account key ID**: Specify the service account key ID.
@@ -108,7 +113,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
-   {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -134,7 +139,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/marketplace/jaeger-over-ydb.md)
+* [{#T}](../../tutorials/marketplace/jaeger-over-ydb.md).
 
 ## See also {#see-also}
 

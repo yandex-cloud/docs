@@ -1,3 +1,8 @@
+---
+title: Autoscaling of subclusters
+description: In this article, you will learn about autoscaling of subclusters.
+---
+
 # Autoscaling of subclusters
 
 
@@ -21,7 +26,7 @@ You can choose the scaling method that best suits your needs:
 
 * **{{ ui-key.yacloud.compute.groups.create.field_default-utilization-target }}**: Scaling based on the `yarn.cluster.containersPending` metric.
 
-   This is an internal YARN metric that shows the number of resource allocation units that pending jobs in the queue expect to get assigned. It is suitable for clusters that have lots of relatively small jobs managed by Apache Hadoop® YARN. This scaling method does not require any additional configuration.
+    This is an internal YARN metric that shows the number of resource allocation units that pending jobs in the queue expect to get assigned. It is suitable for clusters that have lots of relatively small jobs managed by Apache Hadoop® YARN. This scaling method does not require any additional configuration.
 
 * **{{ ui-key.yacloud.compute.groups.create.field_utilization-target }}**: Scaling based on the vCPU usage metric. You can learn more about this type of scaling in the [{{ ig-name }} documentation](../../compute/concepts/instance-groups/scale.md#cpu-utilization).
 
@@ -30,7 +35,7 @@ To set up autoscaling of your cluster based on other metrics and formulas, [cont
 You can set the following autoscaling parameters:
 
 * Initial (minimum) size of the group.
-* [Decommissioning](decommission.md) timeout in seconds. The maximum value is `86400` seconds (24 hours), the default one is `120` seconds.
+* [Decommissioning](decommission.md) timeout in seconds. The maximum value is `86400` seconds (24 hours). The default value is `120` seconds.
 * Type of VM instances: standard or preemptible.
 * Maximum group size.
 * Time period for calculating the average load on each VM instance in the group.

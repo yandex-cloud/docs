@@ -1,3 +1,8 @@
+---
+title: Migrating {{ KF }} cluster hosts to a different availability zone
+description: Follow this guide to move {{ KF }} cluster hosts to a different availability zone.
+---
+
 # Migrating {{ KF }} cluster hosts to a different availability zone
 
 
