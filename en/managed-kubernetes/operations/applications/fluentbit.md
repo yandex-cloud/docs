@@ -1,3 +1,8 @@
+---
+title: Installing Fluent Bit with a plugin for {{ cloud-logging-full-name }}
+description: Follow this tutorial to install Fluent Bit with a plugin for {{ cloud-logging-name }}.
+---
+
 # Installing Fluent Bit with a plugin for {{ cloud-logging-name }}
 
 
@@ -59,7 +64,7 @@
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/fluent-bit-logging.md)
+* [{#T}](../../tutorials/fluent-bit-logging.md).
 
 ## See also {#see-also}
 

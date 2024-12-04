@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ dns-full-name }}
-description: 'Access management in the service for managing DNS zones and domain names of your resources: {{ dns-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.'
+description: Access management in {{ dns-full-name }}, a service for managing DNS zones and domain names of your resources. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ dns-name }}
@@ -20,7 +20,7 @@ Roles for a resource can be assigned by users who have the `dns.admin` role or o
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [DNS zone](../concepts/dns-zone.md) through the YC CLI or {{ yandex-cloud }} API.
+To assign a role for a [DNS zone](../concepts/dns-zone.md), use the {{ yandex-cloud }} [CLI](../../cli/cli-ref/dns/cli-ref/zone/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
 ## Which roles exist in the service {#roles-list}
 
@@ -54,23 +54,23 @@ You can assign a role for a [DNS zone](../concepts/dns-zone.md) through the YC C
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, assign `editor` instead of `viewer` or `dns.admin` instead of `dns.editor`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`, or `dns.admin` instead of `dns.editor`.
 
-| Action | Methods | Required roles |
+| Action                                                                                                                                            |                              Methods                               | Required roles                                                                                                                                                                            |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Viewing metadata** |                                                                   |                                                                                                                                                                                             |
-| Viewing information about DNS zones | `get`, `list` | `dns.auditor` for this resource |
-| **View data** |                                                                   |                                                                                                                                                                                             |
-| Viewing information about DNS zones and their resource records | `get`, `list`, `listRecordSets` | `viewer` or `dns.viewer` for the resource in question |
-| **Manage DNS zones** |                                                                   |                                                                                                                                                                                             |
-| Create a zone | `create` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the {{ vpc-short-name }} network if it is an internal zone |
-| Edit and delete zones | `update`, `delete` | `editor` or `dns.editor` for the folder as well as `vpc.user` for the folder and the {{ vpc-short-name }} network if it is an internal zone |
-| Creating subzones | `create` | `editor` or `dns.editor` for the folder housing the zone that will include the subzones being created as well as `vpc.user` for this folder or {{ vpc-short-name }} network if it is an internal zone |
-| **Manage resource records** |                                                                   |                                                                                                                                                                            |
-| Create resource records in a DNS zone | `create` | `editor` or `dns.editor` for the folder or zone |
-| Edit and delete resource records | `update`, `delete` | `editor` or `dns.editor` |
-| **Manage access to DNS zones** |                                                                   |                                                                                                                                                                            |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for DNS zones | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` or `dns.admin` for the folder or zone |
+| **Viewing metadata**                                                                                                                         |                                                                   |                                                                                                                                                                                             |
+| Viewing information about DNS zones                                                                                                                     |                           `get`, `list`                           | `dns.auditor` for the resource                                                                                                                                                                |
+| **Viewing data**                                                                                                                             |                                                                   |                                                                                                                                                                                             |
+| Viewing information about DNS zones and their resource records                                                                                           |                  `get`, `list`, `listRecordSets`                  | `viewer` or `dns.viewer` for the resource                                                                                                                                                    |
+| **Manage DNS zones**                                                                                                                           |                                                                   |                                                                                                                                                                                             |
+| Create a zone                                                                                                                                       |                             `create`                              | `editor` or `dns.editor` for the folder, as well as `vpc.user` for this folder or {{ vpc-short-name }} network if it is a private zone                                                                |
+| Edit and delete zones                                                                                                                             |                        `update`, `delete`                         | `editor` or `dns.editor` for the folder, as well as `vpc.user` for this folder or {{ vpc-short-name }} network if it is a private zone                                                                |
+| Creating subzones                                                                                                                                     |                             `create`                              | `editor` or `dns.editor` for the folder housing the zone that will comprise the new subzones, as well as `vpc.user` for this folder or {{ vpc-short-name }} network if it is a private zone |
+| **Manage resource records**                                                                                                                  |                                                                   |                                                                                                                                                                            |
+| Create resource records in a DNS zone                                                                                                               |                             `create`                              | `editor` or `dns.editor` for the folder or zone                                                                                                                              |
+| Edit and delete resource records                                                                                                               |                        `update`, `delete`                         | `editor` or `dns.editor`                                                                                                                                                  |
+| **Manage access to DNS zones**                                                                                                                 |                                                                   |                                                                                                                                                                            |
+| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for DNS zones | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` or `dns.admin` for the folder or zone                                                                                                                                |
 
 To restrict user access, assign users roles for individual zones or subzones.
 

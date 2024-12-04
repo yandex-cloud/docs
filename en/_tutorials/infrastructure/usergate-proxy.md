@@ -70,11 +70,11 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-a` in the `{{ region-id }}-a` availability zone:
+  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
   
      ```bash
-     yc vpc subnet create usergate-subnet-{{ region-id }}-a \
-       --zone {{ region-id }}-a \
+     yc vpc subnet create usergate-subnet-{{ region-id }}-d \
+       --zone {{ region-id }}-d \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
@@ -85,9 +85,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-{{ region-id }}-a
+     name: usergate-subnet-{{ region-id }}-d
      network_id: enptrcle5q3d********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
@@ -96,7 +96,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the network parameters for `usergate-network` and its `usergate-subnet-{{ region-id }}-a` subnet:
+  1. In the configuration file, describe the network parameters for `usergate-network` and its `usergate-subnet-{{ region-id }}-d` subnet:
 
      ```hcl
      resource "yandex_vpc_network" "usergate-network" {
@@ -104,8 +104,8 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
 
      resource "yandex_vpc_subnet" "usergate-subnet" {
-       name           = "usergate-subnet-{{ region-id }}-a"
-       zone           = "{{ region-id }}-a"
+       name           = "usergate-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
@@ -137,7 +137,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 - API {#api}
 
   1. Create a network named `usergate-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
+  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
 
 {% endlist %}
 
@@ -347,7 +347,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
+  1. In the window that opens, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}
@@ -355,7 +355,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   Run this command:
 
   ```bash
-  yc vpc address create --external-ipv4 zone={{ region-id }}-a
+  yc vpc address create --external-ipv4 zone={{ region-id }}-d
   ```
 
   Result:
@@ -366,7 +366,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: {{ region-id }}-a
+    zone_id: {{ region-id }}-d
     requirements: {}
   reserved: true
   ```
@@ -383,7 +383,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
   1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
@@ -399,11 +399,11 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `usergate-network` and `usergate-subnet-{{ region-id }}-a`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a network named `usergate-network` and a subnet named `usergate-subnet-{{ region-id }}-d`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and then select the previously reserved IP from the list that opens.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `usergate-sg` group from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the data for access to the VM:
 
       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -429,8 +429,8 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
        --name usergate-proxy \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-a \
-       --network-interface subnet-name=usergate-subnet-{{ region-id }}-a,nat-ip-version=ipv4,security-group-ids=<usergate-sg_security_group_ID> \
+       --zone {{ region-id }}-d \
+       --network-interface subnet-name=usergate-subnet-{{ region-id }}-d,nat-ip-version=ipv4,security-group-ids=<usergate-sg_security_group_ID> \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <path_to_public_part_of_SSH_key> \
      ```
@@ -442,7 +442,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-proxy
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      platform_id: standard-v2
      resources:
        memory: "8589934592"
@@ -481,7 +481,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-a"
+       zone     = "{{ region-id }}-d"
        size     = "110"
        image_id = "<UserGate_NGFW_image_ID>"
      }
@@ -489,7 +489,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      resource "yandex_compute_instance" "usergate-proxy" {
        name        = "usergate-proxy"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-a"
+       zone        = "{{ region-id }}-d"
        hostname    = "usergate"
        resources {
          cores         = 4

@@ -1,3 +1,8 @@
+---
+title: Ingress controller for {{ managed-k8s-full-name }}
+description: '{{ alb-name }} provides the Ingress controller, a tool for creating and managing load balancers in {{ managed-k8s-full-name }} clusters.'
+---
+
 # Ingress controller for {{ managed-k8s-name }}
 
 
@@ -14,7 +19,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 
 ## Sample configuration {#example}
 
-Below is an abbreviated sample configuration for an `Ingress` resource. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.
+Below is an abbreviated configuration example for the `Ingress` resource. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.
 
 {% cut "Example" %}
 
@@ -60,7 +65,7 @@ Where `secretName` is the ID of the certificate from {{ certificate-manager-full
 
 {% endcut %}
 
-With this `Ingress` resource configuration in [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, the [backend groups](principles.md) correspond to the `backend.service` parameter. Versions 0.1.x use other parameters: `host`, `http.paths.path`, and `http.paths.pathType`. As a result, collisions may occur when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
+If this `Ingress` resource configuration is used in [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 and later, the [backend groups](principles.md) are mapped to the `backend.service` parameter. Versions 0.1.x use other parameters: `host`, `http.paths.path`, and `http.paths.pathType`. As a result, collisions may occur when updating the ALB Ingress Controller. To avoid them, [find out whether upgrade restrictions apply](../../operations/k8s-ingress-controller-upgrade.md) to your infrastructure.
 
 ## Installation and requirements {#install}
 
@@ -74,7 +79,7 @@ To learn how to install the Ingress controller, see [this guide](../../operation
 
 ## Logging settings {#log-options}
 
-To set up logging for an L7 load balancer created using the {{ alb-name }} Ingress controller in your {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress resource group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).
+To set up logging for an L7 load balancer created using the {{ alb-name }} Ingress controller in a {{ managed-k8s-name }} cluster, add the `ingress.alb.yc.io/group-settings-name` annotation with a name for the Ingress resource group settings and specify the settings in the additional `IngressGroupSettings` resource. For more information, see [Ingress resource annotations](../../k8s-ref/ingress.md#annotations).
 
 ## Integration with {{ sws-full-name }} {#smart-web-security}
 
@@ -84,7 +89,7 @@ In the Ingress controller, you can enable support for [{{ sws-full-name }}](../.
 
 ## Traffic routing using multiple Ingress controllers {#ingress-class}
 
-For a single application, you can use multiple Ingress controllers, such as {{ alb-name }} and NGINX. To correctly route traffic in such infrastructure, create an [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource for each Ingress controller. In the `Ingress` resource, specify the `IngressClass` your `Ingress` resource refers to in the `spec.ingressClassName` field. On GitHub, you can find an [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) of how to configure `Ingress` resources and route traffic using multiple Ingress controllers.
+For a single application, you can use multiple Ingress controllers, such as {{ alb-name }} and NGINX. To correctly route traffic in such infrastructure, create an [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource for each Ingress controller. In the `Ingress` resource, under `spec.ingressClassName`, specify which `IngressClass` the `Ingress` resource belongs to. On GitHub, you can find an [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) of how to configure `Ingress` resources and route traffic using multiple Ingress controllers.
 
 #### See also {#see-also}
 

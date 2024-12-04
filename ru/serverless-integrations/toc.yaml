@@ -316,5 +316,7 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
+  - name: История изменений
+    href: release-notes.md
 base: ru/serverless-integrations
 deepBase: 2

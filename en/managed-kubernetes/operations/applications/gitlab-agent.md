@@ -1,3 +1,8 @@
+---
+title: Installing the {{ GL }} Agent
+description: Follow this guide to install {{ GL }}.
+---
+
 # Installing the {{ GL }} Agent
 
 

@@ -1,3 +1,8 @@
+---
+title: Installing Policy Reporter
+description: Follow this guide to install Policy Reporter.
+---
+
 # Installing Policy Reporter
 
 

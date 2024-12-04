@@ -5,6 +5,10 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## October 2024 {#oct-2024}
+
+Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+
 ## September 2024 {#sep-2024}
 
 Added support for {{ MG }} version 7.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).

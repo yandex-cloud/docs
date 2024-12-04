@@ -1,3 +1,8 @@
+---
+title: Creating or updating {{ alb-full-name }} resources based on {{ managed-k8s-full-name }} configuration
+description: Follow this guide to create or update {{ alb-name }} resources based on {{ managed-k8s-name }} configuration.
+---
+
 # Creating or updating {{ alb-name }} resources based on {{ managed-k8s-name }} configuration
 
 
@@ -21,7 +26,7 @@ To apply a configuration:
 
    Applying a configuration might take a few minutes.
 
-1. If you're using the Ingress controller and added a new resource named `Ingress` to the configuration, make sure it's created and has a public IP address assigned:
+1. If you are using the Ingress controller and added a new resource named `Ingress` to the configuration, make sure it was created and got a public IP address:
 
    ```bash
    kubectl get ingress <Ingress_resource_name>
@@ -30,8 +35,8 @@ To apply a configuration:
    Result:
 
    ```
-   NAME            CLASS   HOSTS          ADDRESS       PORTS    AGE
-   <Ingress_name>  <none>  <domain_name>  <IP_address>  80, 443  15h
+   NAME            CLASS   HOSTS          ADDRESS       PORTS   AGE
+   <Ingress_name>  <none>  <domain_name>  <IP_address>  80,443  15h
    ```
 
-   The `ADDRESS` column must contain an IP address. Otherwise, the load balancer has not been created, or has been created with an error. Check the logs for a [pod](../../managed-kubernetes/concepts/index.md#pod) called `yc-alb-ingress-controller-*` (not `yc-alb-ingress-controller-hc-*`).
+   An IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod) (not `yc-alb-ingress-controller-hc-*`).

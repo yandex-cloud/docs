@@ -1,3 +1,8 @@
+---
+title: Create an instance in a placement group
+description: Follow this guide to create an instance in a placement group.
+---
+
 # Create an instance in a placement group
 
 

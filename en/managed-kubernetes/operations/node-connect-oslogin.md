@@ -127,7 +127,7 @@ Set up your cluster node for connection:
 
           * Node group ID in the `nodeGroupId` parameter.
 
-          * The `updateMask` parameter set to `nodeTemplate.metadata`.
+          * `updateMask` parameter set to `nodeTemplate.metadata`.
 
             {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -252,13 +252,13 @@ Set up your cluster node for connection:
 1. Connect to the VM:
 
     ```bash
-    ssh -i <certificate_file_path> <username>@<node_public_IP_address>
+    ssh -i <certificate_file_path> <user_login>@<node_public_IP_address>
     ```
 
     Where:
 
-    * `<path_to_certificate_file>`: Path to the previously saved `Identity` file of the certificate, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<username>`: Organization user's name. It is specified at the end of the exported {{ oslogin }} certificate's name. In the example above, it is `orgusername`.
+    * `<path_to_certificate_file>`: Path to the previously saved `Identity` file of the certificate. For example, `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
     * `<node_public_IP_address>`: Public IP address of the node obtained earlier.
 
     If this is your first time connecting to the node, you will get an unknown host warning:

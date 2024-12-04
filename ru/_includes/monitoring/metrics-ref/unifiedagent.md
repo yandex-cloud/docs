@@ -135,6 +135,5 @@
 | `sys.system.UpTime` | `RATE` |
 | `sys.system.UpTimeRaw` | `DGAUGE` |
 | `sys.system.UserTime` | `RATE` |
-| `sys.system.CpuUsagePercent` | `DGAUGE` |
 
 Описание системных метрик Linux смотрите в документации Linux, например [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).

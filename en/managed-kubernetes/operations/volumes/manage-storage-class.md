@@ -1,7 +1,12 @@
+---
+title: Managing storage classes
+description: Follow this guide to manage storage classes.
+---
+
 # Managing storage classes
 
 
-_Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters. Classes vary by [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
+_Storage class_ (`StorageClass`) allows administrators to divide the storages they provision into classes with defined parameters. Classes vary by [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
 
 {% note alert %}
 
@@ -13,16 +18,16 @@ The storage usage cost depends on its [disk](../../../compute/concepts/disk.md) 
 {{ managed-k8s-name }} has the following storage classes available that differ by the [disk type](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (default): Network HDD storage (`network-hdd`).
 * `yc-network-ssd`: Network SSD storage (`network-ssd`).
-* `yc-network-ssd-nonreplicated`: Improved-performance non-replicated SSD storage (`network-ssd-nonreplicated`).
-* `yc-network-ssd-io-m3`: Improved-performance network SSD storage (`network-ssd-io-m3`).
+* `yc-network-ssd-nonreplicated`: Enhanced performance non-replicated SSD storage (`network-ssd-nonreplicated`).
+* `yc-network-ssd-io-m3`: Enhanced performance network SSD storage (`network-ssd-io-m3`).
 
 {% include [nrd-no-backup-note](../../../_includes/managed-kubernetes/nrd-no-backup-note.md) %}
 
-Each storage is created with the following parameters:
+All storages are created with the following parameters:
 * [Volume Binding Mode](https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode): `WaitForFirstConsumer`.
 * [Reclaim Policy](https://kubernetes.io/docs/concepts/storage/storage-classes/#reclaim-policy): `Delete`.
 
-These classes allow you to use `PersistentVolumeClaim` and `PersistentVolume` only in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
+Under these classes, you can use `PersistentVolumeClaim` and `PersistentVolume` only in `ReadWriteOnce` [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes).
 
 You can [create your own storage class](#sc-create) as well as [change the default storage class](#sc-default).
 
@@ -30,7 +35,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 {% note info %}
 
-`yc-network-nvme` is deprecated. Use `yc-network-ssd` instead.
+`yc-network-nvme` is deprecated; use `yc-network-ssd` instead.
 
 {% endnote %}
 
@@ -38,7 +43,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 ## Create a storage class {#sc-create}
 
-1. Save the storage class creation specification in the `my-sc-hdd.yaml` YAML file:
+1. Save the storage class creation specification to a YAML file named `my-sc-hdd.yaml`:
 
    Learn more about the [storage class creation specification format](#sc-spec).
 
@@ -97,7 +102,7 @@ You can [create your own storage class](#sc-create) as well as [change the defau
 
 ### Create a storage class specification format {#sc-spec}
 
-Each `StorageClass` object contains `parameters`, `allowVolumeExpansion`, and `reclaimPolicy`, which are used for dynamic `PersistentVolume` object allocation.
+Each `StorageClass` object contains the parameters named `parameters`, `allowVolumeExpansion`, and `reclaimPolicy` used for dynamic allocation of the `PersistentVolume` object.
 
 YAML file structure:
 
@@ -105,13 +110,13 @@ YAML file structure:
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: <storage_class_name> # Used for accessing the storage class.
+  name: <storage_class_name> # Used to access a storage class.
 provisioner: <provider_name>
 volumeBindingMode: WaitForFirstConsumer
 parameters: # Storage class parameters.
   type: <disk_type>
-  csi.storage.k8s.io/fstype: < file_system_type>
-allowVolumeExpansion: <enable_volume_expansion>
+  csi.storage.k8s.io/fstype: <file_system_type>
+allowVolumeExpansion: <allow_volume_expansion>
 reclaimPolicy: <reclaim_policy>
 ```
 
@@ -125,7 +130,7 @@ Acceptable parameter values include:
 
 ## Change the default storage class {#sc-default}
 
-1. Check which storage class is assigned by default: `default` is shown next to its name in parentheses.
+1. Check which storage class is assigned by default: next to its name, you will see `default` in parentheses.
 
    ```bash
    kubectl get storageclass
@@ -140,7 +145,7 @@ Acceptable parameter values include:
    yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
    ```
 
-1. Change the `storageclass.kubernetes.io/is-default-class` parameter of the default storage class to `false`, to remove its status as the default class:
+1. Change the `storageclass.kubernetes.io/is-default-class` parameter of the default storage class to `false` to remove its default class status:
 
    ```bash
    kubectl patch storageclass yc-network-hdd \

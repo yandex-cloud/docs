@@ -9,4 +9,4 @@ description: Various {{ cdn-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](thumbor.md)
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](blue-green-canary-deployment.md)
-* [{#T}](protected-access-to-content.md)
+* [{#T}](protected-access-to-content/index.md)

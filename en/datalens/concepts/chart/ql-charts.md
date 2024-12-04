@@ -1,3 +1,8 @@
+---
+title: 'QL charts: Overview'
+description: In this tutorial, you will learn about QL charts and their features.
+---
+
 # QL charts: Overview
 
 

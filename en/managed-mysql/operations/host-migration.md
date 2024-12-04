@@ -1,3 +1,8 @@
+---
+title: Migrating {{ MY }} cluster hosts to a different availability zone
+description: Follow this guide to move {{ MY }} cluster hosts to a different availability zone.
+---
+
 # Migrating {{ MY }} cluster hosts to a different availability zone
 
 
@@ -34,7 +39,7 @@
          --cluster-name <cluster_name> \
          --host zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<host_public_access:_true_or_false>
+               `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -49,7 +54,7 @@
            host {
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <host_public_access:_true_or_false>
+             assign_public_ip = <public_access_to_host:_true_or_false>
            }
          }
          ```
@@ -83,13 +88,13 @@
                         {
                           "zoneId": "<availability_zone>",
                           "subnetId": "<new_subnet_ID>",
-                          "assignPublicIp": <host_public_access:_true_or_false>
+                          "assignPublicIp": <public_access_to_host:_true_or_false>
                         }
                       ]
                     }'
          ```
 
-         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -115,7 +120,7 @@
                     {
                       "zone_id": "<availability_zone>",
                       "subnet_id": "<new_subnet_ID>",
-                      "assign_public_ip": <host_public_access:_true_or_false>
+                      "assign_public_ip": <public_access_to_host:_true_or_false>
                     }
                   ]
                 }' \
@@ -123,7 +128,7 @@
             yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
          ```
 
-         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -147,7 +152,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -185,9 +190,9 @@
                     }'
          ```
 
-         Where `hostNames` is an array with the host to delete.
+         Where `hostNames` is the array with the host to delete.
 
-         Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
 
       1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -212,9 +217,9 @@
             yandex.cloud.mdb.mysql.v1.ClusterService.DeleteHosts
          ```
 
-         Where `host_names` is an array with the host to delete.
+         Where `host_names` is the array with the host to delete.
 
-         Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
 
       1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

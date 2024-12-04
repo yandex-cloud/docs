@@ -22,7 +22,7 @@ editable: false
 
 ### Генерация текста {#rules-generating}
 
-Стоимость генерации текста рассчитывается из суммарного количества [токенов](concepts/yandexgpt/tokens.md) [промта](concepts/index.md#working-mode) и ответа и зависит от параметров запроса к {{ yagpt-full-name }}. Следующие параметры влияют на стоимость генерации текста:
+Стоимость генерации текста рассчитывается из суммарного количества [токенов](concepts/yandexgpt/tokens.md) [промта](concepts/index.md#working-mode) и ответа и зависит от параметров запроса к моделям генерации. Следующие параметры влияют на стоимость генерации текста:
 
 * [Модель](concepts/yandexgpt/models.md), к которой приходит запрос.
 * [Режим работы](concepts/index.md#working-mode) модели.
@@ -268,4 +268,7 @@ editable: false
 
 
 
+
+
+^1^ {{ meta-disclaimer }}
 

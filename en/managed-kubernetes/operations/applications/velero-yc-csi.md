@@ -1,3 +1,8 @@
+---
+title: Installing Velero
+description: Follow this guide to install Velero.
+---
+
 # Installing Velero
 
 
@@ -30,7 +35,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md).
 
-   * If you want to install Velero [using the {{ marketplace-full-name }} in the management console](#marketplace-install), create a static access key in JSON format and save it to the `sa-key.json` file:
+   * If installing Velero [in the management console using {{ marketplace-full-name }}](#marketplace-install), create a static key in JSON format and save it to the `sa-key.json` file:
 
      ```bash
      yc iam access-key create \
@@ -38,7 +43,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
        --format=json > sa-key.json
      ```
 
-   * If you are going to use a [Helm chart](#helm-install) to install Velero, run the following command and save the obtained `key_id` and `secret` key:
+   * If installing Velero using a [Helm chart](#helm-install), run the following command and save the `key_id` and `secret` key you get:
 
      ```bash
      yc iam access-key create \

@@ -1,3 +1,8 @@
+---
+title: Disk types in {{ mgp-full-name }}
+description: In this article, you will learn about disk types in {{ mgp-name }} and discover some features of local SSD storage.
+---
+
 # Disk types in {{ mgp-name }}
 
 
@@ -10,7 +15,7 @@ In a {{ mgp-name }} cluster, the type of disks for master hosts and segment host
 
 {% note info %}
 
-When using standard **Intel Ice Lake** hosts, access to local SSD storage is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+When using standard **Intel Ice Lake** hosts, access to local SSD storage is provided on request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

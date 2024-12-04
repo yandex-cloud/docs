@@ -1,3 +1,8 @@
+---
+title: Installing Container Storage Interface for S3
+description: Follow this guide to install Container Storage Interface for S3.
+---
+
 # Installing Container Storage Interface for S3
 
 
@@ -6,8 +11,8 @@
 {% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
 
 You can install container Storage Interface for S3 in the following ways:
-* [Using {{ marketplace-name }}](#marketplace-install) in the management console
-* [Using a Helm chart from the {{ marketplace-name }} repository](#helm-install)
+* [Using {{ marketplace-name }} in the management console](#marketplace-install)
+* [Using a Helm chart from the remote {{ marketplace-name }} storage](#helm-install)
 * [Using a Helm chart from the remote GitHub storage](#helm-github-install)
 
 ## Getting started {#before-you-begin}
@@ -44,7 +49,7 @@ You can install container Storage Interface for S3 in the following ways:
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
-## Installation using a Helm chart from the {{ marketplace-name }} repository {#helm-install}
+## Installation using a Helm chart from the remote {{ marketplace-name }} storage {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -63,11 +68,11 @@ You can install container Storage Interface for S3 in the following ways:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   You can also specify additional Container Storage Interface [parameters](#installation-parameters) for S3.
+   You can also set additional Container Storage Interface [parameters](#installation-parameters) for S3.
 
-## Installation using a Helm chart from the GitHub repository {#helm-github-install}
+## Using a Helm chart from the remote GitHub storage {#helm-github-install}
 
-The latest version of Container Storage Interface for S3 with {{ objstorage-name }} support is available in the [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3).
+The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) hosts the most current version of the Container Storage Interface for S3 with {{ objstorage-name }} support.
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
@@ -84,13 +89,13 @@ The latest version of Container Storage Interface for S3 with {{ objstorage-name
       csi-s3 ./csi-s3/
     ```
 
-    You can also specify additional Container Storage Interface [parameters](#installation-parameters) for S3.
+    You can also set additional Container Storage Interface [parameters](#installation-parameters) for S3.
 
 ## Parameters for installation using a Helm chart {#installation-parameters}
 
 When installing a Container Storage Interface for S3 application, the only required parameters are `secret.accessKey` and `secret.secretKey`. You can skip other parameters or redefine them in the install command using this key: `--set <parameter_name>=<new_value>`.
 
-The list of parameters available for redefining and their default values are shown in the table below:
+See the table below for a list of redefinable parameters and their default values:
 
 Parameter name | Description | Default value
 --- | --- | ---

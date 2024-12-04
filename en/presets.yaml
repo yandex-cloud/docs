@@ -73,7 +73,6 @@ default:
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: Yandex Code Assistant
   ca-name: Code Assistant
-  ca-short-name: Code Assistant
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.yandexcloud.net/webview
   captcha-name: SmartCaptcha
@@ -333,6 +332,7 @@ default:
         https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
     helm:
       install: https://helm.sh/docs/intro/install/
+  llama: Llama
   load-testing-full-name: Yandex Load Testing
   load-testing-name: Load Testing
   local-ssd-v3-max: 2944 GB
@@ -381,6 +381,9 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  meta-disclaimer: >-
+    Llama was created by Meta. Meta is designated as an extremist organization
+    and its activities are prohibited in Russia.
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Hive Metastore
@@ -556,7 +559,6 @@ default:
   roles-editor: editor
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
-  roles-functions-ivoker: serverless.functions.invoker
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
   roles-license-manager-subscription-agent: license-manager.subscriptionAgent
@@ -889,6 +891,51 @@ default:
     logs:
       raw|string: ₸25000.00
       shielding|string: ₸17500.00
+  sku|KZT|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: ₸5.25
+              v3|string: ₸1.80
+              v3i|string: ₸4.50
+            t4i|string: ₸5.25
+            v3|string: ₸4.50
+            v3i|string: ₸4.50
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: ₸720.00
+            v2|string: ₸312.00
+            v3|string: ₸743.40
+            v3i|string: ₸8336.50
+          preemptible|string: ₸312.00
+          t4i|string: ₸720.00
+          v2|string: ₸1247.60
+          v3|string: ₸1858.50
+          v3i|string: ₸8336.50
+        gpu-standard|string: ₸1247.60
+        infiniband:
+          ic_v3i:
+            preemptible|string: ₸3702.00
+          ic_v3i|string: ₸3702.00
+          ic:
+            preemptible|string: ₸318.00
+          ic|string: ₸318.00
+        standard:
+          v3-t4:
+            preemptible|string: ₸80.00
+          v3-t4|string: ₸320.00
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: ₸1.40
+            v3|string: ₸0.55
+            v3i|string: ₸1.40
+          t4i|string: ₸1.40
+          v3|string: ₸1.40
+          v3i|string: ₸1.40
   sku|KZT|compute:
     filesystem:
       hdd:
@@ -924,12 +971,6 @@ default:
           v2|string: ₸0.80
         c05|string: ₸1.55
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: ₸5.25
-              v3|string: ₸1.80
-            t4i|string: ₸5.25
-            v3|string: ₸4.50
           highfreq-v3|string: ₸8.80
           preemptible:
             v2|string: ₸1.60
@@ -953,32 +994,7 @@ default:
             v2|string: ₸1.10
             v3|string: ₸1.00
           v3|string: ₸3.20
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: ₸720.00
-            v2|string: ₸312.00
-            v3|string: ₸743.40
-          preemptible|string: ₸312.00
-          t4i|string: ₸720.00
-          v2|string: ₸1247.60
-          v3|string: ₸1858.50
-        gpu-standard|string: ₸1247.60
-        infiniband:
-          ic:
-            preemptible|string: ₸318.00
-          ic|string: ₸318.00
-        standard:
-          v3-t4:
-            preemptible|string: ₸80.00
-          v3-t4|string: ₸320.00
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: ₸1.40
-            v3|string: ₸0.55
-          t4i|string: ₸1.40
-          v3|string: ₸1.40
         highfreq-v3|string: ₸1.60
         preemptible:
           v2|string: ₸0.35
@@ -2123,6 +2139,51 @@ default:
     logs:
       raw|string: ₽5000.00
       shielding|string: ₽3500.00
+  sku|RUB|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: ₽1.05
+              v3|string: ₽0.36
+              v3i|string: ₽0.90
+            t4i|string: ₽1.05
+            v3|string: ₽0.90
+            v3i|string: ₽0.90
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: ₽144.00
+            v2|string: ₽62.40
+            v3|string: ₽148.68
+            v3i|string: ₽1667.30
+          preemptible|string: ₽62.40
+          t4i|string: ₽144.00
+          v2|string: ₽249.52
+          v3|string: ₽371.70
+          v3i|string: ₽1667.30
+        gpu-standard|string: ₽249.52
+        infiniband:
+          ic_v3i:
+            preemptible|string: ₽740.40
+          ic_v3i|string: ₽740.40
+          ic:
+            preemptible|string: ₽63.60
+          ic|string: ₽63.60
+        standard:
+          v3-t4:
+            preemptible|string: ₽16.00
+          v3-t4|string: ₽64.00
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: ₽0.28
+            v3|string: ₽0.11
+            v3i|string: ₽0.28
+          t4i|string: ₽0.28
+          v3|string: ₽0.28
+          v3i|string: ₽0.28
   sku|RUB|compute:
     filesystem:
       hdd:
@@ -2158,12 +2219,6 @@ default:
           v2|string: ₽0.16
         c05|string: ₽0.31
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: ₽1.05
-              v3|string: ₽0.36
-            t4i|string: ₽1.05
-            v3|string: ₽0.90
           highfreq-v3|string: ₽1.76
           preemptible:
             v2|string: ₽0.32
@@ -2187,32 +2242,7 @@ default:
             v2|string: ₽0.22
             v3|string: ₽0.20
           v3|string: ₽0.64
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: ₽144.00
-            v2|string: ₽62.40
-            v3|string: ₽148.68
-          preemptible|string: ₽62.40
-          t4i|string: ₽144.00
-          v2|string: ₽249.52
-          v3|string: ₽371.70
-        gpu-standard|string: ₽249.52
-        infiniband:
-          ic:
-            preemptible|string: ₽63.60
-          ic|string: ₽63.60
-        standard:
-          v3-t4:
-            preemptible|string: ₽16.00
-          v3-t4|string: ₽64.00
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: ₽0.28
-            v3|string: ₽0.11
-          t4i|string: ₽0.28
-          v3|string: ₽0.28
         highfreq-v3|string: ₽0.32
         preemptible:
           v2|string: ₽0.07
@@ -3358,6 +3388,51 @@ default:
     logs:
       raw|string: $40.000000
       shielding|string: $28.000000
+  sku|USD|compute_gpu:
+    vm:
+      cpu:
+        c100:
+          gpu-standard:
+            preemptible:
+              t4i|string: $0.008400
+              v3|string: $0.002880
+              v3i|string: $0.007200
+            t4i|string: $0.008400
+            v3|string: $0.007200
+            v3i|string: $0.007200
+      gpu:
+        gpu-standard:
+          preemptible:
+            t4i|string: $1.152000
+            v2|string: $0.499200
+            v3|string: $1.189440
+            v3i|string: $13.338400
+          preemptible|string: $0.499200
+          t4i|string: $1.152000
+          v2|string: $1.996160
+          v3|string: $2.973600
+          v3i|string: $13.338400
+        gpu-standard|string: $1.996160
+        infiniband:
+          ic_v3i:
+            preemptible|string: $5.923200
+          ic_v3i|string: $5.923200
+          ic:
+            preemptible|string: $0.508800
+          ic|string: $0.508800
+        standard:
+          v3-t4:
+            preemptible|string: $0.128000
+          v3-t4|string: $0.512000
+      ram:
+        gpu-standard:
+          preemptible:
+            t4i|string: $0.002240
+            v3|string: $0.000880
+            v3i|string: $0.002240
+          t4i|string: $0.002240
+          v3|string: $0.002240
+          v3i|string: $0.002240
   sku|USD|compute:
     filesystem:
       hdd:
@@ -3393,12 +3468,6 @@ default:
           v2|string: $0.001280
         c05|string: $0.002480
         c100:
-          gpu-standard:
-            preemptible:
-              t4i|string: $0.008400
-              v3|string: $0.002880
-            t4i|string: $0.008400
-            v3|string: $0.007200
           highfreq-v3|string: $0.014080
           preemptible:
             v2|string: $0.002560
@@ -3422,32 +3491,7 @@ default:
             v2|string: $0.001760
             v3|string: $0.001600
           v3|string: $0.005120
-      gpu:
-        gpu-standard:
-          preemptible:
-            t4i|string: $1.152000
-            v2|string: $0.499200
-            v3|string: $1.189440
-          preemptible|string: $0.499200
-          t4i|string: $1.152000
-          v2|string: $1.996160
-          v3|string: $2.973600
-        gpu-standard|string: $1.996160
-        infiniband:
-          ic:
-            preemptible|string: $0.508800
-          ic|string: $0.508800
-        standard:
-          v3-t4:
-            preemptible|string: $0.128000
-          v3-t4|string: $0.512000
       ram:
-        gpu-standard:
-          preemptible:
-            t4i|string: $0.002240
-            v3|string: $0.000880
-          t4i|string: $0.002240
-          v3|string: $0.002240
         highfreq-v3|string: $0.002560
         preemptible:
           v2|string: $0.000560
@@ -3611,15 +3655,20 @@ default:
     api:
       asymmetric:
         heavy:
+          v1|number: 0.1152
           v1|string: $0.115200
+        v1|number: 0.04608
         v1|string: $0.046080
       v1:
+        encryptdecrypt|number: 0.02304
         encryptdecrypt|string: $0.023040
     storage:
       asymmetric:
+        v1|number: 0.02304
         v1|string: $0.023040
       v1:
         hsm|month|string: $2.880000
+        software|month|number: 0.02304
         software|month|string: $0.023040
   sku|USD|lockbox:
     api:
@@ -3857,6 +3906,7 @@ default:
         mysql|month|string: $0.104080
         opensearch|month|string: $0.104080
         pg|month|string: $0.104080
+        redis|month|number: 0.10408
         redis|month|string: $0.104080
       network-ssd-io-m3:
         ch|month|string: $0.174240
@@ -3890,10 +3940,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.676800
+            c100|number: 0.01344
             c100|string: $0.013440
             c50|month|string: $3.870720
             c50|string: $0.005376
           ram|month|string: $4.032000
+          ram|number: 0.0056
           ram|string: $0.005600
       pg:
         backup|month|string: $0.015360
@@ -3953,10 +4005,12 @@ default:
         v3:
           cpu:
             c100|month|string: $8.697600
+            c100|number: 0.01208
             c100|string: $0.012080
             c50|month|string: $5.241600
             c50|string: $0.007280
           ram|month|string: $2.304000
+          ram|number: 0.0032
           ram|string: $0.003200
     dataproc:
       v2:
@@ -6604,6 +6658,7 @@ default:
           label_disk-encryption: Encrypted disk
           label_disk-kms-key: KMS key
           label_service-account: Service account
+          section_encryption: Encryption
         disk:
           overview:
             label_snapshot: Snapshot

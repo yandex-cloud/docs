@@ -18,12 +18,12 @@ description: Следуя данной инструкции, вы сможете
    * В блоке **{{ ui-key.yc-ui-datasphere.common.general }}**:
 
      * **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** — укажите время, через которое выделенная ВМ будет остановлена и удалена из проекта, если на ней не будет вычислений.
-     * **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** — выберите конфигурацию ВМ, которая будет создана при подключении к локальной IDE.
+     * **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** — выберите конфигурацию ВМ, которая будет создана при [подключении](remote-connect.md) к локальной IDE.
 
    * В блоке **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**:
 
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для хранения логов работы [нод](../../concepts/deploy/index.md#node).
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого {{ ml-platform-name }} будут создавать кластеры {{ dataproc-name }} и выполнять другие действия в сервисах {{ yandex-cloud }}. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles).
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию для работы c ресурсами {{ yandex-cloud }}.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — укажите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого {{ ml-platform-name }} будет создавать кластеры {{ dataproc-name }} и выполнять другие действия в сервисах {{ yandex-cloud }}. Сервисный аккаунт должен иметь необходимые [роли](../../../iam/concepts/access-control/roles).
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — укажите [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, если она нужна для связи с другими сервисами {{ yandex-cloud }}. Вместе с подсетью обязательно укажите сервисный аккаунт с ролью `{{ roles-vpc-user }}`. Чтобы доступ в интернет и к репозиториям pip в проекте сохранился, указанная подсеть должна иметь настроенный [NAT-шлюз](../../../vpc/concepts/gateways.md), а сервисный аккаунт — роль `vpc.gateways.user`.
 
      {% include [subnet-create](../../../_includes/subnet-create.md) %}

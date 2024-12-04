@@ -7,7 +7,7 @@ description: This section describes the specificities and format of text queries
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-With {{ search-api-name }} API v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
+With {{ search-api-name }} API v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. The queries run with [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
 
 [Queries can be submitted](../operations/web-search.md) by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
 
@@ -19,9 +19,9 @@ With the Operation object ID, you can [track](../operations/web-search.md#verify
 
 The names of the query body fields are different in [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
 
@@ -43,9 +43,9 @@ The names of the query body fields are different in [REST API](../api-ref/) and 
 
 In response to a deferred query, {{ search-api-name }} returns an [Operation object](../../api-design-guide/concepts/operation.md) in the following format:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```json
   {

@@ -5,27 +5,36 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
+## October 2024 {#oct-2024}
+
+* A new version is out: {{ CH }} [24.9](https://clickhouse.com/blog/clickhouse-release-24-09).
+* Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+
+## September 2024 {#sep-2024}
+
+A new version is out: {{ CH }} [24.8 LTS](https://clickhouse.com/blog/clickhouse-release-24-08).
+
 ## July 2024 {#jul-2024}
 
-* New {{ CH }} version is now available: [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
-* Now you can automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when [adding {{ ZK }} hosts](./operations/zk-hosts.md). This greatly simplifies migration to a fault-tolerant configuration for single-host clusters.
+* A new version is out: {{ CH }} [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* Now you can automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when [adding {{ ZK }}](./operations/zk-hosts.md) hosts. This greatly simplifies migration to a fault-tolerant configuration for single-host clusters.
 * Now you can delete [backups](./concepts/backup.md) manually.
 
 ## June 2024 {#jun-2024}
 
-New {{ CH }} version is now available: [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
+A new version is out: {{ CH }} [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
 
 ## May 2024 {#may-2024}
 
-New {{ CH }} version is now available: [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+A new version is out: {{ CH }} [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
 
 ## April 2024 {#apr-2024}
 
-New {{ CH }} version is now available: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+A new version is out: {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
 
 ## March 2024 {#mar-2024}
 
-* New {{ CH }} version is now available: [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
+* A new version is out: {{ CH }} [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
 * Now you can create or delete multiple hosts within a single operation. This will help speed up adding or deleting cluster hosts in bulk.
 * Doubled the [limit](./concepts/limits.md#mch-limits) on the size of `network-ssd-nonreplicated` network drives from 8 TB to 16 TB. This will allow for expanding a cluster without adding additional shards.
 
@@ -40,7 +49,7 @@ New {{ CH }} versions are now available: [23.4](https://clickhouse.com/docs/en/w
 
 ## Q1 2023 {#q1-2023}
 
-New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+A new version is out: {{ CH }} [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
 
 ## Q4 2022 {#q4-2022}
 
@@ -73,7 +82,7 @@ New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/wha
 
 ## Q2 2022 {#q2-2022}
 
-* A new version is available: {{ CH }} 22.5 ([revision list](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
+* A new version is out: {{ CH }} 22.5 ([revision list](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
 * Added support for `SYSTEM UNFREEZE`. The query completely clears cluster storage of the cluster backup, including table data that may take up storage space after deletion. For more information, visit [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Reduced the time required to recover a cluster from a backup.
 * Fixed the bug that caused pre-configured topic access passwords to be deleted when the {{ KF }} topic connection list was edited.
@@ -82,7 +91,7 @@ New {{ CH }} version is now available: [23.3](https://clickhouse.com/docs/en/wha
 
 ## Q1 2022 {#q1-2022}
 
-* A new version is available: {{ CH }} 22.3 LTS ([revision list](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
+* A new version is out: {{ CH }} 22.3 LTS ([revision list](https://github.com/ClickHouse/ClickHouse/blob/master/CHANGELOG.md)).
 * Added an option to restore an entire sharded cluster from a backup.
 * Added an option to change the settings that enable public access to a host.
 

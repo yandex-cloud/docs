@@ -39,6 +39,8 @@ Billed hourly. The price per month is provided for reference based on 720 hours 
 
 {% include [usd.md](../_pricing/kms/usd-symmetric.md) %}
 
+{% include [usd-symmetric](../_pricing_examples/kms/usd-symmetric.md) %}
+
 
 ### Asymmetric encryption {#asymmetric}
 
@@ -46,4 +48,6 @@ Billed hourly. The price per month is provided for reference based on 720 hours 
 
 
 {% include [usd.md](../_pricing/kms/usd-asymmetric.md) %}
+
+{% include [usd-asymmetric](../_pricing_examples/kms/usd-asymmetric.md) %}
 

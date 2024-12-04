@@ -4,10 +4,14 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+### Release as of 18/11/24 {#181124}
+
+Fixed the pronunciation of _tenge_ for synthesis in Russian. Now the model pronounces it with a soft (palatalized) _t_: `[tʲɪnˈɡʲe]`.`
+
 ### Release as of 10/10/24 {#101024}
 
-1. Now there is a new female voice for synthesis in Kazakh (`saule`), coupled with its Russian analog (`saule_ru`). 
-1. The `madirus` Russian voice was renamed to `madi_ru`. The voice is still available by its old name, but please use the new one in your projects (and correct the dependency where possible).
+1. Now there is a new female voice for synthesis in Kazakh (`saule`) and its Russian counterpart (`saule_ru`). 
+1. The `madirus` Russian voice was renamed to `madi_ru`. The voice is still available by its old name, but please use the new one where possible.
 
 ### Release as of 20/09/24 {#200924}
 
@@ -116,7 +120,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 1. More pausing features were added:
    * The error when pauses shorter than 1200 milliseconds were not taken into account in SSML markup has been fixed. Note that pauses shorter than 700 milliseconds are considered a synthesis cue and do not allow accurate control of the duration of a pause between words.
    * SSML pauses with the `x-weak`, `weak`, and `medium` values have a greater impact on the synthesized text.
-   * You can now apply pauses when using TTS markup. Use the `<[small]>` tag to set the pause length in the synthesized text, e.g., `Hello <[small]>`. The possible pause lengths are: `tiny`, `small`, `medium`, `large`, or `huge`.
+   * You can now apply pauses when using TTS markup. Use the `<[small]>` tag to set the pause length in the synthesized text, e.g., `Hello, <[small]>`. The possible pause lengths are: `tiny`, `small`, `medium`, `large`, or `huge`.
 
 1. Support for `filipp:deprecated` was discontinued. `filipp:deprecated` and `filipp` now sound the same.
 
@@ -134,7 +138,7 @@ The `general` branch now has these new voices: `amira` and `john`.
 
 1. The standard voices are currently only available through the `:deprecated` tag and will be supported until May 31, 2022.
 
-1. Intonations and issues with rare artifacts in texts with many numbers have been fixed following a technical support request (issue CLOUDSUPPORT-138703).
+1. Intonations and issues with rare artifacts in texts with many numbers were fixed when reported technical support (ticket CLOUDSUPPORT-138703).
 
 ### Release as of 17/03/22 {#170322}
 

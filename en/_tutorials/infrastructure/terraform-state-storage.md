@@ -133,7 +133,7 @@ Create another configuration and use the saved state to create another VM in one
    }
 
    provider "yandex" {
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ region-id }}-d"
    }
 
    data "terraform_remote_state" "vpc" {
@@ -148,7 +148,7 @@ Create another configuration and use the saved state to create another VM in one
 
        skip_region_validation      = true
        skip_credentials_validation = true
-       skip_requesting_account_id  = true # This option is required to describe a backend for Terraform versions higher than 1.6.1.
+       skip_requesting_account_id  = true # This option is required to describe backend for Terraform versions higher than 1.6.1.
 
        access_key = "<key_ID>"
        secret_key = "<secret_key>"
@@ -163,7 +163,7 @@ Create another configuration and use the saved state to create another VM in one
    resource "yandex_compute_disk" "boot-disk-vm3" {
      name     = "boot-disk-3"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -194,8 +194,8 @@ Create another configuration and use the saved state to create another VM in one
    Where:
    * `bucket`: Bucket name.
    * `key`: Object key in the bucket (name and path to the {{ TF }} state file in the bucket).
-   * `access_key`: [Secret key ID](#create-service-account) of the [service account](../../iam/concepts/users/service-accounts.md) to access the bucket.
-   * `secret_key`: Service account secret key value.
+   * `access_key`: [Secret key ID](#create-service-account) of the [service account](../../iam/concepts/users/service-accounts.md), to access the bucket.
+   * `secret_key`: Service account's secret key value.
 1. Run the `terraform init` command.
 1. Run the `terraform plan` command. The terminal will display the plan for creating the VM.
 1. Run the `terraform apply` command.

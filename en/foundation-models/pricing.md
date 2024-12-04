@@ -1,4 +1,6 @@
 ---
+title: '{{ foundation-models-full-name }} pricing policy'
+description: This article provides the {{ foundation-models-name }} pricing policy.
 editable: false
 ---
 
@@ -61,6 +63,10 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 
 The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
+### Work of assistants {#rules-assistant}
+
+At the [Preview](../overview/concepts/launch-stages.md) stage, you can use {{ assistant-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
+
 ### Image generation {#rules-image-generation}
 
 You are charged for each generation request in {{ yandexart-name }}. The requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
@@ -73,12 +79,14 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Text generation in {{ yagpt-full-name }} {#pricing-generating}
+### Text generation {#pricing-generating}
 
 
 
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
 
+
+^1^ {{ meta-disclaimer }}
 
 ### Text classification {#pricing-classifier}
 
@@ -153,3 +161,5 @@ Cost of using {{ yagpt-full-name }} for text vectorization with the following pa
 
 
 
+
+^1^ {{ meta-disclaimer }}

@@ -1,11 +1,34 @@
 ---
 title: YC CLI releases
-description: This page provides a list of YC CLI releases and updates rolled out in each of them.
+description: This page presents a list of YC CLI releases and the updates of each.
 ---
 
 # YC CLI Releases
 
 ## Current version {#latest-release}
+
+### Version 0.139.0 (18/11/24) {#version0.139.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Added the `user-account-id` parameter to the `yc desktops desktop` command. Deleted the `subject` parameter.
+* Added the `yc desktops image` command to manage desktop images.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Fixed a regression in Docker credential helper making it impossible to select a non-default profile.
+
+##### {{ compute-name }} {#compute}
+
+* Added the `kms-key-id` and `kms-key-name` parameters to the `yc compute disk create` and `yc compute instance create` commands to support disk encryption.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+* Added the `--runtime` parameter to the `yc serverless container revision deploy` command allowing you to set the container operating mode (`http` or `task`).
+
+## Previous releases {#previous-releases}
 
 ### Version 0.138.0 (06/11/24) {#version0.138.0}
 
@@ -19,8 +42,6 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 * The `yc cic point-of-presence get` and `yc cic partner get` commands now only work with IDs without flags.
 * Fixed the output format of the `list` command for `trunk-connection`, `private-connection`, and `public-connection` in {{ interconnect-name }} and for `routing-instance` in Cloud Router: some fields were removed with display formats revised.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.137.0 (01/11/24) {#version0.137.0}
 
@@ -52,7 +73,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ##### {{ alb-name }} {#alb}
 
-* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection inactivity timeout. 
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
 
 ##### {{ er-name }} {#eventrouter}
 
@@ -68,15 +89,15 @@ description: This page provides a list of YC CLI releases and updates rolled out
 **{{ mrd-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
-  * `--lua-time-limit`
-  * `--repl-backlog-size-percent`
-  * `--cluster-require-full-coverage`
-  * `--cluster-allow-reads-when-down`
-  * `--cluster-allow-pubsubshard-when-down`
-  * `--lfu-decay-time`
-  * `--lfu-log-factor`
-  * `--turn-before-switchover`
-  * `--allow-data-loss`
+  * `--lua-time-limit`,
+  * `--repl-backlog-size-percent`,
+  * `--cluster-require-full-coverage`,
+  * `--cluster-allow-reads-when-down`,
+  * `--cluster-allow-pubsubshard-when-down`,
+  * `--lfu-decay-time`,
+  * `--lfu-log-factor`,
+  * `--turn-before-switchover`,
+  * `--allow-data-loss`.
 
 **{{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}**
 
@@ -176,7 +197,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 **{{ mkf-name }}**
 
-*  Upgraded the `--permission` flag for the `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, and`yc managed-kafka cluster revoke-permission` commands. Its value is set in `key=value,...` format. As `key`, now you can use `allow_host`, which is the host that applies this rule to a user.
+*  Upgraded the `--permission` flag for the `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, and`yc managed-kafka cluster revoke-permission` commands. Its value is set in `key=value,...` format. As `key`, `allow_host` can now be used, which is the host applying this rule to the user.
 
 **{{ maf-name }}**
 
@@ -229,7 +250,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 **{{ mgp-name }}**
 
-* To the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing you to access the cluster from {{ yq-full-name }}.
+* Added the `--yandexquery-access` parameter to the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing you to access the cluster from {{ yq-full-name }}.
 * To the `yc managed-greenplum cluster [ create | update ]` commands, added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters which can be used to manage the {{ mgp-name }} background processes.
 
 **{{ maf-name }}**
@@ -1319,7 +1340,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mgp-name }}**
 
-* Added the `yc managed-greenplum cluster expand` command, which allows you to expand the existing {{ mgp-name }} cluster. Command parameters:
+* Added the `yc managed-greenplum cluster expand` command which allows you to expand the existing {{ mgp-name }} cluster. Command parameters:
 
   * `--segment-host-count`: Number of hosts added to a cluster.
   * `--add-segments-per-host-count`: Number of segments added per cluster host.
@@ -1595,7 +1616,7 @@ Added commands for {{ mgp-name }} primary support:
 
 **{{ mms-name }}**
 
-* Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command which assigns or deletes a host's public IP address.
+* Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command which links or deletes a host's public IP address.
 
 
 
@@ -1837,7 +1858,7 @@ Added commands for {{ mgp-name }} primary support:
 **{{ mkf-name }}**
 
 * Added the `--maintenance-window` parameter to the `yc managed-kafka cluster update` command to set maintenance window parameters.
-* Added the `yc managed-kafka cluster reschedule-maintenance` command, which allows you to change the start time of a scheduled cluster maintenance task.
+* Added the `yc managed-kafka cluster reschedule-maintenance` command that allows you to change the start time of a scheduled cluster maintenance task.
 
 
 ##### {{ alb-name }} {#alb}
@@ -1905,7 +1926,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ resmgr-name }} {#resmgr}
 
-* Added the `yc resource-manager folder delete` command, which allows you to delete a folder.
+* Added the `yc resource-manager folder delete` command that allows you to delete a folder.
 
 
 #### Changes to the CLI {#cli}

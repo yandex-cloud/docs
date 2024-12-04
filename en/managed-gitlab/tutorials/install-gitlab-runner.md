@@ -1,18 +1,18 @@
 # Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that executes {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} either in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) or a {{ compute-name }} virtual machine, which is an easier and cheaper option.
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} both in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on the {{ compute-name }} virtual machine, which is easier and cheaper.
 
-{{ compute-name }} offers two ways to work with {{ GLR }}: You can:
+{{ compute-name }} provides two ways to work with {{ GLR }}: You can:
 
-* Create a [VM](../../compute/concepts/vm.md) and install {{ oslogin }} on it manually.
-* Use the [management console]({{ link-console-main }}) to create a runner that will automatically deploy the specified number of VMs ready to run tasks.
+* Create a [VM](../../compute/concepts/vm.md) and install {{ GLR }} on it manually.
+* Using the [management console]({{ link-console-main }}), create a runner that will automatically deploy the specified number of VMs ready to run jobs.
 
 To get started with {{ GLR }} using {{ compute-name }}:
 
-1. [{#T}](#infra).
-1. [{#T}](#gitlab-token).
-1. [{#T}](#install) or [create a runner using the management console](#create-runner).
-1. [{#T}](#example).
+1. [Prepare your infrastructure](#infra).
+1. [Get a {{ GLR }} token](#gitlab-token).
+1. [Install the {{ GLR }} agent on the {{ compute-full-name }} VM](#install) or [create a runner using the management console](#create-runner).
+1. [Create a test scenario](#example).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Click **New instance runner** and create a new {{ GLR }}.
   1. Save the value of the `Runner authentication token` parameter.
 
-* To configure {{ GLR }} project settings:
+* Project settings {{ GLR }} for the project:
 
   1. Open {{ GL }}.
   1. Select a project.
@@ -100,7 +100,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Enter a name for the runner:
     
-    * The name must be 2 to 63 characters long.
+    * It must be 2 to 63 characters long.
     * It may contain lowercase Latin letters, numbers, and hyphens.
     * It must start with a letter and cannot end with a hyphen.
 
@@ -115,12 +115,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * Maximum number of workers
     * Minimum number of workers
     * Worker downtime limit in minutes
-    * Maximum number of tasks per worker
+    * Maximum number of jobs per worker
     * Maximum number of parallel jobs per worker
 
-1. Optionally, add labels for the worker.
+1. (Optional) Add labels for the worker.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select a preset configuration.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
@@ -129,21 +129,21 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-1. Make sure the runner works:
+1. Make sure that the runner works:
 
-    * In {{ GL }}:
+    * {{ GL }}:
       * If {{ GLR }} was created for the whole {{ GL }} instance:
           1. In the bottom-left corner, click **Admin**. 
           1. In the left-hand menu, select **CI/CD** → **Runners**.
           1. Make sure the new runner is now in the list.
 
-      *  If {{ GLR }} was created for a project.
+      *  If {{ GLR }} was created for a project:
           1. Open the project.
           1. In the left-hand menu, select **Settings** → **CI/CD**.
           1. Under **Runners**, click **Expand**.
           1. Make sure the new runner has appeared in the **Assigned project runners** section.
 
-    * In {{ compute-name }}: make sure that new VMs with the `runner-` prefix have appeared.
+    * In {{ compute-name }}, make sure that new VMs with the `runner-` prefix have appeared.
 
 ## Create a test scenario {#example} 
 
@@ -175,7 +175,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Select **Build** → **Jobs** in the left-hand menu.
 
-1. Make sure that three issues have the `Passed` status.
+1. Make sure that three jobs have the `Passed` status.
 
 ## Delete the resources you created {#clear-out}
 

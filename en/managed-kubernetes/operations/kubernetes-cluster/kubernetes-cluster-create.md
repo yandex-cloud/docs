@@ -1,3 +1,8 @@
+---
+title: Creating a {{ managed-k8s-full-name }} cluster
+description: Follow this guide to create a {{ managed-k8s-name }} cluster.
+---
+
 # Creating a {{ managed-k8s-name }} cluster
 
 
@@ -62,7 +67,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        --subnet-name default-a \
        --public-ip \
        --release-channel regular \
-       --version 1.13 \
+       --version 1.27 \
        --cluster-ipv4-range 10.1.0.0/16 \
        --service-ipv4-range 10.2.0.0/16 \
        --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
@@ -82,7 +87,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      * `--subnet-name`: [Subnet](../../../vpc/concepts/network.md#subnet) name.
      * `--public-ip`: Flag indicating that the {{ managed-k8s-name }} cluster needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
      * `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#release-channels).
-     * `--version`: {{ k8s }} version.
+     * `--version`: {{ k8s }} version. Specify a version available for the selected release channel.
      * `--cluster-ipv4-range`: Range of [IP addresses](../../../vpc/concepts/address.md) for allocating [pod](../../concepts/index.md#pod) addresses.
      * `--service-ipv4-range`: Range of IP addresses for allocating [service](../../concepts/index.md#service) addresses.
      * `--security-group-ids`: List of {{ managed-k8s-name }} cluster [security group](../../../vpc/concepts/security-groups.md) IDs.
@@ -569,3 +574,7 @@ Install {{ TF }} (unless you already have it), configure the provider according 
   ```
 
 {% endlist %}
+
+## See also {#see-also}
+
+[Overview of methods for connecting to a cluster](../connect/index.md)

@@ -161,11 +161,11 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        skip_credentials_validation = true
        skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
        skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
-       }
      }
+   }
 
-     provider "yandex" {
-       zone = "<default_availability_zone>"
+   provider "yandex" {
+     zone = "<default_availability_zone>"
    }
    ```
 
@@ -185,9 +185,9 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
 
 ## Deploy the configuration {#deploy}
 
-In this example, you will create a VM named `terraform-vm` connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
+In this example, you will create a VM named `terraform-vm` connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
 
-This VM instance will have 2 cores and 4 GB RAM. It will be automatically assigned a public and a [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
+This VM instance will have 2 cores and 4 GB RAM. It will automatically get a public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
 1. Save the following configuration as a separate `example-vm.tf` file in the folder with the backend configuration file:
 
    ```hcl
@@ -198,7 +198,7 @@ This VM instance will have 2 cores and 4 GB RAM. It will be automatically assign
    resource "yandex_compute_disk" "boot-disk" {
      name     = "boot-disk"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -231,7 +231,7 @@ This VM instance will have 2 cores and 4 GB RAM. It will be automatically assign
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ region-id }}-d"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }

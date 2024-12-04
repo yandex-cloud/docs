@@ -37,7 +37,7 @@ For more information on how to [set up a secure virtual environment](../standard
   * Set up access to your cloud infrastructure from trusted IP addresses only.
   * Restrict traffic by protocols and other parameters defined in the [rules](../../vpc/concepts/security-groups.md#security-groups-rules).
 
-&#x2713; **Web Application Firewall (WAF)**: WAF analyzes a web app's incoming HTTP requests according to pre-configured rules. Based on the analysis results, certain actions are applied to HTTP requests. [Configure a WAF profile](../../smartwebsecurity/quickstart/quickstart-waf.md) and connect it to your security profile in {{ sws-full-name }}.
+&#x2713; **Web Application Firewall (WAF)**: WAF analyzes a web app's incoming HTTP requests according to pre-configured rules. Based on the analysis results, certain actions are applied to HTTP requests. [Configure a WAF profile](../../smartwebsecurity/quickstart.md#waf) and connect it to your security profile in {{ sws-full-name }}.
 
 &#x2713; **Secure remote access**: [Create](../../tutorials/routing/bastion.md) a bastion VM to access the infrastructure over control protocols, e.g., SSH or RDP.
 

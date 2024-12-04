@@ -1,9 +1,9 @@
 According to the plan, the following resources are created:
 * `ya-network` [cloud network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) named `ya-network` in the default [availability zone](../../overview/concepts/geo-scope.md).
-* Windows [VM](../../compute/concepts/vm.md): `terraform1` (2 cores and 4 GB of RAM) and `terraform2` (4 cores and 4 GB of RAM). It will automatically get public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in the `ya-network` subnet.
+* Windows [VM](../../compute/concepts/vm.md): 2 vCPUs and 4 GB of RAM for `terraform1` and 4 vCPUs and 4 GB of RAM for `terraform2`. It will automatically get public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in the `ya-network` subnet.
 
 Create the following files:
-1. `1main.tf`: Main infrastructure description file.
+1. `main.tf`: Main infrastructure description file.
 
   {% cut "Contents of the main.tf file" %}
 
@@ -95,7 +95,7 @@ Create the following files:
    ```hcl
    variable "zone" {
      type    = string
-     default = "{{ region-id }}-a"
+     default = "{{ region-id }}-d"
    }
 
    variable "network" {
@@ -173,9 +173,9 @@ Create the following files:
 
    {% endcut %}
 
-1. `terraform.tfvars`: File storing the values of variables for accounts created inside the VM and access tokens.
+1. `terraform.tfvars`: File storing access tokens and variable values for accounts created inside the VM.
 
-   {% cut "The terraform.tfvars file" %}
+   {% cut "terraform.tfvars" %}
 
    ```hcl
    name       = "<my_server_name>"

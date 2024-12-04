@@ -1,3 +1,8 @@
+---
+title: Installing Falco
+description: Follow this guide to install Falco.
+---
+
 # Installing Falco
 
 

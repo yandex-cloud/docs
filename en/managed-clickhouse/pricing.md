@@ -34,7 +34,7 @@ The incoming traffic and the number of requests to the hybrid storage are free-o
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For vCPU and RAM prices, see [{#T}](#prices).
+Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices for the Russia region](#prices).
 
 You can choose a host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
 
@@ -83,8 +83,8 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ CH }}** Hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
-* **{{ ZK }}** Hosts (created automatically): Three hosts of the `b3-c1-m4` class: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
+* **{{ CH }}** hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ZK }}** hosts (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
 * **Storage**: 100 GB of network HDD storage.
 
 Cost calculation for {{ CH }} hosts:
@@ -120,7 +120,7 @@ Calculation for the storage cost and total cost:
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. A dash in the relevant [{#T}](#prices) section means that the resource is not supported. Currently, you cannot order storage or web traffic this way.
+CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -139,7 +139,7 @@ All prices below do not include VAT.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Computing resources of {{ CH }} hosts {#prices-clickhouse}
+### {{ CH }} host computing resources {#prices-clickhouse}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -150,7 +150,7 @@ All prices below do not include VAT.
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
 
 
-### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
+### {{ ZK }} host computing resources {#prices-zookeeper}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}

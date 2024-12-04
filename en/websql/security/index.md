@@ -21,7 +21,7 @@ Roles for a resource can be assigned by users who have the `websql.admin` role o
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign roles to saved and historical queries you published.
+You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
 ## Which roles exist in the service {#roles-list}
 

@@ -1,7 +1,12 @@
+---
+title: Disk types in {{ mch-full-name }}
+description: In this article, you will learn about disk types in {{ mch-name }}, some features of hybrid storage, and discover how to select the right disk type when creating a cluster.
+---
+
 # Disk types in {{ mch-name }}
 
 
-{{ mch-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
+{{ mch-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
@@ -23,26 +28,26 @@ To start using hybrid storage:
 
 1. Add databases and tables to the cluster. If the default storage policy is not suitable for some tables, set the appropriate policies for these tables:
 
-   * To set the the policy when creating a table, configure the `storage_policy` setting:
+    * To set a policy when creating a table, configure the `storage_policy` setting:
 
-      ```sql
-      CREATE TABLE table_with_non_default_policy (
-          <table_schema>
-      ) ENGINE = MergeTree
-      ...
-      SETTINGS storage_policy = '<storage_policy_type>';
-      ```
+        ```sql
+        CREATE TABLE table_with_non_default_policy (
+            <table_schema>
+        ) ENGINE = MergeTree
+        ...
+        SETTINGS storage_policy = '<storage_policy_type>';
+        ```
 
-   * To create or update the policy for an existing table, run the following query:
+    * To create or update the policy for an existing table, run the following query:
 
-      ```sql
-      ALTER TABLE table_with_non_default_policy
-      MODIFY SETTING storage_policy = '<storage_policy_type>';
-      ```
+        ```sql
+        ALTER TABLE table_with_non_default_policy
+        MODIFY SETTING storage_policy = '<storage_policy_type>';
+        ```
 
 See an example in the [Using hybrid storage](../tutorials/hybrid-storage.md) tutorial.
 
-To track the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage set up.
+To monitor the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage set up.
 
 ### Available storage policies {#storage-policies}
 
@@ -54,23 +59,23 @@ You cannot create new storage policies or update the existing ones.
 
 A {{ mch-name }} cluster with enabled hybrid storage supports the following storage policies:
 
-* `default`: The cluster automatically manages data placement depending on:
+* `default`: Cluster automatically manages data placement depending on the following:
 
-   * [Hybrid storage settings](#hybrid-storage-settings).
-   * Table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time-to-live) settings.
+    * [Hybrid storage settings](#hybrid-storage-settings).
+    * Table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time-to-live) settings.
 
-   If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to object storage. This operation allows you to move part of the data to object storage before the cluster storage becomes full.
+    If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to object storage. This operation allows you to move part of the data to object storage before the cluster storage becomes full.
 
-   You can configure moving the expired rows to object storage and set the TTL value when creating a table or later.
+    You can configure moving the expired rows to object storage and set the TTL value when creating a table or later.
 
-* `local`: In tables with this policy, rows are placed only in cluster storage. There is no data transfer between storages.
+* `local`: For a table with this policy, rows can only reside in a cluster storage. There is no data transfer between storages.
 
-* `object storage`: In tables with this policy, rows are placed only in object storage. There is no data transfer between storages.
+* `object_storage`: For a table with this policy, rows can only reside in an object storage. There is no data transfer between storages.
 
 Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data parts. With any storage policy, you can:
 
 * Enable and disable the `prefer_not_to_merge` setting that merges stored data parts. This setting is available in the [CLI and API](../operations/update.md#change-hybrid-storage).
-* Set any `max_data_part_size_bytes` value for the maximum size of the data part you will get on merging smaller ones.
+* Set any `max_data_part_size_bytes` value for the maximum size of the data part you can get upon merging smaller ones.
 
 However, you can configure the behavior of these operations using the [settings](./settings-list.md) available in the cluster.
 
@@ -88,18 +93,18 @@ For more information about storage policies and their settings, see the [{{ CH }
 
 A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
-* `data_cache_enabled`: Allows you to cache data requested from object storage in cluster storage. This setting is enabled by default (set to `true`).
+* `data_cache_enabled`: Enables temporary storage in cluster storage of data requested from object storage. Default value: `true` (enabled).
 
-   In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
+    In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
 
-* `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for data requested from object storage. The default value is `1073741824` (1 GB).
-* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0`, the maximum one is `1`, and the default one is `0.01`.
+* `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for temporarily storage of data requested from object storage. Default value: `1073741824` (1 GB).
+* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. Minimum value is `0`, maximum value is `1`, and default value is `0.01`.
 
-   Data parts are queued up in descending order according to size, and then as many of them are moved as will satisfy the `move_factor` condition.
+    Data parts are queued up in descending order by size, and then as many of them are moved as will satisfy the `move_factor` condition.
 
-* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storage. The merge functionality is enabled by default.
+* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storages. The merge functionality is enabled by default.
 
-   Once inserted into the table, the data is saved as a data part and sorted based on the primary key. Next the data parts belonging to the same partition are merged in the background into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
+    Once inserted into the table, the data is saved as a data part and sorted based on the primary key. Next the data parts belonging to the same partition are merged in the background into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
 
 You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
 
@@ -110,15 +115,15 @@ For more information about setting up hybrid storage, see the [{{ CH }} document
 
 The number of hosts you can create together with a {{ CH }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) storage, you can create a cluster with two or more hosts.
+* With local SSD storage (`local-ssd`), you can create a cluster with two or more hosts.
 
-   This cluster will be fault-tolerant.
+    This cluster will be fault-tolerant.
 
-   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. You can find more information in the [pricing policy](../pricing.md).
+    Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
-* With non-replicated network SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+* With non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
 
-   This cluster will be fault-tolerant.
+    This cluster will be fault-tolerant.
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
 

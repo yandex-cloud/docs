@@ -1,3 +1,8 @@
+---
+title: S3cmd
+description: In this tutorial, you will learn about S3cmd, how to install and configure it, explore some of its features and examples of operations.
+---
+
 # S3cmd
 
 
@@ -9,7 +14,7 @@
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installation {#installation}
+## Installing {#installation}
 
 To install S3cmd, check out the [installation section](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md) in the S3cmd repository on GitHub.
 

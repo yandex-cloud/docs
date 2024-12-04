@@ -1,3 +1,8 @@
+---
+title: Wizard charts
+description: In this tutorial, you will learn about the wizard and charts as well as get familiar with the wizard interface.
+---
+
 # Wizard charts
 
 

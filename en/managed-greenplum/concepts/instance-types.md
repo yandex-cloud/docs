@@ -1,3 +1,8 @@
+---
+title: '{{ GP }} host classes'
+description: In this article, you will learn about {{ GP }} host classes.
+---
+
 # {{ GP }} host classes
 
 
@@ -6,8 +11,8 @@ The host class determines the computing power allocated for each host in a clust
 
 For master hosts, the host class determines which [disk types](./storage.md) are available:
 
-* **s2**, **i2**: `local-ssd` and `network-ssd-nonreplicated`
-* **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, and `network-ssd-nonreplicated`
+* **s2**, **i2**: `local-ssd`, `network-ssd-nonreplicated`.
+* **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 
 For segment hosts, the following disk types are available:
 

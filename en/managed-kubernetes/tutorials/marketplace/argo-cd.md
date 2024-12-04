@@ -1,3 +1,8 @@
+---
+title: Integration with Argo CD
+description: Follow this guide to configure integration with Argo CD.
+---
+
 # Integration with Argo CD
 
 
@@ -118,7 +123,7 @@ Install the following items in the local environment:
    1. Add these environment variables:
       * `CI_REGISTRY`: Address of the previously created registry in `{{ registry }}/<registry_ID>` format.
       * `CI_REGISTRY_USER`: `json_key`.
-      * `CI_REGISTRY_PASSWORD`: Output of the `cat key.json | base64` command.
+      * `CI_REGISTRY_PASSWORD`: Output of the following command: `cat key.json | base64`.
 
       To add a variable:
       1. Click **Add variable**.
@@ -183,7 +188,7 @@ Install the following items in the local environment:
    ```
 
 1. Open the Argo CD console at `https://127.0.0.1:8080` in your browser.
-1. Log in to the console as `admin` using the password you got in the previous step.
+1. Log in to the console as `admin` using the password obtained in the previous step.
 
 ### Add a {{ GL }} repository to Argo CD {#create}
 

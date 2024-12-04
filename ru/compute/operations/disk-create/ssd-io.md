@@ -1,5 +1,5 @@
 ---
-title: Создать сверхбыстрое сетевое хранилище с тремя репликами (SSD)
+title: Как создать сверхбыстрое сетевое хранилище с тремя репликами (SSD) в {{ compute-full-name }}
 description: Следуя данной инструкции, вы сможете создать сверхбыстрое сетевое хранилище с тремя репликами (SSD).
 ---
 
@@ -28,10 +28,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
 
-
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}

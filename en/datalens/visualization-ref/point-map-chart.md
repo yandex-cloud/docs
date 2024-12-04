@@ -18,7 +18,7 @@ Points (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint
 Point size | Measure. Sets point size depending on the measure value.
 Colors | Dimension or measure. Affects the intensity of point fill.
 Labels | Measure. Displayed as text on a point. When used, point size control is blocked.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For fields with `String` type, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. Used as a filter for the current layer.
 Filters | Dimension or measure. Used as a filter for the entire chart.
 

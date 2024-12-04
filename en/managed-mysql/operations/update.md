@@ -8,10 +8,8 @@ description: In this tutorial, you will learn how to change settings for a {{ MY
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
-* [Changing {{ MY }} settings](#change-mysql-config).
+* [Increase storage size](#change-disk-size).
+* [Change {{ MY }} settings](#change-mysql-config).
 
     {% note warning %}
 
@@ -20,17 +18,12 @@ After creating a cluster, you can:
     {% endnote %}
 
 * [Change additional cluster settings](#change-additional-settings).
-
 * [Move a cluster](#move-cluster) to another folder.
-
-
-* [{#T}](#change-sg-set).
-
+* [Change security groups](#change-sg-set).
 
 Learn more about other cluster updates:
 
 * [{#T}](cluster-version-update.md).
-
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
 ## Changing the host class {#change-resource-preset}
@@ -159,11 +152,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.resources.resourcePresetId`: New host class.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -206,11 +199,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `config_spec.resources.resource_preset_id`: New host class.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -314,11 +307,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.resources.diskSize`: New disk size in bytes.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -361,11 +354,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `config_spec.resources.disk_size`: New disk size in bytes.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -473,13 +466,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Use a separate line for each setting; separate them by commas.
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -525,13 +518,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Use a separate line for each setting; separate them by commas.
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -588,7 +581,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     * `--backup-retain-period-days`: Automatic backup retention period, in days. The possible values range from `7` to `60`. The default value is `7`.
 
-    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+    * `--datalens-access`: Enables access from {{ datalens-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -638,7 +631,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         }
       ```
 
-      Where `backup_retain_period_days` is the automatic backup retention period, in days. The possible values range from `7` to `60`. The default value is `7`.
+      Where `backup_retain_period_days` is automatic backup retention period, in days. The possible values range from `7` to `60`. The default value is `7`.
 
   1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
@@ -657,7 +650,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  1. To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add the `performance_diagnostics` section to your {{ mmy-name }} cluster description:
+  1. To enable statistics collection for [cluster performance diagnostics](performance-diagnostics.md), add a `performance_diagnostics` block to your {{ mmy-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
@@ -743,10 +736,10 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `seconds`: Between `0` and `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
-          * `backupRetainPeriodDays`: Number of days to retain the cluster backup, `7` to `60` days.
+          * `backupRetainPeriodDays`: Number of days to retain the cluster backup, between `7` and `60`.
 
 
-          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
               * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -756,8 +749,8 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
           * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
               * `enabled`: Enables statistics collection.
-              * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
-              * `statementsSamplingInterval`: Statement sampling interval, `1` to `86400` seconds.
+              * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
+              * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
 
       * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
@@ -786,7 +779,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
           --data "@body.json"
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -859,10 +852,10 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `seconds`: Between `0` and `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
-          * `backup_retain_period_days`: Number of days to retain the cluster backup, `7` to `60` days.
+          * `backup_retain_period_days`: Number of days to retain the cluster backup, between `7` and `60`.
 
 
-          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
               * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -873,7 +866,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
               * `enabled`: Enables statistics collection.
               * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
-              * `statements_sampling_interval`: Statement sampling interval, `1` to `86400` seconds.
+              * `statements_sampling_interval`: Statement sampling interval, from `1` to `86400` seconds.
 
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -891,7 +884,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -958,7 +951,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
         ```hcl
         resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
           ...
-          folder_id = "<destination_folder_ID>"
+          folder_id = "<target_folder_ID>"
         }
         ```
 
@@ -995,7 +988,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1025,7 +1018,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1121,11 +1114,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1169,11 +1162,11 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

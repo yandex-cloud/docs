@@ -1,3 +1,8 @@
+---
+title: Adding a VM to a GPU cluster
+description: Follow this guide to add a VM to a GPU cluster.
+---
+
 # Adding a VM to a GPU cluster
 
 
@@ -99,7 +104,7 @@ Currently, GPU clusters are only available in the`{{ region-id }}-a` [availabili
 
        {% endnote %}
 
-       For more information about the `yandex_compute_instance` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+       For more information about the `yandex_compute_instance` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
   1. Under `metadata`, specify your username and path to the public SSH key. For more information, see [{#T}](../../../compute/concepts/vm-metadata.md).
   1. Create resources:
 

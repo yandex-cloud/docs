@@ -1,3 +1,8 @@
+---
+title: Creating {{ alb-full-name }} infrastructure through a wizard
+description: Follow this guide to create an {{ alb-name }} infrastructure through a wizard.
+---
+
 # Creating {{ alb-name }} infrastructure through a wizard
 
 

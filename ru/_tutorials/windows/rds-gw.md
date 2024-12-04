@@ -113,7 +113,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       - 10.1.0.0/16
       ```
 
-     - API {#api}
+    - API {#api}
 
        Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
@@ -225,7 +225,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
- - CLI {#cli}
+- CLI {#cli}
      
     1. В терминале PowerShell создайте скрипт `setpass` для настройки пароля учетной записи `Administrator` через поле `user-data` в [метаданных ВМ](../../compute/concepts/vm-metadata.md). Утилита `cloudbase-init` выполнит его при первом запуске.
 
@@ -293,7 +293,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
            placement_policy: {}
       ```
 
- {% endlist %} 
+{% endlist %} 
 
 ## Настройте роль RDGW {#role}
 

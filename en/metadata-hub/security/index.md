@@ -18,7 +18,7 @@ Roles for a resource can be assigned by users who have the `connection-manager.a
 
 You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned for organizations, clouds, or folders also apply to nested resources.
 
-You can assign a role for a connection in the management console.
+You can assign a role for a connection in the [management console]({{ link-console-main }}).
 
 ## Which roles exist in {{ metadata-hub-name }} {#roles-list}
 

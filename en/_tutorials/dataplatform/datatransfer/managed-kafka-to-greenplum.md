@@ -1,5 +1,3 @@
-
-
 You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).

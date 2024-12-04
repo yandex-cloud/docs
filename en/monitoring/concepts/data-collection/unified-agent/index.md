@@ -1,3 +1,8 @@
+---
+title: Agent for delivering metrics
+description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
+---
+
 # Agent for delivering metrics
 
 
@@ -35,7 +40,7 @@ A message consist of a body, a timestamp, user metadata in `key:value` format, a
 
 {% note info %}
 
-[Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }} for correct data aggregation in monitoring.
+For correct data aggregation in monitoring, [Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }}.
 
 {% endnote %}
 

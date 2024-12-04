@@ -55,15 +55,14 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Not to assign a public IP address.
    * Select [security groups](../../vpc/concepts/security-groups.md).
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
-
-   * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../overview/concepts/geo-scope.md) and [networks](../../vpc/concepts/network.md#network).
-   * (Optional) Click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and network to create {{ managed-k8s-name }} nodes in different zones.
-
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
+   * Select the [availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to place the group nodes in.
+   * (Optional) You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and subnet.
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, configure one of the methods of connecting to nodes in a {{ managed-k8s-name }} node group:
 
@@ -75,7 +74,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
     * To connect to nodes using SSH keys, specify the required details:
 
-        * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../managed-kubernetes/operations/node-connect-ssh.md#creating-ssh-keys) file.
 

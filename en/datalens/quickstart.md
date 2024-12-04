@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ datalens-full-name }}
+description: In this tutorial, you will connect to a data source, create your first dataset, build multiple charts for data visualization, and place them on a dashboard.
+---
+
 # Getting started with {{ datalens-short-name }}
 
 
@@ -96,7 +101,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 To create a chart based on `Sales Dataset`:
 
-1. On the dataset page, click **Create chart** in the top-right corner.
+1. Click **Create chart** in the top-right corner of the dataset page.
 1. Add the product subcategory to the chart. To do this, drag the `ProductSubcategory` field from **Dimensions** to the **X** section.
 1. Add a sales measure to the chart. To do this, drag the `Sales` field from **Measures** to the **Y** section.
 1. Sort the chart by sales in descending order by dragging the `Sales` field from **Measures** to the **Sorting** section.
@@ -138,7 +143,7 @@ To create a chart based on `Sales Dataset`:
    ![create-chart-2](../_assets/datalens/quickstart/create-area-chart.png)      
 
 
-## Create a map {#create-map-chart}
+## Create a map chart {#create-map-chart}
 
 1. Copy the chart you created in the previous step:
 
@@ -164,7 +169,7 @@ To create a chart based on `Sales Dataset`:
 
 ## Create a dashboard and add charts to it {#create-dashboard}
 
-[Dashboards](./concepts/dashboard.md) are pages or sets of pages that contain widgets. They allow you to group charts in a single place and add [captions](./dashboard/widget.md#text) and [headers](./dashboard/widget.md#title) to them.
+A [dashboard](./concepts/dashboard.md) is a page or multiple pages that contain widgets. It allows you to group your charts in the same place and add [captions](./dashboard/widget.md#text) and [titles](./dashboard/widget.md#title) to them.
 
 To create a dashboard:
 
@@ -294,7 +299,7 @@ You can make the charts and dashboards you create [publicly available](./concept
 
 ## What's next {#whats-next}
 
-* See the [guides](tutorials/index.md) with service usage examples.
+* See the [tutorials](tutorials/index.md) with {{ datalens-short-name }} usage examples.
 * Read about [service concepts](./concepts/index.md).
 * View an [example of a ready-to-use dashboard](https://datalens.yandex/9fms9uae7ip02).
 

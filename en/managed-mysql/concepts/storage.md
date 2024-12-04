@@ -1,8 +1,13 @@
+---
+title: Disk types in {{ mmy-full-name }}
+description: In this article, you will learn about disk types in {{ mmy-name }} and discover how to select the right disk type when creating a cluster.
+---
+
 # Disk types in {{ mmy-name }}
 
 
 
-{{ mmy-name }} allows you to use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
+{{ mmy-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmy/storage-type.md) %}
 
@@ -15,7 +20,7 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
 
    This cluster will be fault-tolerant.
 
-   Local SSD storage impacts the cost of a cluster: you are charged for it even if it is not running. For more information, refer to the [pricing policy](../pricing.md).
+   Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
 * With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
 

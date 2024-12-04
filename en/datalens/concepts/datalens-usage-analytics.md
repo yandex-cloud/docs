@@ -1,3 +1,8 @@
+---
+title: '{{ datalens-full-name }} usage statistics'
+description: In this article, you will learn what {{ datalens-name }} instance usage statistics is available to you in {{ datalens-full-name }}.
+---
+
 # {{ datalens-short-name }} usage statistics
 
 
@@ -114,11 +119,11 @@ This dashboard is divided into three sections:
 
   {% endcut %}
 
-* **Queries**: In this section, you can view the average query execution time, number of errors, and detailed information about specific queries:
+* **Queries**: In this section, you can view the average query execution time, number of errors, and detailed info about specific queries:
   
   * Query ID
   * Execution time
-  * Date and time of the query
+  * Query date and time
   * Query text sent to source
   * Error code
   <br>

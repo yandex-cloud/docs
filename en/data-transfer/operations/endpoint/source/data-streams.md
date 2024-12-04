@@ -25,8 +25,7 @@ description: Follow this guide to configure an {{ yds-full-name }} source endpoi
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
     * [{{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
-    * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
-    * [{{ DS }} to {{ OS }}](../../../tutorials/trails-to-os.md).
+    * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).    
     * [{{ DS }} to {{ ydb-name }}](../../../tutorials/yds-to-ydb.md).
     * [{{ DS }} to {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 

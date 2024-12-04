@@ -152,34 +152,34 @@ Processor core workload.
 | `pooler-login_clients`<br/>`DGAUGE`, number | Number of client connections established in the connection pooler |
 | `pooler-pgbouncer_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL TCP connections |
 | `pooler-postgres_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PgBouncer TCP connections |
-| `pooler-query_0.5`<br/>`DGAUGE`, seconds | Query execution time, median value |
-| `pooler-query_0.5-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, median value |
-| `pooler-query_0.75`<br/>`DGAUGE`, seconds | Query execution time, 0.75 percentile |
-| `pooler-query_0.75-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, 0.75 percentile |
-| `pooler-query_0.9`<br/>`DGAUGE`, seconds | Query execution time, 0.9 percentile |
-| `pooler-query_0.9-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, 0.9 percentile |
-| `pooler-query_0.95`<br/>`DGAUGE`, seconds | Query execution time, 0.95 percentile |
-| `pooler-query_0.95-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, 0.95 percentile |
-| `pooler-query_0.99`<br/>`DGAUGE`, seconds | Query execution time, 0.99 percentile |
-| `pooler-query_0.99-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, 0.99 percentile |
-| `pooler-query_0.999`<br/>`DGAUGE`, seconds | Query execution time, 0.999 percentile |
-| `pooler-query_0.999-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Execution time for queries run by `<username>` through `<DB_name>`, 0.999 percentile |
+| `pooler-query_0.5`<br/>`DGAUGE`, ms | Query execution time, median value |
+| `pooler-query_0.5-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, median value |
+| `pooler-query_0.75`<br/>`DGAUGE`, ms | Query execution time, 0.75 percentile |
+| `pooler-query_0.75-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, 0.75 percentile |
+| `pooler-query_0.9`<br/>`DGAUGE`, ms | Query execution time, 0.9 percentile |
+| `pooler-query_0.9-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, 0.9 percentile |
+| `pooler-query_0.95`<br/>`DGAUGE`, ms | Query execution time, 0.95 percentile |
+| `pooler-query_0.95-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, 0.95 percentile |
+| `pooler-query_0.99`<br/>`DGAUGE`, ms | Query execution time, 0.99 percentile |
+| `pooler-query_0.99-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, 0.99 percentile |
+| `pooler-query_0.999`<br/>`DGAUGE`, ms | Query execution time, 0.999 percentile |
+| `pooler-query_0.999-<DB_name>-<username>`<br/>`DGAUGE`, ms | Execution time for queries run by `<username>` through `<DB_name>`, 0.999 percentile |
 | `pooler-query_count`<br/>`DGAUGE`, number | Number of queries executed on each DB host |
 | `pooler-tcp_conn_count`<br/>`DGAUGE`, number | Number of TCP connections to each database host |
 | `pooler-tcp_conn_count-<DB_name>-<username>`<br/>`DGAUGE`, number | Number of `<username>` TCP connections to each DB host through `<DB_name>` |
 | `pooler-total_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL and PgBouncer TCP connections |
-| `pooler-transaction_0.5`<br/>`DGAUGE`, seconds | Transaction processing time, median value |
-| `pooler-transaction_0.5-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, median value |
-| `pooler-transaction_0.75`<br/>`DGAUGE`, seconds | Transaction processing time, 0.75 percentile |
-| `pooler-transaction_0.75-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.75 percentile |
-| `pooler-transaction_0.9`<br/>`DGAUGE`, seconds | Transaction processing time, 0.9 percentile |
-| `pooler-transaction_0.9-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.9 percentile |
-| `pooler-transaction_0.95`<br/>`DGAUGE`, seconds | Transaction processing time, 0.95 percentile |
-| `pooler-transaction_0.95-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.95 percentile |
-| `pooler-transaction_0.99`<br/>`DGAUGE`, seconds | Transaction processing time, 0.99 percentile |
-| `pooler-transaction_0.99-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.99 percentile |
-| `pooler-transaction_0.999`<br/>`DGAUGE`, seconds | Transaction processing time, 0.999 percentile |
-| `pooler-transaction_0.999-<DB_name>-<username>`<br/>`DGAUGE`, seconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.999 percentile |
+| `pooler-transaction_0.5`<br/>`DGAUGE`, ms | Transaction processing time, median value |
+| `pooler-transaction_0.5-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, median value |
+| `pooler-transaction_0.75`<br/>`DGAUGE`, ms | Transaction processing time, 0.75 percentile |
+| `pooler-transaction_0.75-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.75 percentile |
+| `pooler-transaction_0.9`<br/>`DGAUGE`, ms | Transaction processing time, 0.9 percentile |
+| `pooler-transaction_0.9-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.9 percentile |
+| `pooler-transaction_0.95`<br/>`DGAUGE`, ms | Transaction processing time, 0.95 percentile |
+| `pooler-transaction_0.95-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.95 percentile |
+| `pooler-transaction_0.99`<br/>`DGAUGE`, ms | Transaction processing time, 0.99 percentile |
+| `pooler-transaction_0.99-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.99 percentile |
+| `pooler-transaction_0.999`<br/>`DGAUGE`, ms | Transaction processing time, 0.999 percentile |
+| `pooler-transaction_0.999-<DB_name>-<username>`<br/>`DGAUGE`, ms | Processing time for transactions executed by `<username>` through `<DB_name>`, 0.999 percentile |
 | `pooler-used_clients`<br/>`DGAUGE`, number | Number of client connections in the connection pooler |
 | `pooler-used_servers`<br/>`DGAUGE`, number | Number of server connections in the connection pooler |
 | `pooler-xact_count`<br/>`DGAUGE`, number | Number of transactions executed on each DB host |

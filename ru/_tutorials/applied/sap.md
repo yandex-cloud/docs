@@ -65,7 +65,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vhcalnplci`. На этот hostname завязан скрипт установки SAP.
   1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
- {% endlist %} 
+{% endlist %} 
 
 ## Подготовьте файловую систему ВМ {#fs-settings}
 

@@ -5,13 +5,13 @@ description: Follow this guide to manage client processes and user sessions.
 
 # Managing client processes and user sessions
 
-{{ GP }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin) can:
+{{ GP }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin) can do the following:
 
-* [{#T}](#list).
-* [{#T}](#cancel-sessions).
-* [{#T}](#cancel-backend).
-* [{#T}](#terminate-backend).
-* [{#T}](#load-management).
+* [Get a list of processes](#list).
+* [Cancel a user session](#cancel-sessions).
+* [Terminate a specific process](#cancel-backend).
+* [Close a database connection](#terminate-backend).
+* [Manage load](#load-management).
 
 ## Getting a list of processes {#list}
 
@@ -35,15 +35,15 @@ Where:
 
 * `usename`: Username.
 * `pid`: Process ID.
-* `waiting`: Process waiting for a transaction:
+* `waiting`: Process is awaiting a transaction:
 
-   * `t`: Yes.
-   * `f`: No.
+    * `t`: Yes.
+    * `f`: No.
 
 * `state`: Process state:
 
-   * `active`: Running.
-   * `idle`: Idle.
+    * `active`: Running.
+    * `idle`: Idle.
 
 * `query`: Query.
 * `datname`: Database name.
@@ -79,16 +79,16 @@ You can get the process ID with the [list of cluster processes](#list).
 
 1. Run a query to the `gp_toolkit.gp_resgroup_config` file to get the resource group name and find out the current number of concurrent transactions:
 
-   ```sql
-   SELECT groupname, concurrency
-   FROM gp_toolkit.gp_resgroup_config;
-   ```
+    ```sql
+    SELECT groupname, concurrency
+    FROM gp_toolkit.gp_resgroup_config;
+    ```
 
 1. Set the number of concurrent transactions for a [resource group](../../managed-greenplum/concepts/resource-groups.md):
 
-   ```sql
-   ALTER RESOURCE GROUP <resource_group_name>
-   SET concurrency <concurrent_transaction_number>;
-   ```
+    ```sql
+    ALTER RESOURCE GROUP <resource_group_name>
+    SET concurrency <number_of_concurrent_transactions>;
+    ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

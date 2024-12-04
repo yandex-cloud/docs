@@ -1,3 +1,8 @@
+---
+title: Installing Filebeat OSS
+description: Follow this guide to install Filebeat OSS.
+---
+
 # Installing Filebeat OSS
 
 
@@ -103,5 +108,5 @@
 
 ## See also {#see-also}
 
-* [{{ mos-name }} documentation](../../../managed-opensearch/)
-* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)
+* [{{ mos-name }} documentation](../../../managed-opensearch/).
+* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).

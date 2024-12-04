@@ -1,4 +1,6 @@
 ---
+title: '{{ backup-full-name }} pricing policy'
+description: This article provides the {{ backup-name }} pricing policy.
 editable: false
 ---
 

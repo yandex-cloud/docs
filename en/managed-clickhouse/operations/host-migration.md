@@ -1,3 +1,8 @@
+---
+title: Migrating {{ CH }} cluster hosts to a different availability zone
+description: Follow this guide to move hosts in a {{ CH }} cluster to a different availability zone.
+---
+
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
 
@@ -44,7 +49,7 @@
          --host type=clickhouse,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<host_public_access:_true_or_false>
+               `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -60,7 +65,7 @@
              type             = "CLICKHOUSE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <host_public_access:_true_or_false>
+             assign_public_ip = <public_access_to_host:_true_or_false>
            }
          }
          ```
@@ -163,7 +168,7 @@
          --host type=zookeeper,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<host_public_access:_true_or_false>
+               `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -179,7 +184,7 @@
              type             = "ZOOKEEPER"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <host_public_access:_true_or_false>
+             assign_public_ip = <public_access_to_host:_true_or_false>
            }
          }
          ```

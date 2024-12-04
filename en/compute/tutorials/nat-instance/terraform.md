@@ -1,4 +1,6 @@
 ---
+title: Routing through a NAT instance using {{ TF }}
+description: Follow this tutorial to set up routing through a NAT instance using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/terraform'
 ---
 

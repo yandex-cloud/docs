@@ -6,7 +6,7 @@ WAF analyzes a web app's incoming HTTP requests according to pre-configured rule
 
 You can manage WAF using a _WAF profile_, which connects to the [security profile](profiles.md) as a separate [rule](rules.md).
 
-For more information about connecting to a security profile, see [{#T}](../quickstart/quickstart-waf.md).
+For more information about connecting to a security profile, see [{#T}](../quickstart.md#waf).
 
 The following settings are available in the WAF profile:
 * [Basic rule set](#rules-set)
@@ -43,20 +43,20 @@ _Exclusion rules_ are intended to prevent WAF false positives triggered by legit
 
 You can configure skipping specific rules or all rules in a given set.
 
-You can configure [trigger conditions](conditions.md) for each exclusion rule. If you use several conditions of different types, they all must be satisfied for the exclusion rule to trigger. If no conditions are specified, the exclusion rule will apply to the whole traffic.
+You can configure [trigger conditions](conditions.md) for each exclusion rule. If you use several conditions of different types, they all must be satisfied for the exclusion rule to trigger. If no conditions are specified, the exclusion rule will apply to all traffic.
 
 ## Request analysis parameters {#request-analysis-parameters}
 
 When you configure a WAF profile, you can enable request body inspection and specify the following parameters:
 
-* The maximum size of the request body starts from 8 KB (_you can customize the size later_).
+* Maximum request body size: from 8 KB (_you can customize it later_).
   
-  Defining a maximum request body size affects the performance and security of your web application. Limiting the size helps prevent excessive resource consumption and also mitigate the effects of DoS/DDoS attacks, where attackers send large requests in order to exhaust the server's resources.
+  The maximum request body size affects the web application's performance and security. Limiting the size helps prevent excessive resource consumption. It also helps mitigate the effects of DoS/DDoS attacks, where attackers submit large requests in order to exhaust the server's resources.
   
-* Actions you need to take when the maximum request body size is exceeded:
+* Actions if maximum request body size is exceeded:
   * Do not analyze (skip). You can use it when a legitimate application frequently sends large requests.
   * Block. This is a more universal and secure approach. Any requests exceeding the specified limit will be blocked, thus reducing the risk of attacks.
 
 ## See also {#see-also}
 
-* [{#T}](../quickstart/quickstart-waf.md)
+* [{#T}](../quickstart.md#waf)

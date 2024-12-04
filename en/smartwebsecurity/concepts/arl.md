@@ -15,7 +15,7 @@ You can configure ARL using profiles. A profile consists of rules that impose li
 
 An ARL profile is connected to a [security profile](profiles.md). ARL rules are applied to the traffic that has already been through the security profile's rules check. This makes it possible to analyze only the allowed instead of all incoming traffic and makes the ARL module more fault tolerant.
 
-For more information about connecting to a security profile, see [{#T}](../quickstart/quickstart-arl.md).
+For more information about connecting to a security profile, see [{#T}](../quickstart.md#arl).
 
 An ARL rule has these settings available:
 * [Traffic conditions](#traffic-conditions)
@@ -55,4 +55,4 @@ You can use the **Logging only (Dry run)** mode to calculate limits and test ARL
 
 ## See also {#see-also}
 
-* [{#T}](../quickstart/quickstart-arl.md)
+* [{#T}](../quickstart.md#arl)

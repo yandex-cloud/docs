@@ -1,5 +1,21 @@
-# Permissions
+---
+title: Users and access rights
+description: This page presents FAQ about users and access rights management.
+---
 
+# Users and access rights management
+
+
+### Does {{ datalens-short-name }} support login via SSO? {#sso-in-datalens}
+
+In {{ datalens-full-name }}, you can [configure authentication](../security/add-new-user.md#federated-user) using SSO or [identity federation](../../organization/concepts/add-federation.md), if you have one. {{ datalens-short-name }} users can get authenticated using their corporate accounts.
+
+Starting January, 2025, SSO authentication in {{ datalens-full-name }} will be available only for the Business [service plan](../../datalens/pricing.md#service-plans).
+
+
+To avoid authentication issues, Community users that use SSO have until January 29, 2025 to decide whether
+* to switch to Business and continue using SSO
+* or switch to authentication with a [Yandex account](../../iam/concepts/users/accounts.md#passport) that you need to add to your [organization](../concepts/organizations.md). You can finalize this in [{{ datalens-short-name }}](../security/add-new-user.md#dl-user) or in [{{ org-full-name }}](../security/add-new-user.md#passport-user).
 
 ### How do I add a user and send them a link to the dashboard? {#how-add-user-send-ref}
 

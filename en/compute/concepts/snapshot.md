@@ -1,3 +1,8 @@
+---
+title: Disk snapshots
+description: In this tutorial, you will learn what disk snapshots are, how to store, replicate, and encrypt them.
+---
+
 # Disk snapshots
 
 
@@ -7,7 +12,7 @@ You can use disk snapshots for various purposes, e.g.:
 
 * Migrating data from one disk to another, for example, to a disk in a different availability zone.
 * Creating a disk backup before performing operations that may damage your data.
-* Performing disk versioning by creating snapshots on a regular basis.
+* Disk versioning by creating snapshots on a regular basis.
 
 {% note info %}
 
@@ -31,7 +36,7 @@ A disk snapshot is a resource, just like a disk itself. Snapshots are stored in 
 
 A snapshot takes some space in the storage and is kept for an indefinite period of time. Snapshot storage is charged separately. To avoid unnecessary costs, delete unused snapshots. For more information, see [{#T}](../pricing.md).
 
-Snapshot information contains the ID of the disk from which the snapshot was created. The license IDs (`product_ids`) used to calculate the disk use cost are also inherited from the source.
+Snapshot information contains the ID of the disk from which the snapshot was created. The license IDs (`product_ids`) used to calculate the disk usage cost are also inherited from the source.
 
 
 ## Reliable and secure snapshot storage {#reliability-and-security}

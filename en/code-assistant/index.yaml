@@ -10,17 +10,24 @@ description:
     come up with the most relevant suggestions for functions, cycles,
     conditions, and more.
   - >-
-    You can request access to Code Assistant on the <a
-    href="/services/code-assistant">relevant page</a> or by contacting your
-    account manager.
+    The Code Assistant plugin is available for <a
+    href="https://code.visualstudio.com/">Visual Studio Code</a> and <a
+    href="https://www.jetbrains.com/ides/">JetBrains IDE</a>. For more
+    information, see <a
+    href="/docs/code-assistant/concepts/#supported-versions">Supported IDE
+    versions</a>.
   - >-
-    <a href="https://yandex.com/legal/cloud_terms_code_assistant/">Terms of Use
-    of Yandex Code Assistant</a>
+    You can request access to Code Assistant on <a
+    href="/services/code-assistant">this page</a> or by contacting your account
+    manager.
+  - >-
+    <a href="https://yandex.com/legal/cloud_terms_code_assistant/">Yandex Code
+    Assistant terms of use</a>
 meta:
   title: Yandex Code Assistant
 links:
   - title: Getting started
-    description: Install Code Assistant for Visual Studio Code
+    description: Install Code Assistant for your IDE
     href: quickstart
   - title: Concepts
     description: Learn about the features
@@ -34,3 +41,6 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+  - title: FAQ
+    description: Answers to frequently asked questions
+    href: qa

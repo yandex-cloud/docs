@@ -1,4 +1,6 @@
 ---
+title: '{{ mtr-full-name }} pricing policy'
+description: This article provides the {{ mtr-name }} pricing policy.
 editable: false
 noIndex: true
 ---

@@ -17,6 +17,8 @@ items:
             href: operations/community/manage-community-labels.md
           - name: Managing community limits
             href: operations/community/manage-community-config.md
+          - name: Creating a service agent
+            href: operations/community/create-ssa.md
           - name: Adding a link for a community
             href: operations/community/link-channel.md
           - name: Linking a billing account

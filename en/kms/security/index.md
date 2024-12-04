@@ -20,7 +20,7 @@ Roles for a resource can be assigned by users who have the `kms.admin` role or o
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-In the management console, you can assign a role through the YC CLI or the {{ yandex-cloud }} API for individual resources of the service:
+In the [management console]({{ link-console-main }}), through the {{ yandex-cloud }} [CLI](../../cli/cli-ref/kms/cli-ref/index.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-link }}), you can assign a role for individual resources of the service:
 
 {% include notitle [kms-resources](../../_includes/iam/resources-with-access-control/kms.md) %}
 
@@ -34,7 +34,7 @@ You can manage access to {{ kms-short-name }} keys using both service and primit
 
 ### Service roles {#service-roles}
 
-Service roles provide more granular control over {{ kms-short-name }} keys, taking into account the service specifics: a strict division of subjects into key administrators (the `kms.admin` role) and users (the `kms.keys.encrypterDecrypter` role).
+Service roles provide more granular control over {{ kms-short-name }} keys, taking into account the service specifics, i.e., strictly dividing subjects into key administrators (the `kms.admin` role) and users (the `kms.keys.encrypterDecrypter` role).
 
 Users without the `resource-manager.clouds.owner` or `admin` role cannot assign roles via the management console.
 
@@ -97,25 +97,25 @@ Users without the `resource-manager.clouds.owner` or `admin` role cannot assign 
 **Example of key access control**
 
 We recommend working with roles as follows:
-1. The cloud owner (the `resource-manager.clouds.owner` role) or administrator (the `admin` role) assigns the `kms.admin` role to the {{ kms-short-name }} administrator.
-1. The {{ kms-short-name }} administrator creates the required number of keys and assigns (through the CLI or API) the roles to use them: subjects from different teams are given the `kms.keys.encrypter`, `kms.keys.decrypter`, `kms.asymmetricEncryptionKeys.publicKeyViewer`, `kms.asymmetricEncryptionKeys.decrypter`, and `kms.editor` roles for keys and folders.
+1. The cloud owner (the `resource-manager.clouds.owner` role) or administrator (the `admin` role) assigns the `kms.admin` role to the {{ kms-short-name }} administrator. 
+1. The {{ kms-short-name }} administrator creates the required number of keys and assigns (through the CLI or API) roles to use them: subjects from different teams are granted the `kms.keys.encrypter`, `kms.keys.decrypter`, `kms.asymmetricEncryptionKeys.publicKeyViewer`, `kms.asymmetricEncryptionKeys.decrypter`, and `kms.editor` roles for appropriate keys and folders.
 
 It is good practice to store {{ kms-short-name }} keys in a dedicated folder apart from other {{ yandex-cloud }} resources.
 
-| Action | Methods | Required roles |
+Action | Methods | Required roles
 ----- | ----- | -----
-| **{{ kms-short-name }}** | |
-| Getting information about keys and versions | `get`, `listVersions` | `kms.viewer` for key for folder |
-| [Symmetric encryption and decryption](../api-ref/SymmetricCrypto/) operations | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` for key (encryption and decryption), `kms.keys.encrypter` for key (encryption only), and `kms.keys.decrypter` for key (decryption only) |
-| Obtaining a list of keys in a folder | `list` | `kms.auditor` for folder |
-| Obtaining a public key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.publicKeyViewer` for key |
-| Decrypting data with a private key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.decrypter` for key |
-| [Creating](../operations/key.md#create) and [updating](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for folder |
-| [Rotating a key](../operations/key.md#rotate) | `rotate` | `kms.editor` for key |
-| [Changing the primary version](../operations/version.md#make-primary) | `setPrimaryVersion` | `kms.admin` for key |
-| [Destroying keys](../operations/key.md#delete) and [versions](../operations/version.md#delete) | `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin` for key |
-| [Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md) | `setAccessBindings`, `updateAccessBindings` | `kms.admin` for key |
-| Viewing roles granted for a key | `listAccessBindings` | `kms.auditor` for key |
+**{{ kms-short-name }}** | | 
+Getting information about keys and versions | `get`, `listVersions` | `kms.viewer` for the key for the folder
+[Symmetric encryption and decryption](../api-ref/SymmetricCrypto/) operations | `encrypt`, `decrypt`, `reEncrypt`, `generateDataKey` | `kms.keys.encrypterDecrypter` for the key (encryption and decryption), `kms.keys.encrypter` for the key (encryption only), and `kms.keys.decrypter` for the key (decryption only)
+Obtaining a list of keys in a folder | `list` | `kms.auditor` for the folder
+Obtaining a public key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.publicKeyViewer`, for the key
+Decrypting data with a private key of an asymmetric encryption key pair | | `kms.asymmetricEncryptionKeys.decrypter`, for the key
+[Creating](../operations/key.md#create) and [updating](../operations/key.md#update) a key | `create`, `update` | `kms.editor` for the folder
+[Rotating a key](../operations/key.md#rotate) | `rotate` | `kms.editor`, for the key
+[Changing the primary version](../operations/version.md#make-primary) | `setPrimaryVersion` | `kms.admin`, for the key
+[Destroying keys](../operations/key.md#delete) and [versions](../operations/version.md#delete)| `delete`, `scheduleVersionDestruction`, `cancelVersionDestruction` | `kms.admin`, for the key
+[Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md) | `setAccessBindings`, `updateAccessBindings` | `kms.admin`, for the key
+Viewing roles granted for a key | `listAccessBindings` | `kms.auditor`, for the key
 
 #### What's next {#what-is-next}
 

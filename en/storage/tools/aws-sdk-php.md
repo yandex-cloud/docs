@@ -1,7 +1,12 @@
+---
+title: AWS SDK for PHP
+description: In this tutorial, you will learn about the AWS SDK for PHP, how to install and configure it, and will also see some code snippets.
+---
+
 # AWS SDK for PHP
 
 
-The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a set of tools for developers working with AWS services.
+The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a software development kit for integration with AWS services.
 
 ## Getting started {#before-you-begin}
 
@@ -9,13 +14,13 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a set of tools for
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [install-php-sdk](../../_includes/aws-tools/install-php-sdk.md)%}
 
 ## Setup {#setup}
 
-1. In your home directory, create a file named `.aws/credentials` with the static key:
+1. In your home folder, create a file named `.aws/credentials` with this static key:
 
    ```
    [default]
@@ -23,19 +28,19 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a set of tools for
      aws_secret_access_key = <secret_key>
    ```
 
-1. If you are using a LAMP image from {{ marketplace-name }}, add to the Apache `httpd.conf` configuration file (for Debian and Ubuntu — `apache2.conf`), the `HOME` environment variable with the home directory:
+1. If using a LAMP image from {{ marketplace-name }}, add the `HOME` environment variable referring to your home folder to the Apache `httpd.conf` configuration file (`apache2.conf` for Debian and Ubuntu):
 
    ```
-   SetEnv HOME <home_directory>
+   SetEnv HOME <home_folder>
    ```
-
+   
    For more information about the location and name of the Apache configuration file for different operating systems, see the [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).
 
 Instead of the `.aws/credentials` file, you can use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
 Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
 
-## Code samples {#code-examples}
+## Code snippets {#code-examples}
 
 List of bucket names:
 

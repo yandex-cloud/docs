@@ -1,4 +1,9 @@
-# Mounting a volume in Block mode
+---
+title: Mounting a volume in block mode
+description: Follow this tutorial to mount a volume in block mode.
+---
+
+# Mounting a volume in block mode
 
 
 To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
@@ -7,11 +12,11 @@ To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a `PersistentVolumeClaim` object {#create-pvc}
 
-1. To create a volume in block mode, set the `spec.volumeMode` field to `Block`.
+1. To create a volume in block mode, set the `spec.volumeMode` field value to `Block`.
 
-   Save the following [PersistentVolumeClaim](dynamic-create-pv.md) creation specification to a YAML file named `pvc-block.yaml`.
+   Save the following [`PersistentVolumeClaim`](dynamic-create-pv.md) creation specification to a YAML file named `pvc-block.yaml`.
 
 
    {% note info %}

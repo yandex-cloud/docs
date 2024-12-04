@@ -1,20 +1,25 @@
+---
+title: Encryption in {{ compute-full-name }}
+description: In this article, you will learn about {{ compute-name }} encryption options and the use of {{ kms-short-name }} user keys.
+---
+
 # Encryption in {{ compute-name }}
 
 
-By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.md) is encrypted at the storage database level using a system key. This protects your data from compromise in the event of physical disk theft from {{ yandex-cloud }} data centers. For more information, see [{#T}](../../security/standarts.md#sec-data).
+By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.md) is encrypted at the storage database level using a system key. This protects your data from being compromised in the event of a physical theft of disks from {{ yandex-cloud }} data centers. For more information, see [{#T}](../../security/standarts.md#sec-data).
 
 We also recommend encrypting disks and [disk snapshots](../../compute/concepts/snapshot.md) using {{ kms-full-name }} custom [symmetric keys](../../kms/concepts/key.md). This approach allows you to:
 * Protect yourself against potential threats of isolation breach and data compromise at the virtual infrastructure level.
-* Control the encryption and lifecycle of {{ kms-short-name }} keys and manage the keys, see [{#T}](../../kms/operations/key.md).
-* Put the data on your disk under improved access control by setting permissions for {{ kms-short-name }} keys, see [{#T}](../../kms/operations/key-access.md).
-* Track encryption and decryption operations performed using your {{ kms-short-name }} key with the help of {{ at-full-name }}, see [Key usage audit](../../kms/concepts/#keys-audit).
+* Control and manage the encryption and lifecycle of {{ kms-short-name }} keys. See [{#T}](../../kms/operations/key.md).
+* Improve data access control for your disk by requiring permissions for {{ kms-short-name }} keys. See [{#T}](../../kms/operations/key-access.md).
+* Follow encryption and decryption operations performed using your {{ kms-short-name }} key with the help of {{ at-full-name }}. See [Key usage audit](../../kms/concepts/index.md#keys-audit).
 
 
 You can encrypt the following types of disks:
 * Network SSD (`network-ssd`)
 * Network HDD (`network-hdd`)
 * Non-replicated SSD (`network-ssd-nonreplicated`)
-* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`).
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`)
 
 For more details, see [Disk types](disk.md#disks-types).
 
@@ -50,8 +55,8 @@ For a VM to have access to an encrypted disk, attach to it a [service account](.
 * Service account to access encrypted disks. This service account is specified in the disk parameter section.
 
 To use encryption in {{ compute-name }}, the user must have the following roles:
-* `iam.serviceAccounts.user` or a higher role for the service account used for encryption. For more information, see [{{ iam-full-name }} roles](../../iam/security/index.md#iam-serviceAccounts-user).
-* `kms.viewer` or a higher role for the key used for encryption. For more information, see [{{ kms-full-name }} roles](../../kms/security/index.md#kms-viewer).
+* `iam.serviceAccounts.user` or higher for the service account used for encryption. For more information, see [{{ iam-full-name }} roles](../../iam/security/index.md#iam-serviceAccounts-user).
+* `kms.viewer` or higher for the key used for encryption. For more information, see [{{ kms-full-name }} roles](../../kms/security/index.md#kms-viewer).
 
 ### See also {#see-also}
 

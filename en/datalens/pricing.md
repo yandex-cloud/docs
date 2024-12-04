@@ -1,4 +1,6 @@
 ---
+title: '{{ datalens-full-name }} pricing policy'
+description: This article provides the {{ datalens-name }} pricing policy.
 editable: false
 ---
 
@@ -54,7 +56,7 @@ If you change to the _Business_ plan, the price for the first month will be prop
 
 A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset.
 
-The number of billable users is calculated on a monthly basis: each month, the active users are counted anew. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
+The number of billable users is calculated on a monthly basis. Each month, active users are counted anew based on activity. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
 
 {% cut "Cost calculation example" %}
 
@@ -67,7 +69,7 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
   {% include [usd-example](../_pricing_examples/datalens/usd-users-1.md) %}
 
 
-* In June, user_1, `user_2`, and `user_3` were active. The fee for July will be:
+* In July, `user_2` and `user_3` were active. The fee for July will be:
 
 
 

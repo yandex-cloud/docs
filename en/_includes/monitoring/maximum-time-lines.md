@@ -1,0 +1,2 @@
+* The maximum number of time series you can get metadata for using the `/api/v1/series` query is 10,000.
+* The maximum number of time series you can read per one `/api/v1/query` or `/api/v1/query_range` query is 10,000.

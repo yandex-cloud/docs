@@ -19,6 +19,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 ## {{ metastore-full-name }} clusters {#metastore}
 
 * [{#T}](metastore/cluster-create.md)
+* [{#T}](metastore/configure-security-group.md)
 * [{#T}](metastore/dataproc-connect.md)
 * [{#T}](metastore/export-and-import.md)
 * [{#T}](metastore/cluster-delete.md)
@@ -31,10 +32,11 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
   * [{#T}](update-name-space.md)
   * [{#T}](delete-name-space.md)
 * Schemas:
-  * [{#T}](create-subject.md)
+  * [{#T}](upload-schema-to-subject.md)
   * [{#T}](add-schema.md)
   * [{#T}](delete-schema.md)
   * [{#T}](compare-schemas.md)
 * Subjects:
+  * [{#T}](create-subject.md)
   * [{#T}](update-subject.md)
   * [{#T}](delete-subject.md)

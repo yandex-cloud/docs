@@ -19,7 +19,7 @@ After creating a cluster, you can change:
 
 You can also:
 
-* [Update the {{ OS }} version](cluster-version-update.md).
+* [Update the {{ OS }}](cluster-version-update.md) version.
 * [Change the host group configuration](host-groups.md#update-host-group).
 * [Move host groups to a different availability zone](host-migration.md).
 
@@ -31,6 +31,8 @@ You can also:
 If the cluster already uses a service account to access objects from {{ objstorage-full-name }}, then changing it to a different service account may make these objects unavailable and interrupt the cluster operation. Before changing the service account settings, make sure that the cluster does not use the objects in question.
 
 {% endnote %}
+
+For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
@@ -54,7 +56,7 @@ If the cluster already uses a service account to access objects from {{ objstora
        --service-account-name <service_account_name>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
@@ -83,16 +85,82 @@ If the cluster already uses a service account to access objects from {{ objstora
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change service account settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * ID of the service account used for cluster operations in the `serviceAccountId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "serviceAccountId",
+                        "serviceAccountId": "<service_account_ID>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `serviceAccountId`: ID of the service account used for cluster operations.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "service_account_id"
+                        ]
+                    },
+                    "service_account_id": "<service_account_ID>"
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `service_account_id`: ID of the service account used for cluster operations.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -130,7 +198,7 @@ If the cluster already uses a service account to access objects from {{ objstora
            --generate-admin-password
         ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -157,14 +225,86 @@ If the cluster already uses a service account to access objects from {{ objstora
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * New password for the `admin` user in the `configSpec.adminPassword` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "configSpec.adminPassword",
+                        "configSpec": {
+                            "adminPassword": "<new_password>"
+                        }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `configSpec.adminPassword`: New password for the `admin` user.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.admin_password"
+                        ]
+                    },
+                    "config_spec": {
+                        "admin_password": "<new_password>"
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `config_spec.admin_password`: New password for the `admin` user.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -182,29 +322,122 @@ If the cluster already uses a service account to access objects from {{ objstora
 
     ```bash
     {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
-       --max-clause-count <number_of_Boolean_expressions> \
+       --max-clause-count <number_of_Boolean_clauses> \
        --fielddata-cache-size <JVM_heap_size> \
        --reindex-remote-whitelist <host_address>:<port>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     Command settings:
 
-    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
-    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings) documentation.
+    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
-- API {#api}
+- REST API {#api}
 
-    To change {{ OS }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * New maximum allowed number of Boolean expressions in the `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount` parameter. For more information, see the [{{ OS }} documentation]({{ os.docs }}/query-dsl/compound/bool/).
-    * New JVM heap size allocated for the fielddata data structure in the `configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize` parameter. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-    * New list of remote hosts whose indexes contain documents to copy for reindexing, in the `configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist` parameter. For more information, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount,configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize,configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist",
+                        "configSpec": {
+                            "opensearchSpec": {
+                                "opensearchConfig_2": {
+                                    "maxClauseCount": "<number_of_Boolean_clauses>",
+                                    "fielddataCacheSize": "<JVM_heap_size>",
+                                    "reindexRemoteWhitelist": "<host_address>:9200"
+                                }
+                            }
+                        }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+        * `configSpec.opensearchSpec.opensearchConfig_2`: {{ OS }} settings:
+
+            * `maxClauseCount`: New maximum allowed number of boolean clauses. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+
+            * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+
+            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.opensearch_spec.opensearch_config_2.max_clause_count",
+                            "config_spec.opensearch_spec.opensearch_config_2.fielddata_cache_size",
+                            "config_spec.opensearch_spec.opensearch_config_2.reindex_remote_whitelist"
+                        ]
+                    },
+                    "config_spec": {
+                        "opensearch_spec": {
+                            "opensearch_config_2": {
+                                "max_clause_count": "<number_of_Boolean_clauses>",
+                                "fielddata_cache_size": "<JVM_heap_size>",
+                                "reindex_remote_whitelist": "<host_address>:9200"
+                            }
+                        }
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `config_spec.opensearch_spec.opensearch_config_2`: {{ OS }} settings:
+
+            * `max_clause_count`: New maximum allowed number of boolean clauses. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+
+            * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+
+            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -247,7 +480,7 @@ If the cluster already uses a service account to access objects from {{ objstora
        --serverless-access=<true_or_false>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     Command settings:
 
@@ -256,7 +489,7 @@ If the cluster already uses a service account to access objects from {{ objstora
         * To allow maintenance at any time, specify `--maintenance schedule=anytime`.
         * To specify the preferred maintenance start time, specify `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
 
-            Possible `weekday` values: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, or `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
+            Possible `weekday` values: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. In the `hour` parameter, specify the maintenance completion time. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
 
     * `--delete-protection`: Cluster protection from accidental deletion by a user.
 
@@ -288,7 +521,7 @@ If the cluster already uses a service account to access objects from {{ objstora
 
         * `type`: `ANYTIME` to allow maintenance at any time or `WEEKLY` to perform maintenance every week.
         * `hour`: Maintenance completion hour, UTC. For example, if you set `14`, maintenance will take place from 13:00 until 14:00 UTC.
-        * `day`: Day of week for maintenance. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+        * `day`: Day of week for maintenance. Possible values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
     1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -299,7 +532,7 @@ If the cluster already uses a service account to access objects from {{ objstora
         }
         ```
 
-        Where `deletion_protection` means deletion protection for the cluster.
+        Where `deletion_protection` means cluster deletion protection.
 
         {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -311,20 +544,138 @@ If the cluster already uses a service account to access objects from {{ objstora
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update the `admin` user's password, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * [Maintenance](../concepts/maintenance.md) window settings (including for disabled clusters) in the `maintenanceWindow` parameter.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [Deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
-    * Settings for access from [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) in the `configSpec.access.dataTransfer` parameter.
-    * Settings for access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) in the `configSpec.access.serverless` parameter.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "configSpec.access,deletionProtection,maintenanceWindow",
+                        "configSpec": {
+                            "access": {
+                                "dataTransfer": <access_from_Data_Transfer:_true_or_false>,
+                                "serverless": <access_from_Serverless_Containers:_true_or_false>
+                            }
+                        },
+                        "deletionProtection": <deletion_protection:_true_or_false>,
+                        "maintenanceWindow": {
+                            "weeklyMaintenanceWindow": {
+                                "day": "<day_of_week>",
+                                "hour": "<hour>"
+                            }
+                        }
+                    }'
+        ```
+
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+
+        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+            * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+            * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+
+        * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `maintenanceWindow.weeklyMaintenanceWindow`: Maintenance window schedule:
+
+            * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+            * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.access",
+                            "deletion_protection",
+                            "maintenance_window"
+                        ]
+                    },
+                    "config_spec": {
+                        "access": {
+                            "data_transfer": <access_from_Data_Transfer:_true_or_false>,
+                            "serverless": <access_from_Serverless_Containers:_true_or_false>
+                        }
+                    },
+                    "deletion_protection": <deletion_protection:_true_or_false>,
+                    "maintenance_window": {
+                        "weekly_maintenance_window": {
+                            "day": "<day_of_week>",
+                            "hour": "<hour>"
+                        }
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+
+        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+            * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+            * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+
+        * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
+
+            * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+            * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -357,7 +708,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
     If you need to specify more than one group, list them separated by commas.
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -382,14 +733,92 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To edit the list of cluster security groups, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-    * List of security group IDs in the `securityGroupIds` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "securityGroupIds",
+                        "securityGroupIds": [
+                            "<security_group_1_ID>",
+                            "<security_group_2_ID>",
+                            ...
+                            "<security_group_N_ID>"
+                        ]
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `securityGroupIds`: Security group IDs.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "security_group_ids"
+                        ]
+                    },
+                    "security_group_ids": [
+                        "<security_group_1_ID>",
+                        "<security_group_2_ID>",
+                        ...
+                        "<security_group_N_ID>"
+                    ]
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `security_group_ids`: Security group IDs.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

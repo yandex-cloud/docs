@@ -20,6 +20,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
+
 ## Creating a cluster {#create-cluster}
 
 To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }}](../../iam/operations/roles/grant.md) documentation.
@@ -316,9 +317,12 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-     For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+     For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }}]({{ tf-provider-mpg }}) provider documentation.
+  
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -447,25 +451,27 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
+
        * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enable collecting statistics.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
-     * `databaseSpecs`: Database settings as an array of elements,  one for each DB. Each element has the following structure:
+
+     * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
 
        * `name`: DB name.
        * `owner`: DB owner username. It must match one of the usenames specified in the request.
 
-     * `userSpecs`: User settings as an array of elements,  one for each user. Each element has the following structure:
+     * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
        * `name`: Username.
        * `password`: User password.
        * `permissions.databaseName`: Name of the database the user gets access to.
        * `login`: User permission to connect to the DB.
 
-     * `hostSpecs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
+     * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -586,7 +592,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
 
-       * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+       * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
@@ -595,13 +601,15 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `yandex_query`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
+
        * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled`: Enables statistics collection.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
-     * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the following structure:
+
+     * `database_specs`: Database settings as an array of elements,  one for each DB. Each element has the following structure:
 
        * `name`: DB name.
        * `owner`: DB owner username. It must match one of the usenames specified in the request.
@@ -633,7 +641,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ PG }} cluster copy:
 
@@ -658,7 +666,7 @@ To create a {{ PG }} cluster copy:
         export POSTGRESQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ PG }} cluster into the {{ TF }} configuration:
 

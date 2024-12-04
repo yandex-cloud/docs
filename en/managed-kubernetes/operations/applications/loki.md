@@ -1,3 +1,8 @@
+---
+title: Installing Loki
+description: Follow this guide to install Loki.
+---
+
 # Installing Loki
 
 
@@ -64,7 +69,7 @@
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. Make sure all Loki pods have entered the `Running` state:
+1. Make sure all the pods changed their state to `Running`:
 
     ```bash
     kubectl get pods -A -l "app.kubernetes.io/instance=loki"
@@ -78,7 +83,7 @@ Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at th
 http://<Loki_gateway_service_name>.<namespace>.svc.cluster.local
 ```
 
-To learn the namespace and name of the Loki gateway service, run this command:
+To retrieve the namespace and name of the Loki gateway service, run this command:
 
 ```bash
 kubectl get service -A | grep distributed-gateway

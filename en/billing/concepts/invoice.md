@@ -1,4 +1,9 @@
-# Invoice
+---
+title: Tax invoice
+description: In this tutorial, you will learn about a tax invoice, how it is formed, and the taxes and fees it includes.
+---
+
+# Tax invoice
 
 
 
@@ -26,6 +31,9 @@ A service [report](../concepts/act.md) and an invoice are generated at the end o
 
 - Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   No invoice will be issued for non-residents of Russia and Kazakhstan.
+    No invoice will be issued for non-residents of Russia and Kazakhstan.
 
 {% endlist %}
+
+
+{% include [get-invoice-notice](../../_includes/billing/get-invoice-notice.md) %}

@@ -1,3 +1,8 @@
+---
+title: Как зашифровать диск в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете зашифровать диск.
+---
+
 # Зашифровать диск
 
 1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
@@ -9,7 +14,8 @@
 1. [Удалите](../image-control/delete.md) образ.
 1. [Удалите](../disk-control/delete.md) незашифрованный диск.
 
-### См. также
+### См. также {#see-also}
+
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

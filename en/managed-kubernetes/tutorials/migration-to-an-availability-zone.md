@@ -1,3 +1,8 @@
+---
+title: Migrating {{ managed-k8s-full-name }} resources to a different availability zone
+description: Follow this guide to migrate {{ managed-k8s-name }} resources to a different availability zone.
+---
+
 # Migrating {{ managed-k8s-name }} resources to a different availability zone
 
 
@@ -51,7 +56,7 @@ To migrate a zonal master to a different availability zone:
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
-      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `--range`: List of IPv4 addresses to deal with outgoing and incoming traffic. Such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
    1. Migrate your master host to a different availability zone:
 
@@ -67,8 +72,8 @@ To migrate a zonal master to a different availability zone:
       * `--folder-id`: Folder ID.
       * `--id`: [Cluster ID](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
       * `--master-location`: Master hosting parameters:
-         * `subnet-id`: New subnet ID.
-         * `zone`: Availability zone.
+        * `subnet-id`: New subnet ID.
+        * `zone`: Availability zone.
 
 - {{ TF }} {#tf}
 
@@ -114,7 +119,7 @@ To migrate a zonal master to a different availability zone:
       terraform plan
       ```
 
-      If {{ TF }} detects the changes, validate all cluster parameter values: they should match the current state.
+      If {{ TF }} detects changes, validate all cluster parameter values: they should match the current state.
 
    1. Add the new network's manifest to the cluster configuration file and change the cluster location:
 
@@ -141,12 +146,12 @@ To migrate a zonal master to a different availability zone:
       }
       ```
 
-      The old subnet for the cluster, `my-old-subnet`, is replaced by `my-new-subnet` with these parameters:
+      The cluster’s old subnet, `my-old-subnet`, is replaced by `my-new-subnet` with these parameters:
 
       * `name`: Subnet name.
       * `zone`: `{{ region-id }}-d` availability zone.
       * `network_id`: ID of the network the new subnet belongs to.
-      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. Such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
    1. Check that the configuration file is correct.
 
@@ -162,7 +167,7 @@ To migrate a zonal master to a different availability zone:
 
 A regional master host is created and distributed across three subnets in different availability zones. You can change [only one availability zone](../../overview/concepts/ru-central1-c-deprecation.md) for a regional master host: from `{{ region-id }}-c` to `{{ region-id }}-d`. Three subnets and availability zones are specified for host migration. During migration, the master host keeps running, the cluster and node group not being recreated.
 
-The internal IP address for the regional master host is assigned automatically in one of the three hosting subnets. After migration, the master retains its internal IP address. If this IP address was allocated in the `{{ region-id }}-c` zone subnet, the master is moved to the `{{ region-id }}-d` zone with the previous IP address reserved in the old subnet. You cannot delete such a subnet, but later on you will be able to [move](../../vpc/operations/subnet-relocate.md) it to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
+The internal IP address for the regional master host is assigned automatically in one of the three hosting subnets. After migration, the master retains its internal IP address. If this IP address belongs to the `{{ region-id }}-c` zone subnet, the master is moved to the `{{ region-id }}-d` zone with the previous IP address reserved in the old subnet. You cannot delete such a subnet, but later on you will be able to [move](../../vpc/operations/subnet-relocate.md) it to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
 
 To migrate a regional master host to a different set of availability zones:
 
@@ -187,7 +192,7 @@ To migrate a regional master host to a different set of availability zones:
       * `--name`: Subnet name.
       * `--zone`: Availability zone.
       * `--network-id`: ID of the network the new subnet belongs to.
-      * `--range`: List of IPv4 addresses for outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `--range`: List of IPv4 addresses to deal with outgoing and incoming traffic. Such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
    1. Migrate your master host to a different set of availability zones:
 
@@ -205,10 +210,10 @@ To migrate a regional master host to a different set of availability zones:
       * `--folder-id`: Folder ID.
       * `--id`: [Cluster ID](../operations/kubernetes-cluster/kubernetes-cluster-list.md).
       * `--master-location`: Master hosting parameters:
-         * `subnet-id`: Subnet ID.
-         * `zone`: Availability zone.
+        * `subnet-id`: Subnet ID.
+        * `zone`: Availability zone.
 
-         Specify the appropriate subnet for each availability zone.
+        Specify the appropriate subnet for each availability zone.
 
 - {{ TF }} {#tf}
 
@@ -309,12 +314,12 @@ To migrate a regional master host to a different set of availability zones:
       }
       ```
 
-      The cluster's subnet named `my-subnet-c` is replaced with `my-subnet-d` that has the following parameters:
+      The cluster's subnet named `my-subnet-c` is replaced by `my-subnet-d` with the following parameters:
 
       * `name`: Subnet name.
       * `zone`: Availability zone.
       * `network_id`: ID of the network the new subnet belongs to.
-      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic, e.g., `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+      * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. Such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
 
    1. Check that the configuration file is correct.
 
@@ -344,7 +349,7 @@ To migrate a regional master host to a different set of availability zones:
 
 ### Getting started {#prepare}
 
-1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are being used to assign the pods to the group's nodes. For more information on strategies, see [{#T}](../concepts/usage-recommendations.md#high-availability) and the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). To check how a pod is assigned to its associated node and unlink them:
+1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are used to assign the pods to the group's nodes. For more information on strategies, see [{#T}](../concepts/usage-recommendations.md#high-availability) and the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/). To check how a pod is assigned to its associated node and unlink them:
 
    {% list tabs group=instructions %}
 
@@ -379,11 +384,11 @@ To migrate a regional master host to a different set of availability zones:
 
          1. Copy the YAML configuration from the management console.
          1. Create a local YAML file and paste the configuration into it.
-         1. Remove any availability zone assignments from the configuration. For example, if the `spec.affinity` parameter sets the `failure-domain.beta.kubernetes.io/zone` {{ k8s }} label, remove it.
+         1. Remove any availability zone assignments from the configuration. For example, if the `spec.affinity` parameter includes the `failure-domain.beta.kubernetes.io/zone` {{ k8s }} label, remove it.
          1. Apply the new configuration:
 
             ```bash
-            kubectl apply -f <path_to_YAML_file>
+            kubectl apply -f <yaml_file_path>
             ```
 
          1. Make sure the pod status changed to `Running`:
@@ -414,7 +419,7 @@ To migrate a regional master host to a different set of availability zones:
 
 ### Migrating a stateful workload {#stateful}
 
-The migration process is based on scaling the `StatefulSet` controller. To migrate a stateful workload:
+The migration is based on scaling the `StatefulSet` controller. To migrate a stateful workload:
 
 1. Get a list of `StatefulSet` controllers to find the name of the one you need:
 
@@ -455,15 +460,15 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
 1. Check if the `PersistentVolume` object manifest contains the `spec.nodeAffinity` parameter:
 
-   ```bash
-   kubectl get pv <PV_name> --output='yaml'
-   ```
+    ```bash
+    kubectl get pv <PV_name> --output='yaml'
+    ```
 
-   If the manifest contains the `spec.nodeAffinity` parameter with an availability zone specified in it, save this parameter. You will need to specify it in a new `PersistentVolume` object.
+    If the manifest contains the `spec.nodeAffinity` parameter with an availability zone specified in it, save this parameter. You will need to specify it in a new `PersistentVolume` object.
 
 1. Create a snapshot representing a point-in-time copy of the `PersistentVolume` disk. For more information about snapshots, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
-   1. Get the name of the `PersistentVolumeClaim`:
+   1. Get the name of the `PersistentVolumeClaim` object:
 
       ```bash
       kubectl get pvc
@@ -482,7 +487,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
             persistentVolumeClaimName: <PVC_name>
       ```
 
-      If you are creating several snapshots for different `PersistentVolumeClaim` objects, specify the `<number>` (consecutive number) to make a unique `metadata.name` value for each snapshot.
+      If you are creating several snapshots for different `PersistentVolumeClaim` objects, specify the `<number>` (consecutive number) to make sure each snapshot gets a unique `metadata.name` value.
 
    1. Create a snapshot:
 
@@ -525,7 +530,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
 1. Create a `PersistentVolume` {{ k8s }} API object from the new disk:
 
-   1. Create a `persistent-volume.yaml` file with the `PersistentVolume` manifest:
+   1. Create the `persistent-volume.yaml` file with the `PersistentVolume` manifest:
 
       ```yaml
       apiVersion: v1
@@ -557,9 +562,9 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
          | `network-nvme` | `yc-network-nvme` |
          | `network-hdd` | `yc-network-hdd` |
 
-      If you are creating several `PersistentVolume` objects, specify the `<number>` (consecutive number) to make a unique `metadata.name` value for each snapshot.
+      If you are creating several `PersistentVolume` objects, specify the `<number>` (consecutive number) to make sure each snapshot gets a unique `metadata.name` value.
 
-      If you saved the `spec.nodeAffinity` parameter earlier, add it to the manifest and specify the availability zone to which the {{ managed-k8s-name }} node group is being migrated. If you omit this parameter, the workload can run in a different availability zone where `PersistentVolume` is not available. This will result in a run error.
+      If you saved the `spec.nodeAffinity` parameter earlier, add it to the manifest and specify the availability zone to which the {{ managed-k8s-name }} node group is being migrated. If you omit this parameter, the workload may run in a different availability zone where `PersistentVolume` is not available. This will result in a run error.
 
       Example of the `spec.nodeAffinity` parameter:
 
@@ -576,32 +581,32 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
                        - ru-central1-d
       ```
 
-   1. Create a `PersistentVolume` object:
+   1. Create the `PersistentVolume` object:
 
       ```bash
       kubectl apply -f persistent-volume.yaml
       ```
 
-   1. Make sure the `PersistentVolume` has been created:
+   1. Make sure `PersistentVolume` was created:
 
       ```bash
       kubectl get pv
       ```
 
-      The `new-pv-test-<number>` object will appear in the command's output.
+      The command output will display the `new-pv-test-<number>` object.
 
    1. If you specified the `spec.nodeAffinity` parameter in the manifest, make sure to apply it for the `PersistentVolume` object:
 
-      {% list tabs group=instructions %}
+       {% list tabs group=instructions %}
 
-      - Management console {#console}
+       - Management console {#console}
 
-         1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
-         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-         1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_storage }}** section.
-         1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and look up the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It must specify an availability zone. A dash means there is no assignment to an availability zone.
+          1. In the [management console]({{ link-console-main }}), select the folder with your {{ managed-k8s-name }} cluster.
+          1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+          1. Go to the cluster page and find the **{{ ui-key.yacloud.k8s.cluster.switch_storage }}** section.
+          1. On the **{{ ui-key.yacloud.k8s.storage.label_pv }}** tab, find the `new-pv-test-<number>` object and check the **{{ ui-key.yacloud.k8s.pv.overview.label_zone }}** field value. It must specify an availability zone. A dash means there is no assignment to an availability zone.
 
-      {% endlist %}
+       {% endlist %}
 
    1. If you omitted the `spec.nodeAffinity` parameter in the manifest, you can add it by editing the `PersistentVolume` object:
 
@@ -611,7 +616,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
 1. Create a `PersistentVolumeClaim` object from the new `PersistentVolume`:
 
-   1. Create a `persistent-volume-claim.yaml` file with the `PersistentVolumeClaim` manifest:
+   1. Create the `persistent-volume-claim.yaml` file with the `PersistentVolumeClaim` manifest:
 
       ```yaml
       apiVersion: v1
@@ -630,10 +635,10 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
       In the file, set the following parameters:
 
-      * `metadata.name`: Name of the `PersistentVolumeClaim` that you used to create the snapshot. You can get this name by running the `kubectl get pvc` command.
-      * `spec.resources.requests.storage`: Size of the `PersistentVolume`; matches the size of the created disk.
-      * `spec.storageClassName`: Disk type of the `PersistentVolume`; matches the disk type of the new `PersistentVolume`.
-      * `spec.volumeName`: Name of the `PersistentVolume` object based on which the `PersistentVolumeClaim` object is created. You can get this name by running the `kubectl get pv` command.
+      * `metadata.name`: Name of the `PersistentVolumeClaim` object you used to create the snapshot. You can get this name by running the `kubectl get pvc` command.
+      * `spec.resources.requests.storage`: `PersistentVolume` size, which matches the size of the created disk.
+      * `spec.storageClassName`: `PersistentVolume` disk type, which matches the disk type of the new `PersistentVolume`.
+      * `spec.volumeName`: Name of the `PersistentVolume` object used to create `PersistentVolumeClaim` from. You can get this name by running the `kubectl get pv` command.
 
    1. Delete the original `PersistentVolumeClaim` so you can replace it:
 
@@ -641,19 +646,19 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
       kubectl delete pvc <PVC_name>
       ```
 
-   1. Create a `PersistentVolumeClaim`:
+   1. Create the `PersistentVolumeClaim` object:
 
       ```bash
       kubectl apply -f persistent-volume-claim.yaml
       ```
 
-   1. Make sure the `PersistentVolumeClaim` has been created:
+   1. Make sure `PersistentVolumeClaim` was created:
 
       ```bash
       kubectl get pvc
       ```
 
-      The output of the `PersistentVolumeClaim` command will contain the size you specified in the YAML file.
+      The command output will return the `PersistentVolumeClaim` size you specified in the YAML file.
 
 1. Create a subnet in the new availability zone and migrate the node group:
 
@@ -662,7 +667,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 1. Restore the original number of pods managed by the `StatefulSet` controller:
 
    ```bash
-   kubectl scale statefulset <controller_name> --replicas=<pod_count>
+   kubectl scale statefulset <controller_name> --replicas=<number_of_pods>
    ```
 
    The pods will be launched in the migrated node group.
@@ -680,7 +685,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
    The output of this command displays the nodes on which your pods are currently running.
 
-1. Delete the unused `PersistentVolume` object (having the `Released` status).
+1. Delete the unused `PersistentVolume` object, i.e., the one with the `Released` status.
 
    1. Get the name of the `PersistentVolume` object:
 
@@ -696,7 +701,7 @@ The migration process is based on scaling the `StatefulSet` controller. To migra
 
 ### Gradually migrating a stateless and stateful workload {#gradual-migration}
 
-See below how to gradually migrate a workload from the old node group to the new one. For instructions on migrating the `PersistentVolume` and `PersistentVolumeClaim` objects, see the [Migrating a stateful workload](#stateful) subsection.
+See below how to gradually migrate a workload from the old node group to the new one. For instructions on migrating the `PersistentVolume` and `PersistentVolumeClaim` objects, see [Migrating a stateful workload](#stateful).
 
 1. [Create a new {{ managed-k8s-name }} node group](../operations/node-group/node-group-create.md) in the new availability zone.
 

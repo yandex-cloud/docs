@@ -1,15 +1,15 @@
 ---
 title: Getting started with {{ mos-full-name }}
-description: Follow this guide to create an {{ OS }} cluster and connect to it.
+description: Follow this guide to create a {{ OS }} cluster and connect to it.
 ---
 
 # Getting started with {{ mos-name }}
 
 To get started with the service:
-1. [{#T}](#create-cluster)
-1. [{#T}](#configure-security-groups)
-1. [{#T}](#connect)
-1. [{#T}](#dashboards-connect)
+1. [Create a cluster](#create-cluster).
+1. [Configure security groups](#configure-security-groups).
+1. [Connect to the cluster](#connect).
+1. [Connect to {{ OS }} Dashboards](#dashboards-connect).
 
 
 ## Getting started {#before-you-begin}
@@ -18,14 +18,14 @@ To get started with the service:
 
 1. If you do not have a folder yet, create one:
 
-   {% include [create-folder](../_includes/create-folder.md) %}
+    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
 1. You can connect to an {{ OS }} cluster both from inside {{ yandex-cloud }} and from the internet:
 
-   * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
+    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
 
-   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/host-roles.md#data) when creating the cluster.
+    * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/host-roles.md#data) when creating the cluster.
 
 {% note info %}
 
@@ -42,9 +42,9 @@ These instructions assume that you are connecting to the cluster from the intern
 1. Set the cluster parameters.
 
 
-   To gain access to the {{ OS }} Dashboards web interface, request public access. To do this, navigate to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+    To gain access to the {{ OS }} Dashboards web interface, request public access. To do this, navigate to **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** with the **Dashboards** group type and select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-   {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
+    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 
 
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
@@ -70,7 +70,7 @@ To connect to a cluster:
 
    {% include [default-connstring](../_includes/mdb/mos/default-connstring.md) %}
 
-   To connect, enter the `admin` username and password used when [creating the cluster](#create-cluster).
+   To connect, enter `admin` for username and the password you set when [creating the cluster](#create-cluster).
 
    A message like this is displayed if the connection is successful:
 
@@ -89,22 +89,22 @@ To connect to a cluster:
 
 ## Connect to {{ OS }} Dashboards {#dashboards-connect}
 
-1. In the browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
+1. In your browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
 
 
-   1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
+   1. Make sure hosts with the `DASHBOARDS` role are publicly accessible.
 
 
    1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}>` in your browser.
-   1. Enter `admin` for the username and the password you set when [creating the cluster](#create-cluster).
+   1. Enter `admin` for username and the password you set when [creating the cluster](#create-cluster).
 
 1. Explore a set of sample data:
 
    1. On the {{ OS }} Dashboards welcome screen, click **Add sample data**.
    1. Next, click **View data** for the desired dataset.
 
-Learn more about working with {{ OS }} Dashboards, in the [{{ OS }} documentation]({{ os.docs }}/dashboards/index/).
+Learn more about working with {{ OS }} Dashboards in the [{{ OS }} documentation]({{ os.docs }}/dashboards/index/).
 
 ## What's next {#whats-next}
 

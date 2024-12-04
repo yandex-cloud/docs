@@ -2,17 +2,21 @@
 
 ## General questions about {#common-questions}
 
+### Which IDE versions are supported? {#ide-versions}
+
+{% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}
+
 ### Do I need a billing account to work with {{ ca-name }}? {#billing-account}
 
 You **do not need** a [billing account](../billing/concepts/billing-account.md).
 
 ### Can I use the plugin without internet access? {#using-plugin-without-internet}
 
-No. To work with {{ ca-short-name }}, you need continuous internet access.
+No. To work with {{ ca-name }}, you will need continuous internet access.
 
 ### How to change the user authenticated in the {{ ca-name }} plugin {#change-user}
 
-To authenticate to the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./quickstart.md#logout) of the profile and then re-authenticate as described in step 3 of [{#T}](./quickstart.md#install-plugin).
+To authenticate in the {{ ca-name }} plugin as another {{ yandex-cloud }} user, [log out](./quickstart.md#logout) of your current account and re-authenticate as described in step 3 of [{#T}](./quickstart.md#install-plugin).
 
 ### Error getting a refresh token {#refresh-token}
 
@@ -56,11 +60,7 @@ See also [How to find out your IDE version](https://code.visualstudio.com/docs/s
 
 ## Using JetBrains IDE {#jetbrains-ide}
 
-### What IDE versions are supported? {#ide-versions}
-
-{{ ca-short-name }} supports working in JetBrains IDE versions 2024.1 and 2024.2.
-
-### The plugin does not start, error 404, offers from {{ ca-short-name }} do not appear {#plugin-doesnt-start}
+### The plugin does not start, there is a 404 error, suggestions from {{ ca-name }} are not displayed {#plugin-doesnt-start}
 
 Try restarting the IDE.
 
@@ -80,7 +80,7 @@ Check if the proxy server is enabled in the IDE. If it is, disable it and try au
 
 ### How to get IDE logs {#get-logs-ide}
 
-If you want to resolve issues with {{ ca-short-name }} through our [support]({{ link-console-support }}), make sure to prepare an IDE log file in advance:
+If you want to resolve issues with {{ ca-name }} through our [support]({{ link-console-support }}), make sure to prepare an IDE log file in advance:
 
 1. In the IDE top menu, click **Help** and select **Show log in Explorer** (**Show Log in Finder** for macOS).
 1. In the window that opens, copy the `idea.log` file and attach it to your support ticket.

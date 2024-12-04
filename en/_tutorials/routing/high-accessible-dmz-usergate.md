@@ -26,7 +26,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Next-Generation Firewall {#next-generation-firewall}
 
 An NGFW is used for cloud network protection and segmentation with a dedicated DMZ for public-facing applications.
-[{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses the [UserGate NGFW](/marketplace/products/usergate/ngfw). Its features include:
+
+[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses the [UserGate NGFW]({{ link-cloud-marketplace }}/products/usergate/ngfw). Its features include:
 * Firewalling.
 * Intrusion detection and prevention.
 * Traffic management and internet access control.
@@ -43,7 +44,6 @@ Learn more about the UserGate NGFW features in the [official documentation](http
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
@@ -54,7 +54,6 @@ The infrastructure support cost includes:
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for using the [UserGate NGFW](/marketplace/products/usergate/ngfw).
-
 
 ### Required quotas {#required-quotes}
 
@@ -105,23 +104,27 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the **Service accounts** tab, click **Create service account**.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
-      The name format requirements are as follows:
+       The name format requirements are as follows:
 
-      {% include [name-format](../../_includes/name-format.md) %}
+       {% include [name-format](../../_includes/name-format.md) %}
 
-   1. Click **Create**.
+       {% include [sa-uniq-name](../../_includes/iam/sa-uniq-name.md) %}
 
-   1. Assign the account the admin [role](../../iam/concepts/access-control/roles.md):
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-         1. On the management console [home page]({{ link-console-main }}), select the cloud.
-         1. Click the **Access permissions** tab.
-         1. Find the `sa-terraform` account in the list and click ![image](../../_assets/options.svg).
-         1. Click **Edit roles**.
-         1. Click **Add role** in the dialog box that opens and select the `admin` role. 
+   1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the service account.
+
+       1. On the management console [home page]({{ link-console-main }}), select the cloud.
+       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and then select the `sa-terraform` service account.
+       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
+       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
 
@@ -142,8 +145,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          Result:
 
          ```text
-         id: ajehr0to1g8bh0la8c8r
-         folder_id: b1gv87ssvu497lpgjh5o
+         id: ajehr0to1g8b********
+         folder_id: b1gv87ssvu49********
          created_at: "2024-01-04T09:03:11.665153755Z"
          name: sa-terraform
          ```
@@ -180,23 +183,26 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Install {{ TF }}:
 
-   1. Go to the root directory:
+   1. Go to the root folder:
 
       ```bash
       cd ~
       ```
 
-   1. Create a folder named `terraform` and open it:
+   1. Create a directory named `terraform` and open it:
    
       ```bash
       mkdir terraform
       cd terraform
       ```
 
-   1. Run the following command to download the `terraform_1.9.5_linux_amd64.zip` archive from the official website:
+   1. Download the `terraform_1.9.5_linux_amd64.zip` file:
 
       ```bash
-      curl -LO https://hashicorp-releases.yandexcloud.net/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
+      curl \
+        --location \
+        --remote-name \
+        https://hashicorp-releases.yandexcloud.net/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
       ```
 
    1. Install the `zip` utility and unpack the ZIP archive:
@@ -206,13 +212,13 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       unzip terraform_1.9.5_linux_amd64.zip
       ```
 
-   1. Add the path to the folder with the executable to the `PATH` variable: 
+   1. Add the path to the directory with the executable to the `PATH` variable: 
       
       ```bash
       export PATH=$PATH:~/terraform
       ```
 
-   1. Make sure that {{ TF }} is installed by running this command:
+   1. Make sure {{ TF }} is installed by running this command:
    
       ```bash
       terraform -help
@@ -245,7 +251,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Deploy your resources {#create-resources}
 
-1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw) and go to the `yc-dmz-with-high-available-usergate-ngfw` script folder:
+1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw) and go to the `yc-dmz-with-high-available-usergate-ngfw` script directory:
    
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw.git
@@ -280,8 +286,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          Result:
          
          ```text
-         id: aje8nn871qo4a8bbopvb
-         service_account_id: ajehr0to1g8bh0la8c8r
+         id: aje8nn871qo4********
+         service_account_id: ajehr0to1g8b********
          created_at: "2023-03-04T09:16:43.479156798Z"
          key_algorithm: RSA_2048
          ```
@@ -348,19 +354,19 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Name<br>name | Needs<br>editing | Description | Type | Example |
+   | Name<br>of parameter | Needs<br>editing | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
-   | `az_name_list` | - | List of two Yandex Cloud <a href="../../overview/concepts/geo-scope">availability zones</a> to host your resources | `list(string)` | `["ru-central1-a", "ru-central1-b"]` |
-   | `security_segment_names` | - | List of segment names. The first segment is for management resources, the second for resources with public internet access, the third for a DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
+   | `cloud_id` | Yes | ID of your cloud in Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
+   | `az_name_list` | - | List of two Yandex Cloud <a href="../../overview/concepts/geo-scope">availability zones</a> to host your resources | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
+   | `security_segment_names` | - | List of segment names. The first segment is for the management resources, the second, for the resources with public internet access, the third, for the DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `zone1_subnet_prefix_list` | - | List of subnet prefixes in the first availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `zone2_subnet_prefix_list` | - | List of subnet prefixes in the second availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for internet connection | `number` | `80` |
    | `internal_app_port` | - | Internal TCP port of a DMZ application to which the NGFW will direct traffic. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets trusted to access `jump-vm`. It is used in the incoming rule of the `jump-vm` security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Username for connecting to `jump-vm` over SSH | `string` | `admin` |
-   | `wg_port` | - | UDP port for incoming traffic as indicated in the `jump-vm` WireGuard settings | `number` | `51820` |
-   | `wg_client_dns` | - | List of DNS server addresses in the management cloud network for the admin workstation to use after establishing the WireGuard tunnel to `jump-vm` | `string` | `192.168.1.2, 192.168.2.2` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. It is used in the security group's incoming rule for the jump VM. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Username for connection to the jump VM over SSH | `string` | `admin` |
+   | `wg_port` | - | UDP port for incoming connections in the jump VM WireGuard settings | `number` | `51820` |
+   | `wg_client_dns` | - | List of DNS server addresses in the management cloud network the admin workstation will use after establishing a WireGuard tunnel to the jump VM. | `string` | `192.168.1.2, 192.168.2.2` |
 
    {% endcut %}
 
@@ -390,19 +396,19 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform apply
       ```
 
-1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this information by running the `terraform output` command:
+1. After the `terraform apply` process is over, the command line will output a list of information on the deployed resources. Later on, you can view this info by running the `terraform output` command:
 
-   {% cut "Viewing information on deployed resources" %}
+   {% cut "View info on deployed resources" %}
 
    | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
-   | `dmz-web-server-nlb_ip_address` | IP address of the load balancer in the DMZ, routing traffic to the target group with web servers for publishing a test application from the DMZ. Used for configuring destination NAT on a firewall. | `"10.160.1.100"` |
+   | `dmz-web-server-nlb_ip_address` | IP address of the load balancer in the DMZ segment downstream of which there is a target group of web servers to test publishing an application from the DMZ. Used for configuring destination NAT on a firewall. | `"10.160.1.100"` |
    | `fw-a_ip_address` | FW-A IP address in the management network | `"192.168.1.10"` |
    | `fw-alb_public_ip_address` | ALB public IP address. It is used to access an application published in the DMZ from the internet. | `"C.C.C.C"` |
    | `fw-b_ip_address` | FW-B IP address in the management network | `"192.168.2.10"` |
-   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for enabling a secure WireGuard VPN connection to `jump-vm` | `"./jump-vm-wg.conf"` |
-   | `jump-vm_public_ip_address_jump-vm` | `jump-vm` public IP address | `"D.D.D.D"` |
-   | `path_for_private_ssh_key` | File with a private key to connect to VMs over SSH (`jump-vm`, FW-A, FW-B, and DMZ web servers) | `"./pt_key.pem"` |
+   | `jump-vm_path_for_WireGuard_client_config` | Configuration file for a secure WireGuard VPN connection to the jump VM | `"./jump-vm-wg.conf"` |
+   | `jump-vm_public_ip_address_jump-vm` | Jump VM public IP address | `"D.D.D.D"` |
+   | `path_for_private_ssh_key` | File with a private key for connection to VMs over SSH (jump-vm, FW-A, FW-B, DMZ web servers) | `"./pt_key.pem"` |
    
    {% endcut %}
 
@@ -413,13 +419,14 @@ This tutorial describes how to configure firewalls named FW-A and FW-B with the 
 ### Connect to the control segment via a VPN {#connect-via-vpn}
 
 After deploying the infrastructure, the `mgmt` folder will contain a VM named `jump-vm` based on an Ubuntu image with the [WireGuard VPN](https://www.wireguard.com/) configured for a secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
-You can also connect to `jump-vm` over SSH using the SSH key from `terraform output` and username from the `jump_vm_admin_username` variable.
+
+You can also connect to the jump VM over SSH using the SSH key from `terraform output` and the username from the `jump_vm_admin_username` variable.
 
 To set up a VPN tunnel:
 
 1. [Install](https://www.wireguard.com/install/) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-usergate-ngfw` folder.
+1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-usergate-ngfw` directory.
 
 1. Click **Activate** to activate the tunnel.
 1. Check network connectivity with the management server via the WireGuard VPN tunnel by running the following command in the terminal:
@@ -430,45 +437,45 @@ To set up a VPN tunnel:
 
    {% note warning %}
 
-   If the packets fail to reach the management server, make sure that the `mgmt-jump-vm-sg` [security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have your PC external IP address specified.
+   If the packets fail to reach the management server, make sure the `mgmt-jump-vm-sg` [security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have your PC external IP address specified correctly.
 
    {% endnote %}
 
 ### Configure the FW-A firewall {#configure-fw-a}
 
-Connect to the FW-A management web interface at https://192.168.1.10:8001. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, you will be prompted to change the password.
+Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
 
 #### Configure a network {#configure-fw-a-network}
 
 1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
 
-1. In the left-hand menu, select **Interfaces** under **Network**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.1.10`. Click **Save**.
+1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.1.10`. Click **Save**.
 
-1. Click `port1`. In the **General** tab, check **Enabled**. Select `Zone: Untrusted`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `172.16.1.10` IP address via DHCP. Click `port1` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
+1. Click `port1`. On the **General** tab, check **Enabled**. Select `Zone: Untrusted`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `172.16.1.10` IP address via DHCP. Click `port1` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
 
-1. Click `port2`. In the **General** tab, check **Enabled**. Select `Zone: DMZ`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `10.160.1.10` IP address via DHCP. Click `port2` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
+1. Click `port2`. On the **General** tab, check **Enabled**. Select `Zone: DMZ`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `10.160.1.10` IP address via DHCP. Click `port2` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
 
-1. In the left-hand menu, select **Virtual routers** under **Network**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
+1. In the left-hand menu, in the **Network** section, select **Virtual Routers**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
 
    | Name | Enabled | Destination address | Gateway |
    | --- | --- | --- | --- |
-   | `route to mgmt-zone2` | &#x2611; | `192.168.2.0/24` | `192.168.1.1` | 
-   | `route to dmz-zone2` | &#x2611; | `10.160.2.0/24` | `10.160.1.1` |
-   | `route to nlb-healthcheck-net1` | &#x2611; | `198.18.235.0/24` | `192.168.1.1` |
-   | `route to nlb-healthcheck-net2` | &#x2611; | `198.18.248.0/24` | `192.168.1.1` |
+   | `route to mgmt-zone2` | ![image](../../_assets/common/yes.svg) | `192.168.2.0/24` | `192.168.1.1` | 
+   | `route to dmz-zone2` | ![image](../../_assets/common/yes.svg) | `10.160.2.0/24` | `10.160.1.1` |
+   | `route to nlb-healthcheck-net1` | ![image](../../_assets/common/yes.svg) | `198.18.235.0/24` | `192.168.1.1` |
+   | `route to nlb-healthcheck-net2` | ![image](../../_assets/common/yes.svg) | `198.18.248.0/24` | `192.168.1.1` |
 
-1. In the left-hand menu, select **Gateways** under **Network**. Select the row with the `192.168.1.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
+1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.1.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
    * **Name**: `public-gateway`
    * **Interface**: `port1`
    * **Gateway IP address**: `172.16.1.1`
   
-   Check **Default** and click **Save**.
+   Enable **Default** and click **Save**.
 
-1. In the left-hand menu, select **DNS** under **Network**. Under **System DNS servers **, add the `192.168.1.2` IP address of the cloud DNS server in the `mgmt` segment.
+1. In the left-hand menu, in the **Network** section, select **DNS**. Under **System DNS servers **, add the `192.168.1.2` IP address of the cloud DNS server in the `mgmt` segment.
 
 #### Diagnostics for basic settings {#diagnostics-base-settings}
 
-1. In the top menu, go to **Diagnostics and monitoring**, and in the left-hand menu, under **Monitoring**, select **Routes**. Make sure the routing information output includes the static routes you added and the default gateway.
+1. In the top menu, go to **Diagnostics and monitoring** and select **Routes** in the left-hand menu under **Monitoring**. Make sure the output of the routing information includes the static routes you added and the default gateway.
 
    ```text
    VRF default:
@@ -479,9 +486,9 @@ Connect to the FW-A management web interface at https://192.168.1.10:8001. Use t
    K>* 198.18.248.0/24 [0/0] via 192.168.1.1, port0, 00:04:57
    ```
 
-1. In the left-hand menu, select **DNS request** under **Network**. In the **DNS request (host)** field, enter the internet domain name of the resource, e.g., `ya.ru`. In the **Request source IP address** field, select `192.168.1.10`. Click **Start** and check that the domain name resolves to public IP addresses.
+1. In the left-hand menu, select **DNS request** in the **Network** section. In the **DNS request (host)** field, enter the internet domain name of the resource, e.g., `ya.ru`. In the **Request source IP address** field, select `192.168.1.10`. Click **Start** and make sure the domain name resolves to public IP addresses.
 
-1. In the left-hand menu, select **Ping** under **Network**. In the **Ping host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Select `port1` for **Interface**. Click **Start** and check that the ping is successful. In the **Ping host** field, enter the IP address of the other firewall in the `mgmt` segment. Select `port0` for **Interface**. Click **Start** and check that the ping is successful.
+1. In the left-hand menu, select **Ping** in the **Network** section. In the **Ping host** field, enter the internet domain name of the resource, e.g., `ya.ru`. Select `port1` for **Interface**. Click **Start** and make sure the ping is successful. In the **Ping host** field, enter the IP address of the other firewall in the `mgmt` segment. Select `port0` for **Interface**. Click **Start** and make sure the ping is successful.
 
    ```
    --- ya.ru ping statistics ---
@@ -513,7 +520,7 @@ Optionally, you can update your UserGate version.
 
 #### Configuring basic security policies {#configure-base-security-fw-a}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **Network**, select **Zones**. Click the **Management** zone and go to the **Access control** tab. Make sure **Administration console** is checked &#x2611. In the same row, under **Allowed addresses**, click **Any**. Add the subnets allowed to access the UserGate administration console. Click **Add**. Enter `192.168.1.0/24` and click **Save**. Add the `192.168.2.0/24` subnet in the same way. Then, click **Save** in the **Select IP address/subnet** window.
+1. In the top menu, go to **Settings** and select **Zones** in the left-hand menu under **Network**. Click the **Management** zone and go to the **Access control** tab. Make sure the ![image](../../_assets/common/yes.svg) option is enabled for **Administration console**. Click **Any** in the same row under **Allowed addresses**. Add the subnets allowed to access the UserGate administration console. Click **Add**. Enter `192.168.1.0/24` and click **Save**. Add the `192.168.2.0/24` subnet in the same way. Then, click **Save** in the **Select IP address/subnet** window.
 
 1. For the **Management** zone, add the allowed `192.168.1.0/24` and `192.168.2.0/24` addresses to **CLI over SSH** in the same way to enable SSH access for managing UserGate.
 
@@ -552,11 +559,11 @@ Optionally, you can update your UserGate version.
 
 1. Switch to the **Service** tab and click **Add**. Select `TCP_8080` from the list, click **Add** and then **Close**. 
 
-1. Switch to the **DNAT** tab. In the **DNAT destination address** field, enter `10.160.1.100`. Check **Enable SNAT**. In the **Rule properties** window, click **Save** to complete the DNAT rule setup.   
+1. Switch to the **DNAT** tab. In the **DNAT destination address** field, enter `10.160.1.100`. Check **Enable SNAT**. In the **Rule properties** window, click **Save** to complete adding a DNAT rule.
 
    {% note info %}
 
-      NAT rules are processed one by one in the order they are listed, from top to bottom. The first rule where all the conditions are met is the one that applies. Make sure more specific rules come before the more general ones in the list.
+      NAT rules are applied in the order they are listed, from top to bottom. Only the first rule for which all the conditions are met will apply. Which means, the more specific rules should be higher on the list than the more general ones.
 
    {% endnote %}
 
@@ -582,41 +589,41 @@ Optionally, you can update your UserGate version.
 
    {% note info %}
 
-      Rules are processed one by one in the order they are listed, from top to bottom. The first rule where all the conditions are met is the one that applies. Make sure more specific rules come before the more general ones in the list. The `Block all` rule is used to prohibit any transit traffic through UserGate and should be placed at the end of the list. This is a required rule since the default `Default block` rule does not block traffic allowed by a DNAT rule.
+      Rules are processed one by one in the order they are listed, from top to bottom. Only the first rule for which all the conditions are met will apply. Which means, the more specific rules should be higher on the list than the more general ones. The `Block all` rule is used to prohibit any transit traffic through UserGate and should be placed at the end of the list. This is a required rule since the default `Default block` rule does not block traffic allowed by a DNAT rule.
 
    {% endnote %}
 
 ### Configure the FW-B firewall {#configure-fw-b}
 
-Connect to the FW-B management web interface at https://192.168.2.10:8001. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, you will be prompted to change the password.
+Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
 
 #### Configure a network {#configure-fw-b-network}
 
 1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
 
-1. In the left-hand menu, select **Interfaces** under **Network**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.2.10`. Click **Save**.
+1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.2.10`. Click **Save**.
 
-1. Click `port1`. In the **General** tab, check **Enabled**. Select `Zone: Untrusted`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `172.16.2.10` IP address via DHCP. Click `port1` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
+1. Click `port1`. On the **General** tab, check **Enabled**. Select `Zone: Untrusted`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `172.16.2.10` IP address via DHCP. Click `port1` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
 
-1. Click `port2`. In the **General** tab, check **Enabled**. Select `Zone: DMZ`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `10.160.2.10` IP address via DHCP. Click `port2` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
+1. Click `port2`. On the **General** tab, check **Enabled**. Select `Zone: DMZ`. In the **Network** tab, select `Mode: DHCP`. Click **Save**. Make sure the interface has been assigned the `10.160.2.10` IP address via DHCP. Click `port2` once more. In the **Network** tab, select `Mode: Static` and click **Save**.
 
-1. In the left-hand menu, select **Virtual routers** under **Network**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
+1. In the left-hand menu, in the **Network** section, select **Virtual Routers**. Click `—` (em dash) in the **Static routes** column for **Default virtual router**. Click **Add** to add the static routes from the table: 
 
    | Name | Enabled | Destination address | Gateway |
    | --- | --- | --- | --- |
-   | `route to mgmt-zone1` | &#x2611; | `192.168.1.0/24` | `192.168.2.1` | 
-   | `route to dmz-zone1` | &#x2611; | `10.160.1.0/24` | `10.160.2.1` |
-   | `route to nlb-healthcheck-net1` | &#x2611; | `198.18.235.0/24` | `192.168.2.1` |
-   | `route to nlb-healthcheck-net2` | &#x2611; | `198.18.248.0/24` | `192.168.2.1` |
+   | `route to mgmt-zone1` | ![image](../../_assets/common/yes.svg) | `192.168.1.0/24` | `192.168.2.1` | 
+   | `route to dmz-zone1` | ![image](../../_assets/common/yes.svg) | `10.160.1.0/24` | `10.160.2.1` |
+   | `route to nlb-healthcheck-net1` | ![image](../../_assets/common/yes.svg) | `198.18.235.0/24` | `192.168.2.1` |
+   | `route to nlb-healthcheck-net2` | ![image](../../_assets/common/yes.svg) | `198.18.248.0/24` | `192.168.2.1` |
 
-1. In the left-hand menu, select **Gateways** under **Network**. Select the row with the `192.168.2.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
+1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.2.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
    * **Name**: `public-gateway`
    * **Interface**: `port1`
    * **Gateway IP address**: `172.16.2.1`
   
-   Check **Default** and click **Save**.
+   Enable **Default** and click **Save**.
 
-1. In the left-hand menu, select **DNS** under **Network**. Under **System DNS servers **, add the `192.168.2.2` IP address of the cloud DNS server in the `mgmt` segment.
+1. In the left-hand menu, in the **Network** section, select **DNS**. Under **System DNS servers **, add the `192.168.2.2` IP address of the cloud DNS server in the `mgmt` segment.
 
 #### Diagnostics for settings and software updates {#diagnostics-update-fw-b}
 
@@ -626,7 +633,7 @@ Connect to the FW-B management web interface at https://192.168.2.10:8001. Use t
 
 #### Configuring basic security policies {#configure-base-security-fw-b}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **Network**, select **Zones**. Click the **Management** zone and go to the **Access control** tab. Make sure **Administration console** is checked &#x2611. In the same row, under **Allowed addresses**, click **Any**. Add the subnets allowed to access the UserGate administration console. Click **Add**. Enter `192.168.1.0/24` and click **Save**. Add the `192.168.2.0/24` subnet in the same way. Then, click **Save** in the **Select IP address/subnet** window.
+1. In the top menu, go to **Settings** and select **Zones** in the left-hand menu under **Network**. Click the **Management** zone and go to the **Access control** tab. Make sure the ![image](../../_assets/common/yes.svg) option is enabled for **Administration console**. Click **Any** in the same row under **Allowed addresses**. Add the subnets allowed to access the UserGate administration console. Click **Add**. Enter `192.168.1.0/24` and click **Save**. Add the `192.168.2.0/24` subnet in the same way. Then, click **Save** in the **Select IP address/subnet** window.
 
 1. For the **Management** zone, add the allowed `192.168.1.0/24` and `192.168.2.0/24` addresses to **CLI over SSH** in the same way to enable SSH access for managing UserGate.
 
@@ -665,7 +672,7 @@ Connect to the FW-B management web interface at https://192.168.2.10:8001. Use t
 
 1. Switch to the **Service** tab and click **Add**. Select `TCP_8080` from the list, click **Add** and then **Close**. 
 
-1. Switch to the **DNAT** tab. In the **DNAT destination address** field, enter `10.160.1.100`. Check **Enable SNAT**. In the **Rule properties** window, click **Save** to complete the DNAT rule setup.   
+1. Switch to the **DNAT** tab. In the **DNAT destination address** field, enter `10.160.1.100`. Check **Enable SNAT**. In the **Rule properties** window, click **Save** to complete adding a DNAT rule.
 
 1. In the left-hand menu, under **Network policies**, select **Firewall** to add firewall rules. Click **Add** and fill in the following fields in the **General** tab:
    * **Name**: `Web-server port forwarding on FW-b`.
@@ -689,7 +696,7 @@ Connect to the FW-B management web interface at https://192.168.2.10:8001. Use t
 
 ## Enable the route-switcher module {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure that FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), the `mgmt` folder, select **{{ network-load-balancer-name }}** and go to the `route-switcher-lb-...` network load balancer page. Open the target group and make sure the target resources are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and [configured](#configure-gateways).
+After you complete the NGFW setup, make sure that FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), the `mgmt` folder, select **{{ network-load-balancer-name }}** and go to the `route-switcher-lb-...` network load balancer page. Expand the target group and make sure the target resources are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and [configured](#configure-gateways).
 
 Once the FW-A and FW-B status changes to `Healthy`, open the `route-switcher.tf` file and change the `start_module` parameter value of the `route-switcher` module to `true`. To enable the module, run this command:
 
@@ -698,22 +705,22 @@ terraform plan
 terraform apply
 ```
 
-Within 5 minutes, the route-switcher module starts providing fault tolerance of outgoing traffic across the segments.
+Within 5 minutes, the `route-switcher` module starts providing fault tolerance of outgoing traffic across the segments.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
-### Test the system performance {#test-accessibility}
+### Test the system {#test-accessibility}
 
-1. To find out the public IP address of the load balancer, run the following command in the terminal:
+1. To find out the public IP address of the load balancer, run this command in the terminal:
 
    ```bash
    terraform output fw-alb_public_ip_address
    ```
 
-1. Make sure the network infrastructure can be accessed from the outside by opening the following address in the browser:
+1. Make sure the network infrastructure is externally accessible. To do so, in your browser, go to:
     
    ```text
-   http://<public_IP_address_of_ALB_load_balancer>
+   http://<ALB_load_balancer_public_IP_address>
    ```
    You should see the `Welcome to nginx!` page.
 
@@ -721,7 +728,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 
    ```bash
    cd yc-dmz-with-high-available-usergate-ngfw
-   ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
+   ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
    ```
 
 1. To check that there is access from the VM in the DMZ segment to a public resource on the internet, run this command:
@@ -732,17 +739,18 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 
    The command must run according to the `ping from dmz to internet` rule that allows traffic.
 
-1. Connect to the FW-A management web interface at https://192.168.1.10:8001. In the top menu, go to **Settings**, and in the left-hand menu, under **Network policies**, select **Firewall**. Configure logging for the `Block all` rule: `Log session start`. 
+1. Connect to the FW-A management web interface at `https://192.168.1.10:8001`. In the top menu, go to **Settings** and select **Firewall** in the left-hand menu under **Network policies**. Configure logging for the `Block all` rule: `Log session start`. 
 
 1. Make sure the security policy rules that prohibit traffic are applied.
-   To check that `jump-vm` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command: 
+
+   To check that `Jump VM` in the `mgmt` segment cannot be accessed from the `dmz` segment, run this command: 
 
    ```bash
    ping 192.168.1.101
    ```
-   The command must fail according to the `Block all` that prohibits traffic.
+   The command must fail according to the `Block all` rule that prohibits traffic.
 
-1. Connect to the FW-A management web interface at https://192.168.1.10:8001. In the top menu, go to **Logs and reports**, and in the left-hand menu, under **Logs**, select **Traffic log**. In the `Rules:` filter, select `Block all` and `ping from dmz to internet`. Check that the logs show records of allowed and blocked traffic for the completed tests. After that, disable logging for the `Block all` rule. 
+1. Connect to the FW-A management web interface at `https://192.168.1.10:8001`. In the top menu, go to **Logs and reports** and select **Traffic log** in the left-hand menu under **Logs**. In the `Rules:` filter, select `Block all` and `ping from dmz to internet`. Make sure the logs include records of allowed and blocked traffic for the tests performed. After that, disable logging for the `Block all` rule. 
 
 ### Testing fault tolerance {#fault-tolerance-check}
 
@@ -752,7 +760,7 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
    sudo apt-get install httping
    ```
 
-1. To find out the public IP address of the load balancer, run the following command in the terminal:
+1. To find out the public IP address of the load balancer, run this command in the terminal:
 
    ```bash
    terraform output fw-alb_public_ip_address
@@ -761,13 +769,13 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 1. Enable incoming traffic to the application published in the DMZ segment by making the following request to the ALB public IP:
 
    ```bash
-   httping http://<public_IP_address_of_ALB_load_balancer>
+   httping http://<ALB_load_balancer_public_IP_address>
    ```
 
-1. Open another terminal and connect to a VM in the DMZ segment over SSH:
+1. Open another terminal window and connect to a VM in the DMZ segment over SSH:
    
    ```bash
-   ssh -i pt_key.pem admin@<internal_IP_address_of_VM_in_DMZ_segment>
+   ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
    ```
 
 1. Set a password for the `admin` user:
@@ -778,31 +786,32 @@ Within 5 minutes, the route-switcher module starts providing fault tolerance of 
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the parameters of this VM:
 
-   1. In the list of services, select **{{ compute-name }}**.
-   1. In the list of VMs, choose the one you need, click ![options](../../_assets/options.svg), and select **Edit**.
-   1. In the **Additional** column, select **Grant access to serial console**. 
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+   1. In the line with the appropriate VM, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+   1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
+   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
    
 1. Connect to the VM serial console, enter the `admin` username and the password you set earlier.
 
-1. Enable outgoing traffic from the VM in the DMZ segment to a resource on the internet using `ping`:
+1. Enable outgoing traffic from the VM in the DMZ segment to a resource on the internet using the `ping` command:
 
    ```bash
    ping ya.ru
    ```
 
-1. In the {{ yandex-cloud }} console, in the `mgmt` folder, [stop](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `fw-a` VM by emulating the recovery of the main firewall.
-
-1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A fails, there may be a traffic loss for 1 minute on average with subsequent traffic recovery.
-1. Check that the FW-B address is used in the `dmz-rt` route table, the `dmz` folder, for the next hop.
+1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), in the `mgmt` folder, [stop](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `fw-a` VM by emulating the recovery of the main firewall.
+1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A fails, there may be a traffic loss for approximately 1 minute with subsequent traffic recovery.
+1. Make sure the FW-B address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [run](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `fw-a` VM by emulating the recovery of the main firewall. 
-1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A recovers, there may be a traffic loss for 1 minute on average with subsequent traffic recovery.
-1. Check that the FW-A address is used in the `dmz-rt` route table, the `dmz` folder, for the next hop.
+1. Monitor the loss of packets sent by `httping` and `ping`. After FW-A is restored, there may be a traffic loss for approximately 1 minute with subsequent traffic recovery.
+1. Make sure the FW-A address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
 
 ## Requirements for production deployment {#deployment-requirements}
 
 * Save the `pt_key.pem` private SSH key to a secure location or recreate it separately from {{ TF }}.
-* Delete `jump-vm` if you no longer need it.
-* If you plan to use `jump-vm` to connect to the management segment with WireGuard VPN, change the WireGuard keys in `jump-vm` and admin workstation.
+* Delete the public IP address of the jump VM if you are not going to use it.
+* If your plan is to use it for connection to the management segment via WireGuard VPN, change the WireGuard keys both on the jump VM and admin workstation.
 * Configure the UserGate NGFW to meet your specific needs in line with the corporate security policy.
 * Do not assign public IP addresses to the VMs in those segments where the UserGate NGFW routing tables with a default route of `0.0.0.0/0` are used (learn more [here](../../vpc/concepts/routing#restrictions)). The only exception is the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route. 
 
@@ -820,4 +829,4 @@ To stop paying for the resources you created, run this command:
 
    {% endnote %}
 
-As the resources you created reside in folders, a faster way to delete all resources is to delete all the folders using the {{ yandex-cloud }} console and then delete the `terraform.tfstate` file from the `yc-dmz-with-high-available-usergate-ngfw` folder on your PC.
+As the resources you created reside in folders, a faster way to delete all resources is to delete all the folders using the {{ yandex-cloud }} [management console]({{ link-console-main }}) and then delete the `terraform.tfstate` file from the `yc-dmz-with-high-available-usergate-ngfw` folder on your PC.

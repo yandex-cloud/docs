@@ -1,11 +1,13 @@
 ---
+title: Running an instance group with autoscaling using the management console, CLI, and API
+description: Follow this guide to run an instance group with autoscaling using the management console, CLI, and API.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/console'
 ---
 
-# Running a VM group with autoscaling using the management console, CLI, and API
+# Running an instance group with autoscaling using the management console, CLI, and API
 
 
-To configure a [VM group with an autoscaling policy](index.md):
+To configure an [instance group with an autoscaling policy](index.md):
 
 {% include [vm-autoscale-console](../../../_tutorials/infrastructure/vm-autoscale-console.md) %}
 

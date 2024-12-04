@@ -48,7 +48,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         yc iam service-account create --name for-load
         ```
 
-        Command result:
+        The result will be as follows:
 
         ```bash
         id: ajeab0cnib1p********
@@ -95,7 +95,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         yc vpc network create --name yc-auto-network
         ```
 
-        Command result:
+        The result will be as follows:
 
         ```bash
         id: enpabce123hd********
@@ -104,20 +104,20 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         name: yc-auto-network
         ```
 
-     1. Create a subnet in the `{{ region-id }}-a` availability zone:
+     1. Create a subnet in the `{{ region-id }}-d` availability zone:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-d
         ```
 
-        Command result:
+        The result will be as follows:
 
         ```bash
         id: e1lnabc23r1c********
         folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:34:32.561702Z"
         network_id: enpabce123hd********
-        zone_id: {{ region-id }}-a
+        zone_id: {{ region-id }}-d
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -128,7 +128,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         yc vpc subnet create --network-id enpabce123hd******** --range 192.168.2.0/24 --zone {{ region-id }}-b
         ```
 
-        Command result:
+        The result will be as follows:
 
         ```bash
         id: b1csa2b3clid********
@@ -144,7 +144,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
      1. Create a network:
          Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
-     1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
+     1. Create subnets in the `{{ region-id }}-d` and `{{ region-id }}-b` availability zones:
          Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
    {% endlist %}
@@ -165,7 +165,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
         * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `group-for-load`.
         * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `for-load`.
-     1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
+     1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-d` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
      1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
         * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
         * Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
@@ -203,7 +203,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
         ```
 
-        Command result:
+        The result will be as follows:
   
         ```bash
         id: fd8iv792kira********
@@ -231,7 +231,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc compute instance-group create --file=specification.yaml
          ```
 
-         Command result:
+         The result will be as follows:
 
          ```bash
          done (2m18s)
@@ -272,7 +272,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      yc compute instance-group list-instances group-for-load
      ```
 
-     Command result:
+     The result will be as follows:
 
      ```bash
      +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
@@ -306,7 +306,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
      1. In the window that opens:
         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** field, specify `http`.
-        * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** field, enter `80`: the balancer will use this port to accept incoming traffic.
+        * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** field, enter `80` for the port the balancer will receive incoming traffic at.
         * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** field, enter `80`: the balancer will redirect traffic to this port.
         * Click **{{ ui-key.yacloud.common.add }}**.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
@@ -324,7 +324,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         yc load-balancer target-group get load-generator | grep "^id"
         ```
         
-        Command result:
+        The result will be as follows:
         
         ```bash
         id: enpsa475ej51********
@@ -339,7 +339,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
           --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target_group_ID>
         ```
 
-        Command result:
+        The result will be as follows:
 
         ```bash
         done (14s)
@@ -377,7 +377,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      yc load-balancer network-load-balancer list
      ```
 
-     Command result:
+     The result will be as follows:
      
 
      ```bash
@@ -414,7 +414,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      yc load-balancer network-load-balancer get load-generator | grep "address"
      ```
      
-     Command result:
+     The result will be as follows:
 
      ```bash
        address: 84.252.133.110
@@ -476,7 +476,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       yc compute instance-group update --name=group-for-load --file=specification.yaml
       ```
 
-      Command result:
+      The result will be as follows:
 
       ```bash
       done (9m24s)
@@ -506,7 +506,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 Stop `wrk` by pressing **Ctrl** + **C**.
 
-Command result:
+The result will be as follows:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev

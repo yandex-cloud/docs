@@ -1,6 +1,5 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-
 You can set up data transfer from {{ mmy-name }} to {{ mgp-name }} databases using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).

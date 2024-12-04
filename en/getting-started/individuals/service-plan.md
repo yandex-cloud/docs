@@ -1,4 +1,9 @@
-# Set up a service plan
+---
+title: Configure a service plan for an individual
+description: In this article, you will learn how to configure a service plan.
+---
+
+# Configure a service plan
 
 
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The fixed portion only depends on the selected plan, while the supplemental portion is calculated as a fraction of the cost of the resources used over the month. For more information about the plans, see the [Pricing policy](../../support/pricing.md).

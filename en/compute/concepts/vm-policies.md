@@ -1,3 +1,8 @@
+---
+title: Compute maintenance policies
+description: In this tutorial, you will learn about compute maintenance policies.
+---
+
 # Compute maintenance policies
 
 
@@ -30,7 +35,7 @@ When maintenance events occur, [preemptible VMs](preemptible-vm.md) simply stop 
 
 ### Features for VMs with GPUs {#vm-with-gpu}
 
-If the `RESTART` policy is set for VMs with GPUs (non-preemptible), [email notifications](../../resource-manager/concepts/notify.md#technical) about scheduled maintenance works on such VMs are disabled. During scheduled works, the VM will automatically restart following a`maintenance_grace_period` after a maintenance event appears in the metadata.
+If the `RESTART` policy is set for VMs with GPUs (non-preemptible), [email notifications](../../resource-manager/concepts/notify.md#technical) about scheduled maintenance works on such VMs are disabled. During scheduled works, the VM will automatically restart following a `maintenance_grace_period` after a maintenance event appears in the metadata.
 
 ### How to enable {#apply}
 

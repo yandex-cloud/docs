@@ -11,10 +11,10 @@ Before getting started, [create a service account](create-user.md#create) with a
 
 To use approval rules:
 
-1. [{#T}](#gitlab-token).
-1. [{#T}](#enable).
-1. [{#T}](#rules).
-1. [{#T}](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
+1. [Create a {{ GL }} token](#gitlab-token).
+1. [Enable approval rules](#enable).
+1. [Configure approval rules](#rules).
+1. [Set up Code Ownership](#code-ownership) (available in **Standard** and **Advanced** [configurations](../concepts/approval-rules.md#packages)).
 
 If required, enable [debugging mode](#debugging) and check out the [rules for handling exceptions](#exceptions).
 
@@ -29,9 +29,9 @@ To create a token:
 1. Go to **Access Tokens** in the left-hand menu.
 1. Click **Add new token**.
 1. In the window that opens, in the **Token name** field, enter a name to easily locate the token in your {{ GL }} project.
-1. In the **Expiration date** field, specify the date when the token will expire.
+1. In the **Expiration date** field, specify the token's expiration date.
 
-    The default value is one month from the creation date, while the maximum lifetime is one year. The token expires at midnight UTC on the specified day.
+    The default value is one month and the maximum is one year from the token creation date. The token expires at midnight UTC on the specified day.
 
 1. Under **Select scopes**, select **api**.
 1. Click **Create personal access token**.

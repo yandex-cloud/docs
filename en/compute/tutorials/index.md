@@ -7,7 +7,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](ntp.md)
 * [{#T}](vm-autoscale/index.md)
-* [{#T}](vm-scale-scheduled.md)
+* [{#T}](vm-scale-scheduled/index.md)
 * [{#T}](autoscale-monitoring.md)
 * [{#T}](updating-under-load.md)
 * [{#T}](vm-fluent-bit-logging.md)
@@ -17,7 +17,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](hystax-disaster-recovery.md)
 * [{#T}](hystax-backup.md)
 * [{#T}](nodejs-cron-restart-vm.md)
-* [{#T}](bind-domain-vm.md)
+* [{#T}](bind-domain-vm/index.md)
 * [{#T}](high-accessible-dmz.md)
 * [{#T}](network-segmentation-checkpoint.md)
 * [{#T}](gre-over-ipsec.md)

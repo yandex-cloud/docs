@@ -35,6 +35,16 @@ Total number of tokens in request and response, synchronous mode of [4th generat
 Total number of tokens in request and response, asynchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Total number of tokens in request and response, {{ gpt-pro }} 32k | 32,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}
+**[Assistants](../foundation-models/concepts/assistant/index.md)**|
+Maximum number of assistants | 1,000
+Maximum number of threads | 1,000
+Maximum number of users | 10,000
+Maximum number of files to upload | 1,000
+Maximum file size | 128 MB
+Maximum number of files per search index | 100
+Maximum number of messages per thread | 10,000
+Maximum number of search indexes | 1,000
+Maximum number of indexing operations to run | 10
 **[Image generation](../foundation-models/concepts/yandexart/index.md)** |
 Maximum [prompt](../foundation-models/concepts/index.md#prompt) length | 500 characters
 Number of free requests per minute for users without a billing account. Available only in the management console | 2

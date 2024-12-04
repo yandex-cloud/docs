@@ -5,6 +5,10 @@ description: This section contains {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## October 2024 {#oct-2024}
+
+Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+
 
 ## September 2024 {#sep-2024}
 
@@ -17,7 +21,7 @@ Added the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** op
 
 ## Q4 2023 {#q4-2023}
 
-* A new {{ MY }} version is available: [8.0.31](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html).
+* A new version is out: {{ MY }} [8.0.31](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-31.html).
 
 ## Q2 2023 {#q2-2023}
 

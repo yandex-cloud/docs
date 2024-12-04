@@ -1,4 +1,4 @@
-For example, if the price per 1 GB of data in ice storage per month is {{ sku|USD|storage.bucket.used_space.ice|month|string }}, and a 3 GB object was in ice storage from January 1 through September 20 (8 months and 20 days), your storage charge will be calculated as follows:
+For example, if the price for storing 1 GB of data in ice storage per month is {{ sku|USD|storage.bucket.used_space.ice|month|string }}, and a 3 GB object was in ice storage from January 1 through September 20 (8 months and 20 days), your storage charge will be calculated as follows:
 
 > Total from January 1 through September 20
 >
