@@ -113,6 +113,7 @@
      persistent:
        type: "persistentVolume"
        enabled: false
+       volName: "volume"
        mountPath: "/tmp/trickster"
        accessModes:
          - ReadWriteOnce
@@ -122,6 +123,7 @@
      generic:
        type: "generic"
        enabled: true
+       volName: "trickster-generic"
        mountPath: "/tmp/trickster"
    podAnnotations: {}
    resources: {}
