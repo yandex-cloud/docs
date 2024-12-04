@@ -1,3 +1,8 @@
+---
+title: Installing Thumbor
+description: Follow this guide to install Thumbor.
+---
+
 # Installing Thumbor
 
 

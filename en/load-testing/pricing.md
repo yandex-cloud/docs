@@ -1,4 +1,6 @@
 ---
+title: '{{ load-testing-full-name }} pricing policy'
+description: This article provides the {{ load-testing-name }} pricing policy.
 editable: false
 ---
 

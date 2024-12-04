@@ -1,30 +1,30 @@
 ---
-title: Integrating {{ dns-full-name }} with {{ compute-full-name }}
-description: In this tutorial, you will learn how {{ dns-full-name }} is related to {{ compute-full-name }} resources.
+title: '{{ dns-full-name }} integration with {{ compute-full-name }}'
+description: In this tutorial, you will learn how {{ dns-full-name }} is connected with {{ compute-full-name }} resources.
 ---
 
 # Integration with {{ compute-name }}
 
 You can assign domain names ([FQDNs](../../compute/concepts/network.md#hostname)) to VMs as soon as you create them in {{ compute-name }}.
 
-To add a VM to a zone when creating it, select the zone you need and set a domain name under **DNS settings for internal addresses** of **Network settings**. You can add multiple records, including in different zones. If you do not specify a zone, the VM will get a domain name in the standard zone of the subnet it will be connected to. For instructions on how to create VMs, see [{#T}](../../compute/operations/vm-create/create-linux-vm.md).
+To add a VM to a zone when creating it, select the zone you need and set a domain name under **DNS settings for internal addresses** of **Network settings**. You can add multiple records, including in different zones. If you do not specify a zone, the VM will get a domain name in the standard zone of the subnet it will be connected to. For instructions on how to create a VM, see [{#T}](../../compute/operations/vm-create/create-linux-vm.md).
 
 For a VM's public IP address, integration with {{ compute-name }} is currently not supported. You can add an [A record](resource-record.md#a) to a [public zone](dns-zone.md#public-zones) manually after creating a VM. Learn more about how to [create a record](../operations/resource-record-create.md).
 
 ## Automatic zone selection {#zone-selection}
 
-If no zone is specified explicitly for a VM's additional DNS record, it will be selected automatically. To enable this, specify an FQDN with a dot at the end. In the management console, the dot is added automatically.
+If no zone is specified explicitly for a VM's additional DNS record, it will be selected automatically. For this you need to specify an FQDN ending with a period. In the management console, the period is added automatically.
 
-A DNS record is added to one of the [private zones](dns-zone.md#private-zones) that are accessible from the VM's virtual network and are FQDN suffixes. The most specific private zone is selected based on the suitable suffix. If there are multiple suitable zones with the same domain name, one of them is selected.
+A DNS record will be added to one of the [private zones](dns-zone.md#private-zones) that can be accessed from the VM's virtual network and are FQDN suffixes. The most specific private zone will be selected from among those with suitable suffixes. If there are several suitable zones with the same domain name, one of them will be selected.
 
-> For example, you specified an FQDN like `hello.world.private.` in the network settings and the following four private DNS zones are accessible from the virtual network:
+> For example, in the network settings, FQDN is set to `hello.world.private.`, and the following four private DNS zones can be accessed from the virtual network:
 >
-> * Service `.`.
-> * Custom: `staging.` and `private.`. And `world.private.`.
+> * Service zone: `.`.
+> * Custom zones: `staging.`, `private.`, and `world.private.`.
 >
-> The `staging.` zone is not suitable, since the `staging.` domain name is not a suffix of the `hello.world.private.` FQDN.
+> The `staging.` zone is out of consideration because the `staging.` domain name is not a suffix of the `hello.world.private.` FQDN.
 >
-> The zones that have the appropriate suffix are `.`, `private.`, and `world.private.`. As a result, `world.private.` is selected as the most specific zone.
+> From among of the zones with suitable suffixes (`.`, `private.`, and `world.private.`), `world.private.` will be selected ans the most specific one.
 
 ## Using {{ dns-name }} for instance groups
 
@@ -35,4 +35,4 @@ To generate unique names, you can use [variables](../../compute/concepts/instanc
 #### See also {#see-also}
 
 * [Creating a VM](../../compute/operations/index.md)
-* [Assigning a domain name to a VM with a web server](../tutorials/bind-domain-vm.md)
+* [Assigning a domain name to a VM with a web server](../tutorials/bind-domain-vm/index.md)

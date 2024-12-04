@@ -9,6 +9,9 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release as of 11/11/24 {#111124}
+
+Now you can use a service agent to work with {{ yandex-cloud }} services from {{ ml-platform-name }} notebooks, e.g., issue authorization tokens. To enable this feature in a community, follow [this guide](operations/community/create-ssa.md). For more information on how service agents work, see the [{{ iam-name }} documentation](../iam/concepts/service-control.md#service-agent).
 
 ## Release as of 02/09/24 {#020924}
 

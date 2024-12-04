@@ -60,11 +60,11 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 
 > For example, the following pricing was in effect in July:
 >
-> * For the first 100 users: $3.520000 per user per month.
+> * For the first 100 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} per user per month.
 >
-> * For the next 150 users: $3.200000 per user per month.
+> * For the next 150 users: {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} per user per month.
 >
-> * For all users over 250: $2.880000 per user per month.
+> * For all users over 250: {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }} per user per month.
 >
 > In July, the number of employees with full access to {{ tracker-name }} varied as follows:
 >
@@ -79,6 +79,6 @@ How the monthly {{ tracker-name }} subscription fee is calculated:
 > The following formula will be used to calculate the subscription fee for 270 users:
 >
 > ```
-> 100 × $3.520000 + 150 × $3.200000 + 20 × $2.880000
+> 100 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.6|string }} + 150 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.100|string }} + 20 × {{ sku|USD|b2b.tracker.license.v1|pricingRate.250|string }}
 > ```
 > 

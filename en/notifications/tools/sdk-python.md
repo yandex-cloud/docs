@@ -66,16 +66,18 @@ Where:
   * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
   * `GCM`: Firebase Cloud Messaging (FCM).
   * `HMS`: Huawei Mobile Services (HMS).
-* `Attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on the platform type:
+* `Attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
   * APNs:
     * Token-based authentication:
-      * `PlatformPrincipal`: Token in `.p8` format.
-      * `PlatformCredential`: Token ID.
-      * `ApplePlatformTeamID`: Developer ID.
+      * `PlatformPrincipal`: Path to the token signature key file from Apple.
+      * `PlatformCredential`: Key ID.
+      * `ApplePlatformTeamID`: Team ID.
       * `ApplePlatformBundleID`: Bundle ID.
     * Certificate-based authentication:
-      * `PlatformPrincipal`: SSL certificate in `.p12` format.
-      * `PlatformCredential`: Certificate private key.
+      * `PlatformPrincipal`: SSL certificate in `.pem` format.
+      * `PlatformCredential`: Certificate private key in `.pem` format.
+          
+          {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
 
     Token-based authentication is preferred as it is more modern.
   * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the Legacy API.

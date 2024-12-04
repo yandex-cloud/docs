@@ -1,4 +1,5 @@
 ---
+title: Disks
 description: Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data.
 keywords:
   - disk
@@ -25,15 +26,15 @@ Disks are created within folders and inherit their access rights.
 
 Disks take up storage space, which incurs additional fees. For more information, see [{#T}](../pricing.md). You specify the disk size when you create it, and this is the storage capacity you will be charged for.
 
-In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk use cost are also inherited from the source.
+In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk usage cost are also inherited from the source.
 
 ## Disk types {#disks-types}
 
 {{ yandex-cloud }} VMs can use the following disk types:
-* Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
-* Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
-* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
-* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`) is a high-performance SSD that offers the same speed as `network-ssd-nonreplicated` but also provides redundancy.
+* Network SSD (`network-ssd`): Fast network drive; SSD network block storage.
+* Network HDD (`network-hdd`): Standard network drive; HDD network block storage.
+* Non-replicated SSD (`network-ssd-nonreplicated`): Enhanced performance network drive without redundancy.
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`): High-performance SSD offering the same speed as `network-ssd-nonreplicated`, plus redundancy.
 * [Local disk](dedicated-host.md#resource-disks) drives on dedicated hosts.
 
 Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data durability.
@@ -91,10 +92,10 @@ Sometimes, you may want to restore a disk to a specific state on a regular basis
 
 {% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
-For more information on backing up and restoring VMs, see [{#T}](backups.md).
+For general recommendations on backing up and restoring VMs, see [{#T}](backups.md).
 
 
-## Encrypting disks {#encryption}
+## Disk encryption {#encryption}
 
 To protect critical data in {{ compute-name }}, we recommend encrypting disks with [{{ kms-full-name }}](../../kms/) keys.
 

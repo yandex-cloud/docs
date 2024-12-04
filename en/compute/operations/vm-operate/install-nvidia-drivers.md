@@ -1,3 +1,8 @@
+---
+title: Installing NVIDIA drivers
+description: Follow this guide to install NVIDIA drivers.
+---
+
 # Installing NVIDIA drivers
 
 

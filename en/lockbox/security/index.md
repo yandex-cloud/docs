@@ -20,7 +20,7 @@ Roles for a resource can be assigned by users who have the `lockbox.admin` role 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [secret](../concepts/secret.md) in the management console, via the YC CLI or {{ yandex-cloud }} API.
+You can assign a role for a [secret](../concepts/secret.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/lockbox/cli-ref/secret/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
 
 ## Which roles exist in the service {#roles-list}
 
@@ -62,15 +62,15 @@ You can manage access to secrets using both service and primitive roles.
 
 The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
-| Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter` |
------ | ----- | ----- | ----- | ----- | -----
-| Create and delete secrets | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Change the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Read the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - |
-| Change the content of the secret version | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Read the content of the secret version | ![image](../../_assets/common/yes.svg) | - | - | ![image](../../_assets/common/yes.svg) | - |
-| Control access to the secret | ![image](../../_assets/common/yes.svg) | - | - | - | - |
-| Secret encryption and decryption operations | - | - | - | - | ![image](../../_assets/common/yes.svg) |
+Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter`
+----- | ----- | ----- | ----- | ----- | ----- 
+Create and delete secrets                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Change the metadata of the secret                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Read the metadata of the secret                   | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | -
+Change the content of the secret version        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Read the content of the secret version           | ![image](../../_assets/common/yes.svg) | - |- | ![image](../../_assets/common/yes.svg) | -
+Control access to the secret               | ![image](../../_assets/common/yes.svg) | - | - | - | -
+Secret encryption and decryption operations   | - | - | - | - | ![image](../../_assets/common/yes.svg)
 
 #### What's next {#what-is-next}
 

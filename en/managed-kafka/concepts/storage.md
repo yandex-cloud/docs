@@ -1,3 +1,8 @@
+---
+title: Storage in {{ mkf-full-name }}
+description: In this article, you will learn what a storage is in {{ mkf-name }}, its minimum size, and the maximum size of a log segment. You will also learn about the automatic storage size increase mechanism and some things you should consider when selecting disk type for your new cluster.
+---
+
 # Storage in {{ mkf-name }}
 
 
@@ -9,7 +14,7 @@
 ## Selecting the disk type during cluster creation {#storage-type-selection}
 
 
-The number of broker hosts that can be created along with an {{ KF }} cluster depends on the selected disk type:
+The number of broker hosts you can create together with an {{ KF }} cluster depends on the selected disk type:
 
 * With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more broker hosts.
 
@@ -49,7 +54,7 @@ By default, the segment size is 1 GB.
 
 ## Disk space management {#manage-storage-space}
 
-As soon as {{ KF }} logs take up 97% of storage capacity, the host automatically enters read-only mode. The {{ mkf-name }} cluster blocks requests to write to the topic.
+Upon {{ KF }} logs reaching 97% storage capacity, the host automatically switches to read-only mode. The {{ mkf-name }} cluster denies any requests for writing messages to a topic.
 
 
 You can monitor storage utilization on cluster hosts [by setting up alerts in {{ monitoring-full-name }}](../operations/storage-space.md#set-alert):
@@ -59,12 +64,12 @@ You can monitor storage utilization on cluster hosts [by setting up alerts in {{
 
 Use one of these methods:
 
-* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) to exceed the threshold value. The {{ mkf-name }} cluster will then automatically clear read-only mode.
-* [Set up](../operations/storage-space.md#disk-size-autoscale) automatic increase of storage size.
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. The {{ mkf-name }} cluster will then automatically disable the read-only mode.
+* [Set up](../operations/storage-space.md#disk-size-autoscale) automatic storage size increase.
 
 ### Automatic increase of storage size {#auto-rescale}
 
-Automatic increase of storage size prevents situations where the disk runs out of free space and the host switches to read-only mode. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
+Automatic storage size increase prevents situations where the disk runs out of free space and the host switches to read-only. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
 
 * Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
 * Immediate increase threshold: When reached, the storage size increases immediately.
@@ -73,6 +78,6 @@ You can use either one or both thresholds. If you set both, make sure the immedi
 
 {% include [storage-resize-steps](../../_includes/mdb/mkf/storage-resize-steps.md) %}
 
-You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

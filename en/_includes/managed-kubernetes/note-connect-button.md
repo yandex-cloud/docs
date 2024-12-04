@@ -1,0 +1,1 @@
+You can also run this command from the [management console]({{ link-console-main }}). Go to the **{{ ui-key.yacloud.k8s.cluster.overview.label_title }}** page for the appropriate cluster and click **{{ ui-key.yacloud.k8s.clusters.button_action-connect }}** in the top-right corner.

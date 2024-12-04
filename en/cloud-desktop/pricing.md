@@ -1,8 +1,10 @@
 ---
+title: '{{ cloud-desktop-full-name }} pricing policy'
+description: This article provides the {{ cloud-desktop-name }} pricing policy.
 editable: false
 ---
 
-# {{ cloud-desktop-full-name }} pricing
+# {{ cloud-desktop-full-name }} pricing policy
 
 
 

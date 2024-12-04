@@ -1,4 +1,6 @@
 ---
+title: '{{ data-transfer-full-name }} pricing policy'
+description: This article provides the {{ data-transfer-name }} pricing policy.
 editable: false
 ---
 
@@ -50,7 +52,7 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Examples of cost calculation {#price-example}
 
-When calculating the cost, note that one [worker](concepts/index.md#worker) can use the following computing resources:
+When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
 
 {% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
 

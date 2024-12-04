@@ -383,8 +383,14 @@ items:
             href: tutorials/vm-autoscale/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-autoscale/terraform.md
-      - name: Scheduled scaling of an instance group
-        href: tutorials/vm-scale-scheduled.md
+      - name: Scheduled scaling of instance groups
+        items:
+          - name: Overview
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
       - name: Autoscaling a group of VMs to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
@@ -406,7 +412,13 @@ items:
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
       - name: Assigning a domain name to a VM with a web server
-        href: tutorials/bind-domain-vm.md
+        items:
+          - name: Overview
+            href: tutorials/bind-domain-vm/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: Routing through a NAT instance

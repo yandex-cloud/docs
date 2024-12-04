@@ -1,3 +1,8 @@
+---
+title: Release channels
+description: In this article, you will learn about release channels and how to update them.
+---
+
 # Release channels
 
 
@@ -9,11 +14,11 @@ The service supports three {{ k8s }} release channels. [Master](index.md#master)
 
 When creating a [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster), specify one of the three release channels. You cannot change the channel after the {{ managed-k8s-name }} cluster is created, you can only recreate the cluster and specify a new release channel. The table below describes the release channels and contains up-to-date information about the supported {{ k8s }} versions.
 
-| Channel | {{ k8s }} versions | Automatic updates | Channel description |
+Channel | {{ k8s }} versions | Automatic updates | Channel description
 --- | --- | --- | ---
-| `rapid` | {{ k8s-versions-rapid }} | Automatic updates cannot be disabled. You can specify a time period for automatic updates. | Updates with new features and improvements are added to the channel first. |
-| `regular` | {{ k8s-versions-regular }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `rapid`. |
-| `stable` | {{ k8s-versions-stable }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `regular`. |
+`rapid`| {{ k8s-versions-rapid }} | Automatic updates cannot be disabled. You can specify a time period for automatic updates. | Updates with new features and improvements are added to the channel first.
+`regular`| {{ k8s-versions-regular }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `rapid`.
+`stable`| {{ k8s-versions-stable }} | Automatic updates can be disabled. | New features and improvements are added shortly after they appear on `regular`.
 
 ## Updates {#updates}
 
@@ -26,13 +31,13 @@ When an update appears on a release channel, the corresponding information is di
 
 * [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
 
-  These include {{ k8s }} minor version updates.
+  They include {{ k8s }} minor version updates.
 
 Read more about [{{ k8s }} version support termination](#unsupported) and the [{{ managed-k8s-name }} cluster component update process](#cluster-upd).
 
 ### {{ k8s }} version support termination {#unsupported}
 
-When an old version of {{ k8s }} is no longer supported after an update:
+When upgrading from a deprecated {{ k8s }} version:
 * The {{ managed-k8s-name }} master cannot be updated automatically, update it manually.
 * Minor versions (e.g., from 1.20 to 1.21) must be updated manually.
 * {{ managed-k8s-name }} node groups update automatically if automatic updates are enabled. If automatic updates are disabled, the old version of {{ k8s }} remains on the {{ managed-k8s-name }} node groups. In this case, the user is fully responsible for solving problems related to the {{ managed-k8s-name }} node group, since the old version of {{ k8s }} is deprecated.

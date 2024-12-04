@@ -1,3 +1,8 @@
+---
+title: Managing {{ ZK }} hosts
+description: Follow this guide to manage {{ ZK }} hosts.
+---
+
 # Managing {{ ZK }} hosts
 
 
@@ -107,7 +112,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
      {{ CH }} host requirements:
      * Minimum host class: `b1.medium`.
-     * If there are several hosts, they must be located in different availability zones.
+     * If there is more than one host, they must reside in different availability zones.
 
      If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
 
@@ -189,7 +194,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
   To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call and provide the following in the request:
 
-  * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
   * Settings for three {{ ZK }} hosts in the `hostSpecs` parameter.
   * Whether or not to convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) in the `convertTablesToReplicated` parameter.
 
@@ -283,13 +288,185 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
   To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
   * ID of the cluster you want the host to reside in, in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Host settings in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
+  * Host settings in the `hostSpecs` parameter (also specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
 {% endlist %}
 
 ## Restarting a {{ ZK }} host {#restart}
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
+
+## Converting non-replicated tables to replicated {#replicated-tables}
+
+To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to replicated [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, add {{ ZK }} hosts with table conversion enabled.
+
+For more information, see the [Replication](../concepts/replication.md) section and the [{{ CH }} documentation]({{ ch.docs }}/development/architecture#replication).
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  To convert non-replicated tables to replicated:
+
+  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
+  1. Add {{ ZK }} hosts](#add-zk-host).
+
+     On the host adding page, the **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}** option is enabled by default.
+
+  1. To keep non-replicated tables, disable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. To enable support of replicated tables, leave this option enabled.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To convert non-replicated tables to replicated ones, run this command:
+
+  ```bash
+  {{ yc-mdb-ch }} cluster add-zookeeper \
+     --name <cluster_name> \
+     --resource-preset <host_class> \
+     --disk-size <storage_size_in_GB> \
+     --disk-type <disk_type> \
+     --host zone-id=<availability_zone>,subnet-name=<subnet_name> \
+     --host <similar_settings_for_new_host_2> \
+     --host ... \
+     --host <similar_settings_for_new_host_N> \
+     --convert-tables-to-replicated
+  ```
+
+  In the command, specify no less than three `--host` parameters, as the cluster must have at least three {{ ZK }} hosts.
+
+  The `--convert-tables-to-replicated` parameter enables conversion of non-replicated `MergeTree` tables to replicated `ReplicatedMergeTree` tables.
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.addZookeeper](../api-ref/Cluster/addZookeeper.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<cluster_ID>:addZookeeper' \
+       --data '{
+                "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+                },
+                "hostSpecs": [
+                  {
+                    "zoneId": "<availability_zone>",
+                    "type": "ZOOKEEPER",
+                    "subnetId": "<subnet_ID>",
+                    "shardName": "<shard_name>",
+                    "assignPublicIp": <public_access_to_host>
+                  },
+                  { <similar_settings_for_new_host_2> },
+                  { ... },
+                  { <similar_settings_for_new_host_N> }
+                ],
+                "convertTablesToReplicated": true
+              }'
+     ```
+
+     Where:
+
+     * `resources`: Resources for {{ ZK }} hosts.
+
+       * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+       * `diskSize`: Disk size in bytes.
+       * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+     * `hostSpecs`: Array with settings for the new hosts. One array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts. An array element has the following structure.
+
+       * `type`: Host type, which is always `ZOOKEEPER` for {{ ZK }} hosts.
+       * `zoneId`: Availability zone.
+       * `subnetId`: Subnet ID.
+       * `shardName`: Name of the [shard](../concepts/sharding.md) the host is added to.
+       * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+     * `convertTablesToReplicated`: Conversion of non-replicated `MergeTree` tables to replicated `ReplicatedMergeTree` tables, `true` or `false`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/addZookeeper.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "resources": {
+               "resource_preset_id": "<host_class>",
+               "disk_size": "<storage_size_in_bytes>",
+               "disk_type_id": "<disk_type>"
+             },
+             "host_specs": [
+               {
+                 "type": "ZOOKEEPER",
+                 "zone_id": "<availability_zone>",
+                 "subnet_id": "<subnet_ID>",
+                 "shard_name": "<shard_name>",
+                 "assign_public_ip": <public_access_to_host>
+               },
+               { <similar_settings_for_new_host_2> },
+               { ... },
+               { <similar_settings_for_new_host_N> }
+             ],
+             "convert_tables_to_replicated": true
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.AddZookeeper
+     ```
+
+     Where:
+
+     * `resources`: Resources for {{ ZK }} hosts.
+
+       * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+       * `disk_size`: Disk size in bytes.
+       * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+     * `host_specs`: Array with settings for the new hosts. One array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts.
+
+       An array element has the following structure.
+
+       * `type`: Host type, which is always `ZOOKEEPER` for {{ ZK }} hosts.
+       * `zone_id`: Availability zone.
+       * `subnet_id`: Subnet ID.
+       * `shard_name`: Name of the [shard](../concepts/sharding.md) the host is added to.
+       * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+     * `convert_tables_to_replicated`: Conversion of non-replicated `MergeTree` tables to replicated `ReplicatedMergeTree` tables, `true` or `false`.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/addZookeeper.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
 
 ## Removing a {{ ZK }} host {#delete-zk-host}
 

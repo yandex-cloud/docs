@@ -7,14 +7,15 @@ keywords:
   - OpenSearch
 ---
 
-# Creating an {{ OS }} cluster
+# Creating a {{ OS }} cluster
 
 
-A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
+A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 For more information, see [Resource relationships in the service](../concepts/index.md).
+
 
 ## Creating a cluster {#create-cluster}
 
@@ -311,30 +312,366 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a {{ mos-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * ID of the folder to host the cluster, in the `folderId` parameter.
-  * Cluster name in the `name` parameter.
-  * {{ OS }} version in the `configSpec.version` parameter.
-  * `admin` user password in the `configSpec.adminPassword` parameter.
-  * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
-  * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
-  * List of plugins in the `configSpec.opensearchSpec.plugins` parameter.
-  * Settings for access from other services in the `configSpec.access` parameter.
-  * Network ID in the `networkId` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Create a file named `body.json` and add the following contents to it:
 
 
-  * Security group IDs in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
-  * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
+      ```json
+      {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "securityGroupIds": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "serviceAccountId": "<service_account_ID>",
+          "deletionProtection": <deletion_protection:_true_or_false>,
+          "configSpec": {
+              "version": "<{{ OS }}>_version",
+              "adminPassword": "<admin_user_password>",
+              "opensearchSpec": {
+                  "plugins": [
+                      "<{{ OS }}_pugin_1>",
+                      "<{{ OS }}_pugin_2>",
+                      ...
+                      "<{{ OS }}_pugin_N>"
+                  ],
+                  "nodeGroups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resourcePresetId": "<host_class>",
+                              "diskSize": "<storage_size_in_bytes>",
+                              "diskTypeId": "<disk_type>"
+                          },
+                          "roles": ["<role_1>","<role_2>"],
+                          "hostsCount": "<number_of_hosts>",
+                          "zoneIds": [
+                              "<availability_zone_1>",
+                              "<availability_zone_2>",
+                              "<availability_zone_3>"
+                          ],
+                          "subnetIds": [
+                              "<subnet_1_ID>",
+                              "<subnet_2_ID>",
+                              "<subnet_3_ID>"
+                          ],
+                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<scheduled_increase_percentage>",
+                              "emergencyUsageThreshold": "<immediate_increase_percentage>",
+                              "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboardsSpec": {
+                  "nodeGroups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resourcePresetId": "<host_class>",
+                              "diskSize": "<storage_size_in_bytes>",
+                              "diskTypeId": "<disk_type>"
+                          },
+                          "hostsCount": "<number_of_hosts>",
+                          "zoneIds": ["<availability_zone>"],
+                          "subnetIds": ["<subnet_ID>"],
+                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<scheduled_increase_percentage>",
+                              "emergencyUsageThreshold": "<immediate_increase_percentage>",
+                              "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "dataTransfer": <access_from_Data_Transfer:_true_or_false>,
+                  "serverless": <access_from_Serverless_Containers:_true_or_false>
+              }
+          },
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          }
+      }
+      ```
 
 
-  * Cluster deletion protection settings in the `deletionProtection` parameter.
+      Where:
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-  * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+
+      * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
+      * `serviceAccountId`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
+
+
+      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+      * `configSpec`: Cluster settings:
+
+          * `version`: {{ OS }} version.
+          * `adminPassword`: `admin` user password.
+          * `opensearchSpec`: `{{ OS }}` host group settings:
+
+              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) you should additionally install in the cluster.
+              * `nodeGroups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
+
+                  * `name`: Host group name.
+                  * `resources`: Cluster resources:
+
+                      * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                      * `diskSize`: Disk size in bytes.
+                      * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                  * `hostsCount`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                  * `zoneIds`: List of availability zones the cluster hosts are located in.
+                  * `subnetIds`: List of subnet IDs.
+
+
+                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+
+
+                  * `diskSizeAutoscaling`: Automatic storage size increase settings:
+
+                      * `plannedUsageThreshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
+
+                          Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
+
+                          If you have set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+
+                      * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
+
+                          Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `plannedUsageThreshold`.
+
+                      * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+
+          * `dashboardsSpec`: `Dashboards` host group settings. Contains the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+
+
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+              * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+              * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+
+      * `maintenance_window.weeklyMaintenanceWindow`: Maintenance window schedule:
+
+          * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
+
+  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
+
+
+      ```json
+      {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "security_group_ids": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "service_account_id": "<service_account_ID>",
+          "deletion_protection": <deletion_protection:_true_or_false>,
+          "config_spec": {
+              "version": "<{{ OS }}>_version",
+              "admin_password": "<admin_user_password>",
+              "opensearch_spec": {
+                  "plugins": [
+                      "<{{ OS }}_pugin_1>",
+                      "<{{ OS }}_pugin_2>",
+                      ...
+                      "<{{ OS }}_pugin_N>"
+                  ],
+                  "node_groups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resource_preset_id": "<host_class>",
+                              "disk_size": "<storage_size_in_bytes>",
+                              "disk_type_id": "<disk_type>"
+                          },
+                          "roles": ["<role_1>","<role_2>"],
+                          "hosts_count": "<number_of_hosts>",
+                          "zone_ids": [
+                              "<availability_zone_1>",
+                              "<availability_zone_2>",
+                              "<availability_zone_3>"
+                          ],
+                          "subnet_ids": [
+                              "<subnet_1_ID>",
+                              "<subnet_2_ID>",
+                              "<subnet_3_ID>"
+                          ],
+                          "assign_public_ip": <public_host_address:_true_or_false>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<scheduled_increase_percentage>",
+                              "emergency_usage_threshold": "<immediate_increase_percentage>",
+                              "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboards_spec": {
+                  "node_groups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resource_preset_id": "<host_class>",
+                              "disk_size": "<storage_size_in_bytes>",
+                              "disk_type_id": "<disk_type>"
+                          },
+                          "hosts_count": "<number_of_hosts>",
+                          "zone_ids": ["<availability_zone>"],
+                          "subnet_ids": ["<subnet_ID>"],
+                          "assign_public_ip": <public_host_address:_true_or_false>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<scheduled_increase_percentage>",
+                              "emergency_usage_threshold": "<immediate_increase_percentage>",
+                              "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "data_transfer": <access_from_Data_Transfer:_true_or_false>,
+                  "serverless": <access_from_Serverless_Containers:_true_or_false>
+              }
+          },
+          "maintenance_window": {
+              "weekly_maintenance_window": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          }
+      }
+      ```
+
+
+      Where:
+
+      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+
+
+      * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
+      * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
+
+
+      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+      * `config_spec`: Cluster settings:
+
+          * `version`: {{ OS }} version.
+          * `admin_password`: `admin` user password.
+          * `opensearch_spec`: `{{ OS }}` host group settings:
+
+              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) you should additionally install in the cluster.
+              * `node_groups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
+
+                  * `name`: Host group name.
+                  * `resources`: Cluster resources:
+
+                      * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                      * `disk_size`: Disk size in bytes.
+                      * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                  * `hosts_count`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                  * `zone_ids`: List of availability zones the cluster hosts are located in.
+                  * `subnet_ids`: List of subnet IDs.
+
+
+                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+
+
+                  * `disk_size_autoscaling`: Automatic storage size increase settings:
+
+                      * `planned_usage_threshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
+
+                          Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
+
+                          If you have set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
+
+                      * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
+
+                          Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `planned_usage_threshold`.
+
+                      * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+
+          * `dashboards_spec`: `Dashboards` host group settings. Contains the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+
+
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+              * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+              * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+
+      * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
+
+          * `day`: Day of week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
+
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.opensearch.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -365,7 +702,7 @@ To create an {{ OS }} cluster copy:
         export OPENSEARCH_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ OS }} cluster into the {{ TF }} configuration:
 

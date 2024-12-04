@@ -15,7 +15,7 @@ _Recording rules_ allow you to compute new values based on the obtained metrics 
 
 ## Requirements for recording rules {#rule-requirements}
 
-In {{ prometheus-name }}, you can upload your existing files with [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules). It supports all the fields described in the YAML file [specification](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+In {{ prometheus-name }}, you can upload your existing [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#recording-rules) files. It supports all the fields described in the YAML file [specification](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
 
 {% note info %}
 
@@ -25,7 +25,7 @@ The file name may contain lowercase Latin letters, numbers, hyphens, and undersc
 
 You can manage recording rule files via the [management console]({{ link-console-main }}) or API.
 
-## Pre-configuring the service to work with the API {#api-set}
+## Pre-configuration for using the API {#api-set}
 
 The API is represented by REST resources located at `https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules`. 
 
@@ -43,14 +43,14 @@ To start executing requests:
 
    1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select or create a workspace.
-   1. Go to the **{{ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab.
-   1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
+   1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab.
+   1. If you have no uploaded files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
    1. To add another file, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
-   1. To replace an existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to the right of it. 
+   1. To replace the existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to its right. 
 
 - API {#api}
 
-   1. Encode the file contents into [Base64](https://en.wikipedia.org/wiki/Base64) as defined in RFC 4648:
+   1. Encode the file contents as [Base64](https://en.wikipedia.org/wiki/Base64) RFC 4648:
 
        ```bash
        cat recording-rule.yaml
@@ -175,7 +175,7 @@ If any rules or groups of rules are deleted when replacing a file, they will no 
    1. On the [{{ monitoring-name }}]({{ link-monitoring }}) page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}** on the left.
    1. Select a workspace.
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab. 
-   1. Select the file with rules. On the page that opens, you will see the state of the recent computations using this rule.
+   1. Select a rule file. On the page that opens, you will see the status of the recent computations performed using this rule.
 
 - API {#api}
 

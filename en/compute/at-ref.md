@@ -1,9 +1,14 @@
+---
+title: '{{ compute-full-name }} event reference in {{ at-full-name }}'
+description: This page is a reference for {{ compute-name }} management and data events tracked by {{ at-name }}.
+---
+
 # {{ at-full-name }} event reference
 
 
-{{ at-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md) for {{ compute-full-name }}.
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ compute-full-name }}.
 
-The general view of the `event_type` field value is as follows:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.compute.<event_name>

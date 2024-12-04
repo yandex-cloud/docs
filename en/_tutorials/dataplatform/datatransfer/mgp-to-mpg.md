@@ -1,5 +1,3 @@
-
-
 You can migrate a database from {{ GP }} to the {{ PG }} cluster using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ PG }}:
@@ -52,7 +50,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
     1. In the `greenplum-postgresql.tf` file, specify the admin user passwords and {{ GP }} and {{ PG }} versions.
     1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -110,7 +108,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
             * `gp_source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -208,7 +206,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
         1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `greenplum-postgresql.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

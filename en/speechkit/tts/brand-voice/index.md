@@ -1,3 +1,8 @@
+---
+title: '{{ brand-voice-full-name }}'
+description: 'In this article, you will learn about the {{ brand-voice-name }} technology and its three branches: {{ brand-voice-premium }}, {{ brand-voice-core }}, and {{ brand-voice-cc }}.'
+---
+
 # {{ brand-voice-full-name }}
 
 

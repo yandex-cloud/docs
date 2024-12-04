@@ -1,3 +1,8 @@
+---
+title: Installing ExternalDNS with a plugin for {{ dns-full-name }}
+description: Follow this guide to install ExternalDNS with a {{ dns-name }} plugin.
+---
+
 # Installing ExternalDNS with a plugin for {{ dns-full-name }}
 
 
@@ -69,8 +74,8 @@ To automatically create DNS records using [ExternalDNS with a plugin for {{ dns-
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/alb-ingress-controller-log-options.md)
-* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md)
+* [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
+* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
 
 ## See also {#see-also}
 

@@ -1,3 +1,8 @@
+---
+title: Installing Argo CD
+description: Follow this guide to install Agro CD.
+---
+
 # Installing Argo CD
 
 

@@ -1,10 +1,15 @@
+---
+title: Creating a color palette
+description: Follow this guide to create a color palette.
+---
+
 # Creating a color palette
 
 
 {% note warning %}
 
 To create a palette, the user needs the [admin](../../security/roles.md#datalens-admin) role for a {{ datalens-short-name }} instance.
-
+  
 {% endnote %}
 
 
@@ -18,39 +23,39 @@ To create a color palette:
 
    - Gradient color palette
 
-      {% note info %}
+     {% note info %}
 
-      Use a gradient color palette in charts for numeric values.
+     Use a gradient color palette in charts for numeric values.
 
-      {% endnote %}
+     {% endnote %}
 
-      1. Go to **Gradient color palettes** and click **+ Add palette**.
-      1. In the window that opens, enter the following parameters:
+     1. Go to **Gradient color palettes** and click **+ Add palette**.
+     1. In the window that opens, enter the following parameters:
 
-         * Enter the **Palette name** at the top.
-         * Enter the start value for the gradient color at the bottom left and its end value at the bottom right. For example, specify `0044A3` on the left and `8CCBFF` on the right so that the gradient changes from dark-blue to light-blue.
+        * Enter the **Palette name** at the top.
+        * Enter the start value for the gradient color at the bottom left and its end value at the bottom right. For example, specify `0044A3` on the left and `8CCBFF` on the right for a gradient from dark-blue to light-blue.
 
-            To add an intermediate gradient value, click ![image](../../../_assets/console-icons/plus.svg) at the bottom and specify the value. The changes will be displayed in the preview window.
+          To add an intermediate gradient value, click ![image](../../../_assets/console-icons/plus.svg) below and specify the value. The changes will be displayed in the preview window.
 
-      1. Click **Save**.
+     1. Click **Save**.
 
    - Color palette
 
-      {% note info %}
+     {% note info %}
 
-      Use a color palette in charts for discrete values, such as measure names and dimension values.
+     Use a color palette in charts for discrete values, such as measure names and dimension values.
 
-      {% endnote %}
+     {% endnote %}
 
-      1. Go to **Color palettes** and click**+ Add palette**.
-      1. In the window that opens, enter the following parameters:
+     1. Go to **Color palettes** and click**+ Add palette**.
+     1. In the window that opens, enter the following parameters:
 
-         * Enter the **Palette name** at the top.
-         * In the list on the right, click **+ Add color** and enter values for palette colors in hexadecimal format.
+        * Enter the **Palette name** at the top.
+        * In the list on the right, click **+ Add color** and enter values for palette colors in hexadecimal format.
 
-            By default, values for 20 colors are set. You can edit, add, or delete palette colors. To change the order of colors, drag them using the mouse pointer. The changes will be displayed in the preview window.
+          By default, values for 20 colors are set. You can edit, add, or delete palette colors. To change the order of colors, drag them using the mouse pointer. The changes will be displayed in the preview window.
 
-      1. Click **Save**.
+     1. Click **Save**.
 
    {% endlist %}
 

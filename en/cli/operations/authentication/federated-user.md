@@ -1,3 +1,8 @@
+---
+title: Authenticating as a federated user
+description: Follow this guide to authenticate in the CLI as a federated user.
+---
+
 # Authenticating as a federated user
 
 You can use a [federated account](../../../iam/concepts/users/accounts.md#saml-federation) to work with {{ yandex-cloud }} if your company has an [identity federation](../../../iam/concepts/federations.md) set up. In this case, no personal [Yandex account](../../../iam/concepts/users/accounts.md#passport) is required.

@@ -1,18 +1,23 @@
+---
+title: Equivalents for Google Cloud Platform
+description: In this article, we compare {{ yandex-cloud }} services and Google Cloud Platform services.
+---
+
 # Equivalents for Google Cloud Platform
 
 
 | Google Cloud Platform | {{ yandex-cloud }} |
 |----|----|
-| API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
+| API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | App Engine | [{{ cloud-apps-full-name }}](../../cloud-apps/) |
 | Backup and DR Service | [{{ backup-full-name }}](../../backup/) |
 | BigQuery | [{{ yq-full-name }}](../../query/) |
+| Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
 | Cloud Armor,<br/>Cloud Identity | [{{ sws-full-name }}](../../smartwebsecurity/) |
 | Cloud Audit Logs | [{{ at-full-name }}](../../audit-trails/) |
 | Cloud Billing | [{{ billing-name }}](../../billing/) |
 | Cloud CDN | [{{ cdn-full-name }}](../../cdn/) |
 | Cloud Console | [{{ console-full-name }}](../../console/) |
-| Vertex AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Cloud Dataproc | [{{ dataproc-full-name }}](../../data-proc/) |
 | Cloud DNS | [{{ dns-full-name }}](../../dns/) |
 | Cloud Functions | [{{ sf-full-name }}](../../functions/) |
@@ -32,21 +37,23 @@
 | Cloud SQL for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Cloud SQL for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |
+| Cloud Translation API | [{{ translate-full-name }}](../../translate/) |
 | Cloud Vision | [{{ vision-full-name }}](../../vision/) |
 | Cloud Workstations | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Compute Engine | [{{ compute-full-name }}](../../compute/) |
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Database Migration Service,<br/>Migrate for Compute Engine | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| Eventarc | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | External Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
-| MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
-| Cloud Armor | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |
-| Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
-| Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |
 | Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/) |
-| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
+| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
+| Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
+| MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Secret Manager | [{{ lockbox-name }}](../../lockbox/) |
-| Cloud Translation API | [{{ translate-full-name }}](../../translate/) |
+| Vertex AI Platform | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
+| Workflows | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |

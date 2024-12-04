@@ -5,11 +5,16 @@ description: This section contains {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## October 2024 {#oct-2024}
+
+* The default [Log statement](concepts/settings-list.md#setting-log-statement) value is changed from `ALL` to `DDL`: {{ GP }} logs only SQL commands used to change data structure definitions (such as `CREATE`, `ALTER`, `DROP`, etc.).
+* A new RAM limit is introduced for each {{ GP }} process. The limit is calculated using the following formula: `<segment host's RAM> ÷ (<Max connections> × <number of segments per host>)`.
+
 ## September 2024 {#sep-2024}
 
 * {{ mgp-name }} is now available in the Kazakhstan [region](../overview/concepts/region.md).
 
-* Added the new **{{ ui-key.yacloud.mdb.cluster.switch_network }}** and **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** sections with plots for the respective metrics to the ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** tab in the management console. For more information, see [{#T}](operations/monitoring.md).
+* Added the new **{{ ui-key.yacloud.common.monitoring }}** and **{{ ui-key.yacloud.mdb.cluster.switch_network }}** sections with plots for the respective metrics to the ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab in the management console. For more information, see [Monitoring cluster and host state](operations/monitoring.md).
 
 
 * Added the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** option to cluster settings. It enables you to run YQL queries from [{{ yq-full-name }}](../query/concepts/index.md) to a {{ mgp-name }} database.
@@ -25,7 +30,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 ## January 2024 {#jan-2024}
 
-* A new version is available: {{ GP }} 6.25. It features [cold storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
+* A new version is out: {{ GP }} 6.25. It features [cold storage integration](tutorials/yezzey.md) tools and a [command center](./concepts/command-center.md) by default.
 * Now you can [configure PXF](operations/pxf/settings.md) for accessing external tables yourself. Previously, users had to contact support for PXF configuration.
 
 ## Q3 2023 {#q3-2023}
@@ -84,7 +89,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 ## Q1 2022 {#q1-2022}
 
 * {{ mgp-full-name }} is now publicly available. It is now subject to a [Service Level Agreement]({{ link-sla-greenplum }}) (SLA) and [pricing rules](pricing/index.md).
-* The new {{ GP }} 6.19 version is available with the known bugs fixed.
+* A new version is out with known bugs fixed: {{ GP }} 6.19.
 * You can now hide the contents of external tables.
 * You can now change the storage size, including for local SSDs.
 * Added the `io-optimized` [configurations](concepts/instance-types.md) with an increased GB RAM to vCPU ratio (8:1).

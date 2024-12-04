@@ -1,4 +1,6 @@
 ---
+title: '{{ mmg-full-name }} pricing policy'
+description: This article provides the {{ mmg-name }} pricing policy.
 editable: false
 ---
 

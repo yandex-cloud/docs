@@ -1,3 +1,8 @@
+---
+title: Expanding a pod volume
+description: Follow this guide to expand a pod volume.
+---
+
 # Expanding a pod volume
 
 
@@ -32,7 +37,7 @@ reclaimPolicy: Delete
 
 
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a `PersistentVolumeClaim` object {#create-pvc}
 
 1. Save the following [PersistentVolumeClaim creation](dynamic-create-pv.md) specification to a YAML file named `pvc-expansion.yaml`.
 

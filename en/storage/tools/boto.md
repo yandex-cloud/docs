@@ -1,3 +1,8 @@
+---
+title: boto3 and boto
+description: In this tutorial, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
+---
+
 # boto3 and boto
 
 
@@ -20,17 +25,17 @@
 
 - Locally {#locally}
 
-   {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
+  {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
 - {{ sf-full-name }} {#functions}
+  
+  [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
 
-   [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
+  * `AWS_ACCESS_KEY_ID`: Static service account key ID.
+  * `AWS_SECRET_ACCESS_KEY`: Secret key.
+  * `AWS_DEFAULT_REGION`: Region ID.
 
-   * `AWS_ACCESS_KEY_ID`: Service account's static key ID.
-   * `AWS_SECRET_ACCESS_KEY`: Secret key.
-   * `AWS_DEFAULT_REGION`: Region ID.
-
-   Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
+  Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
 
 {% endlist %}
 
@@ -41,20 +46,20 @@
 {% list tabs group=instructions %}
 
 - Locally {#locally}
+  
+  boto3: 
 
-   boto3:
+  {% include [boto3-example](../../_includes/storage/boto3-example.md) %}
 
-   {% include [boto3-example](../../_includes/storage/boto3-example.md) %}
+  {% cut "boto" %}
 
-   {% cut "boto" %}
+  {% include [boto-example](../../_includes/storage/boto-example.md) %}
 
-   {% include [boto-example](../../_includes/storage/boto-example.md) %}
-
-   {% endcut %}
+  {% endcut %}
 
 - {{ sf-full-name }} {#functions}
 
-   See the example in the [video conversion guide](../../functions/tutorials/video-converting-queue.md).
+  For an example, see this [video conversion guide](../../functions/tutorials/video-converting-queue.md).
 
 {% endlist %}
 

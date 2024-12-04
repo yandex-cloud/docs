@@ -16,18 +16,18 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [1C-Bitrix website](../web/bitrix-website/index.md)
 * [OpenCart online store](../internet-store/opencart/index.md)
 * [Setting up virtual hosting](../web/virtual-hosting.md)
-* [Assigning a domain name to a VM with a web server](../web/bind-domain-vm.md)
+* [Assigning a domain name to a VM with a web server](../web/bind-domain-vm/index.md)
 * [Creating a Python web application with Flask](../web/flask.md)
 * [{#T}](../web/gatsby-static-website.md)
 
 ## 1C {#1c}
 
 * [Creating an online store with 1C-Bitrix: Site Management](../internet-store/bitrix-shop/index.md)
-* [Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-full-name }}](../infrastructure-management/1c-postgresql-linux.md)
+* [Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-full-name }} cluster](../infrastructure-management/1c-postgresql-linux.md)
 
 ## Internet of Things (IoT) {#iot}
 
-* [Monitoring the status of geographically distributed devices](../iot/datalens.md)
+* [Status monitoring of geographically distributed devices](../iot/datalens.md)
 * [Monitoring sensor readings and event notifications](../iot/monitoring.md)
 * [Emulating multiple IoT devices](../testing/iot-emulation.md)
 
@@ -36,3 +36,5 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 
 * [Publishing game updates using {{ cdn-full-name }}](../web/prefetch.md)
 * [{#T}](../infrastructure-management/sap.md)
+* [{#T}](../ml-ai/recognizer-bot.md)
+* [{#T}](../infrastructure/minecraft-server.md)

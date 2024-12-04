@@ -88,7 +88,7 @@ December 2019	| 100	| 650	| 400	| 550
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 Y | Dimensions. You can specify one or two dimensions.
 X | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). You can move [Measure Names](../concepts/chart/measure-values.md) to the Y axis.
@@ -150,7 +150,7 @@ To color columns in a chart based on the value of a measure:
 
       Copy the measure from the **X** section to the **Colors** section.
 
-      Columns in the chart will take on colors as a function of the measure values.
+      The colors of the columns in the chart will apply based on the measure values.
 
       ![image](../../_assets/datalens/operations/chart/bar-colors-1.png)
 
@@ -164,7 +164,7 @@ To color columns in a chart based on the value of a measure:
 
    {% endlist %}
 
-1. Configure a color gradient for the measure as well. To do this, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
+1. Configure a color gradient for the measure as well. To do so, in the top-right corner of the **Colors** section, click ![image](../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
 1. In the color settings, specify:
 
    * **Gradient type**: Select two or three colors.

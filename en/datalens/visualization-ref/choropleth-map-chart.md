@@ -20,7 +20,7 @@ Section<br/> section| Description
 ----- | ----
 Polygons (Geopolygons) | Measure of the [Geopolygon](../dataset/data-types.md#geopolygon) type
 Colors | Dimension or measure. Affects the color and intensity of area fill.
-Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. You can set fields with the `String` type to use the basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
+Tooltips | Dimension or measure. A tooltip that appears when you hover over an area. For `String` type fields, you can configure using basic [{#T}](../dashboard/markdown.md) syntax: click the icon before the field name and enable **Markdown**.
 Layer filters | Dimension or measure. Used as a filter for the current layer.
 Filters | Dimension or measure. Used as a filter for the entire chart.
 

@@ -1,3 +1,8 @@
+---
+title: Reserving a static public IP address
+description: Follow this guide to reserve a static public IP address.
+---
+
 # Reserving a static public IP address
 
 
@@ -89,7 +94,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc address list

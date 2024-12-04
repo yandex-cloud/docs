@@ -1,3 +1,8 @@
+---
+title: Installing Chaos Mesh
+description: Follow this guide to install Chaos Mesh.
+---
+
 # Installing Chaos Mesh
 
 

@@ -1,3 +1,8 @@
+---
+title: Creating a QL chart
+description: Follow this guide to create a QL chart.
+---
+
 # Creating a QL chart
 
 
@@ -123,7 +128,7 @@ To add a parameter:
 
    * **Exact date** to specify an exact value.
    * **Offset from the current date** to specify a relative value that will be updated automatically.
-
+   
    Use presets to quickly fill in the values.
 
 To manage parameter values on the dashboard, [create a selector](../dashboard/add-selector.md) with manual input and specify a parameter name in the **Field or parameter name** field.
@@ -154,7 +159,7 @@ Parameter values from a selector arrive to a QL chart as a:
 * Single value if one element is selected.
 * [Tuple](https://docs.python.org/3/library/stdtypes.html#tuples) if multiple values are selected.
 
-If a query for {{ CH }} or {{ PG }} connections has the `in` operator before a parameter, the substituted value is always converted into a tuple. In the case of other connections, there is no automatic conversion. A query with the `in` operator will run correctly if you select one or more values.
+If the query for {{ CH }} or {{ PG }} connections has the `in` operator before a parameter, the substituted value is always converted into a tuple. For other connections, automatic conversion into a tulpe does not take place. A query with the `in` operator will run correctly if you select one or more values.
 
 {% cut "Example of a query with `in`" %}
 

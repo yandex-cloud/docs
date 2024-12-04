@@ -1,3 +1,8 @@
+---
+title: Other
+description: This page addresses FAQs about {{ datalens-name }}.
+---
+
 # Other
 
 

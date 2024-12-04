@@ -1,5 +1,6 @@
 ---
 title: How to get information about a disk placement group in {{ compute-full-name }}
+description: Follow this guide to get information about a disk placement group.
 ---
 
 # Getting information about a disk placement group

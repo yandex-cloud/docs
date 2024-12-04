@@ -1,10 +1,15 @@
+---
+title: Horizontal application scaling in a cluster
+description: Follow this guide to configure app scaling in a cluster.
+---
+
 # Horizontal application scaling in a cluster
 
 
 {{ managed-k8s-name }} supports several types of [autoscaling](../concepts/autoscale.md). In this article, you will learn to configure [cluster](../concepts/index.md#kubernetes-cluster) autoscaling using a combination of {{ k8s-ca }} and {{ k8s-hpa }}.
 
 * [Scaling based on CPU utilization](#cpu-autoscaling).
-* [Scaling based on application requests](#rps-autoscaling).
+* [Scaling based on the number of application requests](#rps-autoscaling).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -160,7 +165,7 @@ In this section, you will learn to configure cluster autoscaling based on CPU lo
    In the span of several minutes, {{ k8s-hpa }} will increase the number of pods on the nodes as a result of CPU usage. As soon as existing cluster resources become inadequate to satisfy the `requests` value, {{ k8s-ca }} will increase the number of nodes in the groups.
 1. Stop simulating the workload. Over the next few minutes, the number of nodes and pods will drop back to the initial state.
 
-## Scaling based on application requests {#rps-autoscaling}
+## Scaling based on the number of application requests {#rps-autoscaling}
 
 In this section, you will learn to configure cluster autoscaling based on the number of application requests (_Requests Per Second, RPS_).
 

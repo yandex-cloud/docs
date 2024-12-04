@@ -87,7 +87,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
        1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
        1. Click the name of the cloud network.
        1. Click **Add subnet**.
-       1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+       1. Fill out the form: enter `my-subnet-d` as the subnet name and select the `{{ region-id }}-d` availability zone from the drop-down list.
        1. Enter the subnet CIDR: IP address and subnet mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
        1. Click **Create subnet**.
 
@@ -97,8 +97,8 @@ Create a cloud network named `my-network` with subnets in all availability zones
 
        ```
        yc vpc subnet create \
-         --name my-subnet-a \
-         --zone {{ region-id }}-a \
+         --name my-subnet-d \
+         --zone {{ region-id }}-d \
          --network-name my-network \
          --range 10.1.0.0/16
        ```
@@ -138,7 +138,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `RDS` and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
@@ -148,7 +148,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-network` and `my-subnet-a`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `my-network` and subnet named `my-subnet-d`.
       * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -163,8 +163,8 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
      --hostname my-rds-vm \
      --memory 8 \
      --cores 4 \
-     --zone {{ region-id }}-a \
-     --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
+     --zone {{ region-id }}-d \
+     --network-interface subnet-name=my-subnet-d,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
   ```

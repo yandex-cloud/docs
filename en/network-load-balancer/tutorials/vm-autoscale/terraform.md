@@ -1,4 +1,6 @@
 ---
+title: Running a VM group with autoscaling using {{ TF }}
+description: Follow this guide to run a VM group with autoscaling using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform'
 ---
 

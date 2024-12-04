@@ -45,6 +45,7 @@
 ## Бессерверные вычисления {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/release-notes.md)
+* [{{ si-full-name }}](../serverless-integrations/release-notes.md)
 * [{{ sf-full-name }}](../functions/release-notes.md)
 * [{{ iot-full-name }}](../iot-core/release-notes.md)
 * [{{ postbox-full-name }}](../postbox/release-notes.md)

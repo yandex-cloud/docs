@@ -6,6 +6,8 @@ The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python
 * [Text generation](../concepts/yandexgpt/index.md) by {{ yagpt-name }}
 * Working with [embeddings](../concepts/embeddings.md)
 * Working with [{{ yagpt-name }} based classifiers](../concepts/classifier/index.md)
+* Creating [AI assistants](../concepts/assistant/index.md)
+* [Image generation](../concepts/yandexart/index.md) by {{ yandexart-name }}
 * Integration with [LangChain](https://www.langchain.com/)
 
 You can see the full list of supported functions, library source code, and use cases on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).

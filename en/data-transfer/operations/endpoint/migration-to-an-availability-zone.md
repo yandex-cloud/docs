@@ -1,3 +1,8 @@
+---
+title: Migrating a {{ data-transfer-full-name }} transfer and endpoints to a different availability zone
+description: Follow this tutorial to migrate your endpoints and transfers to a different availability zone.
+---
+
 # Migrating a {{ data-transfer-name }} transfer and endpoints to a different availability zone
 
 
@@ -28,11 +33,11 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 
 1. Move your cluster hosts to a different availability zone. For more information, see the documentation for the following services:
 
-   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md).   
-   * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore).
-   * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md).
-   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md).
-   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md).
+   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)   
+   * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore)
+   * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md)
+   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md)
+   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md)
    * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)
    * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
 

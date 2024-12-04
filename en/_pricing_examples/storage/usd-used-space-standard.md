@@ -1,3 +1,3 @@
-For example, if the price per 1 GB of data in standard storage per month is {{ sku|USD|storage.bucket.used_space.standard|pricingRate.720|month|string }}, with 23 GB of data stored per month, your monthly data storage cost will be:
+For example, if the price for storing 1 GB of data in standard storage per month is {{ sku|USD|storage.bucket.used_space.standard|pricingRate.720|month|string }}, with 23 GB of data stored per month, your monthly data storage cost will be:
 
 > (23 − 1) × {{ sku|USD|storage.bucket.used_space.standard|pricingRate.720|month|string }} = 22 × {{ sku|USD|storage.bucket.used_space.standard|pricingRate.720|month|string }} = {% calc [currency=USD] 22 × {{ sku|USD|storage.bucket.used_space.standard|pricingRate.720|month|number }} %}

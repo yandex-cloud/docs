@@ -24,7 +24,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's update address attribute command:
+   1. See the description of the CLI update address attribute command:
 
       ```bash
       yc vpc address update --help
@@ -81,8 +81,10 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
   * `true` in the `reserved` parameter.
-  * Name of the `reserved` parameter in the `updateMask` parameter.
+  * The name of the `reserved` parameter in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+The number of static public IP addresses is [limited](../concepts/limits.md#vpc-quotas). If the number allowed by the quota is not enough for you, contact [support]({{ link-console-support }}) to have your quota increased.

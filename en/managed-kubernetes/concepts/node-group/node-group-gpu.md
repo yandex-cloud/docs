@@ -1,3 +1,8 @@
+---
+title: Node groups with GPUs
+description: In this article you will learn about node groups with GPUs, their requirements, and pricing.
+---
+
 # Node groups with GPUs
 
 

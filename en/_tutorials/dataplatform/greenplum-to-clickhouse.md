@@ -1,5 +1,3 @@
-
-
 You can migrate a database from {{ GP }} to {{ CH }} using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ CH }}:

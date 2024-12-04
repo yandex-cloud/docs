@@ -1,3 +1,8 @@
+---
+title: Datasets
+description: This page addresses FAQs about datasets.
+---
+
 # Datasets
 
 {% include [how-to-change-source-data](../../_qa/datalens/change-source-data.md) %}

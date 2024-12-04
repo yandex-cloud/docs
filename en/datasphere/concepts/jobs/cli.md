@@ -14,7 +14,7 @@ As soon as the installation is complete, you can view help by running this comma
 datasphere -h
 ```
 
-Command result:
+The result will be as follows:
 
 ```bash
 usage: datasphere [-h] [-t TOKEN] [-l {ERROR,WARNING,INFO,DEBUG}] [--log-config LOG_CONFIG] {version,project} ...
@@ -50,7 +50,7 @@ datasphere project job execute -p <project_ID> -c <configuration_file>
 
 Where:
 
-* `<project_ID>`: ID of the {{ ml-platform-name }} project you will run the job in.
+* `<project_ID>`: ID of the {{ ml-platform-name }} project in which you are going to run the job.
 * `<configuration_file>`: Path to the [job configuration file](index.md#config).
 
 Running a job locks the shell session until the job completes. The job code operation [logs](#logs) will be output to the standard `stdout` output and `stderr` error streams. The job execution system logs will be written to a separate file in the user's working directory.
@@ -123,3 +123,8 @@ To change the directory for storing logs, use the following command:
 ```bash
 datasphere --log-dir <new_directory>
 ```
+
+#### See also {#see-also}
+
+* [{#T}](../../operations/projects/work-with-jobs.md)
+* [{#T}](../../operations/projects/use-job-results.md)

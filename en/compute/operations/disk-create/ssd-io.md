@@ -1,3 +1,8 @@
+---
+title: Create an ultra high-speed network storage with three replicas (SSD)
+description: Follow this guide to create an ultra high-speed network storage with three replicas (SSD).
+---
+
 # Create an ultra high-speed network storage with three replicas (SSD)
 
 

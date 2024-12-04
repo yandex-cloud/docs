@@ -7,9 +7,11 @@ You can upgrade a {{ mrd-name }} cluster to any supported version.
 
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
+{% note info %}
 
 As of September 9, 2024, {{ RD }} versions 6.2 and 7.0 are discontinued. You cannot create a cluster with these versions. All existing clusters will be automatically upgraded to version 7.2.
 
+{% endnote %}
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
 
@@ -28,8 +30,8 @@ As of September 9, 2024, {{ RD }} versions 6.2 and 7.0 are discontinued. You can
 Make sure this does not affect your applications:
 
 1. See the {{ RD }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
-1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
+1. Try upgrading the version on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ RD }} version in the backup.
+1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
 

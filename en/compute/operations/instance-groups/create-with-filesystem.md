@@ -1,3 +1,8 @@
+---
+title: Creating an instance group connected to a file storage
+description: Follow this guide to create a VM group connected to a file storage.
+---
+
 # Creating an instance group connected to a file storage
 
 
@@ -64,7 +69,7 @@ To create an instance group that will automatically connect a common file storag
                     #cloud-config
                     ...
                     runcmd:
-                      - mkdir <VM_mount_point>
+                      - mkdir <mount_point_on_VM>
                       - mount -t virtiofs <VM_device_name> <VM_mount_point>
                       - echo "test-fs <VM_mount_point> virtiofs    rw    0   0" | tee -a /etc/fstab
               ```
@@ -148,7 +153,7 @@ To create an instance group that will automatically connect a common file storag
          * Name: `my-vm-group-with-fs`.
          * OS: `Ubuntu 22.04 LTS`.
          * Availability zone: `{{ region-id }}-a`.
-         * vCPUs: 2; RAM: 2 GB.
+         * vCPU: 2, RAM: 2 GB.
          * Network [HDD](../../concepts/disk.md#disks-types): 32 GB.
          * Connected to a file storage. The file storage will be mounted to the `/mnt/vfs0` directory of the group VMs.
          * {% include [ssh-connection-internal-ip](../../../_includes/instance-groups/ssh-connection-internal-ip.md) %}
@@ -208,7 +213,7 @@ To create an instance group that will automatically connect a common file storag
               }
 
               metadata = {
-                user-data = "#cloud-config\n  datasource:\n   Ec2:\n    strict_id: false\n  ssh_pwauth: no\n  users:\n  - name: <VM_user_name>\n    sudo: ALL=(ALL) NOPASSWD:ALL\n    shell: /bin/bash\n    ssh_authorized_keys:\n    - <public_SSH_key>\n  runcmd:\n    - mkdir <VM_mount_point>\n    - mount -t virtiofs <VM_device_name> <VM_mount_point>\n    - echo \"sample-fs <VM_mount_point> virtiofs    rw    0   0\" | tee -a /etc/fstab"
+                user-data = "#cloud-config\n  datasource:\n   Ec2:\n    strict_id: false\n  ssh_pwauth: no\n  users:\n  - name: <VM_user_name>\n    sudo: ALL=(ALL) NOPASSWD:ALL\n    shell: /bin/bash\n    ssh_authorized_keys:\n    - <public_SSH_key>\n  runcmd:\n    - mkdir <mount_point_on_VM>\n    - mount -t virtiofs <VM_device_name> <VM_mount_point>\n    - echo \"sample-fs <VM_mount_point> virtiofs    rw    0   0\" | tee -a /etc/fstab"
               }
             }
 
@@ -246,9 +251,9 @@ To create an instance group that will automatically connect a common file storag
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
           * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
-          * `yandex_compute_instance_group`: Description of the instance group.
-            * General information about the VM group:
-              * `name`: VM group name.
+          * `yandex_compute_instance_group`: Instance group description:
+            * General information about the instance group:
+              * `name`: Instance group name.
               * `folder_id`: Folder ID.
               * `service_account_id`: Service account ID.
               * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
@@ -263,15 +268,15 @@ To create an instance group that will automatically connect a common file storag
                 * `device_name`: Device name for connecting the file storage to the VM, e.g., `sample-fs`. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
                 * `filesystem_id`: File storage ID. You can view the ID in the [management console]({{ link-console-main }}) or using the `yc compute filesystem list` CLI command.
               * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-              * `metadata`: You need to provide the following in the [metadata](../../concepts/vm-metadata.md):
+              * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the following:
                 * VM user name and public key to enable this user to access the VM via SSH. 
                 * VM mount point for the file storage, i.e., VM directory to mount the connected file storage to, e.g., `/mnt/vfs0`.
                 * VM device name, i.e., device name for connecting the file storage to the VM. The value must match the one specified earlier in the `device_name` field of the `filesystem` section.
 
                 For more information, see [{#T}](../../concepts/vm-metadata.md).
             * [Policies](../../concepts/instance-groups/policies/index.md):
-              * `deploy_policy`: [Deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for instances in the group.
-              * `scale_policy`: [Scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for instances in the group.
+              * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
+              * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
               * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) VM instances across [availability zones](../../../overview/concepts/geo-scope.md) and regions.
           * `yandex_vpc_network`: Description of the cloud network.
           * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.

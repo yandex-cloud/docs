@@ -1,3 +1,8 @@
+---
+title: Installing the External Secrets Operator with {{ lockbox-full-name }} support
+description: Follow this guide to install the External Secrets Operator with {{ lockbox-name }} support.
+---
+
 # Installing the External Secrets Operator with {{ lockbox-name }} support
 
 

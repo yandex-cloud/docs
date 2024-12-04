@@ -1,3 +1,8 @@
+---
+title: Traffic listener
+description: In this tutorial, you will learn about the traffic listener.
+---
+
 # Traffic listener
 
 
@@ -10,15 +15,15 @@ All traffic listeners on a load balancer always use a single IP address. You can
 Here are the required attributes of each traffic listener:
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}` is used to identify the listener and connect it to other components of the load balancer.
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-address }}`: IPv4 address for the load balancer to receive incoming traffic. IPv6 protocol is currently not supported. The listener IP address will be announced as a `/32` prefix from all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
-   Hence, if an availability zone fails, the network equipment will redirect incoming traffic to the listener IP address to other active availability zones.
+Hence, if an availability zone fails, the network equipment will redirect incoming traffic to the listener IP address to other active availability zones.
 
-   {% note info %}
+    {% note info %}
 
-   The listener IP address can be assigned to:
-   * An external load balancer, automatically from a pool of public addresses or from a list of [reserved IP addresses](../../vpc/operations/get-static-ip.md).
-   * An internal load balancer, automatically from a pool of addresses. You cannot reserve an internal IP address from the {{ vpc-short-name }} address space for a traffic listener.
+    The listener IP address can be assigned to:
+    * An external load balancer, automatically from a pool of public addresses or from a list of [reserved IP addresses](../../vpc/operations/get-static-ip.md).
+    * An internal load balancer, automatically from a pool of addresses. You cannot reserve an internal IP address from the {{ vpc-short-name }} address space for a traffic listener.
 
-   {% endnote %}
+    {% endnote %}
 
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}`: Type of transport protocol whose traffic the listener will accept. Currently, TCP and UDP protocols are supported ([UDP protocol support is limited](./specifics#nlb-udp)). You can only select one transport protocol per listener.
 * `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}`: Port for the selected transport protocol where the listener will accept incoming traffic. Ports ranging from 1 to 32767 can be used for receiving traffic.

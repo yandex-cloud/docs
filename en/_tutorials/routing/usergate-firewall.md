@@ -68,11 +68,11 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-a` in the `{{ region-id }}-a` availability zone:
+  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
 
      ```bash
-     yc vpc subnet create usergate-subnet-{{ region-id }}-a \
-       --zone {{ region-id }}-a \
+     yc vpc subnet create usergate-subnet-{{ region-id }}-d \
+       --zone {{ region-id }}-d \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
@@ -83,9 +83,9 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-{{ region-id }}-a
+     name: usergate-subnet-{{ region-id }}-d
      network_id: enptrcle5q3d********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
@@ -104,8 +104,8 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
 
      resource "yandex_vpc_subnet" {
-       name           = "usergate-subnet-{{ region-id }}-a"
-       zone           = "{{ region-id }}-a"
+       name           = "usergate-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
@@ -137,7 +137,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 - API {#api}
 
   1. Create a network named `usergate-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-a` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
+  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
 
 {% endlist %}
 
@@ -153,7 +153,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   1. In the list of services, select **{{ vpc-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
   1. Click **Reserve address**.
-  1. In the window that opens, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. In the window that opens, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Click **Reserve address**.
   
 - CLI {#cli}
@@ -161,7 +161,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   Run this command:
 
   ```bash
-  yc vpc address create --external-ipv4 zone={{ region-id }}-a
+  yc vpc address create --external-ipv4 zone={{ region-id }}-d
   ```
 
   Result:
@@ -172,7 +172,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: {{ region-id }}-a
+    zone_id: {{ region-id }}-d
     requirements: {}
   reserved: true
   ```
@@ -187,7 +187,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
   resource "yandex_vpc_address" "usergate-addr" {
   name = "usergate-addr"
   external_ipv4_address {
-    zone_id = "{{ region-id }}-b"
+    zone_id = "{{ region-id }}-d"
     }
   }
   ```
@@ -203,8 +203,8 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 - Management console {#console}
 
   1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
@@ -220,10 +220,10 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `usergate-network` and the subnet named `usergate-subnet-{{ region-id }}-a`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a network named `usergate-network` and a subnet named `usergate-subnet-{{ region-id }}-d`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the IP address [reserved earlier](#get-static-ip).
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
 
       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -242,7 +242,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
        --name usergate-firewall \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-a \
+       --zone {{ region-id }}-d \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <path_to_public_part_of_SSH_key> \
        --public-address=<reserved_IP_address>
@@ -255,7 +255,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-firewall
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      platform_id: standard-v2
      resources:
        memory: "8589934592"
@@ -294,7 +294,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-a"
+       zone     = "{{ region-id }}-d"
        size     = "110"
        image_id = "<UserGate_NGFW_image_ID>"
      }
@@ -302,7 +302,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      resource "yandex_compute_instance" "usergate-firewall" {
        name        = "usergate-firewall"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-a"
+       zone        = "{{ region-id }}-d"
        hostname    = "usergate"
        resources {
          cores         = 4
@@ -424,7 +424,7 @@ For higher security, set up more traffic filtering rules:
 You can also add other traffic filtering rules. We don't recommend combining services and applications in the same rule. The rule might not trigger in this case.
 
 
-## Set up subnet routing {#subnet-routing}
+## Set up routing for the subnet {#subnet-routing}
 
 Create a [static route](../../vpc/concepts/routing.md):
 
@@ -451,7 +451,7 @@ Create a [static route](../../vpc/concepts/routing.md):
   To use static routes, link the route table to a subnet:
 
   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
-  1. In the `usergate-subnet-{{ region-id }}-a` row, click ![image](../../_assets/options.svg).
+  1. In the `usergate-subnet-{{ region-id }}-d` row, click ![image](../../_assets/options.svg).
   1. In the menu that opens, select **Link route table**.
   1. In the window that opens, select the created table from the list.
   1. Click **Link**.
@@ -523,11 +523,11 @@ Create a [static route](../../vpc/concepts/routing.md):
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      |          ID          |               NAME            |      NETWORK ID      |    ROUTE TABLE ID    |       ZONE    |      RANGE      |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
-     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-a | enpjsdf771h0******** |                      | {{ region-id }}-a | [10.130.0.0/24] |
+     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-d | enpjsdf771h0******** |                      | {{ region-id }}-d | [10.130.0.0/24] |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      ```
 
-  1. Assign the routing table to the subnet the web service will run in, e.g., `usergate-subnet-{{ region-id }}-a`:
+  1. Assign the routing table to the subnet the web service will run in, e.g., `usergate-subnet-{{ region-id }}-d`:
 
      ```bash
      yc vpc subnet update b0c4l3v9jrgd******** --route-table-id e2l5345dlgr1********
@@ -541,7 +541,7 @@ Create a [static route](../../vpc/concepts/routing.md):
      created_at: "2019-03-12T13:27:22Z"
      name: subnet-1
      network_id: enp846vf5fus********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 192.168.0.0/24
      route_table_id: e2l5345dlgr1********
@@ -565,7 +565,7 @@ Create a [static route](../../vpc/concepts/routing.md):
      Here is an example of the configuration file structure:
 
      ```hcl
-     resource "yandex_vpc_route_table" "usergate-rt-a" {
+     resource "yandex_vpc_route_table" "usergate-rt-d" {
 	   name       = "<route_table_name>"
        network_id = "<network_ID>"
        static_route {
@@ -616,7 +616,7 @@ To test your firewall, create a test web service and make sure that you can acce
 
 ### Set up a test VM {#test-vm-prepare}
 
-1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-a` subnet. In the VM settings, enable the [serial console](../../compute/operations/serial-console/index.md).
+1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-d` subnet. In the VM settings, enable the [serial console](../../compute/operations/serial-console/index.md).
 1. To connect to the VM via the [CLI](../../compute/operations/serial-console/connect-cli.md), run the command:
 
    ```bash

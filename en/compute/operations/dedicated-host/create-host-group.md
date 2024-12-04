@@ -1,3 +1,8 @@
+---
+title: Creating a group of dedicated hosts
+description: Follow this guide to create dedicated host groups.
+---
+
 # Creating a group of dedicated hosts
 
 

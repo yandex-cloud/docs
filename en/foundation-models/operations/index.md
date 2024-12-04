@@ -1,6 +1,6 @@
 ---
-title: How to work with {{ foundation-models-full-name }}
-description: The page contains all guides on working with {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
+title: Guides on using {{ foundation-models-full-name }}
+description: The page contains all guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
 ---
 
 # Step-by-step guides for {{ foundation-models-full-name }}
@@ -15,6 +15,11 @@ description: The page contains all guides on working with {{ foundation-models-f
 
 * [{#T}](./classifier/readymade.md)
 * [{#T}](./classifier/additionally-trained.md)
+
+## Step-by-step guides for {{ assistant-api }} {#assistant}
+
+* [{#T}](./assistant/create.md)
+* [{#T}](./assistant/create-with-searchindex.md)
 
 ## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 

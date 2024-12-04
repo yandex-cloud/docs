@@ -1,3 +1,8 @@
+---
+title: Data schema registry
+description: 'This article explains the following concepts: namespace, subject, schema, and reference.'
+---
+
 # Data schema registry
 
 {% include notitle [preview](../../_includes/note-preview.md) %}

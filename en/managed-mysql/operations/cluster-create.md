@@ -17,6 +17,7 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
 {% endnote %}
 
+
 ## Creating a cluster {#create-cluster}
 
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).

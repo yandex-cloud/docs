@@ -1,3 +1,8 @@
+---
+title: Installing {{ GLR }}
+description: Follow this guide to install {{ GLR }}.
+---
+
 # Installing {{ GLR }}
 
 
@@ -71,9 +76,9 @@
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/gitlab-containers.md)
-* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md)
-* [{#T}](../../../managed-gitlab/tutorials/image-storage.md)
+* [{#T}](../../tutorials/gitlab-containers.md).
+* [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
+* [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
 ## See also {#see-also}
 

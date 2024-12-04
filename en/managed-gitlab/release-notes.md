@@ -5,6 +5,10 @@ description: This section contains {{ mgl-name }} release notes.
 
 # {{ mgl-full-name }} release notes
 
+## October 2024 {#oct-2024}
+
+You can now monitor the state of your {{ GL }} instance from the {{ yandex-cloud }} management console. You can view the state charts in the **{{ ui-key.yacloud.common.monitoring }}** tab or in [{{ monitoring-full-name }}](../monitoring/concepts/index.md). This feature is at the [Preview](../overview/concepts/launch-stages.md) stage.
+
 ## September 2024 {#sep-2024}
 
 Now you can manage {{ GLR }} agents from the {{ yandex-cloud }} management console. This feature is at the [Preview](../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.

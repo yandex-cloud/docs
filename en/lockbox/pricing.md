@@ -1,6 +1,6 @@
 ---
 title: '{{ lockbox-full-name }} pricing policy'
-description: This article describes the {{ lockbox-name }} pricing policy.
+description: This article provides the {{ lockbox-name }} pricing policy.
 editable: false
 ---
 
@@ -60,6 +60,7 @@ Here is an example of calculating the monthly cost of {{ lockbox-name }} for the
 
 
 
+
+
+
 {% include [usd-lockbox](../_pricing_examples/lockbox/usd.md) %}
-
-

@@ -59,15 +59,99 @@ You can get a list of backups created for the past 14 days.
     +----------------------+---------------------+-------------------+---------------------+
     ```
 
-    If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records> flag in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
+    If you want to limit the backup list displayed after running the command, include the `--limit <number_of_records>` flag in the command. For example, if the output of the `{{ yc-mdb-os }} backup list` command takes up several screens, run the `{{ yc-mdb-os }} backup list --limit 5` command. In this case, the output will contain the list of five most recent backups.
 
-- API {#api}
+- REST API {#api}
 
-    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    To get a list of backups for all the {{ mos-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
+    1. To get a list of cluster backups:
+
+        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>/backups'
+            ```
+
+            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+    1. To get a list of backups for all the clusters in a folder:
+
+        1. Use the [Backup.List](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups' \
+                --url-query folderId=<folder_ID>
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. To get a list of cluster backups:
+
+        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.opensearch.v1.ClusterService.ListBackups
+            ```
+
+            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+    1. To get a list of backups for all the clusters in a folder:
+
+        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "folder_id": "<folder_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.opensearch.v1.BackupService.List
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -128,11 +212,51 @@ You can get a list of backups created for the past 14 days.
         indices_total: "6"
         ```
 
-- API {#api}
+- REST API {#api}
 
-    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    To find out the backup ID, [retrieve a list of backups](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/backups/<backup_ID>'
+        ```
+
+        You can get the backup ID together with a [list of backups](#list-backups).
+
+    1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "backup_id": "<backup_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.BackupService.Get
+        ```
+
+        You can get the backup ID together with a [list of backups](#list-backups).
+
+    1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup) to make sure the request was successful.
 
 {% endlist %}
 
@@ -160,13 +284,54 @@ You can get a list of backups created for the past 14 days.
     {{ yc-mdb-os }} cluster backup <cluster_name_or_ID>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To create a backup, use the [backup](../api-ref/Cluster/backup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>:backup'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Backup
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -228,7 +393,7 @@ When creating a new cluster, set all required parameters.
 
         You will see the backup ID in the `ID` column. The `CREATED AT` column shows the backup completion time in `yyyy-mm-dd hh:mm:ss` format.
 
-    1. Request the creation of a cluster from a backup:
+    1. Request creating a cluster from a backup:
 
         ```bash
         {{ yc-mdb-os }} cluster restore --backup-id <backup_ID>
@@ -236,15 +401,228 @@ When creating a new cluster, set all required parameters.
 
         You can also run the command with the parameters you use when creating a cluster. For the description of such parameters, see [Creating a cluster](cluster-create.md).
 
-- API {#api}
+- REST API {#api}
 
-  To restore an existing cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Backup ID in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
-    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
-    * Cluster configuration in the `configSpec` parameter.
-    * Network ID in the `networkId` parameter.
-    * ID of the folder to host the cluster, in the `folderId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and add the following contents to it:
+
+        ```json
+        {
+            "backupId": "<backup_ID>",
+            "folderId": "<folder_ID>",
+            "name": "<cluster_name>",
+            "environment": "<environment>",
+            "networkId": "<network_ID>",
+            "configSpec": {
+                "version": "<{{ OS }}>_version",
+                "adminPassword": "<admin_user_password>",
+                "opensearchSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<{{ OS }}>_host_group_name",
+                            "resources": {
+                                "resourcePresetId": "<host_class>",
+                                "diskSize": "<storage_size_in_bytes>",
+                                "diskTypeId": "<disk_type>"
+                            },
+                            "roles": ["<role_1>","<role_2>"],
+                            "hostsCount": "<number_of_hosts>",
+                            "zoneIds": [
+                                "<availability_zone_1>",
+                                "<availability_zone_2>",
+                                "<availability_zone_3>"
+                            ],
+                            "subnetIds": [
+                                "<subnet_1_ID>",
+                                "<subnet_2_ID>",
+                                "<subnet_3_ID>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboardsSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<Dashboards_host_group_name>",
+                            "resources": {
+                                "resourcePresetId": "<host_class>",
+                                "diskSize": "<storage_size_in_bytes>",
+                                "diskTypeId": "<disk_type>"
+                            },
+                            "hostsCount": "<number_of_hosts>",
+                            "zoneIds": [
+                                "<availability_zone_1>",
+                                "<availability_zone_2>",
+                                "<availability_zone_3>"
+                            ],
+                            "subnetIds": [
+                                "<subnet_1_ID>",
+                                "<subnet_2_ID>",
+                                "<subnet_3_ID>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Where:
+
+        * `backupId`: ID of the backup to restore the cluster from. You can get the ID with a [list of backups](#list-backups).
+        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+        * `configSpec`: Cluster settings:
+
+            * `version`: {{ OS }} version.
+            * `adminPassword`: `admin` user password.
+            * `opensearchSpec`: `{{ OS }}` host group settings. Contain the `nodeGroups` array of elements. one for each host group. Each element has the following structure:
+
+                * `name`: Host group name.
+                * `resources`: Cluster resources:
+
+                    * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                    * `diskSize`: Disk size in bytes.
+                    * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                * `hostsCount`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                * `zoneIds`: List of availability zones the cluster hosts are located in.
+                * `subnetIds`: List of subnet IDs.
+
+            * `dashboardsSpec`: `Dashboards` host group settings. Contains the `nodeGroups` array of elements of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+
+    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Create a file named `body.json` and add the following contents to it:
+
+        ```json
+        {
+            "backup_id": "<backup_ID>",
+            "folder_id": "<folder_ID>",
+            "name": "<cluster_name>",
+            "environment": "<environment>",
+            "network_id": "<network_ID>",
+            "config_spec": {
+                "version": "<{{ OS }}>_version",
+                "admin_password": "<admin_user_password>",
+                "opensearch_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<{{ OS }}>_host_group_name",
+                            "resources": {
+                                "resource_preset_id": "<host_class>",
+                                "disk_size": "<storage_size_in_bytes>",
+                                "disk_type_id": "<disk_type>"
+                            },
+                            "roles": ["<role_1>","<role_2>"],
+                            "hosts_count": "<number_of_hosts>",
+                            "zone_ids": [
+                                "<availability_zone_1>",
+                                "<availability_zone_2>",
+                                "<availability_zone_3>"
+                            ],
+                            "subnet_ids": [
+                                "<subnet_1_ID>",
+                                "<subnet_2_ID>",
+                                "<subnet_3_ID>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboards_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<Dashboards_host_group_name>",
+                            "resources": {
+                                "resource_preset_id": "<host_class>",
+                                "disk_size": "<storage_size_in_bytes>",
+                                "disk_type_id": "<disk_type>"
+                            },
+                            "hosts_count": "<number_of_hosts>",
+                            "zone_ids": [
+                                "<availability_zone_1>",
+                                "<availability_zone_2>",
+                                "<availability_zone_3>"
+                            ],
+                            "subnet_ids": [
+                                "<subnet_1_ID>",
+                                "<subnet_2_ID>",
+                                "<subnet_3_ID>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Where:
+
+        * `backupId`: ID of the backup to restore the cluster from. You can get the ID with a [list of backups](#list-backups).
+        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+        * `config_spec`: Cluster settings:
+
+            * `version`: {{ OS }} version.
+            * `admin_password`: `admin` user password.
+            * `opensearch_spec`: `{{ OS }}` host group settings. Contain the `nodeGroups` array of elements. one for each host group. Each element has the following structure:
+
+                * `name`: Host group name.
+                * `resources`: Cluster resources:
+
+                    * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                    * `disk_size`: Disk size in bytes.
+                    * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                * `hosts_count`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                * `zone_ids`: List of availability zones the cluster hosts are located in.
+                * `subnet_ids`: List of subnet IDs.
+
+            * `dashboards_spec`: `Dashboards` host group settings. Contains the `node_groups` array of elements of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+
+    1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

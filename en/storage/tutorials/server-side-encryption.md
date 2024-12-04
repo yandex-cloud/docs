@@ -1,3 +1,8 @@
+---
+title: Server-side encryption
+description: Follow this guide to configure server-side encryption.
+---
+
 # Server-side encryption
 
 
@@ -149,7 +154,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
 
           After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
@@ -289,7 +294,7 @@ Create a new key or use an existing one. To create a key:
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
 
           After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 
@@ -438,7 +443,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
 
           After the command is executed, {{ TF }} updates or creates the following resources in the specified folder:
 

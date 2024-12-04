@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ mes-name }}
+title: Getting started with {{ mes-name }}
 description: This guide describes how you can get started with {{ mes-name }}.
 ---
 
@@ -9,20 +9,15 @@ description: This guide describes how you can get started with {{ mes-name }}.
 
 To get started with the service:
 
-1. [{#T}](#cluster-create).
-
-
-1. [{#T}](#configuring-security-groups).
-
-
-1. [{#T}](#connect).
-
-1. [{#T}](#connect-kibana).
+1. [Create a cluster](#cluster-create).
+1. [Configure security groups](#configuring-security-groups).
+1. [Connect to the cluster](#connect).
+1. [Connect to Kibana](#connect-kibana).
 
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
+1. Log in to the [management console]({{ link-console-main }}) or sign up if you do not have an account yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -30,7 +25,7 @@ To get started with the service:
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
 
    * To connect to a cluster from the internet, when creating a cluster, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_ role](concepts/hosts-roles.md#data-node).
 
@@ -53,7 +48,7 @@ These instructions assume that you are connecting to the cluster from the intern
    1. Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
    1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster. 
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on those hosts. You may need to additionally [set up security groups](operations/cluster-connect.md#configuring-security-groups) to be able connect to the cluster. 
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -100,7 +95,7 @@ To connect to a cluster:
 
    To connect:
    1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-   1. In your browser, open `https://<FQDN_of_public_{{ ES }}_host_with_Data_node_role>`.
+   1. In your browser, go to `https://<FQDN_of_publicly_available_{{ ES }}_host_with_Data_node_role>`.
 
       {% include [see-fqdn](../_includes/mdb/mes/fqdn-host.md) %}
 

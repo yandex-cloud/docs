@@ -9,24 +9,24 @@ To optimize data operations, follow the tips below:
    * Do your best to store the data in a format that does not require any complex operations when querying it. If possible, calculate the data on the DB side first. This will allow you to minimize computations using {{ datalens-short-name }} formulas.
    * Explicitly declare data types on the DB side to avoid type conversions in large tables. For example, do not store dates as text.
    * Sort tables by frequently used dimensions (usually, these are dates).
-   * When building data marts with a large number of rows, make sure to store aggregate and detailed data in different tables and datasets. This will decrease the load on the source when running data queries.
+   * When building data marts with a large number of rows, make sure to keep aggregated and detailed data in different tables and datasets. This will decrease the load on the source when running data queries.
    * Build systems of materialized tables on the DB side with different levels of detail for different charts and user tasks. Do not use a single large table for all tasks:
-
-      * If most charts on a dashboard only show the sales amount by month, there is no need to store daily data. You can aggregate the data on the DB side and materialize a table.
-      * If you need the chart data broken down by day, you can use a table with a higher level of detail.
-
-      In this case, you can configure date selectors so that they filter all charts at the same time.
+   
+     * If most charts on a dashboard only show the sales amount by month, there is no need to store daily data. You can aggregate the data on the DB side and materialize a table.
+     * If you need the chart data broken down by day, you can use a table with a higher level of detail.
+     
+     In this case, you can configure date selectors so that they filter all charts at the same time.
 
    * Create separate materialized reference tables for selectors to avoid selecting unique field values from large tables when generating a list of values for the selectors.
    * When using [Join](data-join.md), a subquery is run to the full set of table fields. These operations are highly resource-consuming and will degrade dashboard performance for most databases. Therefore, to make your dashboards run faster:
-
-      * If possible, change the table structure to reduce the number of joins in a dataset.
-      * If possible, join the data on the DB side and materialize the table.
-
-   * Consider the specifics of storing and accessing the data in the DB you are connecting to. For example, {{ CH }} cannot use indexes by nullable fields. Therefore, whenever possible, replace `NULL` with non-empty table values as long as this does not lead to incorrect calculation results.
+   
+     * If possible, change the table structure to reduce the number of joins in a dataset.
+     * If possible, join the data on the DB side and materialize the table.
+   
+   * Consider the specifics of storing and accessing the data in the DB you are connecting to. For example, {{ CH }} cannot use indexes by nullable fields. Therefore, whenever possible, replace `NULL` in tables with non-empty values as long as this does not result in incorrect calculation results.
 
 1. Reduce the load on the source when running data operations:
-
+      
    * Try to exclude fields that are not used to create charts from a dataset.
    * We recommend adding fields at the dataset level instead of doing so at the chart level.
    * If you know for sure that certain table rows will not be used in a dashboard, remove them in advance by using prefiltering. Remove the columns you do not need from non-columnar databases.

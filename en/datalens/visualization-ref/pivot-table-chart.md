@@ -42,11 +42,11 @@ Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178
 When [creating a pivot table](#create-diagram), you can use these advanced settings:
 
 * [Renaming table columns and rows](#change-columns-names)
-* [Adding a tooltip to a table header](#hint-column)
-* [Setting the width of columns and rows](#set-column-width)
+* [Adding tooltips to table headers](#hint-column)
+* [Setting the width of table columns and rows](#set-column-width)
 * [Freezing table columns](#column-fixation)
 * [Adding rows with subtotals](#add-totals)
-* [Setting the field fill color](#set-field-color)
+* [Setting field fill color](#set-field-color)
 * [Adding a linear indicator to a column with a measure](#add-linear-indicator)
 
 ## Wizard sections {#wizard-sections}
@@ -239,9 +239,9 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
   If you use a filter, the table height will automatically adapt to the number of rows.
 
   {% cut "Using a filter with the auto height option enabled" %}
-
+  
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
-
+  
   ![pivot-table-auto-height-2](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-2.png)
 
   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
@@ -260,7 +260,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
     ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
     {% endcut %}
-
+  
   * Maximum order count per month grouped by product category: `MaxCountByCategory` with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
 
     {% cut "Table example" %}

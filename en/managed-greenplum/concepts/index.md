@@ -1,3 +1,8 @@
+---
+title: Resource relationships
+description: In this article, you will learn about the {{ mgp-name }} resource relationships.
+---
+
 # Resource relationships
 
 

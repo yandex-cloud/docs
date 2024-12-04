@@ -1,10 +1,12 @@
 ---
+title: Metrics of {{ captcha-full-name }}
+description: In this article, you will learn about {{ captcha-name }} metrics.
 editable: false
 ---
 
 # {{ captcha-full-name }} metrics
 
 
-This section describes the [{{ captcha-name }}](../../smartcaptcha/) metrics delivered to {{ monitoring-name }}.
+This section describes [{{ captcha-name }}](../../smartcaptcha/) metrics delivered to {{ monitoring-name }}.
 
 {% include [smartcaptcha](../../_includes/monitoring/metrics-ref/smartcaptcha.md) %}

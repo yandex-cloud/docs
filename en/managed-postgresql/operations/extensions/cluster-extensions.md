@@ -19,8 +19,8 @@ You can install the following libraries in {{ mpg-short-name }}:
 * `pg_cron`: Required for the [pg_cron extension](https://github.com/citusdata/pg_cron) to function.
 * `pg_hint_plan`: Required for the [pg_hint_plan extension](https://pghintplan.osdn.jp/pg_hint_plan.html) to function.
 * `pg_qualstats`: Required for the [pg_qualstats extension](https://github.com/powa-team/pg_qualstats) to function.
-* `timescaledb`: Required to use the [TimescaleDB extension](https://github.com/timescale/timescaledb).
-* `anon`: Required to use the [postgresql_anonymizer extension](https://postgresql-anonymizer.readthedocs.io/en/stable/).
+* `timescaledb`: Required to use the [`TimescaleDB` extension](https://github.com/timescale/timescaledb).
+* `anon`: Required to use the [`postgresql_anonymizer` extension](https://postgresql-anonymizer.readthedocs.io/en/stable/).
 
 {% note warning %}
 

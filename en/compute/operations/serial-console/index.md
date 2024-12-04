@@ -1,9 +1,14 @@
+---
+title: Getting started with the serial console
+description: Follow this guide to learn how to work with the serial console.
+---
+
 # Getting started with the serial console
 
 
 The serial console allows you to access a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS status. For example, you can use the console to troubleshoot VM issues or when there are problems with SSH access.
 
-To use the serial console, you need the `сompute.admin` or `{{ roles-editor }}` [role](../../security/index.md).
+To use the serial console, you need the `compute.admin` or `{{ roles-editor }}` [role](../../security/index.md).
 
 Serial console access is disabled by default.
 
@@ -12,7 +17,7 @@ Serial console access is disabled by default.
 ## Getting started {#before-you-begin}
 
 Before you enable serial console access on a VM:
-1. Prepare the public and private key pair for SSH access to the VM. The serial console authenticates users via SSH keys.
+1. Prepare a key pair (public and private keys) for SSH access to the VM. The serial console authenticates users via SSH keys.
 1. Create a text file (e.g., `sshkeys.txt`) and specify the following:
 
    ```txt

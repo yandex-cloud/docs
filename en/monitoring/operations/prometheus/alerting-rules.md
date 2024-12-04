@@ -28,11 +28,11 @@ Rule processing highlights:
 * The channel is selected according to the specified type; [dynamic routing](https://prometheus.io/docs/alerting/latest/configuration/#route) is currently not supported but is planned for upcoming releases.
 * If the configuration has no channels matching the folder channels, the file will not be accepted.
 
-You can use alerting rules without loading a configuration file. In which case the alerting rules will be computed and will create the `ALERTS` and `ALERTS_FOR_STATE` metrics, but no alert notifications will be dispatched.
+You can use alerting rules without loading a configuration file. In this case, the alerting rules will be calculated and will create the `ALERTS` and `ALERTS_FOR_STATE` metrics, but no alert notifications will be sent.
 
 You can manage recording rule files via the [management console]({{ link-console-main }}) or API.
 
-## Pre-configuring the service to work with the API {#api-set}
+## Pre-configuration for using the API {#api-set}
 
 The API is represented by REST resources located at `https://monitoring.{{ api-host }}/prometheus/workspaces/<workspace_ID>/extensions/v1/rules`. 
 
@@ -53,7 +53,7 @@ To start executing requests:
    1. Go to the **{{ ui-key.yacloud_monitoring.prometheus.approved.tab.recording-rules }}** tab.
    1. If you have not uploaded any files yet, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** and select a `.yml` file with rules.
    1. To add another file, click **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
-   1. To replace an existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to the right of it. 
+   1. To replace the existing file, click **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}** to its right. 
 
 - API {#api}
 

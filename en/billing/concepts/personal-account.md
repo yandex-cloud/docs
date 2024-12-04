@@ -1,3 +1,8 @@
+---
+title: Personal account
+description: In this article, you will learn what a personal account is, when it is created, how to find its number, and how to monitor its balance. You will also learn how and how quickly you can have money credited to an account.
+---
+
 # Personal account
 
 

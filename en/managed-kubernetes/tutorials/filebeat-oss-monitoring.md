@@ -1,3 +1,8 @@
+---
+title: Monitoring a {{ managed-k8s-full-name }} cluster using Filebeat OSS
+description: Follow this guide to set up {{ managed-k8s-name }} cluster monitoring with Filebeat OSS.
+---
+
 # Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
 
 
@@ -44,7 +49,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * [{{ k8s }} version](../concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
         * {{ managed-k8s-name }} cluster CIDR.
-        * Service account name. The name must be unique within the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+        * Name of the service account. It must be unique within the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
      1. Check that the {{ TF }} configuration files are correct using this command:
 
@@ -80,7 +85,7 @@ Make sure that the {{ mos-name }} cluster is receiving logs from the {{ managed-
 
   ```bash
   curl \
-    --user admin:<Managed_Service_for_{{ OS }}_cluster_admin_user_password> \
+    --user admin:<password_of_admin_user_for_Managed_Service_for_{{ OS }}_cluster> \
     --cacert CA.pem \
     --request GET 'https://<name_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/_cat/indices?v'
   ```

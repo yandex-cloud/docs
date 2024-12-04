@@ -859,7 +859,7 @@ items:
         items:
           - name: All questions
             href: qa/index.md
-          - name: Access permissions
+          - name: Users and access rights management
             href: qa/permissions.md
           - name: Billing and payment
             href: qa/pricing.md

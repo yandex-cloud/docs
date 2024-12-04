@@ -1,3 +1,8 @@
+---
+title: Maintenance policy management
+description: Follow this guide to manage your maintenance policy.
+---
+
 # Maintenance policy management
 
 
@@ -128,7 +133,7 @@ ssh <username>@$VM_IP
 
 ## Create a script to track VM maintenance events {#script}
 
-Create a file named `mnt-pol.sh` and paste the following code to it:
+Create a file named `mnt-pol.sh` and paste the following code into it:
 
 ```
 #!/bin/bash

@@ -1,4 +1,6 @@
 ---
+title: Routing through a NAT instance using the management console
+description: Follow this tutorial to set up routing through a NAT instance using the management console.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/console'
 ---
 

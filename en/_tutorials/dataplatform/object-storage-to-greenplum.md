@@ -1,6 +1,5 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-
 You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -61,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `gp_version`: {{ GP }} version.
             * `gp_password`: {{ GP }} user password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -158,7 +157,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -253,7 +252,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         1. Delete all objects from the bucket.
         1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `object-storage-to-greenplum.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

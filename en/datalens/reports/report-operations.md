@@ -1,3 +1,8 @@
+---
+title: Working with a report
+description: Follow this guide to learn how to work with a report.
+---
+
 # Working with a report
 
 

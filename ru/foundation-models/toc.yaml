@@ -13,7 +13,7 @@ items:
         href: operations/index.md
       - name: Отключить логирование запросов
         href: operations/disable-logging.md
-      - name: '{{ yagpt-full-name }}'
+      - name: Генерация текста
         items:
           - name: Отправить запрос в промт-режиме
             href: operations/yandexgpt/create-prompt.md
@@ -21,7 +21,7 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
-      - name: Классификаторы на базе {{ yagpt-name }}
+      - name: Классификация
         items:
           - name: Использовать классификаторы по промту
             href: operations/classifier/readymade.md
@@ -35,15 +35,15 @@ items:
             href: operations/assistant/create-with-searchindex.md
       - name: '{{ yandexart-name }}'
         items:
-          - name: Сгенерировать изображение
+          - name: Генерация изображений
             href: operations/yandexart/request.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: '{{ yagpt-full-name }}'
+      - name: Генерация текста
         items:
-          - name: Обзор {{ yagpt-full-name }}
+          - name: Обзор
             href: concepts/yandexgpt/index.md
           - name: Модели
             href: concepts/yandexgpt/models.md
@@ -51,15 +51,15 @@ items:
             href: concepts/yandexgpt/tokens.md
       - name: Эмбеддинги
         href: concepts/embeddings.md
-      - name: Классификаторы на базе {{ yagpt-name }}
+      - name: Классификация
         items:
-          - name: Обзор классификаторов
+          - name: Обзор
             href: concepts/classifier/index.md
           - name: Модели
             href: concepts/classifier/models.md
       - name: '{{ assistant-api }}'
         href: concepts/assistant/index.md
-      - name: '{{ yandexart-name }}'
+      - name: Генерация изображений
         items:
           - name: Обзор {{ yandexart-name }}
             href: concepts/yandexart/index.md
@@ -79,7 +79,7 @@ items:
         href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: '{{ yagpt-full-name }} (англ.)'
+      - name: Text Generation (англ.)
         items:
           - name: REST
             items:

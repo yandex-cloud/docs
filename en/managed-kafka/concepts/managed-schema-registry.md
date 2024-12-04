@@ -15,9 +15,9 @@ To automate handling of data format schemas, a _data format schema registry_ is 
 
 1. A producer transmits data format schemas to the registry. The following data schema formats are supported:
 
-    * [Avro](https://avro.apache.org/)
-    * [JSON Schema](https://json-schema.org/)
-    * [Protobuf](https://protobuf.dev/)
+    * [Avro](https://avro.apache.org/).
+    * [JSON Schema](https://json-schema.org/).
+    * [Protobuf](https://protobuf.dev/).
 
     When a schema is placed in the registry:
 
@@ -44,12 +44,12 @@ To work with {{ mkf-msr }}, you need an advanced [security group configuration](
 
 ## {{ mkf-msr }} subjects {#subjects}
 
-The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas {{ KF }} uses the `<topic_name>-key` or `<topic_name>-value` subjects depending on whether the schema is registered for a key or a value. The subject specifies the topic to publish messages to.
+The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_, i.e., names they are registered under. To write and read schemas, {{ KF }} uses the `<topic_name>-key` or `<topic_name>-value` subjects, depending on whether the schema is registered for a key or a value. The subject specifies the topic to publish messages to.
 
 Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
 
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage these subjects: `<topic_name>-key`, `<topic_name>-value` or `<topic_name>`.
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for the `<prefix>*` topic allows the user to manage subjects of the same format: `<prefix>*`. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage these subjects: `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>`.
+* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
 * The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in a {{ mkf-name }} cluster.
 
 ## Authorization in {{ mkf-msr }} {#msr-auth}
@@ -65,7 +65,7 @@ Access to schemas depends on the selected [topic management method](./topics.md#
     * A user with the `ACCESS_ROLE_PRODUCER` role for a topic can perform any operations with subjects associated with that topic.
     * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
 
-    For more information on available subjects, see [{#T}](#subjects).
+    For more information on available subjects, see [Subjects in {{ mkf-msr }}](#subjects).
 
 1. When using unmanaged topics:
 

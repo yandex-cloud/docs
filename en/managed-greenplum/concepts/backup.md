@@ -1,3 +1,8 @@
+---
+title: Backups in {{ mgp-full-name }}
+description: In this tutorial, you will learn about {{ mgp-name }} backups and how to create and store them.
+---
+
 # Backups in {{ mgp-name }}
 
 
@@ -15,7 +20,7 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 
 The first and every second automatic backup, as well as all manually created backups are full backups of all databases. Other backups are incremental and store only the data that has changed since the previous backup to save space.
 
-A backup is automatically created every day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default time is `22:00 - 23:00` UTC (Coordinated Universal Time).
+A backup is automatically created every day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. Default time: `22:00 - 23:00` UTC (Coordinated Universal Time).
 
 After a backup is created, it is compressed for storage. Append-optimized tables use data deduplication technology: newly added data or old data last archived more than 30 days ago is copied. The backup size does not include the deduplicated part size, so the displayed value can be significantly smaller than the data size in the cluster.
 

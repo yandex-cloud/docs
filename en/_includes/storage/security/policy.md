@@ -55,6 +55,12 @@ Condition
 
 : Establishes the cases in which the rule will apply.
 
+  {% note info %}
+
+  The `aws:sourceip` condition supports a special procedure for [verifying reverse proxy IP addresses](#access-via-reverse-proxy).
+
+  {% endnote %}
+
   If multiple conditions are specified simultaneously for a rule or multiple keys are specified simultaneously within a single condition, then such conditions and keys will apply with the `AND` logic.
   
   If multiple values are specified simultaneously for one condition key, such values will apply with the `OR` logic.
@@ -120,7 +126,61 @@ If you are using the old domain (`console.cloud.yandex.*`) together with the new
 You can retrieve the user ID by following [this guide](../../../iam/operations/users/get.md) in the {{ iam-full-name }} documentation.
 
 
-## Sample configurations {#config-examples}
+## Bucket access via a chain of reverse proxy servers {#access-via-reverse-proxy}
+
+For {{ objstorage-short-name }} to work with requests sent over a series of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), the `aws:sourceip` [condition](../../../storage/s3/api-ref/policy/conditions.md) checks both the IP address the request came from and the IP addresses of reverse proxy servers, e.g., those provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header.
+
+First a request is checked against the `Deny` access policy rules. If at least one IP address meets the `Deny` rule criteria, the request is denied. No further checks are performed.
+
+Then the request is checked against the `Allow` access policy rules. If at least one IP address meets the `Allow` rule criteria, the request is allowed.
+
+{% cut "An example of bucket access configuration via a chain of reverse proxy servers" %}
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "the-allowing-rule",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": "arn:aws:s3:::sample-bucket/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:sourceip": [
+            "192.168.1.1",
+            "192.168.1.2"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "the-denying-rule",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": "arn:aws:s3:::sample-bucket/*",
+      "Condition": {
+        "IpAddress": {
+          "aws:sourceip": [
+            "192.168.1.11",
+            "192.168.1.12"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+If the bucket receives a request with the `X-Forwarded-For: 192.168.1.1, 192.168.1.2, 192.168.1.12` header, this request will be denied as its header has the IP address specified in the `Deny` rule.
+
+If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.168.2.1, 192.168.1.2` header, this request will be allowed as its header has no IP addresses specified in the `Deny` rule but contains the IP address specified in the `Allow` rule.
+
+{% endcut %}
+
+## Configuration examples {#config-examples}
 
 * Rule that allows an anonymous user to read objects in the bucket over an encrypted connection:
 

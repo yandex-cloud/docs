@@ -1,11 +1,11 @@
 ---
-title: How to add a video thumbnail in {{ video-full-name }}
-description: Follow this guide to add a video thumbnail in {{ video-name }}.
+title: How to add a thumbnail for a video in {{ video-full-name }}
+description: Follow this guide to add a thumbnail for a video in {{ video-name }}.
 ---
 
-# Adding a video thumbnail
+# Adding a thumbnail for a video
 
-To add a video thumbnail:
+To add a thumbnail for a video:
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ To add a video thumbnail:
   1. Select a channel.
   1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. If the video already has a thumbnail, delete it. To do this, hover over the thumbnail preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).
-  1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new thumbnail image.
+  1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new image for your thumbnail.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
@@ -25,8 +25,8 @@ To add a video thumbnail:
 
   1. Getting started:
   
-      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) belongs to.
-      * [Get](../../api-ref/authentication.md) an IAM token, which is required for authentication in the {{ video-name }} API.
+      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) is in.
+      * [Get](../../api-ref/authentication.md) an IAM token required for authentication in the {{ video-name }} API.
       * To use the examples, install [cURL](https://curl.haxx.se).
   1. Get a list of {{ video-name }} channels in your organization:
 
@@ -106,9 +106,9 @@ To add a video thumbnail:
 
   1. Getting started:
   
-      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) belongs to.
-      * [Get](../../api-ref/authentication.md) an IAM token, which is required for authentication in the {{ video-name }} API.
-      * To use the examples, install [cURL](https://curl.haxx.se) and [gRPCurl](https://github.com/fullstorydev/grpcurl).
+      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) is in.
+      * [Get](../../api-ref/authentication.md) an IAM token required for authentication in the {{ video-name }} API.
+      * To use the examples, install [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl), and [jq](https://stedolan.github.io/jq).
   1. Get a list of {{ video-name }} channels in your organization:
 
       {% include [list-channels-grpc-api](../../../_includes/video/list-channels-grpc-api.md) %}

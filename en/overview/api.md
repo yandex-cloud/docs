@@ -9,7 +9,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 {% include [Tag-Preview](../_includes/tag-preview.md) %}
 
 
-| Service name | API Reference |
+| Service name | API references |
 | ---------------- | --------------- |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 | {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
@@ -19,11 +19,15 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ billing-name }}                      | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
 | {{ cdn-full-name }}                     | [gRPC](../cdn/api-ref/grpc/)<br>[REST](../cdn/api-ref/) |
 | {{ video-full-name }} {{ preview-stage }} | [gRPC](../video/api-ref/grpc/)<br>[REST](../video/api-ref/) |
+| {{ compute-full-name }}                 | [gRPC](../compute/api-ref/grpc)<br>[REST](../compute/api-ref/) |
 | {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
 | {{ sf-full-name }}                      | [Functions gRPC](../functions/functions/api-ref/grpc/)<br>[Functions REST](../functions/functions/api-ref/)<br>[Triggers gRPC](../functions/triggers/api-ref/grpc/)<br>[Triggers REST](../functions/triggers/api-ref/) |
 | {{ cloud-logging-full-name }}           | [gRPC](../logging/api-ref/grpc/)<br>[REST](../logging/api-ref/) |
 | {{ marketplace-full-name }}             | [gRPC](../marketplace/metering/api-ref/grpc/)<br>[REST](../marketplace/api-ref/) |
 | {{ cns-full-name }}                     | [S3 REST](../notifications/api-ref/) |
+| {{ message-queue-full-name }}           | [HTTP API](../message-queue/api-ref/) |
+| {{ monitoring-full-name }}              | [gRPC](../monitoring/api-ref/api-ref-grpc/)<br>[REST](../monitoring/api-ref/) |
+| {{ network-load-balancer-full-name }}   | [gRPC](../api-ref/grpc/)<br>[REST](../api-ref/) |
 | {{ org-full-name }}                     | [gRPC](../organization/api-ref/grpc/)<br>[REST](../organization/api-ref/) |
 | {{ compute-full-name }}                 | [gRPC](../compute/api-ref/grpc/)<br>[REST](../compute/api-ref/) |
 | {{ container-registry-full-name }}      | [gRPC](../container-registry/api-ref/grpc/)<br>[REST](../container-registry/api-ref/) |

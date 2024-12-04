@@ -1,3 +1,8 @@
+---
+title: Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin
+description: Follow this guide to install cert-manager with the {{ dns-name }} ACME webhook plugin.
+---
+
 # Installing cert-manager with the {{ dns-full-name }} ACME webhook plugin
 
 
@@ -82,7 +87,7 @@ The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [
 
 ## Getting a test certificate {#issue-certificate}
 
-To test the installed application, get a test certificate. To issue the certificate, we are going to use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
+To test the installed application, get a test certificate. To issue a certificate, we are going to use the `yc-clusterissuer` issuer. It is created when you install cert-manager and pre-configured to work with Let's Encrypt®.
 
 1. Create a file named `certificate.yaml` with a request for a test certificate:
 
@@ -131,7 +136,7 @@ To test the installed application, get a test certificate. To issue the certific
     kubectl -n <namespace> describe certificate domain-name
     ```
 
-   {% include [cert-manager-events-explained](../../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
+    {% include [cert-manager-events-explained](../../../_includes/managed-kubernetes/cert-manager-events-explained.md) %}
 
 ## Use cases {#examples}
 
