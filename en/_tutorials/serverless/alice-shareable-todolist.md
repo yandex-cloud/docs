@@ -223,7 +223,7 @@ Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/
 1. Go to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
-   * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth](https://oauth.yandex.com/).
+   * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth](https://oauth.yandex.com/).
    * **Authorization URL**: `https://oauth.yandex.com/authorize`.
    * **Get token URL**: `https://oauth.yandex.com/token`.
    * **Refresh token URL**: `https://oauth.yandex.com/token`.
@@ -256,33 +256,33 @@ Below is a sample dialog:
 ```text
 Let me help you with your lists!
 
-	Hi Alice, Create a Grocery list
+	Hi Alice, Create a Grocery list.
 
-Done, I've created the "grocery" list
+Done, I've created the "grocery" list.
 
-	Add milk to the Grocery
+	Add milk to the Grocery.
 
-Done, I've added "milk" to the "grocery"
+Done, I've added "milk" to the "grocery".
 
-	Add bread
+	Add bread.
 
 What list should I add "bread" to?
 
 	Products
 
-Done, I've added "bread" to the "grocery"
+Done, I've added "bread" to the "grocery".
 
-	Add eggs
+	Add eggs.
 
 What list should I add "eggs" to?
 
 	Products
 
-Done, I've added "eggs" to the "grocery"
+Done, I've added "eggs" to the "grocery".
 
-	Alice, tell me what's on the Grocery list
+	Alice, tell me what's on the Grocery list.
 
-grocery:
+Grocery:
 1. milk
 2. bread
 3. eggs

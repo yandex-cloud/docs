@@ -29,9 +29,9 @@ Test submitting metrics to {{ marketplace-short-name }} Metering API. A test met
 
 Test by running this command:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
@@ -83,9 +83,9 @@ Test by running this command:
 
 To submit a metric, run this command:
 
-{% list tabs group=api_type %}
+{% list tabs group=instructions %}
 
-- REST API {#rest-api}
+- REST API {#api}
 
   ```bash
   curl \
@@ -174,6 +174,6 @@ Where:
     * `INVALID_QUANTITY` : Invalid quantity. The quantity must be greater than `0`.
     * `INVALID_ID`: Invalid record ID. The ID is not recognized as a UUID.
 
-A successful test does not guarantee the metric will be accepted following an actual request. For example, if the service account loses its permission to submit metrics, the API will return the `403` `Forbidden` error. This can happen if the user revokes access permissions or the billing account enters a [state](../../billing/concepts/billing-account-statuses) in which consumption is not possible. To avoid such errors, break you jobs down into smaller sub-issues and submit metrics after each one. For example, for an email app, submit a metric after each email it sends.
+A successful test does not guarantee the metric will be accepted following an actual request. For example, if the service account loses its permission to submit metrics, the API will return the `403` `Forbidden` error. This can happen if the user revokes access permissions or the billing account enters a [state](../../billing/concepts/billing-account-statuses) in which consumption is not possible. To avoid such errors, break you jobs down into smaller sub-issues and submit metrics after each one. For example, for an email app, send a metric per email sent.
 
-You can group metrics into a single request by different SKUs or for a certain time period to reduce the number of requests. For example, if your app’s RPS is high, submit metrics once per minute with the number of successful requests specified in the `quantity` parameter.
+You can group metrics into a single request by different SKUs or over a certain time period. This will reduce the number of requests. For example, if your app’s RPS is high, submit metrics once per minute with the number of successful requests specified in the `quantity` parameter.

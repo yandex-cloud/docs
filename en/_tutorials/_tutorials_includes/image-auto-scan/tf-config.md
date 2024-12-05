@@ -1,5 +1,5 @@
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for custom parameters
 
 variable "zone" {
   type = string
@@ -16,9 +16,10 @@ locals {
   sa_invoker_name    = "invoker"
   registry_name      = "my-registry"
   function_name      = "scan-on-push"
+  trigger_name       = "trigger-for-reg"
 }
 
-# Specifying provider settings
+# Configuring a provider 
 
 terraform {
   required_providers {
@@ -51,7 +52,7 @@ resource "yandex_iam_service_account" "invoker" {
 
 resource "yandex_resourcemanager_folder_iam_member" "sa-role-scanner" {
   folder_id   = var.folder_id
-  role        = "container-registry.images.scanner"
+  role        = "{{ roles-cr-images-scanner }}"
   member      = "serviceAccount:${yandex_iam_service_account.scanner.id}"
 }
 
@@ -61,7 +62,7 @@ resource "yandex_resourcemanager_folder_iam_member" "sa-role-invoker" {
   member      = "serviceAccount:${yandex_iam_service_account.invoker.id}"
 }
 
-# Creating a container registry
+# Creating a registry in Container Registry
 
 resource "yandex_container_registry" "my-reg" {
   name      = local.registry_name
@@ -80,6 +81,23 @@ resource "yandex_function" "test-function" {
   service_account_id = yandex_iam_service_account.scanner.id
   content {
     zip_filename   = "function.zip"
+  }
+}
+
+# Creating a trigger
+
+resource "yandex_function_trigger" "my-trigger" {
+
+  name = local.trigger_name
+  function {
+    id                 = yandex_function.test-function.id
+    service_account_id = yandex_iam_service_account.invoker.id
+  }
+  container_registry {
+    registry_id      = yandex_container_registry.my-reg.id
+    create_image_tag = true
+    batch_cutoff     = "10"
+    batch_size       = "1"
   }
 }
 ```

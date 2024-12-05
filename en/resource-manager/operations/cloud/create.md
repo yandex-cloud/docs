@@ -1,3 +1,8 @@
+---
+title: Creating a new cloud
+description: Follow this guide to create a new cloud.
+---
+
 # Creating a new cloud
 
 

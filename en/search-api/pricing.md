@@ -16,8 +16,6 @@ editable: false
 
 The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([Reporting period](../billing/concepts/reporting-period.md)).
 
-At the [Preview](../overview/concepts/launch-stages.md) stage [deferred queries](concepts/web-search.md) are not charged.
-
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

@@ -205,7 +205,7 @@ Add users to the IdP server:
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
           * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will have a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+            If this option is enabled, all authentication requests from {{ yandex-cloud }} will contain a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
 
      Here is an example of the configuration file structure:
 
@@ -269,7 +269,7 @@ Add users to the IdP server:
 
         * `name`: Federation name. It must be unique within the folder.
 
-        * `organizationId`: [Organization ID](../../operations/organization-get-id.md). 
+        * `organizationId`: [Organization ID](../../operations/organization-get-id.md).
 
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
@@ -363,12 +363,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% endlist %}
 
-{% note tip %}
-
-To make sure authentication is not interrupted when the certificate expires, we recommend adding multiple certificates to your federation, i.e., the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
-
-{% endnote %}
-
+{% include [federation-certificates-note](../../../_includes/organization/federation-certificates-note.md) %}
 
 ## Setting up single sign-on (SSO) {#sso-settings}
 
@@ -430,7 +425,7 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see the [Roles](../../security/index.md#admin) section.
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../security/index.md#admin).
 
 {% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
 

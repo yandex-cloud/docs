@@ -1,3 +1,8 @@
+---
+title: Creating a trigger for {{ yds-full-name }} that sends messages to WebSocket connections
+description: Follow this guide to create a trigger for {{ yds-name }} that sends messages to WebSocket connections and test the result of its operation.
+---
+
 # Creating a trigger for {{ yds-name }} that sends messages to WebSocket connections
 
 Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
@@ -55,7 +60,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
     yc serverless trigger create yds \
       --name <trigger_name> \
       --database <database_location> \
-      --stream <stream_name> \
+      --stream <data_stream_name> \
       --batch-size 1b \
       --batch-cutoff 1s \
       --stream-service-account-id <service_account_ID> \

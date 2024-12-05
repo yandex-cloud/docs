@@ -1,3 +1,8 @@
+---
+title: Uploading organization audit logs to {{ yds-full-name }}
+description: Follow this guide to upload organization audit logs to {{ yds-name }}.
+---
+
 # Uploading organization audit logs to {{ yds-name }}
 
 
@@ -20,7 +25,7 @@ To export organization audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * `audit-trails.viewer` for the organization whose audit logs you will collect:
+      * `audit-trails.viewer` for the organization whose audit logs will be collected:
 
         ```
         yc organization-manager organization add-access-binding \
@@ -31,7 +36,7 @@ To export organization audit logs:
 
         Where:
         * `--role`: Role you want to assign.
-        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources you will collect audit logs.
+        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources audit logs will be collected.
         * `--service-account-id`: Service account ID.
 
       * `yds.writer` for the folder to host the trail:
@@ -53,7 +58,7 @@ To export organization audit logs:
 1. On the [Access permissions]({{ link-console-access-management }}) page, make sure you have the following roles:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the organization whose audit logs you will collect.
+    * `audit-trails.viewer` for the organization whose audit logs will be collected.
     * `yds.viewer` for the data stream in {{ yds-name }}.
 
 
@@ -110,7 +115,7 @@ To create a trail that exports organization audit logs:
         --name <trail_name> \
         --description "<trail_description>" \
         --service-account-id <service_account_ID> \
-        --destination-yds-stream <stream_name> \
+        --destination-yds-stream <data_stream_name> \
         --destination-yds-database-id <YDB_DB_ID> \
         --filter-from-organisation-id <organization_ID> \
         --filter-some-cloud-ids <list_of_clouds_in_organization>

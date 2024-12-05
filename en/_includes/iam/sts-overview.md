@@ -25,6 +25,8 @@ A temporary key consists of the following parts:
 
 To get a temporary access key using {{ sts-name }}, use the [AWS Command Line Interface (AWS CLI)](../..//storage/tools/aws-cli.md) or an HTTP API compatible with the [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
 
+There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
+
 For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
@@ -35,6 +37,6 @@ This will revoke permissions for all temporary access keys created based on the 
 
 {% endnote %}
 
-### See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../../storage/security/overview.md)

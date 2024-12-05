@@ -1,10 +1,15 @@
+---
+title: Creating a trigger for {{ yds-full-name }} that invokes a {{ sf-full-name }} function
+description: Follow this guide to create a trigger for {{ yds-name }} that invokes a function in {{ sf-name }}.
+---
+
 # Creating a trigger for {{ yds-name }} that invokes a {{ sf-name }} function
 
 Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Getting started {#before-you-begin}
 
-To create a trigger, you need:
+To create a trigger, you will need:
 
 * A function to be invoked by the trigger. If you do not have a function:
 
@@ -79,7 +84,7 @@ To create a trigger, you need:
       --name <trigger_name> \
       --database <database_location> \
       --stream <stream_name> \
-      --batch-size <message_group_size> \
+      --batch-size <message_batch_size> \
       --batch-cutoff <maximum_timeout> \
       --stream-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
@@ -149,7 +154,7 @@ To create a trigger, you need:
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<interval_between_retry_attempts>"
+         retry_interval     = "<time_between_retry_attempts>"
        }
        data_streams {
          stream_name        = "<stream_name>"

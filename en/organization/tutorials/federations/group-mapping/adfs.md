@@ -36,21 +36,7 @@ Make sure to meet the following prerequisites:
 
     To get a `Token-Signing` certificate in Base64 format, run the following commands in PowerShell, providing the path where to save the certificate:
 
-    ```powershell
-    $ADFS_CERT_PATH = "<path_to_certificate>/adfs_certificate.cer"
-
-    $TEMP_CERT = (Get-AdfsCertificate -CertificateType Token-Signing |
-                    where {$_.IsPrimary -eq $true} | Select-Object -First 1
-                 ).Certificate.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert)
-
-    @(
-        '-----BEGIN CERTIFICATE-----'
-        [System.Convert]::ToBase64String($TEMP_CERT, 'InsertLineBreaks')
-        '-----END CERTIFICATE-----'
-    ) | Out-File -FilePath $ADFS_CERT_PATH -Encoding ascii
-    ```
-
-    The certificate will be saved as `adfs_certificate.cer`.
+    {% include [adfs-cert-guide-powershell](../../../../_includes/organization/adfs-cert-guide-powershell.md) %}
 
 1. Get and save the credentials you will use to configure your identity federation:
 
@@ -60,23 +46,13 @@ Make sure to meet the following prerequisites:
         Get-AdfsProperties | Select Identifier
         ```
 
-        The ID has the following format:
+        The ID contains the FQDN of the {{ microsoft-idp.adfs-abbreviated }} farm and has the following format:
 
         ```text
-        http://<federation_service_name>/adfs/services/trust
+        http://<AD_FS_farm_FQDN>/adfs/services/trust
         ```
 
-    1. Get the federation service endpoint:
-
-        ```powershell
-        Get-AdfsEndpoint -AddressPath /adfs/ls/ | Select FullUrl
-        ```
-
-        The endpoint has the following format:
-
-        ```text
-        https://<federation_service_name>/adfs/ls/
-        ```
+    1. {% include [get-adfs-endpoint](../../../../_includes/organization/get-adfs-endpoint.md) %}
 
     {% note info %}
 
@@ -140,7 +116,7 @@ To enable {{ org-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} cert
 
   1. Click the row with `demo-federation` to add your certificate to.
 
-  1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
 
   1. Enter the certificate name and specify the path to the `adfs_certificate.cer` file you saved earlier.
 
@@ -148,11 +124,7 @@ To enable {{ org-name }} to verify the {{ microsoft-idp.adfs-abbreviated }} cert
 
 {% endlist %}
 
-{% note tip %}
-
-To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
-
-{% endnote %}
+{% include [federation-certificates-note](../../../../_includes/organization/federation-certificates-note.md) %}
 
 ## Create and configure a relying party trust on the {{ microsoft-idp.adfs-abbreviated }} side {#create-relying-party-trust}
 
@@ -209,33 +181,7 @@ To ensure the authentication is not interrupted when the certificate expires, ad
 
     You will [configure](#map-adfs-ldap) claim issuance policies later.
 
-1. Optionally, if you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating a federation](#create-federation) in {{ org-full-name }}, configure the associated relying party trust parameters:
-
-    1. Open the context menu of the relying party trust you created and select **Properties**.
-
-        This will open the window with relying party trust properties.
-
-    1. Go to the **Encryption** tab and add the [previously](#create-federation) obtained certificate:
-
-        1. Click **Browse**.
-        1. Select the certificate file, such as `YandexCloud.cer`.
-
-    1. Go to the **Signature** tab and add the same certificate:
-
-        1. Click **Add**.
-        1. Select the certificate file.
-
-    1. Click **OK**.
-
-    1. Enable required claim encryption and request signing for the created relying party trust:
-
-        ```powershell
-        Set-AdfsRelyingPartyTrust `
-            -TargetName "{{ yandex-cloud }}" `
-            -EncryptClaims $true `
-            -SignedSamlRequestsRequired $true `
-            -SamlResponseSignature MessageAndAssertion
-        ```
+1. {% include [adfs-postinstall-setup-additional-encryption-settings](../../../../_includes/organization/adfs-postinstall-setup-additional-encryption-settings.md) %}
 
 ## Configure attribute mapping on the {{ microsoft-idp.adfs-abbreviated }} side {#adfs-mapping}
 

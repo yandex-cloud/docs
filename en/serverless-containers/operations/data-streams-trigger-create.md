@@ -1,10 +1,15 @@
+---
+title: Creating a trigger for {{ yds-full-name }} that invokes a {{ serverless-containers-full-name }} container
+description: Follow this guide to create a trigger for {{ yds-name }} that invokes a container in {{ serverless-containers-name }}.
+---
+
 # Creating a trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container
 
- Create a [trigger for {{ yds-name }}](../concepts/trigger/data-streams-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
+ Create a [trigger for {{ yds-name }}](../concepts/trigger/data-streams-trigger.md) to invoke a {{ serverless-containers-name }} [container](../concepts/container.md) when data is sent to a [stream](../../data-streams/concepts/glossary.md#stream-concepts). 
 
 ## Getting started {#before-you-begin}
 
-To create a trigger, you need:
+To create a trigger, you will need:
 
 * A container that the trigger will invoke. If you do not have a container:
 
@@ -21,7 +26,7 @@ To create a trigger, you need:
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* A stream that will activate the trigger as soon as it receives data.  If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md). 
+* The stream that will activate the trigger when it receives data. If you do not have a stream, [create one](../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -77,7 +82,7 @@ To create a trigger, you need:
       --name <trigger_name> \
       --database <database_location> \
       --stream <stream_name> \
-      --batch-size <message_group_size> \
+      --batch-size <message_batch_size> \
       --batch-cutoff <maximum_timeout> \
       --stream-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
@@ -146,7 +151,7 @@ To create a trigger, you need:
          id                 = "<container_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<interval_between_retry_attempts>"
+         retry_interval     = "<time_between_retry_attempts>"
        }
        data_streams {
          stream_name        = "<stream_name>"

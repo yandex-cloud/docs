@@ -20,7 +20,7 @@ Roles for a resource can be assigned by users who have the `functions.admin` rol
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [function](../concepts/function.md) via the YC CLI or the {{ yandex-cloud }} API.
+To assign a role for a [function](../concepts/function.md), use the {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/function/add-access-binding.md), [API](../api-ref/functions/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/function_iam_binding).
 
 ## Which roles exist in the service {#roles-list}
 

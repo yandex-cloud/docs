@@ -1,3 +1,8 @@
+---
+title: Service resource labels
+description: In this article you will learn about labels, their use cases, and the services labels are supported in.
+---
+
 # Service resource labels
 
 
@@ -38,7 +43,7 @@ Labels are subject to the following limitations:
 
 {% note info %}
 
-Some service resources do not support labels, and some interfaces may not display them. For example, resource labels may not be visible in the management console interface or {{ cloud-center }} interface.
+Certain service resources do not support labels, and certain interfaces do not display them. For example, the management console interface or the {{ cloud-center }} one might not display resource labels.
 
 {% endnote %}
 

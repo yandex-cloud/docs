@@ -1,3 +1,8 @@
+---
+title: Trail
+description: In this tutorial, you will learn about what a trail is, its settings, available event collection areas, and destination objects.
+---
+
 # Trail
 
 

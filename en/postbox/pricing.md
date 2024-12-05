@@ -1,3 +1,9 @@
+---
+title: '{{ postbox-full-name }} pricing policy'
+description: This article provides the {{ postbox-name }} pricing policy.
+editable: false
+---
+
 # {{ postbox-name }} pricing policy
 
 

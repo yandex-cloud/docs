@@ -1,3 +1,8 @@
+---
+title: Static access keys compatible with the AWS API
+description: In this article, you will learn about the purpose of a static access key, its format, and about the services supporting this authentication method.
+---
+
 # Static access keys compatible with the AWS API
 
 
@@ -30,9 +35,9 @@ In addition to static access keys, you can use [{{ sts-name }}](sts.md) temporar
 
 A key ID consists of 25 characters and always starts with `YC`. Other characters may include:
 
-* Latin letters
-* Numbers
-* Underscores (`_`) and hyphens (`-`)
+* Latin letters.
+* Numbers.
+* Underscores (`_`) and hyphens (`-`).
 
 Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
@@ -40,9 +45,9 @@ Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
 A secret key consists of 40 characters and always starts with `YC`. Other characters may include:
 
-* Latin letters
-* Numbers
-* Underscores (`_`) and hyphens (`-`)
+* Latin letters.
+* Numbers.
+* Underscores (`_`) and hyphens (`-`).
 
 Here is an example of a secret key: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
