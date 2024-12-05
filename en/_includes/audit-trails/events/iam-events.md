@@ -15,6 +15,8 @@ Event name | Description
 `DeleteKey` | Deleting a key pair for a service account
 `DeleteServiceAccount` | Deleting a service account
 `DetectLeakedCredential` | Detecting a secret in a public source
+`DisableService` | Revoking service access to resources of other cloud services
+`EnableService` | Granting service access to resources of other cloud services
 `SetServiceAccountAccessBindings` | Assigning access permissions for a service account
 `UpdateAccessKey` | Updating a static key
 `UpdateApiKey` | Updating an API key

@@ -1,4 +1,9 @@
-# Step-by-step instructions for {{ at-full-name }}
+---
+title: Step-by-step guides for {{ at-full-name }}
+description: Step-by-step guides for {{ at-full-name }}. In this guide, you will learn how to upload audit logs to {{ yandex-cloud }} services.
+---
+
+# Step-by-step guides for {{ at-full-name }}
 
 
 ## Uploading audit logs to {{ cloud-logging-name }} {#logging}

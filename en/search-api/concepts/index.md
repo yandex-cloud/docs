@@ -19,7 +19,7 @@ You can also use API v1 for text search in combination with [{{ yagpt-name }}](.
 
 {% note info %}
 
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request. To get access, fill out [this form](#contact-form).
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 

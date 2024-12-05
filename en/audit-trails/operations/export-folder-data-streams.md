@@ -1,3 +1,8 @@
+---
+title: Uploading folder audit logs to {{ yds-full-name }}
+description: Follow this guide to upload folder audit logs to {{ yds-name }}.
+---
+
 # Uploading folder audit logs to {{ yds-name }}
 
 
@@ -108,7 +113,7 @@ To create a trail that exports folder audit logs:
         --name <trail_name> \
         --description "<trail_description>" \
         --service-account-id <service_account_ID> \
-        --destination-yds-stream <stream_name> \
+        --destination-yds-stream <data_stream_name> \
         --destination-yds-database-id <YDB_DB_ID> \
         --filter-all-folder-id <folder_ID>
       ```

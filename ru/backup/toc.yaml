@@ -24,6 +24,8 @@ items:
             href: operations/connect-vm-windows.md
           - name: Обновить подключение ВМ к {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Обновить агент резервного копирования на ВМ
+            href: operations/update-backup-agent.md
           - name: Обновить подключение ВМ на Linux с {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
           - name: Удалить ВМ из {{ backup-name }}

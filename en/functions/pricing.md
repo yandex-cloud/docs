@@ -1,4 +1,6 @@
 ---
+title: '{{ sf-full-name }} pricing policy'
+description: This article provides the {{ sf-name }} pricing policy.
 editable: false
 ---
 
@@ -28,7 +30,7 @@ You are only charged for the [function calls](concepts/function-invoke.md) that 
 
 
 
-Monthly cost = $0.043760 × Memory (GB) × Call processing time (Hours) + $0.12800 × Millions of calls
+Cost per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|string }} × Memory (GB) × Call processing time (Hours) + {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }} × Call count (in millions)
 
 {% include [not-charged-functions.md](../_includes/pricing/price-formula/not-charged-functions.md) %}
 
@@ -61,7 +63,7 @@ However, if the function uses other {{ yandex-cloud }} resources, they are bille
 
 {% include [usd.md](../_pricing/functions/usd-invocations.md) %}
 
-You pay for the actual number of calls. For instance, 1,000 calls over the included number cost $0.000128 if 1,000,000 calls are $0.128000.
+You pay for the actual number of invocations. For instance, 1000 calls over the included number cost {% calc [currency=USD] {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|number }} × 1000 / 1000000 %} if 1000000 calls are {{ sku|USD|serverless.functions.invocations.v1|pricingRate.1|string }}.
 
 
 ### Function execution time {#execution}

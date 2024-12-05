@@ -20,10 +20,36 @@ Roles for a resource can be assigned by users who have the `container-registry.a
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign a role for individual resources of the service. The list of such resources depends on the {{ yandex-cloud }} interfaces you use to assign roles:
+You can also assign roles for individual resources within the service:
 
-* In the management console, you can only assign roles for a [registry](../concepts/registry.md).
-* Through the YC CLI or the {{ yandex-cloud }} API, you can assign roles for a registry or [repository](../concepts/repository.md).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  You can use the [management console]({{ link-console-main }}) to assign roles for a [registry](../concepts/registry.md).
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/container/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Registry](../concepts/registry.md)
+  * [Repository](../concepts/repository.md)
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+
+  * [Registry](../concepts/registry.md)
+  * [Repository](../concepts/repository.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * [Registry](../concepts/registry.md)
+  * [Repository](../concepts/repository.md)
+
+{% endlist %}
 
 ## Which roles exist in the service {#roles-list}
 
@@ -57,7 +83,7 @@ You can also assign a role for individual resources of the service. The list of 
 
 {% include [container-registry.images.scanner](../../_roles/container-registry/images/scanner.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Primitive roles {#primitive-roles}
 
@@ -70,26 +96,26 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 
-| Action | Methods | Required roles |
+Action | Methods | Required roles
 --- | --- | ---
-| **View data** |
-| [Get a list of registries](../operations/registry/registry-list.md). | `list` | `container-registry.viewer` for a folder. |
-| Get information about registries, [Docker images](../operations/docker-image/docker-image-list.md), and [repositories](../operations/repository/repository-list.md). | `get`, `list` | `container-registry.viewer` for the registry containing the resource. |
-| [Pulling a Docker image](../operations/docker-image/docker-image-pull.md). | `pull` | `container-registry.images.puller`<br>for the registry or repository. |
-| Getting information on [lifecycle policies](../operations/lifecycle-policy/lifecycle-policy-list.md) and the outcomes of their [dry runs](../operations/lifecycle-policy/lifecycle-policy-dry-run.md). | `get`, `list`, `getDryRunResult`, `listDryRunResults` | `container-registry.viewer` for the registry or repository that the lifecycle policy was created for. |
-| **Manage resources** |
-| [Create registries in a folder](../operations/registry/registry-create.md). | `create` | `container-registry.editor` for a folder. |
-| [Update](../operations/registry/registry-update.md) and [delete](../operations/registry/registry-delete.md) registries | `update`, `delete` | `container-registry.editor` for the specified registry. |
-| [Create Docker images](../operations/docker-image/docker-image-create.md) using basic Docker images from the registry | — | `container-registry.images.puller`<br>for the registry or repository. |
-| [Create Docker images](../operations/docker-image/docker-image-create.md) without using basic Docker images from the registry. | — | No roles required. |
-| [Push Docker images to the registry](../operations/docker-image/docker-image-push.md). | `push` | `container-registry.images.pusher`<br>for the registry or repository. |
-| [Delete Docker images](../operations/docker-image/docker-image-delete.md). | `delete` | `container-registry.images.pusher` for a registry or repository containing a Docker image. |
-| [Create](../operations/lifecycle-policy/lifecycle-policy-create.md), [edit](../operations/lifecycle-policy/lifecycle-policy-update.md), [delete](../operations/lifecycle-policy/lifecycle-policy-delete.md), and perform a [dry run](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) of a lifecycle policy. | `create`, `update`, `delete`, `dryRun` | `container-registry.editor` for the registry or repository that the lifecycle policy was created for. |
-| **Manage resource access** |
-| [Granting a role](../../iam/operations/roles/grant.md), [revoking a role](../../iam/operations/roles/revoke.md), and viewing the roles assigned to a folder, a cloud, or a registry. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource. |
-| **Scanning for vulnerabilities** |
-| [Scanning](../operations/scanning-docker-image.md) a Docker image. | `scan` | `container-registry.images.scanner` for a registry or repository containing a Docker image. |
-| Getting the results of a Docker image scan. | `get`, `getLast`, `list`, `listVulnerabilities` | `container-registry.images.scanner` for a registry or repository containing a Docker image. |
+**Viewing data** |
+[Get a list of registries](../operations/registry/registry-list.md). | `list` | `container-registry.viewer` for the folder
+Get information about registries, [Docker images](../operations/docker-image/docker-image-list.md), and [repositories](../operations/repository/repository-list.md). | `get`, `list` | `container-registry.viewer` for the registry containing the resource
+[Pulling a Docker image](../operations/docker-image/docker-image-pull.md). | `pull` | `container-registry.images.puller`<br>For the registry or repository
+Get information on [lifecycle policies](../operations/lifecycle-policy/lifecycle-policy-list.md) and the outcomes of their [dry runs](../operations/lifecycle-policy/lifecycle-policy-dry-run.md). | `get`, `list`, `getDryRunResult`, `listDryRunResults`| `container-registry.viewer` for the registry or repository the lifecycle policy was created for
+**Managing resources** |
+[Create registries in a folder](../operations/registry/registry-create.md). | `create` | `container-registry.editor` for the folder
+[Update](../operations/registry/registry-update.md) and [delete](../operations/registry/registry-delete.md) registries | `update`, `delete` | `container-registry.editor` for the registry
+[Create Docker images](../operations/docker-image/docker-image-create.md) using basic Docker images from the registry | — | `container-registry.images.puller`<br>For the registry or repository
+[Create Docker images](../operations/docker-image/docker-image-create.md) without using basic Docker images from the registry. | — | No roles required.
+[Push Docker images to the registry](../operations/docker-image/docker-image-push.md). | `push` | `container-registry.images.pusher`<br>For the registry or repository
+[Delete Docker images](../operations/docker-image/docker-image-delete.md). | `delete` | `container-registry.images.pusher` for the registry or repository containing the Docker image
+[Create](../operations/lifecycle-policy/lifecycle-policy-create.md), [edit](../operations/lifecycle-policy/lifecycle-policy-update.md), [delete](../operations/lifecycle-policy/lifecycle-policy-delete.md), and perform a [dry run](../operations/lifecycle-policy/lifecycle-policy-dry-run.md) of a lifecycle policy. | `create`, `update`, `delete`, `dryRun` | `container-registry.editor` for the registry or repository the lifecycle policy was created for
+**Resource access management** |
+[Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned to a folder, a cloud, or a registry. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+**Scan for vulnerabilities** |
+[Scan](../operations/scanning-docker-image.md) a Docker image. | `scan` | `container-registry.images.scanner` for the registry or repository containing the Docker image
+Get the results of a Docker image scan. | `get`, `getLast`, `list`, `listVulnerabilities` | `container-registry.images.scanner` for the registry or repository containing the Docker image
 
 
 

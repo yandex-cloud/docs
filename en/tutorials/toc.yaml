@@ -40,7 +40,15 @@ items:
           Ansible
         href: security/sa-oslogin-ansible.md
       - name: Providing secure access to content in {{ cdn-name }}
-        href: security/protected-access-to-content.md
+        items:
+          - name: Overview
+            href: security/protected-access-to-content/index.md
+          - name: Management console, CLI, and API
+            href: security/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: security/protected-access-to-content/terraform.md
+      - name: Uploading audit logs to SIEM KUMA
+        href: security/audit-trails-events-to-kuma.md
   - name: Storing and recovering data
     items:
       - name: All tutorials

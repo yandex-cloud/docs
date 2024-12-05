@@ -4,7 +4,7 @@ description:
     This service allows you to integrate <a
     href="https://translate.yandex.ru/">Yandex&#160;Translate</a> algorithms
     into end-user applications or  web projects. Yandex Translate can translate
-    individual words and complete texts, supporting more than 90 languages.
+    individual words and complete texts, supporting more than 100 languages.
   - To access the service, use the <a href=api-ref/authentication>API</a>.
   - >-
     Yandex Cloud infrastructure is <a

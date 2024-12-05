@@ -139,11 +139,7 @@ To make sure that {{ org-name }} can verify the {{ keycloak }} server certificat
 
 {% endlist %}
 
-{% note tip %}
-
-To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. If one certificate goes invalid, {{ yandex-cloud }} will try another one to verify the signature.
-
-{% endnote %}
+{% include [federation-certificates-note](../../../../_includes/organization/federation-certificates-note.md) %}
 
 ## Create and configure a SAML application in {{ keycloak }} {#keycloak-settings}
 

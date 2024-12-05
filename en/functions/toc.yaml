@@ -462,8 +462,14 @@ items:
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Scheduled scaling of an instance group
-        href: tutorials/vm-scale-scheduled.md
+      - name: Scheduled scaling of instance groups
+        items:
+          - name: Overview
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
       - name: Monitoring sensor readings and event notifications

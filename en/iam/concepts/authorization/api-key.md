@@ -1,3 +1,8 @@
+---
+title: API key
+description: In this article, you will learn what an API key is, about its purpose, how to use it, and about the services supporting the API key authentication method.
+---
+
 # API key
 
 
@@ -21,7 +26,7 @@ You can [create](../../operations/api-key/create.md) API keys with an expiration
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
-The scope limits the use of API keys in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+The scope limits the use of API keys along with the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
 
 {% include [scoped-api-keys-note](../../../_includes/iam/scoped-api-keys-note.md) %}
 
@@ -46,7 +51,7 @@ The following services support authentication based on API keys:
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
-* {{ serverless-containers-full-name }}: [Containers](../../../serverless-containers/api-ref/containers/authentication.md) and [triggers](../../../serverless-containers/api-ref/triggers/authentication.md).
+* [{{ serverless-containers-full-name }}](../../../serverless-containers/)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
 * [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)

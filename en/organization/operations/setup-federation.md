@@ -262,9 +262,9 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
       1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-      1. Click the row with the federation to add your certificate to.
+      1. Click the row with the federation you want to add a certificate to.
 
-      1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+      1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
 
       1. Enter certificate name and description.
 
@@ -304,7 +304,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
             "federationId": "<federation_ID>",
             "description": "<certificate_description>",
             "name": "<certificate_name>",
-            "data": "<certificate_content>"
+            "data": "<certificate_contents>"
           }
           ```
 
@@ -323,11 +323,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
       ```
   {% endlist %}
 
-{% note tip %}
-
-To ensure the authentication is not interrupted when the certificate expires, add multiple certificates to the federation, i.e., both the current one and those to use afterwards. When one certificate goes invalid, {{ yandex-cloud }} will use another one to verify the signature.
-
-{% endnote %}
+{% include [federation-certificates-note](../../_includes/organization/federation-certificates-note.md) %}
 
 ## Adding a federation certificate to an IdP server {#add-certificate-idp}
 
@@ -440,7 +436,7 @@ Set up the SAML application for the message to contain:
 * User's unique ID was specified in the `NameID` element. We recommend using the User Principal Name (UPN) or email address as the ID.
 * Your IdP's redirect URL for user authentication was specified in the `Issuer` element.
 * Signed message was specified in the `SignatureValue` element, and the certificate used to sign the message, in the `KeyInfo` element.
-* Username and email address must be specified in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
+* Make sure to specify the username and email address in the `AttributeStatement` element; this will enable the user to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
 
 For more information on how to set up a SAML application, consult you IdP's documentation or contact their support. You can also find examples of IdP-specific setups in our tutorials:
 
@@ -472,9 +468,9 @@ The `thumbnailPhoto` attribute value exceeding the length limit is ignored. Othe
 
 {% endnote %}
 
-## Testing federated authentication {#test-auth}
+## Testing authentication {#test-auth}
 
-Test that federated authentication works properly:
+Test federated user authentication:
 
 1. If you disabled the **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** option in your federation, [add](add-account.md#add-user-sso) the users manually.
 
@@ -497,6 +493,6 @@ Test that federated authentication works properly:
 1. Enter your authentication data. By default, you must enter the UPN and password.
 1. Click **Sign in**.
 
-1. On successful authentication, the IdP server will redirect you to the ACS URL that you specified in the server settings, and then, to the management console home page.
+1. On successful authentication, the IdP server will redirect you to the ACS URL you specified in the server settings and from there to the management console home page.
 
 Make sure you are logged in to the console as a federated user.

@@ -20,6 +20,8 @@ Roles for a resource can be assigned by users who have the `iam.admin` role or o
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+You can assign a role for a [service account](../concepts/users/service-accounts.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/iam/cli-ref/service-account/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+
 ## Which roles exist in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
@@ -111,7 +113,7 @@ For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For instance, you can assign `editor` instead of `viewer`.
+The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
 Action | Methods | Required roles
 ----- | ----- | -----
@@ -134,6 +136,6 @@ Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tok
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
-* See [how to revoke a role](../../iam/operations/roles/revoke.md) for more info.
+* [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

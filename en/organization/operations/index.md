@@ -5,6 +5,10 @@ description: In this article, you will learn how to work with {{ org-full-name }
 
 # Guides on using {{ org-full-name }}
 
+## Notification settings {#setup-notifications}
+
+* [{#T}](subscribe-user-for-notifications.md).
+
 ## Managing organizations {#manage-orgs}
 
 * [{#T}](enable-org.md).
@@ -20,7 +24,6 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](add-role.md).
 * [{#T}](edit-account.md).
 * [{#T}](leave-organization.md).
-* [{#T}](subscribe-user-for-notifications.md).
 
 ## Managing user groups {#manage-groups}
 

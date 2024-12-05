@@ -1,4 +1,4 @@
-Get a list of logins in the {{ oslogin }} profiles of the organization's users and service accounts by specifying the organization ID:
+Get a list of [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) logins of your organization's users and service accounts by specifying the organization ID:
 
 ```bash
 yc organization-manager os-login profile list \

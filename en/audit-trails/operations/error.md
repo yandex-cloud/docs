@@ -1,11 +1,16 @@
+---
+title: Handling errors
+description: In this article, you will learn about known errors that occur when sending audit logs to trail destination objects. Follow the suggested recommendations to get the trail back to normal.
+---
+
 # Handling errors
 
 
-If a trail cannot send audit logs to the [destination object](../concepts/trail.md#target), the [trail status](../concepts/trail.md#status) will change to `Error`. This guide contains recommendations on how to recover the trail.
+If a trail is unable to send audit logs to the [destination object](../concepts/trail.md#target), its [status](../concepts/trail.md#status) will change to `Error`. This guide contains recommendations on how get the trail back to normal.
 
 {% note info %}
 
-A few minutes after the error cause is removed, the trail status will change to `Active`. All audit logs will be uploaded to the destination object.
+A few minutes after the cause of the error is removed, the trail's status will revert to `Active`. All audit logs will be uploaded to the destination object.
 
 {% endnote %}
 
@@ -31,20 +36,20 @@ Destination objects:
 
 ### BUCKET_CLOUD_QUOTA_EXCEEDED {#bucket-cloud-quota-exceeded}
 
-Contact [support]({{ link-console-support }}) to have the {{ objstorage-name }} [quota](../../storage/concepts/limits.md#storage-quotas) for the cloud increased.
+Contact [support]({{ link-console-support }}) to have your {{ objstorage-name }} [quota](../../storage/concepts/limits.md#storage-quotas) for the cloud increased.
 
 ### BUCKET_NOT_FOUND {#bucket-not-found}
 
 Check the bucket specified in the [trail settings](../concepts/trail.md#trail-settings). If the bucket was deleted:
 1. [Create](../../storage/operations/buckets/create.md) a new bucket with the same name as that specified in the trail settings.
 
-   You can also change the trail settings by specifying a different bucket under **{{ ui-key.yacloud.audit-trails.label_destination }}**.
-1. If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with the {{ kms-full-name }} key, grant the `kms.keys.decrypter` [role](../../kms/security/index.md#kms-keys-decrypter) for the key to the service account used by the trail to upload audit logs to the bucket.
+    You can also change the trail settings by specifying a different bucket under **{{ ui-key.yacloud.audit-trails.label_destination }}**.
+1. If the bucket is [encrypted](../../storage/tutorials/server-side-encryption.md) with a {{ kms-full-name }} key, assign the `kms.keys.decrypter` [role](../../kms/security/index.md#kms-keys-decrypter) for the key to the service account used by the trail to upload audit logs to the bucket.
 
 
 ### BUCKET_INVALID_ENCRYPTION {#bucket-invalid-encryption}
 
-Check whether the {{ kms-full-name }} key used to [encrypt](../../storage/tutorials/server-side-encryption.md) the bucket has the `Active` status.
+Make sure the {{ kms-full-name }} key used to [encrypt](../../storage/tutorials/server-side-encryption.md) the bucket has the `Active` status.
 
 
 ### UNKNOWN or INTERNAL_ERROR {#bucket-internal-error}
@@ -52,11 +57,11 @@ Check whether the {{ kms-full-name }} key used to [encrypt](../../storage/tutori
 Contact [support]({{ link-console-support }}) for additional information and recommendations.
 
 
-## {{ yds-name }} stream {#data-streams}
+## {{ yds-name }} data stream {#data-streams}
 
 ### ACCESS_DENIED {#stream-access-denied}
 
-Make sure the service account used by the trail to upload audit logs to the stream is assigned the `yds.writer` or a higher [role](../../data-streams/security/#yds-editor).
+Make sure the service account used by the trail to upload audit logs to the stream has the `yds.writer` [role](../../data-streams/security/#yds-editor) or higher.
 
 ### STREAM_NOT_FOUND {#stream-not-found}
 
@@ -66,13 +71,13 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 
 ### DATABASE_INACTIVE {#database-inactive}
 
-[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running`. Start the database, if required. You can do this via the [management console]({{ link-console-main }}):
+[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database has the `Running` status. Start the database if you need to, e.g., via the [management console]({{ link-console-main }}):
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **{{ ui-key.yacloud.common.start }}**.
 
 ### DATABASE_NOT_FOUND {#database-not-found}
 
-[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database status is `Running` and the linked [stream](../../data-streams/operations/manage-streams.md#list-data-streams) status is `Active`. If the stream or its {{ ydb-short-name }} database were deleted, create a new [stream](../../data-streams/operations/manage-streams.md#create-data-stream) or [database](../../ydb/operations/manage-databases.md#serverless).
+[Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database has the `Running` status, and the linked [stream](../../data-streams/operations/manage-streams.md#list-data-streams) is `Active`. If the stream or its {{ ydb-short-name }} database were deleted, create a new [stream](../../data-streams/operations/manage-streams.md#create-data-stream) or [database](../../ydb/operations/manage-databases.md#serverless).
 
 ### UNKNOWN or INTERNAL_ERROR {#database-internal-error}
 

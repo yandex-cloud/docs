@@ -5,7 +5,7 @@ Using serverless technology, you can create your own integration with {{ yandex-
 
 User integration is a {{ sf-full-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-full-name }} [container](../../serverless-containers/concepts/container.md) designed to perform common tasks.
 
-The function or container can be configured in the {{ api-gw-name }} [API gateway](../../api-gateway/concepts/) specifications supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) to execute specific HTTP requests.
+The function or container can be configured in the {{ api-gw-name }} [API gateway specifications](../../api-gateway/concepts/) supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) to execute specific HTTP requests.
 
 Develop {{ ydb-full-name }} integration function for the [{{ ydb-short-name }} DBMS](../../ydb/concepts/#ydb). The function interacts with {{ ydb-name }} and processes external HTTP requests via the API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function source code language is TypeScript, the runtime environment is Node.js 16.
 
@@ -18,7 +18,7 @@ To deploy a project:
 1. [Upload the file of the function to the bucket](#upload-to-bucket).
 1. [Prepare a resource configuration for the integration](#prepare-configuration).
 1. [Deploy resources for the integration](#deploy-resources).
-1. [Check the performance of the CRUD API](#test-api).
+1. [Test the new CRUD API](#test-api).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -40,7 +40,7 @@ The cost of resources for the integration includes:
 
 - Windows {#windows}
 
-  1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
+  1. [Install the WSL utility](https://docs.microsoft.com/en-us/windows/wsl/install) to run a Linux environment.
   1. Run the Linux subsystem (by default, Ubuntu).
   1. Configure the environment as described in the Linux manual.
 
@@ -280,7 +280,7 @@ To prepare configuration files for {{ TF }}:
      cloud_id    = "<cloud_ID>"
      folder_id   = "<folder_ID>"
      oauth_token = "<OAuth_token>"
-     zone        = "{{ region-id }}-a"
+     zone        = "{{ region-id }}-d"
    }
 
    module "crud-api" {
@@ -564,9 +564,9 @@ To prepare configuration files for {{ TF }}:
 
    You can use the [management console]({{ link-console-main }}) to check the created resources.
 
-## Check the performance of the created CRUD API {#test-api}
+## Test the new CRUD API {#test-api}
 
-To check the performance of the created CRUD API, run the following HTTP requests:
+To test the new CRUD API, send the following HTTP requests:
 1. Add movie details. In the terminal, run this command:
 
    ```bash

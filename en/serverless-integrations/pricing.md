@@ -1,3 +1,9 @@
+---
+title: '{{ si-full-name }} pricing policy'
+description: This article provides the {{ si-name }} pricing policy.
+editable: false
+---
+
 # {{ si-name }} pricing policy
 
 

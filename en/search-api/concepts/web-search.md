@@ -5,8 +5,6 @@ description: This section describes the specificities and format of text queries
 
 # Text search with API v2
 
-{% include [note-preview](../../_includes/note-preview.md) %}
-
 With {{ search-api-name }} API v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. The queries run with [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
 
 [Queries can be submitted](../operations/web-search.md) by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).

@@ -53,7 +53,7 @@ API-ключи в качестве способа аутентификации �
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
-* {{ serverless-containers-full-name }} — [контейнеры](../../../serverless-containers/api-ref/containers/authentication.md) и [триггеры](../../../serverless-containers/api-ref/triggers/authentication.md)
+* [{{ serverless-containers-full-name }}](../../../serverless-containers/)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
 * [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
