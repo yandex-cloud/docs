@@ -55,6 +55,12 @@
 
 1. Добавьте созданный SSH-ключ в профиль {{ oslogin }} сервисного аккаунта `my-ansible-sa`:
 
+    {% note warning %}
+
+    Убедитесь что версия yc >= 0.121.0
+
+    {% endnote %}
+
     {% list tabs group=instructions %}
 
     - CLI {#cli}
