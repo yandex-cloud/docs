@@ -9,8 +9,6 @@ You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](.
 
 {% include [note-preview-by-request](../../_includes/note-preview.md) %}
 
-To get access to the generative response feature, fill out [this form](#contact-form) or contact your account manager.
-
 Currently, generative response is only available for queries submitted via the [API v1](./index.md#api-v1).
 
 ## Search query {#request}

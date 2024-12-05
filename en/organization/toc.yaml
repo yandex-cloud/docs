@@ -7,13 +7,15 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Subscribing a user to notifications
+        href: operations/subscribe-user-for-notifications.md
       - name: Managing organizations
         items:
           - name: Overview
             href: operations/organizations-overview.md
           - name: Creating an organization
             href: operations/enable-org.md
-          - name: Getting an organization ID
+          - name: Getting organization ID
             href: operations/organization-get-id.md
           - name: Editing organization data
             href: operations/org-profile.md
@@ -33,8 +35,6 @@ items:
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
-          - name: Subscribing a user to notifications
-            href: operations/subscribe-user-for-notifications.md
       - name: Managing user groups
         items:
           - name: Overview

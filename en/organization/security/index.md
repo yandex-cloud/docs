@@ -12,7 +12,7 @@ For more information on access management in {{ yandex-cloud }}, see the {{ iam-
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role via the [{{ cloud-center }} interface]({{ cloud-center-link }}), [YC CLI](../../cli/quickstart.md) or [API {{ yandex-cloud }}](../../api-design-guide/index.yaml) for individual resources within the service:
+You can assign a role for individual resources within the service using the [{{ cloud-center }} interface]({{ cloud-center-link }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-link }}):
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 

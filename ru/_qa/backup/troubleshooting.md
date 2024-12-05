@@ -52,3 +52,7 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
 * Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection.md#vm-network-access).
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее см. в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+
+#### Как обновить агент резервного копирования {{ backup-name }} на ВМ? {#update-backup-agent}
+
+См. инструкцию [Обновить агент резервного копирования {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md).

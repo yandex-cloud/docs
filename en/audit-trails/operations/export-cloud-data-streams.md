@@ -1,3 +1,8 @@
+---
+title: Uploading cloud audit logs to {{ yds-full-name }}
+description: Follow this guide to upload cloud audit logs to {{ yds-name }}.
+---
+
 # Uploading cloud audit logs to {{ yds-name }}
 
 
@@ -109,7 +114,7 @@ To create a trail that exports audit logs from the cloud:
         --name <trail_name> \
         --description "<trail_description>" \
         --service-account-id <service_account_ID> \
-        --destination-yds-stream <stream_name> \
+        --destination-yds-stream <data_stream_name> \
         --destination-yds-database-id <YDB_DB_ID> \
         --filter-from-cloud-id <cloud_ID> \
         --filter-some-folder-ids <cloud_folder_list>

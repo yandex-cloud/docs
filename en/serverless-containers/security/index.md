@@ -17,7 +17,7 @@ Roles for a resource can be assigned by users who have the `serverless-container
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [container](../concepts/container.md) via the YC CLI or {{ yandex-cloud }} API.
+To assign a role for a [container](../concepts/container.md), use the {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/container/add-access-binding.md), [API](../api-ref/containers/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/serverless_container_iam_binding).
 
 ## Which roles exist in the service {#roles-list}
 

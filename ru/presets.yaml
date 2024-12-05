@@ -5634,6 +5634,9 @@ default:
         title_method-push: Push-уведомления
         title_method-sms: SMS
       component:
+        add-to-dashboard-form:
+          action:
+            copy-and-go: Копировать и перейти к дашборду
         parametrizer:
           add: Добавить параметр
           dashboard:
@@ -7228,7 +7231,7 @@ default:
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
-            label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
+            label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub

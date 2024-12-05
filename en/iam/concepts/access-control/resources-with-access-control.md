@@ -3,7 +3,7 @@ title: List of resources you can assign roles for in {{ iam-full-name }}
 description: In this tutorial, you will learn which {{ yandex-cloud }} resources you can assign roles for.
 ---
 
-# List of resources that you can assign roles for
+# List of resources you can assign roles for
 
 
 {{ yandex-cloud }} has various resources for which you can [assign](../../operations/roles/grant.md), [view](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles.
@@ -14,88 +14,227 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- Management console and service interfaces {#console}
 
-  **{{ container-registry-name }}**
-  * [Registry](../../../container-registry/operations/roles/grant.md)
+  **{{ billing-name }}**
+  * [Billing account](../../../billing/concepts/billing-account.md)
 
-  **{{ compute-name }}**
+  **{{ cloud-desktop-full-name }}**
+  * [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
 
   {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
-  **{{ iam-name }}**
+  **{{ container-registry-full-name }}**
+  * [Registry](../../../container-registry/concepts/registry.md)
+
+  **{{ datalens-full-name }}**
+  * [Workbook](../../../datalens/workbooks-collections/index.md)
+  * [Collection](../../../datalens/workbooks-collections/index.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Project](../../../datasphere/security/index.md)
+  * [Community](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
   * [Service account](../../operations/sa/assign-role-for-sa.md)
 
-  **{{ kms-name }}**
+  **{{ kms-full-name }}**
 
   {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
 
-  **{{ ydb-name }}**
-  * [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
+  **{{ lockbox-full-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
 
   **{{ metadata-hub-full-name }}**
   * [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
 
-  **{{ objstorage-name }}**
+  **{{ objstorage-full-name }}**
   * [Bucket](../../../storage/operations/buckets/iam-access.md)
 
-  **{{ resmgr-name }}**
+  **{{ resmgr-full-name }}**
   * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
   * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
 
-  **{{ lockbox-name }}**
-  * [Secret](../../../lockbox/operations/secret-access.md)
+  **{{ speechsense-full-name }}**
+  * [Space](../../../speechsense/concepts/resources-hierarchy.md#space)
+  * [Project](../../../speechsense/concepts/resources-hierarchy.md#project)
+
+  **{{ websql-full-name }}**
+  * [Saved query](../../../websql/concepts/index.md#saved-queries)
+  * [Historical query](../../../websql/concepts/index.md#query-log)
 
 - CLI {#cli}
 
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
+  **{{ api-gw-full-name }}**
+  * [API gateway](../../../api-gateway/concepts/index.md)
 
-- {{ TF }} {#tf}
+  **{{ at-full-name }}**
+  * [Trail](../../../audit-trails/concepts/trail.md)
 
-  **{{ container-registry-name }}**
-  * [Registry](../../../container-registry/operations/roles/grant.md)
-  * [Repository](../../../container-registry/operations/roles/grant.md)
+  **{{ certificate-manager-full-name }}**
+  * [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
 
-  **{{ ml-platform-name }}**
-  * [Project](../../../datasphere/security/index.md)
-  * [Community](../../../datasphere/security/index.md)
+  **{{ cloud-desktop-full-name }}**
+  * [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
 
-  **{{ dns-name }}**
+  **{{ dns-full-name }}**
   * [DNS zone](../../../dns/operations/zone-access.md)
 
-  **{{ sf-name }}**
+  **{{ sf-full-name }}**
   * [Function](../../../functions/operations/function/role-add.md)
 
-  **{{ compute-name }}**
+  **{{ cloud-logging-full-name }}**
+  * [Log group](../../../logging/concepts/log-group.md)
+  * [Log target](../../../logging/operations/create-sink.md)
 
-  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
-
-  **{{ iam-name }}**
-  * [Service account](../../operations/sa/assign-role-for-sa.md)
-
-  **{{ kms-name }}**
-
-  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
-
-  **{{ lockbox-name }}**
-  * [Secret](../../../lockbox/operations/secret-access.md)
-
-  **{{ resmgr-name }}**
-  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
-
-  **{{ serverless-containers-name }}**
-  * [Container](../../../serverless-containers/operations/role-add.md)
-
-  **{{ ydb-name }}**
-  * [YDB DBMS](../../../ydb/security/index.md)
-
-  **{{ org-name }}**
+  **{{ org-full-name }}**
 
   {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
 
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Registry](../../../container-registry/concepts/registry.md)
+  * [Repository](../../../container-registry/concepts/repository.md)
+
+  **{{ iam-full-name }}**
+  * [Service account](../../../iam/operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+  * YDB DBMS backup
+
+  **{{ resmgr-full-name }}**
+  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Container](../../../serverless-containers/operations/role-add.md)
+
+- {{ TF }} {#tf}
+
+  **{{ dns-full-name }}**
+  * [DNS zone](../../../dns/operations/zone-access.md)
+
+  **{{ sf-full-name }}**
+  * [Function](../../../functions/operations/function/role-add.md)
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Registry](../../../container-registry/concepts/registry.md)
+  * [Repository](../../../container-registry/concepts/repository.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Project](../../../datasphere/security/index.md)
+  * [Community](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
+  * [Service account](../../operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+
+  **{{ resmgr-full-name }}**
+  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Container](../../../serverless-containers/operations/role-add.md)
+
 - API {#api}
 
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
+  **{{ api-gw-full-name }}**
+  * [API gateway](../../../api-gateway/concepts/index.md)
+
+  **{{ at-full-name }}**
+  * [Trail](../../../audit-trails/concepts/trail.md)
+
+  **{{ certificate-manager-full-name }}**
+  * [Custom certificate](../../../certificate-manager/concepts/imported-certificate.md)
+
+  **{{ billing-name }}**
+  * [Billing account](../../../billing/concepts/billing-account.md)
+
+  **{{ cloud-desktop-full-name }}**
+  * [Desktop groups](../../../cloud-desktop/concepts/desktops-and-groups.md)
+
+  **{{ dns-full-name }}**
+  * [DNS zone](../../../dns/operations/zone-access.md)
+
+  **{{ sf-full-name }}**
+  * [Function](../../../functions/operations/function/role-add.md)
+
+  **{{ cloud-logging-full-name }}**
+
+  {% include notitle [logging-resources](../../../_includes/iam/resources-with-access-control/logging.md) %}
+
+  **{{ org-full-name }}**
+
+  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
+
+  **{{ compute-full-name }}**
+
+  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+
+  **{{ container-registry-full-name }}**
+  * [Registry](../../../container-registry/concepts/registry.md)
+  * [Repository](../../../container-registry/concepts/repository.md)
+
+  **{{ ml-platform-full-name }}**
+  * [Project](../../../datasphere/security/index.md)
+  * [Community](../../../datasphere/security/index.md)
+
+  **{{ iam-full-name }}**
+  * [Service account](../../../iam/operations/sa/assign-role-for-sa.md)
+
+  **{{ kms-full-name }}**
+
+  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+
+  **{{ lockbox-full-name }}**
+  * [Secret](../../../lockbox/operations/secret-access.md)
+
+  **{{ ydb-full-name }}**
+  * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
+  * YDB DBMS backup
+
+  **{{ resmgr-full-name }}**
+  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
+  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
+
+  **{{ serverless-containers-full-name }}**
+  * [Container](../../../serverless-containers/operations/role-add.md)
 
 {% endlist %}

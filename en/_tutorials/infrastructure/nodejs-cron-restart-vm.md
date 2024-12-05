@@ -51,12 +51,17 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
+  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the OAuth token value required for function authorization.
+     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a secret, run this command:
 
@@ -65,7 +70,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
     --payload "[{'key': 'key_token', 'text_value': '<OAuth_token>'}]"
   ```
 
-  Where `text_value` is the OAuth token value required for function authorization.
+  Where `text_value` is the value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
 
   Result:
 
@@ -99,9 +104,9 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      Where:
 
-     * `name`: Secret name
-     * `key`: Key of the secret.
-     * `text_value`: OAuth token value required for function authorization.
+     * `name`: Secret name.
+     * `key`: Secret key.
+     * `text_value`: Value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
@@ -229,14 +234,10 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** field, select the previously created `oauth-token` secret.
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** field, select a version for the secret.
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** field, select `key_token` as the key name.
-        * If you want to avoid logging and paying for {{ cloud-logging-name }}, disable logging by selecting `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_destination }}** field under **{{ ui-key.yacloud.logging.label_title }}**.
+        * If you want to avoid logging and paying for {{ cloud-logging-name }}, disable logging by selecting `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_title }}** field under **{{ ui-key.yacloud.logging.label_destination }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Create a function named `function-restart-vms`:
 
@@ -284,7 +285,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `--secret`: {{ lockbox-name }} secret data:
        * `name`: Secret name
        * `version-id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
-       * `key`: Key of the secret.
+       * `key`: Secret key.
        * `environment-variable`: Environment variable the secret will be kept in.
      * `--source-path`: Path to the `function-js.zip` archive you created earlier.
      * (Optional) `--no-logging`: Set this flag to avoid logging and paying for {{ cloud-logging-name }}.
@@ -347,7 +348,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `secrets`: {{ lockbox-name }} secret data:
        * `id`: Secret ID.
        * `version_id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
-       * `key`: Key of the secret.
+       * `key`: Secret key.
        * `environment_variable`: Environment variable the secret will be kept in.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 

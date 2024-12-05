@@ -1,3 +1,8 @@
+---
+title: Sending messages to an MQTT server via gRPC
+description: In this article you will learn about sending messages to an MQTT-server via gRPC, see what the serializable data structure looks like, and also find a suitable use case.
+---
+
 # Sending messages to an MQTT server via gRPC
 
 You can send messages to an MQTT server on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
@@ -6,7 +11,7 @@ You can similarly send messages to broker clients.
 
 ## Data structure
 
-To send messages to the MQTT server from your software, set the structure of serialized data.
+To send messages to the MQTT server from your software, specify the serializable data structure.
 
 ### Data structure for sending messages on behalf of a device
 
@@ -113,4 +118,4 @@ message PublishBrokerDataResponse {
 
 ## Use case
 
-An example of how to work with the MQTT server using gRPC for JavaScript is given in the [code](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) of a function that emulates sending messages on behalf of multiple devices.
+You can find a use case where an MQTT server is contacted via gRPC for JavaScript in the [code](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) of the function that emulates sending messages from multiple devices.

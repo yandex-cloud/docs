@@ -1,4 +1,6 @@
 ---
+title: '{{ serverless-containers-full-name }} pricing policy'
+description: This article provides the {{ serverless-containers-name }} pricing policy.
 editable: false
 ---
 

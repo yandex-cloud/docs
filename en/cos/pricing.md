@@ -1,8 +1,10 @@
 ---
+title: '{{ cos-full-name }} pricing policy'
+description: This article provides the {{ cos-name }} pricing policy.
 editable: false
 ---
 
-# Pricing for {{ cos-name }}
+# {{ cos-name }} pricing policy
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

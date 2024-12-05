@@ -34,7 +34,14 @@ The cost of supporting the infrastructure created in the guide includes:
 ## Create a service account with an SSH key in the {{ oslogin }} profile {#create-ssh-key}
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) it the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin).
-1. Create an SSH key pair of the `ed25519` type the service account will use to connect to virtual machines:
+
+    {% note info %}
+
+    A default [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) will be created automatically for the service account when you create one. By default, username (login) in the {{ oslogin }} profile is formed for the service account by adding the `yc-sa-` prefix to the service account name: `yc-sa-<service_account_name>`.
+
+    {% endnote %}
+
+1. Create an SSH key pair of the `ed25519` type that the service account will use to connect to virtual machines:
 
     ```bash
     ssh-keygen \
@@ -141,7 +148,7 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     }
     ```
 
-Connection to the VM is established. You can now manage virtual machines via Ansible under a service account with an {{ oslogin }} profile and a limited-validity SSH key.
+Connection to the VM is established. You can now manage virtual machines via Ansible on behalf of a service account with an {{ oslogin }} profile and an SSH key with a limited validity period.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -91,8 +91,14 @@ items:
             href: tutorials/run-docker-on-vm/console.md
           - name: '{{ TF }}'
             href: tutorials/run-docker-on-vm/terraform.md
-      - name: Setting up automatic scanning of a Docker image
-        href: tutorials/image-auto-scan.md
+      - name: Automatic Docker image scan on push
+        items:
+          - name: Overview
+            href: tutorials/image-auto-scan/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/image-auto-scan/console.md
+          - name: '{{ TF }}'
+            href: tutorials/image-auto-scan/terraform.md
         hidden: true
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md

@@ -1,18 +1,23 @@
-# Configuring a response in {{ cloud-logging-full-name }} and {{ sf-full-name }}
+---
+title: Configuring responses in {{ cloud-logging-full-name }} and {{ sf-full-name }}
+description: Follow this guide to customize responses in {{ cloud-logging-name }} and {{ sf-name }}.
+---
+
+# Configuring responses in {{ cloud-logging-full-name }} and {{ sf-full-name }}
 
 
 You can configure [{{ sf-name }}](../../functions/) to automatically respond to audit log events. For example, to send messages through convenient notification channels or automatically modify {{ yandex-cloud }} resource settings to compensate for changes.
 
-## How it works {#scheme}
+## Scheme of operation {#scheme}
 
-In general, you will require the following components to configure a response via {{ sf-name }}:
+In general, you will require the following components to configure responses via {{ sf-name }}:
 
 1. A trail uploads [audit logs to a log group](../operations/export-cloud-logging.md).
-2. A [log group](../../logging/concepts/log-group.md) acts as an interface between a trail and a {{ sf-name }} trigger.
-3. A [{{ cloud-logging-full-name }} trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) calls the function when adding an entry to a log group.
-4. A [{{ sf-name }} function](../../functions/concepts/function.md) to execute the response logic.
-5. An optional auxiliary component, such as a Telegram bot or mail server.
-
+1. A [log group](../../logging/concepts/log-group.md) acts as an interface between a trail and a {{ sf-name }} trigger.
+1. A [{{ cloud-logging-full-name }} trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) calls the function when adding an entry to a log group.
+1. A [{{ sf-name }} function](../../functions/concepts/function.md) to execute the response logic.
+1. An optional auxiliary component, such as a Telegram bot or mail server.
+ 
 ## Example implementation {#example}
 
 [Yc-security-solutions-library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) contains an example [solution](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response) that uses {{ sf-name }} to provide notification of specified events via a Telegram bot and perform compensating actions on {{ yandex-cloud }} resources via API methods.

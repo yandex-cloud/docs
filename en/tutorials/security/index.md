@@ -8,4 +8,5 @@
 * [Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }}](gitlab-lockbox-integration.md) secrets
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](sa-oslogin-ansible.md)
-* [{#T}](protected-access-to-content.md)
+* [{#T}](protected-access-to-content/index.md)
+* [{#T}](audit-trails-events-to-kuma.md)

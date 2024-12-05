@@ -39,6 +39,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-url-prefix: /docs
   art-freetier: 10
+  assistant-api: AI Assistant API
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
   at-name: Audit Trails
@@ -274,6 +275,8 @@ default:
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
   link-ca-jb-2024-2: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
+  link-ca-jb-2024-3: >-
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.3.zip
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
@@ -402,6 +405,8 @@ default:
   mgp-name: Managed Service for Greenplum®
   mgp-short-name: Managed Service for Greenplum®
   microsoft-idp:
+    ad-full: Microsoft Active Directory
+    ad-short: Active Directory
     adfs-abbreviated: AD FS
     adfs-full: Microsoft Active Directory Federation Services
     adfs-short: Active Directory Federation Services
@@ -785,7 +790,7 @@ default:
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
-  ya-360: Yandex 360 for business
+  ya-360: Yandex 360 for Business
   yagpt-full-name: YandexGPT API
   yagpt-max-tokens: 8192
   yagpt-name: YandexGPT
@@ -5625,6 +5630,9 @@ default:
         title_method-push: Push notifications
         title_method-sms: SMS
       component:
+        add-to-dashboard-form:
+          action:
+            copy-and-go: Copy and edit
         parametrizer:
           add: Add parameter
           dashboard:
@@ -7217,7 +7225,7 @@ default:
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
-            label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
+            label_managed-redis: Managed Service for&nbsp;Redis
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub

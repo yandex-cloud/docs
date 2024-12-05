@@ -1,3 +1,8 @@
+---
+title: Authorized keys
+description: In this article, you will learn what authorized keys are, why we need them, and what services support this authentication method.
+---
+
 # Authorized keys
 
 

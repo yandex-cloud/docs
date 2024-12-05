@@ -7,6 +7,7 @@ _{{ baremetal-name }} and the server backup feature will be released at the [Pre
 For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
 The following server operating systems are supported: {#os-support}
+* Debian 10
 * Debian 11
 * Ubuntu 16.04 LTS
 * Ubuntu 18.04 LTS
