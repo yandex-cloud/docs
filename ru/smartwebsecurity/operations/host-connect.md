@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
-Чтобы подключить профиль безопасности с помощью интерфейсов {{ yandex-cloud }}:
+Чтобы подключить профиль безопасности к виртуальному хосту:
 
 {% list tabs group=instructions %}
 
@@ -133,6 +133,38 @@ description: Следуя данной инструкции, вы сможете
       ```
 
   Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Профиль безопасности {{ sws-full-name }} подключается к балансировщику [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
+
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_alb_virtual_host` в блокe `route_options` укажите параметр `security_profile_id` — идентификатор профиля безопасности.
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<имя_виртуального_хоста>"
+        ...
+
+        route_options {
+          security_profile_id   = "<идентификатор_профиля_безопасности>"
+        }
+      }
+      ```
+
+  1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc alb http-router get <идентификатор_HTTP-роутера>
+  ```
 
 - API {#api}
 

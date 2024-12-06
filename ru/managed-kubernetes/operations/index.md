@@ -16,7 +16,6 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](connect/security-groups.md)
 * [{#T}](connect/create-static-conf.md)
 
-
 ## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
@@ -49,7 +48,6 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
-
 
 ## Сетевые сценарии {#network-scenarios}
 

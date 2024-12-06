@@ -80,7 +80,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+     1. In the [management console]({{ link-console-main }}), select the folder you want to create a network in.
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `yc-auto-network`.

@@ -36,12 +36,12 @@ description: Следуя данной инструкции, вы сможете
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_kruise.helmChart.name }} \
-      --version {{ mkt-k8s-key.yc_kruise.helmChart.tag }} \
-      --untar && \
+     --version {{ mkt-k8s-key.yc_kruise.helmChart.tag }} \
+     --untar && \
    helm install \
-      --namespace <пространство_имен> \
-      --create-namespace \
-      kruise ./kruise/
+     --namespace <пространство_имен> \
+     --create-namespace \
+     kruise ./kruise/
    ```
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}

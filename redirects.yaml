@@ -3,14 +3,8 @@ common:
     to: /metadata-hub/concepts/metastore
   - from: ^/data-proc/concepts/metastore-impersonation
     to: /metadata-hub/concepts/metastore-impersonation
-  - from: ^/data-proc/operations/metastore/cluster-create
-    to: /metadata-hub/operations/metastore/cluster-create
-  - from: ^/data-proc/operations/metastore/cluster-delete
-    to: /metadata-hub/operations/metastore/cluster-delete
-  - from: ^/data-proc/operations/metastore/dataproc-connect
-    to: /metadata-hub/operations/metastore/dataproc-connect
-  - from: ^/data-proc/operations/metastore/export-and-import
-    to: /metadata-hub/operations/metastore/export-and-import
+  - from: ^/data-proc/operations/metastore/(.*)
+    to: /metadata-hub/operations/metastore/$1
   - from: ^/security/domains/checklist
     to: /security/domains
   - from: ^/datalens/concepts/dataset/(.*)

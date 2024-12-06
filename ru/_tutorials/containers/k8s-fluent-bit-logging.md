@@ -76,9 +76,11 @@
 
 {% list tabs %}
 
+
 - С помощью {{ yandex-cloud }}
 
   Установите Fluent Bit согласно [инструкции](../../managed-kubernetes/operations/applications/fluentbit.md). В настройках приложения укажите идентификатор [созданной ранее](#before-you-begin) [лог-группы](../../logging/concepts/log-group.md). Идентификатор лог-группы можно получить со [списком лог-групп в каталоге](../../logging/operations/list.md).
+
 
 - Вручную
 

@@ -5,7 +5,7 @@ In {{ yandex-cloud }}, you can create a {{ mpg-full-name }} cluster optimized fo
 
 Your new 1C:Enterprise infrastructure will consist of a 1C working server, a 1C license server, and a [{{ mpg-short-name }} cluster](../../managed-postgresql/concepts/index.md). 1C servers will be running [CentOS 7](/marketplace/products/yc/centos-7) with no internet access. The cluster will be accessed via an encrypted [OpenVPN server connection](../../tutorials/routing/openvpn.md).
 
-To configure a 1C cluster and make sure the created infrastructure works properly, your local computer running Windows (outside {{ yandex-cloud }}) must have the 1С: Enterprise client and the 1C administration console installed.
+To configure a 1C cluster and make sure the created infrastructure works properly, your local computer running Windows (outside {{ yandex-cloud }}) must have the 1C: Enterprise client and the 1C administration console installed.
 
 The process of creating the 1C:Enterprise infrastructure described in this guide was tested in 1C version `8.3.25`.
 
@@ -21,7 +21,7 @@ To configure a 1C:Enterprise server cluster:
 1. [Set up a VPN to access the cloud infrastructure](#setup-vpn).
 1. [Create virtual machines for 1C:Enterprise servers](#create-1c-vms).
 1. [Create a {{ mpg-name }} cluster](#create-pg-cluster).
-1. [Configure a Samba server on 1С servers](#set-up-samba).
+1. [Configure a Samba server on 1C servers](#set-up-samba).
 1. [Configure 1C:Enterprise servers](#setup-1c-server).
 1. [Configure a 1C server cluster and infobase](#setup-cluster).
 1. [Connect to the infobase](#connect-to-infobase).
@@ -41,7 +41,7 @@ The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes
 
 ## Set up a VPN to access the cloud infrastructure {#setup-vpn}
 
-To ensure secure access to the 1С:Enterprise infrastructure you are creating in {{ yandex-cloud }}, set up a VPN. To address this task, use [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and its Windows client.
+To ensure secure access to the 1C:Enterprise infrastructure you are creating in {{ yandex-cloud }}, set up a VPN. To address this task, use [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) and its Windows client.
 
 ### Create a cloud network and subnets {#setup-network}
 
@@ -86,7 +86,7 @@ Create a VM to serve as a gateway for VPN connections:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-b`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify the size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -143,7 +143,7 @@ You can import a new configuration profile into the application. To do this, spe
 
 ## Create virtual machines for 1C:Enterprise servers {#create-1c-vms}
 
-The 1C:Enterprise license must be installed on a separate server for changes to the configurations of other 1С servers to have no effect on the installed license. At this stage, you will create two virtual machines: one will serve as the 1C:Enterprise server and the other, as the licensing server.
+The 1C:Enterprise license must be installed on a separate server for changes to the configurations of other 1C servers to have no effect on the installed license. At this stage, you will create two virtual machines: one will serve as the 1C:Enterprise server and the other, as the licensing server.
 
 Create a VM for the 1C:Enterprise server:
 
@@ -218,7 +218,7 @@ To create a {{ mpg-name }} cluster optimized for 1C:
 
 Creating a DB cluster may take a few minutes.
 
-## Configure a Samba server on 1С servers {#set-up-samba}
+## Configure a Samba server on 1C servers {#set-up-samba}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM over SSH.
 
@@ -335,9 +335,9 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     ```
 
     Where:
-    * `<file_name>`: Name of the binary distribution file. For example, `setup-full-8.3.25.1257-x86_64.run`.
-    * `<username>`: VM username. For example, `yc-user`.
-    * `<VM_public_IP_address>`: Public IP address of the VM with the 1С server.
+    * `<file_name>`: Name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
+    * `<username>`: VM username, e.g., `yc-user`.
+    * `<VM_public_IP_address>`: Public IP address of the VM with the 1C server.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM over SSH.
 
@@ -348,7 +348,7 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     sudo ./<file_name> --mode unattended --enable-components server,ws,server_admin
     ```
 
-    Where `<file_name>` is the name of the binary distribution file. For example, `setup-full-8.3.25.1257-x86_64.run`.
+    Where `<file_name>` is the name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
 
 1. After installation is complete, delete the distribution file by specifying the name of the binary distribution file:
 
@@ -473,7 +473,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
     * **Create database if none present**: Disabled.
     * **Lock execution of scheduled jobs**: Disabled.
 
-   Click **ОК**.
+   Click **OK**.
 
 ## Connect to the infobase {#connect-to-infobase}
 

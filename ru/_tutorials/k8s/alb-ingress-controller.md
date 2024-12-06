@@ -29,7 +29,11 @@
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
 1. [Установите Ingress-контроллер {{ alb-name }}](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
+
+
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
+
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
    {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}

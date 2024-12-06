@@ -240,7 +240,7 @@
 
    {% endlist %}
 
-1. Создайте [подсеть](../../vpc/concepts/network.md#subnet) `subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
+1. Создайте [подсети](../../vpc/concepts/network.md#subnet) `subnet-a`, `subnet-b` и `subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d` соответственно:
 
    {% list tabs group=instructions %}
 
@@ -250,12 +250,10 @@
      1. В списке сервисов выберите **{{ vpc-name }}**.
      1. Нажмите на имя облачной сети `shared-net`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
-     1. Укажите название подсети `subnet-a`.
-     1. Выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+     1. Укажите название подсети `subnet-a`, `subnet-b` или `subnet-d` соответственно.
+     1. Выберите зону доступности `{{ region-id }}-a`, `{{ region-id }}-b` или `{{ region-id }}-d` соответственно из выпадающего списка.
      1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-
-     Аналогично создайте подсети `subnet-b` и `subnet-d` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d` в каталоге **net-folder**.
 
    - CLI {#cli}
 
@@ -452,21 +450,21 @@
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
        --network-interface subnet-name=subnet-a,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=dev-vm --hostname=dev-vm \
        --zone={{ region-id }}-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-b,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-b,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=prod-vm --hostname=prod-vm \
        --zone={{ region-id }}-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
 

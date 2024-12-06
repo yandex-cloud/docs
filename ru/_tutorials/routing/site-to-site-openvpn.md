@@ -158,7 +158,7 @@
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `ovpn-network` и подсеть `ovpn-left`.
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
 
-          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip), или [сделайте](../../vpc/operations/set-static-ip) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
+          Используйте только статические публичные IP-адреса [из списка](../../vpc/operations/get-static-ip.md), или [сделайте](../../vpc/operations/set-static-ip.md) IP-адрес созданной машины статическим. Динамический IP-адрес может измениться после перезагрузки ВМ и соединения перестанут работать.
 
       * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если оставить поле пустым, будет назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group).
       * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
@@ -241,7 +241,7 @@ ls -lh /etc/openvpn/client/
 ```
 total 16K
 -rw-rw-r-- 1 root root 9.7K Nov 10 14:37 as-gw-user.conf
--rw-r--r-- 1 root root 24 Nov 10 14:31 param.txt    
+-rw-r--r-- 1 root root 24 Nov 10 14:31 param.txt
 ```
 
 В файле `/etc/openvpn/as-gw-user.conf` в строке с `auth-user-pass` укажите имя файла `param.txt`:

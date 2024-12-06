@@ -120,7 +120,7 @@ To create a VM with recommended configuration and a boot disk from the Hystax Ac
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -147,9 +147,9 @@ To create a VM with recommended configuration and a boot disk from the Hystax Ac
               * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) for which you previously configured network traffic permissions. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) you had previously configured network traffic permissions for. If this list does not exist, all incoming and outgoing traffic will be enabled for the VM.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -386,7 +386,7 @@ VM replication will start. A VM replica will include all the data of the origina
 
 ## Create a disaster recovery plan {#create-recovery-plan}
 
-The DR plan includes a VM description and the network settings. The plan determines the VMs to recover to your cloud and the VM configuration, subnet, and IP. You can have a plan generated automatically or create one manually:
+The DR plan includes a VM description and the network settings. The plan directs which VMs will be recovered to your cloud and specifies the VM configuration, subnet, and IP. You can have a plan generated automatically or create one manually:
 
 {% list tabs group=instructions %}
 
@@ -395,7 +395,7 @@ The DR plan includes a VM description and the network settings. The plan determi
   1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
   1. Check the VMs you need on the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for an instance group by clicking ![image](../../_assets/console-icons/ellipsis.svg) in the group header.
   1. In the **Name** field, enter `Plan-1`.
-  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:  
+  1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet's [CIDR](../../vpc/concepts/network.md#subnet).
   1. Expand the VM description and edit the **Flavor name** field with parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `3-8-16-100`.
@@ -415,6 +415,7 @@ The DR plan includes a VM description and the network settings. The plan determi
   1. In the **Name** field, enter `Plan-1`.
   1. Under **Devices & Ranks**, click ![image](../../_assets/console-icons/ellipsis.svg). In the menu that opens, click **Add machine**. Select a VM group, e.g., `Default`. Select the VM to add to the DR plan. Repeat the steps for all VMs to recover.
   1. In the **Subnets** section on the right, set the parameters of the subnet to run the recovered VMs in:
+      * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet's [CIDR](../../vpc/concepts/network.md#subnet).
   1. Expand the VM description and edit the **Flavor name** field with parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`. For example, `3-8-16-100`.
       
@@ -455,6 +456,6 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the Hystax Acura Backup VM.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the auxiliary Hystax Cloud Agent VMs.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
-1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
 1. [Delete](../../vpc/operations/address-delete.md) the public static IP you reserved. 

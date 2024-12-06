@@ -10326,7 +10326,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.9.20
+        tag: 0.10.5
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
@@ -10351,7 +10351,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: 0.4.31
+        tag: v0.4.32
     yc_gitlab-agent:
       helmChart:
         name: >-

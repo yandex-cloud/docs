@@ -528,7 +528,7 @@ description: Вы можете создавать резервные копии 
           "environment": "<окружение>",
           "networkId": "<идентификатор_сети>",
           "configSpec": {
-              "version": "<версия_{{ PG }}>",
+              "version": "<версия_{{ MY }}>",
               "resources": {
                   "resourcePresetId": "<класс_хостов>",
                   "diskSize": "<размер_хранилища_в_байтах>",

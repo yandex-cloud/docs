@@ -57,8 +57,6 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
-      - name: Кластеры {{ metastore-name }}
-        href: operations/metastore/cluster-create.md
       - name: Логи и мониторинг
         items:
           - name: Работа с логами
@@ -157,8 +155,6 @@ items:
         href: concepts/environment.md
       - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
-      - name: Кластеры {{ metastore-full-name }}
-        href: concepts/metastore.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Задания Spark

@@ -21,9 +21,12 @@
 
 ## Настройка {{ CSI }} {#configure-csi}
 
+
 {% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
 
+
 {% list tabs group=instructions %}
+
 
 - {{ marketplace-full-name }} {#marketplace}
 
@@ -39,6 +42,7 @@
   Значения остальных параметров оставьте по умолчанию.
 
   После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
+
 
 - Вручную {#manual}
 

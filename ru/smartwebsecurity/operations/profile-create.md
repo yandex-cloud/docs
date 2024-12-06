@@ -88,6 +88,87 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<имя_профиля_безопасности>"
+        default_action                   = "DENY"
+        captcha_id                       = "<идентификатор_капчи>"
+        advanced_rate_limiter_profile_id = "<идентификатор_ARL_профиля>"
+
+        # Правило Smart Protection
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        # Базовое правило
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # Правило c WAF профилем
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<идентификатор_WAF_профиля>"
+          }
+        }
+      }
+      ```
+
+      Где:
+      * `name` — имя профиля безопасности.
+      * `default_action` — действие для базового правила по умолчанию. Будет применяться к трафику, который не попал под условия других правил.  Возможные значения: `ALLOW` — разрешает все запросы к сервису, `DENY` — запрещает.
+      * `captcha_id` — идентификатор капчи [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов. Необязательный параметр.
+      * `advanced_rate_limiter_profile_id` — идентификатор [ARL профиля безопасности](../concepts/arl.md). Необязательный параметр.
+      * `security_rule` — описание [правила](../concepts/rules.md) безопасности:
+         * `name` — имя правила безопасности.
+         * `priority` — [приоритет](../concepts/rules.md) правила. Возможные значения от 1 до 1000000.
+         * `smart_protection` — описание [правила Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с указанным типом действия в параметре `mode`.
+            * `mode` — [действие правила](../concepts/rules.md#rule-action). Возможные значения: `FULL` — полная защита (подозрительные запросы отправляются на капчу) или `API` — защита API (подозрительные запросы блокируются).
+         * `waf` — описание правила Web Application Firewall. Чтобы добавить правило WAF, сначала надо [создать профиль WAF](waf-profile-create.md). Необязательный блок параметров, содержит:
+            * `waf_profile_id` — идентификатор [WAF профиля](../concepts/waf.md).
+
+      Если не указать тип правила `smart_protection` или `waf`, будет создано базовое правило с простой фильтрацией по заданным условиям в блоке `rule_condition`.
+
+      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Создайте ресурсы:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc smartwebsecurity security-profile get <идентификатор_профиля_безопасности>
+  ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/SecurityProfile/create.md) для ресурса [SecurityProfile](../api-ref/SecurityProfile/) или вызовом gRPC API [SecurityProfileService/Create](../api-ref/grpc/SecurityProfile/create.md).

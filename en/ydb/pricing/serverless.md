@@ -1,3 +1,9 @@
+---
+title: Pricing policy for {{ ydb-full-name }} serverless mode
+description: This article provides the pricing policy for {{ ydb-name }} serverless mode.
+editable: false
+---
+
 # Pricing policy for {{ ydb-name }} serverless mode
 
 
@@ -105,7 +111,7 @@ If you restore data using `ydb tools restore`, billing is based on the cost of w
 
 #### Example of calculating the cost of recovery from a backup {#example-of-cost-calculation-backup-restore}
 
-Let's calculate the cost of backup recovery for 1 GB and 1 GB databases.
+Let's calculate the cost of backup recovery for 1 GB and 10 GB databases.
 
 **Cost calculation for a 1 GB database**
 
