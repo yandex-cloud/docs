@@ -38,7 +38,7 @@ Create a VM with a public IP address:
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
-      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` boot disk [type](../../compute/concepts/disk.md#disks_types) and specify the size of `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` boot disk [type](../../compute/concepts/disk.md#disks_types) and specify the size: `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Create a secondary disk:
           * Click **{{ ui-key.yacloud.common.add }}**.
           * Select the [disk type](../../compute/concepts/disk.md#disks_types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
@@ -57,7 +57,7 @@ Create a VM with a public IP address:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
       * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
 
       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -102,13 +102,13 @@ Set up the created VM's file structure for the SAP install.
       fdisk /dev/vdb
       ```
 
-      If launching `fdisk` returns the `command not found` error, add `fdisk` to `Path`:
+      If you get the `command not found` error when launching `fdisk`, add `fdisk` to `Path`:
 
       ```bash
       PATH=/sbin:$PATH
       ```
 
-   1. To add your first partition, press `n` followed by **Enter**.
+   1. To add your first partition, type the `n` command and press **Enter**.
    1. To select `primary` for default type, press **Enter**.
    1. To select `1` for default number, press **Enter**.
    1. To select `2048` for first default sector, press **Enter**.
@@ -176,7 +176,7 @@ Set up the created VM's file structure for the SAP install.
       └─vdb2 254:18   0  70G  0 part
       ```
 
-1. Configure your `vdb1` and `vdb2` partitions with the `ext4` file system:
+1. Configure the `ext4` file system on partitions `vdb1` and `vdb2`:
 
    ```bash
    mkfs.ext4 /dev/vdb1

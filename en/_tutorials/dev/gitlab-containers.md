@@ -21,7 +21,7 @@ To set up the infrastructure required to store the source code, build the Docker
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
-1. [Create a {{ GLR }}](#runner).
+1. [Create a {{ GLR }}](#runners).
 1. [Set up {{ k8s }} authentication in {{ GL }}](#gitlab-authentication).
 1. [Configure the CI script](#ci).
 1. [Check the result](#check-result).
@@ -81,14 +81,14 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       - Service account token {#token}
 
-        * `KUBE_URL`: {{ managed-k8s-name }} master address You can retrieve it using the following command:
+        * `KUBE_URL`: {{ managed-k8s-name }} master address. You can retrieve it using the following command:
 
           ```bash
           yc managed-kubernetes cluster get <cluster_ID_or_name> --format=json \
              | jq -r .master.endpoints.external_v4_endpoint
           ```
 
-        * `KUBE_TOKEN`: Token that will use {{ GL }} to apply the configuration. Use the token obtained earlier.
+        * `KUBE_TOKEN`: Token that {{ GL }} will use to apply the configuration. Use the token obtained earlier.
 
       - {{ GLA }} {#gla}
 
@@ -104,13 +104,13 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 1. Create the CI script configuration file:
    1. Open the `gitlab-test` project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name the file as `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
+   1. Name your file `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
       {% list tabs group=gl_auth %}
 
       - Service account token {#token}
 
-        * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
+        * To build a container via `kaniko` without using the {{ GLR }} privileged mode:
 
           {% cut ".gitlab-ci.yml" %}
 
@@ -147,7 +147,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
           {% endcut %}
 
-        * To build a container through `docker:dind` using the {{ GLR }} privileged mode:
+        * To build a container via `docker:dind` using the {{ GLR }} privileged mode:
 
           {% cut ".gitlab-ci.yml" %}
 
@@ -198,7 +198,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       - {{ GLA }} {#gla}
 
-        * To build a container through `kaniko` without using the {{ GLR }} privileged mode:
+        * To build a container via `kaniko` without using the {{ GLR }} privileged mode:
 
           {% cut ".gitlab-ci.yml" %}
 
@@ -212,7 +212,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
             image:
               name: gcr.io/kaniko-project/executor:debug
               entrypoint: [""]
-          script:
+            script:
               - mkdir -p /kaniko/.docker
               - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
               - >-
@@ -231,65 +231,65 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
           {% endcut %}
 
-         * To build a container through `docker:dind` using the {{ GLR }} privileged mode:
+        * To build a container via `docker:dind` using the {{ GLR }} privileged mode:
 
-            {% cut ".gitlab-ci.yml" %}
+          {% cut ".gitlab-ci.yml" %}
 
-            ```yaml
-            stages:
-              - build
-              - deploy
+          ```yaml
+          stages:
+            - build
+            - deploy
 
-            image: docker:20.10.16
+          image: docker:20.10.16
 
-            variables:
-              DOCKER_HOST: tcp://docker:2376
-              DOCKER_TLS_CERTDIR: "/certs"
-              DOCKER_TLS_VERIFY: 1
-              DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
-              DOCKER_DRIVER: overlay2
+          variables:
+            DOCKER_HOST: tcp://docker:2376
+            DOCKER_TLS_CERTDIR: "/certs"
+            DOCKER_TLS_VERIFY: 1
+            DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+            DOCKER_DRIVER: overlay2
 
-            services:
-              - docker:20.10.16-dind
+          services:
+            - docker:20.10.16-dind
 
-            before_script:
-              - for try in {1..10}; do sleep 0.5; docker info && break ; done
+          before_script:
+            - for try in {1..10}; do sleep 0.5; docker info && break ; done
 
-            build:
-              stage: build
-              script:
-                - echo "${CI_REGISTRY_KEY}" | docker login ${CI_REGISTRY} -u json_key --password-stdin
-                - >-
-                  docker build
-                  "${CI_PROJECT_DIR}"
-                  --file "${CI_PROJECT_DIR}/Dockerfile"
-                  --tag "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
-                - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+          build:
+            stage: build
+            script:
+              - echo "${CI_REGISTRY_KEY}" | docker login ${CI_REGISTRY} -u json_key --password-stdin
+              - >-
+                docker build
+                "${CI_PROJECT_DIR}"
+                --file "${CI_PROJECT_DIR}/Dockerfile"
+                --tag "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
+              - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
-            deploy:
-              image: bitnami/kubectl:latest
-              stage: deploy
-              script:
-                - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>
-                - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
-            ```
+          deploy:
+            image: bitnami/kubectl:latest
+            stage: deploy
+            script:
+              - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>
+              - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
+          ```
 
-            {% endcut %}
+          {% endcut %}
 
-        Replace `<GitLab_Agent_name>` with the agent name in {{ mgl-name }}.
+        Replace `<GitLab_Agent_name>` with the name of the agent in {{ mgl-name }}.
 
       {% endlist %}
 
    1. Add a comment to the commit in the **Commit message** field: `CI scripts`.
    1. Click **Commit changes**.
 
-   In the `.gitlab-ci.yml` file, the following two steps of project build are described:
-   * Building a Docker image using the `Dockerfile` and pushing the image to {{ container-registry-name }}.
-   * Setting up an environment to work with {{ k8s }} and applying `k8s.yaml` configurations to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
+   The `.gitlab-ci.yml` file describes the following two steps of the project build process:
+   * Building a Docker image using `Dockerfile` and pushing the image to {{ container-registry-name }}.
+   * Setting up an environment to work with {{ k8s }} and applying the `k8s.yaml` configuration to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
 
 ## Check the result {#check-result}
 
-1. After you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
+1. After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
 1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
    ```bash
@@ -312,27 +312,27 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - Manually {#manual}
 
-      1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-      1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
-      1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-      1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
+     1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
+     1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
+     1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
 
    - {{ TF }} {#tf}
 
-      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-      1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-      1. Confirm updating the resources.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
+     1. Confirm updating the resources.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All resources described in the `k8s-and-registry-for-gitlab.tf` configuration file will be deleted.
+        All the resources described in the `k8s-and-registry-for-gitlab.tf` configuration file will be deleted.
 
    {% endlist %}
 

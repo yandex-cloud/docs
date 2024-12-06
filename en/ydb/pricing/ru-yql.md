@@ -1,3 +1,9 @@
+---
+title: Rules for estimating the cost of YQL queries to {{ ydb-full-name }}
+description: This article contains rules for estimating the cost of YQL requests to {{ ydb-name }}.
+editable: false
+---
+
 # Rules for estimating the cost of YQL queries to {{ ydb-short-name }}
 
 

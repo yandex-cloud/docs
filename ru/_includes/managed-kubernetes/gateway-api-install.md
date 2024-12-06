@@ -51,7 +51,6 @@
 1. {% include [Install and configure kubectl](kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gateway API выполните команду:
 
-
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_gateway-api.helmChart.tag }} \
@@ -67,7 +66,6 @@
      --set-file saKeySecretKey='<путь_к_файлу_sa-key.json>' \
      gateway-api ./gateway-api/
    ```
-
 
    В команде укажите сеть и ее подсети, в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
 

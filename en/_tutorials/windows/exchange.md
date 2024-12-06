@@ -5,7 +5,7 @@
 
 
 
-This tutorial describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport servers will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across servers. All servers will be managed via a separate VM with internet access in the `{{ region-id }}-d` availability zone.
+This tutorial describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. You will install two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport servers in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer will distribute load across the servers. To manage the servers, you will use a separate VM with internet access hosted in the `{{ region-id }}-d` availability zone.
 
 1. [Prepare your cloud](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -146,7 +146,7 @@ Create two virtual machines for Active Directory. These VMs will not have intern
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -210,7 +210,7 @@ A file server with internet access is used to configure VMs with Active Director
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -282,7 +282,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Windows will restart automatically. After it restarts, log in to `ad-vm-a` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, connect to `ad-vm-a` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Rename the default site to `{{ region-id }}-a`:
 
@@ -371,7 +371,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
        -Force:$true
    ```
 
-   Windows will restart automatically. After it restarts, log in to `ad-vm-b` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, connect to `ad-vm-b` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Set the DNS redirect server:
 
@@ -395,7 +395,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    Add-Computer -DomainName yantoso.net -DomainCredential $Credentials -Force -Restart
    ```
 
-   Windows will restart automatically. After it restarts, log in to `fsw-vm` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
+   Windows will restart automatically. After it restarts, connect to `fsw-vm` using the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
 1. Create the `distrib` folder:
 
@@ -409,7 +409,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Rename the downloaded file to `vcredist_x64_2013.exe`.
    1. [Microsoft Unified Communications Managed API 4.0, Core Runtime 64-bit](https://go.microsoft.com/fwlink/p/?linkId=258269).
 
-   Put the distributions in the `C:\distrib` directory.
+   Place the distributions in the `C:\distrib` directory.
 
 1. Grant shared access from the domain to the directory with distributions:
 
@@ -442,7 +442,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
          * Set the boot [disk](../../compute/concepts/disk.md) size: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
          * Click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}** and add another `250 {{ ui-key.yacloud.common.units.label_gigabyte }}` SSD named `db-a`.
 
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8`.
@@ -502,7 +502,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    After it restarts, log in to the VM with the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server to `vm-exchange-a`. Mount the distribution image from the shared folder with distributions:
+1. Install Exchange Mailbox Server on `vm-exchange-a`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
@@ -600,7 +600,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 
    After it restarts, log in to the VM with the `yantoso\Administrator` account and your password. Relaunch PowerShell.
 
-1. Install Exchange Mailbox Server to `vm-exchange-b`. Mount the distribution image from the shared folder with distributions:
+1. Install Exchange Mailbox Server on `vm-exchange-b`. Mount the distribution image from the shared folder with distributions:
 
    ```powershell
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
@@ -620,7 +620,7 @@ Active Directory VMs do not have internet access. To configure them, use the `fs
 A database availability group ensures fault tolerance for mail servers via DB replication and automatic DB failover in the event of a crash.
 
 1. Connect to `fsw-vm` through RDP.
-1. Grant the `yantoso\Exchange Trusted Subsystem` group administrator permissions to `fsw-vm`:
+1. Grant the `yantoso\Exchange Trusted Subsystem` group administrator permissions for `fsw-vm`:
 
    ```powershell
    Add-LocalGroupMember -Group 'Administrators' -Member 'yantoso\Exchange Trusted Subsystem'
@@ -660,7 +660,7 @@ Repeat these commands for `vm-exchange-b`.
        -DatabaseAvailabilityGroupIpAddresses 255.255.255.255
    ```
 
-1. Add the `vm-exchange-a` and `vm-exchange-b` servers to DAG:
+1. Add the `vm-exchange-a` and `vm-exchange-b` servers to the DAG:
 
    ```powershell
    Add-DatabaseAvailabilityGroupServer -Identity ycdag -MailboxServer vm-exchange-a
@@ -767,7 +767,7 @@ It distributes the load across Exchange servers in different availability zones.
 
 - Management console {#console}
 
-  To create a [network load balancer](../../network-load-balancer/concepts/index.md).
+  To create a [network load balancer](../../network-load-balancer/concepts/index.md):
 
   1. Open the **Load Balancer** section in the folder where you want to create a load balancer.
   1. Click **Create a network load balancer**.
@@ -779,7 +779,7 @@ It distributes the load across Exchange servers in different availability zones.
   1. Under **Target groups**, click **Add target group**.
   1. In the **Target group** field, open the drop-down list and select **Create target group**.
   1. Enter the target group name: `exchange-tg`.
-  1. Check `vm-exchange-a` and `vm-exchange-b` and then click **Create**.
+  1. Select `vm-exchange-a` and `vm-exchange-b` and click **Create**.
   1. Click **Configure**.
   1. Enter the health check name: `exchange-hc`.
   1. Select the **TCP** check.
@@ -1024,7 +1024,7 @@ Create a VM named `vm-edge-b`:
    Restart-Computer -Force
    ```
 
-   Reconnect to `vm-edge-a` through RDP and run PowerShell.
+   Reconnect to `vm-edge-a` via RDP and run PowerShell.
 
 1. Mount the Exchange Server distribution:
 
@@ -1100,7 +1100,7 @@ Create a VM named `vm-edge-b`:
    Restart-Computer -Force
    ```
 
-   Reconnect to `vm-edge-b` through RDP and run PowerShell.
+   Reconnect to `vm-edge-b` via RDP and run PowerShell.
 
 1. Mount the Exchange Server distribution:
 
@@ -1162,7 +1162,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Test-EdgeSynchronization
    ```
 
-   The `SyncStatus` parameter must switch to `Normal`.
+   The `SyncStatus` parameter should change to `Normal`.
 
 
 ### Set up a subscription on the vm-edge-b server {#subscribe-vm-edge-b}
@@ -1179,7 +1179,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    New-EdgeSubscription -FileName "C:\subscribe\$(hostname).xml"
    ```
 
-1. Copy the `C:\subscribe\vm-edge-b.xml` file to the `vm-exchange-b` server to the `C:\root\vm-edge-b.xml` folder.
+1. Copy the `C:\subscribe\vm-edge-b.xml` file to the `vm-exchange-b` server, the `C:\root\vm-edge-b.xml` folder.
 
 1. Log in to the `vm-exchange-b` server and run the Exchange Management Shell.
 
@@ -1210,7 +1210,7 @@ Each Edge Transport server must subscribe to a website in its own availability z
    Test-EdgeSynchronization
    ```
 
-   The `SyncStatus` parameter must switch to `Normal`.
+   The `SyncStatus` parameter should change to `Normal`.
 
 ## How to delete the resources you created {#clear-out}
 

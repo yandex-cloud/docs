@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ ydb-full-name }}
-description: Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user.
+description: Access management in {{ ydb-full-name }}, a database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign to the user the relevant roles from the list.
 sourcePath: overlay/security/start_auth.md
 ---
 
@@ -32,10 +32,33 @@ To assign a user a role:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign a role for individual resources of the service. The list of such resources depends on the {{ yandex-cloud }} interfaces you use to assign roles:
+You can also assign roles for individual resources within the service:
 
-* In the management console, you can only assign roles for a [YDB DBMS](../concepts/index.md#ydb).
-* Via the YC CLI or {{ yandex-cloud }} API, you can assign roles for a DBMS and its backup.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  Use the [management console]({{ link-console-main }}) to assign roles for the [YDB DBMS](../concepts/index.md#ydb).
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/ydb/cli-ref/index.md) to assign roles for the following resources:
+
+  * [YDB DBMS](../concepts/index.md#ydb)
+  * YDB DBMS backup
+
+- {{ TF }} {#tf}
+
+  Use the [{{ TF }}]({{ tf-provider-resources-link }}/ydb_database_iam_binding) to assign roles for the [YDB DBMS](../concepts/index.md#ydb).
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * [YDB DBMS](../concepts/index.md#ydb)
+  * YDB DBMS backup
+
+{% endlist %}
 
 ## Which roles exist in the service {#roles-list}
 

@@ -1,6 +1,7 @@
 ---
 title: Rules for estimating the cost of queries to {{ ydb-full-name }} via ad-hoc APIs
 description: In this tutorial, you will learn how to calculate the cost of queries to {{ ydb-short-name }} via ad-hoc APIs.
+editable: false
 ---
 
 # Rules for estimating the cost of queries to {{ ydb-short-name }} via ad-hoc APIs

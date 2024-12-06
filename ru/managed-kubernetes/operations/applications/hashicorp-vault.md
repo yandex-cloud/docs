@@ -89,7 +89,9 @@ description: Следуя данной инструкции, вы сможете
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
 
    ```bash
-   cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex \
+     --username 'json_key' \
+     --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
      --version 0.28.1+yckms \
      --untar && \

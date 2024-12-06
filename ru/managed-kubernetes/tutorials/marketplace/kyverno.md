@@ -154,7 +154,10 @@
       ```text
       clusterpolicy.kyverno.io/require-labels created
       ```
+
+
 1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
+
 
 ## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 

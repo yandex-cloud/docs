@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ ydb-full-name }}
+description: Follow this guide to create and set up a {{ ydb-name }} database.
+---
+
 # Getting started with {{ ydb-name }}
 
 

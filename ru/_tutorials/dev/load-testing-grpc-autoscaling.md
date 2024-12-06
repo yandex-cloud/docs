@@ -27,7 +27,10 @@
 1. [Подготовьте](../../managed-kubernetes/quickstart.md) кластер {{ managed-k8s-name }} к работе.
 1. [Установите](../../managed-kubernetes/operations/applications/metrics-provider.md) Metrics Provider в пространство имен `kube-public`.
 1. [Установите](../../application-load-balancer/operations/k8s-ingress-controller-install.md) ALB Ingress Controller.
+
+
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
+
 
 
 ### Необходимые платные ресурсы {#paid-resources}

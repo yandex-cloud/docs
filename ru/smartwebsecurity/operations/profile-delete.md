@@ -50,6 +50,76 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее о команде `yc smartwebsecurity security-profile delete` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/delete.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы удалить профиль безопасности {{ sws-full-name }}, созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием профиля.
+
+     {% cut "Пример описания профиля безопасности в конфигурации {{ TF }}" %}
+     
+     ```hcl
+     resource "yandex_sws_security_profile" "demo-profile-simple" {
+       name                             = "<имя_профиля_безопасности>"
+       default_action                   = "DENY"
+       captcha_id                       = "<идентификатор_капчи>"
+       advanced_rate_limiter_profile_id = "<идентификатор_ARL_профиля>"
+
+       # Правило Smart Protection
+       security_rule {
+         name     = "smart-protection"
+         priority = 99999
+
+         smart_protection {
+           mode = "API"
+         }
+       }
+
+       #Базовое правило
+       security_rule {
+         name = "base-rule-geo"
+         priority = 100000
+         rule_condition {
+           action = "ALLOW"
+           condition {
+             source_ip {
+               geo_ip_match {
+                 locations = ["ru", "kz"]
+               }
+             }
+           }
+         }
+       }
+
+       # Правило c WAF профилем
+       security_rule {
+         name     = "waf"
+         priority = 88888
+
+         waf {
+           mode           = "API"
+           waf_profile_id = "<идентификатор_WAF_профиля>"
+         }
+       }
+     }
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc smartwebsecurity security-profile list
+  ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../api-ref/SecurityProfile/delete.md) для ресурса [SecurityProfile](../api-ref/SecurityProfile/) или вызовом gRPC API [SecurityProfileService/Delete](../api-ref/grpc/SecurityProfile/delete.md).

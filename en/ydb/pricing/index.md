@@ -1,9 +1,10 @@
 ---
 title: '{{ ydb-full-name }} pricing policy'
-description: This article describes the {{ ydb-full-name }} pricing policy.
+description: This article provides the {{ ydb-full-name }} pricing policy.
+editable: false
 ---
 
-# {{ ydb-full-name }} pricing
+# {{ ydb-full-name }} pricing policy
 
 
 

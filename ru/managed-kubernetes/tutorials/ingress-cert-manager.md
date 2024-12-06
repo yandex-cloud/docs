@@ -26,15 +26,20 @@ description: Следуя данному руководству, вы сможе
 1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации. В настройках кластера укажите сервисный аккаунт и группы безопасности, созданные ранее.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+
+
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
+
 
 ## Установите Ingress-контроллер NGINX {#install-controller}
 
 {% list tabs group=instructions %}
 
+
 - {{ marketplace-full-name }} {#marketplace}
 
   Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../operations/applications/ingress-nginx.md).
+
 
 - Вручную {#manual}
 
@@ -81,6 +86,7 @@ description: Следуя данному руководству, вы сможе
 
 ## Установите менеджер сертификатов {#install-certs-manager}
 
+
 Вы можете установить менеджер сертификатов одним из способов:
 * С помощью [{{ marketplace-full-name }}](../../marketplace/): будет установлен cert-manager, [интегрированный с сервисом {{ dns-name }}](../operations/applications/cert-manager-cloud-dns.md).
 
@@ -91,11 +97,14 @@ description: Следуя данному руководству, вы сможе
 
   Любые объекты `Issuer` и `ClusterIssuer` потребуется создать и настроить вручную.
 
+
 {% list tabs group=instructions %}
+
 
 - {{ marketplace-full-name }} {#marketplace}
 
   Установите приложение cert-manager c плагином {{ dns-name }} ACME webhook [по инструкции](../operations/applications/cert-manager-cloud-dns.md).
+
 
 - Вручную {#manual}
 

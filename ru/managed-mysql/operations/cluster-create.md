@@ -444,7 +444,7 @@ description: Следуя данной инструкции, вы сможете
       * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
       * `configSpec` — настройки кластера:
 
-          * `version` — версия {{ PG }}.
+          * `version` — версия {{ MY }}.
           * `resources` — ресурсы кластера:
 
               * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
@@ -587,7 +587,7 @@ description: Следуя данной инструкции, вы сможете
       * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
       * `config_spec` — настройки кластера:
 
-          * `version` — версия {{ PG }}.
+          * `version` — версия {{ MY }}.
           * `resources` — ресурсы кластера:
 
               * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
