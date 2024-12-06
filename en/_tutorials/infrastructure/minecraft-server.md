@@ -1,6 +1,6 @@
 # Deploying a Minecraft server in {{ yandex-cloud }}
 
-Using the tutorial, you will deploy a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server of the current version in {{ yandex-cloud }} on a [virtual machine](../../compute/concepts/vm.md) running Ubuntu 22.04.
+Follow this tutorial to deploy the current version of [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server in {{ yandex-cloud }} on a [virtual machine](../../compute/concepts/vm.md) running Ubuntu 22.04.
 
 To deploy a Minecraft server of the current version in {{ yandex-cloud }}:
 
@@ -67,7 +67,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
@@ -99,7 +99,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `minecraft-sg` security group you created earlier.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
           * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `ubuntu`.
 

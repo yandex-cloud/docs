@@ -955,7 +955,7 @@ description: Следуя данной инструкции, вы сможете
 
             В данном случае перечислите все изменяемые настройки {{ GP }}.
 
-        * `configSpec.greenplumConfig_<версия_{{ PG }}>` — набор настроек {{ GP }}. Укажите каждую настройку на отдельной строке через запятую.
+        * `configSpec.greenplumConfig_<версия_{{ GP }}>` — набор настроек {{ GP }}. Укажите каждую настройку на отдельной строке через запятую.
 
             Список версий {{ GP }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 

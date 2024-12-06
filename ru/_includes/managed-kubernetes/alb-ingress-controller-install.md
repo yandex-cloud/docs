@@ -65,7 +65,6 @@
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команду:
 
-
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_alb-ingress-controller.helmChart.name }} \

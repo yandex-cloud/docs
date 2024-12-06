@@ -27,7 +27,9 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
+
 Об установке Ingress-контроллера NGINX с помощью {{ marketplace-full-name }} читайте в [инструкции](../operations/applications/ingress-nginx.md).
+
 
 ## Использование {{ container-registry-full-name }} {#container-registry}
 
@@ -65,7 +67,6 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](filebeat-oss-monitoring.md)
-
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
 

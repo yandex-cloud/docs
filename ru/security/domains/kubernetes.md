@@ -177,10 +177,12 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Интеграция {{ lockbox-name }} с {{ k8s }} выполнена с помощью открытого проекта [External Secrets](https://external-secrets.io/latest/). Решение доступно в {{ marketplace-name }} в базовом упрощенном сценарии — [External Secrets Operator с поддержкой Yandex Lockbox](/marketplace/products/yc/external-secrets).
 
+
 Полезные инструкции по работе с External Secrets:
 
 * [инструкция](https://external-secrets.io/latest/provider/yandex-lockbox/) по работе с External Secrets и {{ lockbox-name }} из описания проекта;
 * [инструкция](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) по работе с External Secrets и {{ lockbox-name }} из документации {{ yandex-cloud }}.
+
 
 [Описано](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service) множество способов разделения доступа к секретам в рамках данного инструмента.
 

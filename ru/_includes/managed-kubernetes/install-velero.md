@@ -2,6 +2,7 @@
 
 {% list tabs group=instructions %}
 
+
 - {{ marketplace-full-name }} {#marketplace}
 
     Установите приложение Velero согласно [инструкции](../../managed-kubernetes/operations/applications/velero-yc-csi.md). В поле **Имя бакета Object Storage** укажите [созданный ранее](#before-you-begin) бакет.
@@ -11,6 +12,7 @@
     Если имя пространства имен, где установлено приложение Velero, отличается от `velero`, для всех последующих команд дополнительно используйте параметр `--namespace <пространство_имен_приложения_Velero>`.
 
     {% endnote %}
+
 
 - Вручную {#manual}
 

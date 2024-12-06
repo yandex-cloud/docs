@@ -58,14 +58,12 @@
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Добавьте репозиторий `metric-provider`:
 
-
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_metric-provider.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
      --untar
    ```
-
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
