@@ -1,11 +1,11 @@
 ---
-title: Как обновить агент резервного копирования {{ backup-full-name }} на виртуальной машине
-description: Следуя данной инструкции, вы сможете обновить агент резервного копирования {{ backup-name }} на ВМ.
+title: Как обновить агент {{ backup-full-name }} на виртуальной машине
+description: Следуя данной инструкции, вы сможете обновить агент {{ backup-name }} на ВМ.
 ---
 
-# Обновить агент резервного копирования {{ backup-name }} на виртуальной машине
+# Обновить агент {{ backup-full-name }} на виртуальной машине
 
-В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить агент резервного копирования {{ backup-name }}.
+В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить агент {{ backup-name }}.
 
 Например, такая ситуация может возникнуть при технических обновлениях на стороне [провайдера резервного копирования](../concepts/index.md#providers).
 
@@ -13,11 +13,11 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Обновление агента резервного копирования не влияет на данные в существующих резервных копиях.
+Обновление агента {{ backup-name }} не влияет на данные в существующих резервных копиях.
 
 {% endnote %}
 
-Чтобы обновить агент резервного копирования {{ backup-name }} на ВМ:
+Чтобы обновить агент {{ backup-name }} на ВМ:
 
 {% list tabs group=operating_system %}
 
@@ -27,40 +27,44 @@ description: Следуя данной инструкции, вы сможете
   1. В терминале выполните команду:
 
       ```bash
-      curl -o backup\_agent\_linux\_installer.bin https://storage.yandexcloud.net/backup-distributions/backup_agent_linux_installer.bin && sudo bash ./backup\_agent\_linux\_installer.bin -a
+      curl \
+        --output backup_agent_linux_installer.bin \
+        https://{{ s3-storage-host }}/backup-distributions/backup_agent_linux_installer.bin && \
+      sudo bash ./backup_agent_linux_installer.bin -a
       ```
 
       Результат:
 
       ```text
       ...
-      Backup agent update completed after 204 s!
+      Congratulations!
+      Cyber Backup Agent has been successfully installed in the system.
       ```
+
+      Обновление агента {{ backup-name }} может занимать около 15 минут.
 
   1. Отключитесь от ВМ.
 
+
 - Windows {#windows}
 
-  1. Запустите [Windows PowerShell](https://learn.microsoft.com/ru-ru/powershell/).  
+  1. [Подключитесь](../../compute/operations/vm-connect/rdp.md) к ВМ по RDP.
+  1. Запустите [Windows PowerShell](https://learn.microsoft.com/ru-ru/powershell/).
   1. Выполните команды:
 
       ```powershell
-      Invoke-WebRequest <https://storage.yandexcloud.net/backup-distributions/backup_agent_windows_installer.exe>    -o .\\backup\_agent\_windows\_installer.exe
+      Invoke-WebRequest `
+        "https://{{ s3-storage-host }}/backup-distributions/backup_agent_windows_installer.exe" `
+        -OutFile ".\backup_agent_windows_installer.exe"
+      Invoke-Expression .\backup_agent_windows_installer.exe
+      ```
+
+  1. В открывшемся окне нажмите **Repair**.
+  1. Дождитесь сообщения `The installation was successfully repaired` и нажмите **CLOSE**.
       
-      Invoke-Expression .\\backup\_agent\_windows\_installer.exe --quiet
-      ```
-
-      Результат:
-
-      ```text
-      ...
-      Backup agent update completed after 204 s!
-      ```
-
+      Обновление агента {{ backup-name }} может занимать около 15 минут.
   1. Отключитесь от ВМ.
 
 {% endlist %}
 
-
-
-Если по какой-либо причине обновить агент не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
+Если по какой-либо причине обновить агент {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.

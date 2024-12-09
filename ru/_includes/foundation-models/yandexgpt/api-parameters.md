@@ -1,4 +1,4 @@
-* `modelUri` — [идентификатор модели](../../../foundation-models/concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../../../foundation-models/tutorials/yagpt-tuning.md) в {{ ml-platform-name }} модели.
+* `modelUri` — [идентификатор модели](../../../foundation-models/concepts/yandexgpt/models.md), которая будет использоваться для генерации ответа. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} или идентификатор [дообученной](../../../foundation-models/concepts/tuning/index.md) модели.
 * `completionOptions` — параметры конфигурации запроса:
 
   * `stream` — включает потоковую передачу частично сгенерированного текста. Принимает значения `true` или `false`.

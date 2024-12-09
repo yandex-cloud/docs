@@ -117,4 +117,4 @@ Auto-CoT состоит из двух основных этапов:
 #### См. также {#see-also}
 
 * [{#T}](few-shot.md)
-* [{#T}](../../tutorials/yagpt-tuning.md)
+* [{#T}](../../concepts/tuning/index.md)

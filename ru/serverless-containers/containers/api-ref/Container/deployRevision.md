@@ -102,6 +102,10 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
     "http": "object",
     "task": "object"
     // end of the list of possible fields
+  },
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string"
   }
 }
 ```
@@ -161,6 +165,9 @@ Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
 
 The container's execution mode ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+
+Metadata options for the revision. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.containers.v1.Resources}
@@ -438,6 +445,26 @@ We run a process from ENTRYPOINT inside the container for each user request.
 Includes only one of the fields `http`, `task`. ||
 |#
 
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -551,6 +578,10 @@ Includes only one of the fields `http`, `task`. ||
       "http": "object",
       "task": "object"
       // end of the list of possible fields
+    },
+    "metadataOptions": {
+      "gceHttpEndpoint": "string",
+      "awsV1HttpEndpoint": "string"
     }
   }
   // end of the list of possible fields
@@ -726,6 +757,9 @@ Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime2)**
 
 The container's execution mode ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions2)**
+
+Metadata options for the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -1004,4 +1038,24 @@ Includes only one of the fields `http`, `task`. ||
 We run a process from ENTRYPOINT inside the container for each user request.
 
 Includes only one of the fields `http`, `task`. ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions2}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
 |#

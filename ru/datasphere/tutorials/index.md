@@ -27,8 +27,6 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
-* [{#T}](yagpt-tuning.md)
-* [{#T}](yagpt-tuning-classifier.md)
 * [{#T}](stable-diffusion.md)
 
 ## Аналитика {#analytics}

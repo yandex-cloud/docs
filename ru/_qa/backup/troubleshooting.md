@@ -37,6 +37,12 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 
 Проверьте диски на целевой ВМ и при необходимости [увеличьте](../../compute/operations/disk-control/update.md#change-disk-size) их размер. Для восстановления также можно [использовать другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md) с подходящими параметрами.
 
+{% note info %}
+
+{% include [avoid-errors-when-restoring-from-backup.md](../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+{% endnote %}
+
 #### Ошибка при подключении ВМ на Windows {#windows-connection-issue}
 
 Текст ошибки:
