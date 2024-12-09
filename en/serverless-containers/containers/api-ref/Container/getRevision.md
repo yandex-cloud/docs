@@ -121,6 +121,10 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
     "http": "object",
     "task": "object"
     // end of the list of possible fields
+  },
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string"
   }
 }
 ```
@@ -197,6 +201,9 @@ Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
 
 The container's execution mode ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+
+Metadata options for the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -475,4 +482,24 @@ Includes only one of the fields `http`, `task`. ||
 We run a process from ENTRYPOINT inside the container for each user request.
 
 Includes only one of the fields `http`, `task`. ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
 |#

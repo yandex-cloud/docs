@@ -119,5 +119,4 @@ description: Чат-бот — это виртуальный помощник д
 * [Создание чат-бота для Slack](../ydb/tutorials/slack-bot-serverless.md) с помощью {{ ydb-full-name }}.
 * [Создание навыка Алисы](../functions/tutorials/alice-skill.md) на основе {{ sf-full-name }}.
 * [Создание Telegram-бота](../functions/tutorials/telegram-bot-serverless.md) с помощью serverless-технологий.
-* [Использование {{ yagpt-full-name }} API](../yandexgpt/quickstart.md) для бизнеса.
-* [Дообучение модели {{ yagpt-full-name }} API](../datasphere/tutorials/yagpt-tuning.md) для лучшего понимания специфики ваших задач.
+* [Создание AI-ассистента](../foundation-models/concepts/assistant/index.md) для бизнеса.

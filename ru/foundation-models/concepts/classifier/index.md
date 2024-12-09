@@ -1,8 +1,5 @@
 # Классификаторы на базе {{ yagpt-name }}
 
-_Функциональность классификаторов на базе {{ yagpt-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
-
-
 {{ foundation-models-full-name }} позволяет классифицировать передаваемые в промтах текстовые запросы. Классификация в [моделях](./models.md) на базе {{ yagpt-name }} реализована в [{{ foundation-models-name }} Text Classification API](../../text-classification/api-ref/index.md).
 
 В {{ foundation-models-name }} доступна классификация трех типов:
@@ -111,7 +108,7 @@ _Функциональность классификаторов на базе {
 
 ## Дообучаемые классификаторы {#trainable}
 
-Если качество результатов классификаторов [Zero-shot](#zero-shot) и [Few-shot](#few-shot) вас не устраивает, [дообучите собственный классификатор](../../../datasphere/tutorials/yagpt-tuning-classifier.md) на базе {{ yagpt-name }} в {{ ml-platform-full-name }}. [Дообучаемые классификаторы](../../../datasphere/concepts/models/foundation-models.md#classifier-training) могут быть обучены всем поддерживаемым типам классификации.
+Если качество результатов классификаторов [Zero-shot](#zero-shot) и [Few-shot](#few-shot) вас не устраивает, [дообучите собственный классификатор](../../../foundation-models/tutorials/yagpt-tuning-classifier.md) на базе {{ yagpt-name }} в {{ ml-platform-full-name }}. Дообучаемые классификаторы могут быть обучены всем поддерживаемым типам классификации.
 
 Чтобы [выполнить](../../operations/classifier/additionally-trained.md) запрос к классификатору дообученной в {{ ml-platform-name }} модели, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API. В этом случае в модель требуется передать только [идентификатор модели](./models.md) и текст запроса. Имена классов, по которым модель будет распределять запросы, должны быть заданы в процессе дообучения модели и в запросе не передаются.
 

@@ -99,17 +99,21 @@ items:
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Настройка Gateway API
         href: tutorials/gateway-api.md
-      - name: Настройка Ingress-контроллера {{ alb-name }}
+      - name: >-
+          Настройка L7-балансировщика {{ alb-name }} с помощью
+          Ingress-контроллера
         href: tutorials/alb-ingress-controller.md
-      - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+      - name: >-
+          Настройка логирования для L7-балансировщика {{ alb-name }} с помощью
+          Ingress-контроллера
         href: tutorials/alb-ingress-controller-log-options.md
       - name: >-
           Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
           }}
         href: tutorials/application-load-balancer-website.md
       - name: >-
-          Проверка состояния приложений в кластере {{ k8s }} с помощью
-          Ingress-контроллера {{ alb-name }}
+          Проверка состояния приложений в кластере {{ managed-k8s-name }} с
+          помощью L7-балансировщика {{ alb-name }}
         href: tutorials/custom-health-checks.md
       - name: >-
           Реализация защищенной высокодоступной сетевой инфраструктуры с

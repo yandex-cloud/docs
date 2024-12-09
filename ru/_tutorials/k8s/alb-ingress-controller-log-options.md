@@ -1,4 +1,4 @@
-# Настройки логирования для Ingress-контроллеров {{ alb-full-name }}
+# Настройка логирования для L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера
 
 Вы можете задать настройки логирования для [L7-балансировщиков](../../application-load-balancer/concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) {{ alb-name }} в кластере {{ managed-k8s-name }}.
 
@@ -11,8 +11,8 @@
 Чтобы задать настройки для L7-балансировщиков:
 
 1. [Создайте тестовое приложение](#install-app).
-1. [Настройте Ingress-контроллеры](#create-ingress).
-1. [Настройте группы Ingress-контроллеров](#configure-group).
+1. [Создайте ресурсы Ingress](#create-ingress).
+1. [Задайте настройки для групп ресурсов Ingress](#configure-group).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -257,7 +257,7 @@
     service/alb-demo-1 created
     ```
 
-## Настройте Ingress-контроллеры {#create-ingress}
+## Создайте ресурсы Ingress {#create-ingress}
 
 Создайте три ресурса [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), из которых Ingress-контроллер {{ alb-name }} создаст три балансировщика с нужными обработчиками и HTTP-роутерами.
 
@@ -335,23 +335,28 @@
 
     Где:
 
-    * `ingress.alb.yc.io/group-name` — объединение ресурсов {{ k8s }} Ingress в группы, каждая их которых обслуживается отдельным экземпляром {{ alb-name }}.
-    * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), с которыми будет работать {{ alb-name }}.
-    * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для {{ alb-name }}. Если параметр не задан, используется группа безопасности по умолчанию.
-    * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к {{ alb-name }} из интернета. При значении `auto` будет использоваться новый IP-адрес. При удалении Ingress-контроллера IP-адрес также будет удален из облака.
-    * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`.
+    * `ingress.alb.yc.io/group-name` — имя группы. Ресурсы Ingress объединяются в группы, каждая из которых обслуживается отдельным L7-балансировщиком {{ alb-name }}.
+    * `ingress.alb.yc.io/subnets` — одна или несколько [подсетей](../../vpc/concepts/network.md#subnet), в которых будет расположен балансировщик.
+    * `ingress.alb.yc.io/security-groups` — одна или несколько [групп безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) для балансировщика. Если параметр не задан, используется группа безопасности по умолчанию.
+    * `ingress.alb.yc.io/external-ipv4-address` — предоставление публичного доступа к балансировщику из интернета. Укажите [заранее полученный IP-адрес](../../vpc/operations/get-static-ip.md) либо установите значение `auto`, чтобы получить новый.
 
-    (Опционально) Укажите дополнительные настройки контроллеров:
+       Если вы указали значение `auto`, то при удалении балансировщика из [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) также будет удален его [IP-адрес](../../vpc/concepts/address.md). Чтобы избежать этого, используйте имеющийся зарезервированный адрес.
 
-    * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к {{ alb-name }}. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
+    * `ingress.alb.yc.io/group-settings-name` — имя для настроек группы ресурсов Ingress, которые должны быть описаны в дополнительном ресурсе `IngressGroupSettings`.
+
+    (Опционально) Укажите дополнительные настройки контроллеров.
+
+    {% include [alb-ingress-balancer-additional-settings](../_tutorials_includes/alb-ingress-balancer-additional-settings.md) %}
+
+    * `ingress.alb.yc.io/internal-ipv4-address` — предоставление внутреннего доступа к балансировщику. Укажите внутренний IP-адрес, либо установите значение `auto`, чтобы получить IP-адрес автоматически.
 
         {% note info %}
 
-        Вы можете одновременно использовать только один тип доступа к {{ alb-name }}: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
+        Вы можете одновременно использовать только один тип доступа к балансировщику: `ingress.alb.yc.io/external-ipv4-address` или `ingress.alb.yc.io/internal-ipv4-address`.
 
         {% endnote %}
 
-    * `ingress.alb.yc.io/internal-alb-subnet` — подсеть для размещения внутреннего IP-адреса {{ alb-name }}. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
+    * `ingress.alb.yc.io/internal-alb-subnet` — подсеть, в которой нужно разместить балансировщик. Обязательный параметр, если выбран параметр `ingress.alb.yc.io/internal-ipv4-address`.
     * `ingress.alb.yc.io/protocol` — протокол соединений между балансировщиком и бэкендами:
 
         * `http` — HTTP/1.1. Значение по умолчанию.
@@ -385,15 +390,9 @@
         * `m` — минуты.
         * `h` — часы.
 
-    {% note info %}
-
-    Настройки действуют только на хосты этого контроллера, но не на всю группу Ingress.
-
-    {% endnote %}
-
     Подробное описание настроек ресурса Ingress см. в статье [{#T}](../../managed-kubernetes/alb-ref/ingress.md).
 
-1. Создайте Ingress-контроллеры:
+1. Создайте ресурсы Ingress:
 
     ```bash
     kubectl apply -f ingress.yaml
@@ -407,11 +406,11 @@
     ingress.networking.k8s.io/logs-demo-default created
     ```
 
-    По конфигурациям Ingress-контроллеров будут автоматически развернуты три [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md).
+    По конфигурациям ресурсов Ingress будут автоматически развернуты три [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md).
 
-## Настройте группы Ingress-контроллеров {#configure-group}
+## Задайте настройки для групп ресурсов Ingress {#configure-group}
 
-Создайте ресурс `IngressGroupSettings` с настройками логирования для групп Ingress-контроллеров:
+Создайте ресурс `IngressGroupSettings` с настройками логирования для групп ресурсов Ingress:
 
 * `non-default-settings` — запись в пользовательскую лог-группу, созданную [ранее](#deploy-infrastructure), с определенными правилами.
 * `logs-disabled-settings` — запись логов отключена.
@@ -449,7 +448,7 @@
       disable: true
     ```
 
-1. Примените настройки для групп Ingress-контроллеров:
+1. Создайте ресурсы:
 
     ```bash
     kubectl apply -f settings.yaml
@@ -461,6 +460,8 @@
     ingressgroupsettings.alb.yc.io/non-default-settings created
     ingressgroupsettings.alb.yc.io/logs-disabled-settings created
     ```
+
+Настройки, указанные в этих ресурсах, применятся к группам ресурсов Ingress в соответствии с аннотациями `ingress.alb.yc.io/group-settings-name`, [указанными для ресурсов Ingress](#create-ingress).
 
 ## Проверьте результат {#check-result}
 
