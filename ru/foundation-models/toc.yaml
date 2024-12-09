@@ -37,6 +37,14 @@ items:
         items:
           - name: Генерация изображений
             href: operations/yandexart/request.md
+      - name: Дообучение моделей
+        items:
+          - name: Дообучение моделей в {{ foundation-models-name }}
+            href: operations/tuning/create.md
+          - name: >-
+              Дообучение классификаторов на базе {{ yagpt-name }} в {{
+              ml-platform-name }}
+            href: tutorials/yagpt-tuning-classifier.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
@@ -65,21 +73,17 @@ items:
             href: concepts/yandexart/index.md
           - name: Модели
             href: concepts/yandexart/models.md
+      - name: Дообучение моделей
+        href: concepts/tuning/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Практические руководства
-    items:
-      - name: Дообучение модели {{ yagpt-name }}
-        href: tutorials/yagpt-tuning.md
-      - name: Дообучение классификаторов на базе {{ yagpt-name }}
-        href: tutorials/yagpt-tuning-classifier.md
   - name: Справочники API
     items:
       - name: Обзор
         href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: Text Generation (англ.)
+      - name: Text Generation API (англ.)
         items:
           - name: REST
             items:
@@ -263,6 +267,8 @@ items:
                     items:
                       - name: Overview
                         href: searchindex/api-ref/SearchIndexFile/index.md
+                      - name: BatchCreate
+                        href: searchindex/api-ref/SearchIndexFile/batchCreate.md
                       - name: Get
                         href: searchindex/api-ref/SearchIndexFile/get.md
                       - name: List
@@ -389,6 +395,9 @@ items:
                     items:
                       - name: Overview
                         href: searchindex/api-ref/grpc/SearchIndexFile/index.md
+                      - name: BatchCreate
+                        href: >-
+                          searchindex/api-ref/grpc/SearchIndexFile/batchCreate.md
                       - name: Get
                         href: searchindex/api-ref/grpc/SearchIndexFile/get.md
                       - name: List
@@ -495,7 +504,7 @@ items:
                     href: files/api-ref/grpc/File/delete.md
                   - name: List
                     href: files/api-ref/grpc/File/list.md
-      - name: ' {{ yandexart-name }} (англ.)'
+      - name: '{{ yandexart-name }} (англ.)'
         items:
           - name: REST
             items:
@@ -535,6 +544,78 @@ items:
                     href: image-generation/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: image-generation/api-ref/grpc/Operation/cancel.md
+      - name: Dataset API (англ.)
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: dataset/api-ref/grpc/index.md
+              - name: Dataset
+                items:
+                  - name: Overview
+                    href: dataset/api-ref/grpc/Dataset/index.md
+                  - name: Describe
+                    href: dataset/api-ref/grpc/Dataset/describe.md
+                  - name: Validate
+                    href: dataset/api-ref/grpc/Dataset/validate.md
+                  - name: Create
+                    href: dataset/api-ref/grpc/Dataset/create.md
+                  - name: Update
+                    href: dataset/api-ref/grpc/Dataset/update.md
+                  - name: Delete
+                    href: dataset/api-ref/grpc/Dataset/delete.md
+                  - name: List
+                    href: dataset/api-ref/grpc/Dataset/list.md
+                  - name: ListUploadFormats
+                    href: dataset/api-ref/grpc/Dataset/listUploadFormats.md
+                  - name: GetUploadDraftUrl
+                    href: dataset/api-ref/grpc/Dataset/getUploadDraftUrl.md
+                  - name: StartMultipartUploadDraft
+                    href: dataset/api-ref/grpc/Dataset/startMultipartUploadDraft.md
+                  - name: FinishMultipartUploadDraft
+                    href: dataset/api-ref/grpc/Dataset/finishMultipartUploadDraft.md
+                  - name: ListTypes
+                    href: dataset/api-ref/grpc/Dataset/listTypes.md
+                  - name: GetPreview
+                    href: dataset/api-ref/grpc/Dataset/getPreview.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: dataset/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: dataset/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: dataset/api-ref/grpc/Operation/cancel.md
+      - name: Tuning API (англ.)
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: tuning/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: tuning/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: tuning/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: tuning/api-ref/grpc/Operation/cancel.md
+              - name: Tuning
+                items:
+                  - name: Overview
+                    href: tuning/api-ref/grpc/Tuning/index.md
+                  - name: Tune
+                    href: tuning/api-ref/grpc/Tuning/tune.md
+                  - name: List
+                    href: tuning/api-ref/grpc/Tuning/list.md
+                  - name: Describe
+                    href: tuning/api-ref/grpc/Tuning/describe.md
+                  - name: Cancel
+                    href: tuning/api-ref/grpc/Tuning/cancel.md
+                  - name: GetMetricsUrl
+                    href: tuning/api-ref/grpc/Tuning/getMetricsUrl.md
+                  - name: GetOptions
+                    href: tuning/api-ref/grpc/Tuning/getOptions.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Как создавать промты

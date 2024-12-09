@@ -254,13 +254,17 @@ items:
             href: tutorials/fluent-bit-logging.md
           - name: Настройка Gateway API
             href: tutorials/marketplace/gateway-api.md
-          - name: Настройка Ingress-контроллера {{ alb-name }}
+          - name: >-
+              Настройка L7-балансировщика {{ alb-name }} с помощью
+              Ingress-контроллера
             href: tutorials/alb-ingress-controller.md
-          - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+          - name: >-
+              Настройка логирования для L7-балансировщика {{ alb-name }} с
+              помощью Ingress-контроллера
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Проверка состояния приложений в кластере с помощью
-              Ingress-контроллера {{ alb-name }}
+              Проверка состояния приложений в кластере {{ managed-k8s-name }} с
+              помощью L7-балансировщика {{ alb-name }}
             href: tutorials/custom-health-checks.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md

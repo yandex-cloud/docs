@@ -263,6 +263,8 @@ items:
                     items:
                       - name: Overview
                         href: searchindex/api-ref/SearchIndexFile/index.md
+                      - name: BatchCreate
+                        href: searchindex/api-ref/SearchIndexFile/batchCreate.md
                       - name: Get
                         href: searchindex/api-ref/SearchIndexFile/get.md
                       - name: List
@@ -389,6 +391,9 @@ items:
                     items:
                       - name: Overview
                         href: searchindex/api-ref/grpc/SearchIndexFile/index.md
+                      - name: BatchCreate
+                        href: >-
+                          searchindex/api-ref/grpc/SearchIndexFile/batchCreate.md
                       - name: Get
                         href: searchindex/api-ref/grpc/SearchIndexFile/get.md
                       - name: List

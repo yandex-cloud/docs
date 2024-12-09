@@ -345,6 +345,7 @@ default:
   lockbox-name: Yandex Lockbox
   lockbox-short-name: Lockbox
   login-example: login@yandex.ru
+  lora: LoRA
   m1-2xlarge: m1.2xlarge (16 vCPU, 128 ГБ)
   m1-3xlarge: m1.3xlarge (24 vCPU, 192 ГБ)
   m1-4xlarge: m1.4xlarge (32 vCPU, 256 ГБ)

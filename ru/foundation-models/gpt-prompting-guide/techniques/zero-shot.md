@@ -25,4 +25,4 @@
 * [{#T}](few-shot.md)
 * [{#T}](CoT.md)
 * [{#T}](self-consistency.md)
-* [{#T}](../../tutorials/yagpt-tuning.md)
+* [{#T}](../../concepts/tuning/index.md)

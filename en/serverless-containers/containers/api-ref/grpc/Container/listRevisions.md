@@ -157,6 +157,10 @@ Example of a filter: `status="ACTIVE"`. ||
         "http": "Http",
         "task": "Task"
         // end of the list of possible fields
+      },
+      "metadata_options": {
+        "gce_http_endpoint": "MetadataOption",
+        "aws_v1_http_endpoint": "MetadataOption"
       }
     }
   ],
@@ -245,6 +249,9 @@ Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
 
 The container's execution mode ||
+|| metadata_options | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+
+Metadata options for the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -537,4 +544,24 @@ Includes only one of the fields `http`, `task`. ||
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gce_http_endpoint | enum **MetadataOption**
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v1_http_endpoint | enum **MetadataOption**
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
 |#

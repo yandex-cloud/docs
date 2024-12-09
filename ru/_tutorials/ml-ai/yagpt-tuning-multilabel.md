@@ -6,12 +6,6 @@
 
 {% endnote %}
 
-{% note info %}
-
-Классификаторы на базе {{ yagpt-name }} находятся на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Чтобы дообучить классификатор {{ yagpt-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
