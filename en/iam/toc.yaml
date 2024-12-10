@@ -71,7 +71,7 @@ items:
             href: operations/sa/delete-access-key.md
           - name: Creating a temporary access key using {{ sts-name }}
             href: operations/sa/create-sts-key.md
-          - name: Creating API keys
+          - name: Creating an API key
             href: operations/api-key/create.md
           - name: Deleting API keys
             href: operations/api-key/delete.md
@@ -82,7 +82,7 @@ items:
       - name: Service access to user resources
         stage: preview
         items:
-          - name: Viewing service statuses
+          - name: Viewing the status of services
             href: operations/service-control/list-get.md
           - name: Enabling and disabling services
             href: operations/service-control/enable-disable.md
@@ -96,6 +96,10 @@ items:
           Service account with an {{ oslogin }} profile for VM management via
           Ansible
         href: tutorials/sa-oslogin-ansible.md
+      - name: Integrations of service account identity federations
+        items:
+          - name: GitHub
+            href: tutorials/wlif-github-integration.md
   - name: Concepts
     items:
       - name: Overview

@@ -38,7 +38,11 @@ items:
             href: operations/metastore/dataproc-connect.md
           - name: Exporting and importing a {{ metastore-name }} cluster
             href: operations/metastore/export-and-import.md
-          - name: Deleting a {{ metastore-name }} cluster
+          - name: >-
+              Transferring logs from {{ metastore-name }} to {{
+              cloud-logging-name }}
+            href: operations/metastore/logging.md
+          - name: Deleting an {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
       - name: Schema Registry
         items:
@@ -73,13 +77,11 @@ items:
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
         href: tutorials/sharing-tables.md
       - name: >-
-          Transferring data between {{ dataproc-name }} clusters using {{
+          Transferring metadata between {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: tutorials/metastore-import.md
-      - name: >-
-          Transferring logs from {{ metastore-name }} to {{ cloud-logging-name
-          }}
-        href: tutorials/metastore-logging.md
+      - name: Using {{ schema-registry-name }} with {{ mkf-full-name }}
+        href: tutorials/managed-schema-registry.md
   - name: Concepts
     items:
       - name: About {{ metadata-hub-full-name }}

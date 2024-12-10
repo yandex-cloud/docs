@@ -149,7 +149,11 @@ Example of a filter: `status="ACTIVE"`. ||
           }
           // end of the list of possible fields
         }
-      ]
+      ],
+      "metadataOptions": {
+        "gceHttpEndpoint": "string",
+        "awsV1HttpEndpoint": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -261,6 +265,9 @@ The maximum number of requests processed by a function instance at the same time
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.functions.v1.MetadataOptions)**
+
+Metadata options for the version. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.functions.v1.Resources}
@@ -486,4 +493,24 @@ The size of disk for mount in bytes ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.functions.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
 |#

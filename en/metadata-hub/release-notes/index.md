@@ -5,6 +5,12 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 # {{ metadata-hub-full-name }} release notes: 2024
 
+## November {#november}
+
+### New features {#new-features-november}
+
+* In the management console, you can now connect to a selected {{ schema-registry-name }} [namespace](../operations/update-name-space.md).
+
 ## October {#october}
 
 ### New features {#new-features-october}

@@ -272,11 +272,11 @@ default:
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
   link-ca-jb-2024-1: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.1.zip
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/241/yandex-code-assist.zip
   link-ca-jb-2024-2: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.2.zip
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/242/yandex-code-assist.zip
   link-ca-jb-2024-3: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/yandex-code-assist.2024.3.zip
+    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/243/yandex-code-assist.zip
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru

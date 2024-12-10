@@ -22,7 +22,7 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
   "description": "string",
   "labels": "string",
   "source": {
-    // Includes only one of the fields `dataStream`, `messageQueue`
+    // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
     "dataStream": {
       "database": "string",
       "streamName": "string",
@@ -35,6 +35,11 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
       "visibilityTimeout": "string",
       "batchSize": "string",
       "pollingTimeout": "string"
+    },
+    "timer": {
+      "cronExpression": "string",
+      "timeZone": "string",
+      "payload": "string"
     }
     // end of the list of possible fields
   },
@@ -70,10 +75,13 @@ Flag that disallow deletion of the connector. ||
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
+|| timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -117,6 +125,21 @@ Batch size for polling. ||
 Queue polling timeout. ||
 |#
 
+## Timer {#yandex.cloud.serverless.eventrouter.v1.Timer}
+
+#|
+||Field | Description ||
+|| cronExpression | **string**
+
+Required field. cron expression, with second precision ||
+|| timeZone | **string**
+
+time zone, e.g. Europe/Moscow ||
+|| payload | **string**
+
+payload to send to target ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -151,7 +174,7 @@ Queue polling timeout. ||
     "description": "string",
     "labels": "string",
     "source": {
-      // Includes only one of the fields `dataStream`, `messageQueue`
+      // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
       "dataStream": {
         "database": "string",
         "streamName": "string",
@@ -164,6 +187,11 @@ Queue polling timeout. ||
         "visibilityTimeout": "string",
         "batchSize": "string",
         "pollingTimeout": "string"
+      },
+      "timer": {
+        "cronExpression": "string",
+        "timeZone": "string",
+        "payload": "string"
       }
       // end of the list of possible fields
     },
@@ -333,10 +361,13 @@ Status of the connector.
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream2)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue2)**
 
-Includes only one of the fields `dataStream`, `messageQueue`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
+|| timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer2)**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream2}
@@ -378,4 +409,19 @@ Batch size for polling. ||
 || pollingTimeout | **string** (duration)
 
 Queue polling timeout. ||
+|#
+
+## Timer {#yandex.cloud.serverless.eventrouter.v1.Timer2}
+
+#|
+||Field | Description ||
+|| cronExpression | **string**
+
+Required field. cron expression, with second precision ||
+|| timeZone | **string**
+
+time zone, e.g. Europe/Moscow ||
+|| payload | **string**
+
+payload to send to target ||
 |#

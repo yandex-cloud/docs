@@ -21,7 +21,7 @@ To delete an organization:
 
   1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with an administrator or organization owner account.
 
-      On the {{ cloud-center }} home page that opens, you can view general info about your organization.
+      The {{ cloud-center }} home page that opens displays the basic information about your organization.
 
       If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select another one. This will switch you to a different organization.
   
@@ -34,3 +34,5 @@ To delete an organization:
 {% endlist %}
 
 After deleting an organization, you will no longer be able to use the {{ yandex-cloud }} resources created in that organization.
+
+If you have any issues, please contact [support]({{ link-console-support }}).

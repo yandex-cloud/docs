@@ -107,13 +107,17 @@
 
           {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+
+          {% include [download-saml-cert-when-creating-fed](../../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+          {% include [setup-cert-for-idp](../../../../_includes/organization/setup-cert-for-idp.md) %}
+
+          Сертификат потребуется в дальнейшем при настройке клиента в {{ keycloak }}.
 
       1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
       1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
-
-  1. (Опционально) Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию. Сертификат потребуется в дальнейшем при настройке клиента в {{ keycloak }}.
 
 {% endlist %}
 
@@ -214,12 +218,15 @@
 
     1. На вкладке **Keys** SAML-приложения убедитесь, что опция **Client Signature Required** включена.
     1. Нажмите кнопку **Import key** под автоматически сгенерированным сертификатом и в поле **Archive Format** выберите **Certificate PEM**.
-    1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+    1. Нажмите кнопку **Browse** и выберите скачанный ранее SAML-сертификат {{ yandex-cloud }} для подписи запросов аутентификации.
+
+        Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.link.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+
     1. Нажмите **Import**.
     1. Включите опцию **Encrypt Assertions**.
     1. В появившемся окне выберите метод **Generate** и нажмите **Confirm**.
     1. Нажмите кнопку **Import key** под сгенерированным сертификатом и в поле **Archive Format** выберите **Certificate PEM**.
-    1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен на странице сведений о федерации в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+    1. Нажмите кнопку **Browse** и выберите сертификат для подписи запросов аутентификации. Сертификат доступен для скачивания на странице сведений о федерации в {{ org-full-name }} в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
     1. Нажмите **Import**.
 
 ## Настройте сопоставление групп на стороне {{ keycloak }} {#kc-mapping}

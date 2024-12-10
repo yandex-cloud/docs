@@ -266,7 +266,7 @@ items:
         href: concepts/data-transformation.md
       - name: Serialization
         href: concepts/serializer.md
-      - name: '{{ data-transfer-full-name }} workflow for sources and targets'
+      - name: '{{ data-transfer-full-name }} specifics for sources and targets'
         href: concepts/work-with-endpoints.md
       - name: Delivery guarantees
         href: concepts/delivery-configuration.md
@@ -406,6 +406,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: November 2024
+        href: release-notes/2411.md
       - name: October 2024
         href: release-notes/2410.md
       - name: September 2024

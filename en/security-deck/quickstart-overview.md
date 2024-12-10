@@ -29,9 +29,11 @@ To get started, assign [roles](./security/index.md) required to work with {{ sd-
 
 ## Access Transparency {#access-transparency}
 
-[Access Transparency]({{ link-sd-main }}trasparency/) is an automated tool you can use to view the analytical data about {{ yandex-cloud }} engineers' actions with the organization's resources – whether during maintenance, [request](../support/overview.md) processing, or when addressing security issues.
+[Access Transparency]({{ link-sd-main }}transparency/) is an automated tool you can use to view the analytical data about {{ yandex-cloud }} engineers' actions with the organization's resources – whether during maintenance, [request](../support/overview.md) processing, or when addressing security issues.
 
 The tool ensures transparency of operations and control over the actions of {{ yandex-cloud }} engineers: their action logs are automatically analyzed by a specially trained {{ yagpt-name }}-based model, and issues, if any, can be escalated to have the session checked by a {{ yandex-cloud }} information security specialist.
+
+{% include [access-transparency-attach-ba-notice](../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
 For more information, see [{#T}](./concepts/access-transparency.md).
 

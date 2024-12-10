@@ -208,7 +208,7 @@ To create an instance group:
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
 
-       * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
         To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -251,9 +251,9 @@ To create an instance group:
          network_interface_specs:
              - network_id: <cloud_network_ID>
                subnet_ids:
-                 - <{{ region-id }}-a_zone_subnet_ID>
-                 - <{{ region-id }}-b_zone_subnet_ID>
-                 - <{{ region-id }}-d_zone_subnet_ID>
+                 - <subnet_ID_in_{{ region-id }}-a>
+                 - <subnet_ID_in_{{ region-id }}-b>
+                 - <subnet_ID_in_{{ region-id }}-d>
                primary_v4_address_spec: {}
                security_group_ids:
                  - <security_group_ID>
@@ -379,14 +379,14 @@ To create a backend group:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Enter **{{ ui-key.yacloud.common.name }}** of the backend group: `ddos-backend-group`.
+  1. Enter the backend group **{{ ui-key.yacloud.common.name }}**: `ddos-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
   1. Enter the backend **{{ ui-key.yacloud.common.name }}**: `backend-1`.
   1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `tg-ddos` group.
   1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to receive incoming traffic from the load balancer: `80`.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
   1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to accept health check connections: `80`.
-  1. Specify **{{ ui-key.yacloud.alb.label_path }}** the load balancer will access for health checks: `/`.
+  1. Specify **{{ ui-key.yacloud.alb.label_path }}** the load balancer will use for health checks: `/`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
