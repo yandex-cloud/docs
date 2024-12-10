@@ -6,9 +6,7 @@
 
 1. [Создайте федерацию в организации](#create-federation).
 
-1. [Добавьте сертификаты в федерацию](#add-certificate).
-
-1. [Настройте аутентификацию на стороне {{ microsoft-idp.adfs-abbreviated }}](#configure-sso).
+1. [Укажите сертификаты для федерации](#add-certificate).
 
 1. [Добавьте пользователей в организацию](#add-users).
 
@@ -79,7 +77,9 @@
 
   1. {% include [encrypted-assertions-console](../../../_includes/organization/encrypted-assertions-console.md) %}
 
-     {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
+      {% include [download-saml-cert-when-creating-fed](../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+      {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
 
   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 

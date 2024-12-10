@@ -155,7 +155,7 @@ For OnPremise, all fields are filled in manually.
           connection {
             on_premise {
               hosts = ["<list_of_hosts>"]
-              port  = <pot_for_connection>
+              port  = <port_for_connection>
             }
           }
           database = "<name_of_database_to_migrate>"

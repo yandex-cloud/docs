@@ -90,15 +90,17 @@ description: Как настроить сопоставление групп п�
 
           {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. (Опционально) Чтобы все запросы аутентификации от {{ yandex-cloud }} содержали цифровую подпись, включите опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+
+          {% include [download-saml-cert-when-creating-fed](../../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+          {% include [setup-cert-for-idp](../../../../_includes/organization/setup-cert-for-idp.md) %}
+
+          Сертификат потребуется в дальнейшем при настройке отношения доверия {{ microsoft-idp.adfs-abbreviated }}.
 
       1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
       1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
-
-  1. Скачайте сертификат по ссылке в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, если ранее вы включили соответствующую опцию.
-
-      Сертификат потребуется в дальнейшем при настройке отношения доверия {{ microsoft-idp.adfs-abbreviated }}.
 
 {% endlist %}
 

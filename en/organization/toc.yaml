@@ -21,6 +21,8 @@ items:
             href: operations/org-profile.md
           - name: Managing multiple organizations
             href: operations/manage-organizations.md
+          - name: Hiding information about organization members
+            href: operations/hide-user-info.md
           - name: Deleting an organization
             href: operations/delete-org.md
       - name: Managing users

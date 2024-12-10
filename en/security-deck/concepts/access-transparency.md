@@ -5,7 +5,9 @@ description: Access Transparency is an automated tool within {{ sd-name }} desig
 
 # Access Transparency
 
-[Access Transparency]({{ link-sd-main }}trasparency/) is an automated tool providing analytical information about the actions {{ yandex-cloud }} engineers take with your organization's resources during maintenance, when handling [support requests](../../support/overview.md), or for security purposes. With this tool, you can gain visibility and control over the actions of {{ yandex-cloud }} engineers.
+[Access Transparency]({{ link-sd-main }}transparency/) is an automated tool providing analytical information about the actions {{ yandex-cloud }} engineers take with your organization's resources during maintenance, when handling [support requests](../../support/overview.md), or for security purposes. With this tool, you can gain visibility and control over the actions of {{ yandex-cloud }} engineers.
+
+{% include [access-transparency-attach-ba-notice](../../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
 Main features of Access Transparency:
 

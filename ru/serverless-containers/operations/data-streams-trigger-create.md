@@ -7,6 +7,12 @@ description: Следуя данной инструкции, вы сможете
 
  Создайте [триггер для {{ yds-name }}](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
 
+{% note info %}
+
+{% include [trigger-message-format-note](../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 Для создания триггера вам понадобятся:

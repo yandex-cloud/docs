@@ -20,7 +20,9 @@ description: Из статьи вы узнаете, что такое тригг
 
 ## Формат сообщения от триггера для {{ yds-name }} {#format}
 
-После того как триггер сработает, он отправит в функцию сообщение. Формат сообщения зависит от источника и представляет собой массив `messages`:
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+После того как триггер сработает, он отправит в функцию сообщение с массивом `messages`:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

@@ -71,7 +71,7 @@ New flag that disallow deletion of the connector. ||
     "description": "string",
     "labels": "string",
     "source": {
-      // Includes only one of the fields `data_stream`, `message_queue`
+      // Includes only one of the fields `data_stream`, `message_queue`, `timer`
       "data_stream": {
         "database": "string",
         "stream_name": "string",
@@ -84,6 +84,11 @@ New flag that disallow deletion of the connector. ||
         "visibility_timeout": "google.protobuf.Duration",
         "batch_size": "int64",
         "polling_timeout": "google.protobuf.Duration"
+      },
+      "timer": {
+        "cron_expression": "string",
+        "time_zone": "string",
+        "payload": "string"
       }
       // end of the list of possible fields
     },
@@ -212,10 +217,13 @@ Status of the connector.
 ||Field | Description ||
 || data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `data_stream`, `message_queue`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
 || message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `data_stream`, `message_queue`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
+|| timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
+
+Includes only one of the fields `data_stream`, `message_queue`, `timer`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -257,4 +265,19 @@ Batch size for polling. ||
 || polling_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Queue polling timeout. ||
+|#
+
+## Timer {#yandex.cloud.serverless.eventrouter.v1.Timer}
+
+#|
+||Field | Description ||
+|| cron_expression | **string**
+
+Required field. cron expression, with second precision ||
+|| time_zone | **string**
+
+time zone, e.g. Europe/Moscow ||
+|| payload | **string**
+
+payload to send to target ||
 |#

@@ -65,6 +65,7 @@ To configure notification methods:
 
     You can receive notifications via email, text messages, or Telegram bot.
 1. Under **{{ ui-key.yacloud_components.settings.section_settings }}**, select the types of notifications to send and channels for receiving them:
-    * ![image](../../_assets/console-icons/at.svg): Email
-    * ![image](../../_assets/console-icons/smartphone.svg): Text message
-    * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message
+    * ![image](../../_assets/console-icons/at.svg): Email.
+    * ![image](../../_assets/console-icons/smartphone.svg): Text message.
+    * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message.
+    * ![image](../../_assets/console-icons/handset.svg): Phone call to the specified number (only available for {{ monitoring-name }} escalations).

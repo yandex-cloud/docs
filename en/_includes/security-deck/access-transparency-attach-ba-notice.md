@@ -1,0 +1,3 @@
+To connect and use Access Transparency, your [organization](../../organization/quickstart.md) must be linked to a [billing account](../../billing/concepts/billing-account.md). Follow [this guide](../../billing/operations/change-organization.md) to link your organization to a billing account.
+
+Once your organization has it linked, select the billing account in the [Access Transparency]({{ link-sd-main }}transparency/) module. This can only be done by a user with the `billing.accounts.owner` [role](../../billing/security/index.md#billing-accounts-owner).

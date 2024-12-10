@@ -109,7 +109,11 @@ Creates a version for the specified function.
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "metadata_options": {
+    "gce_http_endpoint": "MetadataOption",
+    "aws_v1_http_endpoint": "MetadataOption"
+  }
 }
 ```
 
@@ -198,6 +202,9 @@ The maximum number of requests processed by a function instance at the same time
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
+|| metadata_options | **[MetadataOptions](#yandex.cloud.serverless.functions.v1.MetadataOptions)**
+
+Metadata options for the version. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.functions.v1.Resources}
@@ -449,6 +456,26 @@ The size of disk for mount in bytes ||
 Optional block size of disk for mount in bytes ||
 |#
 
+## MetadataOptions {#yandex.cloud.serverless.functions.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gce_http_endpoint | enum **MetadataOption**
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v1_http_endpoint | enum **MetadataOption**
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -554,7 +581,11 @@ Optional block size of disk for mount in bytes ||
         }
         // end of the list of possible fields
       }
-    ]
+    ],
+    "metadata_options": {
+      "gce_http_endpoint": "MetadataOption",
+      "aws_v1_http_endpoint": "MetadataOption"
+    }
   }
   // end of the list of possible fields
 }
@@ -708,6 +739,9 @@ The maximum number of requests processed by a function instance at the same time
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount2)**
 
 Mounts to be used by the version. ||
+|| metadata_options | **[MetadataOptions](#yandex.cloud.serverless.functions.v1.MetadataOptions2)**
+
+Metadata options for the version. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.functions.v1.Resources2}
@@ -940,4 +974,24 @@ The size of disk for mount in bytes ||
 || block_size | **int64**
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.functions.v1.MetadataOptions2}
+
+#|
+||Field | Description ||
+|| gce_http_endpoint | enum **MetadataOption**
+
+Enabled access to GCE flavored metadata
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| aws_v1_http_endpoint | enum **MetadataOption**
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `METADATA_OPTION_UNSPECIFIED`: Option is default
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
 |#
