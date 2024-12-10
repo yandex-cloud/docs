@@ -7,6 +7,12 @@ description: Следуя данной инструкции, вы сможете
 
  Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
 
+{% note info %}
+
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}

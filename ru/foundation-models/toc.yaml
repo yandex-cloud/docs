@@ -41,10 +41,6 @@ items:
         items:
           - name: Дообучение моделей в {{ foundation-models-name }}
             href: operations/tuning/create.md
-          - name: >-
-              Дообучение классификаторов на базе {{ yagpt-name }} в {{
-              ml-platform-name }}
-            href: tutorials/yagpt-tuning-classifier.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
@@ -73,8 +69,14 @@ items:
             href: concepts/yandexart/index.md
           - name: Модели
             href: concepts/yandexart/models.md
-      - name: Дообучение моделей
-        href: concepts/tuning/index.md
+      - name: Дообучение
+        items:
+          - name: Обзор
+            href: concepts/tuning/index.md
+          - name: Дообучение моделей генерации текста
+            href: concepts/tuning/generating.md
+          - name: Дообучение классификаторов
+            href: concepts/tuning/classifier.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Справочники API

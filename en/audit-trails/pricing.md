@@ -1,6 +1,6 @@
 ---
 title: '{{ at-full-name }} pricing policy'
-description: This article describes the {{ at-name }} pricing policy.
+description: This article provides the {{ at-name }} pricing policy.
 editable: false
 ---
 

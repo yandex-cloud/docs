@@ -88,7 +88,7 @@ Average rate of transferring a table to a single stream for transfers from {{ PG
 * {{ PG }}: 21 Mbps.
 * Another DBMS: 3.5 Mbps.
 
-You can speed up data transfers using [sharded copying](./sharded.md).
+For faster data transfers, use [parallel copy](./sharded.md).
 
 
 

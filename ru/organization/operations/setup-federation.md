@@ -54,7 +54,10 @@
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+
+            {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}** — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
         * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — при истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
 
@@ -329,21 +332,31 @@
 
 Если при создании федерации вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Чтобы IdP-сервер мог проверить эту подпись, добавьте сертификат {{ yandex-cloud }} на IdP-сервер:
 
-1. Скачайте сертификат {{ yandex-cloud }}:
+1. Если вы не скачивали SAML-сертификат {{ yandex-cloud }} при создании федерации удостоверений, скачайте его сейчас:
 
     {% list tabs group=instructions %}
 
     - Интерфейс {{ cloud-center }} {#cloud-center}
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-
       1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+      1. В открывшемся списке выберите нужную федерацию удостоверений и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
 
-      1. Нажмите на строку с нужной федерацией и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+          Если слева от кнопки ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.link.download-cert }}** отображается значок ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg), значит срок действия текущего SAML-сертификата {{ yandex-cloud }} закончился или вот-вот закончится.
+
+          [Скачайте и установите](./renew-yc-certificate.md) перевыпущенный SAML-сертификат {{ yandex-cloud }} в вашей федерации удостоверений.
+
+          {% note tip %}
+
+          Чтобы узнать дату истечения срока действия текущего SAML-сертификата, в правом верхнем углу нажмите ![pencil](../../_assets/console-icons/pencil.svg) **Изменить**. Нужная дата будет указана в блоке **Дополнительно** в секции **Сертификат SAML**.
+
+          Сохраните дату истечения срока действия SAML-сертификата в свой календарь. За несколько месяцев до указанной даты вам будет необходимо [скачать и установить](../../organization/operations/renew-yc-certificate.md) в вашей федерации и на IdP-сервере перевыпущенный SAML-сертификат {{ yandex-cloud }}.
+
+          {% endnote %}
 
     {% endlist %}
 
-1. Передайте сертификат на IdP-сервер. Чтобы узнать, как это сделать, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
+1. Передайте скачанный SAML-сертификат {{ yandex-cloud }} на IdP-сервер. Чтобы узнать, как это сделать, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
 ## Настроить SAML-приложение на стороне IdP-сервера {#configure-sso}
 

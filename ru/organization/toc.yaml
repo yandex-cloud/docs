@@ -63,6 +63,8 @@ items:
             href: operations/setup-federation.md
           - name: Настроить сопоставление групп федеративных пользователей
             href: operations/federation-group-mapping.md
+          - name: Обновить SAML-сертификат {{ yandex-cloud }}
+            href: operations/renew-yc-certificate.md
       - name: Работа с OS Login
         items:
           - name: Включить доступ по OS Login

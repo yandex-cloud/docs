@@ -11,12 +11,13 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 ## Getting started {#before-you-begin}
 
+1. To link your [service account](../../../iam/concepts/users/service-accounts.md) to a {{ metastore-name }} cluster, [make sure](../../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) in the subnet the cluster will connect to. It is needed for the cluster to interact with {{ yandex-cloud }} services.
 1. [Configure the security group](configure-security-group.md).
 1. [Create a service account](../../../iam/operations/sa/create.md).
-1. [Assign the `{{ roles.metastore.integrationProvider }}` role](../../../iam/operations/sa/assign-role-for-sa.md) to the service account. This role enables the cluster [to work with {{ yandex-cloud }} services](../../concepts/metastore-impersonation.md), e.g., {{ cloud-logging-full-name }} and {{ monitoring-full-name }}, as a service account.
+1. [Assign the `{{ roles.metastore.integrationProvider }}` role](../../../iam/operations/sa/assign-role-for-sa.md) to the service account. This role enables the cluster [to work with {{ yandex-cloud }} services](../../concepts/metastore-impersonation.md), e.g., {{ cloud-logging-full-name }} and {{ monitoring-full-name }}, under a service account.
 
-    You can also add other roles to meet your specific use case. To view the service roles, see the [{{ metastore-name }} section](../../security/metastore-roles.md), and for all available roles, see this [reference](../../../iam/roles-reference.md).
+    You can also add more roles. Their combination depends on your specific use case. You can view the service roles in the [{{ metastore-name }} section](../../security/metastore-roles.md) and all the available roles in this [reference](../../../iam/roles-reference.md).
 
 1. Optionally, [create a static access key](../../../iam/operations/sa/create-access-key.md) for your service account. This key enables the cluster to access [{{ objstorage-full-name }} buckets](../../../storage/concepts/bucket.md).
 
@@ -26,13 +27,13 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 1. If you want to save cluster logs to a custom log group, [create one](../../../logging/operations/create-group.md).
 
-    For more information about cluster logging, see [{#T}](../../tutorials/metastore-logging.md).
+    For more information, see [Transferring cluster logs](logging.md).
 
 ## Create a cluster {#create-cluster}
 
 {% note warning %}
 
-{{ metastore-name }} clusters cannot be edited. Once you create a cluster, you will not be able to change its settings.
+{{ metastore-name }} clusters cannot be edited. Once you create a cluster, you cannot change its settings.
 
 {% endnote %}
 
@@ -52,10 +53,10 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
     1. Optionally, configure logging settings:
 
         1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
-        1. Select where to write cluster logs:
+        1. Select where to write cluster logs to:
 
-            * Default log group: Select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field and specify the folder. Logs will be stored in the default log group of the selected folder.
-            * Custom log group: Select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field and specify the log group you created previously.
+            * Default log group: Select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field and specify the folder. Logs will be stored in the selected folder's default log group.
+            * Custom log group: Select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field and specify the log group you created earlier.
 
         1. Select the minimum logging level.
 

@@ -20,3 +20,7 @@ CREATE DATABASE IF NOT EXISTS <DB_name> LOCATION <DB_location>;
 ```
 
 In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<DB_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
+
+#### How can I fix the no permission error when connecting a service account to the cluster? {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}

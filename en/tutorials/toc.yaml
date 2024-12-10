@@ -23,10 +23,6 @@ items:
             href: security/tls-termination/terraform.md
       - name: Delivering logs from a VM instance to {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
-      - name: >-
-          Transferring logs from {{ metastore-name }} to {{ cloud-logging-name
-          }}
-        href: security/metastore-logging.md
       - name: Writing load balancer logs to {{ PG }}
         href: security/logging.md
       - name: >-
@@ -49,6 +45,10 @@ items:
             href: security/protected-access-to-content/terraform.md
       - name: Uploading audit logs to SIEM KUMA
         href: security/audit-trails-events-to-kuma.md
+      - name: Integrations of service account identity federations
+        items:
+          - name: GitHub
+            href: security/wlif-github-integration.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -103,7 +103,7 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: infrastructure-management/gitlab-containers.md
-      - name: App testing with {{ GL }}
+      - name: Testing applications with {{ GL }}
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
@@ -237,7 +237,7 @@ items:
         items:
           - name: Setting up network connectivity with IPsec gateways
             items:
-              - name: Solution diagram
+              - name: Solution architecture
                 href: routing/ipsec/index.md
               - name: Unaided implementation with {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
@@ -445,7 +445,7 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: Configuring Kafka Connect to use a {{ mkf-name }} cluster
+      - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -748,7 +748,7 @@ items:
           dedicated DMZ based on the Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
-          Cloud infrastructure segmentation with Check Point Next-Generation
+          Cloud infrastructure segmentation with the Check Point Next-Generation
           Firewall
         href: routing/network-segmentation-checkpoint.md
       - name: >-

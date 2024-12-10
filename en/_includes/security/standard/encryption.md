@@ -43,7 +43,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
      --bucket <bucket_name>
      ```
 
-  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
+  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
@@ -53,7 +53,7 @@ Configure bucket encryption using the [guide](../../../storage/operations/bucket
 
 ### Encryption in transit {#in-transit}
 
-In most cases, you can only connect to {{ yandex-cloud }} services over HTTPS. However, some scenarios allow data plane access to services over HTTP, without connection encryption at the application level. In all these scenarios, the user can choose in the service settings a protocol for data plane operations (HTTP or HTTPS) and specify their own TLS certificate if HTTPS is selected.
+In most cases, you can only connect to {{ yandex-cloud }} services over HTTPS. However, some scenarios allow data plane access to services over HTTP, without connection encryption at the application level. In all these scenarios, the user can choose the protocol to be used for data plane operations in the service settings: HTTP or HTTPS, and specify their own TLS certificate if HTTPS is selected.
 
 {% note info %}
 
@@ -307,9 +307,9 @@ You can encrypt the following types of disks:
 
 ### Managing keys {#keys}
 
-We recommend using [{{ kms-name }}](../../../kms/tutorials/encrypt/sdk.md) to encrypt data and manage keys. {{ kms-short-name }} helps you protect data in the {{ yandex-cloud }} infrastructure. You can also use it to encrypt or decrypt any of your data.
+We recommend using [{{ kms-name }}](../../../kms/tutorials/encrypt/sdk.md) for data encryption and key management. Made to protect data in the {{ yandex-cloud }} infrastructure, {{ kms-short-name }} can also encrypt and decrypt any of your data.
 
-{{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length (128, 192, or 256 bits) and set up the preferred key rotation period.
+{{ kms-short-name }} uses AES-GCM encryption mode. You can select the key length: 128/192/256 and set up the preferred key rotation period.
 
 #### 4.9 {{ kms-name }} keys are stored in a hardware security module (HSM) {#keys-hsm}
 
@@ -480,7 +480,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
   1. Run the command below to output the list of all of your organization's {{ kms-short-name }} keys and their encryption algorithms:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do yc kms symmetric-key list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.rotation_period | not)' | jq -r '.id'

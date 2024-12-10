@@ -4,6 +4,12 @@ description: Follow this guide to configure an {{ objstorage-full-name }} source
 ---
 # Transferring data from a {{ objstorage-full-name }} source endpoint
 
+{% note info %}
+
+{% include [note-preview](../../../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 {{ data-transfer-full-name }} enables you to migrate data from {{ objstorage-full-name }} storage to {{ yandex-cloud }} managed databases and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
@@ -28,8 +34,6 @@ You can implement scenarios for data migration and delivery from the {{ objstora
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the {{ objstorage-name }} source endpoint {#endpoint-settings}
-
-{% include [note-preview](../../../../_includes/preview-pp.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
