@@ -1,9 +1,9 @@
-> 30 × $0.104080 + 20 × 7 × $0.015360 = $5.272800
+> 30 × {{ sku|USD|gitlab.instance.disk|month|string }} + 20 × 7 × {{ sku|USD|gitlab.backup|month|string }} = {% calc [currency=USD] 30 × {{ sku|USD|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|USD|gitlab.backup|month|number }} %}
 
 Where:
 
 * 30: Storage size (in GB)
-* $0.104080: Cost of using 1 GB of storage per month
+* {{ sku|USD|gitlab.instance.disk|month|string }}: Cost of using 1 GB of storage per month
 * 20: Size of each backup
 * 7: Backup retention time
-* $0.015360: Cost of storing 1 GB of backups
+* {{ sku|USD|gitlab.backup|month|string }}: Cost of storing 1 GB of backups

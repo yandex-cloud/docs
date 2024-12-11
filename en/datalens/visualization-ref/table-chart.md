@@ -74,6 +74,19 @@ To create a table:
 
 ## Additional settings {#additional-settings}
 
+### Setting up table size {#table-size-settings}
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Select the table size:
+
+   * `L`: Large (default)
+   * `M`: Medium
+   * `S`: Small
+
+1. Click **Apply**.
+
+Depending on the size you select, the table will adjust its font size, line spacing, and indentation within cells.
+
 ### Renaming columns {#change-columns-names}
 
 1. Under **Columns**, click the icon to the left of the dimension or measure name.
@@ -285,3 +298,9 @@ The **Total** row is displayed in the table. Values in the row are calculated us
   {% endcut %}
 
 * When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

@@ -5,7 +5,11 @@ description: Из статьи вы узнаете, как привязать в
 
 # Привязать виртуальную машину к политике резервного копирования
 
-Привязать к политике можно только ту ВМ, которая подключена к {{ backup-full-name }}. Подробнее см. [Управление виртуальными машинами в {{ backup-name }}](../index.md#connect-vm).
+Привязать к политике резервного копирования можно только ту ВМ, которая подключена к {{ backup-full-name }}. Подробнее см. [Управление виртуальными машинами в {{ backup-name }}](../index.md#connect-vm).
+
+О том, как привязать к политике [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md), см. в инструкции [Изменение списка виртуальных машин и серверов {{ baremetal-name }}](./update.md#update-vm-list).
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
 {% list tabs group=instructions %}
 

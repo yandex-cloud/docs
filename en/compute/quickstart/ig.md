@@ -5,7 +5,7 @@ Create an instance group using the [Instance Groups](../concepts/instance-groups
 ## Getting started {#before-you-begin}
 
 1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it is in `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an instance group {#create-ig}
@@ -15,7 +15,7 @@ You can create an automatically scaled group or a group with a fixed number of i
 {% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
 To create an instance group:
-1. In the [management console]({{ link-console-main }}), select the folder to create your VM group in.
+1. In the [management console]({{ link-console-main }}), select the folder to create your instance group in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -57,7 +57,7 @@ To create an instance group:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
      * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one.
      * If you selected a Linux-based public image:
-       * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
      * If you selected a Windows-based public image:
        * In the **{{ ui-key.yacloud.common.password }}** field, set a password for the `Administrator` user. A user named `Administrator` is created automatically.

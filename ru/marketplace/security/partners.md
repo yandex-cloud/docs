@@ -13,7 +13,7 @@ description: Управление доступом партнера в {{ market
 
 ## На какие ресурсы можно назначить роль {#resources}
 
- В [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}) можно [назначить роль](#assign-role) на [продукты Marketplace](../concepts/product.md) и на [профиль партнера](../quickstart.md#registration).
+ В [кабинете партнера {{ marketplace-short-name }}]({{ link-cloud-partners }}) можно [назначить роль](#assign-role) на [продукты Marketplace](../concepts/product.md) и на [профиль партнера](../concepts/publisher.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 

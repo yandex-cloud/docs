@@ -11,10 +11,10 @@ def local_path(path: str) -> pathlib.Path:
 
 
 def main() -> None:
-    sdk = YCloudML(folder_id='<folder_ID>')
+    sdk = YCloudML(folder_id="<folder_ID>", auth="<API_key>")
 
     # Uploading files with examples
-    # Files will be stored for five days
+    # The files will be stored for five days
     files = []
     for path in ['bali.md', 'kazakhstan.md']:
         file = sdk.files.upload(
@@ -24,7 +24,7 @@ def main() -> None:
         )
         files.append(file)
 
-    # Creating an index for full-text search amongst uploaded files
+    # Creating an index for full-text search through the uploaded files
     # The maximum fragment size is 700 tokens, with a 300-token overlap
     operation = sdk.search_indexes.create_deferred(
         files,
@@ -52,7 +52,7 @@ def main() -> None:
     result = run.wait()
     print('Answer:', result.text)
 
-    # Deleting what is no longer needed
+    # Delete everything you no longer need
     search_index.delete()
     thread.delete()
     assistant.delete()

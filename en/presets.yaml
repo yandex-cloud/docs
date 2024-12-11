@@ -564,6 +564,7 @@ default:
   roles-editor: editor
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
+  roles-functions-viewer: functions.viewer
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
   roles-license-manager-subscription-agent: license-manager.subscriptionAgent
@@ -1052,6 +1053,7 @@ default:
       v1|month|string: ₸180.00
       v1|string: ₸0.25
   sku|KZT|gitlab:
+    backup|month|number: 9.6
     backup|month|string: ₸9.60
     instance:
       advanced:
@@ -1059,11 +1061,14 @@ default:
         cpu|string: ₸16.80
         ram|month|string: ₸3240.00
         ram|string: ₸4.50
+      disk|month|number: 65.05
       disk|month|string: ₸65.05
       free:
         cpu|month|string: ₸6048.00
+        cpu|number: 8.4
         cpu|string: ₸8.40
         ram|month|string: ₸1620.00
+        ram|number: 2.25
         ram|string: ₸2.25
       standard:
         cpu|month|string: ₸8460.00
@@ -1806,6 +1811,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 15000
           v1|string: ₸15000.00
   sku|KZT|sws:
     requests:
@@ -2301,6 +2307,7 @@ default:
       v1|month|string: ₽36.00
       v1|string: ₽0.05
   sku|RUB|gitlab:
+    backup|month|number: 1.92
     backup|month|string: ₽1.92
     instance:
       advanced:
@@ -2308,11 +2315,14 @@ default:
         cpu|string: ₽3.36
         ram|month|string: ₽648.00
         ram|string: ₽0.90
+      disk|month|number: 13.01
       disk|month|string: ₽13.01
       free:
         cpu|month|string: ₽1209.60
+        cpu|number: 1.68
         cpu|string: ₽1.68
         ram|month|string: ₽324.00
+        ram|number: 0.45
         ram|string: ₽0.45
       standard:
         cpu|month|string: ₽1692.00
@@ -3055,6 +3065,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 3000
           v1|string: ₽3000.00
   sku|RUB|sws:
     requests:
@@ -3549,6 +3560,7 @@ default:
     zones:
       v1|month|string: $0.288000
   sku|USD|gitlab:
+    backup|month|number: 0.01536
     backup|month|string: $0.015360
     instance:
       advanced:
@@ -3556,11 +3568,14 @@ default:
         cpu|string: $0.026880
         ram|month|string: $5.184000
         ram|string: $0.007200
+      disk|month|number: 0.10408
       disk|month|string: $0.104080
       free:
         cpu|month|string: $9.676800
+        cpu|number: 0.01344
         cpu|string: $0.013440
         ram|month|string: $2.592000
+        ram|number: 0.0036
         ram|string: $0.003600
       standard:
         cpu|month|string: $13.536000
@@ -4291,6 +4306,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 24
           v1|string: $24.000000
   sku|USD|sws:
     requests:
@@ -5656,8 +5672,6 @@ default:
           add-graph: Graph
           add-text: Text
           add-title: Heading
-        widget-settings:
-          title: Title
       dialog:
         confirm:
           button_continue: Continue
@@ -5870,7 +5884,7 @@ default:
         acl-diagnostics:
           action_select-subject: Select subject
         federation:
-          link:
+          action:
             download-cert: Download certificate
           section:
             certificates: Certificates

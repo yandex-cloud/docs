@@ -20,7 +20,7 @@ To export the SSH certificate of a {{ org-name }} organization user or [service 
 
       ```bash
       yc compute ssh certificate export \
-          --login <user_or_service_account_login>
+          --login <user_or_service_account_login> \
           --organization-id <organization_ID> \
           --directory <path_to_directory>
       ```

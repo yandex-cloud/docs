@@ -1,9 +1,9 @@
-> 720 × (2 × $0.013440 + 8 × $0.003600) = $40.089600
+> 720 × (2 × {{ sku|USD|gitlab.instance.free.cpu|string }} + 8 × {{ sku|USD|gitlab.instance.free.ram|string }}) = {% calc [currency=USD] 720 × (2 × {{ sku|USD|gitlab.instance.free.cpu|number }} + 8 × {{ sku|USD|gitlab.instance.free.ram|number }}) %}
 
 Where:
 
 * 720: Number of hours in 30 days
 * 2: Number of vCPUs
-* $0.013440: Cost of using a vCPU per hour
+* {{ sku|USD|gitlab.instance.free.cpu|string }}: Cost of using a vCPU per hour
 * 8: Amount of RAM (in GB)
-* $0.003600: Cost of using 1 GB of RAM per hour
+* {{ sku|USD|gitlab.instance.free.ram|string }}: Cost of using 1 GB of RAM per hour

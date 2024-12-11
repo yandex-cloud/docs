@@ -6,7 +6,6 @@ description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud 
 # {{ cloud-logging-name }} tutorials
 
 * [{#T}](k8s-fluent-bit-logging.md)
-* [{#T}](metastore-logging.md)
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](replicate-logs-to-storage.md)

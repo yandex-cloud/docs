@@ -1,0 +1,1 @@
+To copy the project ID, select the project on the {{ ml-platform-name }} [homepage]({{ link-datasphere-main }}) and click **{{ ui-key.yc-ui-datasphere.common.id }}** ![alt](../../_assets/console-icons/copy.svg).

@@ -49,3 +49,9 @@ You can also:
 
 * Do not use a choropleth map to precisely compare some values.
 * To make the comparison more precise, add data signatures or tooltips with information to the map.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

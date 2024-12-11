@@ -1,13 +1,13 @@
 ---
 title: '{{ monitoring-full-name }} dashboard'
-description: Dashboards in {{ monitoring-full-name }} are sets of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a specific interval that is shared by all charts. Parameters let you create interactive dashboards whose content changes depending on the user's choice. For example, a dashboard that shows aggregated information about the status of a VM can be parameterized using the VM ID.
+description: A dashboards in {{ monitoring-full-name }} consists of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a certain time interval, the same for all charts. Parameters allow you to create dashboards with customizable interactive content. For example, a dashboard presenting aggregated VM status information can be parameterized using the VM ID.
 ---
 
 # Dashboards in {{ monitoring-name }}
 
-*Dashboards* are sets of widgets: charts, text blocks, and titles. Metrics on dashboard charts are displayed for a specific interval that is shared by all charts.
+*Dashboards* consist of widgets. You can group the widgets in a convenient order, set their size, and add comments. Dashboards allow you to track metric changes in real time and analyze accumulated metrics over time. Metrics on dashboard charts are displayed for a certain time interval, the same for all charts.
 
-The default interval is one day. The interval can be set using preset ranges (`1h 3h 1d 1w 1mo`). You can also set the beginning and the end interval.
+The default interval is one day. You can specify a different interval using preset ranges (`1h 3h 1d 1w 1mo`). You can also set the start and end of the interval.
 
 To set the time interval more precisely, you can use the timeline located above the dashboard.
 
@@ -38,9 +38,9 @@ You can only use parameter value substitution in label values when making querie
 #### Examples of parameter value substitution {#templates-examples}
 
 * Substituting values in widget headings.
-   > In the `CPU usage on not_var{{host}}` widget heading, the `host` parameter value is substituted.
+    > In the `CPU usage on not_var{{ host }}` widget heading, the `host` parameter value will be substituted.
 * Substituting label values in queries.
-   > In the `"cpu.iowait"{folderId="aoe6mk1r3b47********", service="not_var{{myparm}}", host="*"}` query, the `service` label value is substituted with the `myparm` parameter value.
+    > In the `"cpu.iowait"{folderId="aoe6mk1r3b47********", service="not_var{{ myparm }}", host="*"}` query, the `service` label will get the `myparm` parameter value.
 
 Substituting parameter values in query strings when [adding a widget to the dashboard](../../operations/dashboard/add-widget.md) looks like this:
 
@@ -52,28 +52,28 @@ The label value filter enables you to limit the list of possible parameter value
 
 #### Examples of filtering label values {#common-labels-filter-example}
 
-Let's assume a dashboard has a *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameter set for a `cluster` label that takes the values `prod`, `preprod-1`, `preprod-2`, and `testing`.
+Let's assume a dashboard has a specified *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameter for the `cluster` label which takes the `prod`, `preprod-1`, `preprod-2`, and `testing` values.
 
 Filtering settings and result:
 
-* The `cluster=*prod*` filter limits parameter values to the list of `prod` and `preprod-1` values.
-* The `cluster=preprod-1|preprod-2` filter limits the values with the list of `preprod-1` and `preprod-2`.
-* The `cluster=testing` filter limits the values to a single `testing` value.
+* The `cluster=*prod*` filter will limit parameter values to the list of `prod` and `preprod-1` values.
+* The `cluster=preprod-|preprod-2` filter will limit the values to the list of `preprod-1` and `preprod-2` values.
+* The `cluster=testing` filter will limit the values to a single value, `testing`.
 
 Below is a more complex example. Let's say the system has the following metrics:
 
-* `usage{cluster="prod", account="prodaccount"}`;
-* `usage{cluster="preprod", account="preprodaccount"}`;
-* `usage{cluster="testing", account="testingaccount"}`;
-* `usage{cluster="prod", account="multiaccount"}`;
-* `usage={cluster="testing", account="multiaccount"}`.
+* `usage{cluster="prod", account="prodaccount"}`
+* `usage{cluster="preprod", account="preprodaccount"}`
+* `usage{cluster="testing", account="testingaccount"}`
+* `usage{cluster="prod", account="multiaccount"}`
+* `usage={cluster="testing", account="multiaccount"}`
 
 Filtering settings:
 
 * The filter contains the `cluster=*prod*` value.
-* A dashboard has *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameters set for the `cluster` and `account` labels.
+* The dashboard has the *{{ ui-key.yacloud_monitoring.component.parametrizer.type.query }}* type parameters specified for the `cluster` and `account` labels.
 
 Result:
 
-* Possible values of the `cluster` parameter will be limited to `prod` and `preprod`. The `testing` value will be excluded as not matching the `cluster=*prod*` rule.
-* Possible values of the `account` parameter will be limited to `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value will be excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (while this combination exists for `multiaccount`).
+* The only possible values of the `cluster` parameter will be `prod` and `preprod`. The `testing` value will be excluded as not matching the `cluster=*prod*` rule.
+* The only possible values of the `account` parameter will be `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value will be excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (for `multiaccount`, there is such a combination).

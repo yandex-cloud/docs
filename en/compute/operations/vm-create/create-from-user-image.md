@@ -116,7 +116,7 @@ Make sure the image you upload has the `READY` status.
        --name <VM_name> \
        --zone <availability_zone> \
        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-       --create-boot-disk name=<disk_name>,size=<GB_disk_size>,image-id=<custom_image_ID> \
+       --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID> \
        --ssh-key <path_to_public_key_file>
      ```
 
@@ -214,7 +214,7 @@ Make sure the image you upload has the `READY` status.
 
        resources {
          cores  = <number_of_vCPU_cores>
-         memory = <RAM_size_GB>
+         memory = <RAM_in_GB>
        }
 
        boot_disk {

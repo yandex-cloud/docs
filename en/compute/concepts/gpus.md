@@ -88,7 +88,9 @@ The computing resources may have the following configurations:
 
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
-  8 | 640 | 180 | 1,440
+  2 | 160 | 36 | 288
+  4 | 320 | 72 | 576
+  8 | 640 | 180 | 1440
 
 * {{ t4-ice-lake }} (`standard-v3-t4`):
 
@@ -136,7 +138,7 @@ You can add VMs from different folders, networks, and subnets to your cluster. F
 Maximum cluster size for AMD EPYC™ 9474F with Gen2 is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
 
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md)
 * [Adding a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu)

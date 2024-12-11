@@ -1,8 +1,8 @@
 # Интеграция с {{ license-manager }} API
 
 Если вы создали [подписку](../concepts/subscription.md) внутри тарифа:
-* `Subscription`, вам необходимо настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/index.md), чтобы подписка работала корректно.
-* `PAYG`, пользователь автоматически перейдет на этот тариф, когда отвяжет подписку от ресурса или срок действия подписки закончится. При необходимости вы можете настроить интеграцию с {{ license-manager }} API.
+* `Subscription`, вам необходимо настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) или [{{ license-manager }} SaaS API](../license-manager/saas/api-ref/quickstart.md), чтобы подписка работала корректно.
+* `PAYG`, пользователь автоматически перейдет на этот тариф, когда отвяжет подписку от ресурса или срок действия подписки закончится. При необходимости вы можете настроить интеграцию с [{{ license-manager }} API](../license-manager/api-ref/quickstart.md).
 
 {% list tabs group=service %}
 

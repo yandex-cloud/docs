@@ -381,7 +381,7 @@ items:
         href: lang/r/logging.md
       - name: Handling errors
         href: lang/r/errors.md
-  - name: Developing in C#
+  - name: Developing in .NET Core
     items:
       - name: Overview
         href: lang/csharp/index.md

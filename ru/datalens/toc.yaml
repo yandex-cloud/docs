@@ -879,8 +879,6 @@ items:
             href: qa/workbooks-collections.md
           - name: Другое
             href: qa/other.md
-      - name: Резервное копирование
-        href: concepts/backup.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md

@@ -38,11 +38,58 @@ To delete an object:
 
   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for deleting an object from a bucket:
+
+      ```bash
+      yc storage s3api delete-object --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api put-object \
+        --bucket <bucket_name> \
+        --key <object_key>
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+
+      Result:
+
+      ```bash
+      request_id: 0311ec7********
+      ```
+
+- AWS CLI {#aws-cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -237,11 +284,97 @@ To check whether lock has been put and delete the object version when possible
   1. If possible, [remove the lock](edit-object-lock.md) from the object you want to delete.
   1. [Delete](#object-lock-w-object-lock) the object.
   
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
   
   {% include [work-with-multiple-objects](../../../_includes/storage/work-with-multiple-objects.md) %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Get information about an object version lock:
+
+      ```bash
+      yc storage s3api head-object \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+     Where:
+     * `--bucket`: Name of your bucket.
+     * `--key`: Object [key](../../concepts/object.md#key).
+     * `--version-id`: Object version ID.
+
+     If there is a lock for the version, you will see the following:
+
+     ```text     
+     object_lock_mode: GOVERNANCE
+     object_lock_retain_until_date: "2024-10-11T10:23:12Z"
+     ```
+
+     Or:
+
+     ```text
+     object_lock_legal_hold_status: ON
+     ```
+
+     Where:
+     * `object_lock_mode`: Temporary lock [type](../../concepts/object-lock.md#types):
+       * `GOVERNANCE`: Temporary managed lock. A user with the `storage.admin` role can delete an object version.
+       * `COMPLIANCE`: Temporary strict lock. You cannot delete an object version.
+
+     * `object_lock_retain_until_date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`.
+
+     * `object_lock_legal_hold_status`: [Legal hold](../../concepts/object-lock.md#types) status:
+       * `ON`: Enabled You cannot delete an object version. To [remove a lock](edit-object-lock.md#remove-legal-hold), a user must have the `storage.uploader` role.
+       * `OFF`: Disabled.
+
+     If the object version is not locked, these fields will not be displayed, and you can delete the object version just as you would do in case of an unlocked version, following [this guide](#wo-object-lock).
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. If the temporary managed lock (`"object_lock_mode": "GOVERNANCE"`) is set, and you have the `storage.admin` role, delete the object version:
+
+      ```bash
+      yc storage s3api delete-object \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --bypass-governance-retention
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object [key](../../concepts/object.md#key).
+      * `--version-id`: Object version ID.
+      * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
+
+      Result:
+
+      ```bash
+      request_id: a58bf215********
+      version_id: "null"
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 

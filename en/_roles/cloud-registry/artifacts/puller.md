@@ -1,0 +1,1 @@
+The `cloud-registry.artifacts.puller` role enables pulling [artifacts](../../../cloud-registry/concepts/artifacts.md), as well as getting info on artifacts and [registries](../../../cloud-registry/concepts/registry.md).

@@ -37,21 +37,71 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to upload a file to a bucket:
+
+      ```bash
+      yc storage s3api put-object --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api put-object \
+        --body <local_file_path> \
+        --bucket <bucket_name> \
+        --key <object_path>
+      ```
+
+      Where:
+
+      * `--body`: Path to the file you need to upload to the bucket.
+      * `--bucket`: Name of your bucket.
+      * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+
+      Result:
+
+      ```bash
+      etag: '"d41d8cd98f00b204e980099********"'
+      request_id: 3f2705f********
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. To upload a single object, run the command:
- 
+
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
        s3 cp <local_file_path> s3://<bucket_name>/<object_key>
      ```
-     
+
      Where:
-   
+
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp`: Command to upload an object. To upload an object, in the first part of the command, specify the path to the local file to upload. In the second part, provide the name of your bucket and [key](../../concepts/object.md#key) you will use to store the object in the bucket.
-   
+
      To load all objects from the local directory, use the following command:
    
      ```bash
@@ -140,14 +190,13 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
   To upload an object, use the [upload](../../s3/api-ref/object/upload.md) S3 API method.
 
 {% endlist %}
-
 
 ## Uploading an object version with an object lock {#w-object-lock}
 
@@ -175,7 +224,74 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
   In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to upload a file to a bucket:
+
+      ```bash
+      yc storage s3api put-object --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api put-object \
+       --body <local_file_path> \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --object-lock-mode <temporary_lock_type> \
+       --object-lock-retain-until-date <temporary_lock_period_end_date_and_time> \
+       --object-lock-legal-hold-status <indefinite_lock_status>
+      ```
+
+     Where:
+
+     * `--body`: Path to the file you need to upload to the bucket.
+     * `--bucket`: Name of your bucket.
+     * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+     * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock with retention:
+
+       * `GOVERNANCE`: Temporary managed lock.
+       * `COMPLIANCE`: Temporary strict lock.
+  
+     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
+  
+     * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
+  
+       * `ON`: Enabled.
+       * `OFF`: Disabled.
+
+     For an object version, you can use only object lock with retention (`object-lock-mode` and `object-lock-retain-until-date` parameters), only legal hold (`object-lock-legal-hold-status`), or both at the same time. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
+
+     Result:
+
+     ```bash
+     etag: '"d41d8cd98f00b204e9800998********"'
+     request_id: e19afe50********
+     version_id: 0006241E********
+     ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -222,10 +338,69 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Calculate a file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
- 
+
+     ```bash
+     md5=($(md5sum <local_file_path>))
+     md5_base64=$(echo $md5 | base64)
+     ```
+
+  1. View the description of the CLI command to upload a file to a bucket:
+
+     ```bash
+     yc storage s3api put-object --help
+     ```
+
+  1. Get a list of buckets in the default folder:
+
+     ```bash
+     yc storage bucket list
+     ```
+
+     Result:
+
+     ```text
+     +------------------+----------------------+-------------+-----------------------+---------------------+
+     |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+     +------------------+----------------------+-------------+-----------------------+---------------------+
+     | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+     +------------------+----------------------+-------------+-----------------------+---------------------+
+     ```
+
+  1. Upload an object to the bucket:
+
+     ```bash
+      yc storage s3api put-object \
+       --body <local_file_path> \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --content-md5 $md5_base64
+     ```
+
+     Where:
+
+     * `--body`: Path to the file you need to upload to the bucket.
+     * `--bucket`: Name of your bucket.
+     * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+     * `--content-md5`: Object's encoded MD5 hash.
+
+     You can also add the following parameters to the command:
+
+     * `--object-lock-mode` and `--object-lock-retain-until-date` to place an object version under an object lock with retention that is different from the bucket's default settings.
+     * `--object-lock-legal-hold-status` to place a legal hold on an object version.
+
+     For more information about these parameters, see the guide above.
+
+- AWS CLI {#aws-cli}
+
+  1. Calculate a file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+
      ```bash
      md5=($(md5sum <local_file_path>))
      md5_base64=$(echo $md5 | base64)
@@ -269,3 +444,4 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
 #### See also {#see-also}
 
 * [{#T}](../../tutorials/storage-vpc-access.md)
+

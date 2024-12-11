@@ -10,18 +10,18 @@ It is handy to use this type of chart when it is important to see totals by cate
 
 Year |	Home appliances |	Household goods  | Household cleaners
 ----- | ---------| ---------- | ---------- 
-January 2019|	128К |	55К | 26К
-February 2019|	97К |	79К | 18К
-March 2019|	187К |	105К | 41К
-April 2019|	188К | 137К | 34К
-May 2019|	230К |	121К | 43К
-June 2019|	256К |	162К | 59К
-July 2019|	284К |	206К | 67К
-August 2019|	409К |	204К | 72К
-September 2019|	314К |	209К | 86К
-October 2019|	324К |	262К | 79К
-November 2019|	385К |	238К | 101К
-December 2019|	451К |	307К | 111К
+January 2019|	128K |	55K | 26K
+February 2019|	97K |	79K | 18K
+March 2019|	187K |	105K | 41K
+April 2019|	188K | 137K | 34K
+May 2019|	230K |	121K | 43K
+June 2019|	256K |	162K | 59K
+July 2019|	284K |	206K | 67K
+August 2019|	409K |	204K | 72K
+September 2019|	314K |	209K | 86K
+October 2019|	324K |	262K | 79K
+November 2019|	385K |	238K | 101K
+December 2019|	451K |	307K | 111K
 
 {% endcut %}
 
@@ -31,7 +31,7 @@ Be careful selecting the measures when building your chart. For example, do not 
 
 Section<br/> section| Description
 ----- | ----
-X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
+X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
 Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the color of lines. To remove [Measure Names](../concepts/chart/measure-values.md), delete measures from the Y axis.
 Sorting | Dimension or measure. You can use a dimension from the **X** and **Color** sections or a measure from the Y axis. This section affects the sorting of values on the X axis or areas along the Y axis. The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.
@@ -78,3 +78,9 @@ To create an area chart:
   ![area-chart-split](../../_assets/datalens/visualization-ref/area-chart/area-chart-split.png)
 
   {% endcut %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

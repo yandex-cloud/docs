@@ -121,6 +121,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ v100-cascade-lake }}
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
+          * {{ t4i-ice-lake }}
 
       * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
 
@@ -209,6 +210,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ v100-cascade-lake }}
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
+          * {{ t4i-ice-lake }}
 
       * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
 

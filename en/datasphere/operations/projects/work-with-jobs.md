@@ -5,11 +5,11 @@ description: Follow this guide to remotely run Python and bash scripts and execu
 
 # Running jobs in {{ ml-platform-name }} Jobs
 
-You can run [jobs](../../concepts/jobs/index.md) remotely. These are Python and bash scripts and executable binary files to run on a {{ ml-platform-full-name }} VM.
+In {{ ml-platform-name }} Jobs, you can remotely run [jobs](../../concepts/jobs/index.md), i.e., Python and bash scripts and executable binary files, on a {{ ml-platform-full-name }} VM.
 
 Jobs are created and run in [projects](../../concepts/project.md). However, they do not depend on notebooks and VMs running in a project.
 
-Before running a job, [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}. You should also install the `datasphere` library in your Python environment. To do this, use the `pip install datasphere` command.
+Before running a job, [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}. You should also install the `datasphere` library in your Python environment using the `pip install datasphere` command.
 
 {% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
@@ -39,9 +39,9 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
     env:
       python: auto
     inputs:
-      - <input_data>: DATA
+      - <inputs>: DATA
     outputs:
-      - <results>: OUTPUT
+      - <outputs>: OUTPUT
     cloud-instance-types:
       - <computing_resource_configuration>
       - <computing_resource_configuration>
@@ -65,6 +65,8 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
     ```bash
     datasphere project job execute -p <project_ID> -c config.yaml
     ```
+
+    {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
 You can track the job execution progress on the project page in the {{ ml-platform-name }} interface.
 
@@ -185,6 +187,8 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
     ```bash
     datasphere project job execute -p <project_ID> -c config.yaml
     ```
+
+    {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
 The model will be saved to the `model.zip` archive in the job folder.
 

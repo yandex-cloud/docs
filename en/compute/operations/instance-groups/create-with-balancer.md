@@ -206,7 +206,6 @@ To create an instance group with a network load balancer:
        Where:
        * `target_group_spec`: Specification of the {{ network-load-balancer-name }} target group linked with the instance group.
        * `name`: Name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
-
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
 
      Full code for the `specification.yaml` file:

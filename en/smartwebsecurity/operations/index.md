@@ -9,6 +9,7 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 
 * [{#T}](profile-create.md)
 * [{#T}](profile-update.md)
+* [{#T}](profile-get.md)
 * [{#T}](profile-delete.md)
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)

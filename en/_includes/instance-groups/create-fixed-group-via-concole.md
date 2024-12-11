@@ -14,7 +14,7 @@
      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
    * Enable the **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}** option, if needed. You cannot delete a group with this option enabled.
-1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. VM groups may reside in [different availability zones](../../overview/concepts/geo-scope.md).
+1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required ones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instance groups may reside in [different availability zones](../../overview/concepts/geo-scope.md).
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
    * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../compute/concepts/instance-groups/instance-template.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a system to be deployed on the VM instance's boot [disk](../../compute/concepts/disk.md).
@@ -34,7 +34,7 @@
 
      {% include [network-settings-group](../../_includes/compute/network-settings-group.md) %}
 
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+   * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the instance:
      * Select a service account to link to the instance.
      * If you selected a Linux [image](../../compute/concepts/image.md), fill out the fields **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}**. For a key, use the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      * Select `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if needed.

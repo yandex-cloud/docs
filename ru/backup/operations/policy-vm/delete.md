@@ -52,7 +52,7 @@ description: Из статьи вы узнаете, как удалить пол
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<имя_ВМ>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
+         archive_name                      = "[<имя_ВМ_или_сервера_{{ baremetal-name }}>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true

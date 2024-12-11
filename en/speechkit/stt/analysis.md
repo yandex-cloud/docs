@@ -21,10 +21,10 @@ You can apply classifiers both to intermediate and final recognition results. To
 | `formal_farewell` | Formal farewell like "goodbye" or "have a nice day" | Probability of a phrase belonging to the formal farewell class |
 | `informal_farewell` | Informal farewell like "bye-bye" or "adios" | Probability of a phrase belonging to the informal farewell class |
 | `insult` | Insults like "idiot" or "jerk" | Probability of a phrase belonging to the insult class |
-| `profanity` | Profanity | Probability of a phrase belonging to the profanity class |
+| `profanity` | Profanity | Probability of the phrase belonging to the profanity class  |
 | `gender` | Gender | Probability values for `male` and `female` |
 | `negative` | Negativity | Probability of a recognized phrase being negative |
-| `answerphone` | Answerphone | Probability of an answerphone response |
+| `answerphone` | Robot's answer | Probability of the phrase belonging to a voice bot or answerphone |
 
 {% list tabs group=programming_language %}
 

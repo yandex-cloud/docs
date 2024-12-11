@@ -7,6 +7,41 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
+### Version 0.140.0 (29/11/24) {#version0.140.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ alb-name }} {#alb}
+
+* Added the `--expected-statuses` property to the `yc alb backend-group add-http-backend` and `yc alb backend-group update-http-backend` commands for the `--http-healthcheck` parameter. You can use it to specify custom HTTP status codes, which the backend health check will treat as correct.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Added the `subnet-id` parameter to the `yc desktops desktop create` command.
+
+##### {{ cloud-registry-name }} {#cloud-registry}
+
+* Added the `yc cloud-registry artifact get` and `yc cloud-registry artifact delete` commands you can use to manage artifacts.
+* Added commands for managing these registries: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
+
+##### {{ data-transfer-name }} {#data-transfer}
+
+* Added the `--cleanup-policy` flag to the `yc datatransfer endpoint create <endpoint_type>` command for the `postgres-target`, `clickhouse-target`, `mysql-target`, and `mongo-target` endpoints. With this flag, you can set target cleanup policies when activating or reactivating a transfer (`drop`, `truncte`, or `disabled`).
+
+##### {{ iot-name }} {#iot}
+
+* Added the STATUS column to the text format of the `iot registry list` and `iot device list` commands.
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-name }}**
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands:
+  * `use-luajit`.
+  * `io-threads-allowed`.
+
+## Previous releases {#previous-releases}
+
 ### Version 0.139.0 (18/11/24) {#version0.139.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -27,8 +62,6 @@ description: This page presents a list of YC CLI releases and the updates of eac
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
 * Added the `--runtime` parameter to the `yc serverless container revision deploy` command allowing you to set the container operating mode (`http` or `task`).
-
-## Previous releases {#previous-releases}
 
 ### Version 0.138.0 (06/11/24) {#version0.138.0}
 
@@ -2341,7 +2374,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-redis cluster create` command.
 
-  Added the `--disk-type-id [local-ssd|network-ssd]` key you can use to set the disk type.
+  Added the `--disk-type-id [local-ssd|network-ssd]` key, which allows you to select the disk type.
 
 **{{ mmy-name }}**
 
@@ -2659,9 +2692,9 @@ Added primary support for {{ mkf-name }}:
 
 #### {{ compute-name }} {#compute}
 
-* Added the `yc compute host-group` command, which allows you to manage dedicated hosts.
-* Added the `yc compute host-type` command, which allows you to manage dedicated host types.
-* Added the `yc compute disk-placement-group` command, which allows you to manage groups of non-replicated disks.
+* Added the `yc compute host-group` command that allows you to manage dedicated hosts.
+* Added the `yc compute host-type` command that allows you to manage dedicated host types.
+* Added the `yc compute disk-placement-group` command that allows you to manage groups of non-replicated disks.
 
 
 #### Managed database services {#managed-db}
@@ -2680,7 +2713,7 @@ Added primary support for {{ mkf-name }}:
 #### {{ dataproc-name }} {#dataproc}
 
 Added UI Proxy support:
-* Added the `yc dataproc cluster list-ui-links` command, which allows you to get a list of links to access {{ dataproc-name }} cluster interfaces.
+* Added the `yc dataproc cluster list-ui-links` command that allows you to get a list of links to access {{ dataproc-name }} cluster interfaces.
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
   Added the `--ui-proxy` parameter, which allows you to enable the UI Proxy functionality for a {{ dataproc-full-name }} cluster.
 * `yc dataproc cluster create`, `yc dataproc subcluster create`, and `yc dataproc subcluster update` commands.
@@ -3110,7 +3143,7 @@ Added support for {{ api-gw-full-name }}.
 
 **{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-name }}**
 
-* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore` commands.
+* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, `yc <managed DB service name> cluster restore` commands.
 
   Added the `datalens-access` flag to manage {{ datalens-full-name }} access to a cluster.
 
@@ -3658,7 +3691,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* `yc <service> <resource>list` commands to display a list of elements.
+* Commands to display a list of elements: `yc <service> <resource> list`.
 
   Increased the maximum number of output elements from 100 to 1,000.
 

@@ -1,18 +1,18 @@
 # Подключить сервер {{ baremetal-full-name }} к {{ backup-full-name }}
 
-В {{ backup-name }} вы можете настроить резервное копирование [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md).
+{% note info %}
 
-_Сервис {{ baremetal-name }} и функциональность резервного копирования серверов будут запущены в [стадии Preview](../../overview/concepts/launch-stages.md) в 4 квартале 2024 года._
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+
+{% endnote %}
+
+В {{ backup-name }} вы можете настроить резервное копирование [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md).
 
 Подробнее о работе с серверами см. на странице [Пошаговые инструкции для сервиса {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
 Поддерживаются следующие операционные системы серверов: {#os-support}
-* Debian 10;
-* Debian 11;
-* Ubuntu 16.04 LTS;
-* Ubuntu 18.04 LTS;
-* Ubuntu 20.04 LTS;
-* Ubuntu 22.04 LTS.
+
+{% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
 Чтобы подключить сервер к {{ backup-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -281,11 +281,13 @@ yc backup policy execute \
 
 ## Восстановите сервер из резервной копии {#server-recovery}
 
+{% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
 Если вам нужно восстановить резервную копию с одного сервера на другой, или если на исходном сервере была переустановлена операционная система, заново [установите](#agent-install) агент резервного копирования на этом сервере.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
-{% note info %}
+{% note tip %}
 
 Если на сервере использовался RAID-массив, рекомендуется восстанавливать резервную копию на сервер с аналогичной конфигурацией разделов. Также рекомендуется устанавливать размеры разделов не меньше, чем на исходном сервере.
 

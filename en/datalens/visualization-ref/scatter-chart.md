@@ -79,3 +79,8 @@ You can also:
 * A scatter chart isn't suitable for visualization of data over time.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting.
 
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

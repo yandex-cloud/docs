@@ -47,6 +47,8 @@ items:
             href: operations/alert/create-alert.md
           - name: Creating a notification channel
             href: operations/alert/create-channel.md
+          - name: Creating an escalation policy
+            href: operations/alert/create-escalation.md
           - name: Deleting an alert
             href: operations/alert/delete-alert.md
   - name: Metric collection agent
@@ -105,6 +107,8 @@ items:
             href: concepts/alerting/annotation.md
           - name: Notification channel
             href: concepts/alerting/notification-channel.md
+          - name: Escalations
+            href: concepts/alerting/escalations.md
       - name: Data decimation
         href: concepts/decimation.md
       - name: Deleting expired metrics (TTL)

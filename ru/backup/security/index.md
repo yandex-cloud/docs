@@ -1,5 +1,5 @@
 ---
-title: Управление доступом в {{ backup-full-name }} (S3)
+title: Управление доступом в {{ backup-full-name }}
 description: Управление доступом в сервисе, предоставляющим решение для резервного копирования данных в {{ yandex-cloud }} — {{ backup-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
 ---
 
@@ -27,6 +27,8 @@ description: Управление доступом в сервисе, предо
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
+
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 #### backup.editor {#backup-editor}
 

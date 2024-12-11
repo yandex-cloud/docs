@@ -41,3 +41,9 @@ You can also:
 
 * Use a heat map if there are a lot of points in your dataset. If there are few points, using this type of map may distort the detected dependencies.
 * The intensity of point and area fill on a heat map varies depending on the map's scale. Please keep this in mind.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

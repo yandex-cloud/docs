@@ -41,13 +41,13 @@ Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178
 
 When [creating a pivot table](#create-diagram), you can use these advanced settings:
 
-* [Renaming table columns and rows](#change-columns-names)
-* [Adding tooltips to table headers](#hint-column)
-* [Setting the width of table columns and rows](#set-column-width)
-* [Freezing table columns](#column-fixation)
-* [Adding rows with subtotals](#add-totals)
-* [Setting field fill color](#set-field-color)
-* [Adding a linear indicator to a column with a measure](#add-linear-indicator)
+* [Renaming table columns and rows](#change-columns-names).
+* [Adding a tooltip to table headers](#hint-column).
+* [Setting the width of table columns and rows](#set-column-width).
+* [Freezing table columns](#column-fixation).
+* [Adding rows with subtotals](#add-totals).
+* [Setting field fill color](#set-field-color).
+* [Adding a linear indicator to a column with a measure](#add-linear-indicator).
 
 ## Wizard sections {#wizard-sections}
 
@@ -272,3 +272,9 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 * Use sorting. This makes the data easier to comprehend.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
 * When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

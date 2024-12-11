@@ -11,18 +11,91 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for deleting objects:
+
+      ```bash
+      yc storage s3api delete-objects --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Prepare a JSON file with a list of objects to delete. Example of contents:
+
+      ```json
+      {
+          "Objects": [
+              {
+                  "Key": "<object_key>"
+              },
+              {
+                  "Key": "<object_key>"
+              },
+              ...
+          ]          
+      }
+      ```
+
+      Where:
+
+      * `Objects`: Array of objects to delete.
+      * `Key`: Object [key](../../concepts/object.md#key). 
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api delete-objects \
+        --bucket <bucket_name> \
+        --delete <path_to_JSON_file>
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--delete`: Path to the JSON file with a list of objects to delete.
+
+      Result:
+
+      ```bash
+      deleted:
+        - key: file-1
+          version_id: "null"
+        - key: file-2
+          version_id: "null"
+      request_id: 4c35e7d4********
+      ```
+
+- AWS CLI {#aws-cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
   1. Create a variable containing the bucket name:
-
+  
      ```bash
      BUCKET_NAME=<bucket_name>
      ```
-
+     
   1. Delete all versions of objects from the bucket:
-
+    
      ```bash
      aws s3api delete-objects \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -38,7 +111,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      You can also use `--max-keys` instead of the `--max-items` parameter.
 
      Result:
-
+         
      ```json
      {
          "Deleted": [
@@ -54,11 +127,11 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
          ]
      }
      ```
-
+         
      Using this command, you can delete up to 1,000 versions of objects: this is related to restrictions for the `aws s3api delete-objects` operation. If there are more versions in the bucket, run the command several times.
-
+  
   1. If the bucket has [versioning](../../concepts/versioning.md) enabled, delete all the delete markers:
-
+       
      ```bash
      aws s3api delete-objects \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -74,7 +147,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      You can also use `--max-keys` instead of the `--max-items` parameter.
 
      Result:
-
+       
      ```json
      {
          "Deleted": [
@@ -92,11 +165,11 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
          ]
      }
      ```
-
+     
      Using this command, you can delete up to 1,000 delete markers: this is related to restrictions for the `aws s3api delete-objects` operation. If there are more versions in the bucket, run the command several times.
-
+   
   1. Delete partially uploaded objects:
-
+    
      ```bash
      aws s3api list-multipart-uploads \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -110,9 +183,9 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            $line";
      done
      ```
-
+       
   1. Get a list of object parts remaining in the bucket:
-
+    
      ```bash
      aws s3api list-multipart-uploads \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -126,9 +199,9 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
            $line";
      done
      ```
-
+       
      The list may contain parts of objects that began uploading before and finished uploading after the previous step executed. If the list is not empty, repeat steps 4 and 5.
-
+     
 - Python (boto3) {#boto3}
 
   Run the following code:
@@ -160,4 +233,4 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
 {% endlist %}
 
-In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.

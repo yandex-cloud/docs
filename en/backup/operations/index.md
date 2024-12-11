@@ -14,6 +14,11 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 * [Updating a VM connection to {{ backup-name }}](refresh-connection.md)
 * [Deleting a VM from {{ backup-name }}](delete-vm.md)
 
+## Managing {{ baremetal-name }} servers in {{ backup-name }} {#connect-baremetal}
+
+* [{#T}](backup-baremetal/backup-baremetal.md)
+* [{#T}](backup-baremetal/refresh-connection.md)
+
 ## Managing backup policies {#policy-vm}
 
 * [Creating a backup policy](./policy-vm/create.md)

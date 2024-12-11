@@ -1,0 +1,1 @@
+Информацию о работе с серверами {{ baremetal-name }} см. на странице [Подключить сервер {{ baremetal-name }} к {{ backup-name }}](../../backup/tutorials/backup-baremetal.md). _Сервис [{{ baremetal-name }}](../../baremetal/) находится на [стадии Preview](../../overview/concepts/launch-stages.md)._

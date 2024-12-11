@@ -1,15 +1,15 @@
 ---
-title: Developing in CSharp in {{ sf-full-name }}. Overview
+title: Developing in .NET Core in {{ sf-full-name }}. Overview
 description: With {{ sf-name }}, you can run applications written in C# (CSharp) for .NET Core. The service provides the .NET Core 3.1.417 runtime environment with C# 8.0 and Ubuntu 18.04.
 ---
 
-# Developing in C#. Overview
+# Developing in .NET Core. Overview
 
-With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotnet/csharp/) for [.NET Core]({{ ms.docs }}/dotnet/core/about) platform.
+With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotnet/csharp/) for [.NET Core]({{ ms.docs }}/dotnet/core/about).
 
 {% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
-| Name | .NET Core version | C# version | Operating <br>system | Preloaded | Supported by the service |
+| Name | .NET Core version | C# version | Operating <br>system | Preloaded | Supported by |
 |----|----|----|----|----|----|
 | dotnetcore31 | 3.1.417 | 8.0 | Ubuntu 18.04 | No | No |
 | dotnet6 | 6.0.400 | 8.0 | Ubuntu 18.04 | No | Yes |

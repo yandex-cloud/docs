@@ -10,7 +10,7 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [DSVM](/marketplace/products/yc/dsvm) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-  1. (Optional) Configure the boot [disk](../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** section:
+  1. (Optional) Configure the boot [disk](../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../concepts/disk.md#disks_types).
       * Specify the required disk size.
@@ -28,6 +28,6 @@ Creating an instance from a public [DSVM](/marketplace/products/f2e4v304qn35mhil
   1. {% include [section-additional](../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  The virtual machine will appear in the list. When a VM is created, it is assigned an [IP address](../../vpc/concepts/address) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+  You will see the new VM in the list. Every new VM gets an [IP address](../../vpc/concepts/address.md) and [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
 
 {% endlist %}

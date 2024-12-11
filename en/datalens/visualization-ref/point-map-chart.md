@@ -49,3 +49,9 @@ You can also:
 
 * Use color palettes corresponding to the goals and objectives of visualization.
 * If the density of points on the map is high, make them less transparent. This will help you see where data intersects.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

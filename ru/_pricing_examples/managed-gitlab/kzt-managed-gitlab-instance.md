@@ -1,3 +1,3 @@
-> 25&nbsp;056,00&nbsp;₸ + 3&nbsp;295,50&nbsp;₸ = 28&nbsp;351,50&nbsp;₸
+> {% calc [currency=KZT] 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }}) %} + {% calc [currency=KZT] 30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }} %} = {% calc [currency=KZT] (720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }})) + (30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }}) %}
 
-  Где 28&nbsp;351,50&nbsp;₸ — стоимость использования инстанса в течение 30 дней.
+  Где {% calc [currency=KZT] (720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }})) + (30 × {{ sku|KZT|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|KZT|gitlab.backup|month|number }}) %} — стоимость использования инстанса в течение 30 дней.

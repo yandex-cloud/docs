@@ -1,8 +1,14 @@
 # Восстановить виртуальную машину из резервной копии другой виртуальной машины
 
+{% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
 Если в каталоге есть несколько виртуальных машин, подключенных к {{ backup-name }}, можно восстановить одну ВМ из резервной копии другой. Это нужно, например, если исходная ВМ неисправна.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+О том, как восстановить [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md) из резервной копии другого сервера, см. в инструкции [Обновление подключения сервера {{ baremetal-full-name }} к {{ backup-name }}](../backup-baremetal/refresh-connection.md).
 
 {% note info %}
 
