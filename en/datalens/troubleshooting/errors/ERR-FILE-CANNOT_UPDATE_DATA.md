@@ -7,6 +7,6 @@ You may get this error when trying to update table data from a connection to a [
 To fix this error:
 
 * Refresh the page in a few minutes and try again.
-* Reupload the data: in the connection next to the table name, click ![image](../../../_assets/console-icons/ellipsis.svg) → **Replace** and select a file or provide a link to the table.
+* Re-upload the data: in the connection next to the table name, click ![image](../../../_assets/console-icons/ellipsis.svg) → **Replace** and select a file or provide a link to the table.
 
-If the error persists, [contact technical support]({{ link-console-support }}). In your message, specify the ID of the dataset and/or connection in which the error occurs.
+If the error persists, contact {{ yandex-cloud }} [support]({{ link-console-support }}). In your message, specify the ID of the dataset and/or connection in which the error occurs.

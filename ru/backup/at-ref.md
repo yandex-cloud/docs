@@ -14,3 +14,5 @@ description: На этой странице приведен справочни�
 ```
 
 {% include [backup-events](../_includes/audit-trails/events/backup-events.md) %}
+
+{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}

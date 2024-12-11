@@ -1,6 +1,6 @@
-# Request handler for a {{ sf-name }} function in C#
+# Request handler for a .NET Core function in {{ sf-name }}
 
-A _request handler_ is a method used to process each C# function call. When creating a function version, you should specify the entry point, i.e., the name of the class containing the handler, e.g., `FunctionNamespace.Handler`. The name of the handler file must contain no `.` before the extension and at the beginning of the name of the directory containing the handler file, e.g., `.handler.cs` or `.test/handler.cs`.
+A _request handler_ is a method used to process each .NET Core function call. When creating a function version, you should specify the entry point, i.e., the name of the class containing the handler, e.g., `FunctionNamespace.Handler`. The handler file name must not have the `.` character before the extension and preceding the name of the directory the handler resides in, e.g., `.handler.cs` or `.test/handler.cs`.
 
 {% note info %}
 

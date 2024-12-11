@@ -35,6 +35,8 @@ items:
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md
+      - name: Observability (monitoring and logging) tools
+        href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md
       - name: Quotas and limits
@@ -46,6 +48,8 @@ items:
   - name: Service interfaces
     expanded: true
     items:
+      - name: Overview
+        href: concepts/interfaces.md
       - name: Mobile app
         href: mobile-app/index.md
       - name: API
@@ -64,7 +68,7 @@ items:
         href: platform-comparison/azure.md
       - name: Equivalents for VMware
         items:
-          - name: Comparison with VMware
+          - name: Overview
             href: platform-comparison/vmware/index.md
           - name: Resource and role model
             href: platform-comparison/vmware/resource-role-model.md
@@ -72,7 +76,7 @@ items:
             href: platform-comparison/vmware/computing-infrastructure.md
           - name: Data storage subsystem
             href: platform-comparison/vmware/storage-subsystem.md
-          - name: Network
+          - name: Network subsystem
             href: platform-comparison/vmware/network-subsystem.md
           - name: Management, monitoring, and billing tools
             href: platform-comparison/vmware/management-tools.md

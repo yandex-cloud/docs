@@ -5,6 +5,8 @@ description: Follow this guide to create a notification channel.
 
 # Creating a notification channel
 
+## Creating a notification channel with users
+
 To create a [notification channel](../../concepts/alerting/notification-channel.md):
 
 1. On the left side of the window, select the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** section.
@@ -32,3 +34,9 @@ To create a [notification channel](../../concepts/alerting/notification-channel.
         1. Paste the authentication code and click **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The channel will appear in the list.
+
+## Creating a notification channel that invokes a {{ sf-name }} function
+
+{% include [escalation-cloud-functions](../../../_includes/monitoring/escalation-cloud-functions.md) %}
+
+{% include [cloud-functions](../../../_includes/monitoring/notification-channels-cloud-functions.md) %}

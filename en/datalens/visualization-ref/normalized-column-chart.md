@@ -8,18 +8,18 @@ A normalized column chart shows the contribution of each measure or category to 
 
 Month |	Home appliances |	Household goods  | Household cleaners
 ----- | ---------| ---------- | ---------- 
-January 2019|	128К |	55К | 26К
-February 2019|	97К |	79К | 18К
-March 2019|	187К |	105К | 41К
-April 2019|	188К | 137К | 34К
-May 2019|	230К |	121К | 43К
-June 2019|	256К |	162К | 59К
-July 2019|	284К |	206К | 67К
-August 2019|	409К |	204К | 72К
-September 2019|	314К |	209К | 86К
-October 2019|	324К |	262К | 79К
-November 2019|	385К |	238К | 101К
-December 2019|	451К |	307К | 111К
+January 2019|	128K |	55K | 26K
+February 2019|	97K |	79K | 18K
+March 2019|	187K |	105K | 41K
+April 2019|	188K | 137K | 34K
+May 2019|	230K |	121K | 43K
+June 2019|	256K |	162K | 59K
+July 2019|	284K |	206K | 67K
+August 2019|	409K |	204K | 72K
+September 2019|	314K |	209K | 86K
+October 2019|	324K |	262K | 79K
+November 2019|	385K |	238K | 101K
+December 2019|	451K |	307K | 111K
 
 {% endcut %}
 
@@ -48,7 +48,7 @@ December 2019	| 100	| 650	| 400	| 550
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
 X | Dimensions. You can specify one or two dimensions.
 Y | Measure. You can specify multiple measures. If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md). [Measure Names](../concepts/chart/measure-values.md) can be moved to the X-axis.
@@ -89,3 +89,9 @@ To create a normalized column chart:
   {% endcut %}
 
 * To display the absolute values of variables, use a [column chart](column-chart.md).
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

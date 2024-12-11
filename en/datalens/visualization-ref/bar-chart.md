@@ -8,13 +8,13 @@ This chart displays the values of one or more measures by each category, using h
 
 Subcategory |	Sales
 -------------|--------- 
-Beauty and health products |	44К
-Kitchenware |	1392К
-Kitchen products |	1120К
-Detergents |	405К
-Health and beauty equipment |	1760К
-Non-essential goods |	827К
-Cleaners |	304К
+Beauty and health products |	44K
+Kitchenware |	1392K
+Kitchen products |	1120K
+Detergents |	405K
+Health and beauty equipment |	1760K
+Non-essential goods |	827K
+Cleaners |	304K
 
 {% endcut %}
 
@@ -33,12 +33,12 @@ A chart with grouping by dimension lets you compare two or more categories by a 
 
 Subcategory |	Delivery |	Pickup
 -------------|---------| ----------|
-Beauty and health products |	12К |	32К
-Kitchenware |	394К |	998К
-Kitchen products |	371К |	749К
-Detergents |	127К |	278К
-Health and beauty equipment |	497К |	1,263К
-Non-essential goods |	268К |	560К
+Beauty and health products |	12K |	32K
+Kitchenware |	394K |	998K
+Kitchen products |	371K |	749K
+Detergents |	127K |	278K
+Health and beauty equipment |	497K |	1,263K
+Non-essential goods |	268K |	560K
 
 {% endcut %}
 
@@ -181,3 +181,9 @@ To color columns in a chart based on the value of a measure:
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
 * Place segments inside bars so that the largest or most important categories are located to the left, closer to the chart's Y-axis. This makes it easier to compare the values.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

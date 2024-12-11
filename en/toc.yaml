@@ -153,9 +153,6 @@ items:
     href: troubleshooting/index.yaml
   - name: Query
     href: query/index.yaml
-  - name: YandexGPT API
-    href: yandexgpt/index.yaml
-    hidden: true
   - name: Management console
     href: console/index.yaml
 base: en

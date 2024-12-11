@@ -1,26 +1,31 @@
-# Подключение виртуальных машин {{ compute-name }} к {{ backup-name }}
+# Подключение виртуальных машин {{ compute-name }} и серверов {{ baremetal-full-name }} к {{ backup-name }}
 
-Если вы хотите создавать резервные копии [ВМ](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) в сервисе {{ backup-name }}, ее нужно подключить к сервису и корректно настроить.
+Если вы хотите создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/) или [серверов {{ baremetal-name }}](../../baremetal/concepts/servers.md) в сервисе {{ backup-name }}, эти ВМ и сервера нужно подключить к сервису и корректно настроить.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
 
-Чтобы ВМ можно было подключить к {{ backup-name }}, на ней должна быть установлена одна из [поддерживаемых операционных систем](#os). Подробнее о подключении см. в [инструкциях](../operations/index.md#connect-vm).
+К {{ backup-name }} можно подключить:
+* Виртуальные машины, созданные из [поддерживаемых образов {{ marketplace-full-name }}](#os). Агент {{ backup-name }} на таких ВМ устанавливается автоматически.
+* Виртуальные машины, созданные из других образов, если эти образы поддерживаются [провайдером](./index.md#providers) резервного копирования Киберпротект. Агента {{ backup-name }} на такие ВМ необходимо [устанавливать вручную](#self-install).
+* Серверы {{ baremetal-name }} с [поддерживаемой](#self-install) операционной системой. Агента {{ backup-name }} на серверы {{ baremetal-name }} можно установить только [вручную](#self-install).
 
-Чтобы подключение работало корректно, привяжите к ВМ [сервисный аккаунт](#sa) с ролью `backup.editor` и настройте для ВМ [сетевой доступ](#vm-network-access).
+Подробнее о подключении к {{ backup-name }} см. в [инструкциях](../operations/index.md).
 
-После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ в [политику резервного копирования](policy.md).
+Чтобы подключение на виртуальной машине работало корректно, привяжите к ВМ [сервисный аккаунт](#sa) с ролью `backup.editor` и настройте [сетевой доступ](#vm-network-access). К серверам {{ baremetal-name }} привязывать сервисный аккаунт не нужно.
+
+После подключения к {{ backup-name }} [добавьте](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер {{ baremetal-name }} в [политику резервного копирования](policy.md).
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-Также можно привязать политику к виртуальной машине во время создания ВМ. Привязка политики выполняется асинхронно после создания и инициализации ВМ, а также установки и настройки агента резервного копирования. Это может занимать до 10–15 минут. Подробнее в разделе [{#T}](../tutorials/vm-with-backup-policy/index.md).
+Привязать политику к виртуальной машине также можно во время создания ВМ. Привязка политики выполняется асинхронно после создания и инициализации ВМ, а также установки и настройки агента резервного копирования. Это может занимать до 10–15 минут. Подробнее в разделе [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
-## Требования к характеристикам ВМ {#requirements}
+## Требования к характеристикам ВМ и серверов {{ baremetal-name }} {#requirements}
 
 {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
 
-## Поддерживаемые операционные системы {#os}
+## Поддерживаемые образы {{ marketplace-name }} с автоматической установкой агента {{ backup-name }} {#os}
 
-Агент {{ backup-name }} доступен для автоматической установки при создании ВМ из образов {{ marketplace-full-name }}:
+На виртуальных машинах агент {{ backup-name }} доступен для автоматической установки при создании ВМ из следующих образов {{ marketplace-name }}:
 
 ### Образы на базе Linux {#linux}
 
@@ -56,28 +61,46 @@
 
 {% endnote %}
 
-### Самостоятельная установка {#self-install}
+На серверах {{ baremetal-name }} автоматическая установка агента {{ backup-name }} в настоящий момент невозможна: установить его на сервере {{ baremetal-name }} можно только [вручную](#self-install).
 
-Вы можете установить агента {{ backup-name }} самостоятельно:
+### Самостоятельная установка в поддерживаемой операционной системе {#self-install}
 
-* [Инструкция для Linux](../operations/connect-vm-linux.md)
-* [Инструкция для Windows](../operations/connect-vm-windows.md)
+Вы можете самостоятельно установить агента {{ backup-name }} на виртуальную машину или сервер {{ baremetal-name }}:
 
-С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+{% list tabs group=backup_resource_type %}
 
-При возникновении проблем с установкой агента, [обратитесь]({{ link-console-support }}) в техническую поддержку.
+- Виртуальная машина {#vm}
+
+  * [Инструкция для Linux](../operations/connect-vm-linux.md)
+  * [Инструкция для Windows](../operations/connect-vm-windows.md)
+
+  С полным списком поддерживаемых ОС можно ознакомиться в [документации провайдера резервного копирования](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+
+- Сервер {{ baremetal-name }} {#baremetal-server}
+
+  Установить агента {{ backup-name }} можно на сервер с одной из операционных систем:
+
+  {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
+
+  Чтобы установить агента на сервер, воспользуйтесь [инструкцией по подключению сервера {{ baremetal-name }} к {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
+
+{% endlist %}
+
+При возникновении проблем с установкой агента [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
 ## Сервисный аккаунт {#sa}
 
-[Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого копии ВМ создаются и загружаются в хранилище {{ backup-name }}.
+[Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого агент {{ backup-name }} регистрируется у провайдера Киберпротект.
 
-Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с [ролью `backup.editor`](../security/index.md).
+Когда вы создаете ВМ, для которой хотите настроить резервное копирование в {{ backup-name }}, к ВМ нужно привязать сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
 
-Вы можете [назначить роль](../../iam/operations/sa/assign-role-for-sa.md) существующему сервисному аккаунту или [создать](../../iam/operations/sa/create.md) сервисный аккаунт с нужными ролями.
+К серверу {{ baremetal-name }} сервисный аккаунт привязывать не нужно. IAM-токен сервисного аккаунта с [ролью](../security/index.md#backup-editor) `backup.editor` передается агенту {{ backup-name }} при его [установке](../operations/backup-baremetal/backup-baremetal.md#agent-install) на сервер.
 
-## Разрешения сетевого доступа для ВМ {#vm-network-access}
+Вы можете [назначить роль](../../iam/operations/sa/assign-role-for-sa.md) существующему сервисному аккаунту или [создать](../../iam/operations/sa/create.md) новый сервисный аккаунт с нужными ролями.
 
-Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](index.md#providers), для ВМ должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице:
+## Разрешения сетевого доступа {#vm-network-access}
+
+Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](index.md#providers), для ВМ или сервера {{ baremetal-name }} должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице:
 
 {% list tabs group=traffic %}
 
@@ -87,6 +110,20 @@
 
 {% endlist %}
 
-Чтобы обеспечить сетевой доступ, [назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) ВМ публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
+Чтобы обеспечить сетевой доступ:
+{#provide-access}
+{% list tabs group=backup_resource_type %}
 
-Правила [группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать доступ к указанным ресурсам. Вы можете [добавить правила](../../vpc/operations/security-group-add-rule.md) в существующую группу безопасности или [создать](../../vpc/operations/security-group-create.md) новую группу с нужными правилами.
+- Виртуальная машина {#vm}
+
+  [Назначьте](../../compute/operations/vm-control/vm-attach-public-ip.md) виртуальной машине публичный IP-адрес или примените [таблицу маршрутизации](../../vpc/concepts/routing.md#rt-vm), разрешающую доступ в интернет через [NAT-шлюз](../../vpc/concepts/gateways.md) или пользовательский маршрутизатор.
+
+  Правила [группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать доступ к указанным ресурсам. Вы можете [добавить правила](../../vpc/operations/security-group-add-rule.md) в существующую группу безопасности или [создать](../../vpc/operations/security-group-create.md) новую группу с нужными правилами.
+
+- Сервер {{ baremetal-name }} {#baremetal-server}
+
+  При [заказе сервера](../../baremetal/operations/servers/server-lease.md) в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`, чтобы назначить серверу публичный IP-адрес.
+
+  Убедитесь, что сетевые настройки сервера не блокируют исходящий трафик на указанные ресурсы.
+
+{% endlist %}

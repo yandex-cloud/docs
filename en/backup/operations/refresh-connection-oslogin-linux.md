@@ -51,7 +51,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
         Finished
         ```
 
-     1. (Optional) To view the {{ backup-name }} agent installation logs, run this command:
+     1. (Optional) To view {{ backup-name }} agent installation logs, run this command:
 
         ```bash
         yc backup agent debug-info \
@@ -74,4 +74,4 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
    {% endlist %}
 
-1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.
+1. [Link](./policy-vm/attach-and-detach-vm.md) your VM to a backup policy.

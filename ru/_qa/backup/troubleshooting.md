@@ -2,28 +2,64 @@
 
 В этом разделе описаны типичные проблемы, которые могут возникать при работе {{ backup-name }}, и методы их решения.
 
-#### Почему ВМ не добавляется в {{ backup-name }}? {#cannot-add-vm}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+
+#### Почему ВМ или сервер {{ baremetal-full-name }} не добавляются в {{ backup-name }}? {#cannot-add-vm}
 
 Убедитесь, что:
 
-* Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#os).
-* Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
-* Для ВМ [корректно](../../backup/concepts/vm-connection.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
+{% list tabs group=backup_resource_type %}
 
-Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection.md).
+- Виртуальная машина {#vm}
 
-#### Как заново подключить к сервису ВМ, удаленную из {{ backup-name }}? {#reconnect-deleted-vm}
+  * Виртуальная машина создана из [поддерживаемого образа](../../backup/concepts/vm-connection.md#os) или (при установке агента {{ backup-name }} вручную) операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#self-install).
+  * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
+  * Для ВМ [корректно](../../backup/concepts/vm-connection.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
 
-Если вы [удалили](../../backup/operations/delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
+  Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection.md).
 
-* [Подключить виртуальную машину на Linux](../../backup/operations/connect-vm-linux.md)
-* [Подключить виртуальную машину на Windows](../../backup/operations/connect-vm-windows.md)
+- Сервер {{ baremetal-name }} {#baremetal-server}
 
-#### Как заново подключить ВМ к {{ backup-name }} после восстановления ее копии в другую ВМ? {#how-to-renew-connection}
+  * На сервере установлена [поддерживаемая операционная система](../../backup/concepts/vm-connection.md#self-install).
+  * Сервисному аккаунту, IAM-токен которого используется при [установке](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install) агента {{ backup-name }}, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
+  * Серверу [назначен публичный IP-адрес](../../backup/concepts/vm-connection.md#provide-access).
 
-Виртуальная машина, после [восстановления ее копии в другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md), становится неактуальной. Чтобы избежать конфликтов между исходной и целевой ВМ при резервном копировании, [обновите](../../backup/operations/refresh-connection.md) подключение неактуальной ВМ к {{ backup-name }}.
+  Подробнее в статье [Подключение сервера {{ baremetal-name }} к {{ backup-name }}](../../backup/operations/backup-baremetal/backup-baremetal.md).
 
-#### Ошибка при попытке восстановить ВМ из резервной копии {#recovery-error}
+{% endlist %}
+
+#### Как заново подключить к сервису ВМ или сервер {{ baremetal-name }}, удаленные из {{ backup-name }}? {#reconnect-deleted-vm}
+
+Если вы [удалили ВМ](../../backup/operations/delete-vm.md) или сервер {{ baremetal-name }} из {{ backup-name }} и хотите подключить их к сервису заново, воспользуйтесь инструкциями:
+
+{% list tabs group=backup_resource_type %}
+
+- Виртуальная машина {#vm}
+
+  * [Подключить виртуальную машину на Linux](../../backup/operations/connect-vm-linux.md)
+  * [Подключить виртуальную машину на Windows](../../backup/operations/connect-vm-windows.md)
+
+- Сервер {{ baremetal-name }} {#baremetal-server}
+
+  * Заново установите агента {{ backup-name }}, воспользовавшись [инструкцией](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install).
+
+{% endlist %}
+
+#### Как заново подключить ВМ или сервер {{ baremetal-name }} к {{ backup-name }} после восстановления резервной копии в другую ВМ или другой сервер? {#how-to-renew-connection}
+
+{% list tabs group=backup_resource_type %}
+
+- Виртуальная машина {#vm}
+
+  Виртуальная машина, после [восстановления ее копии в другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md), становится неактуальной. Чтобы избежать конфликтов между исходной и целевой ВМ при резервном копировании, [обновите](../../backup/operations/refresh-connection.md) подключение неактуальной ВМ к {{ backup-name }}.
+
+- Сервер {{ baremetal-name }} {#baremetal-server}
+
+  Сервер {{ baremetal-name }}, после восстановления его копии на другой сервер, становится неактуальным. Чтобы избежать конфликтов между исходным и целевым сервером {{ baremetal-name }} при резервном копировании, [обновите](../../backup/operations/backup-baremetal/refresh-connection.md) подключение неактуального сервера к {{ backup-name }}.
+
+{% endlist %}
+
+#### Ошибка при попытке восстановить ВМ или сервер {{ baremetal-name }} из резервной копии {#recovery-error}
 
 Текст ошибки:
 
@@ -31,11 +67,11 @@
 Not all of the items are mapped. Please, check your goal instance and its volumes.
 ```
 
-Ошибка возникает из-за того, что {{ backup-name }} не может найти подходящий по размеру диск на целевой ВМ.
+Ошибка возникает из-за того, что {{ backup-name }} не может найти подходящий по размеру диск на целевой машине.
 
-Размер загрузочного диска целевой ВМ должен быть не меньше размера загрузочного диска исходной ВМ.
+Размер загрузочного диска целевой ВМ или сервере {{ baremetal-name }} должен быть не меньше размера загрузочного диска исходной машины.
 
-Проверьте диски на целевой ВМ и при необходимости [увеличьте](../../compute/operations/disk-control/update.md#change-disk-size) их размер. Для восстановления также можно [использовать другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md) с подходящими параметрами.
+Проверьте диски на целевой машине и при необходимости [увеличьте](../../compute/operations/disk-control/update.md#change-disk-size) их размер. Для восстановления также можно [использовать другую ВМ](../../backup/operations/backup-vm/non-native-recovery.md) или сервер {{ baremetal-name }} с подходящими параметрами.
 
 {% note info %}
 

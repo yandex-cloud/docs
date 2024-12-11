@@ -56,7 +56,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `CentOS 7` and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` [disk](../../compute/concepts/disk.md#disks_types) type and specify the size: `19 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -68,7 +68,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
       * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
 
       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -178,8 +178,8 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
      ```
 
      Save the following parameters (you will need them to configure the AWS CLI utility):
-     * `key_id`: Static access key ID
-     * `secret`: Secret key
+     * `key_id`: Static access key ID.
+     * `secret`: Secret key.
   1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account:
 
      ```bash
@@ -461,6 +461,6 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 To stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/objects/delete-all.md) all the objects from the bucket.
-1. [Delete the bucket](../../storage/operations/buckets/delete.md).
-1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

@@ -8,24 +8,25 @@ All actions with security profiles, WAF, and ARL are logged as a list of operati
 
 - Management console {#console}
 
-   To see operations with all [profiles](../concepts/profiles.md), select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the profiles that were deleted.
+  To see operations with all [profiles](../concepts/profiles.md), select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the profiles that were deleted.
 
 {% endlist %}
 
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for security profiles.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - API {#api}
+    - API {#api}
 
       Use the [OperationService/Get](../api-ref/grpc/Operation/get.md) gRPC API call.
 
-   {% endlist %}
+    {% endlist %}
 
 #### See also {#see-also}
 
+* [{#T}](./profile-get.md)
 * [{#T}](../../api-design-guide/concepts/about-async.md)

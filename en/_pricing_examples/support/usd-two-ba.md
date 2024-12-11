@@ -7,5 +7,6 @@ The fixed amount will only be paid by one of the accounts, e.g., Account 1.
 
 The cost of support will be:
 
-* $24.00 + $400.00 * 0.05 = $44.00 for Account 1.
-* $80.00 * 0.05 = $4.00 for Account 2.
+> {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} + $400.00 × 0.05 = {% calc [currency=USD] {{ sku|USD|support.organization.business.fixed_consumption.v1|number }} + 400,00 × 0,05 %} for Account 1.
+> 
+> $80.00 × 0.05 = $4.00 for Account 2.

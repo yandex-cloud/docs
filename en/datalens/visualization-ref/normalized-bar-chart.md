@@ -31,13 +31,13 @@ Or the percentage distribution of payment types across product subcategories.
 
 Subcategory |	Delivery |	Pickup
 -------------|---------| ----------|
-Beauty and health products |	615К |	373К
-Kitchenware |	1,929К |	1,005К
-Kitchen products |	1,217К |	759К
-Detergents |	1,210К |	803К
-Health and beauty equipment |	2,046К |	1,380К
-Non-essential goods |	1,368К |	894К
-Cleaners |	1,237К |	673К
+Beauty and health products |	615K |	373K
+Kitchenware |	1,929K |	1,005K
+Kitchen products |	1,217K |	759K
+Detergents |	1,210K |	803K
+Health and beauty equipment |	2,046K |	1,380K
+Non-essential goods |	1,368K |	894K
+Cleaners |	1,237K |	673K
 
 {% endcut %}
 
@@ -49,18 +49,18 @@ A normalized bar chart shows the contribution, as a percentage, of each category
 
 Month |	Home appliances |	Household goods  | Household cleaners
 ----- | ---------| ---------- | ---------- 
-January 2019|	128К |	55К | 26К
-February 2019|	97К |	79К | 18К
-March 2019|	187К |	105К | 41К
-April 2019|	188К | 137К | 34К
-May 2019|	230К |	121К | 43К
-June 2019|	256К |	162К | 59К
-July 2019|	284К |	206К | 67К
-August 2019|	409К |	204К | 72К
-September 2019|	314К |	209К | 86К
-October 2019|	324К |	262К | 79К
-November 2019|	385К |	238К | 101К
-December 2019|	451К |	307К | 111К
+January 2019|	128K |	55K | 26K
+February 2019|	97K |	79K | 18K
+March 2019|	187K |	105K | 41K
+April 2019|	188K | 137K | 34K
+May 2019|	230K |	121K | 43K
+June 2019|	256K |	162K | 59K
+July 2019|	284K |	206K | 67K
+August 2019|	409K |	204K | 72K
+September 2019|	314K |	209K | 86K
+October 2019|	324K |	262K | 79K
+November 2019|	385K |	238K | 101K
+December 2019|	451K |	307K | 111K
 
 {% endcut %}
 
@@ -97,3 +97,9 @@ To create a normalized bar chart:
 * {% include [category-text](../../_includes/datalens/datalens-category-text.md) %}
 * Do not display more than three to five segments on the chart.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

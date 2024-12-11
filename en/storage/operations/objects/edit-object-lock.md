@@ -29,11 +29,71 @@ To put or configure a retention:
   1. In the window that opens, enable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Select **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass a lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the lock period. You cannot bypass, shorten, or remove such a lock until it expires.
-  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment you upload the object version to the bucket.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to set up a temporary lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Set up a temporary lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --retention Mode=<lock_type>,RetainUntilDate="<retention_end_date>" \
+        --bypass-governance-retention
+      ```
+
+      {% include [object-lock-retention-cli-legend](../../../_includes/storage/object-lock-retention-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: c5984d03********
+      ```
+
+  1. {% include [get-object-retention-cli-command](../../../_includes/storage/get-object-retention-cli-command.md) %}
+
+      Result:
+
+      ```text
+      request_id: 077b184e********
+      retention:
+        mode: GOVERNANCE
+        retain_until_date: "2024-12-01T10:49:08.363Z"
+      ```
+
+      The `mode` field states the lock [type](../../concepts/object-lock.md#types); the `retain_until_date` field states the retention end date.
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -44,25 +104,11 @@ To put or configure a retention:
        --bucket <bucket_name> \
        --key <object_key> \
        --version-id <version_ID> \
-       --retention Mode=<lock_type>,RetainUntilDate="<date_and_time>" \
+       --retention Mode=<lock_type>,RetainUntilDate="<retention_end_date>" \
        --bypass-governance-retention
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--retention`: Temporary lock settings (both parameters are required):
-
-       * `Mode`: Lock [type](../../concepts/object-lock.md#types):
-
-         * `GOVERNANCE`: Temporary managed lock. You cannot set this type if an object version is already locked in compliance mode.
-         * `COMPLIANCE`: Temporary strict lock.
-
-       * `RetainUntilDate`: Lock end date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record. For more information, see [this example](#example-lock). If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
-
-     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
+     {% include [object-lock-retention-cli-legend](../../../_includes/storage/object-lock-retention-cli-legend.md) %}
 
 - API {#api}
 
@@ -87,7 +133,8 @@ To remove a retention:
   1. In the window that opens, disable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- AWS CLI {#cli}
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -98,17 +145,11 @@ To remove a retention:
        --bucket <bucket_name> \
        --key <object_key> \
        --version-id <version_ID> \
-       --retention '{}' \
+       --retention "{}" \
        --bypass-governance-retention
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--retention`: Temporary lock settings. In both parameters, empty lines are specified to remove a lock.
-     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
+     {% include [object-lock-retention-remove-cli-legend](../../../_includes/storage/object-lock-retention-remove-cli-legend.md) %}
 
 - API {#api}
 
@@ -134,7 +175,76 @@ To put or configure a legal hold:
   1. In the window that opens, enable or disable **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to set up an indefinite lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-legal-hold --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Set up an indefinite lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-legal-hold \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --legal-hold Status=<lock_status>
+      ```
+
+      {% include [legal-hold-cli-legend](../../../_includes/storage/legal-hold-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: cb262625********
+      ```
+
+  1. Make sure the object version lock settings were applied:
+
+      ```bash
+      yc storage s3api get-object-legal-hold \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object key.
+      * `--version-id`: Object version ID.
+
+      Result:
+
+      ```text
+      request_id: 0bef4a0b********
+      legal_hold:
+        status: ON
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -149,17 +259,7 @@ To put or configure a legal hold:
        --legal-hold Status=<lock_status>
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--legal-hold`: Indefinite lock settings:
-
-       * `Status`: Lock status:
-
-         * `ON`: Enabled.
-         * `OFF`: Disabled.
+     {% include [legal-hold-cli-legend](../../../_includes/storage/legal-hold-cli-legend.md) %}
 
 - API {#api}
 
@@ -171,11 +271,27 @@ To put or configure a legal hold:
 
 ### Setting up a governance-mode retention with the Moscow time offset (UTC+3) {#example-lock}
 
-> ```bash
-> aws --endpoint-url=https://{{ s3-storage-host }}/ \
->   s3api put-object-retention \
->   --bucket test-bucket \
->   --key object-key/ \
->   --version-id 0005FA15******** \
->   --retention Mode=GOVERNANCE,RetainUntilDate="2025-01-01T00:00:00+03:00" \
-> ```
+{% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  > ```bash
+  > yc storage s3api put-object-retention \
+  >   --bucket test-bucket \
+  >   --key object-key/ \
+  >   --version-id 0005FA15******** \
+  >   --retention Mode=GOVERNANCE,RetainUntilDate=2025-01-01T00:00:00+03:00 \
+  > ```
+
+- AWS CLI {#aws-cli}
+
+  > ```bash
+  > aws --endpoint-url=https://{{ s3-storage-host }}/ \
+  >   s3api put-object-retention \
+  >   --bucket test-bucket \
+  >   --key object-key/ \
+  >   --version-id 0005FA15******** \
+  >   --retention Mode=GOVERNANCE,RetainUntilDate="2025-01-01T00:00:00+03:00" \
+  > ```
+
+{% endlist %}

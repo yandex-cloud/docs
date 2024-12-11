@@ -5,9 +5,15 @@ description: Следуя данной инструкции, вы сможете
 
 # Восстановить виртуальную машину из резервной копии
 
+{% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
-{% note info %}
+О том, как восстановить из резервной копии [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md), см. в инструкции [Восстановление сервера из резервной копии](../backup-baremetal/backup-baremetal.md#server-recovery).
+
+{% note tip %}
 
 Если текущая виртуальная машина неисправна, [создайте](../#connect-vm) новую ВМ с подключением к {{ backup-name }} и [восстановите](non-native-recovery.md) в нее резервную копию. Для восстановления из резервной копии новая ВМ должна находиться в [статусе](../../../compute/concepts/vm-statuses.md#list-of-statuses) `Running`.
 

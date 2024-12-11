@@ -166,3 +166,9 @@ To color columns in a chart based on the value of a measure:
   ![bar-chart-split](../../_assets/datalens/visualization-ref/bar-chart/bar-chart-split.png)
 
   {% endcut %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

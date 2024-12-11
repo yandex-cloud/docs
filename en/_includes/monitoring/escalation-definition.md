@@ -1,0 +1,3 @@
+**Escalation policy**: Notification sequence that can be run when an alert gets the **Alarm** status. If one of the notifications has not been answered within the specified timeframe, the system will automatically send it using another method. Escalation thus guarantees that you or your team do not not miss an important message.
+
+You can include any number of steps in your notification sequence, put a delay between them, select notification methods and users. For example, to start by sending a notification to an employee's email or messenger, 5 minutes later to his/her phone, 10 minutes later to the supervisor's phone.

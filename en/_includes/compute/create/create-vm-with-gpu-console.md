@@ -1,4 +1,4 @@
-1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -26,6 +26,7 @@
         * {{ v100-cascade-lake }}
         * {{ a100-epyc }}
         * {{ t4-ice-lake }}
+        * {{ t4i-ice-lake }}
 
     * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
 
@@ -41,4 +42,4 @@
 1. {% include [section-additional](section-additional.md) %}
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-The virtual machine will appear in the list.
+You will see the new VM in the list.

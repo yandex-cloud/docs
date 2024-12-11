@@ -86,7 +86,7 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Подключение ВМ к сервису
+      - name: Подключение ВМ и серверов {{ baremetal-name }} к сервису
         href: concepts/vm-connection.md
       - name: Политики резервного копирования
         href: concepts/policy.md

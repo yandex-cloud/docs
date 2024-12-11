@@ -10,18 +10,18 @@ It can show multiple measures with different lines. For example, the basic sales
 
 Year |	Sales |	Basic targets |	Optimistic targets
 ----- | --------- | --------- | --------- 
-January 2019|	209К |	200К |	210К
-February 2019|	194К |	205К |	220К
-March 2019|	333К |	250К |	280К
-April 2019|	359К | 260К |	290К
-May 2019|	394К |	270К |	300К
-June 2019|	477К |	300К |	350К
-July 2019|	557К |	350К |	400К
-August 2019|	685К |	400К |	450К
-September 2019|	609К |	500К |	550К
-October 2019|	665К |	530К |	570К
-November 2019|	724К |	600К |	670К
-December 2019|	869К |	700К |	800К
+January 2019|	209K |	200K |	210K
+February 2019|	194K |	205K |	220K
+March 2019|	333K |	250K |	280K
+April 2019|	359K | 260K |	290K
+May 2019|	394K |	270K |	300K
+June 2019|	477K |	300K |	350K
+July 2019|	557K |	350K |	400K
+August 2019|	685K |	400K |	450K
+September 2019|	609K |	500K |	550K
+October 2019|	665K |	530K |	570K
+November 2019|	724K |	600K |	670K
+December 2019|	869K |	700K |	800K
 
 {% endcut %}
 
@@ -34,7 +34,7 @@ If measure values differ significantly, you can place them on different Y axes. 
 | Year | Sales | Number of customers |
 | ----- | ----- | ----- |
 | January 2019 | 298450 | 64 |
-| February 2019 | 498052 | 84 |
+| February 2019 |498052 | 84 |
 | March 2019 | 629201 | 99 |
 | April 2019 | 895075 | 147 |
 | May 2019 | 998557 | 166 |
@@ -56,26 +56,26 @@ This chart lets you compare multiple categories by a single measure. Each catego
 
 Year |	Home appliances |	Household goods  | Household cleaners
 ----- | ---------| ---------- | ---------- 
-January 2019|	128К |	55К | 26К
-February 2019|	97К |	79К | 18К
-March 2019|	187К |	105К | 41К
-April 2019|	188К | 137К | 34К
-May 2019|	230К |	121К | 43К
-June 2019|	256К |	162К | 59К
-July 2019|	284К |	206К | 67К	
-August 2019|	409К |	204К | 72К
-September 2019|	314К |	209К | 86К
-October 2019|	324К |	262К | 79К
-November 2019|	385К |	238К | 101К
-December 2019|	451К |	307К | 111К
+January 2019|	128K |	55K | 26K
+February 2019|	97K |	79K | 18K
+March 2019|	187K |	105K | 41K
+April 2019|	188K | 137K | 34K
+May 2019|	230K |	121K | 43K
+June 2019|	256K |	162K | 59K
+July 2019|	284K |	206K | 67K	
+August 2019|	409K |	204K | 72K
+September 2019|	314K |	209K | 86K
+October 2019|	324K |	262K | 79K
+November 2019|	385K |	238K | 101K
+December 2019|	451K |	307K | 111K
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-Wizard<br/> section| Description
+Section<br/> section| Description
 ----- | ----
-X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
+X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings).
 Y | Measure. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
 Y2 | Measure. Use it to add a second Y axis to a chart. You can specify multiple measures.<br/>If you add more than one measure to a section, the **Colors** section will contain a dimension named [Measure Names](../concepts/chart/measure-values.md).
 Colors | [Measure Names](../concepts/chart/measure-values.md) dimension or field. Affects the color of lines. To delete [Measure Names](../concepts/chart/measure-values.md), click the cross icon or remove measures from the Y axis.
@@ -155,3 +155,9 @@ To create a line chart:
 
   {% endcut %}
 
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

@@ -28,4 +28,6 @@ description: Follow this guide to create an alert.
 1. Set the [no data policies](../../concepts/alerting/alert.md#no-data-policy) or leave the default values.
 1. Specify alert [annotations](../../concepts/alerting/annotation.md).
 1. Configure [notifications](../../concepts/alerting/notification-channel.md). If you do not have a notification channel, [create one](create-channel.md).
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Your alert will appear in the list.
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The alert will appear in the list.
+
+To keep track of the alert's status, add its [widget to the dashboard](../dashboard/add-widget.md).

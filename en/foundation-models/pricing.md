@@ -45,14 +45,14 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classi
 
 {% note warning %}
 
-The pricing below will apply starting December 9, 2024.
+The rules described below will take effect on December 9, 2024.
 
 {% endnote %}
 
 The cost of text classification depends on the classification model you use and the number of [tokens](concepts/yandexgpt/tokens.md) you provide.
 
-* When classifying with {{ gpt-lite }}, a single billing unit is a request of up to 1,000 tokens.
-* When classifying with {{ gpt-pro }} and fine-tuned classifiers, a single billing unit is a request of up to 250 tokens.
+* When classifying with {{ gpt-lite }}, a billing unit is a request of up to 1,000 tokens.
+* When classifying with {{ gpt-pro }} and fine-tuned classifiers, a billing unit is a request of up to 250 tokens.
 
 Requests with less than one billing unit are rounded up to the next integer. Large texts are billed as multiple requests with rounding up.
 
@@ -86,8 +86,6 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating_new.md) %}
 
 
-^1^ {{ meta-disclaimer }}
-
 ### Text classification {#pricing-classifier}
 
 
@@ -95,7 +93,7 @@ You are charged for each generation request in {{ yandexart-name }}. The request
 {% include [usd-classifier.md](../_pricing/yandexgpt/usd-classifier.md) %}
 
 
-### Text vectorization in {{ yagpt-full-name }} {#pricing-embedding}
+### Text vectorization {#pricing-embedding}
 
 
 

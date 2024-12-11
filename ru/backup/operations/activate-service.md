@@ -6,7 +6,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ или сервер {{ baremetal-full-name }} с подключением к {{ backup-name }}.
+  
+      {% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_action-activate }}**.
 

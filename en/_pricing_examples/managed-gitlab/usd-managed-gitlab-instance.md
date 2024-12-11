@@ -1,3 +1,3 @@
-> $40.089600 + $5.272800 = $45.362400
+> {% calc [currency=USD] 720 × (2 × {{ sku|USD|gitlab.instance.free.cpu|number }} + 8 × {{ sku|USD|gitlab.instance.free.ram|number }}) %} + {% calc [currency=USD] 30 × {{ sku|USD|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|USD|gitlab.backup|month|number }} %} = {% calc [currency=USD] (720 × (2 × {{ sku|USD|gitlab.instance.free.cpu|number }} + 8 × {{ sku|USD|gitlab.instance.free.ram|number }})) + (30 × {{ sku|USD|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|USD|gitlab.backup|month|number }}) %}
 
-Where $45.362400 is the cost of using the instance for 30 days.
+Where {% calc [currency=USD] (720 × (2 × {{ sku|USD|gitlab.instance.free.cpu|number }} + 8 × {{ sku|USD|gitlab.instance.free.ram|number }})) + (30 × {{ sku|USD|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|USD|gitlab.backup|month|number }}) %} is the cost of using the instance for 30 days.

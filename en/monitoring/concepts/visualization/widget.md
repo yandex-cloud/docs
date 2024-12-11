@@ -2,11 +2,13 @@
 
 _Widgets_ are dashboard elements that display information as a chart or text.
 
-There are three types of widgets available in {{ monitoring-full-name }}:
+In {{ monitoring-full-name }}, you can add the following widgets:
 
 * [Chart](#chart)
 * [Text](#text)
-* [Title](#heading)
+* [Header](#heading)
+* [Escalation](#escalation)
+* [Alert](#alert)
 
 ## Chart {#chart}
 
@@ -26,12 +28,21 @@ You can also normalize data and display it as a stacked bar chart.
 
 #### Time period on charts {#time-period-on-charts}
 
-Metrics on charts are displayed for a specific interval of time, which can be set using preset ranges (`1h 3h 1d 1w 1mo`). You can also set the start and the end of the interval.
+Metrics on charts are displayed for a given time interval, which you can specify using preset ranges (`1h 3h 1d 1w 1mo`). You can also set the start and end of the interval.
 
 To set the interval more precisely, use the timeline located above the chart.
 
+## Alert {#alert}
+The widget displays the current state of the selected alert on the dashboard.
+
+## Escalation {#escalation}
+
+{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
+
+The widget displays running escalation instances for a selected escalation policy on the dashboard. You can use the widget to stop one or multiple escalations.
+
 ## Text {#text}
-Text in [YFM](https://ydocs.tech/en/) format that allows you to include additional information in the dashboard. For example, you can post links to other dashboards.
+Text in [YFM](https://ydocs.tech/en/) format that allows you to display additional information on the dashboard. For example, you can post links to other dashboards.
 
 ## Title {#heading}
 Text that allows you to label a dashboard or group of charts.

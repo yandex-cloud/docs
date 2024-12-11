@@ -10,21 +10,21 @@ You can set up the size and color of an indicator.
 
 {% cut "Source table" %}
 
-| Year | Sales |
------|---------|
-| 2022 | 6M |
-| 2021 | 28M |
-| 2020 | 18M |
-| 2019 | 9M |
-| 2018 | 1M |
+Year |	Sales|	
+-----|---------| 
+2022|	6M |	
+2021|	28M |	
+2020|	18M |	
+2019|	9M | 
+2018|	1M |
 
 {% endcut %}
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Section<br/> section| Description
 ----- | ----
-Measure | Measure. One measure that determines the indicator value.
+Measure  | Measure. One measure that determines the indicator value.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating an indicator {#create-diagram}
@@ -74,10 +74,16 @@ To customize header display:
 
 * Use emojis when calculating indicator values to make them more informative.
 
-   ![indicator-chart-emoji](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-emoji.png)
+  ![indicator-chart-emoji](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-emoji.png)
 
-   This indicator chart uses a calculated field with the following formula: `IF([Average spend]>2200, CONCAT("✔️",STR(ROUND([Average spend]))),CONCAT("🔻",STR(round([Average spend]))))`.
+  This indicator chart uses a calculated field with the following formula: `IF([Average spend]>2200, CONCAT("✔️",STR(ROUND([Average spend]))),CONCAT("🔻",STR(round([Average spend]))))`.
 
 * Describe the context to make it clear what indicators mean.
 
-   ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
+  ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

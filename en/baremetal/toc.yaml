@@ -28,6 +28,8 @@ items:
         href: operations/subnet-create.md
       - name: Upload image
         href: operations/image-upload.md
+      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+        href: operations/backup-baremetal.md
   - name: Concepts
     items:
       - name: Overview

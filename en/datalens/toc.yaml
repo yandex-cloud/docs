@@ -859,7 +859,7 @@ items:
         items:
           - name: All questions
             href: qa/index.md
-          - name: Users and access rights management
+          - name: Users and access management
             href: qa/permissions.md
           - name: Billing and payment
             href: qa/pricing.md
@@ -1011,6 +1011,9 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Empty document
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md
       - name: Too many series on the chart
         hidden: true
         href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md

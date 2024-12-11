@@ -54,7 +54,7 @@ You can display additional lines calculated using [window functions](../../datal
 
 Section<br/> section| Description
 ----- | ----
-X | Dimension. You can only specify one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **Х** section is common for all layers.
+X | Dimension. You can specify only one field here. This dimension is usually a date. If this is the case, make sure to specify the `Date` data type for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years. For more information, see [{#T}](../concepts/chart/settings.md#field-settings). The **X** section is common for all layers.
 Layer section | Allows you to add, delete, reorder, and rename layers. You can select a chart type for a layer: [line chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). The list of other sections depends on the layer chart type you select.<br/><br/> You can manage data display in the chart layers using the legend. To do this, click individual legend elements or select multiple elements by pressing and holding `Ctrl`/`Cmd`. You can enable or disable the legend in the chart settings. For more information, see [{#T}](../concepts/chart/settings.md#common-settings).
 
 ## Creating a combined chart {#create-diagram}
@@ -79,3 +79,9 @@ To create a combined chart:
    * [{#T}](area-chart.md#create-diagram)
 
 1. Add a new layer. To do this, click ![](../../_assets/console-icons/plus.svg) to the right of the layer name.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

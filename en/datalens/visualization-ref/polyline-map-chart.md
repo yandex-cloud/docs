@@ -60,3 +60,9 @@ You can also:
 
 * Reduce the number of route points at the source level if there are too many of them. To do this, use a chart-level filter. This will speed up map loading and rendering.
 * Use the [MAVG](../function-ref/MAVG.md) moving average function to smooth measure outliers of individual points/sections. For example, when building a line representing average speed using the `MAVG([speed],2,2)` function, the speed measure values are averaged out in the current point, as well as two points before and two points after it. As a result, the color gradient changes more smoothly.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

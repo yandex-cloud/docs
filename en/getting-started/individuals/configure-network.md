@@ -34,7 +34,7 @@ For your internet service to run, you need two static public IP addresses: one t
 
         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `subnet-a`.
         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the information required to access the VM:
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the access credentials for the VM:
 
         * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 

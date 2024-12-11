@@ -32,6 +32,9 @@ links:
   - title: Concepts
     description: Learn more about Container Registry's concepts and resources
     href: concepts/
+  - title: Access management
+    description: Set up access permissions to work with the service
+    href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
