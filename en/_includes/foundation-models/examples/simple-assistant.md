@@ -8,55 +8,55 @@ from yandex_cloud_ml_sdk import YCloudML
 def main() -> None:
     sdk = YCloudML(folder_id="<folder_ID>", auth="<API_key>")
 
-    # Create a thread to store the conversation
+    # Creating a thread to store the conversation
     # The thread will be stored for five days
     thread = sdk.threads.create(name="SimpleAssistant", ttl_days=5, expiration_policy="static")
     print(f"new {thread=}")
 
-    # Specify YandexGPT Pro RC and set its maximum context length
+    # Specifying YandexGPT Pro RC for model; setting up its maximum context length
     model = sdk.models.completions(
         "yandexgpt", 
-        version="rc",
-        max_tokens=500
+        model_version="rc"
     )
 
-    # Create an assistant for the model
+    # Creating an assistant for the model
     # The assistant will be deleted four days after its last activity
     assistant = sdk.assistants.create(
         model,
         ttl_days=4,
         expiration_policy="since_last_active",
+        max_tokens=500
     )
 
-    # Here, provide your code for reading user messages
-    # For now, let's simply write some data to the thread
+    # In this block, provide your code for reading user messages
+    # For now, let's just write some data to the thread
     thread.write("Imagine some user messages here")
     
-    # You can print all the messages stored in the thread
+    # This is how you print all the messages stored in the thread
     for message in thread:
         print(f"    {message=}")
         print(f"    {message.text=}\n")
 
-    # You can feed the the entire thread contents to the model
+    # This is how you run the model over the whole thread contents
     run = assistant.run(thread)
     print(f"{run=}")
     
-    # To get the result, wait until the run is complete   
+    # To get the result, wait until the run is complete
     result = run.wait()
     
-    # You can print all the result fields
+    # This is how you print all the result fields
     print(f"run {result=}")
     
-    # The `text` field stores a string convenient for later use
+    # The `text` field stores a string, convenient for later use
     print(result.text)
     
-    thread.write(“New user message")
-    # Create a new run based on the previous user messages model response
+    thread.write("A new message from the user")
+    # Creating a new run based on the earlier messages from the user and previous response from the model
     run = assistant.run(thread)
     result = run.wait()
     print(result.text)
     
-    # Delete everything you no longer need
+    # Deleting what is no longer needed
     thread.delete()
     assistant.delete()
 

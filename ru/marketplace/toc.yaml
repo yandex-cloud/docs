@@ -24,6 +24,8 @@ items:
             href: operations/license-manager-integration.md
       - name: Концепции
         items:
+          - name: Профиль партнера
+            href: concepts/publisher.md
           - name: Продукт
             href: concepts/product.md
           - name: Версия
@@ -71,6 +73,8 @@ items:
                     href: metering/api-ref/grpc/ImageProductUsage/write.md
       - name: Справочник License Manager API
         items:
+          - name: Начало работы с {{ license-manager }} API
+            href: license-manager/api-ref/quickstart.md
           - name: gRPC (англ.)
             items:
               - name: Overview
@@ -146,6 +150,8 @@ items:
                     href: license-manager/api-ref/Operation/cancel.md
       - name: Справочник License Manager SaaS API
         items:
+          - name: Начало работы с {{ license-manager }} SaaS API
+            href: license-manager/saas/api-ref/quickstart.md
           - name: gRPC (англ.)
             items:
               - name: Overview

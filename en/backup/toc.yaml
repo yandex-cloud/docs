@@ -4,6 +4,7 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides
+    expanded: true
     items:
       - name: All guides
         href: operations/index.md
@@ -27,6 +28,14 @@ items:
             href: operations/refresh-connection-oslogin-linux.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
+      - name: '{{ baremetal-name }} to {{ backup-name }}'
+        items:
+          - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+            href: operations/backup-baremetal/backup-baremetal.md
+          - name: >-
+              Updating a {{ baremetal-name }} server connection to {{
+              backup-name }}
+            href: operations/backup-baremetal/refresh-connection.md
       - name: Backup policies
         items:
           - name: Creating a policy
@@ -59,7 +68,9 @@ items:
         href: operations/get-stats.md
   - name: Tutorials
     items:
-      - name: Connecting BareMetal to Cloud Backup
+      - name: >-
+          Connecting a {{ baremetal-full-name }} server to {{ backup-full-name
+          }}
         href: tutorials/backup-baremetal.md
       - name: Linking a backup policy to a VM automatically
         items:

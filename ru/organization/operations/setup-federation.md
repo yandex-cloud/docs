@@ -340,9 +340,9 @@
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
       1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-      1. В открывшемся списке выберите нужную федерацию удостоверений и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+      1. В открывшемся списке выберите нужную федерацию удостоверений и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
 
-          Если слева от кнопки ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.link.download-cert }}** отображается значок ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg), значит срок действия текущего SAML-сертификата {{ yandex-cloud }} закончился или вот-вот закончится.
+          Если слева от кнопки ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** отображается значок ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg), значит срок действия текущего SAML-сертификата {{ yandex-cloud }} закончился или вот-вот закончится.
 
           [Скачайте и установите](./renew-yc-certificate.md) перевыпущенный SAML-сертификат {{ yandex-cloud }} в вашей федерации удостоверений.
 

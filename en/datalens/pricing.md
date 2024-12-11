@@ -34,9 +34,9 @@ Creating [charts](./concepts/chart/index.md) and [dashboards](./concepts/dashboa
 [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Secure chart and dashboard embedding](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
 [Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-{{ datalens-name }} usage statistics | General ([Light](./operations/connection/create-usage-tracking.md#light-dash)) | Advanced ([Detailed](./operations/connection/create-usage-tracking.md#detailed-dash)) 
+{{ datalens-name }} usage statistics | General ([Light](./concepts/datalens-usage-analytics.md#light-dash)) | Advanced ([Detailed](./concepts/datalens-usage-analytics.md#detailed-dash)) 
 [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
-Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
+Support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
 
 {% note info %}
 
@@ -56,7 +56,7 @@ If you change to the _Business_ plan, the price for the first month will be prop
 
 A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset.
 
-The number of billable users is calculated on a monthly basis. Each month, active users are counted anew based on activity. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
+The number of billable users is calculated on a monthly basis: each month, the active users are counted anew. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
 
 {% cut "Cost calculation example" %}
 
@@ -92,3 +92,7 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}
 
 
+
+#### See also {#see-also}
+
+* [Pricing and payment questions](./qa/pricing.md)

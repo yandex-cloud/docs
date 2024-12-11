@@ -7,7 +7,7 @@ description: Follow this guide to copy an object from a bucket in {{ objstorage-
 
 {{ objstorage-name }} supports _server-side object copy_.
 
-If [encryption](../../concepts/encryption.md) in a [bucket](../../concepts/bucket.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host on which the copy operation is run and {{ objstorage-name }} exchange nothing but object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case, because the traffic is internal for the object storage. However, you are [charged](../../pricing.md#prices-operations) for copy requests.
+If [encryption](../../concepts/encryption.md) in a [bucket](../../concepts/bucket.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host on which the copy operation is run and {{ objstorage-name }} exchange nothing but object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case because the traffic is internal for the object storage. However, you are [charged](../../pricing.md#prices-operations) for copy requests.
 
 If bucket objects are encrypted, first they will be copied to the host that executes the command and then uploaded to the target bucket.
 
@@ -23,7 +23,60 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to upload an object to a bucket:
+
+      ```bash
+      yc storage s3api copy-object --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api copy-object \
+        --copy-source <source_bucket>/<object_key> \
+        --bucket <target_bucket> \
+        --key <object_key>
+      ```
+
+      Where:
+
+      * `--copy-source`: Name of the source bucket and object [key](../../concepts/object.md#key) you need to copy.
+      * `--bucket`: Name of the bucket to copy the object to.
+      * `--key`: Key to use for storing the object in the bucket.
+
+      Result:
+
+      ```bash
+      copy_object_result:
+        etag: '"d41d8cd98f00b204e9800998********"'
+        last_modified_at: "2024-10-08T14:21:41.628Z"
+      request_id: 61523025********
+      copy_source_version_id: "null"
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:

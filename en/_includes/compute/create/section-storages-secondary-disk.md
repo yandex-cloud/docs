@@ -5,7 +5,7 @@
 
     For example, to create a new empty disk:
 
-    * Select `Create new`.
+    * Select `Create request`.
     * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`.
     * Specify the disk name.
     * Select the [disk type](../../../compute/concepts/disk.md#disks_types).

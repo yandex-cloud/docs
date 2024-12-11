@@ -13,11 +13,11 @@ description: В этой статье вы узнаете, как создать
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
-## Предварительные действия { #before-you-begin }
+## Предварительные действия {#before-you-begin}
 
 Убедитесь, что вы добавили [получателей](../../concepts/alerting/notification-channel.md#channel-parameters) и они имеют нужные роли.
 
-## Создание политики { #create-escalation }
+## Создание политики {#create-escalation}
 
 1. На странице сервиса {{ monitoring-name }} на панели слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.escalations.title }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

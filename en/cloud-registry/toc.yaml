@@ -12,6 +12,8 @@ items:
         href: concepts/registry.md
       - name: Java artifact
         href: concepts/art-java.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
 base: en/cloud-registry

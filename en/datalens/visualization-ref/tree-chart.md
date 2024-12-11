@@ -51,3 +51,9 @@ To create a tree chart:
 * Use this type of chart to show the relationship between a part and a whole.
 * If there are few categories (up to six), use a pie or donut chart.
 * You cannot display negative values on a tree chart.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

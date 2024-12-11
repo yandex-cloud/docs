@@ -1,34 +1,51 @@
 ---
-title: How to add widgets to dashboards in {{ monitoring-full-name }}
+title: How to add a widget to a dashboard in {{ monitoring-full-name }}
 description: In this tutorial, you will learn how to add a widget to a dashboard in {{ monitoring-name }}.
 ---
 
-# Adding widgets to a dashboard
+# Adding a widget to a dashboard
 
-## New chart {#new}
+1. Open a dashboard or [create a new one](create.md).
+1. At the top right, click ![image](../../../_assets/console-icons/plus.svg) and select the widget you want to add.
+1. Specify the widget settings.
+1. Click ![image](../../../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
 
-To add a new chart to the dashboard:
-1. Open the dashboard. If you do not have a dashboard, [create one](create.md).
-1. At the top of the page, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
+## Chart {#new}
+
 1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Configure a new chart by specifying queries and configuring metric visualization.
-1. After you finish configuring the new chart, click **{{ ui-key.yacloud_monitoring.actions.common.save }}**. The chart widget is added to the dashboard.
+1. Configure a new chart by specifying queries and configuring metric visualization. 
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
+
+## Alert {#alert}
+
+[Create an alert](../alert/create-alert.md) to add it to a dashboard.
+
+1. Click **Alert**.
+1. Select an alert from the list and enter a title for it.
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+
+## Escalation {#escalation}
+
+{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
+
+To add an escalation to a dashboard, [create](../alert/create-escalation.md) an escalation policy.
+
+1. Click **Escalation**.
+1. Enter a title for the escalation.
+1. Select an escalation policy from the list.
+1. Optionally, specify whether the dashboard should display all escalations or only those currently running.
+1. Optionally, enter the maximum number of escalations that can be displayed on the dashboard.
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
 
 ## Text {#text}
 
-To add a text widget to the dashboard:
-1. Open the dashboard. If you do not have a dashboard, [create one](create.md).
-1. At the top of the page, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
 1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-text }}**.
-1. Enter the text for your heading in the input field.
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**. The text widget is added to the dashboard.
+1. Enter the text for your heading in the input field. Format the text as needed.
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
 
 ## Title {#heading}
 
-To add a heading widget to the dashboard:
-1. Open the dashboard. If you do not have a dashboard, [create one](create.md).
-1. At the top of the page, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
 1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-title }}**.
 1. Enter the text for your heading in the input field.
 1. Select the heading size.
-1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**. The heading widget is added to the dashboard.
+1. Click **{{ ui-key.yacloud_monitoring.actions.common.add }}**.

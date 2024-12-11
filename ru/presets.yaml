@@ -1055,6 +1055,7 @@ default:
       v1|month|string: "180,00\_₸"
       v1|string: "0,25\_₸"
   sku|KZT|gitlab:
+    backup|month|number: 9.6
     backup|month|string: "9,60\_₸"
     instance:
       advanced:
@@ -1062,11 +1063,14 @@ default:
         cpu|string: "16,80\_₸"
         ram|month|string: "3\_240,00\_₸"
         ram|string: "4,50\_₸"
+      disk|month|number: 65.05
       disk|month|string: "65,05\_₸"
       free:
         cpu|month|string: "6\_048,00\_₸"
+        cpu|number: 8.4
         cpu|string: "8,40\_₸"
         ram|month|string: "1\_620,00\_₸"
+        ram|number: 2.25
         ram|string: "2,25\_₸"
       standard:
         cpu|month|string: "8\_460,00\_₸"
@@ -1809,6 +1813,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 15000
           v1|string: "15\_000,00\_₸"
   sku|KZT|sws:
     requests:
@@ -2304,6 +2309,7 @@ default:
       v1|month|string: "36,00\_₽"
       v1|string: "0,05\_₽"
   sku|RUB|gitlab:
+    backup|month|number: 1.92
     backup|month|string: "1,92\_₽"
     instance:
       advanced:
@@ -2311,11 +2317,14 @@ default:
         cpu|string: "3,36\_₽"
         ram|month|string: "648,00\_₽"
         ram|string: "0,90\_₽"
+      disk|month|number: 13.01
       disk|month|string: "13,01\_₽"
       free:
         cpu|month|string: "1\_209,60\_₽"
+        cpu|number: 1.68
         cpu|string: "1,68\_₽"
         ram|month|string: "324,00\_₽"
+        ram|number: 0.45
         ram|string: "0,45\_₽"
       standard:
         cpu|month|string: "1\_692,00\_₽"
@@ -3058,6 +3067,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 3000
           v1|string: "3\_000,00\_₽"
   sku|RUB|sws:
     requests:
@@ -3552,6 +3562,7 @@ default:
     zones:
       v1|month|string: "0,288000\_$"
   sku|USD|gitlab:
+    backup|month|number: 0.01536
     backup|month|string: "0,015360\_$"
     instance:
       advanced:
@@ -3559,11 +3570,14 @@ default:
         cpu|string: "0,026880\_$"
         ram|month|string: "5,184000\_$"
         ram|string: "0,007200\_$"
+      disk|month|number: 0.10408
       disk|month|string: "0,104080\_$"
       free:
         cpu|month|string: "9,676800\_$"
+        cpu|number: 0.01344
         cpu|string: "0,013440\_$"
         ram|month|string: "2,592000\_$"
+        ram|number: 0.0036
         ram|string: "0,003600\_$"
       standard:
         cpu|month|string: "13,536000\_$"
@@ -4294,6 +4308,7 @@ default:
     organization:
       business:
         fixed_consumption:
+          v1|number: 24
           v1|string: "24,000000\_$"
   sku|USD|sws:
     requests:
@@ -5661,8 +5676,6 @@ default:
           add-graph: График
           add-text: Текст
           add-title: Заголовок
-        widget-settings:
-          title: Заголовок
       dialog:
         confirm:
           button_continue: Продолжить
@@ -5875,7 +5888,7 @@ default:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
         federation:
-          link:
+          action:
             download-cert: Скачать сертификат
           section:
             certificates: Сертификаты

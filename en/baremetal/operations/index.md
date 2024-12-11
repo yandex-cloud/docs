@@ -14,7 +14,4 @@ description: In this article, you will learn how to work with {{ baremetal-full-
 * [{#T}](./network-create.md)
 * [{#T}](./subnet-create.md)
 * [{#T}](./image-upload.md)
-
-#### See also {#see-also}
-
-* [{#T}](../../backup/tutorials/backup-baremetal.md)
+* [{#T}](./backup-baremetal.md)

@@ -32,3 +32,9 @@ You can purchase pre-calculated geolayers from partners in {{ marketplace-name }
 You cannot create maps in [QL charts](../concepts/chart/index.md#sql-charts).
 
 {% endnote %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

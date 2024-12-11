@@ -134,7 +134,15 @@ You can join data from source tables.
 
    ![screenshot](../../_assets/datalens/dataset/dataset-table-join-type.png)
 
-1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md).
+1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
+   
+   * Convert all the fields to the same data type at the source level.
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
+   
+     ```sql
+     SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
+     ```
+
 1. If required, link other fields in the tables. To do this, click **Add link**.
 1. Optionally, you can disable the **Optimize link** option to make the link required. In this case, the `JOIN` operation will be performed even if you select fields from a single table.
 1. Click **Apply**.

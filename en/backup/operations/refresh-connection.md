@@ -99,4 +99,4 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
     {% endlist %}
 
-1. [Link](./policy-vm/update.md#update-vm-list) your VM to a backup policy.
+1. [Link](./policy-vm/attach-and-detach-vm.md) your VM to a backup policy.

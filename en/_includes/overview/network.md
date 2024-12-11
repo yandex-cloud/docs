@@ -60,18 +60,18 @@ The {{ yandex-cloud }} virtual network architecture has the following key compon
 
 ### VRouter {#vrouter}
 
-*VRouter* is a network traffic listener. It runs on each {{ yandex-cloud }} physical server. It is used as the default gateway for all subnet objects (subnet's first IP address (`x.x.x.1`)). It handles network traffic of all the VMs running on a server. Traffic is forwarded based on the flows table the records in which are programmed using another virtual network component called VRouter agent. To enable traffic forwarding through the [underlay](#underlay) network, the [MPLS over UDP](https://datatracker.ietf.org/doc/html/rfc7510) tunneling technology is used.
+*VRouter* is a network traffic listener. Runs on each {{ yandex-cloud }} physical server. Acts as the default gateway for all the subnet objects (subnet's first IP address (`x.x.x.1`)). Handles the network traffic of all the VMs running on a server. Traffic is forwarded based on the flows table the records in which are programmed using another virtual network component called VRouter agent. To enable traffic forwarding through the [underlay](#underlay) network, the [MPLS over UDP](https://datatracker.ietf.org/doc/html/rfc7510) tunneling technology is used.
 
 VRouter enables One-to-One NAT for VM [public IP addresses](../../vpc/concepts/address.md#public-addresses).
 
 VRouter also enables [security groups](../../vpc/concepts/security-groups.md) for all the VMs on the physical server it runs on.
 
-### VRouter agent {#vrouter-agent}
+### VRouter-agent {#vrouter-agent}
 
-The VRouter agent is an auxiliary component used for traffic processing. It works together with VRouter and programs the network flows table on the server. This table defines traffic forwarding rules for a specific IP prefix. The VRouter agent enables the following protocols and functions on the server for VMs:
+The VRouter-agent is an auxiliary component used for traffic processing. It works together with VRouter and programs the network flows table on the server. This table defines traffic forwarding rules for a specific IP prefix. The VRouter agent enables the following protocols and functions on the server for VMs:
 
-* [VM metadata service](../../compute/concepts/vm-metadata.md) accessible only inside a VM at `169.254.169.254`.
-* DNS service to process DNS traffic on a cloud subnet's second IP address (`x.x.x.2`).
+* [VM metadata service](../../compute/concepts/vm-metadata.md) accessible only inside a VM via the `169.254.169.254` IP address.
+* DNS service to processes DNS traffic on the cloud subnet's second IP address (`x.x.x.2`).
 * ICMP.
 
 ### CloudGate {#cloudgate}
@@ -83,6 +83,12 @@ CloudGate is a component that includes groups of service VMs in each [availabili
 * [Cloud Interconnect (CIC)](../../interconnect/concepts/)
 
 Each network function within CloudGate runs on a separate group of service VMs inside {{ yandex-cloud }}.
+
+{% note info %}
+
+Groups of service virtual machines for all CloudGate network functions are deployed in each [availability zone](../../overview/concepts/geo-scope.md). For ease of understanding, the above chart shows the location of CloudGate elements within a single availability zone. 
+
+{% endnote %}
 
 ## Types of networking {#flows}
 
@@ -108,7 +114,7 @@ Traffic from `VM-A2` in availability zone A to `VM-B1` in availability zone B wi
 1. `VM-A2` → `VRouter on Server-A2`.
 1. `Server-A2` → Boundary network equipment of the transport network of availability zone A.
 1. Boundary network equipment of the transport network of availability zone A → Boundary network equipment of the transport network of availability zone B.
-1. Availability zone B boundary network equipment → `Server-B1`.
+1. Boundary network equipment of availability zone B → `Server-B1`.
 1. `VRouter on Server-B1` → `VM-B1`.
 
 
@@ -118,16 +124,16 @@ Traffic from `VM-A1` to the internet via the NAT gateway will be routed as follo
 
 1. `VM-A1` → `VRouter on Server-A1`.
 1. `Server-A1` → CloudGate `NAT-GW` function (via the availability zone A intranet).
-1. `NAT-GW` → Availability zone A boundary network equipment.
+1. `NAT-GW` → Boundary network equipment of availability zone A.
 1. Availability zone A boundary network equipment → Network equipment at the point of presence where there is a connection to external networks and the internet.
 
 ## Limitations {#limits}
 
 1. Currently, network connectivity in the {{ yandex-cloud }} virtual network is only provided through IPv4. There is no support for IPv6.
 1. The {{ yandex-cloud }} virtual network runs on OSI Layer 3 (L3), which makes the use of the OSI Layer2 (L2) network technology very limited:
-   1. Responses to ARP requests from VRouter (default gateway) will always be received from the same fixed MAC address.
-   1. The only transport used for networking is `Unicast`. There is no support for `Multicast`.
-   1. Network protocols that require a single virtual IP address (VIP) across VMs, such as HSRP, VRRP, or GLBP, are not supported.
+    1. Responses to ARP requests from VRouter (default gateway) will always be received from the same fixed MAC address.
+    1. The only transport used for networking is `Unicast`. There is no support for `Multicast`.
+    1. Network protocols that require a single virtual IP address (VIP) across VMs, such as HSRP, VRRP, or GLBP, are not supported.
 
 
 ## Extra materials {#refs}

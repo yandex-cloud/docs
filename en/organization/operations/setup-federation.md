@@ -339,7 +339,7 @@ If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertio
 
       1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-      1. Click the row with the required federation. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+      1. Click the row with the required federation. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
 
     {% endlist %}
 

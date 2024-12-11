@@ -62,3 +62,9 @@ You can also:
 ## Recommendations {#recomendations}
 
 * Use color palettes corresponding to the goals and objectives of visualization.
+
+#### See also {#see-also}
+
+* [{#T}](../operations/dashboard/create.md)
+* [{#T}](../operations/dashboard/add-chart.md)
+* [{#T}](../operations/dashboard/add-selector.md)

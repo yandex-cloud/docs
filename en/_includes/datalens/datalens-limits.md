@@ -17,16 +17,17 @@ There are no quotas for {{ datalens-short-name }}.
 Type of limit | Value
 ----- | -----
 Maximum number of {{ datalens-short-name }} instances per organization. | 1
-Maximum CSV file size | 200 MB
+Maximum size of imported CSV file | 200 MB
 Maximum number of tables in a single dataset | 32
 Maximum number of fields in a single dataset | 1200
+Maximum chart export size | 50 MB
 
 
 #### Chart data limits {#datalens-chart-data-limits}
 
 Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using the [filters](../../datalens/dataset/settings.md#default-setting):
 
-Chart type | Limit
+Chart type | I/O
 ----- | -----
 **Charts** |
 Line chart | 75,000 rows

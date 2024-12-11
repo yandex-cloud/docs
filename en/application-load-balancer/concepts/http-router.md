@@ -10,13 +10,13 @@ Using HTTP router settings, you can modify request and response headers and gene
 
 Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Routing is a two-step process.
 
-1. The most suitable virtual host is selected based on the `Host` header (`:authority` in the case of HTTP/2).
+1. The most suitable virtual host is selected based on the `Host` header (`:authority` if using HTTP/2).
 
 1. The first route whose predicate matches the request is selected. The order of virtual hosts inside the router doesn't matter. However, the order of routes inside the virtual host matters: the most specific routes must be at the top of the list.
 
 ## Virtual hosts {#virtual-host}
 
-Virtual hosts combine [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
+Virtual hosts consolidate [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
 
 The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host.
 
@@ -34,13 +34,19 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
 1. HTTP routes process HTTP requests over HTTP/1.1 and HTTP/2.
 
-   You can set the beginning or full name of a request, or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), and the request method (such as GET or POST) as route conditions.
+   You can specify a full request path or its beginning, an [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), or a request method (GET, POST, etc.) as a route condition.
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can set up timeouts for request processing, add WebSocket support, or modification of the URI before sending the request to the backends.
-   * Redirecting a request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and schema.
-   * Immediate return of the static response.
+   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can configure request processing timeouts:
+     * **Timeout**: Maximum lifetime of an HTTP connection between a load balancer node and the backend, with or without data being transferred. The default value is `60`.
+     * **Idle timeout**: Maximum connection lifetime with no data being transferred. There is no default value. If the timeout is not specified, it is ignored.
+         
+         If either an active or idle connection times out, the load balancer will return the `504 Gateway Timeout` code.
+      
+      In addition to timeouts, you can add WebSocket support or enable URI modification before sending the request to the backends.
+   * Redirect the request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and schema.
+   * Immediately return a static response.
 
 1. gRPC routes are designed for processing gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
 
@@ -49,4 +55,4 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
    You can perform one of the actions with the request that satisfies the conditions:
 
    * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can replace the Host header and configure timeouts to process the request.
-   * Immediate return of the static response.
+   * Immediately return a static response.

@@ -1,5 +1,9 @@
 # Отвязать виртуальную машину от политики резервного копирования
 
+О том, как отвязать от политики [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md), см. в инструкции [Изменение списка виртуальных машин и серверов {{ baremetal-name }}](./update.md#update-vm-list).
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
