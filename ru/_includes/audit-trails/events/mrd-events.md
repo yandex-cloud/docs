@@ -10,6 +10,7 @@
 `EnableClusterSharding` | Включение шардирования кластера
 `MoveCluster` | Перемещение кластера
 `RebalanceCluster` | Перебалансировка кластера
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StartClusterFailover` | Запуск переключения мастера для кластера

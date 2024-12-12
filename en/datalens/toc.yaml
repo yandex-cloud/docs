@@ -5,9 +5,6 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Navigation and interface
-        href: getting-started/navigation.md
-        hidden: true
       - name: Getting started
         href: quickstart.md
       - name: Quotas and limits

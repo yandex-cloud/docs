@@ -51,7 +51,7 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: To provide access, specify subnet IP ranges within {{ yandex-cloud }} or public IP addresses of web-connected computers.
 ||
 || For [health checks](../../network-load-balancer/concepts/health-check.md) by a network load balancer. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: Target port specified in the load balancer settings.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `80`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`
 ||

@@ -19,7 +19,7 @@ items:
         href: operations/instance/instance-update.md
       - name: Managing backups
         href: operations/instance/instance-backups.md
-      - name: Migration from a {{ GL }} custom installation
+      - name: Migrating from a custom {{ GL }} installation
         href: operations/instance/migration.md
       - name: Migrating from the ru-central1-c availability zone
         href: operations/instance/zone-migration.md
@@ -37,7 +37,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
+      - name: Deploying {{ GLR }} on a {{ compute-full-name }} VM
         href: tutorials/install-gitlab-runner.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md

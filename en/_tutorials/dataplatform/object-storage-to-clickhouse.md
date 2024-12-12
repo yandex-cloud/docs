@@ -1,6 +1,14 @@
 # Loading data from {{ objstorage-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
 
 
+
+{% note info %}
+
+The functionality for loading data from {{ objstorage-name }} in {{ data-transfer-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
+
+
 You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -63,7 +71,7 @@ Prepare the infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `ch_password`: {{ CH }} user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -147,7 +155,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -169,7 +177,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 ### Test the copy process {#verify-copy}
 
-1. [Connect to `db1`](../../managed-clickhouse/operations/connect/clients.md) in the {{ mch-name }} target cluster.
+1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
 
 1. Run the following query:
 
@@ -197,7 +205,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 1. Make sure the data from `demo_data2.csv` has been added to the target database:
 
-    1. [Connect to `db1`](../../managed-clickhouse/operations/connect/clients.md) in the {{ mch-name }} target cluster.
+    1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
 
     1. Run the following query:
 
@@ -250,7 +258,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         1. Delete all objects from the bucket.
         1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `object-storage-to-clickhouse.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

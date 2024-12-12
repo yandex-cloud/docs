@@ -38,7 +38,7 @@ For the created and running databases, {{ mch-short-name }} automatically create
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which you can configure replication.
 
 #### How do I get started with {{ mch-short-name }}? {#quickstart}
 
@@ -138,18 +138,7 @@ The cluster characteristics change within 30 minutes. During this period, other 
 
 #### How can I fix the no permission error when connecting a service account to the cluster? {#attach-service-account}
 
-Error message:
-
-```text
-ERROR: rpc error: code = PermissionDenied desc = you do not have permission to access the requested service account or service account does not exist
-```
-
-The error occurs in the following cases:
-
-* You are creating or modifying a cluster and linking it to a service account.
-* You are restoring a cluster linked to a service account from its backup.
-
-To fix this error, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+{% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}

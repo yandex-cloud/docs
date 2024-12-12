@@ -26,17 +26,19 @@ You can also:
 
 ## Changing a service account {#change-service-account}
 
-{% note warning %}
 
-If the cluster already uses a service account to access objects from {{ objstorage-full-name }}, then changing it to a different service account may make these objects unavailable and interrupt the cluster operation. Before changing the service account settings, make sure that the cluster does not use the objects in question.
+To link your service account to a {{ mos-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
-{% endnote %}
 
-For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+    To change a service account linked to a {{ mos-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -61,6 +63,8 @@ For more information about setting up a service account, see [Configuring access
     For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
+
+    To change a service account linked to a {{ mos-name }} cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -374,7 +378,7 @@ For more information about setting up a service account, see [Configuring access
 
             * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
 
-            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -433,7 +437,7 @@ For more information about setting up a service account, see [Configuring access
 
             * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
 
-            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify the [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

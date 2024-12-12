@@ -5,7 +5,7 @@ You can only upgrade your {{ mmg-name }} cluster to a version that immediately f
 
 {% note info %}
 
-Starting from February 3, 2025, clusters running {{ MG }} 5.0 will be [automatically upgraded](../qa/general.md#dbms-deprecated) to version 6.0, as version 5.0 [has been discontinued](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
+Starting February 3, 2025, clusters running {{ MG }} 5.0 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 6.0 as version 5.0 [will be discontinued](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ Make sure this does not affect your applications:
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select a new version number.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-  As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
+  As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI {#cli}
 
@@ -58,7 +58,7 @@ Make sure this does not affect your applications:
         --mongodb-version=<new_version_number>
      ```
 
-     As soon as you run the upgrade, the cluster enters the **UPDATING** status. Wait for the operation to complete and then check the cluster version.
+     As soon as you run the upgrade, the cluster status will change to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
   1. After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, run this command:
 

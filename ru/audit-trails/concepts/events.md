@@ -28,6 +28,7 @@ description: В данном разделе приведены описания 
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
 * [{{ postbox-full-name }}](#postbox)
+* [{{ cloud-registry-full-name }}](#cloud-registry)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -151,6 +152,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `postbox`.
 
 {% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
+
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Имя сервиса — `cloudregistry`.
+
+{% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 

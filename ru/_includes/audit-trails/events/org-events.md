@@ -4,6 +4,7 @@
 `AcceptInvitation` | Принятие приглашения
 `CreateInvitations` | Создание приглашения
 `CreateGroup` | Создание группы пользователей
+`CreateGroupMapping` | Настройка сопоставления групп федеративных пользователей
 `CreateMembership` | Добавление пользователя в организацию
 `CreateOrganization` | Создание организации
 `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
@@ -11,6 +12,7 @@
 `DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `DeleteInvitation` | Удаление приглашения
 `DeleteGroup` | Удаление группы пользователей
+`DeleteGroupMapping` | Удаление сопоставления групп федеративных пользователей
 `DeleteMembership` | Удаление пользователя из организации
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
@@ -22,6 +24,7 @@
 `SetOrganizationAccessBindings` | Назначение прав доступа к организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
+`UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации

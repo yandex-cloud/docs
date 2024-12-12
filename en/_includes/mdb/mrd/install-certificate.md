@@ -12,4 +12,6 @@
 
    The certificate will be saved to the `$HOME\.redis\{{ crt-local-file }}` file.
 
+   Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../managed-redis/qa/general.md#get-ssl-error).
+
 {% endlist %}

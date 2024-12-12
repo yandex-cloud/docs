@@ -40,13 +40,54 @@ You can add and remove cluster hosts and manage their settings. For information 
 
 
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/hosts'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.ListHosts
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -145,7 +186,7 @@ Public access to hosts can only be configured for clusters created with enabled 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
-  1. Add a `host` section to the {{ mrd-name }} cluster description:
+  1. Add a `host` block to the {{ mrd-name }} cluster description:
 
      ```hcl
      resource "yandex_mdb_redis_cluster" "<cluster_name>" {
@@ -174,11 +215,13 @@ Public access to hosts can only be configured for clusters created with enabled 
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To add a host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * New host settings in one or more `hostSpecs` parameters.
+    {% include [rest-add-hosts](../../_includes/mdb/mrd/api/rest-add-hosts.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [grpc-add-hosts](../../_includes/mdb/mrd/api/grpc-add-hosts.md) %}
 
 {% endlist %}
 
@@ -261,16 +304,91 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
 
-- API {#api}
+- REST API {#api}
 
-  To update host parameters, use the [updateHosts](../api-ref/Cluster/updateHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) gRPC API call and provide the following in the request:
-  * The ID of the cluster to update the host in, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * The name of the host you need to update in the `updateHostSpecs.hostName` parameter. To find out the name, [get a list of hosts in the cluster](#list).
-  * The host's public access settings in the `updateHostSpecs.assignPublicIp` parameter.
-  * [Host priority](../concepts/replication.md#master-failover) in the `updateHostSpecs.replicaPriority` parameter.
-  * List of cluster configuration fields to update in the `updateMask` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/hosts:batchUpdate' \
+            --data '{
+                      "updateHostSpecs": [
+                        {
+                          "hostName": "<host_name>",
+                          "replicaPriority": "<host_priority>",
+                          "assignPublicIp": <public_access_to_cluster_host>,
+                          "updateMask": "replicaPriority,assignPublicIp"
+                        }
+                      ]
+                    }'
+        ```
+
+        Where `updateHostSpecs` represents the host parameters:
+
+        * `hostName`: Name of the host you need to update. To find out the name, [get a list of hosts in the cluster](#list).
+        * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+        * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_host_specs": [
+                    {
+                      "host_name": "<host_name>",
+                      "replica_priority": "<host_priority>",
+                      "assign_public_ip": <public_access_to_cluster_host>,
+                      "update_mask": {
+                        "paths": ["replica_priority", "assign_public_ip"]
+                      }
+                    }
+                  ] 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.UpdateHosts
+        ```
+
+        Where `update_host_specs` represents the host parameters:
+
+        * `host_name`: Name of the host you need to update. To find out the name, [get a list of hosts in the cluster](#list).
+        * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -297,7 +415,7 @@ You cannot remove a host if the number of hosts in a cluster or cluster shard is
   To remove a host from a cluster:
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. In the appropriate cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
@@ -334,10 +452,12 @@ You cannot remove a host if the number of hosts in a cluster or cluster shard is
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name or array of names of hosts to delete in the `hostNames` parameter.
+    {% include [rest-remove-hosts](../../_includes/mdb/mrd/api/rest-remove-hosts.md) %}
+
+- gRPC API {#grpc-api}
+
+    {% include [grpc-remove-hosts](../../_includes/mdb/mrd/api/grpc-remove-hosts.md) %}
 
 {% endlist %}

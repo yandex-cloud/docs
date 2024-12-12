@@ -55,7 +55,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             --url-query folderId=<folder_ID>
         ```
 
-        You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
     1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure the request was successful.
 
@@ -83,7 +83,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             yandex.cloud.airflow.v1.ClusterService.List
         ```
 
-        You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
     1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure the request was successful.
 

@@ -86,7 +86,7 @@ Create the required resources:
             * `target_pgsql_version`: {{ PG }} version. Must be the same or higher than in the source cluster.
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -281,7 +281,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     1. In the terminal window, go to the directory containing the infrastructure plan.
     1. Delete the `data-migration-pgsql-mpg.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -381,7 +381,7 @@ Create the required resources:
             * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -503,7 +503,7 @@ Delete the resources you no longer need to avoid paying for them:
 
     1. In the terminal window, go to the directory containing the infrastructure plan.
     1. Delete the `data-restore-pgsql-mpg.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

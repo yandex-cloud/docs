@@ -74,10 +74,10 @@ You pay for the following:
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
+
 
 * **Standard hosts**: Three `s3-c8-m32` hosts: Intel Ice Lake, 8 × 100% vCPU, 32 GB RAM.
 * **Storage for standard hosts**: 100 GB of network HDD storage.
@@ -87,6 +87,9 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 {% include [usd-managed-greenplum-standard](../../_pricing_examples/managed-greenplum/usd-managed-greenplum.md) %}
+
+
+
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

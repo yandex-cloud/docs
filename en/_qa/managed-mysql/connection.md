@@ -18,7 +18,7 @@ Check whether there is public access to the host. To do this, in the [management
 Additional information:
 * If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see whether the current master or replica have public access.
-* If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their settings.
+* If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their [settings](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 #### Why cannot I connect from {{ yandex-cloud }}? {#from-yc}
 
@@ -55,9 +55,28 @@ Additional information:
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
+#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+
+Here is the full text of the error:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+
+To fix this error:
+
+* Make sure the corporate network settings do not block the check.
+* Run the command with the `--ssl-no-revoke` parameter.
+
+   ```powershell
+   mkdir $HOME\.mysql; curl.exe --ssl-no-revoke -o $HOME\.mysql\root.crt {{ crt-web-path }}
+   ```
+
 #### Why would the connection limit be exceeded? {#connection-limit}
 
-The maximum number of concurrent connections to a {{ mmy-short-name }} cluster host depends on the `max_connections` parameter and by default equals `<MB_of_RAM_per_host> ÷ 32` but not less than 100.
+The maximum number of concurrent connections to a {{ mmy-short-name }} cluster host is set by the `max_connections` parameter, which by default is `<MB_of_RAM_per_host> ÷ 32`, but not less than 100.
 
 For example, for a {{ s1-micro }} class host, the default `max_connections` parameter value is: 8,192 ÷ 32 = 256.
 

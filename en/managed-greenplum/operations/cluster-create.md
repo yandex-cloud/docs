@@ -15,7 +15,9 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Creating a cluster {#create-cluster}
 
+
 To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -39,8 +41,10 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
-        * Select the cloud network for the cluster.
-        * In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) that contains the rules allowing all incoming and outgoing traffic over any protocol from any IP address.
+
+        * Select a [cloud network](../../vpc/concepts/network.md#network) for the cluster.
+
+        * In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) containing the rules which allow all incoming and outgoing traffic over any protocol from any IP address.
 
             {% note alert %}
 
@@ -48,9 +52,10 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% endnote %}
 
-
         * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone you need.
+
         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to enable connecting to the cluster from the internet.
+
 
     1. (Optional) For clusters with {{ GP }} version 6.25 or higher, enable the **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** option.
 
@@ -347,7 +352,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
 
       * `version`: {{ GP }} version.
-      * `master_host_count`: Number of master hosts, one or two.
+      * `master_host_count`: Number of master hosts, 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
@@ -370,42 +375,283 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To create a {{ mgp-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * ID of the folder to host the cluster, in the `folderId` parameter.
-    * Cluster name in the `name` parameter.
-    * Cluster environment in the `environment` parameter.
-    * {{ GP }} version in the `config.version` parameter.
-    * Username in the `userName` parameter.
-    * User password in the `userPassword` parameter.
-    * Network ID in the `networkId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and add the following contents to it:
 
 
-    * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
+        ```json
+        {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "config": {
+            "version": "<{{ GP }}_version>",
+            "access": {
+              "dataLens": <access_from_{{ datalens-name }}>,
+              "yandexQuery": <access_from_Yandex_Query>
+            },
+            "zoneId": "<availability_zone>",
+            "subnetId": "<subnet_ID>",
+            "assignPublicIp": <public_access_to_cluster_hosts>
+          },
+          "masterConfig": {
+            "resources": {
+              "resourcePresetId": "<host_class>",
+              "diskSize": "<storage_size_in_bytes>",
+              "diskTypeId": "<disk_type>"
+            }
+          },
+          "segmentConfig": {
+            "resources": {
+              "resourcePresetId": "<host_class>",
+              "diskSize": "<storage_size_in_bytes>",
+              "diskTypeId": "<disk_type>"
+            }
+          },
+          "masterHostCount": "<number_of_master_hosts>",
+          "segmentHostCount": "<number_of_segment_hosts>",
+          "segmentInHost": "<number_of_segments_per_host>",
+          "userName": "<username>",
+          "userPassword": "<user_password>",
+          "networkId": "<network_ID>",
+          "securityGroupIds": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "deletionProtection": <cluster_deletion_protection>,
+          "configSpec": {
+            "pool": {
+              "mode": "<operation_mode>",
+              "size": "<number_of_client_connections>",
+              "clientIdleTimeout": "<client_timeout>"
+            }
+          },
+          "cloudStorage": {
+            "enable": <hybrid_storage_use>
+          }
+        }
+        ```
 
 
-    * Master host configuration in the `masterConfig` parameter.
-    * Segment host configuration in the `segmentConfig` parameter.
-
-    Provide additional cluster settings, if required:
-
-    * Public access in the `assignPublicIp` parameter.
-    * Backup window in the `config.backupWindowStart` parameter.
 
 
-    * Cluster access from [{{ datalens-full-name }}](../../datalens/concepts/index.md) in the `config.access.dataLens` parameter.
-    * Cluster access from [{{ yq-full-name }}](../../query/concepts/index.md) in the `config.access.yandexQuery` parameter.
+        Where:
+
+        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `config`: Cluster settings:
+
+            * `version`: {{ GP }} version.
+
+
+            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+                * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
+                * `yandexQuery`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
 
 
 
-    * [Maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
-    * [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings) in `configSpec.greenplumConfig_<version>`.
-    * [Routine maintenance operations](../concepts/maintenance.md#regular-ops) in the `configSpec.backgroundActivities.analyzeAndVacuum` parameter.
-    * Cluster deletion protection in the `deletionProtection` parameter.
+            * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+            * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            * `masterConfig.resources`, `segmentConfig.resources`: Master and segment host configuration in the cluster:
+
+                * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                * `diskSize`: Disk size in bytes.
+                * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+        * `masterHostCount`: Number of master hosts, `1` or `2`.
+        * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
+        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `userName`: Username.
+        * `userPassword`: User password.
+        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+
+
+        * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
+
+
+        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `configSpec.pool`: [Connection pooler](../concepts/pooling.md) settings:
+
+            * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
+            * `size`: Maximum number of client connections.
+            * `clientIdleTimeout`: Idle timeout for a client connection (in ms).
+
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+
+            You cannot disable hybrid storage after you save your cluster settings.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters' \
+            --data "@body.json"
+        ```
+
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and add the following contents to it:
+
+
+        ```json
+        {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "config": {
+            "version": "<{{ GP }}_version>",
+            "access": {
+              "data_lens": <access_from_{{ datalens-name }}>,
+              "yandex_query": <access_from_Yandex_Query>
+            },
+            "zone_id": "<availability_zone>",
+            "subnet_id": "<subnet_ID>",
+            "assign_public_ip": <public_access_to_cluster_hosts>
+          },
+          "master_config": {
+            "resources": {
+              "resource_preset_id": "<host_class>",
+              "disk_size": "<storage_size_in_bytes>",
+              "disk_type_id": "<disk_type>"
+            }
+          },
+          "segment_config": {
+            "resources": {
+              "resource_preset_id": "<host_class>",
+              "disk_size": "<storage_size_in_bytes>",
+              "disk_type_id": "<disk_type>"
+            }
+          },
+          "master_host_count": "<number_of_master_hosts>",
+          "segment_host_count": "<number_of_segment_hosts>",
+          "segment_in_host": "<number_of_segments_per_host>",
+          "user_name": "<username>",
+          "user_password": "<user_password>",
+          "network_id": "<network_ID>",
+          "security_group_ids": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "deletion_protection": <cluster_deletion_protection>
+          "config_spec": {
+            "pool": {
+              "mode": "<operation_mode>",
+              "size": "<number_of_client_connections>",
+              "client_idle_timeout": "<client_timeout>"
+            }
+          },
+          "cloud_storage": {
+            "enable": <hybrid_storage_use>
+          }
+        }
+        ```
+
+
+
+
+        Where:
+
+        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `config`: Cluster settings:
+
+            * `version`: {{ GP }} version.
+
+
+            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
+
+                * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
+                * `yandex_query`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
+
+
+
+            * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+            * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
+            * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
+
+                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                * `disk_size`: Disk size in bytes.
+                * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+        * `master_host_count`: Number of master hosts, `1` or `2`.
+        * `segment_host_count`: Number of segment hosts, from `2` to `32`.
+        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `user_name`: Username.
+        * `user_password`: User password.
+        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+
+
+        * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
+
+
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+
+            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        * `config_spec.pool`: [Connection pooler](../concepts/pooling.md) settings:
+
+            * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
+            * `size`: Maximum number of client connections.
+            * `client_idle_timeout`: Idle timeout for a client connection (in ms).
+
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+
+            You cannot disable hybrid storage after you save your cluster settings.
+
+
+            {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Create \
+            < body.json
+        ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

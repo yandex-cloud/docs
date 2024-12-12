@@ -17,48 +17,84 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
     1. Configure at least one [optional setting](../../concepts/settings-list.md#hive-settings).
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- API {#api}
+- REST API {#api}
 
-    To add a Hive data source to a {{ mgp-name }} cluster, use the [create](../../api-ref/PXFDatasource/create.md) REST API method for the [PXFDatasource](../../api-ref/PXFDatasource/index.md) resource or the [PXFDatasourceService/Create](../../api-ref/grpc/PXFDatasource/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
-    * Data source name in the `name` parameter.
-    * External source settings in the `hive` parameter.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources' \
+            --data '{
+                      "datasource": {
+                        "name": "<external_data_source_name>",
+                        "hive": {
+                          "kerberos": {
+                            "enable": <Kerberos_authentication>
+                          },
+                          ...
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `hive`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hive-settings).
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/pxf_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                  "datasource": {
+                    "name": "<external_data_source_name>",
+                    "hive": {
+                      "kerberos": {
+                        "enable": <Kerberos_authentication>
+                      },
+                      ...
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `hive`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hive-settings).
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
-
-## Example of a REST API request {#example}
-
-The example below shows how to create an external Hive data source using the {{ mgp-name }} REST API. To create a source:
-
-1. [Get an IAM token](../../../iam/operations/index.md#iam-tokens). It is used for authentication in the API.
-1. Add the IAM token to the following environment variable:
-
-    ```bash
-    export IAM_TOKEN=<token>
-    ```
-
-1. Send a request using [cURL](https://curl.haxx.se):
-
-    ```bash
-    curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
-        --header "Content-Type: text/plain" \
-        --header "Authorization: Bearer ${IAM_TOKEN}" \
-        --data "{
-            \"datasource\": {
-                \"name\": \"hive:text\",
-                \"hive\": {
-                    \"kerberos\": {
-                        \"enable\": true
-                    }
-                }
-            }
-        }"
-    ```
-
-    In the request body, specify the following parameters:
-
-    * `name`: Source name, e.g., `hive:text`.
-    * `enable`: Enabling the [Kerberos protocol](https://ru.wikipedia.org/wiki/Kerberos) for client and server authentication (optional).
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

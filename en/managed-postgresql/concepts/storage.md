@@ -16,13 +16,19 @@ description: In this article, you will learn what storage is in {{ mpg-name }}, 
 
 The number of hosts you can create together with a {{ PG }} cluster depends on the selected disk type:
 
-* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
+* You can create a cluster only with three or more hosts when using the following disk types:
+
+    * Local SSDs (`local-ssd`)
+    * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
     This cluster will be fault-tolerant.
 
     Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, see [Pricing policy](../pricing.md).
 
-* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
+* You can add any number of hosts within the current quota when using the following disk types:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
@@ -42,7 +48,7 @@ You can monitor storage utilization on cluster hosts [by setting up alerts in {{
 
 Use one of these methods:
 
-* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) so that it exceeds the threshold value. {{ mpg-short-name }} will then disable read-only mode automatically.
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) to exceed the threshold value. {{ mpg-short-name }} will then disable read-only mode automatically.
 
 * [Disable read-only mode manually](../operations/storage-space.md#read-only-solutions) and free up storage space by deleting some data.
 
@@ -63,6 +69,6 @@ You can use either one or both thresholds. If you set both, make sure the immedi
 
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+You can configure automatic increase of storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}

@@ -343,6 +343,10 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 When creating a new cluster, set all required parameters.
 
+
+Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher. You will need this role if the cluster you want to restore is linked to a [service account](../../iam/concepts/users/service-accounts.md).
+
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -417,12 +421,12 @@ When creating a new cluster, set all required parameters.
             "environment": "<environment>",
             "networkId": "<network_ID>",
             "configSpec": {
-                "version": "<{{ OS }}>_version",
+                "version": "<{{ OS }}_version>",
                 "adminPassword": "<admin_user_password>",
                 "opensearchSpec": {
                     "nodeGroups": [
                         {
-                            "name": "<{{ OS }}>_host_group_name",
+                            "name": "<{{ OS }}_host_group_name>",
                             "resources": {
                                 "resourcePresetId": "<host_class>",
                                 "diskSize": "<storage_size_in_bytes>",
@@ -472,7 +476,7 @@ When creating a new cluster, set all required parameters.
 
         Where:
 
-        * `backupId`: ID of the backup to restore the cluster from. You can get the ID with a [list of backups](#list-backups).
+        * `backupId`: ID of the backup copy you are restoring the cluster from. You can get the ID together with a [list of backups](#list-backups).
         * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
@@ -481,7 +485,7 @@ When creating a new cluster, set all required parameters.
 
             * `version`: {{ OS }} version.
             * `adminPassword`: `admin` user password.
-            * `opensearchSpec`: `{{ OS }}` host group settings. Contain the `nodeGroups` array of elements. one for each host group. Each element has the following structure:
+            * `opensearchSpec`: Settings for `{{ OS }}` host groups. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
 
                 * `name`: Host group name.
                 * `resources`: Cluster resources:
@@ -490,12 +494,12 @@ When creating a new cluster, set all required parameters.
                     * `diskSize`: Disk size in bytes.
                     * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
-                * `hostsCount`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
+                * `hostsCount`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
                 * `zoneIds`: List of availability zones the cluster hosts are located in.
                 * `subnetIds`: List of subnet IDs.
 
-            * `dashboardsSpec`: `Dashboards` host group settings. Contains the `nodeGroups` array of elements of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+            * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains an array of `nodeGroups` elements, the array structure matches `opensearchSpec.nodeGroups` structure. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
     1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -527,12 +531,12 @@ When creating a new cluster, set all required parameters.
             "environment": "<environment>",
             "network_id": "<network_ID>",
             "config_spec": {
-                "version": "<{{ OS }}>_version",
+                "version": "<{{ OS }}_version>",
                 "admin_password": "<admin_user_password>",
                 "opensearch_spec": {
                     "node_groups": [
                         {
-                            "name": "<{{ OS }}>_host_group_name",
+                            "name": "<{{ OS }}_host_group_name>",
                             "resources": {
                                 "resource_preset_id": "<host_class>",
                                 "disk_size": "<storage_size_in_bytes>",
@@ -582,7 +586,7 @@ When creating a new cluster, set all required parameters.
 
         Where:
 
-        * `backupId`: ID of the backup to restore the cluster from. You can get the ID with a [list of backups](#list-backups).
+        * `backup_id`: ID of the backup copy you are restoring the cluster from. You can get the ID together with a [list of backups](#list-backups).
         * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
@@ -591,7 +595,7 @@ When creating a new cluster, set all required parameters.
 
             * `version`: {{ OS }} version.
             * `admin_password`: `admin` user password.
-            * `opensearch_spec`: `{{ OS }}` host group settings. Contain the `nodeGroups` array of elements. one for each host group. Each element has the following structure:
+            * `opensearch_spec`: Settings for `{{ OS }}` host groups. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
 
                 * `name`: Host group name.
                 * `resources`: Cluster resources:
@@ -600,12 +604,12 @@ When creating a new cluster, set all required parameters.
                     * `disk_size`: Disk size in bytes.
                     * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
-                * `hosts_count`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
+                * `hosts_count`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
                 * `zone_ids`: List of availability zones the cluster hosts are located in.
                 * `subnet_ids`: List of subnet IDs.
 
-            * `dashboards_spec`: `Dashboards` host group settings. Contains the `node_groups` array of elements of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+            * `dashboards_spec`: Settings for `Dashboards` host groups. Contains an array of `node_groups` elements, the array structure matches `opensearch_spec.node_groups` structure. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
     1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 

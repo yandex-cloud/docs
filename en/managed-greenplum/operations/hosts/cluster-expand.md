@@ -109,37 +109,119 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
         You can get the cluster ID and name with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To expand a cluster, use the [expand](../../api-ref/Cluster/expand.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Expand](../../api-ref/grpc/Cluster/expand.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Expand](../../api-ref/Cluster/expand.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/expand' \
+            --data '{
+                      "segmentHostCount": "<number_of_added_segment_hosts>",
+                      "addSegmentsPerHostCount": "<number_of_added_segments_per_host>",
+                      "duration": "<data_redistribution_timeout>",
+                      "parallel": "<number_of_data_redistribution_threads>",
+                      "closeCluster": "<temporary_ban_on_connection_to_cluster>",
+                      "delayRedistribution": "<background_data_redistribution>"
+                    }'
+        ```
 
         You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    * `segmentHostCount` parameter: Number of segment hosts to expand the cluster by.
+        Request body parameters:
 
-        {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+        * `segmentHostCount`: Number of segment hosts to expand the cluster by.
 
-    * `addSegmentsPerHostCount` parameter: Number of segments added per host.
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
 
-        {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+        * `addSegmentsPerHostCount`: Number of segments added per host.
 
-    * `closeCluster` parameter: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster): `true` or `false`.
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
-        {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+        * `duration`: [Timeout](../../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
 
-    * `delayRedistribution` parameter: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution): `true` or `false`.
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
 
-        {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+        * `parallel`: [Number of threads](../../concepts/expand.md#setting-parallel) that will be started during the data redistribution process.
 
-    * `duration` parameter: [Timeout (in seconds), after which the data redistribution process will be interrupted](../../concepts/expand.md#setting-duration).
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
 
-        {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+        * `closeCluster`: [Closing the cluster](../../concepts/expand.md#setting-close-cluster) for access, `true` or `false`.
 
-    * `parallel` parameter: [Number of threads that will be started during the data redistribution process](../../concepts/expand.md#setting-parallel).
+            {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
 
-        {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+        * `delayRedistribution`: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution), `true` or `false`.
+
+            {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+    1. View the [server response](../../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Expand](../../api-ref/grpc/Cluster/expand.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "segment_host_count": "<number_of_added_segment_hosts>",
+                  "add_segments_per_host_count": "<number_of_added_segments_per_host>",
+                  "duration": "<data_redistribution_timeout>",
+                  "parallel": "<number_of_data_redistribution_threads>",
+                  "close_cluster": "<temporary_ban_on_connection_to_cluster>",
+                  "delay_redistribution": "<background_data_redistribution>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+        Request body parameters:
+
+        * `segment_host_count`: Number of segment hosts to expand the cluster by.
+
+            {% include [mgp-expand-setting-host-count](../../../_includes/mdb/mgp/expand/setting-host-count.md) %}
+
+        * `add_segments_per_host_count`: Number of segments added per host.
+
+            {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+        * `duration`: [Timeout](../../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
+
+            {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
+
+        * `parallel`: [Number of threads](../../concepts/expand.md#setting-parallel) that will be started during the data redistribution process.
+
+            {% include [setting-expand-parallel](../../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
+
+        * `close_cluster`: [Closing the cluster](../../concepts/expand.md#setting-close-cluster) for access, `true` or `false`.
+
+            {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
+
+        * `delay_redistribution`: [Using background data redistribution](../../concepts/expand.md#setting-delay-redistribution), `true` or `false`.
+
+            {% include [setting-delay-redistribution](../../../_includes/mdb/mgp/expand/setting-delay-redistribution.md) %}
+
+    1. View the [server response](../../api-ref/Cluster/expand.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

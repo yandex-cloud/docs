@@ -1,6 +1,6 @@
 #### Which clusters can be moved to a different availability zone? {#new-availability-zone}
 
-You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md). {{ metastore-full-name }} cluster migration is not available. If you use such clusters located in the `{{ region-id }}-c` availability zone, {{ yandex-cloud }} support will notify you once the relevant migration guide is available.
+You can move [light-weight clusters](../../data-proc/operations/migration-to-an-availability-zone.md) and [HDFS clusters](../../data-proc/tutorials/hdfs-cluster-migration.md).
 
 #### What should I do if data on storage subcluster hosts is distributed unevenly? {#data-unevenly-distributed}
 
@@ -59,22 +59,6 @@ To fix the error, do one of the following:
 
 For more information about subnet sizes, see the [{{ vpc-full-name }}](../../vpc/concepts/network.md#subnet) documentation.
 
-#### How do I fix the error I get when creating a database in {{ metastore-full-name }}? {#create-db-in-hive}
-
-The error occurs if you use the following syntax to create a database:
-
-```sql
-CREATE DATABASE IF NOT EXISTS <DB_name>;
-```
-
-{{ metastore-name }} does not allow creating a database or table in Hive: they are stored in a [{{ objstorage-full-name }}](../../storage/concepts/bucket.md) bucket linked to a {{ dataproc-name }} cluster. To create a database, use the following syntax:
-
-```sql
-CREATE DATABASE IF NOT EXISTS <DB_name> LOCATION <DB_location>;
-```
-
-In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<DB_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
-
 #### Why is my cluster's status `Unknown`? {#unknown}
 
 If your cluster's status changed from `Alive` to `Unknown`:
@@ -100,7 +84,7 @@ If your cluster's status changed from `Alive` to `Unknown`:
       --until 'YYYY-MM-DDThh:mm:ssZ'
    ```
 
-   In the `--since` and `--until` parameters, specify the period boundaries. Time format: `YYYY-MM-DDThh:mm:ssZ`. e.g.: `2020-08-10T12:00:00Z`. Use the UTC time zone.
+   In the `--since` and `--until` parameters, specify the period boundaries. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. Use the UTC time zone.
 
    For more information, see [{#T}](../../data-proc/operations/logging.md).
 
@@ -137,3 +121,7 @@ Yes. To switch to superuser, enter the following command after connecting to the
    ```
 
 However, you do not have to switch to superuser: just use `sudo`.
+
+#### How can I fix the no permission error when connecting a service account to the cluster? {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../attach-sa-create-update.md) %}

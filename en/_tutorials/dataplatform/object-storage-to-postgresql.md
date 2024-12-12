@@ -1,6 +1,14 @@
 # Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }} using {{ data-transfer-full-name }}
 
 
+
+{% note info %}
+
+The functionality for loading data from {{ objstorage-name }} in {{ data-transfer-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
+
+
 You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
@@ -61,7 +69,7 @@ Prepare the infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `pg_password`: {{ PG }} user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -134,7 +142,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -195,7 +203,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         1. Delete all objects from the bucket.
         1. In the terminal window, go to the directory containing the infrastructure plan.
         1. Delete the `objstorage-to-postgres.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

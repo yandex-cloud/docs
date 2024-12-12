@@ -11,11 +11,11 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md).
 * [Migrating an HDFS cluster to a different availability zone](../tutorials/hdfs-cluster-migration.md).
 
-To change {{ dataproc-name }} cluster settings:
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+    To change {{ dataproc-name }} cluster settings:
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
@@ -26,6 +26,10 @@ To change {{ dataproc-name }} cluster settings:
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: [Service account](../../iam/concepts/users/service-accounts.md) to which you need to grant access to the {{ dataproc-full-name }} cluster.
 
             Select an existing service account or [create a new one](../../iam/operations/sa/create.md).
+
+            To change your service account in a {{ dataproc-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}**: Cluster [component properties](../concepts/settings-list.md).
 
@@ -77,7 +81,9 @@ To change {{ dataproc-name }} cluster settings:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View a description of the update cluster CLI command:
+    To change {{ dataproc-name }} cluster settings:
+
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-dp }} cluster update --help
@@ -119,6 +125,8 @@ To change {{ dataproc-name }} cluster settings:
     You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
 - {{ TF }} {#tf}
+
+    To change {{ dataproc-name }} cluster settings:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
