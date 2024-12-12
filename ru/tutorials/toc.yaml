@@ -49,6 +49,8 @@ items:
         items:
           - name: GitHub
             href: security/wlif-github-integration.md
+          - name: '{{ GL }}'
+            href: security/wlif-gitlab-integration.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства

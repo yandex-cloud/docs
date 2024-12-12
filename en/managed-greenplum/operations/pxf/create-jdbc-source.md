@@ -2,12 +2,12 @@
 
 In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the JDBC connection type, you can use the following:
 
-* {{ CH }}.
+* {{ CH }}
 * HBase
-* {{ MY }}.
+* {{ MY }}
 * Oracle
-* {{ PG }}.
-* {{ MS }}.
+* {{ PG }}
+* {{ MS }}
 
 This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
@@ -67,56 +67,87 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         You can also configure [advanced settings](../../concepts/settings-list.md#jdbc-settings).
 
-- API {#api}
+- REST API {#api}
 
-    To add a JDBC data source to a {{ mgp-name }} cluster, use the [create](../../api-ref/PXFDatasource/create.md) REST API method for the [PXFDatasource](../../api-ref/PXFDatasource/index.md) resource or the [PXFDatasourceService/Create](../../api-ref/grpc/PXFDatasource/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
-    * Data source name in the `name` parameter.
-    * External source settings in the `jdbc` parameter.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources' \
+            --data '{
+                      "datasource": {
+                        "name": "<external_data_source_name>",
+                        "jdbc": {
+                          "driver": "<driver_address>",
+                          "url": "<database_URL>",
+                          "user": "<user_login>",
+                          "password": "<user_password>",
+                          ...
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/pxf_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                  "datasource": {
+                    "name": "<external_data_source_name>",
+                    "jdbc": {
+                      "driver": "<driver_address>",
+                      "url": "<database_URL>",
+                      "user": "<user_login>",
+                      "password": "<user_password>",
+                      ...
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `jdbc`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#jdbc-settings).
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
-
-## Example of a REST API request {#example}
-
-The example below shows how to create an external data source for a {{ mpg-name }} cluster using the {{ mgp-name }} REST API. To create a source:
-
-1. [Get an IAM token](../../../iam/operations/index.md#iam-tokens). It is used for authentication in the API.
-1. Add the IAM token to the following environment variable:
-
-    ```bash
-    export IAM_TOKEN=<token>
-    ```
-
-1. Send a request using [cURL](https://curl.haxx.se):
-
-    ```bash
-    curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
-         --header "Content-Type: text/plain" \
-         --header "Authorization: Bearer ${IAM_TOKEN}" \
-         --data "{
-             \"datasource\": {
-                 \"name\": \"jdbc\",
-                 \"jdbc\": {
-                     \"driver\": \"org.postgresql.Driver\",
-                     \"url\": \"jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>\",
-                     \"user\": \"<user_login>\",
-                     \"password\": \"<user_password>\"
-                 }
-             }
-         }"
-    ```
-
-    In the request body, specify the following parameters:
-
-    * `name`: Source name, e.g., `jdbc`.
-    * `driver`: DB driver address.
-    * `url`: Database URL. It contains a [special FQDN of the current master host](../../../managed-postgresql/operations/connect.md#fqdn-master).
-
-        You can get the cluster ID with a [list of clusters](../../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
-
-    * `user`: DB owner username.
-    * `password`: User password.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
 

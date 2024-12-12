@@ -60,7 +60,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         Where:
 
         * `pxf-connection-timeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
-        * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write requests, in seconds. The value range is from `5` to `600`.
+        * `pxf-upload-timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `pxf-max-threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
 
             To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
@@ -126,13 +126,43 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change PXF settings, use the [update](../../api-ref/Cluster/update.md) REST API method for the [Cluster](../../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
-    * List of updatable PXF settings in the `configSpec.pxfConfig` parameter:
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
+    1. Use the [Cluster.Update](../../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.pxfConfig.connectionTimeout,configSpec.pxfConfig.uploadTimeout,configSpec.pxfConfig.maxThreads,configSpec.pxfConfig.poolAllowCoreThreadTimeout,configSpec.pxfConfig.poolCoreSize,configSpec.pxfConfig.poolQueueCapacity,configSpec.pxfConfig.poolMaxSize,configSpec.pxfConfig.xmx,configSpec.pxfConfig.xms",
+                      "configSpec": {
+                        "pxfConfig" : {
+                          "connectionTimeout": "<read_queries_timeout>",
+                          "uploadTimeout": "<write_queries_timeout>",
+                          "maxThreads": "<Maximum_number_of_the_Apache_Tomcat®_threads>",
+                          "poolAllowCoreThreadTimeout": <whether_a_timeout_for_core_streaming_threads_is_allowed>,
+                          "poolCoreSize": "<number_of_streaming_threads>",
+                          "poolQueueCapacity": "<pool_queue_capacity_for_streaming_threads>",
+                          "poolMaxSize": "<maximum_number_of_streaming_threads>",
+                          "xmx": "<initial_size_of_the_JVM_heap>",
+                          "xms": "<maximum_size_of_the_JVM_heap>"
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
         * `connectionTimeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
         * `uploadTimeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `maxThreads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
@@ -146,9 +176,81 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    {% include [note-api-updatemask](../../../_includes/note-api-updatemask.md) %}
+    1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ 
+                      "config_spec.pxf_config.connection_timeout",
+                      "config_spec.pxf_config.upload_timeout",
+                      "config_spec.pxf_config.max_threads",
+                      "config_spec.pxf_config.pool_allow_core_thread_timeout",
+                      "config_spec.pxf_config.pool_core_size",
+                      "config_spec.pxf_config.pool_queue_capacity",
+                      "config_spec.pxf_config.pool_max_size",
+                      "config_spec.pxf_config.xmx",
+                      "config_spec.pxf_config.xms"
+                    ]
+                  },
+                  "config_spec": {
+                    "pxf_config" : {
+                      "connection_timeout": "<read_queries_timeout>",
+                      "upload_timeout": "<write_queries_timeout>",
+                      "max_threads": "<Maximum_number_of_the_Apache_Tomcat®_threads>",
+                      "pool_allow_core_thread_timeout": <whether_a_timeout_for_core_streaming_threads_is_allowed>,
+                      "pool_core_size": "<number_of_streaming_threads>",
+                      "pool_queue_capacity": "<pool_queue_capacity_for_streaming_threads>",
+                      "pool_max_size": "<maximum_number_of_streaming_threads>",
+                      "xmx": "<initial_size_of_the_JVM_heap>",
+                      "xms": "<maximum_size_of_the_JVM_heap>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as a single string, separated by commas.
+        * `connection_timeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
+        * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
+        * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
+
+            To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware {{ GP }} Platform Extension Framework]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/cfg_mem.html) documentation.
+
+        * `pool_allow_core_thread_timeout`: Determines whether a timeout for core streaming threads is allowed. The default value is `false`.
+        * `pool_core_size`: Number of core streaming threads per pool. The value range is from `1` to `1024`.
+        * `pool_queue_capacity`: Maximum number of queries you can add to a pool queue after core streaming threads. The values may range from zero upward. If `0`, no pool queue is generated.
+        * `pool_max_size`: Maximum allowed number of core streaming threads. The value range is from `1` to `1024`.
+        * `xmx`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+        * `xms`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
+
+        You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

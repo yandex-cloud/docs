@@ -154,5 +154,7 @@ items:
                 href: api-ref/Registry/updateIpPermissions.md
               - name: ListArtifacts
                 href: api-ref/Registry/listArtifacts.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
 base: ru/cloud-registry
 deepBase: 2

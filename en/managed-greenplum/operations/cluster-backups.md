@@ -41,13 +41,98 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     +--------------------------+---------------------+----------------------+---------------------+
     ```
 
-- API {#api}
+- REST API {#api}
 
-    To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) gRPC API call and provide the cluster ID in the `clusterId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    To get a list of backups for all the {{ mgp-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/List](../api-ref/grpc/Backup/list.md) gRPC API call and provide the folder ID in the `folderId` parameter of your request.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    1. To get a list of cluster backups:
+
+        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/backups'
+            ```
+
+            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+    1. To get a list of backups for all the clusters in a folder:
+
+        1. Use the [Backup.List](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/backups' \
+                --url-query folderId=<folder_ID>
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. To get a list of cluster backups:
+
+        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListBackups
+            ```
+
+            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+        1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure the request was successful.
+
+    1. To get a list of backups for all the clusters in a folder:
+
+        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "folder_id": "<folder_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.BackupService.List
+            ```
+
+
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -65,11 +150,52 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
-- API {#api}
+- REST API {#api}
 
-    To get information about a backup, use the [get](../api-ref/Backup/get.md) REST API method for the [Backup](../api-ref/Backup/index.md) resource or the [BackupService/Get](../api-ref/grpc/Backup/get.md) gRPC API call and provide the backup ID in the `backupId` parameter of your request.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    To find out the ID, [retrieve a list of backups](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/backups/<backup_ID>'
+        ```
+
+        You can get the backup ID together with a [list of backups](#list-backups).
+
+    1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "backup_id": "<backup_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.BackupService.Get
+        ```
+
+        You can get the backup ID together with a [list of backups](#list-backups).
+
+    1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure the request was successful.
 
 {% endlist %}
 
@@ -84,6 +210,53 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
     {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>:backup'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Backup
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -160,7 +333,7 @@ If you set the current time as the recovery time, the new cluster will match the
         {{ yc-mdb-gp }} cluster restore --help
         ```
 
-    1. Request the creation of a cluster from a backup:
+    1. Request creating a cluster from a backup:
 
 
         ```bash
@@ -212,21 +385,180 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--assign-public-ip`: Flag you set if the cluster needs access from the internet.
 
 
-- API {#api}
+- REST API {#api}
 
-    To restore a cluster from a backup, use the [restore](../api-ref/Cluster/restore.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * ID of the backup you need, in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
-    * Time point to which you want to restore the cluster, in the `time` parameter. By default, the cluster will be restored from a backup.
-    * Number of segment hosts in the `segmentHostCount` parameter.
-    * Number of [segments](../concepts/index.md) per host in the `segmentInHost` parameter.
-    * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
-    * (Optional) Comma-separated list of DBs and tables to restore from the backup, in the `restoreOnly` parameter. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    By default, the cluster is restored to the same folder where the backup is stored. To restore the cluster to a different folder, specify its ID in the `folderId` parameter.
+    1. Create a file named `body.json` and add the following contents to it:
+
+        ```json
+        {
+          "backupId": "<backup_ID>",
+          "time": "<time>",
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "config": {
+            "zoneId": "<availability_zone>",
+            "subnetId": "<subnet_ID>",
+            "assignPublicIp": <public_access_to_cluster_hosts>
+          },
+          "masterResources": {
+            "resourcePresetId": "<host_class>",
+            "diskSize": "<storage_size_in_bytes>",
+            "diskTypeId": "<disk_type>"
+          },
+          "segmentResources": {
+            "resourcePresetId": "<host_class>",
+            "diskSize": "<storage_size_in_bytes>",
+            "diskTypeId": "<disk_type>"
+          },
+          "segmentHostCount": "<number_of_segment_hosts>",
+          "segmentInHost": "<number_of_segments_per_host>",
+          "restoreOnly": [
+            "<DB_and_table_1>",
+            "<DB_and_table_2>",
+            ...
+            "<DB_and_table_N>"
+          ]
+        }
+        ```
+
+        Where:
+
+        * `backupId`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
+        * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder where the backup is stored.
+        * `name`: Name of the new cluster.
+        * `environment`: Environment:
+
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+            * `PRODUCTION`: For stable versions of your apps.
+
+        * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
+        * `config`: Cluster settings:
+
+            * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+            * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
+
+            * `masterResources`, `segmentResources`: Master and segment host configuration in the cluster:
+
+                * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                * `diskSize`: Disk size in bytes.
+                * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+            * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
+            * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+            * `restoreOnly` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+
+    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and add the following contents to it:
+
+        ```json
+        {
+          "backup_id": "<backup_ID>",
+          "time": "<time>",
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "config": {
+            "zone_id": "<availability_zone>",
+            "subnet_id": "<subnet_ID>",
+            "assign_public_ip": <public_access_to_cluster_hosts>
+          },
+          "master_resources": {
+            "resource_preset_id": "<host_class>",
+            "disk_size": "<storage_size_in_bytes>",
+            "disk_type_id": "<disk_type>"
+          },
+          "segment_resources": {
+            "resource_preset_id": "<host_class>",
+            "disk_size": "<storage_size_in_bytes>",
+            "disk_type_id": "<disk_type>"
+          },
+          "segment_host_count": "<number_of_segment_hosts>",
+          "segment_in_host": "<number_of_segments_per_host>",
+          "restore_only": [
+            "<DB_and_table_1>",
+            "<DB_and_table_2>",
+            ...
+            "<DB_and_table_N>"
+          ]
+        }
+        ```
+
+        Where:
+
+        * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
+        * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder where the backup is stored.
+        * `name`: Name of the new cluster.
+        * `environment`: Environment:
+
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+            * `PRODUCTION`: For stable versions of your apps.
+
+        * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
+        * `config`: Cluster settings:
+
+            * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+            * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
+            * `master_resources`, `segment_resources`: Master and segment host configuration in the cluster:
+
+                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                * `disk_size`: Disk size in bytes.
+                * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+            * `segment_host_count`: Number of segment hosts, from `2` to `32`.
+            * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+            * `restore_only` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+
+    1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+    1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
-
-{% include [backup-warning](../../_includes/mdb/backups/backup-create-warning.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

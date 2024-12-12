@@ -17,11 +17,18 @@ Available disk types [depend](../concepts/storage.md) on the selected [host clas
 For more information, see [Resource relationships in the service](../concepts/index.md).
 
 
+## Roles for creating a cluster {#roles}
+
+To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) role or higher.
+
+To link your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+
+
 ## Creating a cluster {#create-cluster}
 
 When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
-
-To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -45,7 +52,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
@@ -64,7 +71,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-      1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set up automatic increase of disk size:
+      1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, configure the automatic increase of disk size:
 
           {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
 
@@ -296,7 +303,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `ANYTIME`: Anytime.
               * `WEEKLY`: On a schedule.
           * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-          * `hour`: Hour of the day in `HH` format for the `WEEKLY` type, e.g., `21`.
+          * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
 
       {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -336,7 +343,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "serviceAccountId": "<service_account_ID>",
           "deletionProtection": <deletion_protection:_true_or_false>,
           "configSpec": {
-              "version": "<{{ OS }}>_version",
+              "version": "<{{ OS }}_version>",
               "adminPassword": "<admin_user_password>",
               "opensearchSpec": {
                   "plugins": [
@@ -428,9 +435,9 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * `version`: {{ OS }} version.
           * `adminPassword`: `admin` user password.
-          * `opensearchSpec`: `{{ OS }}` host group settings:
+          * `opensearchSpec`: Settings for `{{ OS }}` host groups:
 
-              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) you should additionally install in the cluster.
+              * `plugins`: List of [{{ OS }}](../concepts/plugins.md) plugins you should additionally install in the cluster.
               * `nodeGroups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
 
                   * `name`: Host group name.
@@ -440,8 +447,8 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                       * `diskSize`: Disk size in bytes.
                       * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
-                  * `hostsCount`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
+                  * `hostsCount`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
                   * `subnetIds`: List of subnet IDs.
 
@@ -455,7 +462,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                           Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
 
-                          If you have set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+                          If you set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
 
                       * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
 
@@ -463,7 +470,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboardsSpec`: `Dashboards` host group settings. Contains the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+          * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter, of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
 
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
@@ -515,7 +522,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           "service_account_id": "<service_account_ID>",
           "deletion_protection": <deletion_protection:_true_or_false>,
           "config_spec": {
-              "version": "<{{ OS }}>_version",
+              "version": "<{{ OS }}_version>",
               "admin_password": "<admin_user_password>",
               "opensearch_spec": {
                   "plugins": [
@@ -607,7 +614,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * `version`: {{ OS }} version.
           * `admin_password`: `admin` user password.
-          * `opensearch_spec`: `{{ OS }}` host group settings:
+          * `opensearch_spec`: Settings for `{{ OS }}` host groups:
 
               * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) you should additionally install in the cluster.
               * `node_groups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
@@ -619,8 +626,8 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                       * `disk_size`: Disk size in bytes.
                       * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
-                  * `hosts_count`: Number of hosts per group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
+                  * `hosts_count`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
                   * `subnet_ids`: List of subnet IDs.
 
@@ -634,7 +641,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                           Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
 
-                          If you have set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
+                          If you set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
 
                       * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
 
@@ -642,7 +649,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
                       * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboards_spec`: `Dashboards` host group settings. Contains the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
+          * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter, of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
 
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:

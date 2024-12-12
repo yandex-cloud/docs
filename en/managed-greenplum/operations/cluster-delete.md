@@ -38,7 +38,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
     1. In the terminal window, go to the directory containing the infrastructure plan.
     1. Delete the {{ TF }} configuration file of the cluster.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -52,16 +52,55 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
        All the resources described in the configuration file will be deleted.
 
-  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To delete a cluster, use the [delete](../api-ref/Cluster/delete.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Delete](../api-ref/Cluster/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Delete
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -30,7 +30,7 @@ As of September 9, 2024, {{ RD }} versions 6.2 and 7.0 are discontinued. You can
 Make sure this does not affect your applications:
 
 1. See the {{ RD }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ RD }} version in the backup.
+1. Try upgrading the version on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster. To do this, the {{ RD }} version in the backup must be [supported](#version-supported) in {{ mrd-name }}.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
@@ -81,15 +81,85 @@ Make sure this does not affect your applications:
 
      As soon as you run the upgrade, the cluster status will change to **Updating**. Wait for the operation to complete and then check the cluster version.
 
-- API {#api}
+- REST API {#api}
 
-  To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-  * {{ RD }} version number in the `configSpec.version` parameter.
-  * List of cluster configuration fields to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.version",
+                      "configSpec": {
+                        "version": "<{{ RD }}_version>"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `configSpec.version`: New {{ RD }} version.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ "config_spec.version" ]
+                  },
+                  "config_spec": {
+                    "version": "<{{ RD }}_version>"
+                  } 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `config_spec.version`: New {{ RD }} version.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

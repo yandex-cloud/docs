@@ -10,7 +10,7 @@ You can add [external dictionaries](../concepts/dictionaries.md#external-dicts) 
 * {{ MY }}
 * {{ PG }}.
 
-You can manage dictionaries either via SQL (we recommend that you use this way) or via {{ yandex-cloud }} cloud interfaces.
+You can manage dictionaries either via SQL (recommended) or via {{ yandex-cloud }} cloud interfaces.
 
 {% note warning %}
 
@@ -55,7 +55,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.listExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -64,7 +64,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/externalDictionaries'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure the request was successful.
 
@@ -76,7 +76,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -92,7 +92,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListExternalDictionaries
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listExternalDictionaries.md#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse) to make sure the request was successful.
 
@@ -164,7 +164,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -202,12 +202,12 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             Where:
 
             * `externalDictionary.name`: Dictionary name.
-            * `externalDictionary.structure`: Dictionary structure.
+            * `externalDictionary.structure`: Dictionary structure:
                 * `id.name`: Dictionary key column name.
-                * `key.attributes`: Array for describing the dictionary's composite key.
-                * `rangeMin`: Description of the start column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `rangeMax`: Description of the end column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `attributes`: Array to contain descriptions of the fields available for database queries.
+                * `key.attributes`: Array for description of the dictionary's composite key.
+                * `rangeMin`: Description of the start column, required if using `RANGE_HASHED` as the memory layout type.
+                * `rangeMax`: Description of the end column, required if using `RANGE_HASHED` as the memory layout type.
+                * `attributes`: Array of descriptions of the fields available for database queries.
 
                 {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -237,7 +237,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/createExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -257,7 +257,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -295,9 +295,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             * `external_dictionary.structure`: Dictionary structure.
                 * `id.name`: Dictionary key column name.
                 * `key.attributes`: Array of descriptions for columns with dictionary data.
-                * `range_min`: Description of the start column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `range_max`: Description of the end column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `attributes`: Array to contain descriptions of the fields available for database queries.
+                * `range_min`: Description of the start column, required if using `RANGE_HASHED` as the memory layout type.
+                * `range_max`: Description of the end column, required if using `RANGE_HASHED` as the memory layout type.
+                * `attributes`: Array of descriptions of the fields available for database queries.
 
                 {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -316,7 +316,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -359,7 +359,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
         Where:
 
         * `<dictionary_name>`: Name of the new dictionary.
-        * `<data_columns>`: List of columns with dictionary data and their type.
+        * `<data_columns>`: List of columns with dictionary entries and their type.
         * `PRIMARY KEY`: Dictionary key column name.
         * `SOURCE`: Source and its parameters.
         * `LIFETIME`: Dictionary update frequency.
@@ -385,7 +385,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.updateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.updateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -425,15 +425,15 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-              In this case, specify all the dictionary settings to update.
+              In this case, list all the dictionary settings to update.
 
             * `externalDictionary.name`: Dictionary name.
-            * `externalDictionary.structure`: Dictionary structure.
+            * `externalDictionary.structure`: Dictionary structure:
                 * `id.name`: Dictionary key column name.
-                * `key.attributes`: Array for describing the dictionary's composite key.
-                * `rangeMin`: Description of the start column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `rangeMax`: Description of the end column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `attributes`: Array to contain descriptions of the fields available for database queries.
+                * `key.attributes`: Array for description of the dictionary's composite key.
+                * `rangeMin`: Description of the start column, required if using `RANGE_HASHED` as the memory layout type.
+                * `rangeMax`: Description of the end column, required if using `RANGE_HASHED` as the memory layout type.
+                * `attributes`: Array of descriptions of the fields available for database queries.
 
                 {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -463,7 +463,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -475,7 +475,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -512,15 +512,15 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             * `update_mask`: List of parameters to update as a single string, separated by commas.
 
-              In this case, specify all the dictionary settings to update.
+              In this case, list all the dictionary settings to update.
 
             * `external_dictionary.name`: Dictionary name.
             * `external_dictionary.structure`: Dictionary structure.
                 * `id.name`: Dictionary key column name.
                 * `key.attributes`: Array of descriptions for columns with dictionary data.
-                * `range_min`: Description of the start column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `range_max`: Description of the end column, required when employing `RANGE_HASHED` as the memory layout type for the dictionary.
-                * `attributes`: Array to contain descriptions of the fields available for database queries.
+                * `range_min`: Description of the start column, required if using `RANGE_HASHED` as the memory layout type.
+                * `range_max`: Description of the end column, required if using `RANGE_HASHED` as the memory layout type.
+                * `attributes`: Array of descriptions of the fields available for database queries.
 
                 {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -539,7 +539,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
             For a detailed description of the dictionary attributes and other settings, see [below](#settings).
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -598,7 +598,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -611,9 +611,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
                     }'
         ```
 
-        Where `externalDictionaryName` is the name of the dictionary to delete. You can request the dictionary name as part of [list of external dictionaries in the cluster](#get-dicts-list).
+        Where `externalDictionaryName` is the name of the dictionary you need to delete. You can request the dictionary name with a [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -625,7 +625,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -642,9 +642,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
             yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteExternalDictionary
         ```
 
-        Where `external_dictionary_name` is the name of the dictionary to delete. You can request the dictionary name as part of [list of external dictionaries in the cluster](#get-dicts-list).
+        Where `external_dictionary_name` is the name of the dictionary you need to delete. You can request the dictionary name with a [list of external dictionaries in the cluster](#get-dicts-list).
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/deleteExternalDictionary.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -661,20 +661,23 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - Management console {#console}
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}**: Name of a new dictionary.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_name }}**: Name of the new dictionary.
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_source }}**: Dictionary source settings. Select one of the listed sources and specify its settings:
 
     {% cut "{{ CH }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. The host must be in the same network as the {{ CH }} cluster.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}**: {{ CH }} host name. This is an optional parameter.
+
+        The host must be in the same network as the {{ CH }} cluster.
+
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source. This is an optional parameter.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query for checking changes in a dictionary. {{ CH }} updates the dictionary only if the results of this query change.
+    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for changes in a dictionary. {{ CH }} will update the dictionary only if the result of this query changes.
 
     {% endcut %}
 
@@ -699,7 +702,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_where }}**: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query for checking changes in a dictionary. {{ CH }} updates the dictionary only if the results of this query change.
+    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for changes in a dictionary. {{ CH }} will update the dictionary only if the result of this query changes.
 
     {% endcut %}
 
@@ -711,8 +714,8 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}**: Password to access the source database.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}**: Source database name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_table }}**: Source table name.
-    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query for checking changes in a dictionary. {{ CH }} updates the dictionary only if the results of this query change.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}**: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database. For more information, see the [{{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) documentation.
+    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_invalidate-query }}**: SQL query to check for changes in a dictionary. {{ CH }} will update the dictionary only if the result of this query changes.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_postgresql-ssl-mode }}**: Mode of secure SSL TCP/IP connection to the {{ PG }} database. For more information, see the [{{ PG }}](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-PARAMKEYWORDS) documentation.
 
     {% endcut %}
 
@@ -725,19 +728,19 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     For more information about dictionary sources and their connection parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/) documentation.
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout type for the dictionary. It supports the following methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}**: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must be in UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. A composite key may be composed of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}**: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}**: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}**: Column name.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}**: Column data type.
-    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}**: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+    * (Optional) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}**: Hierarchical support flag.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}**: Injective `id` → `attribute` mapping flag.
 
-    For more information about composite key parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key) documentation.
+    For more information about composite key parameters, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}**: Dictionary update rate settings:
 
@@ -754,18 +757,22 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 - CLI {#cli}
 
-  * `--dict-name`: Name of a new dictionary.
+  * `--dict-name`: Name of the new dictionary.
   * `--***-source`: Dictionary source settings. Select one of the listed sources and specify its settings:
 
     {% cut "`--clickhouse-source`: {{ CH }} source" %}
 
-    * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
-    * `port`: Port for connecting to the source.
+    * `host`: Source host name. This is an optional parameter.
+
+        The host must be in the same network as the {{ CH }} cluster.
+
+    * `port`: Port for connecting to the source. This is an optional parameter.
     * `db`: Source database name.
     * `user`: Name of source database user.
     * `password`: Password to access the source database.
     * `table`: Source table name.
     * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
+    * `secure`: Whether to use SSL to establish the connection.
 
     {% endcut %}
 
@@ -787,13 +794,15 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * `password`: Password to access the source database.
     * `table`: Source table name.
     * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` condition is the same as the `WHERE id=10` SQL clause.
+    * `share-connection`: Whether to share the connection between multiple requests.
+    * `close-connection`: Whether to close the connection after each request.
 
     {% endcut %}
 
     {% cut "`--postgresql-source`: {{ PG }} source" %}
 
     * `table`: Source table name.
-    * `ssl-mode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `disable`, `allow`, `prefer`, `verify-ca`, and `verify-full`.
+    * `ssl-mode`: Mode of secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `disable`, `allow`, `prefer`, `verify-ca`, and `verify-full`.
 
     {% endcut %}
 
@@ -804,13 +813,18 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% endcut %}
 
+  * `--http-header`: Special HTTP header for the request to the HTTP(s) source:
+
+    * `name`: Header name.
+    * `value`: Header value.
+
   * `--mysql-replica`: Settings of {{ MY }} source replicas:
 
     * `host`: Replica host name.
     * `priority`: Replica priority. During a connection attempt, {{ CH }} reads from replicas based on their priority. The lower the number, the higher the priority.
     * `port`: Port for connecting to the replica.
-    * `user`: Name of the database user.
-    * `password`: Password to access the source database.
+    * `user`: Database user name.
+    * `password`: Password for access to the database.
 
   * `--mysql-invalidate-query`: Query for checking changes in a {{ MY }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
 
@@ -818,23 +832,24 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `--postgresql-invalidate-query`: Query for checking changes in a {{ PG }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
 
-  * `--layout-type`: Memory layout type for the dictionary. It supports the following methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+  * `--layout-type`: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
   * `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-  * `--structure-id`: Dictionary key column name. The key column must be in UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-  * `--structure-key`: Description of the dictionary's composite key. A composite key may be composed of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods.
+  * `--layout-max-array-size`: Maximum key value for the `flat` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+  * `--structure-id`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
+  * `--structure-key`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods:
 
     * `name`: Column name.
     * `type`: Column data type.
-    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
     * `hierarchical`: Hierarchical support flag.
     * `injective`: Injective `id` → `attribute` mapping flag.
 
-    For more information about composite key parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key) documentation.
+    For more information about composite key parameters, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
 
     {% note warning %}
 
-    The `--structure-id` and `--structure-key` settings are mutually exclusive, i.e., you can use only one of them at a time.
+    The `--structure-id` and `--structure-key` settings are mutually exclusive, i.e., the use of one makes it impossible to use the other.
 
     {% endnote %}
 
@@ -842,8 +857,8 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     * `name`: Column name.
     * `type`: Column data type.
-    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+    * `null-value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+    * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
     * `hierarchical`: Hierarchical support flag.
     * `injective`: Injective `id` → `attribute` mapping flag.
 
@@ -855,7 +870,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% note warning %}
 
-    The `--fixed-lifetime` and `--lifetime-range` settings are mutually exclusive, i.e., you can use only one of them at a time.
+    The `--fixed-lifetime` and `--lifetime-range` settings are mutually exclusive, i.e., the use of one makes it impossible to use the other.
 
     {% endnote %}
 
@@ -863,7 +878,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `externalDictionary`: New dictionary settings:
 
-    * `name`: Name of a new dictionary.
+    * `name`: Name of the new dictionary.
     * `***Source`: Dictionary data source. Select one of the listed sources and specify its settings:
 
       {% cut "`clickhouseSource`: {{ CH }} source" %}
@@ -871,10 +886,14 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
-      * `port`: Port for connecting to the source.
+      * `host`: Source host name. This is an optional parameter.
+
+          The host must be in the same network as the {{ CH }} cluster.
+
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
+      * `secure`: Whether to use SSL to establish the connection.
 
       {% endcut %}
 
@@ -900,11 +919,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
         * `host`: Replica host name. The host must be in the same network as the {{ CH }} cluster.
         * `priority`: Replica priority. During a connection attempt, {{ CH }} reads from replicas based on their priority. The lower the number, the higher the priority.
         * `port`: Port for connecting to the replica.
-        * `user`: Name of the database user.
-        * `password`: Password to access the source database.
+        * `user`: Database user name.
+        * `password`: Password for access to the database.
       * `invalidateQuery`: Query for checking changes in a {{ MY }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
-        * `shareConnection`: Flag for shared connection to the source for multiple queries.
-        * `closeConnection`: Flag for closing the connection to the source after each query.
+      * `shareConnection`: Whether to share the connection between multiple requests.
+      * `closeConnection`: Whether to close the connection after each request.
 
       {% endcut %}
 
@@ -915,9 +934,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `port`: Port for connecting to the source.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
-      * `sslMode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, and `VERIFY_FULL`.
+      * `sslMode`: Mode of secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, and `VERIFY_FULL`.
       * `hosts`: Names of the {{ PG }} master host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
-      * `invalidateQuery`: SQL query for checking changes in a dictionary. {{ CH }} updates the dictionary only if the results of this query change.
+      * `invalidateQuery`: SQL query to check for changes in a dictionary. {{ CH }} will update the dictionary only if the result of this query changes.
 
       {% endcut %}
 
@@ -931,20 +950,20 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout type for the dictionary. It supports the following methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
     * `layout.sizeInCells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.maxArraySize`: Maximum key value for the `FLAT` type. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat) documentation.
-    * `structure.id.name`: Dictionary key column name. The key column must be in UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may be composed of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods.
+    * `layout.maxArraySize`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
+    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
 
       * `name`: Column name.
       * `type`: Column data type.
-      * `nullValue`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+      * `nullValue`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
       * `hierarchical`: Hierarchical support flag.
       * `injective`: Injective `id` → `attribute` mapping flag.
 
-      For more information about composite key parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key) documentation.
+      For more information about composite key parameters, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
 
       {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -952,8 +971,8 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       * `name`: Column name.
       * `type`: Column data type.
-      * `nullValue`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+      * `nullValue`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
       * `hierarchical`: Hierarchical support flag.
       * `injective`: Injective `id` → `attribute` mapping flag.
 
@@ -969,7 +988,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `external_dictionary`: New dictionary settings:
 
-    * `name`: Name of a new dictionary.
+    * `name`: Name of the new dictionary.
     * `***_source`: Dictionary data source. Select one of the listed sources and specify its settings:
 
       {% cut "`clickhouse_source`: {{ CH }} source" %}
@@ -977,10 +996,14 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `db`: Source database name.
       * `table`: Source table name.
       * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-      * `host`: Source host name. The host must be in the same network as the {{ CH }} cluster.
-      * `port`: Port for connecting to the source.
+      * `host`: Source host name. This is an optional parameter.
+
+          The host must be in the same network as the {{ CH }} cluster.
+
+      * `port`: Port for connecting to the source. This is an optional parameter.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
+      * `secure`: Whether to use SSL to establish the connection.
 
       {% endcut %}
 
@@ -1006,11 +1029,11 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
         * `host`: Replica host name. The host must be in the same network as the {{ CH }} cluster.
         * `priority`: Replica priority. During a connection attempt, {{ CH }} reads from replicas based on their priority. The lower the number, the higher the priority.
         * `port`: Port for connecting to the replica.
-        * `user`: Name of the database user.
-        * `password`: Password to access the source database.
+        * `user`: Database user name.
+        * `password`: Password for access to the database.
       * `invalidate_query`: Query for checking changes in a {{ MY }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
-        * `share_connection`: Flag for shared connection to the source for multiple queries.
-        * `close_connection`: Flag for closing the connection to the source after each query.
+      * `share_connection`: Whether to share the connection between multiple requests.
+      * `close_connection`: Whether to close the connection after each request.
 
       {% endcut %}
 
@@ -1021,9 +1044,9 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
       * `port`: Port for connecting to the source.
       * `user`: Name of source database user.
       * `password`: Password to access the source database.
-      * `ssl_mode`: Mode for establishing a secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, and `VERIFY_FULL`.
+      * `ssl_mode`: Mode of secure SSL TCP/IP connection to the {{ PG }} database. Acceptable values: `DISABLE`, `ALLOW`, `PREFER`, `VERIFY_CA`, and `VERIFY_FULL`.
       * `hosts`: Names of the {{ PG }} master host and its [replicas](../../managed-postgresql/concepts/replication.md) that will be used as dictionary sources. The hosts must be in the same network as the {{ CH }} cluster.
-      * `invalidate_query`: SQL query for checking changes in a dictionary. {{ CH }} updates the dictionary only if the results of this query change.
+      * `invalidate_query`: SQL query to check for changes in a dictionary. {{ CH }} will update the dictionary only if the result of this query changes.
 
       {% endcut %}
 
@@ -1037,20 +1060,20 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       {% endcut %}
 
-    * `layout.type`: Memory layout type for the dictionary. It supports the following methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
+    * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
     * `layout.size_in_cells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.max_array_size`: Maximum key value for the `FLAT` type. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat) documentation.
-    * `structure.id.name`: Dictionary key column name. The key column must be in UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
-    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may be composed of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods.
+    * `layout.max_array_size`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
+    * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
 
       * `name`: Column name.
       * `type`: Column data type.
-      * `null_value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+      * `null_value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
       * `hierarchical`: Hierarchical support flag.
       * `injective`: Injective `id` → `attribute` mapping flag.
 
-      For more information about composite key parameters, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key) documentation.
+      For more information about composite key parameters, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
 
       {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -1058,8 +1081,8 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
       * `name`: Column name.
       * `type`: Column data type.
-      * `null_value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot use `NULL` in this field.
-      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) that {{ CH }} runs on the column value.
+      * `null_value`: Default value for an empty element. When loading a dictionary, all empty elements are replaced with this value. You cannot put `NULL` in this field.
+      * `expression`: [Expression]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions) {{ CH }} applies to the column value.
       * `hierarchical`: Hierarchical support flag.
       * `injective`: Injective `id` → `attribute` mapping flag.
 
@@ -1073,7 +1096,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
 {% endlist %}
 
-## Examples
+## Examples {#examples}
 
 Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}` ID, and you need to connect to it a dictionary with the following test characteristics:
 
@@ -1165,7 +1188,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
         }
         ```
 
-    1. Make a request using {{ api-examples.rest.tool }}:
+    1. Run a query using {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -1224,7 +1247,7 @@ Let's assume there is a {{ CH }} cluster named `mych` with the `{{ cluster-id }}
         }
         ```
 
-    1. Make a request using {{ api-examples.grpc.tool }}:
+    1. Run a query using {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

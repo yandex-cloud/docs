@@ -61,3 +61,22 @@ To avoid deleting user roles that are already assigned, list both the existing a
 #### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
+
+#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+
+Here is the full text of the error:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+
+To fix this error:
+
+* Make sure the corporate network settings do not block the check.
+* Run the command with the `--ssl-no-revoke` parameter.
+
+  ```powershell
+   mkdir $HOME\.mongodb; curl.exe --ssl-no-revoke -o $HOME\.mongodb\root.crt {{ crt-web-path }}
+   ```

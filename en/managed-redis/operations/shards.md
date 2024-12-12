@@ -44,11 +44,52 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
   +--------------+
   ```
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/Cluster/listShards.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.ListShards](../api-ref/Cluster/listShards.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/shards'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.ListShards
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.redis.v1.ListClusterShardsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -68,11 +109,53 @@ You can [create a sharded cluster](./cluster-create.md#create-cluster) or [enabl
   {{ yc-mdb-rd }} shards get <shard_name> --cluster-name <cluster_name>
   ```
 
-- API {#api}
+- REST API {#api}
 
-  To get shard details, use the [getShard](../api-ref/Cluster/getShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShard](../api-ref/grpc/Cluster/getShard.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter.
-  * Shard name in the `shardName` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.GetShard](../api-ref/Cluster/getShard.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/shards/<shard_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in a cluster](#list).
+
+    1. View the [server response](../api-ref/Cluster/getShard.md#yandex.cloud.mdb.redis.v1.Shard) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.GetShard](../api-ref/grpc/Cluster/getShard.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "shard_name": "<shard_name>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.GetShard
+        ```
+
+        You can request the cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in a cluster](#list).
+
+    1. View the [server response](../api-ref/grpc/Cluster/getShard.md#yandex.cloud.mdb.redis.v1.Shard) to make sure the request was successful.
 
 {% endlist %}
 
@@ -159,14 +242,103 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/Cluster/addShard.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter.
-  * Shard name in the `shardName` parameter.
-  * Shard host configuration in the array of `hostSpecs` parameters.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.AddShard](../api-ref/Cluster/addShard.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/shards' \
+            --data '{
+                      "shardName": "<shard_name>",
+                      "hostSpecs": [
+                        {
+                          "zoneId": "<availability_zone>",
+                          "subnetId": "<subnet_ID>",
+                          "shardName": "<shard_name>",
+                          "replicaPriority": "<host_priority>",
+                          "assignPublicIp": <public_access_to_cluster_host>
+                        },
+                        { <similar_configuration_for_host_2> },
+                        { ... },
+                        { <similar_configuration_for_host_N> }
+                      ]
+                    }'
+        ```
+
+        Where:
+
+        * `shardName`: Name of the shard you are creating.
+        * `hostSpecs`: Host parameters:
+
+            * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+            * `shardName`: Shard name for the host.
+            * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "shard_name": "<shard_name>",
+                  "host_specs": [
+                    {
+                      "zone_id": "<availability_zone>",
+                      "subnet_id": "<subnet_ID>",
+                      "shard_name": "<shard_name>",
+                      "replica_priority": "<host_priority>",
+                      "assign_public_ip": <public_access_to_cluster_host>
+                    },
+                    { <similar_configuration_for_host_2> },
+                    { ... },
+                    { <similar_configuration_for_host_N> }
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.AddShard
+        ```
+
+        Where:
+
+        * `shard_name`: Name of the shard you are creating.
+        * `host_specs`: Host parameters:
+
+            * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+            * `shard_name`: Shard name for the host.
+            * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -224,13 +396,53 @@ To be able to place data in the new shard, start [rebalancing](#rebalance-cluste
 
   {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter.
-  * Name of the shard you are deleting in the `shardName` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can request the shard name with a [list of cluster shards](#list) and the cluster name with a [list of clusters in a folder](cluster-list.md).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/shards/<shard_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in a cluster](#list).
+
+    1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "shard_name": "<shard_name>" 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.DeleteShard
+        ```
+
+        You can request the cluster ID with a [list of clusters in a folder](cluster-list.md#list-clusters) and the shard name with a [list of shards in a cluster](#list).
+
+    1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -269,10 +481,53 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
     --name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
-- API {#api}
+- REST API {#api}
 
-  To rebalance a cluster, use the [rebalance](../api-ref/Cluster/rebalance.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Rebalance](../api-ref/grpc/Cluster/rebalance.md) gRPC API call.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Rebalance](../api-ref/Cluster/rebalance.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:rebalance'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/rebalance.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Rebalance](../api-ref/grpc/Cluster/rebalance.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Rebalance
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/rebalance.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

@@ -5,7 +5,7 @@ description: Follow this guide to create a {{ MG }} cluster.
 
 # Creating a {{ MG }} cluster
 
-A {{ MG }} cluster is one or more database hosts across which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
+A {{ MG }} cluster is one or more database hosts between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host, where the primary host accepts write requests and asynchronously replicates the changes in the secondary hosts.
 
 
 {% note info %}
@@ -19,10 +19,21 @@ A {{ MG }} cluster is one or more database hosts across which you can configure 
 
 
 
+{% note info %}
+
+The creation of {{ MG }} 5.0 clusters will be disabled on December 2, 2024 due to the version 5.0 [End of Life](https://www.mongodb.com/support-policy).
+
+Starting February 3, 2025, clusters running {{ MG }} 5.0 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 6.0. We recommend that you [upgrade](../operations/cluster-version-update.md) to the latest {{ MG }} versions in advance.
+
+{% endnote %}
+
+
 
 ## Creating a cluster {#create-cluster}
 
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
+To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }}](../../iam/operations/roles/grant.md) documentation.
+
 
 {% list tabs group=instructions %}
 
@@ -73,7 +84,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
-      * Cloud network for the cluster.
+      * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
       * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 

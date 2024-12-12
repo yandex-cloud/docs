@@ -39,8 +39,8 @@ For `disk.used_bytes`, use notification thresholds. The recommended values are a
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).
 
 #### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
 
@@ -51,3 +51,27 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 #### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
+
+#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+
+Here is the full text of the error:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+
+To fix this error:
+
+* Make sure the corporate network settings do not block the check.
+* Run the command with the `--ssl-no-revoke` parameter.
+
+   ```powershell
+   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt {{ crt-web-path }}
+   ```
+
+#### How can I fix the no permission error when connecting a service account to the cluster? {#attach-service-account}
+
+{% include notitle [attach-sa](../../_qa/attach-sa.md) %}
+

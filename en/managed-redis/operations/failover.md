@@ -49,11 +49,89 @@ A [sharded cluster](../concepts/sharding.md) contains one or more master hosts: 
 
     You can request the cluster name with a [list of clusters in the folder](cluster-list.md) and the name of the master host for the desired shard with a [list of hosts in the cluster](hosts.md#list).
 
-- API {#api}
+- REST API {#api}
 
-    To switch the master, use the [startFailover](../api-ref/Cluster/startFailover.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * ID of the cluster where you want to switch the master in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md).
-    * For a sharded cluster only: the name of the shard's current master in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        To switch the master in a non-sharded cluster:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:startFailover'
+        ```
+
+        To switch the master in a sharded cluster:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:startFailover' \
+            --data '{
+                      "hostNames": [
+                        "<current_master_name>"
+                      ]
+                    }'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master with the [list of hosts in the cluster](hosts.md#list).
+
+    1. View the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        To switch the master in a non-sharded cluster:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.StartFailover
+        ```
+
+        To switch the master in a sharded cluster:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "host_names": [
+                    "<current_master_name>"
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.StartFailover
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the current master with the [list of hosts in the cluster](hosts.md#list).
+
+    1. View the [server response](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

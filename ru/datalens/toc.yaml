@@ -5,9 +5,6 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Навигация и интерфейс
-        href: getting-started/navigation.md
-        hidden: true
       - name: Начало работы
         href: quickstart.md
       - name: Квоты и лимиты
