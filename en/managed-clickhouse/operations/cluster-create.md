@@ -6,38 +6,10 @@ description: Follow this guide to create a {{ CH }} cluster with a single or mul
 # Creating a {{ CH }} cluster
 
 
-A {{ CH }} cluster consists of one or more database hosts you can configure replication between.
-
-{% note info %}
-
-* The number of hosts you can create together with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
-
-{% endnote %}
-
-The selected [replication mechanism](../concepts/replication.md) also affects the number of hosts in a multi-host cluster:
-
-* A cluster that uses {{ CK }} to manage replication and fault tolerance should consist of three or more hosts with individual hosts not required to run {{ CK }}. You can only create this kind of cluster using the CLI or API.
-
-
-    This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. Access to {{ CK }} is available on request. Contact [support]({{ link-console-support }}) or your account manager.
-
-
-* When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
-
-    The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
-
-    {% note alert %}
-
-
-    These hosts are taken into account when calculating the consumed cloud [resource quota]({{ link-console-quotas }}) and cluster [cost](../pricing.md#prices-zookeeper).
-
-
-    {% endnote %}
+A {{ CH }} cluster consists of one or more database hosts between which you can configure replication.
 
 
 ## Roles for creating a cluster {#roles}
-
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) role or higher.
 
@@ -47,6 +19,22 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 
 ## Creating a cluster {#create-cluster}
+
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
+
+* The number of hosts you can create together with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+
+* When using [{{ CK }}](../concepts/replication.md#ck), a cluster must consist of three or more hosts. You do not need separate hosts to run {{ CK }}. You can only create this kind of cluster using the [{{ yandex-cloud }} CLI](../../cli) or API.
+
+* When using [{{ ZK }}](../concepts/replication.md#zk), a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
+
+  The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
+
+  {% note warning %}
+
+  {{ ZK }} hosts count against the cloud resource usage [quota]({{ link-console-quotas }}) and contribute to the cluster [cost](../pricing.md#prices-zookeeper).
+
+  {% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -84,6 +72,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * Select the size of disk to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
       * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. After you add a second host, the **Configure ZooKeeper** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
@@ -111,7 +100,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * Enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster, if required.
 
-        {% note alert %}
+        {% note warning %}
 
         You cannot disable this option.
 

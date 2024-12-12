@@ -1,10 +1,18 @@
 # Creating a {{ dataproc-name }} cluster
 
-To create a {{ dataproc-name }} cluster, the user must have the following roles:
+## Roles for creating a cluster {#roles}
+
+To create a {{ dataproc-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * [dataproc.editor](../security/index.md#dataproc-editor): To create a cluster.
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To create resources on behalf of the cluster [service account](../../iam/concepts/users/service-accounts.md).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a [service account](../../iam/concepts/users/service-accounts.md) to the cluster and create resources under that service account.
+
+Make sure to assign the following roles to the {{ dataproc-name }} cluster service account:
+
+{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+
+For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
 
 ## Configure a network {#setup-network}
@@ -105,11 +113,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
         {% endnote %}
 
      * Public part of the SSH key in the **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** field. For information on how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-
-     * Service account to which you need to grant access to the {{ dataproc-name }} cluster. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
-
-        {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+     * Service account to which you need to grant access to the {{ dataproc-name }} cluster.
      * Availability zone for the {{ dataproc-name }} cluster.
      * (Optional) [Cluster component properties](../concepts/settings-list.md).
      * (Optional) Custom [initialization scripts](../concepts/init-action.md) for cluster hosts. For each script, specify the following information:
@@ -244,10 +248,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      Where:
      * `--bucket`: Name of an {{ objstorage-name }} bucket where job dependencies and results will be stored. The [service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-name }} cluster must have `READ and WRITE` permissions for this bucket.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) where the {{ dataproc-name }} cluster hosts will reside.
-     * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the {{ dataproc-name }} cluster service account:
-
-       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+     * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account.
      * `--version`: [Image version](../concepts/environment.md).
 
        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
@@ -281,7 +282,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      * `--ui-proxy`: Access to [{{ dataproc-name }} component web interfaces](../concepts/interfaces.md). It can either be `true` or `false`.
-     * `target_group_id`: [Log group ID](../concepts/logs.md).
+     * `--log-group-id`: [Log group ID](../concepts/logs.md).
      * `--security-group-ids`: List of [security group](../../vpc/concepts/security-groups.md) IDs.
 
      To create a {{ dataproc-name }} cluster with multiple data storage or processing subclusters, provide the required number of `--subcluster` arguments in the cluster creation command:
@@ -567,10 +568,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
     * Public part of the SSH key in the `configSpec.hadoop.sshPublicKeys` parameter.
     * Settings of the {{ dataproc-name }} subclusters in the `configSpec.subclustersSpec` parameter.
   * Availability zone of the {{ dataproc-name }} cluster in the `zoneId` parameter.
-  * ID of the {{ dataproc-name }} cluster [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter. Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
-
-       {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
-
+  * ID of the {{ dataproc-name }} cluster [service account](../../iam/concepts/users/service-accounts.md) in the `serviceAccountId` parameter.
   * Bucket name in the `bucket` parameter.
   * IDs of the {{ dataproc-name }} cluster security groups in the `hostGroupIds` parameter.
   * {{ dataproc-name }} cluster deletion protection settings in the `deletionProtection` parameter.

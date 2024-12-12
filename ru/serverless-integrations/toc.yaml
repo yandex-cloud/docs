@@ -36,6 +36,8 @@ items:
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API {{ sw-name }}
     items:
       - name: Аутентификация в API

@@ -1,7 +1,7 @@
 # Using hybrid storage in {{ mch-name }}
 
 
-Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage levels is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+Hybrid storage allows you to store frequently used data on the network disks of the {{ mch-name }} cluster and rarely used data in {{ objstorage-full-name }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
 
@@ -20,80 +20,68 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-   1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
 
-      * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+        * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
 
-      * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
-      * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
-      * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
+        * **{{ ui-key.yacloud.mdb.forms.label_disk-size }}**: At least 15 GB.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**: Disabled.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `tutorial`.
+        * **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}**: Enabled.
 
-   1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
+    1. [Configure permissions](../../managed-clickhouse/operations/cluster-users.md#update-settings) so that you can execute read and write requests in this database.
 
-- {{ TF }} {#tf}
+- Using {{ TF }} {#tf}
 
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
+    1. Download the [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf) configuration file to the same working directory.
 
+        This file describes:
 
-   1. Clone the repository containing examples:
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Default security group](../../vpc/concepts/security-groups.md) and rules required to connect to the cluster from the internet.
+        * {{ mch-name }} cluster with hybrid storage enabled.
 
-      ```bash
-      git clone https://github.com/yandex-cloud/examples/
-      ```
+    1. In the `clickhouse-hybrid-storage.tf` file, specify the username and password to access the {{ mch-name }} cluster.
 
-   1. From the `examples/tutorials/terraform/` directory, copy `clickhouse-hybrid-storage.tf` to the folder where the provider configuration file is located.
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
-      This file describes:
+        ```bash
+        terraform validate
+        ```
 
-      * Network.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      * Subnet.
+    1. Create the required infrastructure:
 
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      * Default security group and rules required to connect to the cluster from the internet.
-
-
-      * {{ mch-name }} cluster with hybrid storage enabled.
-
-   1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
-
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-
-   1. To verify that the config files are correct, run the command below:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Create the infrastructure required to follow the steps provided in this tutorial:
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
 ### Set up the command line tools {#set-instruments}
 
-1. Set up the `curl` and `unxz` tools:
+1. Install the `curl` and `unxz` tools:
 
-   ```bash
-   apt-get update && apt-get install curl xz-utils
-   ```
+    ```bash
+    apt-get update && apt-get install curl xz-utils
+    ```
 
 1. [Set up clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) and use it to connect to the database.
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
-To demonstrate how hybrid storage works, Yandex Metrica anonymized hit data (`hits_v1`) is used. This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17 through March 23, 2014.
+To demonstrate how hybrid storage works, we are going to use the Yandex Metrica anonymized hit data (`hits_v1`). This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17, 2014 to March 23, 2014.
 
-The `tutorial.hits_v1` table will be configured [when you create](#create-table) it so that all the <q>fresh data</q> in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
+When creating the `tutorial.hits_v1` table, you are going to [configure it](#create-table) so that all the more recent table data, starting from March 21, 2014, is in network storage, and older data, from March 17, 2014 to March 20, 2014, is in object storage.
 
 ## Create a table {#create-table}
 
@@ -122,23 +110,23 @@ This table uses the `default` [storage policy](../../managed-clickhouse/concepts
 
 {#ttl}
 
-The `TTL ...` expression defines a policy for operating with expiring data:
-1. TTL sets the lifetime of a table row (in this case, the number of days from the current date to March 20, 2014).
-1. For data in the table, the value `EventDate` is checked:
-   * If the number of days from the current date to `EventDate` is less than the TTL value (that is, the lifetime has not expired yet), this data is kept in network disk storage.
+The `TTL ...` expression sets a policy for handing expiring data:
+1. TTL sets the lifetime of a table row. In our case, it is the number of days from the current date to March 20, 2014.
+1. For the table data, the `EventDate` value is checked:
+   * If the number of days from the current date to `EventDate` is less than the TTL value (i.e., the lifetime has not expired yet), this data is kept in network disk storage.
    * If the number of days from the current date to `EventDate` is greater than or equal to the TTL value (that is, the lifetime has already expired), this data will be placed in the object storage according to the `TO DISK 'object_storage'` policy.
 
 You do not need to specify TTL for hybrid storage, but this allows you to explicitly control which data will be in {{ objstorage-name }}. If you do not specify TTL, data will be placed in object storage only when you run out of space in your network disk storage. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 {% note info %}
 
-The expression for TTL in the example above is complex because of the selected test dataset. You must split fixed data collected long ago into parts for placement at different storage levels. For most tables that are constantly updated with new data, a more simple expression for TTL suffices. For example, `EventDate + INTERVAL 5 DAY`: data older than 5 days is moved to the object storage.
+The expression for TTL in the example above is complex because of the selected test dataset. You must split fixed data collected long ago into parts for placement at different storage levels. For most tables that are constantly updated with new data, you can use a simpler TTL expression, such as `EventDate + INTERVAL 5 DAY`, which moves data older than 5 days to the object storage.
 
 {% endnote %}
 
-Between network disk storage and object storage, data is not moved line by line but in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL is the same for all rows in the data part. Otherwise, you may have problems moving data into object storage as TTL expires if one data part contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Data is moved between storage on network disks and object storage in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes), not line by line. Make sure to choose the TTL expression and [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that the TTL matches for all the rows in the data part. Otherwise, you may have problems moving data into object storage as TTL expires if one data part contains data intended for different storage levels. At the most basic level, the TTL expression should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
-To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
 ## Populate the table with data {#fill-table-with-data}
 
@@ -171,7 +159,7 @@ To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs
 
 1. Wait for the operation to complete, as data insertion may take some time.
 
-To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
+For more information, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
 ## Check the placement of data in a cluster {#check-table-tiering}
 
@@ -189,7 +177,7 @@ To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tu
    WHERE active AND (table = 'hits_v1') AND (database = 'tutorial')
    ```
 
-   Table partitions for which the `EventDate` value is outside the [given TTL](#ttl) should be on the disk named `object_storage`, that is, in object storage. All other partitions should be on the `default` disk:
+   Table partitions for which the `EventDate` value is outside the [given TTL](#ttl) should reside on the disk named `object_storage`, i.e., in object storage. All other partitions should reside on the `default` disk:
 
    ```text
    ┌─table───┬─partition──┬─name───────────────┬───rows─┬─disk_name──────┐
@@ -230,7 +218,7 @@ As you can see from the SQL command results, the data in the table was successfu
 
 ## Run a test query {#submit-test-query}
 
-Run a test query to the `tutorial.hits_v1` table that addresses data on multiple storage levels at once:
+Run a test query to the `tutorial.hits_v1` table that engages with data on multiple storage levels at once:
 
 ```sql
 SELECT
@@ -264,15 +252,15 @@ As you can see from the SQL request result, from the user's point of view, the t
 
 ## (Optional step) Monitor the amount of space used by data in {{ objstorage-name }} {#metrics}
 
-To find out the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
+To monitor the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}:
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Go to **Metric Explorer**.
-1. Run the following query:
+1. Run this request:
 
-   ```text
-   "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
-   ```
+    ```text
+    "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
+    ```
 
 ## Delete the resources you created {#clear-out}
 
@@ -282,26 +270,26 @@ Delete the resources you no longer need to avoid paying for them:
 
 - Manually {#manual}
 
-   [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+    [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 
-   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
+    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete `clickhouse-hybrid-storage.tf`.
-   1. Run this command:
+    1. In the terminal window, go to the directory containing the infrastructure plan.
+    1. Delete the `clickhouse-hybrid-storage.tf` file.
+    1. Run this command:
 
-      ```bash
-      terraform validate
-      ```
+        ```bash
+        terraform validate
+        ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      This will delete all the resources described in `clickhouse-hybrid-storage.tf`.
+        All the resources described in the `clickhouse-hybrid-storage.tf` file will be deleted.
 
 {% endlist %}

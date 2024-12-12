@@ -1,6 +1,15 @@
+---
+title: Индикатор в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как в {{ datalens-short-name }} создать и настроить тип визуализации Индикатор.
+---
+
 # Индикатор ![](../../_assets/datalens/indicator.svg)
 
-Индикатор отражает значение одного ключевого показателя. Используется, когда на дашборде есть значения, за которыми нужно регулярно следить для понимания общей ситуации. Это может быть количество инцидентов за прошлый день, процент выполнения плана или прирост продаж год к году. Чаще всего индикаторы располагаются сверху или в правой части дашборда. Чтобы индикаторы не теряли акцент и не путали пользователя, их должно быть не больше 6 на одном экране. С помощью индикаторов разного размера можно выстроить иерархию важности разных метрик.
+Индикатор отражает значение одного ключевого показателя. Чтобы сделать индикатор более [сложным](#markup-indicator) и информативным, можно использовать несколько показателей.
+
+Индикатор используется, когда на дашборде есть значения, за которыми нужно регулярно следить для понимания общей ситуации. Это может быть, например, количество инцидентов за прошлый день, процент выполнения плана или прирост продаж год к году.
+
+Чаще всего индикаторы располагаются сверху или в правой части дашборда. Чтобы индикаторы не теряли акцент и не путали пользователя, их должно быть не больше шести на одном экране. С помощью индикаторов разного размера можно выстроить иерархию важности разных метрик.
 
 ![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
 
@@ -67,6 +76,88 @@
 {% cut "Окно настроек чарта" %}
 
 ![indicator-chart-settings](../../_assets/datalens/release-notes/preview-disable.png)
+
+{% endcut %}
+
+### Создание сложного индикатора {#markup-indicator}
+
+Чтобы создать сложный индикатор, отображающий значения нескольких показателей, используйте [функции разметки](../function-ref/markup-functions.md). Для этого:
+
+1. Создайте [вычисляемое поле](../concepts/calculations/index.md) с помощью функций разметки.
+1. Перетащите поле из раздела **Показатели** в секцию **Показатель** индикатора.
+
+{% cut "Форматирование текста" %}
+
+```markdown
+MARKUP(
+    BOLD(SIZE('Оплата по карте: ', '18px')),
+    BR(),
+    BR(),
+    SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px'),
+    BR(),
+    BR(),
+    SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')/COUNTD([OrderID])*100, 2)) +
+    ' %  от общего количества', '20px')
+)
+```
+
+![indicator-fonts](../../_assets/datalens/visualization-ref/indicator-chart/indicator-fonts.png)
+
+{% endcut %}
+
+{% cut "Индикатор с несколькими показателями" %}
+
+```markdown
+MARKUP(
+    SIZE('Количество: ', '18px'),
+    BR(),
+    BR(),
+    COLOR(SIZE('- категорий: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443'),
+    BR(),
+    COLOR(SIZE('- подкатегорий: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue'),
+    BR(),
+    COLOR(SIZE('- брендов: ' + STR(COUNTD([ProductBrend])), '18px'), 'green'),
+    BR(),
+    COLOR(SIZE('- продуктов: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
+)
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-some-measures.png)
+
+{% endcut %}
+
+{% cut "Индикатор с отображением показателя по категориям" %}
+
+```markdown
+MARKUP(
+    SIZE('Продажи: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px'),
+    BR(),
+    COLOR(" ▲ ", "green")+" — боле 50000000 ₽  | " + COLOR(" ▼ ", "red") + " — 50000000 ₽ и менее",
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Техника для дома'))+ ' ₽ | ', 'blue') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000,"green", "red")),
+        '20px'),
+    BR() + 'Техника для дома',
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовая химия'))+ ' ₽ | ', 'green') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000,"green", "red")),
+        '20px'),
+    BR() + 'Бытовая химия',
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовые товары'))+ ' ₽ | ', 'violet') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000,"green", "red")),
+        '20px'),
+    BR() + 'Бытовые товары'
+)
+```
+
+![indicator-categories](../../_assets/datalens/visualization-ref/indicator-chart/indicator-categories.png)
 
 {% endcut %}
 

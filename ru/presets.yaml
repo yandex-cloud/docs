@@ -325,6 +325,7 @@ default:
   link-speechsense-main: https://speechsense.yandex.cloud/
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.ru/
+  link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html

@@ -20,6 +20,12 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the following roles for creating a cluster:
+
+    * [dataproc.editor](security/index.md#dataproc-editor): To create a cluster.
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a [service account](../iam/concepts/users/service-accounts.md) to the cluster and create resources under that service account.
+
 1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet to host the cluster.
 
 1. If you use security groups, [configure them](operations/cluster-create.md#change-security-groups).
@@ -60,8 +66,8 @@ To connect to a cluster:
 
 1. Connect to the cluster via SSH and make sure that Hadoop commands are executed. Depending on the image version, specify the username:
 
-   * For version 2.0: `ubuntu`.
-   * For version 1.4: `root`.
+    * For version 2.0: `ubuntu`
+    * For version 1.4: `root`
 
 For more information about connecting to a {{ dataproc-name }} cluster, see [Connecting to a cluster](operations/connect.md).
 
@@ -77,13 +83,12 @@ To connect to the {{ dataproc-name }} component interfaces via SSH with port for
 1. Create an intermediate VM with a public IP address in the same network as the cluster and with a security group that allows incoming and outgoing traffic through the component ports.
 1. Connect to the created VM via SSH with a redirect to the appropriate ports of the {{ dataproc-name }} host. Depending on the image version, specify the username:
 
-   * For version 2.0: `ubuntu`.
-   * For version 1.4: `root`.
+    * For version 2.0: `ubuntu`
+    * For version 1.4: `root`
 
-For more information about connecting to {{ dataproc-name }} cluster component interfaces, see [{#T}](operations/connect-interfaces.md).
+For more information about connecting to component interfaces of a {{ dataproc-name }} cluster, see [{#T}](operations/connect-interfaces.md).
 
 ## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
 * Learn more about [creating clusters](operations/cluster-create.md) and [working with jobs](operations/jobs.md).
-* [Create a {{ metastore-full-name }} cluster](operations/metastore/cluster-create.md).

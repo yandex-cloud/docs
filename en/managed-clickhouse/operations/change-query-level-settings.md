@@ -75,7 +75,8 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
    1. Set the required parameter values:
 
       ```bash
-      {{ yc-mdb-ch }} user update <username> <cluster_name_or_ID> \
+      {{ yc-mdb-ch }} user update <username> \
+         --cluster-name=<cluster_name> \
          --settings="<parameter_1_name>=<value_1>,<parameter_2_name>=<value_2>,..."
       ```
 
@@ -96,8 +97,8 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
           name = <username>
           ...
           settings {
-            <parameter1_name> = <value_1>
-            <parameter2_name> = <value_2>
+            <parameter1_name> = <Value_1>
+            <parameter2_name> = <Value_2>
             ...
           }
         }

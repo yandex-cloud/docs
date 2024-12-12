@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ RD }} cluster hosts to a different availability zone
-description: Follow this guide to move a {{ RD }} cluster's hosts to a different availability zone.
+description: Follow this guide to move hosts in a {{ RD }} cluster to a different availability zone.
 ---
 
 # Migrating {{ RD }} cluster hosts to a different availability zone
@@ -26,7 +26,7 @@ description: Follow this guide to move a {{ RD }} cluster's hosts to a different
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
 
          * Availability zone to which you want to move the hosts.
@@ -80,12 +80,13 @@ description: Follow this guide to move a {{ RD }} cluster's hosts to a different
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+       {% include [rest-add-hosts](../../_includes/mdb/mrd/api/rest-add-hosts.md) %}
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+   - gRPC API {#grpc-api}
+
+       {% include [grpc-add-hosts](../../_includes/mdb/mrd/api/grpc-add-hosts.md) %}
 
    {% endlist %}
 
@@ -128,12 +129,13 @@ description: Follow this guide to move a {{ RD }} cluster's hosts to a different
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+       {% include [rest-remove-hosts](../../_includes/mdb/mrd/api/rest-remove-hosts.md) %}
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter.
+   - gRPC API {#grpc-api}
+
+       {% include [grpc-remove-hosts](../../_includes/mdb/mrd/api/grpc-remove-hosts.md) %}
 
    {% endlist %}
 

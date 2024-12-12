@@ -10,6 +10,7 @@
 `DeleteClusterShard` | Удаление шарда из кластера
 `EnableClusterSharding` | Включение шардирования для кластера
 `MoveCluster` | Перемещение кластера
+`RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера

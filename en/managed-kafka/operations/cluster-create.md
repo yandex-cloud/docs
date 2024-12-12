@@ -1,5 +1,5 @@
 ---
-title: Creating a {{ KF }} cluster
+title: Creating an {{ KF }} cluster
 description: Follow this guide to create a {{ KF }} cluster.
 ---
 
@@ -31,11 +31,11 @@ When creating a cluster with the {{ kraft-short-name }} protocol, the following 
 
 For more information about the differences in cluster configurations with {{ ZK }} and {{ kraft-short-name }}, see [Resource relationships in {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
+
 ## Getting started {#before-you-begin}
 
 1. Calculate the [minimum storage size](../concepts/storage.md#minimal-storage-size) for topics.
-1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and [{{ roles.mkf.editor }} role or higher](../security/index.md#roles-list).
-
+1. [Make sure](../../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](../security/index.md#roles-list).
 
 If you specify security group IDs when creating a {{ mkf-name }} cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 

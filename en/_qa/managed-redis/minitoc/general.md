@@ -8,7 +8,7 @@
 
 * [How do I get started with {{ mrd-short-name }}?](#quickstart)
 
-* [How many database hosts can a cluster contain?](#how-many-hosts)
+* [How many database hosts can there be in one cluster?](#how-many-hosts)
 
 * [How can I access a running DB host?](#db-access)
 
@@ -41,3 +41,5 @@
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
 
 * [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)
+
+* [What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)

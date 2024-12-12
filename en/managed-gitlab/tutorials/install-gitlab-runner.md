@@ -2,7 +2,7 @@
 
 [{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} both in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on the {{ compute-name }} virtual machine, which is easier and cheaper.
 
-{{ compute-name }} provides two ways to work with {{ GLR }}: You can:
+{{ compute-name }} offers two ways to work with {{ GLR }}: You can:
 
 * Create a [VM](../../compute/concepts/vm.md) and install {{ GLR }} on it manually.
 * Using the [management console]({{ link-console-main }}), create a runner that will automatically deploy the specified number of VMs ready to run jobs.
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. Click **New instance runner** and create a new {{ GLR }}.
   1. Save the value of the `Runner authentication token` parameter.
 
-* Project settings {{ GLR }} for the project:
+* To configure {{ GLR }} project settings:
 
   1. Open {{ GL }}.
   1. Select a project.
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    Result:
 
    ```text
-   Runner registered successfully. Feel free to start it, but if it is running already the config should be automatically reloaded!
+   Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
 
    Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
    ```
@@ -100,7 +100,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Enter a name for the runner:
     
-    * It must be 2 to 63 characters long.
+    * The name must be 2 to 63 characters long.
     * It may contain lowercase Latin letters, numbers, and hyphens.
     * It must start with a letter and cannot end with a hyphen.
 
@@ -118,9 +118,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * Maximum number of jobs per worker
     * Maximum number of parallel jobs per worker
 
-1. (Optional) Add labels for the worker.
+1. Optionally, add labels for the worker.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select a preset configuration.
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select one of the preset configurations.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
@@ -129,9 +129,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-1. Make sure that the runner works:
+1. Make sure the runner works:
 
-    * {{ GL }}:
+    * In {{ GL }}:
       * If {{ GLR }} was created for the whole {{ GL }} instance:
           1. In the bottom-left corner, click **Admin**. 
           1. In the left-hand menu, select **CI/CD** → **Runners**.

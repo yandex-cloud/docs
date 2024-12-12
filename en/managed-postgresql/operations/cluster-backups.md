@@ -37,7 +37,7 @@ When restored to the current state, the new cluster will match the state of:
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
 
-     If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -45,12 +45,12 @@ When restored to the current state, the new cluster will match the state of:
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_ID>`.
+  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need, then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
 
-     If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   
@@ -87,7 +87,7 @@ When restored to the current state, the new cluster will match the state of:
 
       The backup completion time is shown in the `CREATED AT` column of the list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
-  1. Request the creation of a cluster from a backup:
+  1. Request creating a cluster from a backup:
 
 
       ```bash
@@ -134,7 +134,7 @@ When restored to the current state, the new cluster will match the state of:
           * `network-hdd`
           * `network-ssd`
           * `local-ssd`
-          * `network-ssd-nonreplicated`
+          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`.
 
 
 - {{ TF }} {#tf}
@@ -192,7 +192,7 @@ When restored to the current state, the new cluster will match the state of:
 
        {% note info %}
 
-       If you omit the `time` parameter, the cluster will be restored to the time when the backup was completed.
+       If you omit the `time` parameter, the cluster will be restored to the backup completion time.
 
        {% endnote %}
 
@@ -208,7 +208,7 @@ When restored to the current state, the new cluster will match the state of:
 
   **To restore a previously deleted cluster from a backup**:
 
-   1. Create a [{{ TF }} configuration file](cluster-create.md#create-cluster) for the new cluster.
+   1. Create a [{{ TF }}](cluster-create.md#create-cluster) configuration file for the new cluster.
 
        Do not use the database (`yandex_mdb_postgresql_database`) and user (`yandex_mdb_postgresql_user`) resources: these will be restored from the backup.
 
@@ -223,7 +223,7 @@ When restored to the current state, the new cluster will match the state of:
        }
        ```
 
-       Where `backup-id` is the ID of the deleted cluster's backup.
+       Where `backup-id` is the ID of the deleted cluster’s backup.
 
    1. Make sure the settings are correct.
 
@@ -346,7 +346,7 @@ When restored to the current state, the new cluster will match the state of:
        yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
      ```
 
-     * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
+     * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
      * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
@@ -525,7 +525,7 @@ When restored to the current state, the new cluster will match the state of:
         ```
 
 
-        You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
      1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure the request was successful.
@@ -578,7 +578,7 @@ When restored to the current state, the new cluster will match the state of:
         ```
 
 
-        You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
      1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.postgresql.v1.ListBackupsResponse) to make sure the request was successful.
@@ -825,7 +825,7 @@ When restored to the current state, the new cluster will match the state of:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
@@ -848,7 +848,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [modifying a cluster](update.md).
 
 - CLI {#cli}
 
@@ -856,7 +856,7 @@ When restored to the current state, the new cluster will match the state of:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To set a retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
+  To set the retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
 
     ```bash
     {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
@@ -931,7 +931,7 @@ When restored to the current state, the new cluster will match the state of:
 
        * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-         In this case, only one parameter is provided.
+         Only one parameter is provided in this case.
 
        * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
  
@@ -980,7 +980,7 @@ When restored to the current state, the new cluster will match the state of:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 

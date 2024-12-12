@@ -58,6 +58,8 @@
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
+      Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../managed-clickhouse/qa/connection.md#get-ssl-error).
+
    1. Agree to install the certificates in the <q>Trusted Root Certification Authorities</q> store.
 
    The certificates will be saved to the following files:

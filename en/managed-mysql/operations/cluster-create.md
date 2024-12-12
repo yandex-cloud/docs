@@ -20,7 +20,9 @@ For more information about {{ mmy-name }} cluster structure, see [Resource relat
 
 ## Creating a cluster {#create-cluster}
 
+
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
@@ -67,8 +69,9 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
-     * [Cloud network](../../vpc/concepts/network.md#network) for the {{ mmy-name }} cluster.
-     * [Security groups](../../vpc/concepts/security-groups.md) for the {{ mmy-name }} cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
+
+     * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the {{ mmy-name }} cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and select the parameters for the DB hosts created together with the {{ mmy-name }} cluster:
@@ -179,7 +182,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `backup-window-start`: Backup start time.
      * `backup-retain-period-days`: Automatic backup retention period, in days.
-     * `datalens-access`: Enables access from {{ datalens-full-name }}. The default value is `false`. For more information about how to connect to DataLens, see [{#T}](datalens-connect.md).
+     * `datalens-access`: Enables access from {{ datalens-full-name }}. The default value is `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
      * `websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
      * `deletion-protection`: Cluster deletion protection.
      * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
@@ -314,7 +317,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        }
        ```
 
-       Where `backup_retain_period_days` is the automatic backup retention period, in days.
+       Where `backup_retain_period_days` is automatic backup retention period, in days.
 
        The possible values range from `7` to `60`. The default value is `7`.
 
@@ -429,7 +432,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
 
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
@@ -446,35 +449,35 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `diskTypeId`: [Disk type](../concepts/storage.md).
 
 
-          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
               * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
 
-      * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+      * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
           * `enabled`: Enables statistics collection.
-          * `sessionsSamplingInterval`: Session sampling interval, `1` to `86400` seconds.
-          * `statementsSamplingInterval`: Statement sampling interval, `1` to `86400` seconds.
+          * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
+          * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
 
-      * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element has the `name` parameter (the DB name).
+      * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
 
           {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      * `userSpecs`: User settings as an array of elements,  one for each user. Each element has the following structure:
+      * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
           * `name`: Username.
           * `password`: User password.
-          * `permissions`: User permission settings:
+          * `permissions`: User permissions settings:
 
               * `databaseName`: Name of the database the user gets access to.
-              * `roles`: Array of user's privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
+              * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-              For each database, add a separate item with permission settings to the `permissions` array.
+              For each database, add a separate element with permission settings to the `permissions` array.
 
-      * `hostSpecs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
+      * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -572,7 +575,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
-      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) to place the cluster in.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
 
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
@@ -589,32 +592,32 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `disk_type_id`: [Disk type](../concepts/storage.md).
 
 
-          * `access`: Settings for cluster access to the following {{ yandex-cloud }} services:
+          * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
               * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
 
-      * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+      * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
           * `enabled`: Enables statistics collection.
-          * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
-          * `statements_sampling_interval`: Statement sampling interval, `60` to `86400` seconds.
+          * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
+          * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
-      * `database_specs`: Database settings as an array of elements, one for each DB. Each element has the `name` parameter (the DB name).
-      * `user_specs`: User settings as an array of elements,  one for each user. Each element has the following structure:
+      * `database_specs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
+      * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
 
           * `name`: Username.
           * `password`: User password.
           * `permissions`: User permission settings:
 
               * `database_name`: Name of the database the user gets access to.
-              * `roles`: Array of user's privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
+              * `roles`: Array of user privileges, each provided as a separate string in the array. For the list of possible values, see [User privileges in a cluster](../concepts/user-rights.md#db-privileges).
 
-              For each database, add a separate item with permission settings to the `permissions` array.
+              For each database, add a separate element with permission settings to the `permissions` array.
 
-      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+      * `host_specs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -649,7 +652,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ MY }} cluster copy:
 
@@ -674,7 +677,7 @@ To create a {{ MY }} cluster copy:
         export MYSQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ MY }} cluster into the {{ TF }} configuration:
 
@@ -735,16 +738,16 @@ To create a {{ MY }} cluster copy:
   Create a {{ mmy-name }} cluster with the following test specifications:
 
 
-  * Name: `my-mysql`
+  * Name: `my-mysql`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `production`.
   * Network: `default`.
   * Security group ID: `{{ security-group }}`.
-  * Host: `{{ host-class }}`, subnet: `{{ subnet-id }}`, availability zone: `{{ region-id }}-a`.
+  * One `{{ host-class }}` host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * User: `user1`, password: `user1user1`.
   * With one `db1` database, in which the `user1` user has full rights (same as `GRANT ALL PRIVILEGES on db1.*`).
-  * Protection against accidental cluster deletion: Enabled.
+  * Protection against accidental cluster deletion.
 
 
   1. Run this command to create a {{ mmy-name }} cluster:
@@ -780,12 +783,12 @@ To create a {{ MY }} cluster copy:
 
   Create a {{ mmy-name }} cluster and a network for it with the following test specifications:
 
-    * Name: `my-mysql`
+    * Name: `my-mysql`.
     * Version: `{{ versions.tf.latest }}`.
-    * Environment: `PRESTABLE`
+    * Environment: `PRESTABLE`.
     * Cloud ID: `{{ tf-cloud-id }}`.
     * Folder ID: `{{ tf-folder-id }}`.
-    * New network: `mynet`
+    * New network: `mynet`.
     * Host: `{{ host-class }}` (one host), new subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. Range for `mysubnet`: `10.5.0.0/24`.
 
 
@@ -878,12 +881,12 @@ To create a {{ MY }} cluster copy:
   Create a {{ mmy-name }} cluster with the following test specifications:
 
 
-  * Name: `my-mysql-3`
+  * Name: `my-mysql-3`.
   * Version: `{{ versions.cli.latest }}`.
-  * Environment: `prestable`
-  * Network: `default`
-  * Security group ID: `{{ security-group }}`
-  * `{{ host-class }}` public hosts: 3
+  * Environment: `prestable`.
+  * Network: `default`.
+  * Security group ID: `{{ security-group }}`.
+  * `{{ host-class }}` public hosts: 3.
 
     One host will be added to each subnet of the `default` network:
     * `subnet-a`: `10.5.0.0/24`, availability zone: `{{ region-id }}-a`.
@@ -956,7 +959,7 @@ To create a {{ MY }} cluster copy:
       The host residing in `mysubnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
 
-    * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the internet through port `{{ port-mmy }}`.
+    * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the Internet through port `{{ port-mmy }}`.
 
 
     * Network SSD storage (`{{ disk-type-example }}`): 32 GB.

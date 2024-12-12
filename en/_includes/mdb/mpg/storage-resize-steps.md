@@ -2,7 +2,7 @@
 If the specified threshold is reached, the storage size increases differently depending on disk type:
 
 * For network HDDs and SSDs, by the higher of the two values: 20 GB or 20% of the current disk size.
-* For non-replicated SSDs, by 93 GB.
+* For non-replicated SSDs and ultra high-speed network SSDs with three replicas, by 93 GB.
 * For local SSDs:
 
     * In an **Intel Broadwell** or **Intel Cascade Lake** cluster, by 100 GB.

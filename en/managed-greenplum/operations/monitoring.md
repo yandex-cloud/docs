@@ -103,6 +103,99 @@ To view detailed information about the state of individual {{ mgp-name }} hosts:
 
 {% endlist %}
 
+## Monitoring network state {#monitoring-network}
+
+To view detailed information about the {{ mgp-name }} cluster network state:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the name of the cluster you need and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.mdb.cluster.switch_network }}** tab.
+
+    This page displays the following charts:
+
+    * **Interfaces**:
+        * **Сlient Interface Packets**: Number of received and sent packets on the client network interface.
+        * **Сlient Interface Packets**: Total size of received and sent data on the client network interface (in bytes).
+        * **Client Interface Drops and Errors**: Number of errors and drops on the client network interface when sending or transmitting packets.
+        * **Service Interface Packets**: Number of received and sent packets on the service network interface.
+        * **Service Interface Packets**: Total size of received and sent data on the service network interface (in bytes).
+        * **Service Interface Drops and Errors**: Number of errors and drops on the service network interface when sending or transmitting packets.
+
+    * **CPU**:
+        * **CPU Usage**: Usage of processor cores (percentage).
+
+    * **Ping and SSH response time**:
+        * **Host Ping Average Response**: Average ping response time (in milliseconds).
+        * **Host Ping Packet Loss**: Lost ping packets (percentage).
+        * **Host SSH Response Time**: Response time when connecting via SSH (in milliseconds).
+
+    * **TCP counters**:
+        * **TcpActiveConnection**: Number of active TCP connections in the `ESTABLISHED` or `CLOSE-WAIT` state.
+        * **TCP Errors**: Number of errors when transmitting TCP packets.
+        * **TcpEstabPresets**: Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `ESTABLISHED` or `CLOSE-WAIT` state.
+        * **TCP Retransmission**: Number of retransmitted TCP packets.
+
+    * **ICMP Counters**:
+        * **IcmpErrors**: Number of ICMP error messages.
+        * **Icmp6PacketsTooBig**: Number of ICMPv6 Packet Too Big messages.
+        * **IcmpDestUnreached**: Number of ICMP and ICMPv6 Destination Unreachable messages.
+
+    * **UDP counters**:
+        * **UdpSndbufErrors**: Number of buffer errors when sending UDP packets.
+        * **UDP Datagrams**: Number of UDP packets.
+        * **UdpRcvbufErrors**: Number of buffer errors when receiving UDP packets.
+        * **UDP NoPorts**: Number of UDP packets received without a listener on the destination port.
+
+    * **IP**:
+        * **IpMulticastPackets**: Number of received and sent multicast packets.
+        * **Ip6 Neighbor Discovery**: Number of sent requests and router advertisements.
+        * **IpBroadcastPackets**: Number of received and sent broadcast packets.
+        * **Ip6NoRoutes**: Number of IPv6 packets discarded because no route could be found.
+
+{% endlist %}
+
+## PXF monitoring {#monitoring-pxf}
+
+To view detailed information about the [PXF](external-tables.md) state:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the name of the cluster you need and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab.
+
+    This page displays the following charts:
+
+    * **Liveness**: PXF state on hosts.
+
+    * **Connections**: Number of connections.
+
+    * **Log messages**: Number of messages of the `warn`, `trace`, `info`, `fatal`, `error`, and `debug` types.
+
+    * **File handles**: Number of files opened during the PXF process.
+
+    * **JVM memory**: JVM PXF memory usage (in GB).
+
+    * **PXF threads**: Number of PXF threads.
+
+    * **Sent data**: Amount of sent data.
+
+    * **Sent records**: Number of records send by PXF.
+
+    * **JVM threads**: Number of JVM PXF threads.
+
+    * **PXF Busy threads**: Number of busy PXF threads.
+
+    * **Received data**: Amount of received data.
+
+    * **Received records**: Number of records received by PXF.
+
+{% endlist %}
+
 
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
