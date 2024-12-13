@@ -78,8 +78,52 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/lockbox/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: payload
+        items:
+          - name: Overview
+            href: cli-ref/payload/index.md
+          - name: get
+            href: cli-ref/payload/get.md
+      - name: secret
+        items:
+          - name: Overview
+            href: cli-ref/secret/index.md
+          - name: activate
+            href: cli-ref/secret/activate.md
+          - name: add-access-binding
+            href: cli-ref/secret/add-access-binding.md
+          - name: add-version
+            href: cli-ref/secret/add-version.md
+          - name: cancel-version-destruction
+            href: cli-ref/secret/cancel-version-destruction.md
+          - name: create
+            href: cli-ref/secret/create.md
+          - name: deactivate
+            href: cli-ref/secret/deactivate.md
+          - name: delete
+            href: cli-ref/secret/delete.md
+          - name: get
+            href: cli-ref/secret/get.md
+          - name: list
+            href: cli-ref/secret/list.md
+          - name: list-access-bindings
+            href: cli-ref/secret/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/secret/list-operations.md
+          - name: list-versions
+            href: cli-ref/secret/list-versions.md
+          - name: remove-access-binding
+            href: cli-ref/secret/remove-access-binding.md
+          - name: schedule-version-destruction
+            href: cli-ref/secret/schedule-version-destruction.md
+          - name: set-access-bindings
+            href: cli-ref/secret/set-access-bindings.md
+          - name: update
+            href: cli-ref/secret/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

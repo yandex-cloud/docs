@@ -8,6 +8,8 @@
 
 <iframe
     frameborder="0"
+    width="320"
+    height="180"
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share"

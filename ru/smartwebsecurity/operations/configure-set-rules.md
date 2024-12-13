@@ -28,6 +28,91 @@ description: Следуя данной инструкции, вы сможете
       Любое правило из набора можно сделать блокирующим. Запрос, соответствующий таком правилу, будет заблокирован независимо от установленного порога аномальности. Чтобы сделать правило блокирующим, нажмите ![image](../../_assets/console-icons/ban.svg) справа от него. Если в профиле безопасности включен режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)**, запросы блокироваться не будут.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.waf.label_save-settings }}**.
 
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Вы можете динамически включить все правила из базового набора, если их уровень паранойи не выше заданного в пользовательской переменной. Для динамически настроенных правил можно вручную изменить параметры. Например, сделать правило блокирующим и сделать активным правило, у которого уровень паранойи выше, чем задан в переменной.
+
+  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием профиля безопасности `yandex_sws_waf_profile`: добавьте блок `rule` c правилом безопасности или блок `dynamic "rule"` с динамически настраиваемыми правилами.
+
+      ```hcl
+      # В базовом наборе будут активны правила этого уровня паранойи и ниже
+      locals {
+        waf_paranoia_level = 1
+      }
+
+      # Источник данных OWASP Core Rule Set
+      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
+        name    = "OWASP Core Ruleset"
+        version = "4.0.0"
+      }
+
+      # WAF профиль
+      resource "yandex_sws_waf_profile" "default" {
+        name = "<имя_WAF_профиля>"
+
+        # Базовый набор правил
+        core_rule_set {
+          inbound_anomaly_score = 2
+          paranoia_level        = local.waf_paranoia_level
+          rule_set {
+            name    = "OWASP Core Ruleset"
+            version = "4.0.0"
+          }
+        }
+
+        # Назначаем правило блокирующим — запрос будет заблокирован независимо от порога аномальности
+        rule {
+          rule_id     = "owasp-crs-v4.0.0-id942330-attack-sqli"
+          is_enabled  = true
+          is_blocking = true
+        }
+
+        # Назначаем активным правило с уровнем паранойи 4
+        rule {
+          rule_id     = "owasp-crs-v4.0.0-id920202-protocol-enforcement"
+          is_enabled  = true
+          is_blocking = false
+        }
+
+        # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
+        dynamic "rule" {
+          for_each = [
+            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
+            if rule.paranoia_level <= local.waf_paranoia_level
+          ]
+          content {
+            rule_id     = rule.value.id
+            is_enabled  = true
+            is_blocking = false
+          }
+        }
+
+        analyze_request_body {
+          is_enabled        = true
+          size_limit        = 8
+          size_limit_action = "IGNORE"
+        }
+      }
+      ```
+
+      Где:
+      * `dynamic "rule"` — динамическая активация правил из базового набора, если их уровень паранойи не выше заданного в переменной `waf_paranoia_level`. Для динамически настроенных правил можно вручную изменить параметры. Например, сделать правило блокирующим или сделать активным правило, у которого уровень паранойи выше, чем указан в переменной.
+         * `rule_id` — идентификатор правила.
+         * `is_enabled` — флаг включения или отключения правила.
+         * `is_blocking` — флаг, который назначает правило [блокирующим](../concepts/waf.md#anomaly).
+
+      Более подробную информацию о параметрах ресурса `sws_waf_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}).
+
 {% endlist %}
 
 

@@ -91,8 +91,54 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/dns/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bind-file
+        items:
+          - name: Overview
+            href: cli-ref/bind-file/index.md
+          - name: migrate-to-terraform
+            href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: zone
+        items:
+          - name: Overview
+            href: cli-ref/zone/index.md
+          - name: add-access-binding
+            href: cli-ref/zone/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/zone/add-labels.md
+          - name: add-records
+            href: cli-ref/zone/add-records.md
+          - name: create
+            href: cli-ref/zone/create.md
+          - name: delete
+            href: cli-ref/zone/delete.md
+          - name: delete-records
+            href: cli-ref/zone/delete-records.md
+          - name: get
+            href: cli-ref/zone/get.md
+          - name: list
+            href: cli-ref/zone/list.md
+          - name: list-access-bindings
+            href: cli-ref/zone/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/zone/list-operations.md
+          - name: list-records
+            href: cli-ref/zone/list-records.md
+          - name: remove-access-binding
+            href: cli-ref/zone/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/zone/remove-labels.md
+          - name: replace-records
+            href: cli-ref/zone/replace-records.md
+          - name: set-access-bindings
+            href: cli-ref/zone/set-access-bindings.md
+          - name: update
+            href: cli-ref/zone/update.md
+          - name: update-private-networks
+            href: cli-ref/zone/update-private-networks.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

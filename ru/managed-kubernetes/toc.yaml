@@ -320,8 +320,92 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-kubernetes/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-credentials
+            href: cli-ref/cluster/get-credentials.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-node-groups
+            href: cli-ref/cluster/list-node-groups.md
+          - name: list-nodes
+            href: cli-ref/cluster/list-nodes.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: create-token
+        href: cli-ref/create-token.md
+      - name: list-versions
+        href: cli-ref/list-versions.md
+      - name: marketplace
+        items:
+          - name: Overview
+            href: cli-ref/marketplace/index.md
+          - name: helm-release
+            items:
+              - name: Overview
+                href: cli-ref/marketplace/helm-release/index.md
+              - name: get
+                href: cli-ref/marketplace/helm-release/get.md
+              - name: install
+                href: cli-ref/marketplace/helm-release/install.md
+              - name: list
+                href: cli-ref/marketplace/helm-release/list.md
+              - name: uninstall
+                href: cli-ref/marketplace/helm-release/uninstall.md
+              - name: update
+                href: cli-ref/marketplace/helm-release/update.md
+      - name: node-group
+        items:
+          - name: Overview
+            href: cli-ref/node-group/index.md
+          - name: add-labels
+            href: cli-ref/node-group/add-labels.md
+          - name: add-metadata
+            href: cli-ref/node-group/add-metadata.md
+          - name: add-node-labels
+            href: cli-ref/node-group/add-node-labels.md
+          - name: create
+            href: cli-ref/node-group/create.md
+          - name: delete
+            href: cli-ref/node-group/delete.md
+          - name: get
+            href: cli-ref/node-group/get.md
+          - name: list
+            href: cli-ref/node-group/list.md
+          - name: list-nodes
+            href: cli-ref/node-group/list-nodes.md
+          - name: list-operations
+            href: cli-ref/node-group/list-operations.md
+          - name: remove-labels
+            href: cli-ref/node-group/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/node-group/remove-metadata.md
+          - name: remove-node-labels
+            href: cli-ref/node-group/remove-node-labels.md
+          - name: update
+            href: cli-ref/node-group/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

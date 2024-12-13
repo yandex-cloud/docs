@@ -4,12 +4,25 @@
 
 ## Перед началом работы {#before-begin}
 
-Чтобы воспользоваться примерами запросов через API, установите:
+Чтобы воспользоваться примерами:
 
-* [cURL](https://curl.haxx.se) для отправки API-запросов;
-* утилиту [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
+{% list tabs group=programming_language %}
 
-Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
+- SDK {#sdk}
+
+  {% include [yandexart-sdk-before-start](../../../_includes/foundation-models/yandexart/yandexart-sdk-before-start.md) %}
+
+- cURL {#curl}
+
+  1. Получите данные для аутентификации в API, как описано на странице [{#T}](../../api-ref/authentication.md).
+
+      Чтобы использовать API {{ yandexart-name }}, назначьте [роль](../../security/index.md#imageGeneration-user) `ai.imageGeneration.user` пользователю или сервисному аккаунту, от имени которого вы будете аутентифицироваться.
+  1. Установите утилиты:
+
+      * [cURL](https://curl.haxx.se) для отправки API-запросов;
+      * [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
+
+{% endlist %}
 
 ## Сгенерируйте изображение {#generate-text}
 
@@ -21,7 +34,43 @@
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- SDK {#sdk}
+
+  В данный код входят четыре независимые друг от друга примера, иллюстрирующие различные варианты использования интерфейса SDK:
+  * Пример 1: простой запрос, состоящий из одного текстового описания.
+  * Пример 2: запрос, состоящий из двух текстовых описаний, с сохранением результата в файл `./image.jpeg`.
+  * Пример 3: запрос, состоящий из двух текстовых описаний с указанием веса.
+  * Пример 4: сочетание запроса к [модели {{ yagpt-full-name }}](../../../foundation-models/concepts/yandexgpt/models.md) (для генерации расширенного промта) и запроса к модели {{ yandexart-name }} (для генерации изображения по этому промту).
+
+  Код в примере не возвращает [объект Operation](../../../api-design-guide/concepts/operation.md), а дожидается выполнения моделями запросов и сохраняет результат в переменную `result`.
+
+  1. Создайте файл `generate-image.py` и добавьте в него следующий код:
+
+      {% include [yandexart-sdk-big](../../../_includes/foundation-models/examples/yandexart-sdk-big.md) %}
+
+      Где:
+
+      * `message1` — основная часть запроса на генерацию изображения.
+      * `message2` — уточняющая часть запроса на генерацию изображения.
+
+      {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+      
+  1. Выполните созданный файл:
+
+      ```bash
+      python3 generate-image.py
+      ```
+
+      Результат выполнения:
+
+      ```text
+      ImageGenerationModelResult(model_version='', image_bytes=<889288 bytes>)
+      ImageGenerationModelResult(model_version='', image_bytes=<1062632 bytes>)
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Вот пример того, как может выглядеть запрос для модели YandexART:\n\n«Создай изображение красной кошки в стиле аниме Хаяо Миядзаки. Фон должен быть выполнен в мягких пастельных тонах с добавлением деталей, которые подчёркивают атмосферу волшебства и уюта».\n\n*Обратите внимание, что это лишь пример запроса, и вы можете адаптировать его под свои нужды.*', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=31, completion_tokens=76, total_tokens=107), model_version='07.03.2024')
+      ImageGenerationModelResult(model_version='', image_bytes=<1180073 bytes>)
+      ```
+
+- cURL {#curl}
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -83,3 +132,8 @@
      * `<идентификатор_операции>` — значение поля `id`, полученное в ответе на запрос генерации.
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/yandexart/index.md)
+* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)

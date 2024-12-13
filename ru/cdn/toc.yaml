@@ -125,8 +125,70 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/cdn/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cache
+        items:
+          - name: Overview
+            href: cli-ref/cache/index.md
+          - name: prefetch
+            href: cli-ref/cache/prefetch.md
+          - name: purge
+            href: cli-ref/cache/purge.md
+      - name: origin
+        items:
+          - name: Overview
+            href: cli-ref/origin/index.md
+          - name: create
+            href: cli-ref/origin/create.md
+          - name: delete
+            href: cli-ref/origin/delete.md
+          - name: get
+            href: cli-ref/origin/get.md
+          - name: list
+            href: cli-ref/origin/list.md
+          - name: update
+            href: cli-ref/origin/update.md
+      - name: origin-group
+        items:
+          - name: Overview
+            href: cli-ref/origin-group/index.md
+          - name: create
+            href: cli-ref/origin-group/create.md
+          - name: delete
+            href: cli-ref/origin-group/delete.md
+          - name: get
+            href: cli-ref/origin-group/get.md
+          - name: list
+            href: cli-ref/origin-group/list.md
+          - name: update
+            href: cli-ref/origin-group/update.md
+      - name: provider
+        items:
+          - name: Overview
+            href: cli-ref/provider/index.md
+          - name: activate
+            href: cli-ref/provider/activate.md
+          - name: list-activated
+            href: cli-ref/provider/list-activated.md
+      - name: resource
+        items:
+          - name: Overview
+            href: cli-ref/resource/index.md
+          - name: create
+            href: cli-ref/resource/create.md
+          - name: delete
+            href: cli-ref/resource/delete.md
+          - name: get
+            href: cli-ref/resource/get.md
+          - name: get-provider-cname
+            href: cli-ref/resource/get-provider-cname.md
+          - name: list
+            href: cli-ref/resource/list.md
+          - name: update
+            href: cli-ref/resource/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

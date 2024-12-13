@@ -9,8 +9,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-Проектируя инфраструктуру в {{ yandex-cloud }}, учитывайте лимиты как предел возможностей, которые {{ yandex-cloud }} может вам предоставить. Квоты — изменяемые ограничения, которые потенциально могут быть увеличены до значений лимитов.
-
+Проектируя инфраструктуру в {{ yandex-cloud }}, учитывайте лимиты как предел возможностей, которые {{ yandex-cloud }} может вам предоставить. Квоты — изменяемые ограничения, которые потенциально могут быть увеличены до значений лимитов. Выделенные квоты не гарантируют наличие свободных ресурсов.
 
 ## Зачем нужны квоты {#quotas}
 
@@ -59,6 +58,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 
 
+### {{ baremetal-full-name }} {#baremetal}
+
+{% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
+
+
 
 ### {{ billing-name }} {#billing}
 
@@ -83,6 +87,13 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
+
+
+
+### {{ foundation-models-full-name }} {#foundation-models}
+
+{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
+
 
 
 
@@ -334,6 +345,10 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
 
+### {{ speechsense-full-name }} {#speechsense}
+
+{% include [speechsense-limits.md](../../_includes/speechsense-limits.md) %}
+
 
 
 ### {{ translate-full-name }} {#translate}
@@ -358,13 +373,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ websql-full-name }} {#websql}
 
 {% include [websql-limits](../../_includes/websql-limits.md) %}
-
-
-
-
-### {{ yagpt-full-name }} {#yagpt}
-
-{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

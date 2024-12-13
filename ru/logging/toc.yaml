@@ -83,8 +83,66 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/logging/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: group
+        items:
+          - name: Overview
+            href: cli-ref/group/index.md
+          - name: add-access-binding
+            href: cli-ref/group/add-access-binding.md
+          - name: create
+            href: cli-ref/group/create.md
+          - name: delete
+            href: cli-ref/group/delete.md
+          - name: get
+            href: cli-ref/group/get.md
+          - name: list
+            href: cli-ref/group/list.md
+          - name: list-access-bindings
+            href: cli-ref/group/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/group/list-operations.md
+          - name: list-resources
+            href: cli-ref/group/list-resources.md
+          - name: remove-access-binding
+            href: cli-ref/group/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/group/set-access-bindings.md
+          - name: stats
+            href: cli-ref/group/stats.md
+          - name: update
+            href: cli-ref/group/update.md
+      - name: read
+        href: cli-ref/read.md
+      - name: sink
+        items:
+          - name: Overview
+            href: cli-ref/sink/index.md
+          - name: add-access-binding
+            href: cli-ref/sink/add-access-binding.md
+          - name: create
+            href: cli-ref/sink/create.md
+          - name: delete
+            href: cli-ref/sink/delete.md
+          - name: get
+            href: cli-ref/sink/get.md
+          - name: list
+            href: cli-ref/sink/list.md
+          - name: list-access-bindings
+            href: cli-ref/sink/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/sink/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/sink/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/sink/set-access-bindings.md
+          - name: update
+            href: cli-ref/sink/update.md
+      - name: write
+        href: cli-ref/write.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

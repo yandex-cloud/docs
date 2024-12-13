@@ -12,6 +12,8 @@
 
 * [При запуске задания PySpark возникает ошибка, связанная с `com/amazonaws/auth/AWSCredentialsProvider`, как это исправить?](#sharedPrefixes-property)
 
+* [При использовании динамической перезаписи партиций возникает ошибка, связанная с `PathOutputCommitProtocol`, как это исправить?](#dynamic-partition-overwrite)
+
 * [Почему возникает ошибка `NAT should be enabled on the subnet`, и как ее исправить?](#nat)
 
 * [Почему возникает ошибка `Using fileUris is forbidden on lightweight cluster`, и как ее исправить?](#file-uri)

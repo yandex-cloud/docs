@@ -72,8 +72,8 @@
 
         ```
         -----BEGIN CERTIFICATE-----
-        <значение_сертификата>
-        -----END CERTIFICATE-----
+          <значение_сертификата>
+        -----END CERTIFICATE-------
         ```
 
     Вы также можете получить сертификат по прямой ссылке:
@@ -196,28 +196,28 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <идентификатор_организации> \
-            --auto-create-account-on-login \
-            --encrypted-assertions \
-            --cookie-max-age 12h \
-            --issuer "http://<хост>:8080/realms/master" \
-            --sso-binding POST \
-            --sso-url "http://<хост>:8080/realms/master/protocol/saml" \
-            --force-authn
+          --organization-id <идентификатор_организации> \
+          --auto-create-account-on-login \
+          --encrypted-assertions \
+          --cookie-max-age 12h \
+          --issuer "http://<хост>:8080/realms/master" \
+          --sso-binding POST \
+          --sso-url "http://<хост>:8080/realms/master/protocol/saml" \
+          --force-authn
         ```
 
       - Keycloak 16 и предшествующих версий
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <идентификатор_организации> \
-            --auto-create-account-on-login \
-            --encrypted-assertions \
-            --cookie-max-age 12h \
-            --issuer "http://<хост>:8080/auth/realms/master" \
-            --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml" \
-            --sso-binding POST \
-            --force-authn
+          --organization-id <идентификатор_организации> \
+          --auto-create-account-on-login \
+          --encrypted-assertions \
+          --cookie-max-age 12h \
+          --issuer "http://<хост>:8080/auth/realms/master" \
+          --sso-url "http://<хост>:8080/auth/realms/master/protocol/saml" \
+          --sso-binding POST \
+          --force-authn
         ```
 
         Где:
@@ -414,7 +414,45 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. В конфигурационном файле опишите параметры федерации:
+  1. В конфигурационном файле опишите параметры федерации.
+
+      Пример структуры конфигурационного файла:
+
+      - Keycloak 17 или новее
+
+          ```hcl
+          resource "yandex_organizationmanager_saml_federation" federation {
+          name            = "my-federation"
+          organization_id = "<идентификатор_организации>"
+          auto_create_account_on_login = "true"
+          issuer          = "http://<хост>:8080/auth/realms/master"
+          sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
+          sso_binding     = "POST"
+          security_settings {
+              encrypted_assertions = "true"
+              force_authn          = "true"
+            }
+          }
+          ```
+
+      - Keycloak 16 и предшествующих версий
+
+          ```hcl
+          resource "yandex_organizationmanager_saml_federation" federation {
+          name            = "my-federation"
+          organization_id = "<идентификатор_организации>"
+          auto_create_account_on_login = "true"
+          issuer          = "http://<хост>:8080/realms/master"
+          sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
+          sso_binding     = "POST"
+          security_settings {
+              encrypted_assertions = "true"
+              force_authn          = "true"
+            }
+          }
+          ```
+
+      Где:
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `description` — описание федерации.
@@ -487,63 +525,31 @@
       * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
         Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
       * `security_settings` — настройки безопасности федерации:
-        * `encrypted_assertions` — подписывать запросы аутентификации. 
-           Если включить опцию, то все запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Вам потребуется скачать и установить сертификат {{ yandex-cloud }}.
 
-      {% cut "Пример структуры конфигурационного файла" %}
+        * {% include [encrypted-assertions-tf](../../../_includes/organization/encrypted-assertions-tf.md) %}
 
-      - Keycloak 17 или новее
+        * {% include [force-authn-tf](../../../_includes/organization/force-authn-tf.md) %}
 
-        ```
-        resource "yandex_organizationmanager_saml_federation" federation {
-        name            = "my-federation"
-        organization_id = "<идентификатор_организации>"
-        auto_create_account_on_login = "true"
-        issuer          = "http://<хост>:8080/auth/realms/master"
-        sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
-        sso_binding     = "POST"
-        security_settings {
-            encrypted_assertions = "true"
-            }
-        }
-        ```
-
-      - Keycloak 16 и предшествующих версий
-
-        ```
-        resource "yandex_organizationmanager_saml_federation" federation {
-        name            = "my-federation"
-        organization_id = "<идентификатор_организации>"
-        auto_create_account_on_login = "true"
-        issuer          = "http://<хост>:8080/realms/master"
-        sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
-        sso_binding     = "POST"
-        security_settings {
-            encrypted_assertions = "true"
-            }
-        }
-        ```
-
-      {% endcut %}
+      {% include [organizationmanager_saml_federation-tf](../../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 
       1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
       1. Выполните проверку с помощью команды:
 
-        ```
-        terraform plan
-        ```
+          ```bash
+          terraform plan
+          ```
 
-        Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+          Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Создайте федерацию.
 
       1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```
-        terraform apply
-        ```
+          ```bash
+          terraform apply
+          ```
 
       1. Подтвердите создание федерации.
 
@@ -569,7 +575,7 @@
 
   1. Посмотрите описание команды добавления сертификата:
 
-     ```
+     ```bash
      yc organization-manager federation saml certificate create --help
      ```
 
@@ -795,13 +801,13 @@
 
   1. Посмотрите описание команды добавления пользователей:
 
-     ```
+     ```bash
      yc organization-manager federation saml add-user-accounts --help
      ```
 
   1. Добавьте пользователей, перечислив их Name ID через запятую:
 
-     ```
+     ```bash
      yc organization-manager federation saml add-user-accounts --id <ID_федерации> \
        --name-ids=alice@example.com,bob@example.com,charlie@example.com
      ```
