@@ -1414,6 +1414,7 @@ default:
         opensearch|month|string: ₸16.00
         pg|month|string: ₸16.00
       network-nvme:
+        ch|month|number: 65.05
         ch|month|string: ₸65.05
         elasticsearch|month|string: ₸65.05
         greenplum|month|string: ₸65.05
@@ -1499,6 +1500,7 @@ default:
           ram|month|string: ₸1584.00
           ram|string: ₸2.20
       redis:
+        backup|month|string: ₸9.60
         v1:
           cpu:
             c100|month|string: ₸7200.00
@@ -2668,6 +2670,7 @@ default:
         opensearch|month|string: ₽3.20
         pg|month|string: ₽3.20
       network-nvme:
+        ch|month|number: 13.01
         ch|month|string: ₽13.01
         elasticsearch|month|string: ₽13.01
         greenplum|month|string: ₽13.01
@@ -2753,6 +2756,7 @@ default:
           ram|month|string: ₽316.80
           ram|string: ₽0.44
       redis:
+        backup|month|string: ₽1.92
         v1:
           cpu:
             c100|month|string: ₽1440.00
@@ -4002,6 +4006,7 @@ default:
           ram|month|string: $2.534400
           ram|string: $0.003520
       redis:
+        backup|month|string: $0.015360
         v1:
           cpu:
             c100|month|string: $11.520000
@@ -6095,6 +6100,7 @@ default:
         label_idle-timeout: Idle timeout, seconds
         label_interval: Interval
         label_lb-settings: Load balancing settings
+        label_listener-type: Listener type
         label_listener-type-http: HTTP
         label_listener-type-stream: Stream
         label_listeners: Listeners
@@ -6133,6 +6139,7 @@ default:
         label_route-action-route: Routing
         label_route-action-statusResponse: Response
         label_route-type: Type
+        label_security-profile-id: Security profile
         label_send: Send
         label_server-names: Server names
         label_service-name: Service name
@@ -7347,6 +7354,7 @@ default:
           switch_events: Events
           switch_marketplace: Marketplace
           switch_namespaces: Namespaces
+          switch_network: Network
           switch_nodes-manager: Nodes manager
           switch_storage: Storage
           switch_workloads: Workload
@@ -7392,6 +7400,8 @@ default:
         namespaces:
           button_create: Create
           popup-add_field_name: Name
+        network:
+          label_ingress: Ingress
         node-group:
           access-method:
             field_os-login-access-method: Access by OS Login
@@ -8688,6 +8698,12 @@ default:
         label_promt: YandexGPT Prompt mode
         label_request-text: Request
         label_temperature-text: Temperature
+        speechkit:
+          services:
+            speech-synthesys:
+              title: Speech synthesis
+            stt:
+              title: Speech recognition
       ydb:
         browse:
           button_create: Create

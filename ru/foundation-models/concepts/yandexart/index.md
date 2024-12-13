@@ -6,6 +6,8 @@
 
 Также можно указать формат итогового изображения в параметре `mime_type`. На данный момент поддерживается значение `image/jpeg`.
 
+Чтобы использовать модели генерации изображений {{ yandexart-name }}, необходима [роль](../../security/index.md#imageGeneration-user) `ai.imageGeneration.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
 Примеры инструкций и запросов собраны в [библиотеке промтов {{ yandexart-name }}](../../prompts/yandexart/index.md).
 
 ## Советы для создания промтов для {{ yandexart-name }} {#tips}

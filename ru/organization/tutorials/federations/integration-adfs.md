@@ -101,14 +101,14 @@
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <идентификатор_организации> \
-            --auto-create-account-on-login \
-            --cookie-max-age 12h \
-            --issuer "http://example.com/adfs/services/trust" \
-            --sso-url "https://example.com/adfs/ls/" \
-            --sso-binding POST \
-            --encrypted-assertions \
-            --force-authn
+          --organization-id <идентификатор_организации> \
+          --auto-create-account-on-login \
+          --cookie-max-age 12h \
+          --issuer "http://example.com/adfs/services/trust" \
+          --sso-url "https://example.com/adfs/ls/" \
+          --sso-binding POST \
+          --encrypted-assertions \
+          --force-authn
         ```
 
         Где:
@@ -146,77 +146,85 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. В конфигурационном файле опишите параметры федерации:
+  1. В конфигурационном файле опишите параметры федерации.
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `description` — описание федерации.
-        * `organization_id` — [идентификатор](../../operations/organization-get-id.md) организации.
-        * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
-        * `issuer` — идентификатор поставщика удостоверений (Identity Provider, IdP), с помощью которого будет происходить аутентификация.
+      Пример структуры конфигурационного файла:
 
-            Укажите ссылку в формате `http://<FQDN_фермы_AD_FS>/adfs/services/trust`.
+      ```hcl
+      resource "yandex_organizationmanager_saml_federation" federation {
+        name            = "my-federation"
+        organization_id = "<идентификатор_организации>"
+        auto_create_account_on_login = "true"
+        issuer          = "http://example.com/adfs/services/trust"
+        sso_url         = "https://example.com/adfs/ls/"
+        sso_binding     = "POST"
+        security_settings {
+          encrypted_assertions = "true"
+          force_authn          = "true"
+        }
+      }
+      ```
 
-            {% include [get-adfs-farm-fqdn](../../../_includes/organization/get-adfs-farm-fqdn.md) %}
+      Где:
 
-        * `sso_binding` — тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
-        * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
+      * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+      * `description` — описание федерации.
+      * `organization_id` — [идентификатор](../../operations/organization-get-id.md) организации.
+      * `labels` — набор пар меток ключ/значение, которые присвоены федерации.
+      * `issuer` — идентификатор поставщика удостоверений (Identity Provider, IdP), с помощью которого будет происходить аутентификация.
 
-            Укажите ссылку в формате `https://<FQDN_фермы_AD_FS>/adfs/ls/`.
+          Укажите ссылку в формате `http://<FQDN_фермы_AD_FS>/adfs/services/trust`.
 
-            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+          {% include [get-adfs-farm-fqdn](../../../_includes/organization/get-adfs-farm-fqdn.md) %}
 
-        * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`.
-        * `auto_create_account_on_login` — опция, которая активирует автоматическое создание новых пользователей в облаке после аутентификации с помощью поставщика удостоверений.
+      * `sso_binding` — тип привязки для Single Sign-on. Большинство поставщиков поддерживают тип привязки `POST`.
+      * `sso_url` — URL-адрес страницы, на которую браузер должен перенаправить пользователя для аутентификации.
 
-            Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
+          Укажите ссылку в формате `https://<FQDN_фермы_AD_FS>/adfs/ls/`.
 
-            Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию с помощью поставщика удостоверений. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
-        * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
-           Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * `security_settings` — настройки безопасности федерации:
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+      * `cookie_max_age` — время в секундах, в течение которого браузер не должен требовать у пользователя повторной аутентификации. Значение по умолчанию `8 часов`.
+      * `auto_create_account_on_login` — опция, которая активирует автоматическое создание новых пользователей в облаке после аутентификации с помощью поставщика удостоверений.
+
+          Опция упрощает процесс заведения пользователей, но созданный таким образом пользователь не сможет выполнять никаких операций с ресурсами в облаке. Исключение — те ресурсы, на которые назначены роли [публичной группе](../../../iam/concepts/access-control/public-group.md) `All users` или `All authenticated users`.
+
+          Если опцию не включать, то пользователь, которого не добавили в организацию, не сможет войти в консоль управления, даже если пройдет аутентификацию с помощью поставщика удостоверений. В этом случае вы можете управлять списком пользователей, которым разрешено пользоваться ресурсами {{ yandex-cloud }}.
+
+      * `case_insensitive_name_ids` — зависимость имен пользователей от регистра.
+          Если опция включена, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
+      * `security_settings` — настройки безопасности федерации:
 
           * {% include [encrypted-assertions-tf](../../../_includes/organization/encrypted-assertions-tf.md) %}
 
-            {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
+              {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
 
-     Пример структуры конфигурационного файла:
+          * {% include [force-authn-tf](../../../_includes/organization/force-authn-tf.md) %}
 
-     ```hcl
-     resource "yandex_organizationmanager_saml_federation" federation {
-      name            = "my-federation"
-      organization_id = "<идентификатор_организации>"
-      auto_create_account_on_login = "true"
-      issuer          = "http://example.com/adfs/services/trust"
-      sso_url         = "https://example.com/adfs/ls/"
-      sso_binding     = "POST"
-      security_settings {
-         encrypted_assertions = "true"
-         }
-     }
-     ```
+      {% include [organizationmanager_saml_federation-tf](../../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+      1. Выполните проверку с помощью команды:
 
-        ```bash
-        terraform plan
-        ```
+          ```bash
+          terraform plan
+          ```
 
-     Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если конфигурация описана верно, в терминале отобразятся параметры федерации. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Создайте федерацию.
 
-     1. Если в конфигурации нет ошибок, выполните команду:
+      1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```bash
-        terraform apply
-        ```
+          ```bash
+          terraform apply
+          ```
 
-     1. Подтвердите создание федерации.
+      1. Подтвердите создание федерации.
 
-     После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
+      После этого в указанной организации будет создана федерация. Проверить появление федерации и ее настроек можно в организации в разделе [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}).
 
 - API {#api}
 
@@ -360,10 +368,10 @@
           ```bash
           export IAM_TOKEN=CggaAT********
           curl -X POST \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${IAM_TOKEN}" \
-              -d '@body.json' \
-              "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${IAM_TOKEN}" \
+            -d '@body.json' \
+            "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
           ```
 
     {% endlist %}

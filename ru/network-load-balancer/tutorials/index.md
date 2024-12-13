@@ -17,3 +17,4 @@ description: Различные сценарии использования {{ n
 * [{#T}](./storage-vpc-access.md)
 * [{#T}](./updating-under-load.md)
 * [{#T}](./vpc-cr-access.md)
+* [{#T}](./migration-from-nlb-to-alb/index.md)

@@ -75,6 +75,24 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          защиты от DDoS-атак с помощью {{ sws-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
   - name: Концепции
     expanded: true
     items:
@@ -96,8 +114,24 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/smartwebsecurity/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: security-profile
+        items:
+          - name: Overview
+            href: cli-ref/security-profile/index.md
+          - name: create
+            href: cli-ref/security-profile/create.md
+          - name: delete
+            href: cli-ref/security-profile/delete.md
+          - name: get
+            href: cli-ref/security-profile/get.md
+          - name: list
+            href: cli-ref/security-profile/list.md
+          - name: update
+            href: cli-ref/security-profile/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

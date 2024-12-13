@@ -8,6 +8,7 @@ _Функциональность {{ assistant-api }} находится на с
 
 Вы можете создать своего AI-ассистента с помощью [{{ ml-sdk-full-name }}](../../sdk/index.md) или реализуя запросы к API на языке программирования.
 
+Чтобы использовать {{ assistant-api }} в {{ foundation-models-full-name }}, необходимы [роли](../../security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 ## Из чего состоят AI-ассистенты {#content}
 

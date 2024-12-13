@@ -93,8 +93,38 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/certificate-manager/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: certificate
+        items:
+          - name: Overview
+            href: cli-ref/certificate/index.md
+          - name: add-access-binding
+            href: cli-ref/certificate/add-access-binding.md
+          - name: content
+            href: cli-ref/certificate/content.md
+          - name: create
+            href: cli-ref/certificate/create.md
+          - name: delete
+            href: cli-ref/certificate/delete.md
+          - name: get
+            href: cli-ref/certificate/get.md
+          - name: list
+            href: cli-ref/certificate/list.md
+          - name: list-access-bindings
+            href: cli-ref/certificate/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/certificate/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/certificate/remove-access-binding.md
+          - name: request
+            href: cli-ref/certificate/request.md
+          - name: set-access-bindings
+            href: cli-ref/certificate/set-access-bindings.md
+          - name: update
+            href: cli-ref/certificate/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

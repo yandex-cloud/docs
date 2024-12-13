@@ -26,4 +26,75 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным профилем нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы удалить WAF профиль {{ sws-full-name }}, созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигурации {{ TF }} и удалите фрагмент с описанием WAF профиля.
+
+     {% cut "Пример описания WAF профиля в конфигурации {{ TF }}" %}
+
+     ```hcl
+      # В базовом наборе будут активны правила этого уровня паранойи и ниже
+      locals {
+        waf_paranoia_level = 1
+      }
+
+      # Источник данных OWASP Core Rule Set
+      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
+        name    = "OWASP Core Ruleset"
+        version = "4.0.0"
+      }
+
+      # WAF профиль
+      resource "yandex_sws_waf_profile" "default" {
+        name = "<имя_WAF_профиля>"
+
+        # Базовый набор правил
+        core_rule_set {
+          inbound_anomaly_score = 2
+          paranoia_level        = local.waf_paranoia_level
+          rule_set {
+            name    = "OWASP Core Ruleset"
+            version = "4.0.0"
+          }
+        }
+
+        # Активируем правила из базового набора, если их уровень паранойи не выше заданного в переменной waf_paranoia_level
+        dynamic "rule" {
+          for_each = [
+            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
+            if rule.paranoia_level <= local.waf_paranoia_level
+          ]
+          content {
+            rule_id     = rule.value.id
+            is_enabled  = true
+            is_blocking = false
+          }
+        }
+
+        analyze_request_body {
+          is_enabled        = true
+          size_limit        = 8
+          size_limit_action = "IGNORE"
+        }
+      }
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../waf/api-ref/WafProfile/delete.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/) или вызовом gRPC API [WafProfile/Delete](../waf/api-ref/grpc/WafProfile/delete.md).
+
 {% endlist %}

@@ -38,6 +38,23 @@ previously initiated loading for a different type with name "com/amazonaws/auth/
 
 Чтобы ее исправить, [добавьте свойство](../../data-proc/operations/cluster-update.md) `spark:spark.sql.hive.metastore.sharedPrefixes` со значением `com.amazonaws,ru.yandex.cloud` в кластер {{ dataproc-name }}.
 
+#### При использовании динамической перезаписи партиций возникает ошибка, связанная с `PathOutputCommitProtocol`, как это исправить? {#dynamic-partition-overwrite}
+
+Если при обработке данных используется динамическая перезапись партиций, может возникнуть такая ошибка:
+
+```text
+py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
+: java.io.IOException: PathOutputCommitProtocol does not support dynamicPartitionOverwrite
+```
+
+Чтобы ее исправить, [добавьте](../../data-proc/operations/cluster-update.md) в кластер {{ dataproc-name }} свойства:
+
+* `spark:spark.sql.sources.partitionOverwriteMode : dynamic`
+* `spark:spark.sql.parquet.output.committer.class : org.apache.parquet.hadoop.ParquetOutputCommitter`
+* `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`
+
+Добавить свойства также можно при [создании задания](../../data-proc/operations/jobs.md).
+
 #### Почему возникает ошибка `NAT should be enabled on the subnet`, и как ее исправить? {#nat}
 
 Ошибка возникает при попытке создать кластер {{ dataproc-name }} в подсети, для которой не настроен NAT-шлюз. Чтобы исправить ее, [настройте сеть для {{ dataproc-name }}](../../data-proc/tutorials/configure-network.md).

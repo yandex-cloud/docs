@@ -32,7 +32,6 @@ title: Как получить информацию о партнерах {{ int
       | msk_ix    | ru-central1 | UP     |
       | obit      | ru-central1 | UP     |
       | retn      | ru-central1 | UP     |
-      | rt_solar  | ru-central1 | UP     |
       | tnsplus   | ru-central1 | UP     |
       | vimpelkom | ru-central1 | UP     |
       +-----------+-------------+--------+

@@ -296,6 +296,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   ```php
   <?php
 
+    date_default_timezone_set('UTC');
     $keyid = "<идентификатор_статического_ключа>";
     $secretkey = "<содержимое_статического_ключа>";
     $path = "<ключ_объекта>";

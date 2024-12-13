@@ -7,23 +7,28 @@ description: Страница содержит все инструкции дл�
 
 ## Пошаговые инструкции для {{ yagpt-full-name }} {#yandexgpt-api}
 
+* [{#T}](./yandexgpt/evaluate-request.md)
 * [{#T}](./yandexgpt/create-prompt.md)
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
+
+## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
+
+[{#T}](./yandexart/request.md)
 
 ## Пошаговые инструкции для классификаторов на базе {{ yagpt-name }} {#classifiers}
 
 * [{#T}](./classifier/readymade.md)
 * [{#T}](./classifier/additionally-trained.md)
 
+## Пошаговые инструкции по использованию эмбеддингов {#embeddings}
+
+* [{#T}](./embeddings/search.md)
+
 ## Пошаговые инструкции для {{ assistant-api }} {#assistant}
 
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
-
-## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
-
-[{#T}](./yandexart/request.md)
 
 ## Общие пошаговые инструкции {#general}
 
