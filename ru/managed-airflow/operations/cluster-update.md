@@ -34,7 +34,7 @@ keywords:
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}** — укажите количество экземпляров и ресурсов.
+    1. В блоках для настройки [компонентов](../concepts/index.md#components) {{ maf-name }} — **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}** — укажите количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/index.md#presets).
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_triggerer }}** включите или выключите службу Triggerer. Если служба включена, укажите количество экземпляров и ресурсов.
 
@@ -230,13 +230,17 @@ keywords:
 
             * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и триггера.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.
                 * `minCount`, `maxCount` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и триггера. Возможные значения:
+                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и Triggerer. Возможные значения:
 
+                    * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
+                    * `c2-m4` — 2 vCPU, 4 ГБ RAM.
                     * `c2-m8` — 2 vCPU, 8 ГБ RAM.
+                    * `c4-m8` — 4 vCPU, 8 ГБ RAM.
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:
@@ -413,13 +417,17 @@ keywords:
 
             * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и триггера.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.
                 * `min_count`, `max_count` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и триггера. Возможные значения:
+                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и Triggerer. Возможные значения:
 
+                    * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
+                    * `c2-m4` — 2 vCPU, 4 ГБ RAM.
                     * `c2-m8` — 2 vCPU, 8 ГБ RAM.
+                    * `c4-m8` — 4 vCPU, 8 ГБ RAM.
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:

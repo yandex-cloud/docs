@@ -5,10 +5,19 @@ from __future__ import annotations
 import pathlib
 from yandex_cloud_ml_sdk import YCloudML
 from yandex_cloud_ml_sdk.search_indexes import StaticIndexChunkingStrategy, TextSearchIndexType
+from os import walk
+
+mypath = "<путь_к_файлам_с_примерами>"
+files_list = []
+
+for (dirpath, dirnames, filenames) in walk(mypath):
+    for i in enumerate(filenames):
+        filenames[i[0]] = mypath + filenames[i[0]]
+    files_list.extend(filenames)
+    break
 
 def local_path(path: str) -> pathlib.Path:
     return pathlib.Path(__file__).parent / path
-
 
 def main() -> None:
     sdk = YCloudML(folder_id="<идентификатор_каталога>", auth="<API-ключ>")
@@ -16,7 +25,7 @@ def main() -> None:
     # Загрузим файлы с примерами
     # Файлы будут храниться 5 дней
     files = []
-    for path in ['bali.md', 'kazakhstan.md']:
+    for path in (files_list):
         file = sdk.files.upload(
             local_path(path),
             ttl_days=5,
@@ -47,10 +56,30 @@ def main() -> None:
     assistant = sdk.assistants.create('yandexgpt', tools=[tool])
     thread = sdk.threads.create()
 
-    thread.write("Сколько стоит виза на Бали?")
-    run = assistant.run(thread)
-    result = run.wait()
-    print('Answer:', result.text)
+    input_text = ""
+
+    while input_text != "exit":
+        print("Введите ваш вопрос ассистенту:")
+        input_text = input()
+        if input_text != "exit":
+            thread.write(input_text)
+
+            # Отдаем модели все содержимое треда
+            run = assistant.run(thread)
+    
+            # Чтобы получить результат, нужно дождаться окончания запуска   
+            result = run.wait()
+    
+            # Выводим на экран ответ
+            print('Answer:', result.text)
+
+    # Можно посмотреть, что хранится в треде
+
+    print('Вывод всей истории сообщений при выходе из чата:')
+
+    for message in thread:
+        print(f"    {message=}")
+        print(f"    {message.text=}\n")
 
     # Удаляем все ненужное
     search_index.delete()
@@ -60,12 +89,6 @@ def main() -> None:
     for file in files:
         file.delete()
 
-
 if __name__ == '__main__':
     main()
 ```
-
-Где:
-
-* `<идентификатор_каталога>` — идентификатор каталога, в котором создан сервисный аккаунт.
-* `<API-ключ>` — API-ключ сервисного аккаунта, полученный ранее.

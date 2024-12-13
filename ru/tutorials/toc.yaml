@@ -13,6 +13,23 @@ items:
             href: security/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          защиты от DDoS-атак с помощью {{ sws-name }}
+        items:
+          - name: Обзор
+            href: security/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            href: security/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            href: >-
+              security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            href: security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            href: security/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
       - name: Терминирование TLS-соединений
         items:
           - name: Обзор

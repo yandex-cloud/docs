@@ -20,6 +20,12 @@
 
   Для работы из консоли управления подготовительные действия не требуются.
 
+- SDK {#sdk}
+
+  Чтобы воспользоваться примерами запросов с использованием SDK:
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
+
 - API {#api}
 
   Чтобы воспользоваться примерами запроса через API, установите [cURL](https://curl.haxx.se). 
@@ -61,6 +67,10 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. Ответ отобразится в правой части экрана.
 
      ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
+
+- SDK {#sdk}
+
+  {% include [yandexgpt-sdk-entire-generation-block](../../_includes/foundation-models/yandexgpt/yandexgpt-sdk-entire-generation-block.md) %}
 
 - API {#api}
 

@@ -84,57 +84,20 @@ editable: false
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Хосты {{ CH }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **Хранилище для хостов {{ CH }}**: по 100 ГБ на сетевых HDD-дисках на каждый хост.
 * **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b3-c1-m4`: Intel Ice Lake, 2 × 50% vCPU, 4 ГБ RAM.
-* **Хранилище**: 100 ГБ на сетевых HDD-дисках.
-
-Расчет стоимости для хостов {{ CH }}:
+* **Хранилище для хостов {{ ZK }}**: по 10 ГБ на сетевых SSD-дисках на каждый хост.
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-ch.md) %}
+  {% include [rub-hour](../_pricing_examples/managed-clickhouse/rub-hour.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-ch.md) %}
-
-{% endlist %}
-
-
-
-
-Расчет стоимости для хостов {{ ZK }}:
-
-
-{% list tabs group=pricing %}
-
-- Расчет в рублях {#prices-rub}
-
-  {% include [rub-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-zk.md) %}
-
-- Расчет в тенге {#prices-kzt}
-
-  {% include [kzt-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-zk.md) %}
-
-{% endlist %}
-
-
-
-
-Расчет стоимости хранилища и итоговой стоимости:
-
-
-{% list tabs group=pricing %}
-
-- Расчет в рублях {#prices-rub}
-
-  {% include [rub-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/rub-managed-clickhouse-storage.md) %}
-
-- Расчет в тенге {#prices-kzt}
-
-  {% include [kzt-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/kzt-managed-clickhouse-storage.md) %}
+  {% include [kzt-hour](../_pricing_examples/managed-clickhouse/kzt-hour.md) %}
 
 {% endlist %}
 

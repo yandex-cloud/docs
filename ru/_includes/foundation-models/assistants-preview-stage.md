@@ -1,0 +1,1 @@
+_Функциональность {{ assistant-api }} находится на стадии [Preview](../../overview/concepts/launch-stages.md)._

@@ -101,6 +101,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `String` | `String` |
 | `Utf8` | `Utf8` |
 | `Json` | `Json` |
+| `JsonDocument` | `Json` |
 
 ### Опциональные типы данных {#supported_types_nullable}
 
@@ -123,4 +124,5 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
 | `Optional<Json>` | `Optional<Json>` |
+| `Optional<JsonDocument>` | `Optional<Json>` |
 

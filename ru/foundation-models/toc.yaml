@@ -15,28 +15,34 @@ items:
         href: operations/disable-logging.md
       - name: Генерация текста
         items:
+          - name: Оценить запрос в токенах
+            href: operations/yandexgpt/evaluate-request.md
           - name: Отправить запрос в промт-режиме
             href: operations/yandexgpt/create-prompt.md
           - name: Отправить серию запросов в режиме чата
             href: operations/yandexgpt/create-chat.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
+      - name: Генерация изображений
+        items:
+          - name: Сгенерировать изображение
+            href: operations/yandexart/request.md
       - name: Классификация
         items:
           - name: Использовать классификаторы по промту
             href: operations/classifier/readymade.md
           - name: Использовать дообученные классификаторы
             href: operations/classifier/additionally-trained.md
+      - name: Эмбеддинги
+        items:
+          - name: Использовать эмбеддинги в поиске по базе знаний
+            href: operations/embeddings/search.md
       - name: '{{ assistant-api }}'
         items:
           - name: Создать простого ассистента
             href: operations/assistant/create.md
           - name: Создать ассистента для поиска
             href: operations/assistant/create-with-searchindex.md
-      - name: '{{ yandexart-name }}'
-        items:
-          - name: Генерация изображений
-            href: operations/yandexart/request.md
       - name: Дообучение моделей
         items:
           - name: Дообучение моделей в {{ foundation-models-name }}
@@ -53,22 +59,22 @@ items:
             href: concepts/yandexgpt/models.md
           - name: Токены
             href: concepts/yandexgpt/tokens.md
-      - name: Эмбеддинги
-        href: concepts/embeddings.md
-      - name: Классификация
-        items:
-          - name: Обзор
-            href: concepts/classifier/index.md
-          - name: Модели
-            href: concepts/classifier/models.md
-      - name: '{{ assistant-api }}'
-        href: concepts/assistant/index.md
       - name: Генерация изображений
         items:
           - name: Обзор {{ yandexart-name }}
             href: concepts/yandexart/index.md
           - name: Модели
             href: concepts/yandexart/models.md
+      - name: Классификация
+        items:
+          - name: Обзор
+            href: concepts/classifier/index.md
+          - name: Модели
+            href: concepts/classifier/models.md
+      - name: Эмбеддинги
+        href: concepts/embeddings.md
+      - name: '{{ assistant-api }}'
+        href: concepts/assistant/index.md
       - name: Дообучение
         items:
           - name: Обзор
@@ -153,28 +159,46 @@ items:
                   - name: TokenizeCompletion
                     href: >-
                       text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
-      - name: Embeddings API (англ.)
+      - name: '{{ yandexart-name }} (англ.)'
         items:
           - name: REST
             items:
               - name: Overview
-                href: embeddings/api-ref/index.md
-              - name: Embeddings
+                href: image-generation/api-ref/index.md
+              - name: ImageGenerationAsync
                 items:
                   - name: Overview
-                    href: embeddings/api-ref/Embeddings/index.md
-                  - name: TextEmbedding
-                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+                    href: image-generation/api-ref/ImageGenerationAsync/index.md
+                  - name: Generate
+                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/Operation/cancel.md
           - name: gRPC
             items:
               - name: Overview
-                href: embeddings/api-ref/grpc/index.md
-              - name: Embeddings
+                href: image-generation/api-ref/grpc/index.md
+              - name: ImageGenerationAsync
                 items:
                   - name: Overview
-                    href: embeddings/api-ref/grpc/Embeddings/index.md
-                  - name: TextEmbedding
-                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/index.md
+                  - name: Generate
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/grpc/Operation/cancel.md
       - name: Text Classification API (англ.)
         items:
           - name: REST
@@ -205,6 +229,28 @@ items:
                   - name: FewShotClassify
                     href: >-
                       text-classification/api-ref/grpc/TextClassification/fewShotClassify.md
+      - name: Embeddings API (англ.)
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: embeddings/api-ref/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: embeddings/api-ref/grpc/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/grpc/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: '{{ assistant-api }} (англ.)'
         items:
           - name: REST
@@ -506,46 +552,6 @@ items:
                     href: files/api-ref/grpc/File/delete.md
                   - name: List
                     href: files/api-ref/grpc/File/list.md
-      - name: '{{ yandexart-name }} (англ.)'
-        items:
-          - name: REST
-            items:
-              - name: Overview
-                href: image-generation/api-ref/index.md
-              - name: ImageGenerationAsync
-                items:
-                  - name: Overview
-                    href: image-generation/api-ref/ImageGenerationAsync/index.md
-                  - name: Generate
-                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: image-generation/api-ref/Operation/index.md
-                  - name: Get
-                    href: image-generation/api-ref/Operation/get.md
-                  - name: Cancel
-                    href: image-generation/api-ref/Operation/cancel.md
-          - name: gRPC
-            items:
-              - name: Overview
-                href: image-generation/api-ref/grpc/index.md
-              - name: ImageGenerationAsync
-                items:
-                  - name: Overview
-                    href: >-
-                      image-generation/api-ref/grpc/ImageGenerationAsync/index.md
-                  - name: Generate
-                    href: >-
-                      image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: image-generation/api-ref/grpc/Operation/index.md
-                  - name: Get
-                    href: image-generation/api-ref/grpc/Operation/get.md
-                  - name: Cancel
-                    href: image-generation/api-ref/grpc/Operation/cancel.md
       - name: Dataset API (англ.)
         items:
           - name: gRPC

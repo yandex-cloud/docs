@@ -9,13 +9,66 @@ description: Следуя данной инструкции, вы научите
 
 ## Перед началом работы {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  Чтобы воспользоваться примерами запросов с использованием SDK:
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
+
+- cURL {#curl}
+
+  {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+
+  {% include [curl](../../../_includes/curl.md) %}
+
+{% endlist %}
 
 ## Отправьте запрос к модели {#request}
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- SDK {#sdk}
+
+  При использовании [{{ ml-sdk-full-name }}](../../sdk/index.md) ваш код может дождаться завершения выполнения операции и получения ответа. Для этого можно использовать либо функцию `sleep` модуля `time`, либо метод `wait`. В приведенном примере последовательно используются оба эти способа.
+
+  1. Создайте файл `generate-deferred.py` и добавьте в него следующий код:
+
+      {% include [yandexgpt-deferred-sdk](../../../_includes/foundation-models/examples/yandexgpt-deferred-sdk.md) %}
+
+      Где:
+
+      * `messages_1` и `messages_2` — массивы сообщений, которые задают контекст для модели и используются для разных способов получения результата выполнения асинхронного запроса:
+
+          * `role` — роль отправителя сообщения:
+
+              * `user` — предназначена для отправки пользовательских сообщений к модели.
+              * `system` — позволяет задать контекст запроса и определить поведение модели.
+              * `assistant` — используется для ответов, которые генерирует модель. При работе в режиме чата ответы модели, помеченные ролью `assistant`, включаются в состав сообщения для сохранения контекста беседы. Не передавайте сообщения пользователя с этой ролью.
+
+      * `text` — текстовое содержимое сообщения.
+
+      {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+  1. Выполните созданный файл:
+
+      ```bash
+      python3 generate-deferred.py
+      ```
+
+      Результат выполнения:
+
+      ```text
+      Variant 1:
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате — он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=104, completion_tokens=47, total_tokens=151), model_version='07.03.2024')
+      Variant 2:
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='[              {                "role": "system",                "text": "Найди ошибки в тексте и исправь их"              },              {                "role": "user",                "text": "Ошибки сами себя не исправят."              }            ]', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=67, completion_tokens=53, total_tokens=120), model_version='07.03.2024')
+      ```
+
+      Код дожидается получения результата сначала для первого способа, затем — для второго.
+
+- cURL {#curl}
 
   {% include [curl](../../../_includes/curl.md) %}
   
@@ -122,3 +175,8 @@ description: Следуя данной инструкции, вы научите
       ```
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/yandexgpt/index.md)
+* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

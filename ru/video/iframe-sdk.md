@@ -199,6 +199,8 @@ https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=va
 
 <iframe
     frameborder="0"
+    width="320"
+    height="180"
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share; screen-wake-lock"

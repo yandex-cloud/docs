@@ -1417,6 +1417,7 @@ default:
         opensearch|month|string: "16,00\_₸"
         pg|month|string: "16,00\_₸"
       network-nvme:
+        ch|month|number: 65.05
         ch|month|string: "65,05\_₸"
         elasticsearch|month|string: "65,05\_₸"
         greenplum|month|string: "65,05\_₸"
@@ -1502,6 +1503,7 @@ default:
           ram|month|string: "1\_584,00\_₸"
           ram|string: "2,20\_₸"
       redis:
+        backup|month|string: "9,60\_₸"
         v1:
           cpu:
             c100|month|string: "7\_200,00\_₸"
@@ -2671,6 +2673,7 @@ default:
         opensearch|month|string: "3,20\_₽"
         pg|month|string: "3,20\_₽"
       network-nvme:
+        ch|month|number: 13.01
         ch|month|string: "13,01\_₽"
         elasticsearch|month|string: "13,01\_₽"
         greenplum|month|string: "13,01\_₽"
@@ -2756,6 +2759,7 @@ default:
           ram|month|string: "316,80\_₽"
           ram|string: "0,44\_₽"
       redis:
+        backup|month|string: "1,92\_₽"
         v1:
           cpu:
             c100|month|string: "1\_440,00\_₽"
@@ -4005,6 +4009,7 @@ default:
           ram|month|string: "2,534400\_$"
           ram|string: "0,003520\_$"
       redis:
+        backup|month|string: "0,015360\_$"
         v1:
           cpu:
             c100|month|string: "11,520000\_$"
@@ -6100,6 +6105,7 @@ default:
         label_idle-timeout: Таймаут простоя, с
         label_interval: Интервал
         label_lb-settings: Настройки балансировки
+        label_listener-type: Тип обработчика
         label_listener-type-http: HTTP
         label_listener-type-stream: Stream
         label_listeners: Обработчики
@@ -6138,6 +6144,7 @@ default:
         label_route-action-route: Маршрутизация
         label_route-action-statusResponse: Ответ
         label_route-type: Тип
+        label_security-profile-id: Профиль безопасности
         label_send: Отправка
         label_server-names: Имена серверов
         label_service-name: Имя сервиса
@@ -7354,6 +7361,7 @@ default:
           switch_events: События
           switch_marketplace: Marketplace
           switch_namespaces: Пространства имен
+          switch_network: Сеть
           switch_nodes-manager: Управление узлами
           switch_storage: Хранилища
           switch_workloads: Рабочая нагрузка
@@ -7399,6 +7407,8 @@ default:
         namespaces:
           button_create: Создать
           popup-add_field_name: Имя
+        network:
+          label_ingress: Ingress
         node-group:
           access-method:
             field_os-login-access-method: Доступ по OS Login
@@ -8695,6 +8705,12 @@ default:
         label_promt: Промт-режим YandexGPT
         label_request-text: Запрос
         label_temperature-text: Температура
+        speechkit:
+          services:
+            speech-synthesys:
+              title: Синтез речи
+            stt:
+              title: Распознавание речи
       ydb:
         browse:
           button_create: Создать

@@ -1,9 +1,8 @@
 ```python
 #!/usr/bin/env python3
+
 from __future__ import annotations
-
 from yandex_cloud_ml_sdk import YCloudML
-
 
 def main() -> None:
     sdk = YCloudML(folder_id="<идентификатор_каталога>", auth="<API-ключ>")
@@ -13,7 +12,7 @@ def main() -> None:
     thread = sdk.threads.create(name="SimpleAssistant", ttl_days=5, expiration_policy="static")
     print(f"new {thread=}")
 
-    # Определяем модель YandexGPT Pro RC и ее максимальный контекст
+    # Определяем модель {{ gpt-pro }} RC и ее максимальный контекст
     model = sdk.models.completions(
         "yandexgpt", 
         model_version="rc"
@@ -30,42 +29,40 @@ def main() -> None:
 
     # Здесь нужно предусмотреть чтение сообщений пользователей
     # Пока же мы просто запишем что-нибудь в тред
-    thread.write("Представьте, что это сообщения пользователя")
+
+    input_text = ""
+
+    while input_text != "exit":
+        print("Введите ваш вопрос ассистенту:")
+        input_text = input()
+        if input_text != "exit":
+            thread.write(input_text)
+
+            # Так можно отдать модели все содержимое треда
+            run = assistant.run(thread)
+            print(f"{run=}")
     
+            # Чтобы получить результат, нужно дождаться окончания запуска   
+            result = run.wait()
+    
+            # Можно посмотреть все поля результата
+            print(f"run {result=}")
+    
+            # В поле text сохраняется удобная для дальнейшей работы строка
+            print('Answer:', result.text)
+
     # Можно посмотреть, что хранится в треде
+
+    print('Вывод всей истории сообщений при выходе из чата:')
+
     for message in thread:
         print(f"    {message=}")
         print(f"    {message.text=}\n")
 
-    # Так можно отдать модели все содержимое треда
-    run = assistant.run(thread)
-    print(f"{run=}")
-    
-    # Чтобы получить результат, нужно дождаться окончания запуска   
-    result = run.wait()
-    
-    # Можно посмотреть все поля результата
-    print(f"run {result=}")
-    
-    # В поле text сохраняется удобная для дальнейшей работы строка
-    print(result.text)
-    
-    thread.write("А это новое сообщение пользователя")
-    # Создадим новый запуск, с учетом предыдущих сообщений пользователя и прошлого ответа модели
-    run = assistant.run(thread)
-    result = run.wait()
-    print(result.text)
-    
     # Удаляем все ненужное
     thread.delete()
     assistant.delete()
 
-
 if __name__ == "__main__":
     main()
 ```
-
-Где:
-
-* `<идентификатор_каталога>` — идентификатор каталога, в котором создан сервисный аккаунт.
-* `<API-ключ>` — API-ключ сервисного аккаунта, полученный ранее.

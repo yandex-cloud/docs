@@ -89,6 +89,24 @@ items:
           Развертывание группы доступности Always On с внутренним сетевым
           балансировщиком
         href: tutorials/mssql-alwayson-lb.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          защиты от DDoS-атак с помощью {{ sws-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
   - name: Концепции
     items:
       - name: Обзор
@@ -113,8 +131,60 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/load-balancer/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: network-load-balancer
+        items:
+          - name: Overview
+            href: cli-ref/network-load-balancer/index.md
+          - name: add-listener
+            href: cli-ref/network-load-balancer/add-listener.md
+          - name: attach-target-group
+            href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: create
+            href: cli-ref/network-load-balancer/create.md
+          - name: delete
+            href: cli-ref/network-load-balancer/delete.md
+          - name: detach-target-group
+            href: cli-ref/network-load-balancer/detach-target-group.md
+          - name: get
+            href: cli-ref/network-load-balancer/get.md
+          - name: list
+            href: cli-ref/network-load-balancer/list.md
+          - name: list-operations
+            href: cli-ref/network-load-balancer/list-operations.md
+          - name: remove-listener
+            href: cli-ref/network-load-balancer/remove-listener.md
+          - name: start
+            href: cli-ref/network-load-balancer/start.md
+          - name: stop
+            href: cli-ref/network-load-balancer/stop.md
+          - name: target-states
+            href: cli-ref/network-load-balancer/target-states.md
+          - name: update
+            href: cli-ref/network-load-balancer/update.md
+      - name: target-group
+        items:
+          - name: Overview
+            href: cli-ref/target-group/index.md
+          - name: add-targets
+            href: cli-ref/target-group/add-targets.md
+          - name: create
+            href: cli-ref/target-group/create.md
+          - name: delete
+            href: cli-ref/target-group/delete.md
+          - name: get
+            href: cli-ref/target-group/get.md
+          - name: list
+            href: cli-ref/target-group/list.md
+          - name: list-operations
+            href: cli-ref/target-group/list-operations.md
+          - name: remove-targets
+            href: cli-ref/target-group/remove-targets.md
+          - name: update
+            href: cli-ref/target-group/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

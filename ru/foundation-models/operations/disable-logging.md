@@ -6,7 +6,7 @@
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
   {% include [curl](../../_includes/curl.md) %}
   
