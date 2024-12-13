@@ -55,6 +55,12 @@ The cost of supporting the infrastructure created in the guide includes:
 
 1. Add the new SSH key to the {{ oslogin }} profile of the `my-ansible-sa` service account:
 
+    {% note warning %}
+
+    Make sure that the version of the yc is >= 0.121.0 
+
+    {% endnote %}
+
     {% list tabs group=instructions %}
 
     - CLI {#cli}
