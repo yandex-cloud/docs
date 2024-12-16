@@ -25,4 +25,4 @@ You may need to additionally [set up security groups](../operations/connect.md#c
 
 ## Components and ports {#port-numbers}
 
-{% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+{% include [ports-table](../../_includes/data-processing/ports-table.md) %}

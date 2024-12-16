@@ -5,7 +5,7 @@ In multi-cluster mode, {{ dataproc-name }} uses a [{{ ydb-full-name }}](../../..
 For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) section in the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
 
 
-{% include [deltalake-disclaimer](../../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 ## Prepare the infrastructure {#prereq}
@@ -26,7 +26,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
         1. Create a folder named `warehouse` in the bucket.
         1. [Set ](../../concepts/settings-list.md#change-properties) the `spark.sql.warehouse.dir` property to the following value: `s3a://<bucket_name>/warehouse/`.
 
-    1. [Create a {{ metastore-full-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) and [connect](../../../metadata-hub/operations/metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
+    1. [Create a {{ metastore-full-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) and [connect](../../../metadata-hub/operations/metastore/data-processing-connect.md) it to your {{ dataproc-name }} cluster.
 
 1. Assign the `lockbox.payloadViewer` role to the service account you used to create the {{ dataproc-name }} clusters. You can do this:
 

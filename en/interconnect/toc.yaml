@@ -33,6 +33,10 @@ items:
         href: tutorials/pub-add.md
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
+      - name: >-
+          Configuring {{ interconnect-name }} access to cloud networks behind
+          NGFWs
+        href: tutorials/cic-with-ngfw
   - name: Concepts
     expanded: true
     items:

@@ -29,10 +29,10 @@ description:
     search-api-full-name }}</a> Terms of Use for non-residents of Russia and
     Kazakhstan</li> </ul>
 meta:
-  title: Search API
+  title: '{{ search-api-full-name }}'
   description: >-
-    Search API is a service that allows you to send queries to the Yandex search
-    database and get responses in XML and HTML format.
+    {{ search-api-full-name }} is a service that allows you to send queries to
+    the Yandex search database and get responses in XML and HTML format.
 links:
   - title: Getting started
     description: Learn how to get started with the service

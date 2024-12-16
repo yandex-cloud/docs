@@ -226,7 +226,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
@@ -238,7 +238,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
           * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -1108,7 +1108,7 @@ Create a page where the user can add a new post with a title.
     This code does the following as well:
 
     * Imports:
-        * [`request`global object](https://flask.palletsprojects.com/en/latest/api/#flask.request) to access the data provided through the HTML form.
+        * [`request` global object](https://flask.palletsprojects.com/en/latest/api/#flask.request) to access the data provided through the HTML form.
         * [`url_for()` function](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) to generate URLs.
         * [`flash()` function](https://flask.palletsprojects.com/en/latest/api/#flask.flash) to display a message when processing a request.
         * [`redirect()` function](https://flask.palletsprojects.com/en/latest/api/#flask.redirect) to redirect the client to a different page.

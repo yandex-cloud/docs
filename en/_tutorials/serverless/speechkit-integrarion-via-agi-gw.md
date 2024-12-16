@@ -65,7 +65,7 @@ The cost of support for the new infrastructure includes:
       name: speechkit-sa
       ```
 
-      Save the `id` of the `speechkit-sa` service account and the folder where it was created (`folder_id`).
+      Save the ID of the `speechkit-sa` service account (`id`) and the ID of the folder where it was created (`folder_id`).
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 

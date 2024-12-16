@@ -527,13 +527,13 @@ items:
       - name: >-
           Mounting {{ objstorage-name }} buckets to the file system of {{
           dataproc-name }} hosts
-        href: dataplatform/data-proc-init-actions-geesefs.md
+        href: dataplatform/data-processing-init-actions-geesefs.md
       - name: Working with {{ KF }} topics using {{ dataproc-full-name }}
-        href: dataplatform/data-proc-and-kafka.md
+        href: dataplatform/data-processing-and-kafka.md
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
-        href: dataplatform/data-proc-and-airflow.md
+        href: dataplatform/data-processing-and-airflow.md
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
-        href: dataplatform/dataproc-to-dataproc.md
+        href: dataplatform/data-processing-to-data-processing.md
       - name: >-
           Transferring metadata between {{ dataproc-name }} clusters using {{
           metastore-name }}
@@ -755,10 +755,14 @@ items:
           Implementing a secure high-availability network infrastructure with a
           dedicated DMZ based on the UserGate NGFW
         href: routing/high-accessible-dmz-usergate.md
+      - name: >-
+          Configuring {{ interconnect-name }} access to cloud networks behind
+          NGFWs
+        href: routing/cic-with-ngfw.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: routing/gre-over-ipsec.md
       - name: Configuring a network for {{ dataproc-name }}
-        href: routing/dataproc-nat-instance.md
+        href: routing/data-processing-nat-instance.md
       - name: Setting up PT Application Firewall
         href: routing/pt-application-firewall.md
         hidden: true

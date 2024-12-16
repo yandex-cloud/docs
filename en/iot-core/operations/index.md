@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ iot-full-name }}
+title: Guides on using {{ iot-full-name }}
 description: In this article, you will learn how to work with {{ iot-full-name }} in {{ yandex-cloud }}. Find out how to manage registries, devices, topic aliases, certificates, and passwords.
 ---
 
@@ -16,6 +16,7 @@ description: In this article, you will learn how to work with {{ iot-full-name }
 * [{#T}](registry/registry-list.md)
 * [{#T}](registry/registry-create.md)
 * [{#T}](registry/registry-update.md)
+* [{#T}](registry/registry-disabling.md)
 * [{#T}](registry/registry-delete.md)
 
 ## Managing devices {#device}

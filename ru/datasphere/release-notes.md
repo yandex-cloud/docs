@@ -22,7 +22,7 @@
 ## Релиз 02.09.2024 {#020924}
 
 * В стартовые ноутбуки добавлены примеры работы с моделью [{{ yandexart-name }}](../foundation-models/concepts/yandexart/index.md) и фундаментальными моделями с открытым кодом.
-* При работе с [{{ dataproc-full-name }}](../data-proc/) с помощью [коннектора Spark](concepts/spark-connector.md) добавлена возможность [синхронизации окружения](concepts/data-proc-operations.md#synchronization).
+* При работе с [{{ dataproc-full-name }}](../data-proc/) с помощью [коннектора Spark](concepts/spark-connector.md) добавлена возможность [синхронизации окружения](concepts/data-processing-operations.md#synchronization).
 * Исправлены ошибки и добавлены небольшие улучшения в работе сервиса.
 
 ## Релиз 30.07.2024 {#300724}
@@ -47,7 +47,7 @@
 
 ## Релиз 03.04.2024 {#030424}
 
-1. Изменились [конфигурации](concepts/data-proc-template.md#configurations) временных кластеров {{ dataproc-name }}.
+1. Изменились [конфигурации](concepts/data-processing-template.md#configurations) временных кластеров {{ dataproc-name }}.
 1. [Ноды из моделей](concepts/deploy/index.md#models-node) теперь можно развернуть из моделей XGBoost и LightGBM.
 1. В [API исполнения](api-ref/overview.md#notebook) добавлена возможность передавать входные переменные.
 1. Улучшено [создание нод](operations/deploy/node-create.md#from-docker) из Docker-образов.
@@ -158,9 +158,9 @@
 ## Релиз 20.10.2022 {#201022}
 
 Значительно улучшили работу с кластерами Apache Spark™:
-1. В {{ ml-platform-name }} появился новый тип ресурсов — [шаблоны {{ dataproc-name }}](concepts/data-proc-template.md).
-1. Появилась возможность [конфигурировать livy-сессию](concepts/data-proc.md#session) при работе с кластерами {{ dataproc-name }}.
-1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-proc.md#sql).
+1. В {{ ml-platform-name }} появился новый тип ресурсов — [шаблоны {{ dataproc-name }}](concepts/data-processing-template.md).
+1. Появилась возможность [конфигурировать livy-сессию](concepts/data-processing.md#session) при работе с кластерами {{ dataproc-name }}.
+1. Теперь {{ ml-platform-name }} поддерживает [работу с библиотекой Spark SQL](concepts/data-processing.md#sql).
 
 ## Релиз 23.09.2022 {#230922}
 

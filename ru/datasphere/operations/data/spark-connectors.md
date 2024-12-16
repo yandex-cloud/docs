@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-dataproc.md) %}
+{% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-data-processing.md) %}
 
 ## Создать коннектор Spark {#create}
 
@@ -38,7 +38,7 @@
 
 ## Использовать кластер {{ dataproc-name }} в проекте {#usage}
 
-{% include [dataproc-spark-connector](../../../_includes/datasphere/dataproc-spark-connector.md) %}
+{% include [dataproc-spark-connector](../../../_includes/datasphere/data-processing-spark-connector.md) %}
 
 {% include [ui-before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

@@ -10,9 +10,13 @@ This way you can easily manage access to virtual machines and {{ k8s }} nodes by
 
 ## {{ oslogin }} profiles {#os-login-profiles}
 
-For each user and service account in an organization, you can create {{ oslogin }} profiles containing the name (login) and ID (UID) of the user or service account, which help to identify them in the operating systems of your VMs and {{ k8s }} cluster nodes.
+For each user and service account in an organization, you can create _{{ oslogin }} profiles_ containing the name (login) and ID (UID) of the user or service account, which help to identify them in the operating systems of your VMs and {{ k8s }} cluster nodes.
 
-By default, [enabling {{ oslogin }} access](../operations/os-login-access.md) creates {{ oslogin }} profiles for all users within your organization. Also, you can [create](../operations/os-login-profile-create.md) additional profiles or edit the existing ones.
+[Enabling](../operations/os-login-access.md) {{ oslogin }} access for an organization automatically creates _default {{ oslogin }} profiles_ for all user and service accounts in that organization. Also, you can [create](../operations/os-login-profile-create.md) additional {{ oslogin }} profiles or edit the existing ones.
+  
+Username (login) for an account in the default {{ oslogin }} profile depends on the account type:
+* For a user account, login will be the same as the username in the organization.
+* For a service account, login will be its name prefixed by `yc-sa-`, e.g., `yc-sa-my-robot` will be the login for `my-robot`.
 
 You can manage user {{ oslogin }} profiles via the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) as well as the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/oslogin/index.md) and [API](../api-ref/OsLogin/index.md). To manage {{ oslogin }} profiles for service accounts, you can only use the CLI or API.
 

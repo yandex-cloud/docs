@@ -6,10 +6,10 @@ description: Follow this guide to restore access to a VM.
 # Restoring access to a VM
 
 You may need to restore access to a [VM](../../concepts/vm.md) in the following cases:
-* [{#T}](#cloud-init).
-* [{#T}](#ssh-recovery).
-* [{#T}](#serial-console).
-* [{#T}](#os-recovery).
+* [VM user credentials are lost](#cloud-init)
+* [The public part of an SSH key was changed](#ssh-recovery)
+* [The SSH connection fails](#serial-console)
+* [The VM fails to start](#os-recovery)
 
 ## VM user credentials are lost {#cloud-init}
 
@@ -18,9 +18,9 @@ If you lost your private SSH key for Linux or your Windows user password:
 1. [Create a VM with the disk from the snapshot](../vm-create/create-from-snapshots.md) specifying it as the boot disk. When creating a VM, enter your new credentials under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
 1. Connect to the VM via SSH or RDP using the new credentials.
 
-If the 'cloud-init' or [network](../../../vpc/concepts/network.md#network) configuration was changed for the VM, the described method may not work. In this case, see [{#T}](#os-recovery).
+If the 'cloud-init' or [network](../../../vpc/concepts/network.md#network) configuration was changed for the VM, the described method may not work. In this case, see [the VM fails to start](#os-recovery).
 
-## An SSH key's public part was changed {#ssh-recovery}
+## The public part of an SSH key was changed {#ssh-recovery}
 
 You may have problems accessing a Linux-based VM over SSH if the public part of your SSH key was changed or deleted on the side of the VM.
 
@@ -65,7 +65,7 @@ If you can't access the serial console, do the following to recover the public p
 1. [Connect](../vm-connect/ssh.md) to the new VM over SSH.
 1. [Delete the disk snapshot](../snapshot-control/delete.md) and [delete](../vm-control/vm-delete.md) the auxiliary and old VMs.
 
-## Unable to connect to a VM via SSH  {#serial-console}
+## The SSH connection fails {#serial-console}
 
 The problem may occur due to an error in the SSH, [security group](../../../vpc/concepts/security-groups.md), or network settings. To restore access, connect to the VM using the [serial console](../serial-console/index.md) and adjust the settings.
 
@@ -75,7 +75,7 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
   {% note info %}
 
-  You may use the serial console only if the user password is set; otherwise, see [{#T}](#os-recovery).
+  You may use the serial console only if the user password is set; otherwise, see [The VM fails to start](#os-recovery).
 
   {% endnote %}
 
@@ -91,7 +91,7 @@ The problem may occur due to an error in the SSH, [security group](../../../vpc/
 
 {% include [new-connect-ssh](../../../_qa/compute/new-connect-ssh.md) %}
 
-## A VM fails to start {#os-recovery}
+## The VM fails to start {#os-recovery}
 
 If you cannot start a VM, get access to data on the disk as follows:
 1. [Create a snapshot](../disk-control/create-snapshot.md) of the disk of the VM that you want to restore access to.

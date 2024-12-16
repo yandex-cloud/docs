@@ -13,4 +13,4 @@ description: На этой странице приведен справочни�
 {{ at-event-prefix }}.audit.dataproc.<имя_события>
 ```
 
-{% include [dataproc-events](../_includes/audit-trails/events/dataproc-events.md) %}
+{% include [dataproc-events](../_includes/audit-trails/events/data-processing-events.md) %}

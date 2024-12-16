@@ -200,7 +200,7 @@ To create a [resource](../../concepts/resource.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new CDN resource in the [management console]({{ link-console-main }}) or using this CLI command:
+     {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this CLI command:
 
      ```bash
      yc cdn resource list

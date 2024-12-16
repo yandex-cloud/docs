@@ -638,7 +638,447 @@ items:
           - name: From March 1 to May 1, 2019
             href: pricing-archive/pricing-30042019.md
   - name: CLI reference
-    href: ../cli/cli-ref/compute/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: connect-to-serial-port
+        href: cli-ref/connect-to-serial-port.md
+      - name: disk
+        items:
+          - name: Overview
+            href: cli-ref/disk/index.md
+          - name: add-access-binding
+            href: cli-ref/disk/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/disk/add-labels.md
+          - name: create
+            href: cli-ref/disk/create.md
+          - name: delete
+            href: cli-ref/disk/delete.md
+          - name: get
+            href: cli-ref/disk/get.md
+          - name: list
+            href: cli-ref/disk/list.md
+          - name: list-access-bindings
+            href: cli-ref/disk/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/disk/list-operations.md
+          - name: move
+            href: cli-ref/disk/move.md
+          - name: relocate
+            href: cli-ref/disk/relocate.md
+          - name: remove-access-binding
+            href: cli-ref/disk/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/disk/remove-labels.md
+          - name: resize
+            href: cli-ref/disk/resize.md
+          - name: set-access-bindings
+            href: cli-ref/disk/set-access-bindings.md
+          - name: update
+            href: cli-ref/disk/update.md
+      - name: disk-placement-group
+        items:
+          - name: Overview
+            href: cli-ref/disk-placement-group/index.md
+          - name: add-access-binding
+            href: cli-ref/disk-placement-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/disk-placement-group/add-labels.md
+          - name: create
+            href: cli-ref/disk-placement-group/create.md
+          - name: delete
+            href: cli-ref/disk-placement-group/delete.md
+          - name: get
+            href: cli-ref/disk-placement-group/get.md
+          - name: list
+            href: cli-ref/disk-placement-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/disk-placement-group/list-access-bindings.md
+          - name: list-disks
+            href: cli-ref/disk-placement-group/list-disks.md
+          - name: list-operations
+            href: cli-ref/disk-placement-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/disk-placement-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/disk-placement-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/disk-placement-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/disk-placement-group/update.md
+      - name: disk-type
+        items:
+          - name: Overview
+            href: cli-ref/disk-type/index.md
+          - name: get
+            href: cli-ref/disk-type/get.md
+          - name: list
+            href: cli-ref/disk-type/list.md
+      - name: filesystem
+        items:
+          - name: Overview
+            href: cli-ref/filesystem/index.md
+          - name: add-access-binding
+            href: cli-ref/filesystem/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/filesystem/add-labels.md
+          - name: create
+            href: cli-ref/filesystem/create.md
+          - name: delete
+            href: cli-ref/filesystem/delete.md
+          - name: get
+            href: cli-ref/filesystem/get.md
+          - name: list
+            href: cli-ref/filesystem/list.md
+          - name: list-access-bindings
+            href: cli-ref/filesystem/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/filesystem/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/filesystem/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/filesystem/remove-labels.md
+          - name: resize
+            href: cli-ref/filesystem/resize.md
+          - name: set-access-bindings
+            href: cli-ref/filesystem/set-access-bindings.md
+          - name: update
+            href: cli-ref/filesystem/update.md
+      - name: gpu-cluster
+        items:
+          - name: Overview
+            href: cli-ref/gpu-cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/gpu-cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/gpu-cluster/add-labels.md
+          - name: create
+            href: cli-ref/gpu-cluster/create.md
+          - name: delete
+            href: cli-ref/gpu-cluster/delete.md
+          - name: get
+            href: cli-ref/gpu-cluster/get.md
+          - name: list
+            href: cli-ref/gpu-cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/gpu-cluster/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/gpu-cluster/list-instances.md
+          - name: list-operations
+            href: cli-ref/gpu-cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/gpu-cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/gpu-cluster/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/gpu-cluster/set-access-bindings.md
+          - name: update
+            href: cli-ref/gpu-cluster/update.md
+      - name: host-group
+        items:
+          - name: Overview
+            href: cli-ref/host-group/index.md
+          - name: add-access-binding
+            href: cli-ref/host-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/host-group/add-labels.md
+          - name: create
+            href: cli-ref/host-group/create.md
+          - name: delete
+            href: cli-ref/host-group/delete.md
+          - name: get
+            href: cli-ref/host-group/get.md
+          - name: list
+            href: cli-ref/host-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/host-group/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/host-group/list-hosts.md
+          - name: list-instances
+            href: cli-ref/host-group/list-instances.md
+          - name: list-operations
+            href: cli-ref/host-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/host-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/host-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/host-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/host-group/update.md
+          - name: update-host
+            href: cli-ref/host-group/update-host.md
+      - name: host-type
+        items:
+          - name: Overview
+            href: cli-ref/host-type/index.md
+          - name: get
+            href: cli-ref/host-type/get.md
+          - name: list
+            href: cli-ref/host-type/list.md
+      - name: image
+        items:
+          - name: Overview
+            href: cli-ref/image/index.md
+          - name: add-access-binding
+            href: cli-ref/image/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/image/add-labels.md
+          - name: create
+            href: cli-ref/image/create.md
+          - name: delete
+            href: cli-ref/image/delete.md
+          - name: get
+            href: cli-ref/image/get.md
+          - name: get-latest-from-family
+            href: cli-ref/image/get-latest-from-family.md
+          - name: list
+            href: cli-ref/image/list.md
+          - name: list-access-bindings
+            href: cli-ref/image/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/image/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/image/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/image/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/image/set-access-bindings.md
+          - name: update
+            href: cli-ref/image/update.md
+      - name: instance
+        items:
+          - name: Overview
+            href: cli-ref/instance/index.md
+          - name: add-access-binding
+            href: cli-ref/instance/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/instance/add-labels.md
+          - name: add-metadata
+            href: cli-ref/instance/add-metadata.md
+          - name: add-one-to-one-nat
+            href: cli-ref/instance/add-one-to-one-nat.md
+          - name: attach-disk
+            href: cli-ref/instance/attach-disk.md
+          - name: attach-filesystem
+            href: cli-ref/instance/attach-filesystem.md
+          - name: attach-network-interface
+            href: cli-ref/instance/attach-network-interface.md
+          - name: create
+            href: cli-ref/instance/create.md
+          - name: create-with-container
+            href: cli-ref/instance/create-with-container.md
+          - name: delete
+            href: cli-ref/instance/delete.md
+          - name: detach-disk
+            href: cli-ref/instance/detach-disk.md
+          - name: detach-filesystem
+            href: cli-ref/instance/detach-filesystem.md
+          - name: detach-network-interface
+            href: cli-ref/instance/detach-network-interface.md
+          - name: get
+            href: cli-ref/instance/get.md
+          - name: get-serial-port-output
+            href: cli-ref/instance/get-serial-port-output.md
+          - name: list
+            href: cli-ref/instance/list.md
+          - name: list-access-bindings
+            href: cli-ref/instance/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/instance/list-operations.md
+          - name: move
+            href: cli-ref/instance/move.md
+          - name: relocate
+            href: cli-ref/instance/relocate.md
+          - name: remove-access-binding
+            href: cli-ref/instance/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/instance/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/instance/remove-metadata.md
+          - name: remove-one-to-one-nat
+            href: cli-ref/instance/remove-one-to-one-nat.md
+          - name: restart
+            href: cli-ref/instance/restart.md
+          - name: set-access-bindings
+            href: cli-ref/instance/set-access-bindings.md
+          - name: simulate-maintenance-event
+            href: cli-ref/instance/simulate-maintenance-event.md
+          - name: start
+            href: cli-ref/instance/start.md
+          - name: stop
+            href: cli-ref/instance/stop.md
+          - name: update
+            href: cli-ref/instance/update.md
+          - name: update-container
+            href: cli-ref/instance/update-container.md
+          - name: update-network-interface
+            href: cli-ref/instance/update-network-interface.md
+      - name: instance-group
+        items:
+          - name: Overview
+            href: cli-ref/instance-group/index.md
+          - name: add-access-binding
+            href: cli-ref/instance-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/instance-group/add-labels.md
+          - name: add-metadata
+            href: cli-ref/instance-group/add-metadata.md
+          - name: create
+            href: cli-ref/instance-group/create.md
+          - name: delete
+            href: cli-ref/instance-group/delete.md
+          - name: delete-instances
+            href: cli-ref/instance-group/delete-instances.md
+          - name: get
+            href: cli-ref/instance-group/get.md
+          - name: list
+            href: cli-ref/instance-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/instance-group/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/instance-group/list-instances.md
+          - name: list-logs
+            href: cli-ref/instance-group/list-logs.md
+          - name: list-operations
+            href: cli-ref/instance-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/instance-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/instance-group/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/instance-group/remove-metadata.md
+          - name: rolling-recreate
+            href: cli-ref/instance-group/rolling-recreate.md
+          - name: rolling-restart
+            href: cli-ref/instance-group/rolling-restart.md
+          - name: set-access-bindings
+            href: cli-ref/instance-group/set-access-bindings.md
+          - name: start
+            href: cli-ref/instance-group/start.md
+          - name: stop
+            href: cli-ref/instance-group/stop.md
+          - name: stop-instances
+            href: cli-ref/instance-group/stop-instances.md
+          - name: update
+            href: cli-ref/instance-group/update.md
+      - name: placement-group
+        items:
+          - name: Overview
+            href: cli-ref/placement-group/index.md
+          - name: add-access-binding
+            href: cli-ref/placement-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/placement-group/add-labels.md
+          - name: create
+            href: cli-ref/placement-group/create.md
+          - name: delete
+            href: cli-ref/placement-group/delete.md
+          - name: get
+            href: cli-ref/placement-group/get.md
+          - name: list
+            href: cli-ref/placement-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/placement-group/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/placement-group/list-instances.md
+          - name: list-operations
+            href: cli-ref/placement-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/placement-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/placement-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/placement-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/placement-group/update.md
+      - name: snapshot
+        items:
+          - name: Overview
+            href: cli-ref/snapshot/index.md
+          - name: add-access-binding
+            href: cli-ref/snapshot/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/snapshot/add-labels.md
+          - name: create
+            href: cli-ref/snapshot/create.md
+          - name: delete
+            href: cli-ref/snapshot/delete.md
+          - name: get
+            href: cli-ref/snapshot/get.md
+          - name: list
+            href: cli-ref/snapshot/list.md
+          - name: list-access-bindings
+            href: cli-ref/snapshot/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/snapshot/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/snapshot/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/snapshot/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/snapshot/set-access-bindings.md
+          - name: update
+            href: cli-ref/snapshot/update.md
+      - name: snapshot-schedule
+        items:
+          - name: Overview
+            href: cli-ref/snapshot-schedule/index.md
+          - name: add-access-binding
+            href: cli-ref/snapshot-schedule/add-access-binding.md
+          - name: add-disks
+            href: cli-ref/snapshot-schedule/add-disks.md
+          - name: add-labels
+            href: cli-ref/snapshot-schedule/add-labels.md
+          - name: create
+            href: cli-ref/snapshot-schedule/create.md
+          - name: delete
+            href: cli-ref/snapshot-schedule/delete.md
+          - name: disable
+            href: cli-ref/snapshot-schedule/disable.md
+          - name: enable
+            href: cli-ref/snapshot-schedule/enable.md
+          - name: get
+            href: cli-ref/snapshot-schedule/get.md
+          - name: list
+            href: cli-ref/snapshot-schedule/list.md
+          - name: list-access-bindings
+            href: cli-ref/snapshot-schedule/list-access-bindings.md
+          - name: list-disks
+            href: cli-ref/snapshot-schedule/list-disks.md
+          - name: list-operations
+            href: cli-ref/snapshot-schedule/list-operations.md
+          - name: list-snapshots
+            href: cli-ref/snapshot-schedule/list-snapshots.md
+          - name: remove-access-binding
+            href: cli-ref/snapshot-schedule/remove-access-binding.md
+          - name: remove-disks
+            href: cli-ref/snapshot-schedule/remove-disks.md
+          - name: remove-labels
+            href: cli-ref/snapshot-schedule/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/snapshot-schedule/set-access-bindings.md
+          - name: update
+            href: cli-ref/snapshot-schedule/update.md
+      - name: ssh
+        items:
+          - name: Overview
+            href: cli-ref/ssh/index.md
+          - name: certificate
+            items:
+              - name: Overview
+                href: cli-ref/ssh/certificate/index.md
+              - name: export
+                href: cli-ref/ssh/certificate/export.md
+      - name: zone
+        items:
+          - name: Overview
+            href: cli-ref/zone/index.md
+          - name: get
+            href: cli-ref/zone/get.md
+          - name: list
+            href: cli-ref/zone/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

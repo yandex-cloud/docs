@@ -101,7 +101,7 @@ The cost for bucket support includes:
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key. After you close the dialog, the private key value will become unavailable.
+  1. Save the ID and the secret key. After you close the dialog, the key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -124,7 +124,7 @@ The cost for bucket support includes:
 
      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
-  1. Save the `key_id` and the `secret` key. You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 

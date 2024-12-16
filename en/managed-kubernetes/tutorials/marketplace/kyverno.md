@@ -116,7 +116,7 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
 
 {% endnote %}
 
-## Create your own Kyverno policy and check how it works {#create-check-policies}
+## Create and test your own Kyverno policy {#create-check-policies}
 
 1. Create a policy that will require all [pods](../../concepts/index.md#pod) to have the `app.kubernetes.io/name` [label](../../../resource-manager/concepts/labels.md):
    1. Save the `ClusterPolicy` creation specification to a YAML file named `policy.yaml`:
@@ -200,19 +200,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cluster.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

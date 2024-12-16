@@ -99,6 +99,10 @@ items:
         href: tutorials/index.md
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
+      - name: >-
+          Getting statistics of queries to {{ objstorage-full-name }} objects
+          using {{ yq-full-name }}
+        href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
       - name: Getting statistics of queries to objects using {{ yq-full-name }}
@@ -114,7 +118,7 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
-        href: tutorials/data-proc-init-actions-geesefs.md
+        href: tutorials/data-processing-init-actions-geesefs.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-

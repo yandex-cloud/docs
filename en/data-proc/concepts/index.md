@@ -44,7 +44,7 @@ VMs for cluster hosts can be hosted on:
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 ## Leightweight clusters {#light-weight-clusters}
 

@@ -1,6 +1,6 @@
 ---
 title: Templating in {{ sw-full-name }}
-description: Templating in {{ sw-name }} means dynamically generating field values in a YaWL specification.
+description: Templating in {{ sw-name }} stands for dynamic generation of field values in a YaWL specification.
 keywords:
   - workflows
   - workflow
@@ -59,10 +59,10 @@ Argument order | Type | Required | Description
 * Getting the latest secret version:
 
     ```text
-    lockboxPayload("<secret_ID>"; "<secret_key>")
+    \(lockboxPayload("<secret_ID>"; "<secret_key>"))
     ```
 * Getting the specified secret version:
 
     ```text
-    lockboxPayload("<secret_ID>"; "<secret_key>"; "<secret_version_ID>")
+    \(lockboxPayload("<secret_ID>"; "<secret_key>"; "<secret_version_ID>"))
     ```

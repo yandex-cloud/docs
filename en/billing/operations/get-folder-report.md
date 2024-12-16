@@ -29,8 +29,9 @@ You can get a CSV file with your general or per-resource spending details. You c
 
    Bucket requirements:
  
-   * Do not make your bucket public; otherwise, anyone will be able to download your expense details from the bucket link.
+   * Do not make your bucket public; otherwise, anyone will be able to download your expense details using the bucket link.
    * Do not add [encryption](../../storage/concepts/encryption.md) to the bucket.
+   * Do not configure an [access policy](../../storage/concepts/policy.md) for the bucket.
 
    {% endnote %}
 
@@ -105,10 +106,10 @@ The table contains the following columns:
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.
-* `credit`: Total discounts. The decimal separator is a period.
+* `credit`: Total discounts. Always negative. The decimal separator is a period.
 * `monetary_grant_credit`: Grant discount, including the platform introduction grant. The decimal separator is a period.
 * `volume_incentive_credit`: Consumption volume discount. The decimal separator is a period.
-* `cud_credit`: Discount for the [committed](../concepts/cvos.md) resource volume. The cost of the consumption volume above the commited one equals the difference between the `cost` and `credit` column values. The decimal separator is a period.
+* `cud_credit`: Discount for the [committed](../concepts/cvos.md) resource volume. The cost of the consumption volume above the committed one equals the sum of the `cost` and `credit` column values. The decimal separator is a period.
 * `misc_credit`: Other types of discounts, including discounts for consumption after the platform introduction grant expires but before switching to the paid version. The decimal separator is a period.
 * `label.user_labels.<label_name>`: Labels added to the resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale`: Language of each exported line. This field's value determines the `sku_name` column language. The possible values are `en` and `ru`.

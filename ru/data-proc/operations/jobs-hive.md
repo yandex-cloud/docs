@@ -15,13 +15,13 @@
     1. В поле **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** выберите `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.
     1. (Опционально) В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства компонентов](../concepts/settings-list.md) в виде пары `ключ-значение`.
 
-       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
     1. (Опционально) Включите настройку **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}**.
     1. Укажите **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** в виде пары `ключ-значение`.
     1. (Опционально) Укажите пути к JAR-файлам, если они используются:
 
-        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
     1. Выберите один из типов драйвера и укажите, что использовать для запуска задания:
         * список запросов, которые необходимо выполнить;
@@ -56,7 +56,7 @@
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
 
-        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
 
@@ -72,18 +72,18 @@
 
 ## Отменить задание {#cancel}
 
-{% include [jobs-cancel](../../_includes/data-proc/jobs-cancel.md) %}
+{% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
 ## Получить список заданий {#list}
 
-{% include [jobs-list](../../_includes/data-proc/jobs-list.md) %}
+{% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
 ## Получить общую информацию о задании {#get-info}
 
-{% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
+{% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
 
 ## Получить логи выполнения задания {#get-logs}
 
-{% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+{% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
 

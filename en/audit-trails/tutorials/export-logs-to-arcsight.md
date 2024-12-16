@@ -93,7 +93,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the previously created bucket.
+  1. In the [management console]({{ link-console-main }}), go to the bucket created earlier.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
   1. In the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select `arcsight-kms`.
@@ -118,7 +118,7 @@ Create a service account named `sa-arcsight`:
   
        {% include [name-format](../../_includes/name-format.md) %}
 
-       Example: `sa-arcsight`.
+       For example, `sa-arcsight`.
   
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   
@@ -141,11 +141,11 @@ You will need the key ID and secret key when mounting the bucket.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and private key.
+  1. Save the ID and secret key.
 
       {% note alert %}
 
-      After you close the dialog, the private key value will become unavailable.
+      After you close the dialog, the key value will become unavailable.
 
       {% endnote %}
 
@@ -180,7 +180,7 @@ Assign the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDec
 
 - CLI {#cli}
 
-  1. `audit-trails.viewer` [role](../../audit-trails/security/#roles) for a folder:
+  1. `audit-trails.viewer` [role](../../audit-trails/security/#roles) for the folder:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -235,7 +235,7 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
 
 - CLI {#cli}
 
-  1. `storage.viewer` role for a folder:
+  1. `storage.viewer` role for the folder:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -288,7 +288,7 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
   
      {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key the bucket is [encrypted](../../storage/concepts/encryption.md) with.
+      * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: Specify the `arcsight-kms` encryption key used to [encrypt](../../storage/concepts/encryption.md) the bucket.
   
   1. Under **{{ ui-key.yacloud.audit-trails.label_service-account }}**, select `sa-arcsight`.
 
@@ -312,7 +312,7 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
 ## Mount a bucket {#mount-bucket}
 
 A bucket is mounted on an intermediate VM where ArcSight SmartConnector is installed.
-To mount the bucket, create a file with the `sa-arcsight-bucket` service account static access key.
+To mount the bucket, create a file with the static access key of the `sa-arcsight-bucket` service account.
 
 1. On the intermediate VM, create a file with the static access key:
 
@@ -357,8 +357,8 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
     1. When installing it, select **ArcSight FlexConnector JSON Folder Follower** and specify the path to the `mybucket` folder.
     1. Specify **JSON configuration filename prefix**: `yc`.
 1. [Download](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-arcsight/tree/main/arcsight_content) the `arcsight_content` files.
-1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/flexagent` folder.
-1. Copy the `map.0.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/map` folder.
+1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the folder with this address: `<agent_installation_folder>/current/user/agent/flexagent`.
+1. Copy the `map.0.properties` file from the `flex` folder to the folder with this address: `<agent_installation_folder>/current/user/agent/map`.
 1. Edit the `<agent_installation_folder>/current/user/agent.properties` file:
 
     ```bash

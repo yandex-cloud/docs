@@ -11,7 +11,7 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [Integrating an L7 load balancer with {{ cdn-name }} and {{ objstorage-name }}](./cdn-storage-integration.md)
 * [Blue-green and canary deployment of service versions](./blue-green-canary-deployment.md)
 * [Analyzing logs using {{ datalens-name }}](./storage-logs-analysis.md)
-* [{#T}](./data-proc-init-actions-geesefs.md)
+* [{#T}](./data-processing-init-actions-geesefs.md)
 * [Connecting a bucket as a disk in Windows](./s3-disk-connect.md)
 * [Automatically copying objects from one bucket to another](./bucket-to-bucket.md)
 * [Regular recognition of audio files in a bucket](./batch-recognition-stt.md)

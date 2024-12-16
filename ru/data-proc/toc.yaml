@@ -112,7 +112,7 @@ items:
               - name: >-
                   Импорт данных из {{ objstorage-name }}, обработка и экспорт в
                   {{ mch-name }}
-                href: tutorials/s3-dataproc-ch.md
+                href: tutorials/s3-data-processing-ch.md
               - name: >-
                   Монтирование бакетов к файловой системе хостов {{
                   dataproc-name }}
@@ -122,7 +122,7 @@ items:
               - name: >-
                   Совместная работа с таблицами с использованием {{
                   metastore-name }}
-                href: tutorials/dataproc-to-dataproc.md
+                href: tutorials/data-processing-to-data-processing.md
               - name: >-
                   Перенос метаданных между кластерами {{ dataproc-name }} с
                   помощью {{ metastore-name }}

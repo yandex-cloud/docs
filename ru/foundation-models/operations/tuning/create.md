@@ -1,6 +1,6 @@
 # Создать дообучение в {{ foundation-models-name }}
 
-_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}link/foundation-models/)._
+_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
 
 Этот пример показывает, как дообучить модель {{ gpt-lite }} по методу {{ lora }} в {{ foundation-models-name }}. 
 
@@ -25,6 +25,7 @@ _Дообучение моделей по методу {{ lora }} находит
   1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
   1. Установите [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. {% include [curl](../../../_includes/curl.md) %}
+  1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аутентификации в API.
 
 {% endlist %}
 
@@ -100,6 +101,18 @@ _Дообучение моделей по методу {{ lora }} находит
 
 {% list tabs group=programming_language %}
 
+- SDK {#sdk}
+
+  1. Создайте файл `start-tuning.py` и добавьте в него код:
+
+     {% include [sdk-tuning](../../../_includes/foundation-models/examples/tuning-sdk.md) %}
+
+  1. Выполните созданный файл:
+
+     ```bash
+     python3 start-tuning.py
+     ```
+
 - cURL {#curl}
   
   1. Запустите дообучение:
@@ -130,7 +143,7 @@ _Дообучение моделей по методу {{ lora }} находит
   
      ```bash
      grpcurl \
-       -H "Authorization: Bearer $(yc --profile=sandbox iam create-token)" \
+       -H "Authorization: Bearer $<IAM-токен>" \
        -d '{"operation_id": "ftnq****************"}' \
        llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
      ```
@@ -157,7 +170,11 @@ _Дообучение моделей по методу {{ lora }} находит
      }
      ```
 
-     Используйте идентификатор дообученной модели в качестве `modelURI`, чтобы отправлять запросы в дообученную модель.
 
 {% endlist %}
 
+Используйте идентификатор дообученной модели в качестве `modelURI`, чтобы отправлять запросы в дообученную модель.
+
+#### См. также {#see-also}
+
+Больше примеров доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

@@ -1,7 +1,7 @@
 ---
-canonical: '{{ link-docs }}/tutorials/dataplatform/data-proc-and-airflow'
+canonical: '{{ link-docs }}/tutorials/dataplatform/data-processing-and-airflow'
 ---
 
 # Automating operations using {{ maf-full-name }}
 
-{% include notitle [data-proc-and-airflow](../../_tutorials/dataplatform/data-proc/data-proc-and-airflow.md) %}
+{% include notitle [data-processing-and-airflow](../../_tutorials/dataplatform/data-processing/data-processing-and-airflow.md) %}

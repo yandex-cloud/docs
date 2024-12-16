@@ -78,7 +78,7 @@ items:
           - name: Работа с секретами
             href: operations/data/secrets.md
           - name: Работа с шаблонами {{ dataproc-name }}
-            href: operations/data-proc-template.md
+            href: operations/data-processing-template.md
           - name: Работа с Docker-образами
             href: operations/user-images.md
           - name: Работа с датасетами
@@ -166,11 +166,11 @@ items:
           - name: Вычисления на кластерах Apache Spark™
             items:
               - name: Способы работы с кластерами Apache Spark™
-                href: concepts/data-proc.md
+                href: concepts/data-processing.md
               - name: Вычисления на кластерах Apache Spark™
-                href: concepts/data-proc-operations.md
+                href: concepts/data-processing-operations.md
               - name: Особенности работы с временными кластерами {{ dataproc-name }}
-                href: concepts/temporary-data-proc-clusters.md
+                href: concepts/temporary-data-processing-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Ноды и алиасы
@@ -204,7 +204,7 @@ items:
           - name: Датасеты
             href: concepts/dataset.md
           - name: Шаблоны {{ dataproc-name }}
-            href: concepts/data-proc-template.md
+            href: concepts/data-processing-template.md
           - name: Коннекторы S3
             href: concepts/s3-connector.md
           - name: Коннекторы Spark
@@ -228,7 +228,7 @@ items:
       - name: Автоматизировать настройку проектов
         href: tutorials/automation-community-settings.md
       - name: Интегрировать сервис {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
+        href: tutorials/data-processing-integration.md
   - name: Практические руководства
     items:
       - name: Все руководства

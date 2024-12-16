@@ -104,7 +104,7 @@ To use Python virtual environments integrated with {{ ml-platform-full-name }}, 
 
    For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
-1. On the {{ ml-platform-full-name }} side, [create a Livy session](../../datasphere/concepts/data-proc.md#session) with the following settings:
+1. On the {{ ml-platform-full-name }} side, [create a Livy session](../../datasphere/concepts/data-processing.md#session) with the following settings:
 
    ```livy
    %create_livy_session \
@@ -123,7 +123,7 @@ To use Python virtual environments integrated with {{ ml-platform-full-name }}, 
    * `<alias>`: Arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
    * `<other_Spark_context_parameters>`: Defined if needed. For a complete list of parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
 
-Specify the created session [when running Python code in the cluster](../../datasphere/concepts/data-proc.md#run-code). Dependencies included in the virtual environment will be available for use.
+Specify the created session [when running Python code in the cluster](../../datasphere/concepts/data-processing.md#run-code). Dependencies included in the virtual environment will be available for use.
 
 ### Using a virtual environment in a Zeppelin notebook {#launch-zeppelin}
 

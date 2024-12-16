@@ -7,7 +7,7 @@ The following limits apply to {{ ml-platform-name }} communities created under t
 * The use of high-performance [computing resource configurations](configurations.md) is limited.
 * You cannot change the [project storage](project.md#storage) size.
 * You cannot update certain project runtime parameters.
-* You cannot create [clusters from {{ dataproc-name }} templates](data-proc-template.md).
+* You cannot create [clusters from {{ dataproc-name }} templates](data-processing-template.md).
 * You cannot [deploy models](deploy/index.md) using nodes and aliases.
 
 All the above limits are marked with a special ![freetier-lock](../../_assets/datasphere/lock-yellow.svg) icon in the interface.

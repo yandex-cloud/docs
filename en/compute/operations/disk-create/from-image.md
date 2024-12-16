@@ -1,3 +1,8 @@
+---
+title: How to recover a disk from an image in {{ compute-full-name }}
+description: Follow this guide to recover a disk from an image.
+---
+
 # Recovering a disk from an image
 
 {% note info %}
@@ -24,11 +29,7 @@ To create a disk from an [image](../../concepts/image.md):
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
   1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the image you need in the list below. Use the filter to find the image.
-
-
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

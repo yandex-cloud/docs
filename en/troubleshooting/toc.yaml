@@ -429,19 +429,19 @@ items:
   - name: DataProc
     items:
       - name: All solutions for DataProc
-        href: dataproc/index.md
+        href: data-processing/index.md
       - name: Solutions for known DataProc issues
-        href: dataproc/known-issues/index.md
+        href: data-processing/known-issues/index.md
         hidden: true
       - name: DataProc cluster is in the Unknown state immediately after creation
         href: >-
-          dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
       - name: >-
           Resolving the error of access to S3 buckets from a DataProc 1.4
           cluster
-        href: dataproc/known-issues/cannot-access-buckets.md
+        href: data-processing/known-issues/cannot-access-buckets.md
       - name: Sample DataProc configurations and use cases
-        href: dataproc/how-to/index.md
+        href: data-processing/how-to/index.md
         hidden: true
   - name: DataSphere
     items:

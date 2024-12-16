@@ -11,14 +11,14 @@ If your instance group is attached to a load balancer, follow these guides:
 * [{#T}](move-group-with-alb.md)
 
 To move an instance group to a different availability zone:
-1. [Create](../../../vpc/operations/subnet-create.md) a subnet in the availability zone to move the instance group to.
+1. [Create](../../../vpc/operations/subnet-create.md) a subnet in the availability zone you want to move your instance group to.
 1. Add the group instances to the new availability zone:
 
-   {% include [ig-create-in-another-zone](../../../_includes/compute/ig-create-in-another-zone.md) %}
+    {% include [ig-create-in-another-zone](../../../_includes/compute/ig-create-in-another-zone.md) %}
 
 1. Delete the group instances from the previous availability zone:
 
-   {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
+    {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
 
 ### See also {#see-also}
 

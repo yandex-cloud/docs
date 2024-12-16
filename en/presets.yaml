@@ -104,6 +104,7 @@ default:
   cloud-logging-short-name: Cloud Logging
   cloud-logs-name: Cloud Logs
   cloud-notify-bot: YandexCloudNotify_bot
+  cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
   cluster-id: cat0adul1fj0********
@@ -451,11 +452,11 @@ default:
   mpg-short-name: Managed Service for PostgreSQL
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
-  mrd-full-name: Yandex Managed Service for Redis
+  mrd-full-name: Yandex Managed Service for Valkey™
   mrd-host-class: hm2.nano
   mrd-memory-used: 75%
-  mrd-name: Managed Service for Redis
-  mrd-short-name: Managed Service for Redis
+  mrd-name: Yandex Managed Service for Valkey™
+  mrd-short-name: Yandex Managed Service for Valkey™
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/en-us
@@ -529,7 +530,7 @@ default:
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   prometheus-name: Prometheus
   promql-name: PromQL
-  RD: Redis
+  RD: Valkey™
   rd:
     docs: https://redis.io/docs
   region-id: ru-central1
@@ -681,9 +682,9 @@ default:
   schema-registry-name: Schema Registry
   sd-full-name: Yandex Security Deck
   sd-name: Security Deck
-  search-api: Search API
+  search-api: Yandex Search API
   search-api-full-name: Yandex Search API
-  search-api-name: Search API
+  search-api-name: Yandex Search API
   search-api-request-ch: 400 characters
   search-api-request-w: 40 words
   security-group: enp6saqnq4ie244g67sb
@@ -6677,7 +6678,6 @@ default:
         attach-disk:
           button_attach: Attach
           field_instance: VM
-        button_relocate-to-another-zone: Relocate to another zone
         component:
           instance-storage-dialog:
             button_add-disk: Add disk
@@ -6686,7 +6686,6 @@ default:
           field_type: Type
           label_disk-encryption: Encrypted disk
           label_disk-kms-key: KMS key
-          label_service-account: Service account
           section_encryption: Encryption
         disk:
           overview:
@@ -6706,7 +6705,6 @@ default:
           popup_detach-disk_button_detach: Detach
         field_additional: Additional
         field_disk-autodelete: Delete along with the virtual machine
-        field_new-availability-zone: New availability zone
         gpu_clusters: GPU clusters
         group:
           edit:
@@ -6830,7 +6828,6 @@ default:
           button_action-restart: Restart
           button_create: Create virtual machine
           button_gr-action-stop: Stop
-          button_start-instance-relocation: Start relocation
           column_internal-ip: Internal IPv4
           create-disk:
             button_create: Add

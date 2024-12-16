@@ -108,7 +108,7 @@ A single app runs on a cluster with default settings and two compute hosts. In t
     * The amount of resources available for executors on all compute hosts will be reduced by the amount reserved for the YARN Application Master.
     * The resources reserved for the YARN Application Master on the second host will remain unused.
 
-    ![lightweight-load](../../_assets/data-proc/lightweight-load.svg)
+    ![lightweight-load](../../_assets/data-processing/lightweight-load.svg)
 
 - deployMode=cluster
 
@@ -116,7 +116,7 @@ A single app runs on a cluster with default settings and two compute hosts. In t
     * The YARN Application Master and the driver will take up a substantial portion of the resources on one of the compute hosts, but no more than the size of the container for the executors. Because of this, some resources may remain unused.
     * On the second compute host, both containers will be allocated to the executors.
 
-    ![heavyweight-load](../../_assets/data-proc/heavyweight-load.svg)
+    ![heavyweight-load](../../_assets/data-processing/heavyweight-load.svg)
 
 {% endlist %}
 

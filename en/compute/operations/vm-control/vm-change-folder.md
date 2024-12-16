@@ -234,8 +234,8 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
 
       * `--subnet-id`: Subnet in the destination folder.
       * `--ipv4-address`: Internal IP address of the VM's network interface in the subnet in the destination folder. Set to `auto` to automatically assign the internal address.
-      * `--network-interface-index`: VM's network interface number you previously saved.
-      * `--security-group-id`: Security group that will be assigned to the VM's network interface.
+      * `--network-interface-index`: VM's network interface number you saved earlier.
+      * `--security-group-id`: ID of the security group to assign to the VM's network interface.
 
       Result:
 

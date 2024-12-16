@@ -56,7 +56,7 @@ To create an API key:
       Where:
       
       * `--service-account-name`: Service account name. This is a required parameter.
-      * `--scope`: Key scope. This is an optional parameter.
+      * `--scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
       * `--expires-at`: Key expiration date and time. This is an optional parameter.
       * `api_key.yaml`: File to save the response to.
       
@@ -84,6 +84,8 @@ To create an API key:
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<service_account_ID>"
         description        = "<key_description>"
+        scope              = "<scope>"
+        expires_at         = "<date_and_time>"
         pgp_key            = "<PGP_key>"
       }
       ```
@@ -92,6 +94,8 @@ To create an API key:
 
       * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required parameter.
       * `description`: Key description. This is an optional parameter.
+      * `scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+      * `expires_at`: Key expiration date and time in `YYYY-MM-DDThh:mm:ssZ` format. This is an optional parameter.
       * `pgp_key`: Additional PGP key for encrypting a private key. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format. This is an optional parameter.
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_api_key).
@@ -100,7 +104,7 @@ To create an API key:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc iam key list --service-account-id <service_account_ID>
@@ -129,7 +133,7 @@ To create an API key:
 
   * `SERVICEACCOUNT_ID`: Service account [ID](../sa/get-id.md). This is a required parameter.
   * `IAM_TOKEN`: [IAM token](../../concepts/authorization/iam-token.md). This is a required parameter.
-  * `scope`: Scope of the key [with restricted access](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
+  * `scope`: Key [scope](../../concepts/authorization/api-key.md#scoped-api-keys). This is an optional parameter.
   * `expiresAt`: Expiration date and time for the key with restricted access. This is an optional parameter.
 
   You can also create an API key using the [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md) gRPC API call.
@@ -151,6 +155,7 @@ To create an API key:
   Result:
 
   ```text
+  {% if region == "ru" or region == "int" %}- yc.postbox.send{% endif %}
   - yc.ydb.tables.manage
   - yc.ydb.topics.manage
   ```

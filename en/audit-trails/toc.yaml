@@ -58,6 +58,8 @@ items:
             href: tutorials/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/export-logs-to-arcsight.md
+          - name: Uploading audit logs to SIEM KUMA
+            href: tutorials/audit-trails-events-to-kuma.md
   - name: Concepts
     items:
       - name: Overview

@@ -16,7 +16,7 @@ description: Различные сценарии использования се
 * [{#T}](high-accessible-dmz-usergate.md)
 * [{#T}](cic-with-ngfw.md)
 * [{#T}](gre-over-ipsec.md)
-* [{#T}](dataproc-nat-instance.md)
+* [{#T}](data-processing-nat-instance.md)
 * [{#T}](./storage-vpc-access.md)
 * [{#T}](./vpc-cr-access.md)
 * [Создание прямого транкового подключения и приватного соединения в нем](trunk-priv-add.md)

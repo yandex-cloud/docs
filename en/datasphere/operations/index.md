@@ -47,7 +47,7 @@ description: The page contains all guides on how to use {{ ml-platform-full-name
 ## Working with resources {#resources}
 
 * [{#T}](data/secrets.md)
-* [{#T}](data-proc-template.md)
+* [{#T}](data-processing-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
 * [{#T}](data/s3-connectors.md)
@@ -88,7 +88,7 @@ description: The page contains all guides on how to use {{ ml-platform-full-name
 * [{#T}](data/s3-connectors.md#share)
 * [{#T}](data/secrets.md#share)
 * [{#T}](user-images.md#share)
-* [{#T}](data-proc-template.md#share)
+* [{#T}](data-processing-template.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 * [{#T}](projects/open-in-datasphere.md)

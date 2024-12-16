@@ -86,7 +86,7 @@ You can use the {{ yandex-cloud }} [management console]({{ link-console-main }})
 
 Services at the Preview stage are available only to some users. If you want to use one of these services, send us a request for access. You can do this on the page of the service you want to use.
 
-{% include [Apache trademark](../../_includes/data-proc/trademark.md) %}
+{% include [Apache trademark](../../_includes/data-processing/trademark.md) %}
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 

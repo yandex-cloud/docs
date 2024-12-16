@@ -1,1 +1,1 @@
-The `managed-redis.auditor` role allows you to view information on Redis [hosts and clusters](../../managed-redis/concepts/index.md), as well as [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) and resource operations for Managed Service for Redis.
+The `managed-redis.auditor` role allows you to view information on Valkey™ [hosts and clusters](../../managed-redis/concepts/index.md), as well as [quotas](../../managed-redis/concepts/limits.md#mrd-quotas) and resource operations for Yandex Managed Service for Valkey™.

@@ -40,7 +40,6 @@ To move a subnet to a different availability zone:
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       | e9bcd5mq43cn******** | subnet-a | encb4ubvmief******** |                | {{ region-id }}-a | [10.1.0.0/16]    |
       | e2llon52hhss******** | subnet-b | enc39op1vq9m******** |                | {{ region-id }}-b | [192.168.1.0/24] |
-      | b0cscj0f9uq5******** | subnet-c | enc772aa2rgq******** |                | {{ region-id }}-c | [10.0.0.0/16]    |
       +----------------------+----------+----------------------+----------------+---------------+------------------+
       ```
 
@@ -60,10 +59,9 @@ To move a subnet to a different availability zone:
 
           * `{{ region-id }}-a`
           * `{{ region-id }}-b`
-          * `{{ region-id }}-c`
           * `{{ region-id }}-d`
 
-      Example:
+      Here is an example:
 
       ```bash
       yc vpc subnet relocate \

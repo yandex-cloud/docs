@@ -16,7 +16,7 @@ Now you can use a service agent to work with {{ yandex-cloud }} services from {{
 ## Release as of 02/09/24 {#020924}
 
 * Added examples of operations with [{{ yandexart-name }}](../foundation-models/concepts/yandexart/index.md) and open-source foundational models to initial notebooks.
-* When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-proc-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
+* When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-processing-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
 * Fixed some bugs and added minor performance improvements.
 
 ## Release as of 30/07/24 {#300724}
@@ -41,7 +41,7 @@ Now you can use a service agent to work with {{ yandex-cloud }} services from {{
 
 ## Release as of 03/04/24 {#030424}
 
-1. Updated [configurations](concepts/data-proc-template.md#configurations) of {{ dataproc-name }} temporary clusters.
+1. Updated [configurations](concepts/data-processing-template.md#configurations) of {{ dataproc-name }} temporary clusters.
 1. Now you can use XGBoost and LightGBM models to deploy [nodes from models](concepts/deploy/index.md#models-node).
 1. Added delivering input variables in [fulfillment APIs](api-ref/overview.md#notebook).
 1. Improved [creating nodes](operations/deploy/node-create.md#from-docker) from Docker images.
@@ -152,9 +152,9 @@ The Serverless mode is no longer supported.
 ## Release as of 20/10/22 {#201022}
 
 Greatly improved the Apache Spark™ cluster functionality:
-1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-proc-template.md).
-1. You can now [configure a livy session](concepts/data-proc.md#session) when using {{ dataproc-name }} clusters.
-1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-proc.md#sql).
+1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-processing-template.md).
+1. You can now [configure a livy session](concepts/data-processing.md#session) when using {{ dataproc-name }} clusters.
+1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-processing.md#sql).
 
 ## Release as of 23/09/22 {#230922}
 

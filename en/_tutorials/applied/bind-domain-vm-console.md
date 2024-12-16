@@ -373,7 +373,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
       1. In the **{{ ui-key.yacloud.common.type }}** field, select `A` as the [record type](../../dns/concepts/resource-record.md#rr-types).
       1. Under **{{ ui-key.yacloud.dns.label_records }}**, specify the web server's [public IP address](../../vpc/concepts/address.md#public-addresses).
 
-          You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page in the [management console]({{ link-console-main }}) or using this CLI command: `yc compute instance get <VM_name>`.
+          You can find the IP address of the VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or get the address using the `yc compute instance get <VM_name>` CLI command.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -394,7 +394,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
       * `<domain_name>`: Domain name that must end with a period. For example, for the `example.com` domain, the correct value is `example.com.`.
       * `<VM_IP_address>`: [Public IP address](../../vpc/concepts/address.md#public-addresses) of the web server.
 
-          You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page in the [management console]({{ link-console-main }}) or using this CLI command: `yc compute instance get <VM_name>`.
+          You can find the IP address of the VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or get the address using the `yc compute instance get <VM_name>` CLI command.
 
   Result:
 

@@ -41,7 +41,7 @@ The cost of supporting the infrastructure created in the guide includes:
 
     {% endnote %}
 
-1. Create an SSH key pair of the `ed25519` type that the service account will use to connect to virtual machines:
+1. Create an SSH key pair of the `ed25519` type the service account will use to connect to virtual machines:
 
     ```bash
     ssh-keygen \
@@ -148,7 +148,7 @@ Make sure Ansible can connect to the virtual machine on behalf of the new servic
     }
     ```
 
-Connection to the VM is established. You can now manage virtual machines via Ansible on behalf of a service account with an {{ oslogin }} profile and an SSH key with a limited validity period.
+Connection to the VM is established. You can now manage virtual machines via Ansible under a service account with an {{ oslogin }} profile and a limited-validity SSH key.
 
 ## How to delete the resources you created {#clear-out}
 

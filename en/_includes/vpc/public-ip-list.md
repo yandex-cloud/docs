@@ -46,10 +46,10 @@ For example, the resources assigned such IP address ranges are:
 The following IP address ranges are assigned to the resources that support {{ yandex-cloud }} operation:
 
 
-| IPv6 |
+| IPv6               | 
 |--------------------|
-| `2a02:6b8::/32` |
-| `2a0d:d6c0::/29` |
+| `2a02:6b8::/32`    |
+| `2a0d:d6c0::/29`   |
 
 
 

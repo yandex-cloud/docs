@@ -16,7 +16,7 @@ description: На странице приведен список справоч�
 * [{{ cloud-logging-full-name }}](logging-ref.md)
 * [{{ compute-full-name }}](compute-ref.md)
 * [{{ container-registry-full-name }}](container-registry-ref.md)
-* [{{ dataproc-full-name }}](data-proc-ref.md)
+* [{{ dataproc-full-name }}](data-processing-ref.md)
 * [{{ data-transfer-full-name }}](data-transfer-ref.md)
 * [{{ dns-full-name }}](dns-ref.md)
 * [{{ iam-full-name }}](iam-ref.md)

@@ -12,7 +12,7 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 
 {% note warning %}
 
-Do not assign a bucket policy for a bucket if used by a [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster; otherwise, the cluster will not be able to write any data to the bucket.
+{% include [s3-with-policy-access](../../../_includes/storage/s3-with-policy-access.md) %}
 
 {% endnote %}
 
@@ -315,7 +315,7 @@ To apply or edit a bucket access policy:
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
@@ -369,7 +369,7 @@ To view the access policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete an access policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete a bucket policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/#storage-configurer).
 
 To delete a bucket policy:
 

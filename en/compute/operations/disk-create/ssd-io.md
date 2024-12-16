@@ -1,5 +1,5 @@
 ---
-title: Create an ultra high-speed network storage with three replicas (SSD)
+title: How to create an ultra high-speed network storage with three replicas (SSD) in {{ compute-full-name }}
 description: Follow this guide to create an ultra high-speed network storage with three replicas (SSD).
 ---
 
@@ -28,10 +28,7 @@ The disk size must be a multiple of 93 GB.
   1. Select the required block size.
   1. Specify the required disk size.
 
-
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}

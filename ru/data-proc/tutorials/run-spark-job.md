@@ -327,13 +327,13 @@ Spark Submit позволяет запускать заранее написан
 
 ## Запуск заданий (jobs) с помощью CLI {{ yandex-cloud }} {#run-cli-jobs}
 
-{% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
+{% include [cli-job-intro](../../_includes/data-processing/cli-job-intro.md) %}
 
 Результаты расчета можно сохранить в HDFS в кластере {{ dataproc-name }} или в бакете `data-proc-bucket`, указанном при создании кластера.
 
 Служебная и отладочная информация сохраняется в бакете `data-proc-bucket`. Для каждого задания агент {{ dataproc-name }} создает отдельную папку с путем вида `dataproc/clusters/<идентификатор_кластера>/jobs/<идентификатор_задачи>`.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 Ниже приведены два варианта приложения — для [Python](#cli-python) и [Scala](#cli-scala).
 

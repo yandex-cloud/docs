@@ -17,7 +17,7 @@ Prepare the infrastructure:
 - Manually {#manual}
 
    1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
-   1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+   1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
    1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
    1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
    1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
@@ -196,7 +196,7 @@ Prepare the infrastructure:
 
 1. Wait for the job to complete and make sure the output bucket's `csv` folder contains the source table.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Export data to {{ mch-name }} {#import-to-mch}
 
@@ -265,7 +265,7 @@ Prepare the infrastructure:
 
    If the import is successful, the response will contain a table with the data.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 

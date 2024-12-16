@@ -59,11 +59,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-data-proc](../_pricing_examples/data-proc/rub.md) %}
+  {% include [rub-data-proc](../_pricing_examples/data-processing/rub.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-data-proc](../_pricing_examples/data-proc/kzt.md) %}
+  {% include [kzt-data-proc](../_pricing_examples/data-processing/kzt.md) %}
 
 {% endlist %}
 
@@ -91,11 +91,11 @@ editable: false
 
 - Цены в рублях {#prices-rub}
 
-  {% include [rub-standard-hosts](../_pricing/data-proc/rub-standard-hosts.md) %}
+  {% include [rub-standard-hosts](../_pricing/data-processing/rub-standard-hosts.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include [kzt-standard-hosts](../_pricing/data-proc/kzt-standard-hosts.md) %}
+  {% include [kzt-standard-hosts](../_pricing/data-processing/kzt-standard-hosts.md) %}
 
 {% endlist %}
 
@@ -110,11 +110,11 @@ editable: false
 
 - Цены в рублях {#prices-rub}
 
-  {% include [rub-dedicated-hosts](../_pricing/data-proc/rub-dedicated-hosts.md) %}
+  {% include [rub-dedicated-hosts](../_pricing/data-processing/rub-dedicated-hosts.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include [kzt-dedicated-hosts](../_pricing/data-proc/kzt-dedicated-hosts.md) %}
+  {% include [kzt-dedicated-hosts](../_pricing/data-processing/kzt-dedicated-hosts.md) %}
 
 {% endlist %}
 

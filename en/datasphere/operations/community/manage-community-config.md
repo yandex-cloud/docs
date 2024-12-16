@@ -23,7 +23,7 @@ You can limit {{ ml-platform-name }} resources and features available across you
 
    * **{{ ui-key.yc-ui-datasphere.restrictions.CHANGING_DISK_SIZE }}**: Enable this option to allow changing the project storage size.
    * **{{ ui-key.yc-ui-datasphere.restrictions.NODES_AND_ALIASES }}**: Community projects will support service deployment using [nodes](../../concepts/deploy/index.md#node) and [aliases](../../concepts/deploy/index.md#alias).
-   * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Community projects will support [{{ dataproc-name }} templates](../../concepts/data-proc-template).
+   * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Community projects will support [{{ dataproc-name }} templates](../../concepts/data-processing-template).
    * **{{ ui-key.yc-ui-datasphere.common.datasets }}**: Users will be able to create [datasets](../../concepts/dataset) in community projects.
 
 1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.configurations }}**, you can select [computing resource configurations](../../concepts/configurations.md) to be available across community projects.

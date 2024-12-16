@@ -85,11 +85,11 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить класс хостов {#change-resource-preset}
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 Вы можете изменить вычислительную мощность хостов в отдельном подкластере. Она зависит от режима размещения драйвера:
 
-{% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
+{% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
 {% list tabs group=instructions %}
 
@@ -199,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
 
 Для работы автоматического масштабирования убедитесь, что сервисному аккаунту кластера {{ dataproc-name }} [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
 
-{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+{% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 {% list tabs group=instructions %}
 
@@ -312,7 +312,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 Вы можете увеличить размер хранилища, доступного каждому хосту в определенном подкластере.
 

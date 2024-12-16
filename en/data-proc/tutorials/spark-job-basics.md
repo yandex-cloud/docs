@@ -8,7 +8,7 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
@@ -21,7 +21,7 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
 ## Create a Spark job {#create-job}
 
-1. {% include [sample-txt](../../_includes/data-proc/tutorials/sample-txt.md) %}
+1. {% include [sample-txt](../../_includes/data-processing/tutorials/sample-txt.md) %}
 
 1. Download the `spark-app_2.11-0.1.0-SNAPSHOT.jar` file containing the Scala code of the [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) analysis program and upload it to the input data bucket:
 
@@ -109,8 +109,8 @@ In this section, we provide a simple example that demonstrates how to use the Sp
 
     {% endcut %}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 
-{% include [basic-clear-out](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [basic-clear-out](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

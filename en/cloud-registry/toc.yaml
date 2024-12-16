@@ -2,19 +2,157 @@ title: Yandex Cloud Registry
 stage: preview
 href: index.yaml
 items:
+  - name: Getting started
+    href: quickstart/docker.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Creating a registry
+        href: operations/registry/create.md
+      - name: Managing artifacts
+        items:
+          - name: Docker image
+            items:
+              - name: Installing and configuring Docker
+                href: operations/docker/installation.md
+              - name: Authentication in {{ cloud-registry-name }}
+                href: operations/docker/authentication.md
+              - name: Creating a Docker image
+                href: operations/docker/create.md
+              - name: Pushing a Docker image to a registry
+                href: operations/docker/push.md
+              - name: Pulling a Docker image from a registry
+                href: operations/docker/pull.md
+          - name: Java artifact
+            items:
+              - name: Setting up Maven
+                href: operations/maven/installation.md
+          - name: Node.js artifact
+            items:
+              - name: Setting up npm
+                href: operations/npm/installation.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Artifacts
-        href: concepts/artifacts.md
       - name: Registry
         href: concepts/registry.md
-      - name: Java artifact
-        href: concepts/art-java.md
+      - name: Artifacts
+        items:
+          - name: Overview
+            href: concepts/artifacts.md
+          - name: Docker image
+            href: concepts/docker-image.md
+          - name: Java artifact
+            href: concepts/art-java.md
+          - name: Node.js artifact
+            href: concepts/art-nodejs.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    href: ../cli/cli-ref/cloud-registry/cli-ref/index.md
+  - name: API reference
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Artifact
+            items:
+              - name: Overview
+                href: api-ref/grpc/Artifact/index.md
+              - name: Get
+                href: api-ref/grpc/Artifact/get.md
+              - name: Delete
+                href: api-ref/grpc/Artifact/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/grpc/Registry/index.md
+              - name: Get
+                href: api-ref/grpc/Registry/get.md
+              - name: List
+                href: api-ref/grpc/Registry/list.md
+              - name: Create
+                href: api-ref/grpc/Registry/create.md
+              - name: Update
+                href: api-ref/grpc/Registry/update.md
+              - name: Delete
+                href: api-ref/grpc/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Registry/updateAccessBindings.md
+              - name: ListIpPermissions
+                href: api-ref/grpc/Registry/listIpPermissions.md
+              - name: SetIpPermissions
+                href: api-ref/grpc/Registry/setIpPermissions.md
+              - name: UpdateIpPermissions
+                href: api-ref/grpc/Registry/updateIpPermissions.md
+              - name: ListArtifacts
+                href: api-ref/grpc/Registry/listArtifacts.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Artifact
+            items:
+              - name: Overview
+                href: api-ref/Artifact/index.md
+              - name: Get
+                href: api-ref/Artifact/get.md
+              - name: Delete
+                href: api-ref/Artifact/delete.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Registry
+            items:
+              - name: Overview
+                href: api-ref/Registry/index.md
+              - name: Get
+                href: api-ref/Registry/get.md
+              - name: List
+                href: api-ref/Registry/list.md
+              - name: Create
+                href: api-ref/Registry/create.md
+              - name: Update
+                href: api-ref/Registry/update.md
+              - name: Delete
+                href: api-ref/Registry/delete.md
+              - name: ListAccessBindings
+                href: api-ref/Registry/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Registry/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Registry/updateAccessBindings.md
+              - name: ListIpPermissions
+                href: api-ref/Registry/listIpPermissions.md
+              - name: SetIpPermissions
+                href: api-ref/Registry/setIpPermissions.md
+              - name: UpdateIpPermissions
+                href: api-ref/Registry/updateIpPermissions.md
+              - name: ListArtifacts
+                href: api-ref/Registry/listArtifacts.md
 base: en/cloud-registry
 deepBase: 2

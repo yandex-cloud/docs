@@ -140,7 +140,7 @@ Create three devices: `my-device-1`, `my-device-2`, and `my-device-3`.
       1. Click **{{ ui-key.yacloud.iot.button_add-alias }}**.
       1. Fill in the fields: enter an alias, e.g., `events`, and the [topic](../../iot-core/concepts/topic/index.md) type after `$devices/{id}`, e.g., `events`.
 
-          This will allow you to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
+          As the result, you will be able to use the `events` alias instead of the `$devices/<device_ID>/events` topic.
 
       1. Repeat the steps for each alias you add.
 
@@ -198,12 +198,12 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-emulator-function-service-account`
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-              Key | Description | Data
+              Key | Description | Value
               :--- | :--- | :---
               `CASH_DRAWER_SENSOR_VALUE`  | Percentage of used cash box space          | `67.89`
               `TEMPERATURE_SENSOR_VALUE`  | Baseline temperature in the pickup box | `10.34`
@@ -342,7 +342,7 @@ Create a data processing function, test it, and review the result of data proces
   1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the function. For example, `my-db-function`.
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the function, e.g., `my-db-function`.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
   1. Create a function version:
@@ -359,12 +359,12 @@ Create a data processing function, test it, and review the result of data proces
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `myfunction.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-              Key | Description | Data
+              Key | Description | Value
               :--- | :--- | :---
               `VERBOSE_LOG` | Enables and disables writing data | `True`
               `DB_HOSTNAME` | Host FQDN in {{ mpg-name }} | See the [management console]({{ link-console-main }})<br>in {{ mpg-name }}

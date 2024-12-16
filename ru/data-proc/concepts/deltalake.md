@@ -17,7 +17,7 @@
 При работе в мультикластерном режиме за координацию доступа к таблицам Delta Lake из разных кластеров и заданий {{ SPRK }} отвечает вспомогательная база данных. В {{ yandex-cloud }} в качестве такой базы используется [{{ ydb-full-name }}](../../ydb/index.yaml).
 
 
-{% include [deltalake-disclaimer](../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 Подробную информацию о Delta Lake см. в [документации Delta Lake](https://docs.delta.io/latest/index.html).

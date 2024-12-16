@@ -18,7 +18,7 @@ To create and host a static website in {{ objstorage-name }}:
 1. [Register a domain name](#register-domain).
 1. [Create and configure an {{ objstorage-name }}](#create-and-configure-bucket) bucket.
 1. [Link the domain name to the bucket](#bind-domain).
-1. Add a TLS certificate to {{ certificate-manager-name }}.
+1. [Add a TLS certificate to {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Configure HTTPS access to the bucket](#configure-https).
 1. [Create the website locally](#create-local-site).
 1. [Upload your website to the bucket](#upload-site).
@@ -129,7 +129,7 @@ To host your static website in the cloud, [create](../../storage/operations/buck
 
       Where:
 
-      * `--name`: Name of the previously created bucket, e.g., `gatsbytest.ru`.
+      * `--name`: Name of the bucket you created earlier, e.g., `gatsbytest.ru`.
       * `index`: Absolute path to the website home page file. For the website from the Gatsby template, specify `index.html`.
       * `error`: Absolute path to the file the user will see in case of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
 
@@ -188,7 +188,7 @@ To host your static website in the cloud, [create](../../storage/operations/buck
 
       Where:
       
-      * `--bucket`: Name of the previously created bucket, e.g., `gatsbytest.ru`.
+      * `--bucket`: Name of the bucket you created earlier, e.g., `gatsbytest.ru`.
       * `IndexDocument.Suffix`: Absolute path to the website home page file. For the website from the Gatsby template, specify `index.html`.
       * `ErrorDocument.Key`: Absolute path to the file the user will see in case of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
 
@@ -211,7 +211,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
   1. In the [management console]({{ link-console-main }}), go to the bucket created earlier.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone of the same name with the bucket, e.g., `gatsbytest.ru.` (ending with a period). Click **{{ ui-key.yacloud.common.create }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -273,7 +273,7 @@ On the DNS server, create a public [DNS zone](../../dns/concepts/dns-zone.md) an
 
 {% endlist %}
 
-## Add a TLS certificate to {{ certificate-manager-name }} {{ certificate-manager-full-name }}
+## Add a TLS certificate to {{ certificate-manager-full-name }} {#issue-certificate}
 
 To configure access to your website over a secure protocol, get a TLS certificate and configure HTTPS access to the bucket.
 

@@ -13,7 +13,7 @@ You can use resources in multiple projects without recreating them. To make a re
 * [Datasets](dataset.md)
 * [S3 connectors](s3-connector.md)
 * [Nodes and aliases](deploy/index.md#python-nodes)
-* [{{ dataproc-name }} templates](data-proc-template.md)
+* [{{ dataproc-name }} templates](data-processing-template.md)
 * [Spark connectors](spark-connector.md)
 * [Models](models/index.md)
 * [Fine-tuned foundation models](models/tuned-models.md)

@@ -8,7 +8,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
@@ -24,7 +24,7 @@
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-{% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
+{% include [cli-job-intro](../../_includes/data-processing/cli-job-intro.md) %}
 
 Результат расчета сохраняется в бакет {{objstorage-full-name}} вместе с сервисным выводом.
 
@@ -52,7 +52,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 Идентификатор задачи есть в выводе команды запуска задания YC CLI и есть в ответе [API](../../glossary/rest-api.md) на запуск задания.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Запуск задания с помощью Hive CLI {#run-job-hive-shell}
 
@@ -124,4 +124,4 @@ SQL-запрос для Hive можно передать двумя способ
     Time taken: 12.137 seconds, Fetched: 12 row(s)
     ```
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}

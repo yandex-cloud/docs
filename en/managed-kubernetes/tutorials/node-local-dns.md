@@ -621,31 +621,18 @@ service "node-local-dns" deleted
 
 Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs group=instructions %}
+1. Delete the resources depending on how they were created:
 
-- Manually {#manual}
+    {% list tabs group=instructions %}
 
-  1. [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+    - Manually {#manual}
 
-- {{ TF }} {#tf}
+        [Delete the {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) cluster.
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-node-local-dns.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+    - {{ TF }} {#tf}
 
-     ```bash
-     terraform validate
-     ```
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  
-  1. Confirm updating the resources.
+    {% endlist %}
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-node-local-dns.tf` configuration file will be deleted.
-
-  1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
-
-{% endlist %}
+1. If static [public IP addresses](../../vpc/concepts/address.md#public-addresses) were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

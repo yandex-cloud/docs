@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Задания в кластере {{ dataproc-name }} также можно запускать из {{ ml-platform-full-name }}. Подробнее см. в [концепции](../../datasphere/concepts/data-proc.md#existing-clusters).
+Задания в кластере {{ dataproc-name }} также можно запускать из {{ ml-platform-full-name }}. Подробнее см. в [концепции](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 {% endnote %}
 
@@ -301,7 +301,7 @@
      sudo -E scp month_stat.py <имя_пользователя>@<FQDN_хоста_кластера>:~/month_stat.py
      ```
 
-     {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
+     {% include [user name](../../_includes/data-processing/tutorials/user-name-images.md) %}
 
   1. Запустите приложение:
 
@@ -318,8 +318,8 @@
      ssh <имя_пользователя>@<FQDN_хоста_кластера> "hdfs dfs -ls /tmp/month_stat"
      ```
 
-     {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
+     {% include [user name](../../_includes/data-processing/tutorials/user-name-images.md) %}
 
 {% endlist %}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}

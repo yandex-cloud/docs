@@ -114,7 +114,7 @@ items:
               - name: >-
                   Importing data from {{ objstorage-name }}, processing and
                   exporting to {{ mch-name }}
-                href: tutorials/s3-dataproc-ch.md
+                href: tutorials/s3-data-processing-ch.md
               - name: >-
                   Mounting buckets to the file system of {{ dataproc-name }}
                   hosts
@@ -122,7 +122,7 @@ items:
           - name: '{{ metastore-full-name }}'
             items:
               - name: Shared use of tables through {{ metastore-name }}
-                href: tutorials/dataproc-to-dataproc.md
+                href: tutorials/data-processing-to-data-processing.md
               - name: >-
                   Transferring metadata between {{ dataproc-name }} clusters
                   using {{ metastore-name }}

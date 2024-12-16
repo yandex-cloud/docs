@@ -99,7 +99,7 @@ items:
     href: managed-opensearch/index.yaml
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
-  - name: Managed Service for Redis
+  - name: Yandex Managed Service for Valkey™
     href: managed-redis/index.yaml
   - name: Managed Service for Trino
     href: managed-trino/index.yaml
@@ -126,7 +126,7 @@ items:
     href: resource-manager/index.yaml
   - name: Практические руководства платформы {{ yandex-cloud }}
     href: tutorials/index.yaml
-  - name: Search API
+  - name: '{{ search-api-name }}'
     href: search-api/index.yaml
   - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml

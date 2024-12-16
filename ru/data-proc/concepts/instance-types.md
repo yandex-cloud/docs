@@ -15,7 +15,7 @@ description: Класс хостов определяет вычислитель
 
 Подходящий класс хостов зависит от режима размещения драйвера:
 
-{% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
+{% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 

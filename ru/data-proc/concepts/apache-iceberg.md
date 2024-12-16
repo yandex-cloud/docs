@@ -26,7 +26,7 @@ description: Информация об {{ IBRG }}, а также таблица 
 Вы можете [настроить {{ IBRG }} в кластере {{ dataproc-name }}](../operations/apache-iceberg.md) версии 2.0 и выше.
 
 
-{% include [apache-iceberg-disclaimer](../../_includes/data-proc/apache-iceberg-disclaimer.md) %}
+{% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
 Подробную информацию об {{ IBRG }} см. в [официальной документации](https://iceberg.apache.org/docs/latest/).

@@ -5,11 +5,9 @@ Type of limit | Value
 --- | ---
 Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12
 Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32
-Total number of vCPUs across all VMs per cloud per {{ region-id }}-c zone | 0
 Total number of {{ highfreq-ice-lake }} vCPUs across all VMs per cloud | 0
 Total virtual memory across all VMs per cloud | 128 GB
 Total number of [disks](../compute/concepts/disk.md) per cloud | 32
-Total number of disks per cloud per {{ region-id }}-c zone | 0
 Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB
 Total SSD storage capacity per cloud | 200 GB
 Total non-replicated SSD storage capacity per cloud | 558 GB
@@ -19,7 +17,6 @@ Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32
 Total storage capacity of all disk snapshots per cloud | 400 GB
 Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32
 Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ | 100
-Total number of file storages per cloud per {{ region-id }}-c zone | 0
 Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud^1^ | 0 B
 Total SSD file storage size per cloud^1^ | 0 B
 Number of [images](../compute/concepts/image.md) per cloud | 8
@@ -52,7 +49,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   --- | ---
   Maximum number of vCPUs per VM | 32
   Maximum virtual memory per VM | Without GPU: 256 GB<br>With GPU: 384 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 18 vCPUs: 8<br>More than 18 vCPUs: 16^3^
+  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 18 vCPUs: 8<br>From 18 vCPUs: 16^3^
   Maximum number of GPUs connected to a single VM | 4
   Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
@@ -63,7 +60,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   --- | ---
   Maximum number of vCPUs per VM | Without GPU: 80<br>With GPU: 64
   Maximum virtual memory per VM | Without GPU: 1,280 GB<br>With GPU: 384 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 20 vCPUs: 8<br>More than 20 vCPUs: 16^3^
+  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 20 vCPUs: 8<br>From 20 vCPUs: 16^3^
   Maximum number of GPUs connected to a single VM | 8
   Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5

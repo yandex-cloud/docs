@@ -8,7 +8,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
@@ -97,8 +97,8 @@
     {% endcut %}
 
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% include [tutorials-basic-clear-out.md](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [tutorials-basic-clear-out.md](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

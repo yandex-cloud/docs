@@ -29,9 +29,9 @@ description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 ## Integrating {{ dataproc-name }} with other services {#integration}
 
 * [{#T}](./copy-files-from-object-storage.md)
-* [{#T}](./s3-dataproc-ch.md)
+* [{#T}](./s3-data-processing-ch.md)
 * [{#T}](./geesefs-init-actions.md)
-* [{#T}](./dataproc-to-dataproc.md)
+* [{#T}](./data-processing-to-data-processing.md)
 * [{#T}](./metastore-import.md)
 * [{#T}](./exchange-data-with-mch.md)
 * [{#T}](./sqoop-mmy.md)

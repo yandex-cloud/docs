@@ -1,6 +1,6 @@
 ---
-title: How to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone
-description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster into a private corporate DNS zone.
+title: How to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone
+description: Follow this guide to integrate a {{ managed-k8s-full-name }} cluster with a private corporate DNS zone.
 ---
 
 # Integrating into a corporate DNS zone
@@ -173,20 +173,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the resources using this command:
-
-        ```bash
-        terraform destroy
-        ```
-
-        {% note alert %}
-
-        {{ TF }} will delete all the resources you created using it, such as {{ managed-k8s-name }} clusters, networks, subnets, and [VMs](../../compute/concepts/vm.md).
-
-        {% endnote %}
-
-     1. Confirm the deletion of resources.
+     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 

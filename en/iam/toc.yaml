@@ -79,7 +79,7 @@ items:
             href: operations/authorized-key/create.md
           - name: Deleting authorized keys
             href: operations/authorized-key/delete.md
-      - name: Service access to user resources
+      - name: Services' access to user's resources
         stage: preview
         items:
           - name: Viewing the status of services
@@ -138,7 +138,7 @@ items:
             href: concepts/authorization/key.md
           - name: Static access key
             href: concepts/authorization/access-key.md
-      - name: Service access to user resources
+      - name: Services' access to user's resources
         stage: preview
         href: concepts/service-control.md
       - name: Identity federations

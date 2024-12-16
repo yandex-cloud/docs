@@ -10,7 +10,7 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](basics.md)
 * [{#T}](community-for-students.md)
 * [{#T}](automation-community-settings.md)
-* [{#T}](data-proc-integration.md)
+* [{#T}](data-processing-integration.md)
 
 ## Development {#development}
 

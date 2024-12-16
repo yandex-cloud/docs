@@ -74,7 +74,7 @@ To use the Cilium network policy controller in a cluster:
 
 {% endlist %}
 
-### Before you start working with the cluster {#do-preparations}
+### Get ready to use the cluster {#do-preparations}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install Cilium CLI](https://github.com/cilium/cilium-cli?tab=readme-ov-file#installation) (`cilium`).
@@ -639,7 +639,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
                                                                k8s:io.cilium.k8s.policy.serviceaccount=default
                                                                k8s:io.kubernetes.pod.namespace=default
                                                                k8s:org=empire
-
+    
     ...
     ```
 
@@ -651,7 +651,7 @@ The L3/L4 network policy only allows the `org: empire` labeled pods to access `d
    kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    Ship landed
@@ -693,7 +693,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    Panic: deathstar exploded
@@ -745,7 +745,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl apply -f sw_l3_l4_l7_policy.yaml
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    ciliumnetworkpolicy.cilium.io/rule1 configured
@@ -757,7 +757,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request POST deathstar.default.svc.cluster.local/v1/request-landing
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    Ship landed
@@ -769,7 +769,7 @@ Access for the `xwing` pod will remain unchanged. This pod cannot access `deaths
    kubectl exec tiefighter -- curl --silent --request PUT deathstar.default.svc.cluster.local/v1/exhaust-port
    ```
 
-   Command result:
+   The result will be as follows:
 
    ```text
    Access denied
@@ -810,13 +810,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cilium.tf` configuration file.
-  1. {% include [terraform-validate](../../_includes/managed-kubernetes/terraform-validate.md) %}
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cilium.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

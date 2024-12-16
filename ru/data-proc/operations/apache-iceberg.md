@@ -10,7 +10,7 @@ description: Как настроить и использовать {{ IBRG }} в
 Подробную информацию об {{ IBRG }} см. в разделе [{#T}](../concepts/apache-iceberg.md) и в [официальной документации](https://iceberg.apache.org/docs/latest/).
 
 
-{% include [apache-iceberg-disclaimer](../../_includes/data-proc/apache-iceberg-disclaimer.md) %}
+{% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
 ## Настройте свойства компонентов для работы с {{ IBRG }} {#settings}
@@ -27,11 +27,11 @@ description: Как настроить и использовать {{ IBRG }} в
 
         * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp20.pkg }}`.
 
-            {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) и предоставьте доступ к нему одним из способов:
 
-            {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+            {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
     - Образы 2.1.0–2.1.3
 
@@ -39,11 +39,11 @@ description: Как настроить и использовать {{ IBRG }} в
 
         * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp21.spark32.pkg }}`.
 
-            {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) и предоставьте доступ к нему одним из способов:
 
-            {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+            {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
     - Образы 2.1.4–2.1.x
 
@@ -51,11 +51,11 @@ description: Как настроить и использовать {{ IBRG }} в
 
         * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp21.spark33.pkg }}`.
 
-            {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) и предоставьте доступ к нему одним из способов:
 
-            {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+            {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
     - Образ 2.2.x
 
@@ -63,11 +63,11 @@ description: Как настроить и использовать {{ IBRG }} в
 
         * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp22.pkg }}`.
 
-            {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp22.jar }}]({{ dp-libs.iceberg.dp22.repo }}) и предоставьте доступ к нему одним из способов:
 
-            {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+            {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
     {% endlist %}
 
