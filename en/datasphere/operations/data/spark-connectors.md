@@ -4,7 +4,7 @@ In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-c
 
 ## Getting started {#before-begin}
 
-{% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-dataproc.md) %}
+{% include [settings-for-dataproc](../../../_includes/datasphere/settings-for-data-processing.md) %}
 
 ## Creating a Spark connector {#create}
 
@@ -38,7 +38,7 @@ In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-c
 
 ## Using a {{ dataproc-name }} cluster in a project {#usage}
 
-{% include [dataproc-spark-connector](../../../_includes/datasphere/dataproc-spark-connector.md) %}
+{% include [dataproc-spark-connector](../../../_includes/datasphere/data-processing-spark-connector.md) %}
 
 {% include [ui-before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

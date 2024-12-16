@@ -29,7 +29,7 @@ The following services support authentication based on authorized keys:
 
 
 * [{{ kms-full-name }}](../../../kms/tutorials/index.md)
-* [{{ maf-full-name }}](../../../managed-airflow/tutorials/data-proc-automation.md)
+* [{{ maf-full-name }}](../../../managed-airflow/tutorials/data-processing-automation.md)
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/tutorials/index.md)
 * [{{ ydb-full-name }}](../../../ydb/operations/connection.md#auth)
 * [{{ monitoring-full-name }}](../../../monitoring/operations/unified-agent/non-yc.md#example)

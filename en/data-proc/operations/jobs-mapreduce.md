@@ -5,7 +5,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
 # Managing MapReduce jobs
 
-{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
+{% include [MapReduce](../../_includes/data-processing/mapreduce-intro.md) %}
 
 ## Create a job {#create}
 
@@ -22,11 +22,11 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
       * Main class name.
       * Path to the main JAR file in the following format:
 
-         {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
    1. Specify job arguments.
 
-      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+      {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
    1. (Optional) Specify the paths to the additional JAR files, if any.
    1. (Optional) Configure advanced settings:
@@ -67,7 +67,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
       Provide the paths to the files required for the job in the following format:
 
-      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
@@ -85,20 +85,20 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
 ## Cancel a job {#cancel}
 
-{% include [jobs-cancel](../../_includes/data-proc/jobs-cancel.md) %}
+{% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
 ## Get a list of jobs {#list}
 
-{% include [jobs-list](../../_includes/data-proc/jobs-list.md) %}
+{% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
 ## Get general information about the job {#get-info}
 
-{% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
+{% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
 
 ## Get job execution logs {#get-logs}
 
-{% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+{% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
 
 
 {% note info %}

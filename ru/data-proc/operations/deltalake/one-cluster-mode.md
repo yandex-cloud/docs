@@ -5,7 +5,7 @@
 Подробную информацию о Delta Lake см. в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 
-{% include [deltalake-disclaimer](../../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 {% note warning %}
@@ -24,7 +24,7 @@
     1. Создайте в бакете каталог c именем `warehouse`.
     1. [Установите свойство](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` в значение `s3a://<имя_бакета>/warehouse/`.
 
-1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/dataproc-connect.md) его к кластеру {{ dataproc-name }}.
+1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/data-processing-connect.md) его к кластеру {{ dataproc-name }}.
 
 ## Настройте свойства компонентов для работы с Delta Lake {#settings}
 
@@ -49,7 +49,7 @@
 
         * Настройте доступ кластера к репозиторию [Maven](https://maven.apache.org/index.html) и установите свойство `spark.jars.packages` в значение `io.delta:delta-core_2.12:0.8.0`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файл библиотеки [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar), скопируйте его на все узлы кластера вручную или с помощью [скриптов инициализации](../../concepts/init-action.md) и передайте полный путь к файлу в свойствах `spark.driver.extraClassPath` и `spark.executor.extraClassPath`.
 
@@ -65,7 +65,7 @@
 
         * Настройте доступ кластера к репозиторию [Maven](https://maven.apache.org/index.html) и установите свойство `spark.jars.packages` в значение `io.delta:delta-core_2.12:2.0.2,io.delta:delta-storage:2.0.2`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файлы библиотек [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar) и [delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar), скопируйте их на все узлы кластера вручную или с помощью [скриптов инициализации](../../concepts/init-action.md) и передайте полный путь к файлам в свойствах `spark.driver.extraClassPath` и `spark.executor.extraClassPath`.
 
@@ -81,7 +81,7 @@
 
         * Настройте доступ кластера к репозиторию [Maven](https://maven.apache.org/index.html) и установите свойство `spark.jars.packages` в значение `io.delta:delta-core_2.12:2.3.0,io.delta:delta-storage:2.3.0`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Скачайте файлы библиотек [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar) и [delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar), скопируйте их на все узлы кластера вручную или с помощью [скриптов инициализации](../../concepts/init-action.md) и передайте полный путь к файлам в свойствах `spark.driver.extraClassPath` и `spark.executor.extraClassPath`.
 

@@ -29,7 +29,7 @@
 
     Сервисному аккаунту должны быть [назначены роли](../../iam/operations/sa/assign-role-for-sa.md):
 
-    {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+    {% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 

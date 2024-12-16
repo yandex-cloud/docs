@@ -26,14 +26,15 @@ You can [create](../../operations/api-key/create.md) API keys with an expiration
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
-The scope limits the use of API keys along with the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+The scope limits the use of API keys in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
 
 {% include [scoped-api-keys-note](../../../_includes/iam/scoped-api-keys-note.md) %}
 
 Available scopes are listed below:
 
-* `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
+* `yc.postbox.send`: For sending emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
+* `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 
 ## Using an API key {#use}
 
@@ -50,6 +51,7 @@ The following services support authentication based on API keys:
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
+* [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
 * [{{ search-api-full-name }}](../../../search-api/operations/auth.md)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
 * [{{ speechkit-full-name }}](../../../{{ speechkit-slug }}/concepts/auth.md)

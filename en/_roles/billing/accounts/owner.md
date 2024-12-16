@@ -5,6 +5,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant billing accounts and modify such permissions.
+* Activate, deactivate, or modify the [technical support](../../../support/overview.md) service plan, as well as change the billing account from which the payment is debited.
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).
 * Generate new [reconciliation reports](../../../billing/concepts/act.md#reconciliation-report).
 * View and download generated reconciliation reports.
@@ -22,7 +23,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 * Change payment details.
 * Change their credit or debit card details.
 * Change the payment method.
-* Activate promo codes.
+* Redeem promo codes.
 * Activate the [trial period](../../../billing/concepts/trial-period.md).
 * Activate the [paid version](../../../getting-started/free-trial/concepts/upgrade-to-paid.md).
 * [Delete](../../../billing/operations/delete-account.md) billing accounts.

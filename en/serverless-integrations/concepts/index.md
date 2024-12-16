@@ -7,7 +7,7 @@ keywords:
   - WF
   - eventrouter
   - event router
-  - workflow
+  - Workflow
   - YaWL specification
   - Glue
   - integrations
@@ -29,19 +29,17 @@ keywords:
 * Set up CI/CD pipelines.
 * Develop event-driven serverless applications based on orchestration and choreography to coordinate and manage events.
 
-## Available tools {#instruments}
-
-{% note info %}
-
-{{ sw-name }} and {{ er-name }} are at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+## Available features {#instruments}
 
 ### {{ sw-name }} {#workflows}
+
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 Build and automate workflows using the Yandex Workflows Language (YaWL).
 
 ### {{ er-name }} {#eventrouter}
+
+{% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 Configure event exchange between your services and {{ yandex-cloud }} services using filtering, transformation, and routing.
 

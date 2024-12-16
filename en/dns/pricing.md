@@ -1,6 +1,6 @@
 ---
 title: '{{ dns-full-name }} pricing policy'
-description: This article describes the {{ dns-name }} pricing policy.
+description: This article provides the {{ dns-name }} pricing policy.
 editable: false
 ---
 

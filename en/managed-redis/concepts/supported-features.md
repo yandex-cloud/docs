@@ -1,6 +1,6 @@
 ---
 title: Commands available in {{ mrd-full-name }}
-description: This page provides a list of Redis commands which cannot be run in a {{ RD }} cluster.
+description: This page provides a list of {{ RD }} commands which cannot be run in a {{ RD }} cluster.
 ---
 
 # Supported {{ mrd-name }} commands

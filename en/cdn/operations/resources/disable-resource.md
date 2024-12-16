@@ -145,7 +145,7 @@ You can stop a resource by disabling end-user access to the content. To do this:
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

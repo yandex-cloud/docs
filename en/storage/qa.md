@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ objstorage-full-name }}
-description: This page presents FAQ about {{ objstorage-name }}.
+description: This page addresses the FAQs about {{ objstorage-name }}.
 ---
 
 # FAQ about {{ objstorage-name }}
@@ -55,7 +55,6 @@ See [{#T}](concepts/limits.md).
 
 You can delete multiple objects via the {{ yandex-cloud }} management console or the API using the [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md) method.
 
-
 #### A service account cannot access a bucket, why is that? {#sa-bucket-access}
 
 
@@ -76,17 +75,14 @@ Where:
 * `--service-account-id`: Service account ID.
 
 
-
 #### What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
 The data is saved in the form in which it was transmitted by the user.
 
 
-
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
 
 Yes. {{ objstorage-name }} is used in the Yandex infrastructure. A number of Yandex services store their websites' static data in {{ objstorage-name }}.
-
 
 
 #### Which data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
@@ -100,11 +96,9 @@ For overwritable (PUT) and removable (DELETE) objects, the strong consistency mo
 * Some HTTP API methods. For a full list of supported methods, see the [API reference](s3/api-ref/index.md).
 
 
-
 #### Where is my data stored? {#qa-where}
 
 Data is stored in several geographically distributed data centers located in Russia. For more information, see [{#T}](../overview/concepts/geo-scope.md).
-
 
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
@@ -127,12 +121,10 @@ The {{ objstorage-name }} response time depends on multiple factors:
 This is why we cannot specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
 
 
-
 {% include [fz-152.md](../_qa/fz-152.md) %}
 
 
 {% include [logs.md](../_qa/logs.md) %}
-
 
 
 #### How do I add my own domain to a {{ objstorage-name }} bucket? {#domain-bucket}
@@ -161,7 +153,7 @@ Possible causes:
 * If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
 
 
-* If a bucket is interacting with a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) cluster and the bucket has a bucket policy assigned to it, the cluster will not be able to write data to the bucket. To fix this, remove the policy.
+* If a bucket is interacting with a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) or [{{ maf-full-name}}](../managed-airflow/concepts/index.md) cluster and the bucket has a bucket policy assigned to it, the cluster cannot write data to or read data from the bucket without a service account with the appropriate role.
 
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}

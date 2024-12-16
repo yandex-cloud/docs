@@ -4,7 +4,7 @@
 
 ## UI Proxy {#ui-proxy}
 
-{% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
+{% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
 ### Включить веб-интерфейсы компонентов {#ui-proxy-enable}
 

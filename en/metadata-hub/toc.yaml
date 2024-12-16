@@ -35,9 +35,13 @@ items:
           - name: Configuring security groups
             href: operations/metastore/configure-security-group.md
           - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
+            href: operations/metastore/data-processing-connect.md
           - name: Exporting and importing a {{ metastore-name }} cluster
             href: operations/metastore/export-and-import.md
+          - name: >-
+              Connecting to a {{ objstorage-full-name }} bucket with a bucket
+              policy
+            href: operations/metastore/s3-policy-connect.md
           - name: >-
               Transferring logs from {{ metastore-name }} to {{
               cloud-logging-name }}

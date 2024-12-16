@@ -28,7 +28,7 @@ items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Automating {{ dataproc-name }} operations
-        href: tutorials/data-proc-automation.md
+        href: tutorials/data-processing-automation.md
       - name: Automating {{ yq-full-name }} tasks
         href: tutorials/airflow-auto-tasks.md
       - name: >-

@@ -5,6 +5,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant billing accounts and modify such permissions (except for assigning and revoking the `billing.accounts.owner` role).
+* Activate, deactivate, or modify the [technical support](../../../support/overview.md) service plan, as well as change the billing account from which the payment is debited.
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).
 * Generate new [reconciliation reports](../../../billing/concepts/act.md#reconciliation-report).
 * View and download generated reconciliation reports.
@@ -15,7 +16,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
-* Link a [cloud](../../../organization/concepts/manage-services.md#cloud) to a billing account.
+* Link [clouds](../../../organization/concepts/manage-services.md#cloud) to a billing account.
 * Rename billing accounts.
 * Redeem promo codes.
 

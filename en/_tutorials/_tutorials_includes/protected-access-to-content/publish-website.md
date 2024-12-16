@@ -52,7 +52,7 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
 
     Where `<VM_IP_address>` is the public IP address of the previously created VM with a web server.
 
-    You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page using the [management console]({{ link-console-main }}) or this CLI command: `yc compute instance get mywebserver`.
+    You can find the IP address of your VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or using the `yc compute instance get mywebserver` CLI command.
 
     If this is your first time connecting to the VM, you will see an unknown host warning:
 
@@ -218,6 +218,6 @@ To use the TLS certificate created in {{ certificate-manager-name }} in your web
 
     Where:
     * `$secret`: Secret key created when configuring the CDN resource.
-    * `$domain_name`: Domain name of the created CDN resource. For example, `cdn.example.com`.
+    * `$domain_name`: Domain name of the created CDN resource, e.g., `cdn.example.com`.
     * `$path`: [Key of the object](../../../storage/concepts/object.md#key) in the [source](../../../cdn/concepts/origins.md) bucket, e.g., `/content.jpg`. It must contain `/`.
        The website will generate a signed link to access this object via the CDN resource.

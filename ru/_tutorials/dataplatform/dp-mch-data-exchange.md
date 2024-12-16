@@ -17,7 +17,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
-    1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+    1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
     1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
@@ -196,7 +196,7 @@
 
 1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Выгрузите данные в {{ mch-name }} {#import-to-mch}
 
@@ -265,7 +265,7 @@
 
     Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с данными.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 

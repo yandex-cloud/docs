@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если сборка мусора занимает много времени:
 
-{% include [gc-time-fix](../../_includes/data-proc/gc-time-fix.md) %}
+{% include [gc-time-fix](../../_includes/data-processing/gc-time-fix.md) %}
 
 {% endnote %}
 

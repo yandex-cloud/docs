@@ -9,7 +9,7 @@ description: GPU (Graphics Processing Unit) is a graphics processor that outperf
 {{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs for certain types of data and can be used for complex computing. For even more performance and convenience, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
 The following GPUs are available in {{ compute-name }}:
-* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory).
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) with 32 GB HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6.
 
@@ -20,10 +20,6 @@ GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference
 {% endnote %}
 
 {% include [gpu-zero-quota](../../_includes/compute/gpu-zero-quota.md) %}
-
-
-You cannot create VMs with GPUs in the `{{ region-id }}-c` availability zone. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
-
 
 ## Graphics accelerators (GPUs) {#gpu}
 

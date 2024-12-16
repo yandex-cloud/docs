@@ -116,7 +116,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 [{{ dataproc-full-name }}](../../data-proc/quickstart.md) assists in deploying Apache Hadoop® and Apache Spark™ clusters in a {{ yandex-cloud }} infrastructure. The cluster size, node capacity, and selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
 
-{% include [not-charged-dataproc.md](../../_includes/pricing/price-formula/not-charged-dataproc.md) %}
+{% include [not-charged-data-processing.md](../../_includes/pricing/price-formula/not-charged-data-processing.md) %}
 
 ## {{ yds-full-name }} {#yds}
 

@@ -30,7 +30,7 @@ items:
       - name: Все руководства
         href: tutorials/index.md
       - name: Автоматизация работы с {{ dataproc-name }}
-        href: tutorials/data-proc-automation.md
+        href: tutorials/data-processing-automation.md
       - name: Автоматизация задач {{ yq-full-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: >-

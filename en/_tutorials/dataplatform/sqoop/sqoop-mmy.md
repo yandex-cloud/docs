@@ -35,7 +35,7 @@ You can create other resources manually or using {{ TF }}.
 
 1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md) in any suitable [configuration](../../../data-proc/concepts/instance-types.md).
 
-   {% include [Settings for DataProc cluster](./data-proc-cluster-settings.md) %}
+   {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
 
 1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mmy-name }} and {{ dataproc-name }} clusters.
 

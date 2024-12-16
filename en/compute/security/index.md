@@ -21,7 +21,7 @@ Roles for a resource can be assigned by users who have the `compute.admin` role 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign roles for individual resources within the service:
+You can also assign roles for individual resources of the service:
 
 {% list tabs group=instructions %}
 
@@ -39,7 +39,7 @@ You can also assign roles for individual resources within the service:
 
 - {{ TF }} {#tf}
 
-  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+  Use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
 
   {% include notitle [compute-resources-tf](../../_includes/iam/resources-with-access-control/compute-tf.md) %}
 

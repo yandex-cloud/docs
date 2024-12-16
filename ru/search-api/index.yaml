@@ -27,10 +27,10 @@ description:
     сервиса {{ search-api-full-name }}</a> для нерезидентов Российской Федерации
     и Республики Казахстан.</li> </ul>
 meta:
-  title: Search API
+  title: '{{ search-api-full-name }}'
   description: >-
-    Search API — сервис, позволяющий отправлять запросы к поисковой базе Яндекса
-    и получать ответы в формате XML и HTML.
+    {{ search-api-full-name }} — сервис, позволяющий отправлять запросы к
+    поисковой базе Яндекса и получать ответы в формате XML и HTML.
 links:
   - title: Начало работы
     description: Узнайте, как начать работать с сервисом

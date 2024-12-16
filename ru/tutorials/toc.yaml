@@ -562,15 +562,15 @@ items:
       - name: >-
           Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
           {{ dataproc-name }}
-        href: dataplatform/data-proc-init-actions-geesefs.md
+        href: dataplatform/data-processing-init-actions-geesefs.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-full-name }}
-        href: dataplatform/data-proc-and-kafka.md
+        href: dataplatform/data-processing-and-kafka.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
-        href: dataplatform/data-proc-and-airflow.md
+        href: dataplatform/data-processing-and-airflow.md
       - name: >-
           Совместная работа с таблицами {{ dataproc-name }} с использованием {{
           metastore-name }}
-        href: dataplatform/dataproc-to-dataproc.md
+        href: dataplatform/data-processing-to-data-processing.md
       - name: >-
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
@@ -793,7 +793,7 @@ items:
       - name: Настройка защищенного туннеля GRE поверх IPsec
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}
-        href: routing/dataproc-nat-instance.md
+        href: routing/data-processing-nat-instance.md
       - name: Настройка PT Application Firewall
         href: routing/pt-application-firewall.md
         hidden: true

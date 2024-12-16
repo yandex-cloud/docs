@@ -44,7 +44,7 @@ You can also assign roles for individual resources within the service:
 
 - API {#api}
 
-  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+  You can use [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
 
   * [Registry](../concepts/registry.md)
   * [Repository](../concepts/repository.md)

@@ -113,7 +113,7 @@ items:
             href: operations/volumes/volume-expansion.md
           - name: Increasing volume size for the StatefulSet controller
             href: operations/volumes/statefulset-pvc-expansion.md
-          - name: Mounting a volume in Block mode
+          - name: Mounting a volume in block mode
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
@@ -266,7 +266,7 @@ items:
             href: tutorials/marketplace/thumbor.md
           - name: Using Istio
             href: tutorials/marketplace/istio.md
-          - name: Using HashiCorp Vault for storing secrets
+          - name: Using HashiCorp Vault to store secrets
             href: tutorials/marketplace/hashicorp-vault.md
   - name: Concepts
     items:

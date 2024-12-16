@@ -120,19 +120,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cluster.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

@@ -20,7 +20,7 @@ You can use the following types of resources in {{ ml-platform-name }} projects:
 * [Connectors to S3 storages](s3-connector.md): Saved configurations for connecting [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. To learn how to create an S3 connector, see [{#T}](../operations/data/s3-connectors.md).
 * [Nodes](deploy/index.md#node): Services deployed for [running trained models](deploy/). Third-party services can access nodes using the API.
 * [Aliases](deploy/index.md#alias): Add-ons used to publish services. Aliases allow you to distribute the load across nodes and update the deployed services on the fly.
-* [{{ dataproc-name }} templates](data-proc-template.md): Ready-to-use {{ dataproc-name }} cluster configurations for automatic cluster deployment from a {{ ml-platform-name }} project.
+* [{{ dataproc-name }} templates](data-processing-template.md): Ready-to-use {{ dataproc-name }} cluster configurations for automatic cluster deployment from a {{ ml-platform-name }} project.
 * [Models](models/index.md): Saved interpreter state and computation or training results. These are grouped into models trained within projects and fine-tuned [foundation models](models/foundation-models.md).
 * [Spark connectors](spark-connector.md): Saved configurations for connecting existing {{ dataproc-name }} clusters and creating temporary clusters.
 

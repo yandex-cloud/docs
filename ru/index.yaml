@@ -142,8 +142,8 @@ links:
   - title: Managed Service for PostgreSQL
     description: Управление базой данных PostgreSQL
     href: managed-postgresql/
-  - title: Managed Service for Redis™
-    description: Управление базой данных Redis
+  - title: Yandex Managed Service for Valkey™
+    description: Управление базой данных Valkey™
     href: managed-redis/
   - title: Yandex Cloud Marketplace
     description: Инструменты и решения от ведущих вендоров
@@ -190,7 +190,7 @@ links:
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
-  - title: Search API
+  - title: '{{ search-api-name }}'
     description: >-
       Cервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать
       ответы по api.

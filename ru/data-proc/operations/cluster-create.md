@@ -10,7 +10,7 @@
 
 Сервисному аккаунту кластера {{ dataproc-name }} должны быть назначены роли:
 
-{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+{% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
@@ -76,7 +76,7 @@
 
 {% endnote %}
 
-Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
+Вы можете настроить группы безопасности после создания кластера {{ dataproc-name }}, чтобы [подключиться к {{ metastore-name }}](../../metadata-hub/operations/metastore/data-processing-connect.md) или [хостам кластера {{ dataproc-name }}](connect.md) через интернет или промежуточную [виртуальную машину](../../compute/concepts/vm.md).
 
 
 ## Создайте кластер {{ dataproc-name }} {#create}
@@ -90,7 +90,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер {{ dataproc-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
   1. Укажите имя и при необходимости описание кластера {{ dataproc-name }}.
 
      Требования к имени:
@@ -104,7 +104,7 @@
 
      * [Версия образа](../concepts/environment.md) и сервисы, которые вы хотите использовать в кластере {{ dataproc-name }}.
 
-        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+        {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
         {% note tip %}
 
@@ -251,7 +251,7 @@
      * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}.
      * `--version` — [версия образа](../concepts/environment.md).
 
-       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+       {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
        {% note tip %}
 
@@ -331,7 +331,7 @@
        --host-group-ids=<идентификаторы_групп_выделенных_хостов>
      ```
 
-     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+     {% include [Dedicated hosts note](../../_includes/data-processing/note-dedicated-hosts.md) %}
 
   1. Чтобы настроить хосты кластера {{ dataproc-name }} с помощью [скриптов инициализации](../concepts/init-action.md), укажите их в одном или нескольких параметрах `--initialization-action`:
 
@@ -506,7 +506,7 @@
 
      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+     {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
      {% note tip %}
 
@@ -571,7 +571,7 @@
   * Конфигурацию кластера {{ dataproc-name }} в параметре `configSpec`, в том числе:
     * [Версию образа](../concepts/environment.md) в параметре `configSpec.versionId`.
 
-      {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+      {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
       {% note tip %}
 
@@ -594,7 +594,7 @@
 
   Чтобы создать кластер {{ dataproc-name }}, размещенный на [группах выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
-  {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+  {% include [Dedicated hosts note](../../_includes/data-processing/note-dedicated-hosts.md) %}
 
   Чтобы настроить хосты кластера {{ dataproc-name }} с помощью [скриптов инициализации](../concepts/init-action.md), укажите их в одном или нескольких параметрах `configSpec.hadoop.initializationActions`.
 

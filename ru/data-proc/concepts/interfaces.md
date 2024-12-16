@@ -25,4 +25,4 @@ UI Proxy по умолчанию отключен. Чтобы воспользо
 
 ## Компоненты и порты {#port-numbers}
 
-{% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+{% include [ports-table](../../_includes/data-processing/ports-table.md) %}

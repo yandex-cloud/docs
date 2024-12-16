@@ -165,7 +165,7 @@ To migrate a zonal master to a different availability zone:
 
 ### Migrating a regional master host {#regional}
 
-A regional master host is created and distributed across three subnets in different availability zones. You can change [only one availability zone](../../overview/concepts/ru-central1-c-deprecation.md) for a regional master host: from `{{ region-id }}-c` to `{{ region-id }}-d`. Three subnets and availability zones are specified for host migration. During migration, the master host keeps running, the cluster and node group not being recreated.
+A regional master host is created and distributed across three subnets in different availability zones. You can change only one availability zone for a regional master host: `{{ region-id }}-c` to `{{ region-id }}-d`. Three subnets and availability zones are specified for host migration. During migration, the master host keeps running, the cluster and node group not being recreated.
 
 The internal IP address for the regional master host is assigned automatically in one of the three hosting subnets. After migration, the master retains its internal IP address. If this IP address belongs to the `{{ region-id }}-c` zone subnet, the master is moved to the `{{ region-id }}-d` zone with the previous IP address reserved in the old subnet. You cannot delete such a subnet, but later on you will be able to [move](../../vpc/operations/subnet-relocate.md) it to a new availability zone, or it will be moved to the `{{ region-id }}-d` zone automatically as soon as the `{{ region-id }}-c` zone is closed.
 

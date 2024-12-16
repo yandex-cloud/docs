@@ -215,7 +215,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 - Management console {#console}
 
   1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.  
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field specify `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -246,7 +246,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
   Where:
   * `<security_group_ID>`: Previously saved security group ID.
-  * `--ssh-key`: Path to the file with the public SSH key. For example, `~/.ssh/id_ed25519.pub`.
+  * `--ssh-key`: Path to the file with the public SSH key, e.g., `~/.ssh/id_ed25519.pub`.
 
   Result:
 
@@ -371,7 +371,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
          1. In the **{{ ui-key.yacloud.common.type }}** field, select `A` as the [record type](../../dns/concepts/resource-record.md#rr-types).
          1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [public IP address](../../vpc/concepts/address.md#public-addresses) of the previously created VM with a web server.
 
-             You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page using the [management console]({{ link-console-main }}) or this CLI command: `yc compute instance get mywebserver`.
+             You can find the IP address of your VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or using the `yc compute instance get mywebserver` CLI command.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -387,7 +387,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       Where `<VM_IP_address>` is the [public IP address](../../vpc/concepts/address.md#public-addresses) of the previously created VM with a web server.
 
-      You can find the VM IP address in the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page using the [management console]({{ link-console-main }}) or this CLI command: `yc compute instance get mywebserver`.
+      You can find the IP address of your VM in the [management console]({{ link-console-main }}) on the VM page under **{{ ui-key.yacloud.compute.instance.overview.section_network }}** or using the `yc compute instance get mywebserver` CLI command.
 
       Result:
 
@@ -438,8 +438,8 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       ```
 
       Where:
-      * `<domain_name>`: Name of your domain for the web server. For example, `example.com`.
-      * `<subdomain_name>`: Name of the subdomain that the CDN resource will use. For example, `cdn.example.com`.
+      * `<domain_name>`: Name of your domain for the web server, e.g., `example.com`.
+      * `<subdomain_name>`: Name of the subdomain that the CDN resource will use, e.g., `cdn.example.com`.
 
       Result:
       ```bash
@@ -658,7 +658,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --public-list
           ```
 
-          Where `--name` is the bucket name, unique throughout {{ objstorage-name }}. For example, `cdn-source-bucket`.
+          Where `--name` is the bucket name, unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -716,7 +716,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --acl public-read
           ```
 
-          Where `--bucket` is the bucket name, unique throughout {{ objstorage-name }}. For example, `cdn-source-bucket`.
+          Where `--bucket` is the bucket name, unique throughout {{ objstorage-name }}, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -734,7 +734,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             --index-document index.html
           ```
 
-          Where `<bucket_name>` is the name of the previously created bucket. For example, `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
 
     - API {#api}
 
@@ -765,7 +765,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
             s3 cp ./index.html s3://<bucket_name>/index.html
           ```
 
-          Where `<bucket_name>` is the name of the previously created bucket. For example, `cdn-source-bucket`.
+          Where `<bucket_name>` is the name of the previously created bucket, e.g., `cdn-source-bucket`.
 
           Result:
 
@@ -857,8 +857,8 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       ```
 
       Where:
-      * `<subdomain_name>`: Domain name for which the TLS certificate was created earlier and which will be used by the CDN resource. For example, `cdn.example.com`.
-      * `<bucket_name>`: Name of the previously created {{ objstorage-name }} bucket. For example, `cdn-source-bucket`.
+      * `<subdomain_name>`: Domain name for which the TLS certificate was created earlier and which will be used by the CDN resource, e.g., `cdn.example.com`.
+      * `<bucket_name>`: Name of the previously created {{ objstorage-name }} bucket, e.g., `cdn-source-bucket`.
       * `--cert-manager-ssl-cert-id`: TLS certificate ID that was saved earlier when creating the certificate.
       * `--secure-key`: Secret key, a string of 6 to 32 characters. The secret key will be transmitted to the CDN resource configuration and used to generate and check signed links.
 

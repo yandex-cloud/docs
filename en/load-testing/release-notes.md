@@ -1,9 +1,17 @@
 ---
-title: '{{ load-testing-full-name }} Release notes'
+title: '{{ load-testing-full-name }} release notes'
 description: This section contains {{ load-testing-name }} release notes.
 ---
 
 # {{ load-testing-full-name }} release notes
+
+## Q3 2024 {#q3-2024}
+
+* Added the ability to export reports.
+* Implemented {{ load-testing-name }} object search via {{ search-api-name }} in the management console.
+* Implemented integration with the quota service.
+* Discarded requests are now displayed on charts.
+* The test page now states the reason why autostop was triggered.
 
 ## Q2 2024 {#q2-2024}
 

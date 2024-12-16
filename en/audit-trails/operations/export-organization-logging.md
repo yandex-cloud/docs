@@ -19,7 +19,7 @@ To export organization audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * `audit-trails.viewer` for the organization whose audit logs you will collect:
+      * `audit-trails.viewer` for the organization whose audit logs will be collected:
 
         ```
         yc organization-manager organization add-access-binding \
@@ -30,7 +30,7 @@ To export organization audit logs:
 
         Where:
         * `--role`: Role you want to assign.
-        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources you will collect audit logs.
+        * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization from whose resources audit logs will be collected.
         * `--service-account-id`: Service account ID.
 
       * `logging.writer` for the folder to host the trail:
@@ -52,7 +52,7 @@ To export organization audit logs:
 1. On the [Access permissions]({{ link-console-access-management }}) page, make sure you have the following roles:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the organization whose audit logs you will collect.
+    * `audit-trails.viewer` for the organization whose audit logs will be collected.
     * `logging.viewer` for the {{ cloud-logging-name }} log group.
 
 

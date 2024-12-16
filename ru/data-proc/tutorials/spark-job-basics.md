@@ -8,7 +8,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. {% include [Создать бакеты и выдать SA права на них](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [Создать бакеты и выдать SA права на них](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
@@ -21,7 +21,7 @@
 
 ## Создайте задание Spark {#create-job}
 
-1. {% include [Скачать и загрузить файл с текстовыми данными](../../_includes/data-proc/tutorials/sample-txt.md) %}
+1. {% include [Скачать и загрузить файл с текстовыми данными](../../_includes/data-processing/tutorials/sample-txt.md) %}
 
 1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
 
@@ -109,8 +109,8 @@
 
     {% endcut %}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
-{% include [Удаление кластера, бакетов и сервисного аккаунта](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [Удаление кластера, бакетов и сервисного аккаунта](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

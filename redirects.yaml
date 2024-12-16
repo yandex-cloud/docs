@@ -11,3 +11,45 @@ common:
     to: /datalens/dataset/$1
   - from: ^/datalens/operations/dataset/(.*)
     to: /datalens/dataset/create-dataset
+  - from: ^/troubleshooting/dataproc/(.*)
+    to: /troubleshooting/data-processing
+  - from: ^/data-proc/tutorials/dataproc-to-dataproc
+    to: /data-proc/tutorials/data-processing-to-data-processing
+  - from: ^/data-proc/tutorials/s3-dataproc-ch
+    to: /data-proc/tutorials/s3-data-processing-ch
+  - from: ^/datasphere/concepts/data-proc-operations
+    to: /datasphere/concepts/data-processing-operations
+  - from: ^/datasphere/concepts/data-proc-template
+    to: /datasphere/concepts/data-processing-template
+  - from: ^/datasphere/concepts/data-proc
+    to: /datasphere/concepts/data-processing
+  - from: ^/datasphere/concepts/temporary-data-proc-clusters
+    to: /datasphere/concepts/temporary-data-processing-clusters
+  - from: ^/datasphere/operations/data-proc-template
+    to: /datasphere/operations/data-processing-template
+  - from: ^/datasphere/tutorials/data-proc-integration
+    to: /datasphere/tutorials/data-processing-integration
+  - from: ^/managed-airflow/tutorials/data-proc-automation
+    to: /managed-airflow/tutorials/data-processing-automation
+  - from: ^/managed-kafka/tutorials/data-proc
+    to: /managed-kafka/tutorials/data-processing
+  - from: ^/marketplace-products/neoflex-datagram-dataproc
+    to: /marketplace-products/neoflex-datagram-data-processing
+  - from: ^/metadata-hub/operations/metastore/dataproc-connect
+    to: /metadata-hub/operations/metastore/data-processing-connect
+  - from: ^/monitoring/metrics-ref/data-proc-ref
+    to: /monitoring/metrics-ref/data-processing-ref
+  - from: ^/storage/tutorials/data-proc-init-actions-geesefs
+    to: /storage/tutorials/data-processing-init-actions-geesefs
+  - from: ^/troubleshooting/dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation
+    to: /troubleshooting/data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation
+  - from: ^/tutorials/dataplatform/data-proc-and-airflow
+    to: /tutorials/dataplatform/data-processing-and-airflow
+  - from: ^/tutorials/dataplatform/data-proc-and-kafka
+    to: /tutorials/dataplatform/data-processing-and-kafka
+  - from: ^/tutorials/dataplatform/data-proc-init-actions-geesefs
+    to: /tutorials/dataplatform/data-processing-init-actions-geesefs
+  - from: ^/tutorials/dataplatform/dataproc-to-dataproc
+    to: /tutorials/dataplatform/data-processing-to-data-processing
+  - from: ^/vpc/tutorials/dataproc-nat-instance
+    to: /vpc/tutorials/data-processing-nat-instance

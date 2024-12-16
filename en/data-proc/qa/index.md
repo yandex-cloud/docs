@@ -5,6 +5,6 @@ description: How do I get the logs of my activity in {{ dataproc-full-name }}? F
 
 # General questions about {{ dataproc-name }}
 
-{% include [general-minitoc](../../_qa/data-proc/minitoc/general.md) %}
+{% include [general-minitoc](../../_qa/data-processing/minitoc/general.md) %}
 
-{% include [general](../../_qa/data-proc/general.md) %}
+{% include [general](../../_qa/data-processing/general.md) %}

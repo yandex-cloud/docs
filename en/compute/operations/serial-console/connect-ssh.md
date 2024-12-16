@@ -2,7 +2,7 @@
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
-After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read [{#T}](#security).
+After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read the [security](#security) section.
 
 ## Security {#security}
 
@@ -91,7 +91,7 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate, specifying your organization [ID](../../../organization/operations/organization-get-id.md):
+  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate stating your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
       yc compute ssh certificate export \
@@ -143,7 +143,7 @@ You can also connect to the serial console using [SSH keys for other users](../v
   * Press **Enter**.
   * Restart the VM (for VMs created before February 22, 2019).
 * If you get the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
-* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is still valid. If required, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
+* If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is valid. If necessary, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

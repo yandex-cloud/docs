@@ -15,7 +15,7 @@ description: This guide describes how to use Sqoop.
    * [Apache Hive](#apache-hive).
    * [Apache HBase](#apache-hbase).
 
-{% include [No Sqoop in DataProc v2.0](../../_includes/data-proc/no-sqoop-in-dataproc2.md) %}
+{% include [No Sqoop in DataProc v2.0](../../_includes/data-processing/no-sqoop-in-data-processing2.md) %}
 
 ## Creating a JDBC connect string {#jdbc-url-getting}
 

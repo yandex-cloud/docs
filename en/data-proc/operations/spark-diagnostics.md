@@ -30,7 +30,7 @@ If the performance of a Spark application is low, run primary diagnostics:
 
 If you [checked the resources allocated to the application](./spark-monitoring.md#resources) and found out that the **GC Time** in the total **Task Time** is high:
 
-{% include [gc-time-fix](../../_includes/data-proc/gc-time-fix.md) %}
+{% include [gc-time-fix](../../_includes/data-processing/gc-time-fix.md) %}
 
 ### Multiple executors are competing for CPU resources {#cpu-wars}
 

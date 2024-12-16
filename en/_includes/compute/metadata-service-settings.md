@@ -10,6 +10,6 @@
   {% endnote %}
 
 * `gce-http-endpoint`: Provides access to metadata using Google Compute Engine format. Possible values: `enabled`, `disabled`. If set to `disabled`, the metadata request will fail with error `400` (`BadRequest`). The default value is `enabled`.
-* `aws-v1-http-token`: Enables using the Google Compute Engine metadata to get a token of the [service account](../../iam/concepts/users/service-accounts.md) connected to the VM. Possible values: `enabled`, `disabled`. If set to `disabled`, the token request will fail with error `400` (`BadRequest`). The default value is `enabled`.
+* `aws-v1-http-token`: Enables using the Google Compute Engine metadata to get a token of the [service account](../../iam/concepts/users/service-accounts.md) connected to the VM. Possible values: `enabled`, `disabled`. If the `disabled` value is set for the option, then the request to get a token will end with error `400` (`BadRequest`). The default value is `enabled`.
 
 You can get the values of the metadata service parameters together with the [VM information](../../compute/operations/vm-info/get-info.md#outside-instance) using the [CLI](../../cli/cli-ref/compute/cli-ref/instance/get.md) and [API](../../compute/api-ref/Instance/get.md).

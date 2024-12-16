@@ -68,7 +68,7 @@ To recreate group instances one by one:
       * `--name`: VM group name.
       * `--folder-name`: Name of the folder the VM group belongs to.
 
-      {{ ig-name }} will begin to recreate all instances in the group one by one. The status of recreated VMs will change to `Running`.
+      {{ ig-name }} will begin to recreate all instances in the group one by one. The recreated instances will change their status to `Running`.
 
       Result:
 
@@ -119,7 +119,7 @@ To recreate group instances one by one:
       * `--name`: VM group name.
       * `--folder-name`: Name of the folder the VM group belongs to.
       
-      {{ ig-name }} will begin to recreate the specified instances in the group one by one. The status of recreated VMs will change to `Running`.
+      {{ ig-name }} will begin to recreate the specified instances in the group one by one. The recreated instances will change their status to `Running`.
 
   For more information about the `{{ yc-compute-ig }} rolling-recreate` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 

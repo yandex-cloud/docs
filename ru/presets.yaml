@@ -454,11 +454,11 @@ default:
   mpg-short-name: Managed Service for PostgreSQL
   mqtt-server-address: mqtt.cloud.yandex.net
   mqtt-server-port: 8883
-  mrd-full-name: Yandex Managed Service for Redis
+  mrd-full-name: Yandex Managed Service for Valkey™
   mrd-host-class: hm2.nano
   mrd-memory-used: 75%
-  mrd-name: Managed Service for Redis
-  mrd-short-name: Managed Service for Redis
+  mrd-name: Yandex Managed Service for Valkey™
+  mrd-short-name: Yandex Managed Service for Valkey™
   MS: SQL Server
   ms:
     docs: https://docs.microsoft.com/ru-ru
@@ -532,7 +532,7 @@ default:
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   prometheus-name: Prometheus
   promql-name: PromQL
-  RD: Redis
+  RD: Valkey™
   rd:
     docs: https://redis.io/docs
   region-id: ru-central1
@@ -684,9 +684,9 @@ default:
   schema-registry-name: Schema Registry
   sd-full-name: Yandex Security Deck
   sd-name: Security Deck
-  search-api: Search API
+  search-api: Yandex Search API
   search-api-full-name: Yandex Search API
-  search-api-name: Search API
+  search-api-name: Yandex Search API
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
@@ -6682,7 +6682,6 @@ default:
         attach-disk:
           button_attach: Подключить
           field_instance: ВМ
-        button_relocate-to-another-zone: Перенести в другую зону
         component:
           instance-storage-dialog:
             button_add-disk: Добавить диск
@@ -6691,7 +6690,6 @@ default:
           field_type: Тип
           label_disk-encryption: Зашифрованный диск
           label_disk-kms-key: Ключ KMS
-          label_service-account: Сервисный аккаунт
           section_encryption: Шифрование
         disk:
           overview:
@@ -6711,7 +6709,6 @@ default:
           popup_detach-disk_button_detach: Отсоединить
         field_additional: Дополнительно
         field_disk-autodelete: Удалять вместе с виртуальной машиной
-        field_new-availability-zone: Новая зона доступности
         gpu_clusters: Кластеры GPU
         group:
           edit:
@@ -6835,7 +6832,6 @@ default:
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
-          button_start-instance-relocation: Начать перенос
           column_internal-ip: Внутренний IPv4
           create-disk:
             button_create: Добавить

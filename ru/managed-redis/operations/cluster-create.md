@@ -774,7 +774,7 @@ description: Следуя данной инструкции, вы сможете
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "Redis"
+      description    = "{{ RD }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -901,7 +901,7 @@ description: Следуя данной инструкции, вы сможете
     network_id = yandex_vpc_network.mynet.id
   
     ingress {
-      description    = "Redis"
+      description    = "{{ RD }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -933,7 +933,7 @@ description: Следуя данной инструкции, вы сможете
       * `subnet-b` с диапазоном `10.2.0.0/24`;
       * `subnet-d` с диапазоном `10.3.0.0/24`.
     * Три хоста класса `{{ mrd-host-class }}`, по одному в каждой подсети.
-    * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) с любых адресов подсетей.
+    * Новая группа безопасности `redis-sg`, разрешающая подключения через порты `{{ port-mrd }}` и `{{ port-mrd-sentinel }}` ([{{ RD }} Sentinel](./connect/index.md)) с любых адресов подсетей.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
     * Пароль `user1user1`.
     * С защитой от случайного удаления кластера.
@@ -1009,7 +1009,7 @@ description: Следуя данной инструкции, вы сможете
       network_id = yandex_vpc_network.mynet.id
 
       ingress {
-        description    = "Redis"
+        description    = "{{ RD }}"
         port           = {{ port-mrd }}
         protocol       = "TCP"
         v4_cidr_blocks = [
@@ -1020,7 +1020,7 @@ description: Следуя данной инструкции, вы сможете
       }
 
       ingress {
-        description    = "Redis Sentinel"
+        description    = "{{ RD }} Sentinel"
         port           = {{ port-mrd-sentinel }}
         protocol       = "TCP"
         v4_cidr_blocks = [

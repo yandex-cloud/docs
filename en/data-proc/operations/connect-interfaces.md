@@ -4,7 +4,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
 ## UI Proxy {#ui-proxy}
 
-{% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
+{% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
 ### Enabling component interfaces {#ui-proxy-enable}
 

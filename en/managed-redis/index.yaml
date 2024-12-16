@@ -1,12 +1,12 @@
-title: Yandex Managed Service for Redis
+title: Yandex Managed Service for Valkey™
 description:
   - >-
-    Managed Service for Redis allows you to deploy and maintain <a
-    href="https://redis.io/">Redis</a> 6.2 and 7.0 server clusters in the Yandex
-    Cloud infrastructure. Redis is a high-performance open-source NoSQL DBMS
-    that works with key-value data.
+    Yandex Managed Service for Valkey™ allows you to deploy and maintain <a
+    href="https://valkey.io/">Valkey™</a> 6.2 and 7.0 server clusters in the
+    Yandex Cloud infrastructure. Valkey™ is a Redis-compatible high-performance
+    open-source NoSQL DBMS that works with key-value data.
   - |-
-    Managed Service for Redis is often used to: <ul>
+    Yandex Managed Service for Valkey™ is often used to: <ul>
       <li>Create queue servers (publish-subscribe mechanism).</li>
       <li>Cache the results of queries against the primary database.</li>
       <li>Cache intermediate results when processing data.</li>
@@ -23,10 +23,10 @@ description:
     href="https://yandex.com/legal/cloud_sla_mdb">Service Level for Yandex
     Managed Databases</a>.
 meta:
-  title: Yandex Managed Service for Redis
+  title: Yandex Managed Service for Valkey™
   description: >-
-    Managed Service for Redis allows you to deploy and maintain Redis 6.2 and
-    7.0 server clusters in the Yandex Cloud infrastructure.
+    Managed Service for Valkey™ allows you to deploy and maintain Valkey™ 6.2
+    and 7.0 server clusters in the Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create the first database cluster

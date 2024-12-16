@@ -84,7 +84,7 @@ Please note that traffic transmitted via a NAT gateway is charged separately fro
 
 The first 100 GB of outgoing traffic via NAT gateway are provided free of charge every month.
 
-The minimum billing unit is 1 MB.
+The minimum charging unit is 1 MB.
 
 {% include notitle [usd-egress-nat-traffic.md](../_pricing/vpc/usd-egress-nat-traffic.md) %}
 

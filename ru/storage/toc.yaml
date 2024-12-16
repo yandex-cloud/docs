@@ -120,7 +120,7 @@ items:
       - name: >-
           Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
           }}
-        href: tutorials/data-proc-init-actions-geesefs.md
+        href: tutorials/data-processing-init-actions-geesefs.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
       - name: >-

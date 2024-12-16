@@ -135,14 +135,14 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. In the [management console]({{ link-console-main }}), select your folder.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-      1. In the list that opens, select the `service-account-for-budget` service account.
+      1. Select the `service-account-for-budget` service account from the list that opens.
       1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. If required, specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Save the ID and secret key.
 
           {% note alert %}
 
-          After you close the dialog, the private key value will become unavailable.
+          After you close the dialog, the key value will become unavailable.
 
           {% endnote %}
 
@@ -558,7 +558,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 1. Get `ChatID` of the user the bot will be sending notifications to:
 
-    1. Save the API token obtained in the previous step to the `TELEGRAM_BOT_API_TOKEN` environment variable:
+    1. Save the API token you got in the previous step to the `TELEGRAM_BOT_API_TOKEN` environment variable:
 
         ```bash
         export TELEGRAM_BOT_API_TOKEN=<Telegram_API_token>
@@ -781,7 +781,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -792,7 +792,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `sample-subnet-{{ region-id }}-b` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -879,7 +879,7 @@ Similarly, create two more VMs: `target-instance-2` and `target-instance-3`. For
 
 ## Make sure the trigger stops VMs and sends Telegram notifications {#test}
 
-Wait until the threshold values that you specified in the budget are reached. Make sure that when the budget thresholds are reached, the `target-instance-1` and `target-instance-2` virtual machines are stopped, and the Telegram bot sends you a budget trigger notification:
+Wait until the threshold values that you specified in the budget are reached. Make sure that when the budget thresholds are reached, the `target-instance-1` and `target-instance-2` virtual machines stop, and the Telegram bot sends you a budget trigger notification:
 
 ```text
 Budget trigger was triggered!

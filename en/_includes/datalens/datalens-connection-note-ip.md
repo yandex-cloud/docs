@@ -1,7 +1,7 @@
 
 {% note warning %}
 
-When connecting an external database which is not a {{ yandex-cloud }} resource:
+{{ yandex-cloud }} holds no responsibility for configuring a remote connection on an external database server side. When connecting an external database which is not a {{ yandex-cloud }} resource:
 
 * When using your own SSL certificate, make sure it matches the one on the database side.
 * Grant database access to the following {{ datalens-short-name }} IP ranges (`/` is followed by subnet mask length):

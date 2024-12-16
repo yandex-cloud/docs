@@ -8,7 +8,7 @@ You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and d
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
@@ -24,7 +24,7 @@ You can run Hive jobs from the [{{ yandex-cloud }} CLI](#run-hive-job-cli) and d
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-{% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
+{% include [cli-job-intro](../../_includes/data-processing/cli-job-intro.md) %}
 
 The calculation result is saved in the {{ objstorage-full-name }} bucket along with the service output.
 
@@ -52,7 +52,7 @@ You can find the query execution results and additional diagnostic information i
 
 The job ID is contained in the YC CLI job execution command output and in the API response to the job execution.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Running jobs using the Hive CLI {#run-job-hive-shell}
 
@@ -124,4 +124,4 @@ The job ID is contained in the YC CLI job execution command output and in the AP
    Time taken: 12.137 seconds, Fetched: 12 row(s)
    ```
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}

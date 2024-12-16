@@ -15,13 +15,13 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
    1. In the **{{ ui-key.yacloud.dataproc.jobs.field_job-type }}** field, select `{{ ui-key.yacloud.dataproc.jobs.field_hive-job-type }}`.
    1. (Optional) In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [component properties](../concepts/settings-list.md) as `key-value` pairs.
 
-      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+      {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
    1. (Optional) Enable the **{{ ui-key.yacloud.dataproc.jobs.field_continue-on-failure }}** setting.
    1. Specify **{{ ui-key.yacloud.dataproc.jobs.field_script-variables }}** as a `key:value` pair.
    1. (Optional) Specify the paths to the JAR files, if any:
 
-      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
    1. Select one of the driver types and specify which to use to start the job:
       * List of queries to be executed.
@@ -56,7 +56,7 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
       Provide the paths to the files required for the job in the following format:
 
-      {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+      {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
 
@@ -72,18 +72,18 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 ## Cancel a job {#cancel}
 
-{% include [jobs-cancel](../../_includes/data-proc/jobs-cancel.md) %}
+{% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
 ## Get a list of jobs {#list}
 
-{% include [jobs-list](../../_includes/data-proc/jobs-list.md) %}
+{% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
 ## Get general information about the job {#get-info}
 
-{% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
+{% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
 
 ## Get job execution logs {#get-logs}
 
-{% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+{% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
 

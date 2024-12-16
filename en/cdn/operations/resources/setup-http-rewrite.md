@@ -161,7 +161,7 @@ To enable request redirection on a CDN resource:
 
       {% endcut %}
 
-     To disable request redirection for a CDN resource, run this command, specifying the appropriate CDN resource ID:
+     To disable request redirection for a CDN resource, run this command by specifying the CDN resource ID:
 
       ```bash
       yc cdn resource update <resource_ID> --clear-rewrite

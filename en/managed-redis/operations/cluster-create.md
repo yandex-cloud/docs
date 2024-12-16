@@ -770,7 +770,7 @@ To create a {{ RD }} cluster copy:
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "Redis"
+      description    = "{{ RD }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]

@@ -32,10 +32,11 @@ Maximum function execution time before [timeout](../functions/operations/functio
 Maximum RAM per function instance | 8 GB
 Maximum total environment variable storage, including variable names^2^ | 4 KB
 Maximum number of triggers per [message queue](../message-queue/concepts/queue.md) | 1
-Maximum message size per trigger | 256 KB
+Maximum message size per trigger^3^ | 230 KB
 
 ^1^ A timeout longer than ten minutes is only available for [long-lived functions](../functions/concepts/long-lived-functions.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.
+^3^ The message may include service metadata, which will reduce the maximum message size.
 
 #### Other restrictions {#functions-other-restrictions}
 

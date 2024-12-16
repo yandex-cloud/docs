@@ -8,7 +8,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. {% include [tutorials-basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [tutorials-basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
@@ -97,8 +97,8 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
    {% endcut %}
 
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 
-{% include [tutorials-basic-clear-out.md](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [tutorials-basic-clear-out.md](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

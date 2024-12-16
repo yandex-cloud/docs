@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare a test environment {#create-pvc-pod}
 
-To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
+To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and a [pod](../concepts/index.md#pod) to simulate the workload will be created.
 1. Create the `01-pvc.yaml` file with the `PersistentVolumeClaim` manifest:
 
 
@@ -87,7 +87,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
 
 
 
-1. Create the `PersistentVolumeClaim`:
+1. Create a `PersistentVolumeClaim`:
 
    ```bash
    kubectl apply -f 01-pvc.yaml
@@ -131,7 +131,7 @@ To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-vo
    kubectl apply -f 02-pod.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has entered the `Running` state:
 
    ```bash
    kubectl get pod pod-source
@@ -218,7 +218,7 @@ To restore the snapshot:
 
    {% note tip %}
 
-   You can change the size of the `PersistentVolumeClaim` being created. To do this, specify the desired size in the `spec.resources.requests.storage` setting value.
+   You can resize the new `PersistentVolumeClaim`. To do this, specify its new size in the `spec.resources.requests.storage` setting value.
 
    {% endnote %}
 
@@ -265,13 +265,13 @@ To restore the snapshot:
    kubectl apply -f 05-pod-restore.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has entered the `Running` state:
 
    ```bash
    kubectl get pod pod-restore
    ```
 
-1. Make sure the status of the new `PersistentVolumeClaim` changed to `Bound`:
+1. Make sure the new `PersistentVolumeClaim` has entered the `Bound` state:
 
    ```bash
    kubectl get pvc pvc-restore
@@ -305,22 +305,9 @@ Delete the resources you no longer need to avoid paying for them:
 
    - {{ TF }} {#tf}
 
-     1. In the command line, go to the folder that houses the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the resources using this command:
-
-        ```bash
-        terraform destroy
-        ```
-
-        {% note alert %}
-
-        {{ TF }} will delete all the resources you created using it, such as clusters, networks, subnets, and VMs.
-
-        {% endnote %}
-
-     1. Confirm the deletion of resources.
+     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 
-1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you had reserved one.
 1. [Delete the disk snapshot](../../compute/operations/snapshot-control/delete.md).

@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если при [проверке выделенных для приложения ресурсов](./spark-monitoring.md#resources) вы выяснили, что время сборки мусора (**GC Time**) занимает большую долю в общем времени выполнения задач (**Task Time**):
 
-{% include [gc-time-fix](../../_includes/data-proc/gc-time-fix.md) %}
+{% include [gc-time-fix](../../_includes/data-processing/gc-time-fix.md) %}
 
 ### Множество исполнителей конкурируют за ресурсы CPU {#cpu-wars}
 

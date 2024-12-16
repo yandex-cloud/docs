@@ -78,7 +78,7 @@ items:
           - name: Using secrets
             href: operations/data/secrets.md
           - name: Working with {{ dataproc-name }} templates
-            href: operations/data-proc-template.md
+            href: operations/data-processing-template.md
           - name: Working with Docker images
             href: operations/user-images.md
           - name: Working with datasets
@@ -166,13 +166,13 @@ items:
           - name: Computing on Apache Spark™ clusters
             items:
               - name: Ways to use Apache Spark™ clusters
-                href: concepts/data-proc.md
+                href: concepts/data-processing.md
               - name: Computing on Apache Spark™ clusters
-                href: concepts/data-proc-operations.md
+                href: concepts/data-processing-operations.md
               - name: >-
                   Specifics of working with temporary {{ dataproc-name }}
                   clusters
-                href: concepts/temporary-data-proc-clusters.md
+                href: concepts/temporary-data-processing-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Nodes and aliases
@@ -206,7 +206,7 @@ items:
           - name: Datasets
             href: concepts/dataset.md
           - name: '{{ dataproc-name }} templates'
-            href: concepts/data-proc-template.md
+            href: concepts/data-processing-template.md
           - name: S3 connectors
             href: concepts/s3-connector.md
           - name: Spark connectors
@@ -230,7 +230,7 @@ items:
       - name: Automating project setup
         href: tutorials/automation-community-settings.md
       - name: Integrating {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
+        href: tutorials/data-processing-integration.md
   - name: Tutorials
     items:
       - name: All tutorials

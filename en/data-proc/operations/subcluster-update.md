@@ -85,11 +85,11 @@ You can change the number of hosts in data storage and processing subclusters:
 
 ## Changing the host class {#change-resource-preset}
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 You can change the computing power of hosts in a separate subcluster. It depends on the driver deploy mode:
 
-{% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
+{% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
 {% list tabs group=instructions %}
 
@@ -199,7 +199,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
 To enable autoscaling, make sure the {{ dataproc-name }} cluster service account has the following [roles assigned](../../iam/operations/sa/assign-role-for-sa.md):
 
-{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+{% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 {% list tabs group=instructions %}
 
@@ -312,7 +312,7 @@ To enable autoscaling, make sure the {{ dataproc-name }} cluster service account
 
 ## Increasing storage size {#change-disk-size}
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 You can increase the amount of storage available to each host in a particular subcluster.
 

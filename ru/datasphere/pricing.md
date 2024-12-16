@@ -48,7 +48,7 @@ editable: false
 * Вычислительные ресурсы выбранной конфигурации {{ ml-platform-name }}.
 * Все время существования кластера {{ dataproc-name }} по [правилам тарификации {{ dataproc-full-name }}](../data-proc/pricing.md).
 
-Подробнее об [интеграции с {{ dataproc-name }}](concepts/data-proc.md).
+Подробнее об [интеграции с {{ dataproc-name }}](concepts/data-processing.md).
 
 ### Использование дискового пространства {#storage}
 

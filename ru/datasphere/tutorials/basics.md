@@ -70,11 +70,11 @@
 
 {{ ml-platform-name }} позволяет проводить вычисления на кластерах Apache Spark™, созданных в сервисе {{ dataproc-name }}.
 
-{% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}
+{% include [preferences](../../_includes/datasphere/settings-for-data-processing.md) %}
 
 Подробнее о работе с кластерами {{ dataproc-name }} в {{ ml-platform-name }}:
-* [{#T}](../concepts/data-proc.md).
-* [{#T}](data-proc-integration.md).
+* [{#T}](../concepts/data-processing.md).
+* [{#T}](data-processing-integration.md).
 
 ### Развертывание предобученной модели в качестве сервиса {#docker-node}
 

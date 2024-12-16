@@ -1,15 +1,15 @@
 ---
 title: How to configure disk snapshot schedules in {{ compute-full-name }}
-description: Follow this guide to to configure disk snapshot schedules.
+description: Follow this guide to configure disk snapshot schedules.
 ---
 
 # Configuring disk snapshot schedules
 
 
-For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [snapshot](../../concepts/snapshot.md) creation:
+You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../concepts/snapshot-schedule.md) for your disk:
 
-* [{#T}](#add-schedule).
-* [{#T}](#remove-schedule).
+* [Adding a schedule to a disk](#add-schedule).
+* [Detaching a schedule from a disk](#remove-schedule).
 
 ## Adding a schedule to a disk {#add-schedule}
 
@@ -19,27 +19,27 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
-   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-   1. Choose a schedule or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** tab and select the disk.
+  1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
+  1. Choose a schedule or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for managing disks and schedules:
+  1. View the description of the CLI commands for managing disks and schedules:
 
       ```bash
       yc compute disk --help
       yc compute snapshot-schedule --help
       ```
 
-   1. Get IDs of disks that are in the default folder:
+  1. Get IDs of disks that are in the default folder:
 
       ```bash
       yc compute disk list --format yaml
@@ -82,11 +82,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
       To get a list of disks added to a given schedule, you can also use the command:
 
       ```bash
-      yc compute snapshot-schedule list-disks <name_or_ID_of_the_schedule>
+      yc compute snapshot-schedule list-disks <schedule_name_or_ID>
       ```
-      See [more info](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
+      [See here](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md) for more information.
 
-   1. Get the name or ID of the schedule:
+  1. Get the name or ID of the schedule:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -129,11 +129,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 
       If you do not have a schedule, [create](../snapshot-control/create-schedule.md) one.
 
-   1. Add one or several disks to the schedule:
+  1. Add one or several disks to the schedule:
 
       ```bash
-      yc compute snapshot-schedule add-disks <name_or_ID_of_the_schedule> \
-        --disk-id <ID_of_disk_1>,<ID_of_disk_2>
+      yc compute snapshot-schedule add-disks <schedule_name_or_ID> \
+        --disk-id <disk_1_ID>,<disk_2_ID>
       ```
       Result:
       ```text
@@ -153,25 +153,25 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) tab **{{ ui-key.yacloud.compute.switch_disks }}** and choose the disk.
-   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, in the line with the schedule, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** tab and select the disk.
+  1. In the row with the schedule under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for managing disks and schedules:
+  1. View the description of the CLI commands for managing disks and schedules:
 
       ```bash
       yc compute disk --help
       yc compute snapshot-schedule --help
       ```
 
-   1. Get the name or ID of the schedule:
+  1. Get the name or ID of the schedule:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -212,10 +212,10 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         snapshot_spec: {}
       ```
 
-   1. Get a list of disks used in the current schedule:
+  1. Get a list of disks used in the current schedule:
 
       ```bash
-      yc compute snapshot-schedule list-disks <name_or_ID_of_the_schedule> \
+      yc compute snapshot-schedule list-disks <schedule_name_or_ID> \
         --format yaml
       ```
       Result:
@@ -252,11 +252,11 @@ For a disk, you can create [schedules](../../concepts/snapshot-schedule.md) of [
         disk_placement_policy: {}
       ```
 
-   1. Delete one or more disks from the schedule:
+  1. Delete one or more disks from the schedule:
 
       ```bash
-      yc compute snapshot-schedule remove-disks <name_or_ID_of_the_schedule> \
-        --disk-id <ID_of_disk_1>,<ID_of_disk_2>
+      yc compute snapshot-schedule remove-disks <schedule_name_or_ID> \
+        --disk-id <disk_1_ID>,<disk_2_ID>
       ```
       Result:
       ```text
