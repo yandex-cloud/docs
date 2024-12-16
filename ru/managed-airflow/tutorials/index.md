@@ -5,7 +5,7 @@ description: Различные сценарии использования {{ m
 
 # Практические руководства {{ maf-name }}
 
-* [{#T}](data-proc-automation.md)
+* [{#T}](data-processing-automation.md)
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk.md)
 * [{#T}](lockbox-secrets-in-maf-cluster.md)

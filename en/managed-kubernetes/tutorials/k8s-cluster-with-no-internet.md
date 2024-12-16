@@ -122,7 +122,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
    - Manually {#manual}
 
       1. Create a service account named `vm-sa` with the `{{ roles.k8s.cluster-api.cluster-admin }}` and `{{ roles.k8s.admin }}` roles. This account will be used to connect to the {{ managed-k8s-name }} cluster.
-      1. Create a security group named `vm-security-group` and specify its rule for incoming traffic:
+      1. Create a security group named `vm-security-group` and specify a rule for incoming traffic in it:
 
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
          * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -150,7 +150,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 
          * Folder ID.
          * ID of the network created together with the {{ managed-k8s-name }} cluster.
-         * ID of the subnet created with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
+         * ID of the subnet created together with the {{ managed-k8s-name }} cluster and residing in the `{{ region-id }}-a` availability zone. You can find this zone in the VM settings.
          * Username to be used for connection to the VM over SSH.
          * Absolute path to the public part of the SSH key for connection to the VM.
 
@@ -385,21 +385,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 - {{ TF }} {#tf}
 
-   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-   1. Delete the `k8s-cluster-with-no-internet.tf` and `virtual-machine-for-k8s.tf` configuration files.
-   1. Make sure the {{ TF }} configuration is correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If the configuration contains any errors, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `k8s-cluster-with-no-internet.tf` and `virtual-machine-for-k8s.tf` configuration files will be deleted.
+   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

@@ -108,7 +108,7 @@
     * Количество ресурсов, доступное исполнителям на всех вычислительных хостах, будет снижено на величину, зарезервированную для YARN Application Master.
     * Ресурсы, зарезервированные для YARN Application Master на втором хосте, останутся неиспользованы.
 
-    ![lightweight-load](../../_assets/data-proc/lightweight-load.svg)
+    ![lightweight-load](../../_assets/data-processing/lightweight-load.svg)
 
 - deployMode=cluster
 
@@ -116,7 +116,7 @@
     * YARN Application Master с драйвером займет существенную часть ресурсов на одном из вычислительных хостов, но не больше, чем размер контейнера для исполнителей. Из-за этого часть ресурсов может остаться неиспользованной.
     * На втором вычислительном хосте оба контейнера достанутся исполнителям.
 
-    ![heavyweight-load](../../_assets/data-proc/heavyweight-load.svg)
+    ![heavyweight-load](../../_assets/data-processing/heavyweight-load.svg)
 
 {% endlist %}
 

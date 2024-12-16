@@ -6,14 +6,6 @@ description: In this article, you will learn about {{ ig-name }} concepts.
 # {{ ig-name }} concepts
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-If you have instance groups in the `{{ region-id }}-c` availability zone, [move](../../operations/instance-groups/move-group.md) them.
-
-{% endnote %}
-
 {{ ig-name }} is a {{ compute-name }} component that allows you to create and manage instance groups.
 {{ ig-name }} can automatically identify and heal unhealthy instances in a group to ensure their optimal performance.
 

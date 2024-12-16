@@ -1,3 +1,8 @@
+---
+title: How to create an empty disk in {{ compute-full-name }}
+description: Follow this guide to create an empty disk of the specified size.
+---
+
 # Creating an empty disk
 
 You can create an empty disk of the specified size.
@@ -21,11 +26,7 @@ You can create an empty disk of the specified size.
 
   1. Select the required block size (minimum data storage volume). By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB.
   1. Specify the required disk size. The maximum disk size depends on the specified block size.
-
-
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
-
-
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to create [snapshots](../../concepts/snapshot.md) automatically or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}

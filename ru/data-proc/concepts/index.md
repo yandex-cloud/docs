@@ -38,7 +38,7 @@
 
 О сетевой конфигурации и сетевом доступе к кластеру см. раздел [{#T}](network.md).
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 ## Легковесные кластеры {#light-weight-clusters}
 

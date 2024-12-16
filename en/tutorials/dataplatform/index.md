@@ -157,10 +157,10 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
-* [{#T}](data-proc-init-actions-geesefs.md)
-* [{#T}](data-proc-and-kafka.md)
-* [{#T}](data-proc-and-airflow.md)
-* [{#T}](dataproc-to-dataproc.md)
+* [{#T}](data-processing-init-actions-geesefs.md)
+* [{#T}](data-processing-and-kafka.md)
+* [{#T}](data-processing-and-airflow.md)
+* [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
 
 

@@ -7,6 +7,51 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.141.0 (16.12.24) {#version0.141.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+В команду `yc serverless function version create` добавлен параметр `--metadata-options` для указания опций получения метаданных в функции. Пример использования: 
+
+```bash
+yc serverless function version create --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлен параметр `--metadata-options` для указания опций получения метаданных в
+контейнере. Пример использования: 
+
+```bash
+yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ iam-name }}
+
+В команду `yc iam api-key create` добавлен опциональный параметр `--scopes` для указания области действия API-ключа. Если параметр не задан, ключ создается без ограничений. 
+
+Параметр `--scope` будет удален в следующий версии YC CLI.
+
+* Добавлена команда `yc iam api-key update` для редактирования API-ключа. У команды есть следующие параметры:
+  * `--description` для изменения описания API-ключа.
+  * `--scopes` для изменения областей действия API-ключа.
+  * `--expires_at` для изменения срока действия ключа. Если параметр не задан, API-ключ не имеет срока действия.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+В команду `yc managed-greenplum cluster create` добавлен флаг `--cloud-storage`, который позволяет указать параметры работы с облачным хранилищем. Пример включения облачного хранилища: 
+
+```bash 
+yc managed-greenplum cluster create --cloud-storage enabled=true
+```
+
+## Предыдущие релизы {#previous-releases}
+
+
 ### Версия 0.140.0 (29.11.24) {#version0.140.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -39,8 +84,6 @@ description: На странице представлены релизы YC CLI,
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore` и `yc managed-redis cluster update-config` добавлены параметры:
   * `use-luajit`;
   * `io-threads-allowed`.
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.139.0 (18.11.24) {#version0.139.0}
 

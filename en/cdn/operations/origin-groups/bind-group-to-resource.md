@@ -263,7 +263,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to a [resource](.
          status: READY
      ```
   
-  1. Get a list of all origin groups in the default folder and select `ID` of the appropriate group:
+  1. Get a list of all origin groups in the default folder and select the relevant group's `ID`:
 
      ```
      yc cdn origin-group list --format yaml

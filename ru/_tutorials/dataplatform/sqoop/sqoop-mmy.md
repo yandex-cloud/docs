@@ -35,7 +35,7 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../data-proc/concepts/instance-types.md).
 
-    {% include [Settings for DataProc cluster](./data-proc-cluster-settings.md) %}
+    {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
 
 1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mmy-name }} и {{ dataproc-name }}.
 

@@ -1,4 +1,4 @@
-title: Search API
+title: '{{ search-api-full-name }}'
 href: index.yaml
 items:
   - name: Getting started

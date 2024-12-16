@@ -1,6 +1,6 @@
 # Working with MapReduce jobs
 
-{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
+{% include [MapReduce](../../_includes/data-processing/mapreduce-intro.md) %}
 
 In this article, we use a simple example to show how MapReduce works in {{ dataproc-name }}. We will use MapReduce to compute the population of the world's 500 largest cities based on a set of data on the cities.
 
@@ -10,7 +10,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
@@ -78,8 +78,8 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
    3157107417
    ```
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 
-{% include [basic-clear-out](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [basic-clear-out](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

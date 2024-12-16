@@ -78,7 +78,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
        --destination-folder-name <destination_folder_name> \
        --destination-folder-id <destination_folder_ID>
      ```
-     Use either `--destination-folder-name` or `--destination-folder-id`.
+     Use either the `--destination-folder-name` or `--destination-folder-id` parameter.
 
      If the gateway is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
 

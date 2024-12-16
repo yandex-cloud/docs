@@ -35,7 +35,7 @@ items:
           - name: Настройка группы безопасности
             href: operations/metastore/configure-security-group.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
+            href: operations/metastore/data-processing-connect.md
           - name: Экспорт и импорт кластера {{ metastore-name }}
             href: operations/metastore/export-and-import.md
           - name: >-

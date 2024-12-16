@@ -70,11 +70,11 @@ In this section, you will find examples of how to set up a project to perform a 
 
 {{ ml-platform-name }} allows you to run computing on Apache Spark™ clusters created in {{ dataproc-name }}.
 
-{% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}
+{% include [preferences](../../_includes/datasphere/settings-for-data-processing.md) %}
 
 Learn more about working with {{ dataproc-name }} clusters in {{ ml-platform-name }}:
-* [{#T}](../concepts/data-proc.md)
-* [{#T}](data-proc-integration.md)
+* [{#T}](../concepts/data-processing.md)
+* [{#T}](data-processing-integration.md)
 
 ### Deploying a pretrained model as a service {#docker-node}
 

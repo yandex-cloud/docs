@@ -74,7 +74,7 @@
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/data-proc-ref.md).
+Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/data-processing-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}

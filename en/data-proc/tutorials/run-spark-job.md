@@ -327,13 +327,13 @@ For more information about YARN commands, see [YARN Commands](https://hadoop.apa
 
 ## Running jobs using the {{ yandex-cloud }} CLI {#run-cli-jobs}
 
-{% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
+{% include [cli-job-intro](../../_includes/data-processing/cli-job-intro.md) %}
 
 You can save the calculation results to HDFS on the {{ dataproc-name }} cluster or to the `data-proc-bucket` bucket you specified when creating the cluster.
 
 All service and debugging information will be saved to `data-proc-bucket`. For each job, the {{ dataproc-name }} agent creates a separate folder with a path, such as `dataproc/clusters/<cluster_ID>/jobs/<job_ID>`.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 Below are the two application versions, one for [Python](#cli-python) and one for [Scala](#cli-scala).
 

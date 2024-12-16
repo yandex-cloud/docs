@@ -670,31 +670,31 @@ description: В статье приведен полный справочник 
 
 #### dataproc.agent {#dataproc-agent}
 
-{% include [dataproc.agent](../_roles/dataproc/agent.md) %}
+{% include [dataproc.agent](../_roles/data-processing/agent.md) %}
 
 #### dataproc.auditor {#dataproc-auditor}
 
-{% include [dataproc.auditor](../_roles/dataproc/auditor.md) %}
+{% include [dataproc.auditor](../_roles/data-processing/auditor.md) %}
 
 #### dataproc.viewer {#dataproc-viewer}
 
-{% include [dataproc.viewer](../_roles/dataproc/viewer.md) %}
+{% include [dataproc.viewer](../_roles/data-processing/viewer.md) %}
 
 #### dataproc.user {#dataproc-user}
 
-{% include [dataproc.user](../_roles/dataproc/user.md) %}
+{% include [dataproc.user](../_roles/data-processing/user.md) %}
 
 #### dataproc.provisioner {#dataproc-provisioner}
 
-{% include [dataproc.provisioner](../_roles/dataproc/provisioner.md) %}
+{% include [dataproc.provisioner](../_roles/data-processing/provisioner.md) %}
 
 #### dataproc.editor {#dataproc-editor}
 
-{% include [dataproc.editor](../_roles/dataproc/editor.md) %}
+{% include [dataproc.editor](../_roles/data-processing/editor.md) %}
 
 #### dataproc.admin {#dataproc-admin}
 
-{% include [dataproc.admin](../_roles/dataproc/admin.md) %}
+{% include [dataproc.admin](../_roles/data-processing/admin.md) %}
 
 #### mdb.dataproc.agent {#mdb-dataproc-agent}
 

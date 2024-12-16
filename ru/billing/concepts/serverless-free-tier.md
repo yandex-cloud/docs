@@ -120,7 +120,7 @@ Free tier распространяется на сервисы:
 
 Сервис [{{ dataproc-full-name }}](../../data-proc/quickstart.md) помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в инфраструктуре {{ yandex-cloud }}. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache® (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™).
 
-{% include [not-charged-dataproc.md](../../_includes/pricing/price-formula/not-charged-dataproc.md) %}
+{% include [not-charged-data-processing.md](../../_includes/pricing/price-formula/not-charged-data-processing.md) %}
 
 ## {{ yds-full-name }} {#yds}
 

@@ -10,7 +10,7 @@ To create a {{ dataproc-name }} cluster, your {{ yandex-cloud }} account needs t
 
 Make sure to assign the following roles to the {{ dataproc-name }} cluster service account:
 
-{% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+{% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
@@ -76,7 +76,7 @@ You must configure security groups correctly for all subnets in which the {{ dat
 
 {% endnote %}
 
-You can set up security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](../../metadata-hub/operations/metastore/dataproc-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
+You can set up security groups after creating a {{ dataproc-name }} cluster to [connect to {{ metastore-name }}](../../metadata-hub/operations/metastore/data-processing-connect.md) or [{{ dataproc-name }} cluster hosts](connect.md) via the internet or an intermediate [VM](../../compute/concepts/vm.md).
 
 
 ## Create a {{ dataproc-name }} cluster {#create}
@@ -90,7 +90,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ dataproc-name }} cluster.
-  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-proc/data-proc.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** in the drop-down list.
+  1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** in the drop-down list.
   1. Enter a name for the {{ dataproc-name }} cluster. Optionally, add cluster description.
 
      The naming requirements are as follows:
@@ -104,7 +104,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      * [Image version](../concepts/environment.md) and services you want to use in the {{ dataproc-name }} cluster.
 
-        {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+        {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
         {% note tip %}
 
@@ -251,7 +251,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account.
      * `--version`: [Image version](../concepts/environment.md).
 
-       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+       {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
        {% note tip %}
 
@@ -331,7 +331,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        --host-group-ids=<dedicated_host_group_IDs>
      ```
 
-     {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+     {% include [Dedicated hosts note](../../_includes/data-processing/note-dedicated-hosts.md) %}
 
   1. To configure {{ dataproc-name }} cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or multiple `--initialization-action` parameters:
 
@@ -491,7 +491,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+     {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
      {% note tip %}
 
@@ -556,7 +556,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   * {{ dataproc-name }} cluster configuration in the `configSpec` parameter, including:
     * [Image version](../concepts/environment.md) in the `configSpec.versionId` parameter.
 
-      {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
+      {% include [note-light-weight-cluster](../../_includes/data-processing/note-light-weight-cluster.md) %}
 
       {% note tip %}
 
@@ -579,7 +579,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
   To create a {{ dataproc-name }} cluster based on [dedicated host groups](../../compute/concepts/dedicated-host.md), provide a list of their IDs in the `hostGroupIds` parameter.
 
-  {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
+  {% include [Dedicated hosts note](../../_includes/data-processing/note-dedicated-hosts.md) %}
 
   To configure {{ dataproc-name }} cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or multiple `configSpec.hadoop.initializationActions` parameters.
 

@@ -5,6 +5,26 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2024
 
+## November {#november}
+
+### Improvements {#improvements-nov}
+
+1. Added an icon to the list of connections to indicate the connection control type, automatic ![](../../_assets/console-icons/person-nut-hex.svg) or manual ![](../../_assets/console-icons/person.svg).
+
+1. Now you can use {{ websql-name }} even if you were unable to export clusters of a certain database type. The successfully exported clusters will be available.
+
+1. Reduced the time for getting the {{ PG }} cluster structure.
+
+1. In {{ CH }}, supported autocompletion of the `GRANT` and `REVOKE` commands and improved autocompletion of the `SELECT`, `CREATE`, `DELETE`, `ALTER`, and `INSERT` commands.
+
+### Fixed issues {#fixes-nov}
+
+1. Fixed an issue when working with tables whose names begin with a capital letter in {{ PG }}.
+
+1. Fixed an issue with displaying numeric data types as strings in {{ CH }}.
+
+1. Fixed the duplication of {{ RD }} in the **Database type** list when creating an external connection.
+
 ## October {#october}
 
 1. You can now share the result right after the query was executed.

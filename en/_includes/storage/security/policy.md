@@ -13,11 +13,7 @@ A policy is triggered when a user makes a request to a resource. As a result, th
 You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../../../storage/operations/buckets/policy.md).
 
 
-{% note warning %}
-
-If a bucket communicates with a [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) cluster, do not assign it a bucket policy; otherwise, the cluster will not be able to write any data to the bucket.
-
-{% endnote %}
+{% include [s3-with-policy-access](../s3-with-policy-access.md) %}
 
 
 ## Policy components {#elements}
@@ -57,7 +53,7 @@ Condition
 
   {% note info %}
 
-  The `aws:sourceip` condition supports a special procedure for [verifying reverse proxy IP addresses](#access-via-reverse-proxy).
+  The `aws:sourceip` condition supports a special procedure for [verifying reverse proxy server IP addresses](#access-via-reverse-proxy).
 
   {% endnote %}
 

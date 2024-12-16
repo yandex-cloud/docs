@@ -26,7 +26,7 @@ description: Below is the information about {{ IBRG }} and the compatibility tab
 You can [configure {{ IBRG }} in a {{ dataproc-name }} cluster](../operations/apache-iceberg.md) versions 2.0 or higher.
 
 
-{% include [apache-iceberg-disclaimer](../../_includes/data-proc/apache-iceberg-disclaimer.md) %}
+{% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
 For more information about {{ IBRG }}, see the [official documentation](https://iceberg.apache.org/docs/latest/).

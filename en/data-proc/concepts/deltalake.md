@@ -17,7 +17,7 @@ Although single-cluster mode allows using tables from different clusters and {{ 
 In multi-cluster mode, access to Delta Lake tables from different clusters and {{ SPRK }} jobs is managed by an auxiliary database. In {{ yandex-cloud }}, this role is performed by [{{ ydb-full-name }}](../../ydb/index.yaml).
 
 
-{% include [deltalake-disclaimer](../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 For more information about Delta Lake, see the [Delta Lake documentation](https://docs.delta.io/latest/index.html).

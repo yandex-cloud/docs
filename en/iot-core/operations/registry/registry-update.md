@@ -2,7 +2,7 @@
 
 You can edit a registry [name](registry-update.md#update-name) or [description](registry-update.md#update-description) and [manage registry labels](registry-update.md#manage-label).
 
-To access a registry, use its unique ID or name. For information about how to find the unique ID or name, see [{#T}](registry-list.md).
+{% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}
 
 ## Updating the name of a registry {#update-name}
 

@@ -8,7 +8,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. {% include [Create buckets and configure SA access to them](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+1. {% include [Create buckets and configure SA access to them](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
@@ -21,7 +21,7 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
 ## Create a PySpark job {#create-job}
 
-1. {% include [Download and upload a sample file](../../_includes/data-proc/tutorials/sample-txt.md) %}
+1. {% include [Download and upload a sample file](../../_includes/data-processing/tutorials/sample-txt.md) %}
 
 1. Upload a file with the Python code of the analysis program:
 
@@ -107,8 +107,8 @@ In this section, we provide a simple example that demonstrates how to use [PySpa
 
     {% endcut %}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Delete the resources you created {#clear-out}
 
-{% include [Delete the cluster, buckets and the service account](../../_includes/data-proc/tutorials/basic-clear-out.md) %}
+{% include [Delete the cluster, buckets and the service account](../../_includes/data-processing/tutorials/basic-clear-out.md) %}

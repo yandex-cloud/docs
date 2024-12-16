@@ -175,7 +175,7 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `dataproc`.
 
-{% include [dataproc-events](../../_includes/audit-trails/events/dataproc-events.md) %}
+{% include [dataproc-events](../../_includes/audit-trails/events/data-processing-events.md) %}
 
 ## {{ data-transfer-full-name }} {#datatransfer}
 

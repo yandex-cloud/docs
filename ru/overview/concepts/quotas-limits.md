@@ -150,7 +150,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 ### {{ dataproc-full-name }} {#dataproc}
 
-{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
+{% include [data-processing-limits.md](../../_includes/data-processing/data-processing-limits.md) %}
 
 
 

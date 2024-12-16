@@ -141,7 +141,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating content availablity to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
+      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional parameter. The default value is `true`.
       * `origin_protocol`: Protocol for origins. This is an optional parameter. The default value is `http`.
       * `secondary_hostnames`: Additional domain names. This is an optional parameter.
       * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
@@ -178,7 +178,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

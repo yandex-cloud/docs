@@ -68,7 +68,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
   1. Run the command to search for the NGFW in the cloud. By default, the command searches for Checkpoint or Usergate. If you use a custom image, specify it.
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="f2ecl4ak62mjbl13qj5f" or .product_ids[0]=="f2eqc5sac8o5oic7m99k")' | jq -r '.id'
@@ -112,7 +112,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
   1. Run the command below to search for folders with no security group:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
@@ -164,7 +164,7 @@ Make sure to only allow access through the ports that your application requires 
   1. Find security groups with a dangerous access rule:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
@@ -210,7 +210,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   1. Run the command below to search for security groups with dangerous access rules:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "SG_ID: " && yc vpc security-group list --folder-id=$FOLDER_ID \
@@ -259,7 +259,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   1. Run the command below to search for IP addresses with no DDOS protection:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
@@ -354,7 +354,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
   1. Go to **IP addresses**.
-  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. otherwise, proceed to **Guides and solutions to use**.
+  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
 
 - Performing a check via the CLI {#cli}
 
@@ -367,7 +367,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Run the command below to search for all VMs with public IPs:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do echo "VM_ID: " && yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.network_interfaces[].primary_v4_address.one_to_one_nat.address)' | jq -r '.id' \
@@ -380,7 +380,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Run the command below to see if there is Egress NAT (NAT gateway):
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
      do echo "NAT_GW: " && yc vpc gateway list --folder-id=$FOLDER_ID --format=json | jq -r '.[] | select(.id)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
@@ -392,7 +392,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Run the command below to see if there is a NAT instance:
 
      ```bash
-     export ORG_ID=<Organization ID>
+     export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
      do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute disk get --id=$DISK_ID --format=json | jq -r '. | select(.product_ids[0]=="fd8v7ru46kt3s4o5f0uo")' | jq -r '.id'

@@ -48,7 +48,7 @@ The cost of computations in {{ dataproc-name }} clusters includes:
 * Computing resources of the selected {{ ml-platform-name }} configuration.
 * The {{ dataproc-name }} cluster's full lifetime duration according to the [{{ dataproc-full-name }}](../data-proc/pricing.md) pricing policy.
 
-Learn more about [integration with {{ dataproc-name }}](concepts/data-proc.md).
+Learn more about [integration with {{ dataproc-name }}](concepts/data-processing.md).
 
 ### Disk space usage {#storage}
 

@@ -19,7 +19,7 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the following roles:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
-    * `audit-trails.viewer` for the organization whose audit logs you will collect.
+    * `audit-trails.viewer` for the organization whose audit logs will be collected.
     * `kms.editor` for the folder where the bucket encryption key will be created.
     * `storage.viewer` for the bucket or folder.
 

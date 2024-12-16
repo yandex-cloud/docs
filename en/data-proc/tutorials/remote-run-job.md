@@ -4,7 +4,7 @@ This guide describes how to use the [spark-submit utility](https://spark.apache.
 
 {% note info %}
 
-You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../datasphere/concepts/data-proc.md#existing-clusters).
+You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-full-name }}. For more information, see [this concept](../../datasphere/concepts/data-processing.md#existing-clusters).
 
 {% endnote %}
 
@@ -301,7 +301,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
       sudo -E scp month_stat.py <username>@<cluster_host_FQDN>:~/month_stat.py
       ```
 
-      {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
+      {% include [user name](../../_includes/data-processing/tutorials/user-name-images.md) %}
 
    1. Run the application:
 
@@ -318,8 +318,8 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
       ssh <username>@<cluster_host_FQDN> "hdfs dfs -ls /tmp/month_stat"
       ```
 
-      {% include [user name](../../_includes/data-proc/tutorials/user-name-images.md) %}
+      {% include [user name](../../_includes/data-processing/tutorials/user-name-images.md) %}
 
 {% endlist %}
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}

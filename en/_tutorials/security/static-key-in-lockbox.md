@@ -30,11 +30,11 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI.
 
-   There is no need to configure the utility: all the required parameters will come with the command and environment variables.
+    There is no need to configure the utility: all the required parameters will come with the command and environment variables.
 
 
 ## Save the static access key to the {{ lockbox-name }} secret {#store-key-into-secret}
@@ -43,7 +43,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
 - {{ yandex-cloud }} CLI {#cli}
 
-   1. Create a [service account](../../iam/concepts/users/service-accounts.md), e.g., `storage-bucket-sa`, you will use to perform operations in {{ objstorage-name }}:
+  1. Create a [service account](../../iam/concepts/users/service-accounts.md), e.g., `storage-bucket-sa`, you will use to perform operations in {{ objstorage-name }}:
 
       ```bash
       yc iam service-account create storage-bucket-sa
@@ -63,7 +63,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-   1. Assign the `storage.editor` [role](../../storage/security/index.md#storage-editor) for the folder to the service account:
+  1. Assign the `storage.editor` [role](../../storage/security/index.md#storage-editor) for a folder to the service account you created:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_name_or_ID> \
@@ -73,7 +73,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
       Where:
       * `<folder_name_or_ID>`: Name or [ID](../../resource-manager/operations/folder/get-id.md) of the folder where the service account was created.
-      * `<service_account_ID>`: ID of the previously saved service account.
+      * `<service_account_ID>`: Previously saved service account ID.
 
       Result:
 
@@ -98,7 +98,7 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
         --subject serviceAccount:<service_account_ID>
       ```
 
-   1. Create a static access key for the service account. For the key value not to be shown on the screen, it will be saved to the `STATIC_KEY` variable:
+  1. Create a static access key for the service account. To avoid displaying its value on the screen, the key will be saved to the `STATIC_KEY` variable:
 
       ```bash
       STATIC_KEY=$(yc iam access-key create --service-account-name storage-bucket-sa)
@@ -106,14 +106,14 @@ You will not be charged for the {{ objstorage-name }} bucket unless you keep you
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
-   1. Save the [key ID](../../iam/concepts/authorization/access-key.md#key-id) and [secret key](../../iam/concepts/authorization/access-key.md#private-key) values to the separate `KEY_ID` and `KEY_VALUE` variables:
+  1. Save the [key ID](../../iam/concepts/authorization/access-key.md#key-id) and [secret key](../../iam/concepts/authorization/access-key.md#private-key) values to the separate `KEY_ID` and `KEY_VALUE` variables:
 
       ```bash
       KEY_ID=$(echo | awk '{if (match($0, "key_id: ")) {print substr($0, RSTART + 8, 25)}}' <<< "$STATIC_KEY") \
         && KEY_VALUE=$(echo | awk '{if (match($0, "secret: ")) {print substr($0, RSTART + 8, 40)}}' <<< "$STATIC_KEY")
       ```
 
-   1. Create a {{ lockbox-name }} secret named `static-key` containing the new static access key:
+  1. Create a {{ lockbox-name }} secret named `static-key` containing the new static access key:
 
       ```bash
       yc lockbox secret create \
@@ -157,11 +157,11 @@ The service account's static access key is now saved inside the {{ lockbox-name 
 
 ## Use the key from the {{ lockbox-name }} secret to work with the service {#use-key}
 
-1. Get the static access key saved in the `static-key` secret. For the key value not to be shown on the screen, it will be saved in the `SECRET` variable:
+1. Get the static access key saved in the `static-key` secret. To avoid displaying its value on the screen, the key will be saved to the `SECRET` variable:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - {{ yandex-cloud }} CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       ```bash
       SECRET=$(yc lockbox payload get static-key)
@@ -169,23 +169,23 @@ The service account's static access key is now saved inside the {{ lockbox-name 
 
       For more information about the `yc lockbox payload get` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
 
-   {% endlist %}
+    {% endlist %}
 
 1. Save the key ID, secret key, and placement region to the AWS CLI environment variables:
 
-   ```bash
-   export AWS_ACCESS_KEY_ID=$(echo | awk '{if (match($0, "key: ")) {print substr($0, RSTART + 5, 25)}}' <<< "$SECRET") \
-     && export AWS_SECRET_ACCESS_KEY=$(echo | awk '{if (match($0, "text_value: ")) {print substr($0, RSTART + 12, 40)}}' <<< "$SECRET") \
-     && export AWS_DEFAULT_REGION="{{ region-id }}"
-   ```
+    ```bash
+    export AWS_ACCESS_KEY_ID=$(echo | awk '{if (match($0, "key: ")) {print substr($0, RSTART + 5, 25)}}' <<< "$SECRET") \
+      && export AWS_SECRET_ACCESS_KEY=$(echo | awk '{if (match($0, "text_value: ")) {print substr($0, RSTART + 12, 40)}}' <<< "$SECRET") \
+      && export AWS_DEFAULT_REGION="{{ region-id }}"
+    ```
 
-   The AWS CLI will use the environment variables you created for authentication when performing operations with the service's resources.
+    The AWS CLI will use the environment variables you created for authentication when performing operations with the service's resources.
 
 1. Create a bucket in {{ objstorage-name }} by specifying a unique [bucket name](../../storage/concepts/bucket.md#naming) in the command:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - AWS CLI {#aws-cli}
+    - AWS CLI {#aws-cli}
 
       ```bash
       aws --endpoint-url=https://storage.yandexcloud.net \
@@ -193,20 +193,20 @@ The service account's static access key is now saved inside the {{ lockbox-name 
       ```
 
       Result:
-
+      
       ```bash
       make_bucket: my-first-bucket
       ```
 
-   {% endlist %}
+    {% endlist %}
 
-   A new bucket has been created in {{ objstorage-full-name }}. When performing this operation, authentication was performed using the static access key obtained from the {{ lockbox-name }} secret and saved to the environment variables.
+    A new bucket has been created in {{ objstorage-full-name }}. When performing this operation, authentication was performed using the static access key obtained from the {{ lockbox-name }} secret and saved to the environment variables.
 
-   You can also include the key ID, secret key, and placement region values directly in every AWS CLI command instead of creating environment variables:
+    You can also include the key ID, secret key, and placement region values directly in every AWS CLI command instead of creating environment variables:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - AWS CLI {#aws-cli}
+    - AWS CLI {#aws-cli}
 
       ```bash
       AWS_ACCESS_KEY_ID=$(echo | awk '{if (match($0, "key: ")) {print substr($0, RSTART + 5, 25)}}' <<< "$SECRET") \
@@ -217,12 +217,12 @@ The service account's static access key is now saved inside the {{ lockbox-name 
       ```
 
       Result:
-
+      
       ```bash
       make_bucket: my-first-bucket
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 
 ## How to delete the resources you created {#clear-out}

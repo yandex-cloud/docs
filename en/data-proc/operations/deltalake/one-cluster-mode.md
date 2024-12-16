@@ -5,7 +5,7 @@
 For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) section in the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
 
 
-{% include [deltalake-disclaimer](../../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 {% note warning %}
@@ -24,7 +24,7 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
     1. Create a folder named `warehouse` in the bucket.
     1. [Set](../../concepts/settings-list.md#change-properties) the `spark.sql.warehouse.dir` property to: `s3a://<bucket_name>/warehouse/`.
 
-1. [Create](../../../metadata-hub/operations/metastore/cluster-create.md) a {{ metastore-full-name }} cluster and [connect](../../../metadata-hub/operations/metastore/dataproc-connect.md) it to your {{ dataproc-name }} cluster.
+1. [Create](../../../metadata-hub/operations/metastore/cluster-create.md) a {{ metastore-full-name }} cluster and [connect](../../../metadata-hub/operations/metastore/data-processing-connect.md) it to your {{ dataproc-name }} cluster.
 
 ## Set up the component properties to work with Delta Lake {#settings}
 
@@ -49,7 +49,7 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
 
         * Set up cluster access to the [Maven](https://maven.apache.org/index.html) repository and set the `spark.jars.packages` property to `io.delta:delta-core_2.12:0.8.0`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Download the [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar) library file, copy it to all the cluster nodes manually or using [initialization scripts](../../concepts/init-action.md), and provide the full file path in the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` properties.
 
@@ -65,7 +65,7 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
 
         * Set up cluster access to the [Maven](https://maven.apache.org/index.html) repository and set the `spark.jars.packages` property to `io.delta:delta-core_2.12:2.0.2,io.delta:delta-storage:2.0.2`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Download the [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar) and [delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar) library files, copy them to all the cluster nodes manually or using [initialization scripts](../../concepts/init-action.md), and provide the full file path in the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` properties.
 
@@ -81,7 +81,7 @@ Set up the Spark jobs to avoid concurrent data modifications or use [multi-clust
 
         * Set up cluster access to the [Maven](https://maven.apache.org/index.html) repository and set the `spark.jars.packages` property to `io.delta:delta-core_2.12:2.3.0,io.delta:delta-storage:2.3.0`.
 
-            {% include [maven-setup](../../../_includes/data-proc/maven-setup.md) %}
+            {% include [maven-setup](../../../_includes/data-processing/maven-setup.md) %}
 
         * Download the [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar) and [delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar) library files, copy them to all the cluster nodes manually or using [initialization scripts](../../concepts/init-action.md), and provide the full file path in the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` properties.
 

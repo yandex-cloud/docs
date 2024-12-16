@@ -309,20 +309,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. In the terminal window, go to the directory containing the infrastructure plan.
-  1. Delete the `k8s-cluster.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

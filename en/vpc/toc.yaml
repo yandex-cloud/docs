@@ -161,7 +161,7 @@ items:
           availability zone
         href: tutorials/hdfs-cluster-migration.md
       - name: Configuring a network for {{ dataproc-full-name }}
-        href: tutorials/dataproc-nat-instance.md
+        href: tutorials/data-processing-nat-instance.md
       - name: Network between folders
         href: tutorials/multi-folder-vpc.md
       - name: Setting up PT Application Firewall
@@ -185,6 +185,10 @@ items:
           Deploying an Always On availability group with an internal network
           load balancer
         href: tutorials/mssql-alwayson-lb.md
+      - name: >-
+          Configuring {{ interconnect-name }} access to cloud networks behind
+          NGFWs
+        href: tutorials/cic-with-ngfw.md
   - name: Concepts
     items:
       - name: Resource relationships

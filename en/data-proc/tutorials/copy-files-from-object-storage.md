@@ -29,7 +29,7 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
     Make sure to [assign](../../iam/operations/sa/assign-role-for-sa.md) the following roles to the service account:
 
-    {% include [sa-roles](../../_includes/data-proc/sa-roles.md) %}
+    {% include [sa-roles](../../_includes/data-processing/sa-roles.md) %}
 
 1. The service account must have access to the appropriate bucket. To do this, grant the service account permissions in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` role.
 

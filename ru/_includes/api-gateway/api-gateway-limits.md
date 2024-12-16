@@ -3,7 +3,7 @@
 Вид ограничения | Значение
 ----- | -----
 Количество [триггеров](../../serverless-containers/concepts/trigger/index.md) в одном облаке | 100
-Количество [пользовательских сетей](../../api-gateway/concepts/networking.md##user-network) в одном облаке | 1
+Количество [пользовательских сетей](../../api-gateway/concepts/networking.md#user-network) в одном облаке | 1
 
 #### Лимиты {#api-gw-limits}
 

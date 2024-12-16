@@ -35,6 +35,8 @@ items:
             href: operations/registry/registry-create.md
           - name: Updating a registry
             href: operations/registry/registry-update.md
+          - name: Enabling and disabling a registry
+            href: operations/registry/registry-disabling.md
           - name: Deleting a registry
             href: operations/registry/registry-delete.md
       - name: Managing devices

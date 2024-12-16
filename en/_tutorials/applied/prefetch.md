@@ -12,7 +12,7 @@ We do not recommend preloading files smaller than 200 MB or larger than 5 GB.
 {% endnote %}
 
 To create a CDN infrastructure:
-1. [Get things ready](#before-you-begin).
+1. [Get ready](#before-you-begin).
 1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Enable logging for the bucket with files](#enable-logging).
@@ -190,7 +190,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
       aws s3api put-bucket-logging \
         --bucket <name_of_bucket_with_files> \
         --endpoint-url https://{{ s3-storage-host }} \
-        --bucket-logging-status file://<path_to_settings_file>
+        --bucket-logging-status file://<path_to_configuration_file>
       ```
 
       Where:
@@ -205,7 +205,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
     <LoggingEnabled>
-      <TargetBucket>name of bucket with logs</TargetBucket>
+      <TargetBucket>name of the bucket with logs</TargetBucket>
       <TargetPrefix>key prefix</TargetPrefix>
     </LoggingEnabled>
   </BucketLoggingStatus>
@@ -319,17 +319,17 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
           * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
           * Select **{{ ui-key.yacloud.cdn.field_access }}**.
           * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.ycprojectblue.example` domain name.
-          * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. In the **{{ ui-key.yacloud.common.name }}** field, specify the domain name of the source, **{{ ui-key.yacloud.cdn.label_custom-host-header }}**<name_of_bucket_with_files>.{{ s3-storage-host }}`, so that the source bucket responds to CDN server requests correctly.
+          * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the origin domain name, `<name_of_bucket_with_files>.{{ s3-storage-host }}`, for the source bucket to respond to CDN server requests correctly.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
   1. Enable a client redirect from HTTP to HTTPS:
-     1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
+     1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
      1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** changes to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
      1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Enable [caching](../../cdn/concepts/caching.md) on CDN servers for the resource:
-     1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
+     1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
      1. Go to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
@@ -425,7 +425,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
   1. Enable client redirect for a resource. In CDN resource parameters, add this field at the top of the `options` section:
 
      ```hcl

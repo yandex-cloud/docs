@@ -10,7 +10,7 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](basics.md)
 * [{#T}](community-for-students.md)
 * [{#T}](automation-community-settings.md)
-* [{#T}](data-proc-integration.md)
+* [{#T}](data-processing-integration.md)
 
 ## Разработка {#development}
 

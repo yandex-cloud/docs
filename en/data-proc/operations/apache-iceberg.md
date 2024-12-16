@@ -10,7 +10,7 @@ description: How to set up and use {{ IBRG }} in a {{ dataproc-name }} cluster.
 For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md) and the [official documentation](https://iceberg.apache.org/docs/latest/).
 
 
-{% include [apache-iceberg-disclaimer](../../_includes/data-proc/apache-iceberg-disclaimer.md) %}
+{% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
 ## Set up component properties to work with {{ IBRG }} {#settings}
@@ -27,11 +27,11 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
       * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp20.pkg }}`.
 
-         {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+         {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
       * Download the [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) library file and grant access to it by one of the following methods:
 
-         {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+         {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
    - Image 2.1.0–2.1.3
 
@@ -39,11 +39,11 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
       * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp21.spark32.pkg }}`.
 
-         {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+         {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
       * Download the [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) library file and grant access to it by one of the following methods:
 
-         {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+         {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
    - Image 2.1.4–2.1.x
 
@@ -51,11 +51,11 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
       * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp21.spark33.pkg }}`.
 
-         {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+         {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
       * Download the [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) library file and grant access to it by one of the following methods:
 
-         {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+         {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
    - Image 2.2.x
 
@@ -63,11 +63,11 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
       * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp22.pkg }}`.
 
-         {% include [maven-setup](../../_includes/data-proc/maven-setup.md) %}
+         {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
       * Download the [{{ dp-libs.iceberg.dp22.jar }}]({{ dp-libs.iceberg.dp22.repo }}) library file and grant access to it by one of the following methods:
 
-         {% include [libfile-manual-setup](../../_includes/data-proc/libfile-manual-setup.md) %}
+         {% include [libfile-manual-setup](../../_includes/data-processing/libfile-manual-setup.md) %}
 
    {% endlist %}
 

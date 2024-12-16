@@ -258,7 +258,7 @@ The infrastructure support cost for this scenario includes:
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. When being created, a database has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     Wait for the DB to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
   1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
@@ -281,7 +281,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 1. Edit the `.env` file:
    * `ENDPOINT`: First part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
    * `DATABASE`: Second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
-   * `FUNCTION_NAME`: Function name, which is `func-test-ydb`.
+   * `FUNCTION_NAME`: Function name, `func-test-ydb`.
    * `FOLDER_ID`: Folder ID.
    * `SERVICE_ACCOUNT_ID`: `sa-function` service account ID.
 

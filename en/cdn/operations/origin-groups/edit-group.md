@@ -55,7 +55,7 @@ To edit an [origin group](../../concepts/origins.md):
 
      ```bash
      yc cdn origin-group update --id <origin_group_ID> \
-       --name <new_name_for_group> \
+       --name <new_group_name> \
        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true \
        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true,backup=true
      ```

@@ -72,7 +72,7 @@ The cost is calculated as follows:
 
   The cost is calculated as follows:
 
-  {% include [usd-data-proc](../_pricing_examples/data-proc/usd.md) %}
+  {% include [usd-data-proc](../_pricing_examples/data-processing/usd.md) %}
 
 {% endlist %}
 
@@ -94,7 +94,7 @@ All prices below do not include VAT.
 
 
 
-{% include [usd-standard-hosts](../_pricing/data-proc/usd-standard-hosts.md) %}
+{% include [usd-standard-hosts](../_pricing/data-processing/usd-standard-hosts.md) %}
 
 
 #### Dedicated hosts {#dedicated-hosts}
@@ -103,7 +103,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }}](../
 
 
 
-{% include [usd-dedicated-hosts](../_pricing/data-proc/usd-dedicated-hosts.md) %}
+{% include [usd-dedicated-hosts](../_pricing/data-processing/usd-dedicated-hosts.md) %}
 
 
 {% note info %}

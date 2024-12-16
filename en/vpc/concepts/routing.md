@@ -106,3 +106,4 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 1. [Creating an IPSec VPN tunnel](../../tutorials/routing/ipsec/index.md).
 1. [Creating and configuring a UserGate gateway in firewall mode](../../tutorials/routing/usergate-firewall.md).
 1. [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the next-generation firewall](../../tutorials/routing/high-accessible-dmz.md).
+1. [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](../../tutorials/routing/cic-with-ngfw.md).

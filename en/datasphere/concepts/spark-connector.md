@@ -1,6 +1,6 @@
 # Spark connector
 
-{{ ml-platform-name }} allows processing large amounts of data on [{{ dataproc-full-name }}](../../data-proc/) clusters. With a Spark connector, you can either [use existing {{ dataproc-name }} clusters](data-proc.md#spark-with-existing-cluster) or [create temporary clusters](data-proc.md#spark-with-temporary-cluster).
+{{ ml-platform-name }} allows processing large amounts of data on [{{ dataproc-full-name }}](../../data-proc/) clusters. With a Spark connector, you can either [use existing {{ dataproc-name }} clusters](data-processing.md#spark-with-existing-cluster) or [create temporary clusters](data-processing.md#spark-with-temporary-cluster).
 
 A Spark connector is a special resource that stores connection and interaction settings for existing and temporary {{ dataproc-name }} clusters. The selected clusters are automatically connected or created when you start computing in the IDE. When creating a resource, you can also specify data for connection to the S3 object storage.
 
@@ -20,7 +20,7 @@ You can [create](../operations/data/spark-connectors.md) a Spark connector in th
 
 Spark connectors are used in the project notebooks. When first running computations, you select the [configuration](./configurations.md) on which the notebook code will run. This VM resides on the network specified in the Spark connector, so it has network access to the {{ dataproc-name }} cluster but does not belong to it. By default, the notebook cell code will be executed on the VM. To execute the code on a {{ dataproc-name }} cluster, you must explicitly specify this when making a call (e.g., via `SparkContext::runJob`).
 
-The VM environment for working with the cluster differs from the {{ ml-platform-name }} [standard environment](./preinstalled-packages.md) and allows accessing the {{ dataproc-name }} cluster environment. You can also use [sessions](./data-proc.md#session) to work with the cluster.
+The VM environment for working with the cluster differs from the {{ ml-platform-name }} [standard environment](./preinstalled-packages.md) and allows accessing the {{ dataproc-name }} cluster environment. You can also use [sessions](./data-processing.md#session) to work with the cluster.
 
 Once created, the Spark connector becomes available for the project. Like any other resource, you can publish the Spark connector in the community to use it in other projects. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish it. You can open the access on the **{{ ui-key.yc-ui-datasphere.common.access }}** tab on the Spark connector view page. The resource available to the community will appear on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 

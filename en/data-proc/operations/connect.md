@@ -91,7 +91,7 @@ Rule settings depend on the connection method you select:
 
       Port numbers for {{ dataproc-name }} components are shown in the table:
 
-      {% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+      {% include [ports-table](../../_includes/data-processing/ports-table.md) %}
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`

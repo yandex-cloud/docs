@@ -21,11 +21,11 @@ To change a disk's folder:
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   1. Get a list of all the disks in the default folder:
+  1. Get a list of all the disks in the default folder:
 
       ```bash
       yc compute disk list
@@ -42,7 +42,7 @@ To change a disk's folder:
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
-   1. Get a list of all folders in the default cloud:
+  1. Get a list of all folders in the default cloud:
 
       ```bash
       yc resource-manager folder list
@@ -59,13 +59,13 @@ To change a disk's folder:
       +----------------------+--------------------+------------------+--------+
       ```
 
-   1. View the description of the CLI disk move command:
+  1. View the description of the CLI disk move command:
 
       ```bash
       yc compute disk move --help
       ```
 
-   1. Move the disk to another folder with the following parameters:
+  1. Move the disk to another folder with the following parameters:
 
       ```bash
       yc compute disk move \
@@ -82,6 +82,6 @@ To change a disk's folder:
 
 - API {#api}
 
-   Use the [move](../../api-ref/Disk/move.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Move](../../api-ref/grpc/Disk/move.md) gRPC API call.
+  Use the [move](../../api-ref/Disk/move.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Move](../../api-ref/grpc/Disk/move.md) gRPC API call.
 
 {% endlist %}

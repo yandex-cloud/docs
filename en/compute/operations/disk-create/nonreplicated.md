@@ -1,5 +1,5 @@
 ---
-title: Creating a non-replicated disk
+title: How to create a non-replicated disk in {{ compute-full-name }}
 description: Follow this guide to create a non-replicated disk.
 ---
 
@@ -29,7 +29,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
   1. Select the required block size.
   1. Specify the required disk size.
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to create [snapshots](../../concepts/snapshot.md) automatically or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).

@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * {{ k8s }} cluster.
-        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group to operate.
+        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
         * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
             {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
         * Name of the {{ managed-k8s-name }} cluster service account.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -172,9 +172,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    In the VM configuration section:
    * `zone: {{ region-id }}-a`: [Availability zone](../../../overview/concepts/geo-scope.md) to deploy the VM in.
    * `name: crossplane-vm`: Name of the VM that will be created with Crossplane.
-   * `imageId: fd80bm0rh4rkepi5ksdi`: ID of the VM's boot image. You can fetch it with a [list of images](../../../compute/operations/image-control/get-list.md). This example uses a [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) image.
+   * `imageId: fd80bm0rh4rkepi5ksdi`: ID of the VM's boot image. You can get it with the [list of images](../../../compute/operations/image-control/get-list.md). This example uses a [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts) image.
 
-   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repo](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 1. Apply the `vm-instance-template.yml` manifest:
 
@@ -182,7 +182,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    kubectl apply -f vm-instance-template.yml
    ```
 
-1. Check the state of the created resources:
+1. Check the state of the new resources:
 
    ```bash
    kubectl get network
@@ -237,19 +237,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-cluster.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}

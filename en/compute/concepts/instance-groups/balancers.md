@@ -24,11 +24,11 @@ To make sure the target group starts receiving traffic, link it to a load balanc
 
 Once a target group is linked to a load balancer, it sends _health checks_ to the group instances to find out which of them are healthy and which are not when distributing traffic. To learn more about health checks, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) and [{{ alb-name }}](../../../application-load-balancer/concepts/backend-group.md#health-checks) documentation.
 
-An instance added to the instance group or restarted after being stopped gets into the target group and is assigned the [`OPENING_TRAFFIC` status in the instance group](statuses.md#vm-statuses), and the load balancer starts sending health checks to it. If the instance passes the required number of health checks (the healthy threshold set in the health check settings), the load balancer considers it healthy and the instance starts receiving traffic from the load balancer and switches to the `RUNNING_ACTUAL` status.
+When you add an instance to the group or restart a stopped one, this instance is added to the target group, gets the [`OPENING_TRAFFIC` status in the instance group](statuses.md#vm-statuses), and starts receiving health checks from the load balancer. If the instance passes the required number of health checks (the healthy threshold you set when configuring health checks), the load balancer considers it healthy. The instance starts receiving traffic from the load balancer and switches to the `RUNNING_ACTUAL` status.
 
-By default, the instance may be in the `OPENING_TRAFFIC` status for an unlimited time until it gets healthy. You can limit this time in the [integration settings](#settings) (the `max_opening_traffic_duration` field). In this case, {{ compute-name }} will automatically recover the instance that is not receiving any traffic for too long since it has been added to the group or started. For more information about instance recovery, see [{#T}](autohealing.md#healthcheck-cases).
+By default, an instance may have the `OPENING_TRAFFIC` status indefinitely until it gets healthy. You can limit this time in the [integration settings](#settings) (the `max_opening_traffic_duration` field). {{ compute-name }} will then automatically recover the instance that has received no traffic for too long since it was added to the group or started. For more information about VM recovery, see [{#T}](autohealing.md#healthcheck-cases).
 
-You can disable load balancer health checks using the `ignore_health_checks` parameter. In this case, the checks will not affect the instance group in any way. Negative check results will not prompt the instances to autoheal, and the group will receive no traffic from load balancers.
+You can disable load balancer health checks using the `ignore_health_checks` parameter. In this case, the checks will not affect the instance group in any way. Negative check results will not prompt the instances to autoheal, and the group will receive no traffic from load balancers.
 
 {% cut "Ignoring load balancer health checks" %}
 
@@ -36,16 +36,16 @@ Ignoring health checks may be useful in blue-green deployments, e.g.:
 
 1. There are two instance groups connected to the load balancer that serve as target groups:
 
-   * The blue one hosts the stable version of the app available to users. {{ ig-name }} automatically restores instances in this group if they fail load balancer health checks.
-   * The green one is used to test the next application version. This group is set up to ignore load balancer health checks.
+    * The _blue_ instance group hosts the stable version of the app available to users. {{ ig-name }} automatically restores instances in this group if they fail load balancer health checks.
+    * The _green_ instance group is used to test the next application version. This group is set up to ignore load balancer health checks.
 
 1. Load balancer health checks are intentionally configured so that the green instances fail them and receive no user traffic. However, these checks have no effect on the deployment of instances in the group. User traffic only goes to the blue group instances.
 1. To transfer user traffic to the new app version tested in the green group:
 
-   1. Load balancer health checks are reconfigured for the green instances to pass them and start receiving user traffic.
-   1. To enable autohealing for green instances that fail load balancer health checks, ignoring health checks is disabled in this group.
-   1. Load balancer health checks are reconfigured for the blue instances to fail them and stop receiving user traffic.
-   1. In the blue group, ignoring load balancer health checks is enabled.
+    1. Load balancer health checks are reconfigured for the green instances to pass them and start receiving user traffic.
+    1. To enable autohealing for green instances that fail load balancer health checks, ignoring health checks is disabled in this group.
+    1. Load balancer health checks are reconfigured for the blue instances to fail them and stop receiving user traffic.
+    1. In the blue group, ignoring load balancer health checks is enabled.
 
 Now the blue instance group will be used for testing, and the green one will receive user traffic.
 
@@ -82,7 +82,7 @@ The fields and options in the management console are located under **{{ ui-key.y
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Name of the target group. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Description of the target group. |
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
-| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. Possible values: 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [{#T}](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_nlb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [Load balancer health checks](#principles-health-checks). |
 | `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |
 
 ### Settings for integration with {{ alb-name }} {#settings-alb}
@@ -108,5 +108,5 @@ The fields and options in the management console are located under **{{ ui-key.y
 | `name`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** | Name of the target group. |
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Description of the target group. |
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
-| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [{#T}](#principles-health-checks). |
+| `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [Load balancer health checks](#principles-health-checks). |
 | `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |

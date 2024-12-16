@@ -452,23 +452,24 @@ items:
   - name: '{{ dataproc-name }}'
     items:
       - name: Все решения для {{ dataproc-name }}
-        href: dataproc/index.md
+        href: data-processing/index.md
       - name: Решения для известных проблем {{ dataproc-name }}
-        href: dataproc/known-issues/index.md
+        href: data-processing/known-issues/index.md
         hidden: true
       - name: >-
           Кластер {{ dataproc-name }} находится в состоянии `UNKNOWN` сразу
           после создания
         href: >-
-          dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
       - name: >-
           Устранение ошибки доступа к бакетам S3 из кластера {{ dataproc-name }}
           1.4
-        href: dataproc/known-issues/cannot-access-buckets.md
+        href: data-processing/known-issues/cannot-access-buckets.md
       - name: Нет логов в YARN Resource Manager Web UI после выполнения заданий
-        href: dataproc/known-issues/yarn-resource-manager-does-not-display-logs.md
+        href: >-
+          data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
       - name: Примеры конфигураций и сценариев {{ dataproc-name }}
-        href: dataproc/how-to/index.md
+        href: data-processing/how-to/index.md
         hidden: true
   - name: '{{ ml-platform-name }}'
     items:

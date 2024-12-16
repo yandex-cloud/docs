@@ -14,7 +14,7 @@ A payment invoice is generated automatically and issued at the beginning of the 
 * The selected payment method is [Transfer from bank account](../payment/payment-methods-business.md).
 * [Total invoice amount](#payment-amount) is greater than zero.
 
-Payment invoices can only be sent to the [billing account](billing-account.md) owner's email address. You cannot change the email address, but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
+Payment invoices are sent only to the email address of the user who created the [billing account](billing-account.md). You cannot change the email address, but you can configure message forwarding. For more information, see [Yandex Mail Help](https://yandex.com/support/mail/web/preferences/filters/forwarding.html).
 
 {% note info %}
 

@@ -42,10 +42,6 @@ Type and processor | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size
 **Ice Lake**<br>`intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632&nbsp;bytes <br>(~ 2.91 TB)
 **Ice Lake Compute-Optimized**<br>`intel-6354-c56-m454-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 454 | 6 | 3198924357632&nbsp;bytes <br>(~ 2.91 TB)
 
-
-You can only create hosts of these types in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
-
-
 {% cut "Archived types: based on Intel Cascade Lake" %}
 
 {% note alert %}
@@ -81,7 +77,7 @@ The above lists of the current and archived types are provided for indicative pu
 There are two processors installed on a physical server. However, not all their cores are available for running VMs. Some cores are allocated for system usage.
 
 For example, a dedicated host of the `intel-6354-c56-m454-n3200x6` type has:
-* Two Intel® Xeon® Gold 6354 CPUs.
+* Two Intel® Xeon® Gold 6354 CPUs
 * 32 vCPUs on each processor, where:
     * 4 vCPUs are allocated for system usage.
     * 28 vCPUs are available to run user VMs. 
@@ -246,14 +242,14 @@ done (33s)
 id: abcdefghigkl********
 folder_id: a1b23cd45efg********
 ...
-placement_policy:                             # VM host affinity rules
+placement_policy:               # VM host affinity rules
   host_affinity_rules:
     - key: yc.hostGroupId
       op: IN
       values:
         - <host_group_ID>
 host_group_id: <host_group_ID>  # Actual VM location
-host_id: <host_ID>                # Actual VM location
+host_id: <host_ID>              # Actual VM location
 ...
 ```
 

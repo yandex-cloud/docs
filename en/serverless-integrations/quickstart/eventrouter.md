@@ -11,11 +11,7 @@ keywords:
 
 # Getting started with {{ er-name }}
 
-{% note info %}
-
-{{ er-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+{% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
 In this guide, you will create a queue in [{{ message-queue-name }}](../../message-queue/) and send a message to it. This message will be transmitted to a [{{ sf-name }}](../../functions/) function via a [bus](../concepts/eventrouter/bus.md).
 

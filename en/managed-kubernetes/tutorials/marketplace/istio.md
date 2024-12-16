@@ -13,10 +13,10 @@ To view Istio usage options:
 1. [Install Istio](#istio-install).
 1. [Install a test application](#test-application).
 1. [View a service network diagram on the Kiali dashboard](#visualization-service-network).
-1. [Route service requests](#request-routing).
+1. [Route requests](#request-routing).
 1. [Simulate a service failure](#injection-failures).
 1. [Redistribute traffic](#traffic-redistribution).
-1. [Set authentication mode using mutual TLS](#mutual-tls).
+1. [Set up mutual TLS authentication](#mutual-tls).
 1. [View Istio metrics on the {{ prometheus-name }} dashboard](#viewing-metrics-prometheus).
 1. [View Istio metrics on the {{ grafana-name }} dashboard](#viewing-metrics-grafana).
 
@@ -97,7 +97,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Install](../../operations/applications/istio.md#marketplace-install) [Istio](/marketplace/products/yc/istio) from the {{ marketplace-full-name }} application catalog. When installing the application:
 
     1. Create a new [namespace](../../concepts/index.md#namespace) called `istio-system`.
-    1. Install add-ons for Istio: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, and Jaeger.
+    1. Install Istio add-ons: Kiali, {{ prometheus-name }}, {{ grafana-name }}, Loki, Jaeger.
 
 1. Make sure all the [pods](../../concepts/index.md#pod) of Istio and its add-ons have changed their status to `Running`:
 
@@ -542,20 +542,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-    1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-    1. Delete the `k8s-cluster.tf` configuration file.
-    1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

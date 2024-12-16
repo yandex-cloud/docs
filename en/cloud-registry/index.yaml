@@ -29,6 +29,12 @@ meta:
     Yandex Cloud Registry is a service to store and manage your development
     artifacts.
 links:
+  - title: Getting started
+    description: Create your first artifact registry
+    href: quickstart/docker
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
   - title: Concepts
     description: Learn more about Container Registry's concepts and resources
     href: concepts/

@@ -18,7 +18,7 @@ To update an [instance group](../../concepts/instance-groups/index.md) based on 
   Run the command below, specifying the instance group name or ID and the YAML specification file path:
   
   ```bash
-  {{ yc-compute-ig }} update <VM_group_name_or_ID> --file specification.yaml
+  {{ yc-compute-ig }} update <instance_group_name_or_ID> --file specification.yaml
   ```
 
   For more information about the `{{ yc-compute-ig }} update` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/update.md).

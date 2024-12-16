@@ -110,7 +110,7 @@ The tables specify the following:
 
 If garbage collection takes much time:
 
-{% include [gc-time-fix](../../_includes/data-proc/gc-time-fix.md) %}
+{% include [gc-time-fix](../../_includes/data-processing/gc-time-fix.md) %}
 
 {% endnote %}
 

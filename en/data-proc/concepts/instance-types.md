@@ -15,7 +15,7 @@ Hosts in {{ dataproc-name }} clusters are deployed on {{ compute-full-name }} VM
 
 A suitable host class depends on driver deploy mode:
 
-{% include [subcluster-computing-nodes](../../_includes/data-proc/subcluster-computing-nodes.md) %}
+{% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
 The full list of possible host configurations on each platform is provided below.
 

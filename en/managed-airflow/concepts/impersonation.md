@@ -24,7 +24,7 @@ For more information about logging configuration, see [Transferring cluster logs
 
 ### {{ lockbox-name }} {#lockbox-integration}
 
-{{ lockbox-name }} is a service for centralized storage of secrets. In {{ lockbox-name }}, you can store data to use in DAG files, such as configuration data, variables and {{ AF }} [connection parameters](../tutorials/data-proc-automation.md#connections).
+{{ lockbox-name }} is a service for centralized storage of secrets. In {{ lockbox-name }}, you can store data to use in DAG files, such as configuration data, variables and {{ AF }} [connection parameters](../tutorials/data-processing-automation.md#connections).
 
 By default, {{ AF }} stores sensitive data in a metadata storage. In this case, you have to manage secrets for every {{ AF }} cluster manually via the UI or API. To automate management of secrets, store them in {{ lockbox-name }}. For more information, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/security/secrets/secrets-backend/index.html).
 

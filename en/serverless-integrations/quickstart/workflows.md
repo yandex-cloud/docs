@@ -15,11 +15,7 @@ keywords:
 
 # Getting started with {{ sw-name }}
 
-{% note info %}
-
-{{ sw-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 Using this tutorial, you will create and run a [workflow](../concepts/workflows/workflow.md). During the execution of the workflow, the [{{ sf-full-name }}](../../functions/) functions will be called.
 

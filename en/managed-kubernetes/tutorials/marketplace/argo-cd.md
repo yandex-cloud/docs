@@ -64,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      * {{ container-registry-name }} registry.
      * {% include [configure-sg-terraform](../../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-        These security groups also contain the rules required for {{ mgl-name }} instance and [{{ container-registry-name }}] registry(../../../container-registry/concepts/registry.md).
+        These security groups also contain the rules required for {{ mgl-name }} instance and [{{ container-registry-name }} registry](../../../container-registry/concepts/registry.md).
 
         {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
@@ -188,7 +188,7 @@ Install the following items in the local environment:
    ```
 
 1. Open the Argo CD console at `https://127.0.0.1:8080` in your browser.
-1. Log in to the console as `admin` using the password obtained in the previous step.
+1. Log in to the console as `admin` using the password you got in the previous step.
 
 ### Add a {{ GL }} repository to Argo CD {#create}
 
@@ -296,21 +296,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-argocd.tf` configuration file.
-     1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
+     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 
-1. [Delete the {{ GL }} VM](../../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance you created.
+1. [Delete the {{ GL }}](../../../compute/operations/vm-control/vm-delete.md) VM or {{ mgl-name }} instance you created.

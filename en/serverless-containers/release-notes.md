@@ -5,6 +5,12 @@ description: This section contains {{ serverless-containers-name }} release note
 
 # {{ serverless-containers-full-name }} release notes
 
+## November 2024 {#november-2024}
+
+### Updates {#updates}
+
+* Added support for container mode selection in the CLI, API, and {{ TF }}.
+
 ## September — October 2024 {#sept-oct-2024}
 
 ### Updates {#updates}

@@ -23,7 +23,6 @@ _Service control_ is the whole of the access permissions needed to create and op
 * `DEFAULT`: Default status.
 
     The service has no [service agents](#service-agent). However, if you try to run an operation that requires access to other resources in a user cloud (e.g., create a [connection](../../metadata-hub/concepts/connection-manager.md) in {{ connection-manager-full-name }}), the service agents will be automatically created and the service status will change to `ENABLED`.
-
 * `ENABLED`: Service enabled. Its service agents have been created, and the service has access to resources in a user cloud.
 
     When the status of a service in a cloud changes to `ENABLED`, its service agents are created automatically. Such service agents have the required permissions to manage user resources in that cloud.
