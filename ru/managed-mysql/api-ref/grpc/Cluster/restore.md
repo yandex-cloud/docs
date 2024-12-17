@@ -21,7 +21,7 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
   "time": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "environment": "Environment",
   "config_spec": {
     "version": "string",
@@ -265,7 +265,7 @@ Required field. Name of the new MySQL cluster the backup will be restored to. Th
 || description | **string**
 
 Description of the new cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the new cluster as `key:value` pairs. ||
 || environment | enum **Environment**
@@ -1445,7 +1445,7 @@ Host master promotion priority ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -2146,7 +2146,7 @@ Name of the cluster. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | enum **Environment**

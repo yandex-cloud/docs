@@ -27,10 +27,10 @@ To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "size": "string",
   "diskPlacementPolicy": {
     "placementGroupId": "string",
@@ -41,7 +41,7 @@ To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -57,7 +57,7 @@ Name of the disk. ||
 || description | **string**
 
 Description of the disk. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -109,7 +109,7 @@ Placement group ID. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "typeId": "string",
     "zoneId": "string",
     "size": "string",
@@ -267,7 +267,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**

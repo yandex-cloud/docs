@@ -18,9 +18,9 @@ Updates the specified registry.
   "registry_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "description": "string",
-  "properties": "string"
+  "properties": "map<string, string>"
 }
 ```
 
@@ -39,15 +39,15 @@ Field mask that specifies which fields of the Registry resource are going to be 
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
 Existing set of `labels` is completely replaced by the provided set. ||
 || description | **string**
 
-Required field. Description of the registry. 0-1024 characters long. ||
-|| properties | **string**
+Description of the registry. 0-1024 characters long. ||
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values. ||
 |#
@@ -75,8 +75,8 @@ Property names and values. ||
     "type": "Type",
     "status": "Status",
     "description": "string",
-    "labels": "string",
-    "properties": "string",
+    "labels": "map<string, string>",
+    "properties": "map<string, string>",
     "created_at": "google.protobuf.Timestamp",
     "modified_at": "google.protobuf.Timestamp"
   }
@@ -188,10 +188,10 @@ Output only. Status of the registry.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

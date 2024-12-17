@@ -9,9 +9,9 @@ Deletes a certificate.
 
 ## gRPC request
 
-**rpc Delete ([DeleteCertificateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Delete ([DeleteCertificateRequest](#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## DeleteCertificateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateRequest}
+## DeleteCertificateRequest {#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateRequest}
 
 ```json
 {
@@ -71,7 +71,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteCertificateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateMetadata)**
+|| metadata | **[DeleteCertificateMetadata](#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -103,7 +103,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## DeleteCertificateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateMetadata}
+## DeleteCertificateMetadata {#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateMetadata}
 
 Metadata for the `DeleteCertificate` operation.
 

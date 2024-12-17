@@ -147,7 +147,7 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/tune.md
   // end of the list of possible fields
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -171,7 +171,7 @@ Includes only one of the fields `text_to_text_completion`, `text_classification_
 
 common params ||
 || description | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## WeightedDataset {#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset}
@@ -373,7 +373,9 @@ Includes only one of the fields `adamw`. ||
   "done": "bool",
   "metadata": {
     "tuning_task_id": "string",
-    "status": "Status"
+    "status": "Status",
+    "total_steps": "int64",
+    "current_step": "int64"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -453,7 +455,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `PENDING`
 - `IN_PROGRESS`
 - `COMPLETED`
-- `FAILED` ||
+- `FAILED`
+- `CANCELED` ||
+|| total_steps | **int64** ||
+|| current_step | **int64** ||
 |#
 
 ## TuningResponse {#yandex.cloud.ai.tuning.v1.TuningResponse}
@@ -468,6 +473,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `PENDING`
 - `IN_PROGRESS`
 - `COMPLETED`
-- `FAILED` ||
+- `FAILED`
+- `CANCELED` ||
 || target_model_uri | **string** ||
 |#

@@ -19,7 +19,8 @@ POST https://searchapi.{{ api-host }}/v2/web/searchAsync
     "searchType": "string",
     "queryText": "string",
     "familyMode": "string",
-    "page": "string"
+    "page": "string",
+    "fixTypoMode": "string"
   },
   "sortSpec": {
     "sortMode": "string",
@@ -33,7 +34,9 @@ POST https://searchapi.{{ api-host }}/v2/web/searchAsync
   "maxPassages": "string",
   "region": "string",
   "l10n": "string",
-  "folderId": "string"
+  "folderId": "string",
+  "responseFormat": "string",
+  "userAgent": "string"
 }
 ```
 
@@ -68,6 +71,16 @@ The notification language for a search response.
 || folderId | **string**
 
 ID of the folder. ||
+|| responseFormat | **enum** (Format)
+
+Search results format.
+
+- `FORMAT_UNSPECIFIED`
+- `FORMAT_XML`: XML format (default value)
+- `FORMAT_HTML`: HTML format ||
+|| userAgent | **string**
+
+User-Agent request header value. ||
 |#
 
 ## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
@@ -98,6 +111,13 @@ and those with profanity are excluded from search results. ||
 || page | **string** (int64)
 
 The number of a requested page with search results ||
+|| fixTypoMode | **enum** (FixTypoMode)
+
+Typos autocorrections mode
+
+- `FIX_TYPO_MODE_UNSPECIFIED`
+- `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
+- `FIX_TYPO_MODE_OFF`: Autocorrection is off. ||
 |#
 
 ## SortSpec {#yandex.cloud.searchapi.v2.SortSpec}
@@ -116,8 +136,8 @@ Documents sorting mode.
 Documents sorting order.
 
 - `SORT_ORDER_UNSPECIFIED`
-- `SORT_ORDER_ASC`: Direct order from most recent to oldest (default)..
-- `SORT_ORDER_DESC`: Reverse order from oldest to most recent. ||
+- `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
+- `SORT_ORDER_DESC`: Direct order from most recent to oldest (default). ||
 |#
 
 ## GroupSpec {#yandex.cloud.searchapi.v2.GroupSpec}
@@ -259,5 +279,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || rawData | **string** (bytes)
 
-Required field. Search results, usually in XML format. ||
+Required field. Search results, either in XML or HTML format depending on the request settings. ||
 |#

@@ -10,9 +10,9 @@ This retrieves the CSR so that it can be signed by an external CA.
 
 ## gRPC request
 
-**rpc GetCsrForCertificateAuthority ([GetCsrForCertificateAuthorityRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCsrForCertificateAuthorityRequest)) returns ([CsrForSignCertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CsrForSignCertificateAuthority))**
+**rpc GetCsrForCertificateAuthority ([GetCsrForCertificateAuthorityRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCsrForCertificateAuthorityRequest)) returns ([CsrForSignCertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority))**
 
-## GetCsrForCertificateAuthorityRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCsrForCertificateAuthorityRequest}
+## GetCsrForCertificateAuthorityRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCsrForCertificateAuthorityRequest}
 
 ```json
 {
@@ -29,7 +29,7 @@ Retrieve the CSR for a specific Certificate Authority.
 Required field. The ID of the Certificate Authority for which you want to retrieve the CSR. ||
 |#
 
-## CsrForSignCertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
+## CsrForSignCertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
 
 ```json
 {

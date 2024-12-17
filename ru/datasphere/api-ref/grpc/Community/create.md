@@ -19,7 +19,7 @@ Creates community in specified organization.
   "description": "string",
   "organization_id": "string",
   "billing_account_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "zone_id": "string"
 }
 ```
@@ -38,7 +38,7 @@ Required field. ID of the organization where community should be created. ||
 || billing_account_id | **string**
 
 ID of the billing account for the created community. Optional, billing account could be bound to community later. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || zone_id | **string**
@@ -66,7 +66,7 @@ Required field. ID of the zone where community will be created (all projects and
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "created_by_id": "string",
     "organization_id": "string",
     "zone_id": "string"
@@ -155,7 +155,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || created_by_id | **string**

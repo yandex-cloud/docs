@@ -55,6 +55,7 @@ Syntax:
 |`--async-failure-sa-id`|<b>`string`</b><br/>Service account for writing unsuccessful result of async invocation function.|
 |`--tmpfs-size`|<b>`byteSize`</b><br/>Size of memory for use as in-memory storage mounted as /tmp directory. Example: '512MB', '1GB'. The default value is 0B.|
 |`--concurrency`|<b>`int`</b><br/>The maximum number of requests processed by a function instance at the same time.|
+|`--metadata-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Options set the access mode to function's metadata endpoints. Example: aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled<br/><br/>Possible property names:<br/><ul> <li><code>aws-v1-http-endpoint</code>:     Enables access to AWS flavored metadata (IMDSv1). Values: enabled, disabled</li> <li><code>gce-http-endpoint</code>:     Enables access to GCE flavored metadata. Values: enabled, disabled</li> </ul>|
 
 #### Global Flags
 

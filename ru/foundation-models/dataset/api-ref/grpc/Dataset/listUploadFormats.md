@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/ai/dataset/v1/dataset/api-ref/grpc/Dataset/listUplo
 
 # Foundation Models Dataset Service API, gRPC: DatasetService.ListUploadFormats
 
-Lists supported upload formats for the specified dataset task type.
+Deprecated. Use ListUploadSchemas.
 
 ## gRPC request
 

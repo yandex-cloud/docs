@@ -40,7 +40,7 @@ To get a secret ID make a [List](/docs/lockbox/api-ref/grpc/Secret/list#List) re
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "kms_key_id": "string",
   "status": "Status",
   "current_version": {
@@ -101,7 +101,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kms_key_id | **string**

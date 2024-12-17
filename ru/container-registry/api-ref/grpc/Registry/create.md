@@ -17,7 +17,7 @@ Creates a registry in the specified folder.
 {
   "folder_id": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "secure": "bool"
 }
 ```
@@ -34,7 +34,7 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || secure | **bool**
@@ -63,7 +63,7 @@ If true, registry will be created with pre-setup scanning policy (on push and on
     "name": "string",
     "status": "Status",
     "created_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -159,7 +159,7 @@ Output only. Status of the registry.
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

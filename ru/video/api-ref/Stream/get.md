@@ -47,7 +47,7 @@ Required field. ID of the stream. ||
   // end of the list of possible fields
   "createdAt": "string",
   "updatedAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -145,7 +145,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

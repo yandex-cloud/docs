@@ -28,9 +28,9 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     // Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`
@@ -260,7 +260,7 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -273,7 +273,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of custom labels for the cluster as `key:value` pairs.
 
@@ -1484,7 +1484,7 @@ Hour of the day in UTC (in `HH` format). ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -2225,7 +2225,7 @@ Name of the cluster. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | **enum** (Environment)

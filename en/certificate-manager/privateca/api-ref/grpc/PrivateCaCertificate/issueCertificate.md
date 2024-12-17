@@ -9,9 +9,9 @@ Issues a new certificate for a given Certificate Authority (CA).
 
 ## gRPC request
 
-**rpc IssueCertificate ([IssueCertificateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc IssueCertificate ([IssueCertificateRequest](#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## IssueCertificateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateRequest}
+## IssueCertificateRequest {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateRequest}
 
 ```json
 {
@@ -85,7 +85,7 @@ The name of the certificate. ||
 || description | **string**
 
 A description of the certificate. ||
-|| subject | **[Subject](#yandex.cloud.priv.certificatemanager.v1.privateca.Subject)**
+|| subject | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Details about the certificate subject (e.g., CN, O, etc.). ||
 || signing_algorithm | enum **Algorithm**
@@ -145,7 +145,7 @@ List of extended purposes of the certificate, such as serverAuth or clientAuth.
 - `MS_CODE_COM`
 - `MS_CTL_SIGN`
 - `MS_EFS` ||
-|| subject_alternative_names[] | **[SubjectAlternativeName](#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeName)**
+|| subject_alternative_names[] | **[SubjectAlternativeName](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName)**
 
 Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses. ||
 || template_id | **string**
@@ -159,21 +159,21 @@ Flag to protect the certificate from being accidentally deleted. ||
 Desired time-to-live (TTL) of the certificate in days. ||
 |#
 
-## Subject {#yandex.cloud.priv.certificatemanager.v1.privateca.Subject}
+## Subject {#yandex.cloud.certificatemanager.v1.privateca.Subject}
 
 Subject field of certificate https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6
 
 #|
 ||Field | Description ||
-|| base_rdn | **[BaseRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN)**
+|| base_rdn | **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
 
 Required field. Most used field of subject ||
-|| additional_rdn | **[AdditionalRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN)**
+|| additional_rdn | **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
 
 Additional fields of subject ||
 |#
 
-## BaseRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN}
+## BaseRDN {#yandex.cloud.certificatemanager.v1.privateca.BaseRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -202,7 +202,7 @@ Common name. For tls certificates it is domain usually. ||
 Email address of certificate owner ||
 |#
 
-## AdditionalRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN}
+## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -231,13 +231,13 @@ Initials of certificate subject in arbitrary form. ||
 Generation qualifier of certificate subject in arbitrary form. ||
 |#
 
-## SubjectAlternativeName {#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeName}
+## SubjectAlternativeName {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName}
 
 Extend subject of certificate https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
 
 #|
 ||Field | Description ||
-|| other_name | **[OtherName](#yandex.cloud.priv.certificatemanager.v1.privateca.OtherName)**
+|| other_name | **[OtherName](#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
 
 Local defined identifier in arbitrary form
 
@@ -272,7 +272,7 @@ Represents sequence of rdn for uniquely identifying entities
 Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400_name`, `directory_name`, `edi_party_name`, `uniform_resource_identifier`, `ip_address`, `registered_id`.
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
-|| edi_party_name | **[EdiPartyName](#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName)**
+|| edi_party_name | **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
 
 Electronic Data Interchange entity
 
@@ -302,7 +302,7 @@ Includes only one of the fields `other_name`, `rfc_822_name`, `dns_name`, `x_400
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6 ||
 |#
 
-## OtherName {#yandex.cloud.priv.certificatemanager.v1.privateca.OtherName}
+## OtherName {#yandex.cloud.certificatemanager.v1.privateca.OtherName}
 
 #|
 ||Field | Description ||
@@ -314,7 +314,7 @@ Object identifier for name type ||
 DER encoded value of type with type_oid ||
 |#
 
-## EdiPartyName {#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName}
+## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName}
 
 #|
 ||Field | Description ||
@@ -380,7 +380,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[IssueCertificateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateMetadata)**
+|| metadata | **[IssueCertificateMetadata](#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -395,7 +395,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate)**
+|| response | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -412,7 +412,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## IssueCertificateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateMetadata}
+## IssueCertificateMetadata {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateMetadata}
 
 Metadata for the `IssueCertificate` operation, tracking the ID of the new certificate.
 
@@ -423,7 +423,7 @@ Metadata for the `IssueCertificate` operation, tracking the ID of the new certif
 The ID of the certificate that was issued. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 A private certificate issued by a private certificate authority.
 

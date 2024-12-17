@@ -28,9 +28,9 @@ To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Clus
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "subclustersSpec": [
       {
@@ -57,7 +57,7 @@ To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Clus
       "services": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "sshPublicKeys": [
         "string"
       ],
@@ -87,7 +87,7 @@ To get the cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Clus
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -100,7 +100,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description for the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 A new set of cluster labels as `key:value` pairs. ||
 || configSpec | **[UpdateClusterConfigSpec](#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec)**
@@ -244,7 +244,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
@@ -303,7 +303,7 @@ Execution timeout ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "monitoring": [
       {
         "name": "string",
@@ -317,7 +317,7 @@ Execution timeout ||
         "services": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "sshPublicKeys": [
           "string"
         ],
@@ -475,7 +475,7 @@ Name of the cluster. The name is unique within the folder. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Cluster labels as `key:value` pairs. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
@@ -592,7 +592,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.

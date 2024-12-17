@@ -32,8 +32,8 @@ Required field. ID of the test for which report table will be returned. ||
 {
   "status": "Status",
   "overall": {
-    "http_codes": "int64",
-    "net_codes": "int64",
+    "http_codes": "map<int64, int64>",
+    "net_codes": "map<int64, int64>",
     "quantiles": {
       "q50": "double",
       "q75": "double",
@@ -46,21 +46,7 @@ Required field. ID of the test for which report table will be returned. ||
       "q100": "double"
     }
   },
-  "cases": {
-    "http_codes": "int64",
-    "net_codes": "int64",
-    "quantiles": {
-      "q50": "double",
-      "q75": "double",
-      "q80": "double",
-      "q85": "double",
-      "q90": "double",
-      "q95": "double",
-      "q98": "double",
-      "q99": "double",
-      "q100": "double"
-    }
-  }
+  "cases": "map<string, Report>"
 }
 ```
 
@@ -77,7 +63,7 @@ Status of report table.
 || overall | **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**
 
 Result for all test cases combined ("overall" test case). ||
-|| cases | **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**
+|| cases | **object** (map<**string**, **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**>)
 
 Results for individual test cases, mapped as `case_name:report`. ||
 |#
@@ -88,10 +74,10 @@ Aggregated test results.
 
 #|
 ||Field | Description ||
-|| http_codes | **int64**
+|| http_codes | **object** (map<**int64**, **int64**>)
 
 Total count of HTTP responses, grouped by HTTP response code. ||
-|| net_codes | **int64**
+|| net_codes | **object** (map<**int64**, **int64**>)
 
 Total count of network responses, grouped by response code. ||
 || quantiles | **[Quantiles](#yandex.cloud.loadtesting.api.v1.common.Quantiles)**

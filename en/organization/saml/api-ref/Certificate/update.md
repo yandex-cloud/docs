@@ -27,7 +27,7 @@ To get the certificate ID, make a [CertificateService.List](/docs/organization/a
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "data": "string"
@@ -36,7 +36,7 @@ To get the certificate ID, make a [CertificateService.List](/docs/organization/a
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

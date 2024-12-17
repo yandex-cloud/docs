@@ -20,7 +20,7 @@ POST https://video.{{ api-host }}/video/v1/streamLines
   "channelId": "string",
   "title": "string",
   "thumbnailId": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
   "rtmpPush": "object",
   "srtPush": "object",
@@ -55,7 +55,7 @@ Required field. Line title. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || rtmpPush | **object**
@@ -208,7 +208,7 @@ Required field. URL of a RTSP streaming server. ||
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -403,7 +403,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

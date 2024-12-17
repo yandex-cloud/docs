@@ -56,7 +56,7 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "schedulePolicy": {
       "startAt": "string",
@@ -68,7 +68,7 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
     // end of the list of possible fields
     "snapshotSpec": {
       "description": "string",
-      "labels": "string"
+      "labels": "object"
     }
   }
   // end of the list of possible fields
@@ -200,7 +200,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
@@ -273,7 +273,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

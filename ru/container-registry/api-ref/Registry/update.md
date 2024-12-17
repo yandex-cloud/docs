@@ -28,15 +28,15 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -51,7 +51,7 @@ The rest of the fields will be reset to the default. ||
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -87,7 +87,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "name": "string",
     "status": "string",
     "createdAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -221,7 +221,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

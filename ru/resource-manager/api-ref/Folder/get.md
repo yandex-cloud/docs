@@ -36,7 +36,7 @@ To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string"
 }
 ```
@@ -68,7 +68,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the folder. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

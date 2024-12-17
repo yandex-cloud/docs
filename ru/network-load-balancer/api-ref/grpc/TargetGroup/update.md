@@ -19,7 +19,7 @@ Updates the specified target group.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "targets": [
     {
       "subnet_id": "string",
@@ -45,7 +45,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs.
 
@@ -91,7 +91,7 @@ IP address of the target. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "region_id": "string",
     "targets": [
       {
@@ -190,7 +190,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the target group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || region_id | **string**

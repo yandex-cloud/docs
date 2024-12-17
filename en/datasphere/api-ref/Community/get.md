@@ -32,7 +32,7 @@ Required field. ID of the community. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "createdById": "string",
   "organizationId": "string",
   "zoneId": "string"
@@ -60,7 +60,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || createdById | **string**

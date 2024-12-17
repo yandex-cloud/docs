@@ -18,7 +18,7 @@ Creates a new ElasticSearch cluster from the specified backup.
   "backup_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "environment": "Environment",
   "config_spec": {
     "version": "string",
@@ -89,7 +89,7 @@ Required field. Name of the ElasticSearch cluster. The name must be unique withi
 || description | **string**
 
 Description of the ElasticSearch cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary". ||
@@ -307,7 +307,7 @@ The flag shows whether to create the extension in disabled state. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -478,7 +478,7 @@ The name must be unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the Elasticsearch cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Elasticsearch cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||

@@ -25,7 +25,7 @@ Required field. The ID of the Certificate Authority to retrieve.
 This must be a valid Certificate Authority ID in your account. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 **HTTP Code: 200 - OK**
 

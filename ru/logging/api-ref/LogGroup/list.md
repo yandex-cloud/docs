@@ -58,7 +58,7 @@ Example of a filter: `name=my-log-group`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "retentionPeriod": "string",
       "dataStream": "string"
@@ -111,7 +111,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | **enum** (Status)

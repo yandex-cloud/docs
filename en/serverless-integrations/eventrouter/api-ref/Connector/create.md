@@ -20,7 +20,7 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
   "busId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "source": {
     // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
     "dataStream": {
@@ -58,7 +58,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels for the connector. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**
@@ -172,7 +172,7 @@ payload to send to target ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "source": {
       // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
       "dataStream": {
@@ -332,7 +332,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source2)**

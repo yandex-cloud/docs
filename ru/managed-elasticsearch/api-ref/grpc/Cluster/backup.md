@@ -47,7 +47,7 @@ Required field. Required. ID of the ElasticSearch cluster to back up. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -215,7 +215,7 @@ The name must be unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the Elasticsearch cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Elasticsearch cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||

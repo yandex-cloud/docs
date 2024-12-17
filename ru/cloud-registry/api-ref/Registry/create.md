@@ -19,11 +19,11 @@ POST https://registry.{{ api-host }}/cloud-registry/v1/registries
 {
   "folderId": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "object",
   "kind": "string",
   "type": "string",
   "description": "string",
-  "properties": "string"
+  "properties": "object"
 }
 ```
 
@@ -39,7 +39,7 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || kind | **enum** (Kind)
@@ -58,8 +58,8 @@ Required field. Type of the registry.
 - `LOCAL`: Registry type is local. ||
 || description | **string**
 
-Required field. Description of the registry. 0-1024 characters long. ||
-|| properties | **string**
+Description of the registry. 0-1024 characters long. ||
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values. ||
 |#
@@ -95,8 +95,8 @@ Property names and values. ||
     "type": "string",
     "status": "string",
     "description": "string",
-    "labels": "string",
-    "properties": "string",
+    "labels": "object",
+    "properties": "object",
     "createdAt": "string",
     "modifiedAt": "string"
   }
@@ -239,10 +239,10 @@ Output only. Status of the registry.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
 || createdAt | **string** (date-time)

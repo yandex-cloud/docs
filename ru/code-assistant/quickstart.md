@@ -68,25 +68,26 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 - IDE от JetBrains {#jb}
 
-  1. Скачайте плагин {{ ca-name }} для своей версии [IDE от JetBrains](https://www.jetbrains.com/ides/):
+  {% note info %}
 
-      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
+  Если ранее вы устанавливали плагин {{ ca-full-name }} для IDE от JetBrains с помощью скачиваемого архива в формате ZIP, [удалите плагин](#remove-plugin) и установите заново по инструкции ниже.
 
-      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
-
-      {% note info %}
-
-      {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
-
-      {% endnote %}
+  {% endnote %}
 
   1. Установите плагин:
-      1. Откройте IDE.
-      1. Откройте настройки, для этого используйте сочетание клавиш **Ctrl** + **Alt** + **S** в Windows/Linux или **Command** + **,** в macOS.
-      1. Перейдите в раздел **Plugins**.
-      1. Нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Install Plugin from Disk...**
-      1. Выберите файл плагина, скачанный ранее.
-      1. Подтвердите, что вы согласны использовать плагин от стороннего разработчика и нажмите **OK**.
+      1. В интерфейсе [IDE от JetBrains](https://www.jetbrains.com/ides/) в правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Plugins...**.
+      1. В верхней части открывшегося окна настроек плагинов нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Manage Plugin Repositories...**.
+      1. В открывшемся окне нажмите ![image](../_assets/console-icons/plus.svg), в появившемся поле введите `{{ link-ca-jb-repository }}` и нажмите **OK**.
+      1. В верхней части окна настроек перейдите на вкладку **Marketplace** и выберите плагин `{{ ca-full-name }}`. При необходимости воспользуйтесь строкой поиска.
+      1. Нажмите кнопку **Install**.
+      1. После завершения установки нажмите кнопку **OK**.
+
+          Если установка плагина прошла успешно, в области уведомлений IDE появится сообщение **Code Assist plugin started**.
+      1. Перезапустите IDE.
+  1. Включите автоматическое обновление плагина {{ ca-full-name }}:
+      1. В интерфейсе IDE от JetBrains в правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Settings...**.
+      1. Перейдите в раздел настроек **Appearance & Behavior** → **System Settings** → **Updates** и включите опцию **Update plugins automatically**.
+      1. Нажмите кнопку **OK**.
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **Yandex Code Assistant OAuth** нажмите **Yandex Code Assist: Login**.

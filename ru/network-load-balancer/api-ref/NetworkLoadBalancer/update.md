@@ -27,10 +27,10 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "listenerSpecs": [
     {
       "name": "string",
@@ -79,7 +79,7 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -96,7 +96,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the network load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs.
 
@@ -299,7 +299,7 @@ For example `` /ping ``. The default path is `` / ``. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "regionId": "string",
     "status": "string",
     "type": "string",
@@ -467,7 +467,7 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

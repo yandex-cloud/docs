@@ -18,6 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--cname`|<b>`string`</b><br/>CNAME|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>Resource labels|
 |`--origin-group-id`|<b>`int`</b><br/>Origin group ID.<br/>Specify one of --origin-group-id, --origin-custom-source, --origin-bucket-source, --origin-balancer-source|
 |`--origin-custom-source`|<b>`string`</b><br/>Origin custom source.<br/>Specify one of --origin-group-id, --origin-custom-source, --origin-bucket-source, --origin-balancer-source|
 |`--origin-bucket-source`|<b>`string`</b><br/>Origin bucket source.<br/>Specify one of --origin-group-id, --origin-custom-source, --origin-bucket-source, --origin-balancer-source|

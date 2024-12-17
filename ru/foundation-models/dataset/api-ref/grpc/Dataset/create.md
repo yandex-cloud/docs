@@ -20,7 +20,7 @@ Creates dataset.
   "description": "string",
   "metadata": "string",
   "task_type": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "upload_format": "string"
 }
 ```
@@ -42,7 +42,7 @@ Metadata of the dataset. Optional. ||
 || task_type | **string**
 
 Required field. Task type of the dataset. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the dataset. Optional. ||
 || upload_format | **string**
@@ -69,7 +69,7 @@ The list of supported upload formats can be retrieved via ListUploadFormats meth
     "rows": "int64",
     "size_bytes": "int64",
     "created_by_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "created_by": "string",
     "updated_by": "string",
     "validation_error": [
@@ -144,7 +144,7 @@ Size of the dataset. ||
 || created_by_id | **string**
 
 Deprecated. Use created_by instead ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the dataset ||
 || created_by | **string**

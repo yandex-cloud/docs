@@ -19,14 +19,14 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/runs
 {
   "assistantId": "string",
   "threadId": "string",
-  "labels": "string",
+  "labels": "object",
   "additionalMessages": [
     {
       "author": {
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "object",
       "content": {
         "content": [
           {
@@ -61,7 +61,7 @@ Required field. ID of the assistant for which the run is being created ||
 || threadId | **string**
 
 Required field. ID of the thread associated with the run. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the run. ||
 || additionalMessages[] | **[MessageData](#yandex.cloud.ai.assistants.v1.threads.MessageData)**
@@ -90,7 +90,7 @@ This message is used, for example, to initialize a thread with some messages upo
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
@@ -190,7 +190,7 @@ Default temperature: 0.3 ||
   "threadId": "string",
   "createdBy": "string",
   "createdAt": "string",
-  "labels": "string",
+  "labels": "object",
   "state": {
     "status": "string",
     // Includes only one of the fields `error`, `completedMessage`
@@ -207,7 +207,7 @@ Default temperature: 0.3 ||
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "object",
       "content": {
         "content": [
           {
@@ -264,7 +264,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the run. ||
 || state | **[RunState](#yandex.cloud.ai.assistants.v1.runs.RunState)**
@@ -348,7 +348,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author2)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent2)**

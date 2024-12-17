@@ -20,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/gpuClusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "interconnectType": "string"
 }
@@ -41,7 +41,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -85,7 +85,7 @@ Type of interconnect to use for this GPU cluster.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "zoneId": "string",
     "interconnectType": "string"
@@ -219,7 +219,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | **enum** (Status)

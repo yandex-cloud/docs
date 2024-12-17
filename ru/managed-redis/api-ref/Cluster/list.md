@@ -53,7 +53,7 @@ The expression must specify:
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "environment": "string",
       "monitoring": [
         {
@@ -422,7 +422,8 @@ The expression must specify:
           "plannedUsageThreshold": "string",
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
-        }
+        },
+        "backupRetainPeriodDays": "string"
       },
       "networkId": "string",
       "health": "string",
@@ -498,7 +499,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the Redis cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
@@ -632,6 +633,9 @@ Unified configuration of a Redis cluster. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
+|| backupRetainPeriodDays | **string** (int64)
+
+Retain period of automatically created backup in days ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}

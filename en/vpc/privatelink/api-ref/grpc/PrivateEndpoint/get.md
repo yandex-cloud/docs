@@ -41,7 +41,7 @@ request. ||
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "network_id": "string",
   "status": "Status",
   "address": {
@@ -78,7 +78,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

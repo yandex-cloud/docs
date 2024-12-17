@@ -37,8 +37,8 @@ Required field. Identifier of the transfer to be updated. ||
     // end of the list of possible fields
   },
   "name": "string",
-  "updateMask": "string",
-  "labels": "string",
+  "updateMask": "object",
+  "labels": "object",
   "transformation": {
     "transformers": [
       {
@@ -189,7 +189,7 @@ The new description for the transfer. ||
 || name | **string**
 
 The new transfer name. Must be unique within the folder. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -199,7 +199,7 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 |#
 

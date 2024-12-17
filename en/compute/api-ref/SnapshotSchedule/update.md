@@ -30,10 +30,10 @@ To get the snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/com
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "schedulePolicy": {
     "startAt": "string",
     "expression": "string"
@@ -44,14 +44,14 @@ To get the snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/com
   // end of the list of possible fields
   "snapshotSpec": {
     "description": "string",
-    "labels": "string"
+    "labels": "object"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -69,7 +69,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs.
 
@@ -137,7 +137,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#
@@ -171,7 +171,7 @@ Snapshot labels as `key:value` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "schedulePolicy": {
       "startAt": "string",
@@ -183,7 +183,7 @@ Snapshot labels as `key:value` pairs. ||
     // end of the list of possible fields
     "snapshotSpec": {
       "description": "string",
-      "labels": "string"
+      "labels": "object"
     }
   }
   // end of the list of possible fields
@@ -315,7 +315,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
@@ -388,7 +388,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

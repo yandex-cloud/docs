@@ -67,7 +67,7 @@ The default sorting order is ascending ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "family": "string",
       "storage_size": "int64",
       "min_disk_size": "int64",
@@ -131,7 +131,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**

@@ -22,7 +22,7 @@ Create a new assistant.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string",
+  "labels": "map<string, string>",
   "model_uri": "string",
   "instruction": "string",
   "prompt_truncation_options": {
@@ -63,7 +63,7 @@ Description of the assistant. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Expiration configuration for the assistant. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the user. ||
 || model_uri | **string**
@@ -173,7 +173,7 @@ This ensures that the combined prompt and search results do not exceed the token
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string",
+  "labels": "map<string, string>",
   "model_uri": "string",
   "instruction": "string",
   "prompt_truncation_options": {
@@ -232,7 +232,7 @@ Configuration for the expiration of the assistant, defining when and how the ass
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the assistant will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the assistant. ||
 || model_uri | **string**

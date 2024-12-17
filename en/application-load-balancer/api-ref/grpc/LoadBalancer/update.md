@@ -19,7 +19,7 @@ Updates the specified application load balancer.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "listener_specs": [
     {
       "name": "string",
@@ -177,7 +177,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the application load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -645,7 +645,7 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
     "name": "string",
     "description": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "region_id": "string",
     "network_id": "string",
@@ -876,7 +876,7 @@ Description of the application load balancer. ||
 || folder_id | **string**
 
 ID of the folder that the application load balancer belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

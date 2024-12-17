@@ -17,7 +17,11 @@ Updates the specified API key.
 {
   "api_key_id": "string",
   "update_mask": "google.protobuf.FieldMask",
-  "description": "string"
+  "description": "string",
+  "scopes": [
+    "string"
+  ],
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -33,6 +37,12 @@ Field mask that specifies which fields of the ApiKey resource are going to be up
 || description | **string**
 
 Description of the API key. ||
+|| scopes[] | **string**
+
+Scopes of the API key. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+API key expiration timestamp, if not specified, then the API key doesn't expire ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -57,6 +67,9 @@ Description of the API key. ||
     "description": "string",
     "last_used_at": "google.protobuf.Timestamp",
     "scope": "string",
+    "scopes": [
+      "string"
+    ],
     "expires_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
@@ -151,6 +164,9 @@ Timestamp for the last authentication using this API key. ||
 || scope | **string**
 
 Scope of the API key. 0-256 characters long. ||
+|| scopes[] | **string**
+
+Scopes of the API key. 0-256 characters long. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp. ||

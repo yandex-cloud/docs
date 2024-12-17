@@ -148,7 +148,7 @@ To get the cluster ID, use a [List](/docs/managed-clickhouse/api-ref/Backup/list
     }
     // end of the list of possible fields
   },
-  "updateMask": "string"
+  "updateMask": "object"
 }
 ```
 
@@ -157,7 +157,7 @@ To get the cluster ID, use a [List](/docs/managed-clickhouse/api-ref/Backup/list
 || externalDictionary | **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
 
 Configuration of the external dictionary. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -567,7 +567,7 @@ For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -1642,7 +1642,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the ClickHouse cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)

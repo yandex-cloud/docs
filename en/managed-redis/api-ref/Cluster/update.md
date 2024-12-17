@@ -27,9 +27,9 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     // Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`
@@ -162,7 +162,8 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
       "plannedUsageThreshold": "string",
       "emergencyUsageThreshold": "string",
       "diskSizeLimit": "string"
-    }
+    },
+    "backupRetainPeriodDays": "string"
   },
   "name": "string",
   "maintenanceWindow": {
@@ -186,7 +187,7 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -199,7 +200,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the Redis cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
 For example, "project": "mvp" or "source": "dictionary".
@@ -277,6 +278,9 @@ Unified configuration of a Redis cluster ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
+|| backupRetainPeriodDays | **string** (int64)
+
+Retain period of automatically created backup in days ||
 |#
 
 ## RedisConfig5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0}
@@ -805,7 +809,7 @@ Hour of the day in UTC (in `HH` format). ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -1174,7 +1178,8 @@ Hour of the day in UTC (in `HH` format). ||
         "plannedUsageThreshold": "string",
         "emergencyUsageThreshold": "string",
         "diskSizeLimit": "string"
-      }
+      },
+      "backupRetainPeriodDays": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -1331,7 +1336,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the Redis cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
@@ -1465,6 +1470,9 @@ Unified configuration of a Redis cluster. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling settings ||
+|| backupRetainPeriodDays | **string** (int64)
+
+Retain period of automatically created backup in days ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}

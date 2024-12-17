@@ -17,14 +17,14 @@ Create a new run for a given assistant and thread.
 {
   "assistant_id": "string",
   "thread_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "additional_messages": [
     {
       "author": {
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "map<string, string>",
       "content": {
         "content": [
           {
@@ -59,7 +59,7 @@ Required field. ID of the assistant for which the run is being created ||
 || thread_id | **string**
 
 Required field. ID of the thread associated with the run. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the run. ||
 || additional_messages[] | **[MessageData](#yandex.cloud.ai.assistants.v1.threads.MessageData)**
@@ -88,7 +88,7 @@ This message is used, for example, to initialize a thread with some messages upo
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
@@ -186,7 +186,7 @@ Default temperature: 0.3 ||
   "thread_id": "string",
   "created_by": "string",
   "created_at": "google.protobuf.Timestamp",
-  "labels": "string",
+  "labels": "map<string, string>",
   "state": {
     "status": "RunStatus",
     // Includes only one of the fields `error`, `completed_message`
@@ -203,7 +203,7 @@ Default temperature: 0.3 ||
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "map<string, string>",
       "content": {
         "content": [
           {
@@ -253,7 +253,7 @@ Identifier of the subject who created this run. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the run was created. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the run. ||
 || state | **[RunState](#yandex.cloud.ai.assistants.v1.runs.RunState)**
@@ -330,7 +330,7 @@ Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author2)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent2)**

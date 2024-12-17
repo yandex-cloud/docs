@@ -65,7 +65,7 @@ Starting index for events. If provided, listening will start from this event. ||
       "id": "string",
       "role": "string"
     },
-    "labels": "string",
+    "labels": "object",
     "content": {
       "content": [
         {
@@ -206,7 +206,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**

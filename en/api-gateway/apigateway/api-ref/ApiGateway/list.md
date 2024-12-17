@@ -57,7 +57,7 @@ Example of a filter: `name=my-apigw`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "domain": "string",
       "logGroupId": "string",
@@ -83,24 +83,10 @@ Example of a filter: `name=my-apigw`. ||
         // end of the list of possible fields
         "minLevel": "string"
       },
-      "variables": {
-        // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-        "stringValue": "string",
-        "intValue": "string",
-        "doubleValue": "string",
-        "boolValue": "boolean"
-        // end of the list of possible fields
-      },
+      "variables": "object",
       "canary": {
         "weight": "string",
-        "variables": {
-          // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-          "stringValue": "string",
-          "intValue": "string",
-          "doubleValue": "string",
-          "boolValue": "boolean"
-          // end of the list of possible fields
-        }
+        "variables": "object"
       },
       "executionTimeout": "string"
     }
@@ -149,7 +135,7 @@ Name of the API gateway. The name is unique within the folder. ||
 || description | **string**
 
 Description of the API gateway. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 API gateway labels as `key:value` pairs. ||
 || status | **enum** (Status)
@@ -177,7 +163,7 @@ Network access. If specified the gateway will be attached to specified network/s
 || logOptions | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
 
 Options for logging from the API gateway. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
 Values of variables defined in the specification. ||
 || canary | **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
@@ -305,7 +291,7 @@ Variable value that can has only primitive type ||
 || weight | **string** (int64)
 
 It describes percentage of requests, which will be processed by canary. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
 Values specification variables, associated with canary. ||
 |#

@@ -20,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/hostGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "typeId": "string",
   "maintenancePolicy": "string",
@@ -46,7 +46,7 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -112,7 +112,7 @@ Includes only one of the fields `fixedScale`. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "status": "string",
     "typeId": "string",
@@ -252,7 +252,7 @@ Name of the group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**

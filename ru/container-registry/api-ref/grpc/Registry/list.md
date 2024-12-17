@@ -60,7 +60,7 @@ The expression must specify:
       "name": "string",
       "status": "Status",
       "created_at": "google.protobuf.Timestamp",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -108,7 +108,7 @@ Output only. Status of the registry.
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

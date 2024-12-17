@@ -14,7 +14,7 @@ The template will be defined by a name, folder, and the data provided.
 POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
 ```
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.CreateTemplateRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateRequest}
 
 ```json
 {
@@ -112,7 +112,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateTemplateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.CreateTemplateMetadata)**
+|| metadata | **[CreateTemplateMetadata](#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -127,7 +127,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Template](#yandex.cloud.priv.certificatemanager.v1.privateca.Template)**
+|| response | **[Template](#yandex.cloud.certificatemanager.v1.privateca.Template)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -144,7 +144,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## CreateTemplateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.CreateTemplateMetadata}
+## CreateTemplateMetadata {#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateMetadata}
 
 Metadata returned in the response of the template creation.
 
@@ -172,7 +172,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## Template {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 Json or yaml template for easier certificate issuing. If used while certificate creation, certificate would take all fields from template.
 

@@ -33,7 +33,7 @@ To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "resources": {
     "resourcePresetId": "string",
     "diskTypeId": "string",
@@ -56,7 +56,7 @@ To get a subcluster ID, make a [SubclusterService.List](/docs/data-proc/api-ref/
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

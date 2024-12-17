@@ -24,7 +24,7 @@ Request message for GetChain.
 Required field. ID of the certificate to get the chain for. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateChainResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainResponse}
 
 **HTTP Code: 200 - OK**
 

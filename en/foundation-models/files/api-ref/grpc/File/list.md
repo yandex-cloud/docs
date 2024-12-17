@@ -56,7 +56,7 @@ Token to retrieve the next page of results. ||
         "ttl_days": "int64"
       },
       "expires_at": "google.protobuf.Timestamp",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -112,7 +112,7 @@ Configuration for the expiration of the file, defining when and how the file wil
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the file will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the file. ||
 |#

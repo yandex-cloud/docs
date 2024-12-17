@@ -36,7 +36,7 @@ To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/Route
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "staticRoutes": [
     {
@@ -47,7 +47,7 @@ To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/Route
       "nextHopAddress": "string",
       "gatewayId": "string",
       // end of the list of possible fields
-      "labels": "string"
+      "labels": "object"
     }
   ]
 }
@@ -81,7 +81,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -117,7 +117,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

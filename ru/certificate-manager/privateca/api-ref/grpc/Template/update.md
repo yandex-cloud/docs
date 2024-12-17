@@ -10,9 +10,9 @@ You can modify one or more fields like name or data by specifying them in the up
 
 ## gRPC request
 
-**rpc Update ([UpdateTemplateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateTemplateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Update ([UpdateTemplateRequest](#yandex.cloud.certificatemanager.v1.privateca.UpdateTemplateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## UpdateTemplateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateTemplateRequest}
+## UpdateTemplateRequest {#yandex.cloud.certificatemanager.v1.privateca.UpdateTemplateRequest}
 
 ```json
 {
@@ -91,7 +91,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateTemplateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateTemplateMetadata)**
+|| metadata | **[UpdateTemplateMetadata](#yandex.cloud.certificatemanager.v1.privateca.UpdateTemplateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -106,7 +106,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Template](#yandex.cloud.priv.certificatemanager.v1.privateca.Template)**
+|| response | **[Template](#yandex.cloud.certificatemanager.v1.privateca.Template)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -123,7 +123,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## UpdateTemplateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateTemplateMetadata}
+## UpdateTemplateMetadata {#yandex.cloud.certificatemanager.v1.privateca.UpdateTemplateMetadata}
 
 Metadata returned in the response of the template update operation.
 
@@ -134,7 +134,7 @@ Metadata returned in the response of the template update operation.
 ID of the updated template. ||
 |#
 
-## Template {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 Json or yaml template for easier certificate issuing. If used while certificate creation, certificate would take all fields from template.
 

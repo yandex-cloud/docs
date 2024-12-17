@@ -17,7 +17,7 @@ Updates the specified security profile.
 {
   "security_profile_id": "string",
   "update_mask": "google.protobuf.FieldMask",
-  "labels": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
   "default_action": "DefaultAction",
@@ -340,7 +340,7 @@ Required field. ID of the security profile to update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the SecurityProfile resource are going to be updated. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -654,7 +654,7 @@ Action to perform if maximum size of body exceeded.
   "response": {
     "id": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "name": "string",
     "description": "string",
     "default_action": "DefaultAction",
@@ -1049,7 +1049,7 @@ ID of the security profile. ||
 || folder_id | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

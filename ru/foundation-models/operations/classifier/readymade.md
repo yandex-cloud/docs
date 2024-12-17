@@ -37,6 +37,8 @@
 
       * `request_text` — текстовое содержимое сообщения.
 
+          {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
   1. Выполните созданный файл:
@@ -48,14 +50,13 @@
       В ответе сервис вернет результаты классификации для обоих примеров с определенными значениями вероятности (`confidence`) отнесения текста запроса к каждому из классов:
 
       ```text
-      Zero-shot classification:
-      TextClassificationLabel(label='перевод', confidence=1.1142491374016572e-08)
-      TextClassificationLabel(label='будильник', confidence=3.088581834731485e-08)
-      TextClassificationLabel(label='погода', confidence=1.0)
+      TextClassificationLabel(label='перевод', confidence=0.9999947046656092)
+      TextClassificationLabel(label='будильник', confidence=6.01089130732152e-09)
+      TextClassificationLabel(label='погода', confidence=4.289328794822987e-06)
       Few-shot classification:
-      TextClassificationLabel(label='перевод', confidence=0.9954985976219177)
-      TextClassificationLabel(label='будильник', confidence=3.306578582851216e-05)
-      TextClassificationLabel(label='погода', confidence=0.004468236118555069)
+      TextClassificationLabel(label='перевод', confidence=0.9999989886405171)
+      TextClassificationLabel(label='будильник', confidence=4.4148929001561725e-09)
+      TextClassificationLabel(label='погода', confidence=6.945601458737463e-09)
       ```
 
 - cURL {#curl}

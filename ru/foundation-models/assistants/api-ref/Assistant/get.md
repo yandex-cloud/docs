@@ -43,7 +43,7 @@ Required field. ID of the assistant to retrieve. ||
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "string",
+  "labels": "object",
   "modelUri": "string",
   "instruction": "string",
   "promptTruncationOptions": {
@@ -123,7 +123,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the assistant. ||
 || modelUri | **string**

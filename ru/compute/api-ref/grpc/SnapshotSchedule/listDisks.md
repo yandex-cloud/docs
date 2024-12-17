@@ -52,7 +52,7 @@ Page token. To get the next page of results, set `page_token` to the
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "type_id": "string",
       "zone_id": "string",
       "size": "int64",
@@ -123,7 +123,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || type_id | **string**

@@ -18,7 +18,7 @@ Creates a WAF profile in the specified folder using the data specified in the re
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "rules": [
     {
       "rule_id": "string",
@@ -162,7 +162,7 @@ Name of the WAF profile. The name is unique within the folder. 1-50 characters l
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || rules[] | **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
@@ -461,7 +461,7 @@ Action to perform if maximum size of body exceeded.
     "cloud_id": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "created_at": "google.protobuf.Timestamp",
     "rules": [
       {
@@ -680,7 +680,7 @@ Required field. Name of the WAF profile. The name is unique within the folder. 1
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

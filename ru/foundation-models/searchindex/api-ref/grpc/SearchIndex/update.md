@@ -23,7 +23,7 @@ Update an existing search index.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -46,7 +46,7 @@ New description for the search index. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 New expiration configuration for the search index. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of labels for the search index. ||
 |#
@@ -80,7 +80,7 @@ New set of labels for the search index. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `text_search_index`, `vector_search_index`, `hybrid_search_index`
   "text_search_index": {
     "chunking_strategy": {
@@ -188,7 +188,7 @@ Configuration for the expiration of the search index, defining when and how the 
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the search index will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the search index. ||
 || text_search_index | **[TextSearchIndex](#yandex.cloud.ai.assistants.v1.searchindex.TextSearchIndex)**

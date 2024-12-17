@@ -38,7 +38,7 @@ Required field. ID of the connector to return. ||
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "source": {
     // Includes only one of the fields `data_stream`, `message_queue`, `timer`
     "data_stream": {
@@ -89,7 +89,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**

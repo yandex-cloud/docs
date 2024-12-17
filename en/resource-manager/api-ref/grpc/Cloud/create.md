@@ -18,7 +18,7 @@ Creates a cloud in the specified organization.
   "organization_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -34,7 +34,7 @@ Required field. Name of the cloud. ||
 || description | **string**
 
 Description of the cloud. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -60,7 +60,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "organization_id": "string",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -151,7 +151,7 @@ Description of the cloud. 0-256 characters long. ||
 || organization_id | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -18,7 +18,7 @@ Creates a secret in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "kms_key_id": "string",
   "version_description": "string",
   "version_payload_entries": [
@@ -58,7 +58,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`. ||
@@ -163,7 +163,7 @@ a string of punctuation characters to exclude from the default (at most 31, it's
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "kms_key_id": "string",
     "status": "Status",
     "current_version": {
@@ -295,7 +295,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kms_key_id | **string**

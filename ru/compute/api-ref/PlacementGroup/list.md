@@ -63,7 +63,7 @@ The default sorting order is ascending ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
       "spreadPlacementStrategy": "object",
       "partitionPlacementStrategy": {
@@ -117,7 +117,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**

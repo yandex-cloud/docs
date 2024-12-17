@@ -27,9 +27,9 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     "featureCompatibilityVersion": "string",
@@ -1276,6 +1276,7 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
     },
     "access": {
       "dataLens": "boolean",
+      "webSql": "boolean",
       "dataTransfer": "boolean"
     },
     "mongodb": {
@@ -1451,7 +1452,7 @@ To get the MongoDB cluster ID use a [ClusterService.List](/docs/managed-mongodb/
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -1464,7 +1465,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the MongoDB cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
@@ -4813,6 +4814,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 || dataLens | **boolean**
 
 Allow access for DataLens. ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||
@@ -5296,7 +5300,7 @@ Hour of the day in UTC (in `HH` format). ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -8199,6 +8203,7 @@ Hour of the day in UTC (in `HH` format). ||
       },
       "access": {
         "dataLens": "boolean",
+        "webSql": "boolean",
         "dataTransfer": "boolean"
       },
       "mongodbConfig": {
@@ -8719,7 +8724,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the MongoDB cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)
@@ -12544,6 +12549,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 || dataLens | **boolean**
 
 Allow access for DataLens. ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||

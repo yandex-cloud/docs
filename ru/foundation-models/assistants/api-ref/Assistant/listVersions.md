@@ -39,7 +39,7 @@ Token to retrieve the next page of results. ||
   "versions": [
     {
       "id": "string",
-      "updateMask": "string",
+      "updateMask": "object",
       "assistant": {
         "id": "string",
         "folderId": "string",
@@ -54,7 +54,7 @@ Token to retrieve the next page of results. ||
           "ttlDays": "string"
         },
         "expiresAt": "string",
-        "labels": "string",
+        "labels": "object",
         "modelUri": "string",
         "instruction": "string",
         "promptTruncationOptions": {
@@ -104,7 +104,7 @@ Represents a specific version of an assistant.
 || id | **string**
 
 ID of the assistant version. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -176,7 +176,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the assistant. ||
 || modelUri | **string**

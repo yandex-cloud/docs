@@ -28,16 +28,16 @@ To get the placement group ID, use an [PlacementGroupService.List](/docs/compute
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -53,7 +53,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -89,7 +89,7 @@ The existing set of `labels` is completely replaced by the provided set. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
     "spreadPlacementStrategy": "object",
     "partitionPlacementStrategy": {
@@ -223,7 +223,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**

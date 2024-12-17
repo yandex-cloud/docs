@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--retention`|<b>`key=value[,key=value...]`</b><br/>Retention settings. Syntax: Mode=string,RetainUntilDate=timestamp|
+|`--retention`|<b>`string`</b><br/>Retention settings. Shorthand Syntax: Mode=string,RetainUntilDate=timestamp JSON Syntax: {"Mode": "string", "RetainUntilDate": timestamp} If you want to disable object lock, you can pass {} as the value. Example of usage: 1) --retention Mode=GOVERNANCE,RetainUntilDate=2054-11-11T15:04:05Z 2) --retention '{"Mode":"GOVERNANCE","RetainUntilDate":"2054-11-11T15:04:05Z"}' 3) --retention {}|
 |`--version-id`|<b>`string`</b><br/>Version ID used to reference a specific version of the object.|
 |`--bypass-governance-retention`|Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.|
 

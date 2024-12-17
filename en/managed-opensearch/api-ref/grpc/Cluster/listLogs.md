@@ -91,7 +91,7 @@ Type of the service to request logs about.
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -122,7 +122,7 @@ This value is interchangeable with the [StreamLogRecord.next_record_token](/docs
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the log was recorded. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

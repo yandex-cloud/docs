@@ -29,14 +29,14 @@ To get the security group ID make a [SecurityGroupService.List](/docs/vpc/api-re
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "ruleSpecs": [
     {
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "direction": "string",
       "ports": {
         "fromPort": "string",
@@ -65,7 +65,7 @@ To get the security group ID make a [SecurityGroupService.List](/docs/vpc/api-re
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -82,7 +82,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the security group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Security group labels as `key:value` pairs.
 
@@ -103,7 +103,7 @@ Updated rule list. All existing rules will be replaced with given list. ||
 || description | **string**
 
 Description of the security rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Rule labels as `` key:value `` pairs. ||
 || direction | **enum** (Direction)
@@ -205,14 +205,14 @@ IPv6 CIDR blocks to allow traffic to. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "status": "string",
     "rules": [
       {
         "id": "string",
         "description": "string",
-        "labels": "string",
+        "labels": "object",
         "direction": "string",
         "ports": {
           "fromPort": "string",
@@ -366,7 +366,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the security group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.
@@ -404,7 +404,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)

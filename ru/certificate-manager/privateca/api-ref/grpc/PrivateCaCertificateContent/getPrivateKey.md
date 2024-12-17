@@ -9,9 +9,9 @@ Returns the private key for the specified certificate.
 
 ## gRPC request
 
-**rpc GetPrivateKey ([GetCertificatePrivateKeyRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificatePrivateKeyRequest)) returns ([GetCertificatePrivateKeyResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse))**
+**rpc GetPrivateKey ([GetCertificatePrivateKeyRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyRequest)) returns ([GetCertificatePrivateKeyResponse](#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse))**
 
-## GetCertificatePrivateKeyRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificatePrivateKeyRequest}
+## GetCertificatePrivateKeyRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyRequest}
 
 ```json
 {
@@ -28,7 +28,7 @@ Request message for GetPrivateKey.
 Required field. ID of the certificate to get the private key for. ||
 |#
 
-## GetCertificatePrivateKeyResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse}
+## GetCertificatePrivateKeyResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse}
 
 ```json
 {

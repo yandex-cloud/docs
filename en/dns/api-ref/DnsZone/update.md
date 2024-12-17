@@ -28,10 +28,10 @@ To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/l
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "privateVisibility": {
     "networkIds": [
       "string"
@@ -44,7 +44,7 @@ To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/l
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -61,7 +61,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs.
 
@@ -121,7 +121,7 @@ Network IDs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zone": "string",
     "privateVisibility": {
       "networkIds": [
@@ -259,7 +259,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

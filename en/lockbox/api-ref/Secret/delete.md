@@ -51,7 +51,7 @@ Required field. ID of the secret to be deleted. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "kmsKeyId": "string",
     "status": "string",
     "currentVersion": {
@@ -218,7 +218,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kmsKeyId | **string**

@@ -39,7 +39,7 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grp
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "status": "Status",
   "log_options": {
     "disabled": "bool",
@@ -71,7 +71,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

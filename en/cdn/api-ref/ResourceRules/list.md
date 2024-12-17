@@ -43,7 +43,7 @@ Required field. ID of resource. ||
           // Includes only one of the fields `value`, `defaultValue`
           "value": {
             "simpleValue": "string",
-            "customValues": "string"
+            "customValues": "object"
           },
           "defaultValue": "string"
           // end of the list of possible fields
@@ -126,7 +126,7 @@ Required field. ID of resource. ||
         },
         "staticHeaders": {
           "enabled": "boolean",
-          "value": "string"
+          "value": "object"
         },
         "cors": {
           "enabled": "boolean",
@@ -156,7 +156,7 @@ Required field. ID of resource. ||
         },
         "staticRequestHeaders": {
           "enabled": "boolean",
-          "value": "string"
+          "value": "object"
         },
         "customServerName": {
           "enabled": "boolean",
@@ -359,7 +359,7 @@ A set of the caching response time parameters.
 Caching time for a response with codes 200, 206, 301, 302.
 Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
 Use `customValues` field to specify a custom caching time for a response with specific codes. ||
-|| customValues | **string** (int64)
+|| customValues | **object** (map<**string**, **string** (int64)>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
 Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
@@ -518,7 +518,7 @@ A set of the strings map parameters.
 
 True - the option is enabled and its `value` is applied to the resource.
 False - the option is disabled and its default value is used for the resource. ||
-|| value | **string**
+|| value | **object** (map<**string**, **string**>)
 
 Value of the option. ||
 |#

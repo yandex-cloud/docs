@@ -20,7 +20,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
   "backupId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "configSpec": {
     "version": "string",
@@ -1268,6 +1268,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
     },
     "access": {
       "dataLens": "boolean",
+      "webSql": "boolean",
       "dataTransfer": "boolean"
     },
     "mongodb": {
@@ -1433,7 +1434,7 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters:restore
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "string"
+      "tags": "object"
     }
   ],
   "networkId": "string",
@@ -1470,7 +1471,7 @@ The name can't be changed after the MongoDB cluster is created. ||
 || description | **string**
 
 Description of the new MongoDB cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary". ||
@@ -4832,6 +4833,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 || dataLens | **boolean**
 
 Allow access for DataLens. ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||
@@ -5285,7 +5289,7 @@ The number of seconds "behind" the primary that this replica set member should "
 || priority | **number** (double)
 
 Priority of host for the election in replSet ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tags ||
 |#
@@ -5374,7 +5378,7 @@ Hour of the day in UTC (in `HH` format). ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -8277,6 +8281,7 @@ Hour of the day in UTC (in `HH` format). ||
       },
       "access": {
         "dataLens": "boolean",
+        "webSql": "boolean",
         "dataTransfer": "boolean"
       },
       "mongodbConfig": {
@@ -8800,7 +8805,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the MongoDB cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)
@@ -12625,6 +12630,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 || dataLens | **boolean**
 
 Allow access for DataLens. ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||

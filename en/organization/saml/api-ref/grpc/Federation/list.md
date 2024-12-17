@@ -70,7 +70,7 @@ The expression must specify:
         "force_authn": "bool"
       },
       "case_insensitive_name_ids": "bool",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -152,7 +152,7 @@ Federation security settings. ||
 || case_insensitive_name_ids | **bool**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

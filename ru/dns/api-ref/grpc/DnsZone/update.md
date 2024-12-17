@@ -19,7 +19,7 @@ Updates the specified DNS zone.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "private_visibility": {
     "network_ids": [
       "string"
@@ -47,7 +47,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs.
 
@@ -108,7 +108,7 @@ Configuration for publicly visible zones.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "zone": "string",
     "private_visibility": {
       "network_ids": [
@@ -208,7 +208,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

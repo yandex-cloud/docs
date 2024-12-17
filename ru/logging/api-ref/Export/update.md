@@ -28,10 +28,10 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "groupId": "string",
   "sinkId": "string",
   "params": {
@@ -54,7 +54,7 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -71,7 +71,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New Description of the export. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New export labels as `key:value` pairs. ||
 || groupId | **string**
@@ -148,7 +148,7 @@ Required field. New parameters for logs filtration ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "groupId": "string",
     "sinkId": "string",
     "params": {
@@ -295,7 +295,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

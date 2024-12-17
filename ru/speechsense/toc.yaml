@@ -109,6 +109,12 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/grpc/Classifiers/index.md
+              - name: List
+                href: api-ref/grpc/Classifiers/list.md
           - name: Operation
             items:
               - name: Overview
@@ -141,6 +147,12 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/Classifiers/index.md
+              - name: List
+                href: api-ref/Classifiers/list.md
           - name: Operation
             items:
               - name: Overview

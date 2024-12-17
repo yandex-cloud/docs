@@ -18,7 +18,7 @@ Updates the specified Apache Kafka® cluster.
   "cluster_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "config_spec": {
     "version": "string",
     "kafka": {
@@ -147,7 +147,7 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
 || description | **string**
 
 New description of the Apache Kafka® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Kafka® cluster as `key:value` pairs.
 
@@ -567,7 +567,7 @@ Hour of the day in UTC. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -788,7 +788,7 @@ The name must be unique within the folder. 1-63 characters long. Value must matc
 || description | **string**
 
 Description of the Apache Kafka® cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Kafka® cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||

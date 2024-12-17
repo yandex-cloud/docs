@@ -25,16 +25,23 @@ Syntax:
 	- [yc storage bucket stats](bucket/stats.md) — Shows bucket stats
 	- [yc storage bucket update](bucket/update.md) — Update the specified bucket
 - [yc storage s3api](s3api/index.md) — [PREVIEW] An aws s3api-like interface for accessing Object Storage
+	- [yc storage s3api abort-multipart-upload](s3api/abort-multipart-upload.md) — Aborts a multipart upload
+	- [yc storage s3api complete-multipart-upload](s3api/complete-multipart-upload.md) — Completes a multipart upload
 	- [yc storage s3api copy-object](s3api/copy-object.md) — Creates a copy of an object that is already stored in Object Storage
+	- [yc storage s3api create-multipart-upload](s3api/create-multipart-upload.md) — Creates a new multipart upload
 	- [yc storage s3api delete-object](s3api/delete-object.md) — Deletes an object from Object Storage
 	- [yc storage s3api delete-objects](s3api/delete-objects.md) — Deletes objects based on a list of keys passed in a request
 	- [yc storage s3api get-object](s3api/get-object.md) — Returns an object from Object Storage
 	- [yc storage s3api get-object-legal-hold](s3api/get-object-legal-hold.md) — Returns the settings of the legal hold placed on the object version
 	- [yc storage s3api get-object-retention](s3api/get-object-retention.md) — Returns settings of the retention put on an object version
 	- [yc storage s3api head-object](s3api/head-object.md) — Returns object metadata from Object Storage
+	- [yc storage s3api list-multipart-uploads](s3api/list-multipart-uploads.md) — Lists in-progress multipart uploads
+	- [yc storage s3api list-parts](s3api/list-parts.md) — Lists parts of a multipart upload
 	- [yc storage s3api put-object](s3api/put-object.md) — Puts an object and its metadata to Object Storage
 	- [yc storage s3api put-object-legal-hold](s3api/put-object-legal-hold.md) — Puts or removes legal hold for an object version
 	- [yc storage s3api put-object-retention](s3api/put-object-retention.md) — Puts retention on the object version or enables/disables a previously set lock
+	- [yc storage s3api upload-part](s3api/upload-part.md) — Uploads a part in a multipart upload
+	- [yc storage s3api upload-part-copy](s3api/upload-part-copy.md) — Uploads a part by copying data from an existing object as data source
 
 #### Global Flags
 

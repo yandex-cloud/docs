@@ -71,7 +71,7 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "url": "string",
     "status": "string"
   }
@@ -203,7 +203,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**

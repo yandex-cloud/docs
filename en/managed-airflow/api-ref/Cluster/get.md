@@ -33,7 +33,7 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "monitoring": [
     {
       "name": "string",
@@ -44,7 +44,7 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
   "config": {
     "versionId": "string",
     "airflow": {
-      "config": "string"
+      "config": "object"
     },
     "webserver": {
       "count": "string",
@@ -81,7 +81,9 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
     },
     "lockbox": {
       "enabled": "boolean"
-    }
+    },
+    "airflowVersion": "string",
+    "pythonVersion": "string"
   },
   "health": "string",
   "status": "string",
@@ -142,7 +144,7 @@ The name is unique within the folder. 1-64 characters long. ||
 || description | **string**
 
 Description of the Apache Airflow cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.airflow.v1.Monitoring)**
@@ -215,7 +217,8 @@ Link to the monitoring system. ||
 ||Field | Description ||
 || versionId | **string**
 
-Version of Apache that runs on the cluster. ||
+Version of Apache Airflow that runs on the cluster.
+Use `airlow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -237,13 +240,19 @@ The list of additional packages installed in the cluster. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
 
 Configuration of Lockbox Secret Backend. ||
+|| airflowVersion | **string**
+
+Apache Airflow version. Format: "Major.Minor" ||
+|| pythonVersion | **string**
+
+Python version. Format: "Major.Minor" ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
 
 #|
 ||Field | Description ||
-|| config | **string**
+|| config | **object** (map<**string**, **string**>)
 
 Properties to be passed to Apache Airflow configuration file. ||
 |#

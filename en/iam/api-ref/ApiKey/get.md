@@ -37,6 +37,9 @@ To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#
   "description": "string",
   "lastUsedAt": "string",
   "scope": "string",
+  "scopes": [
+    "string"
+  ],
   "expiresAt": "string"
 }
 ```
@@ -77,6 +80,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || scope | **string**
 
 Scope of the API key. 0-256 characters long. ||
+|| scopes[] | **string**
+
+Scopes of the API key. 0-256 characters long. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp.

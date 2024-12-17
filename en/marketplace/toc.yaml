@@ -69,6 +69,12 @@ items:
                     href: metering/api-ref/grpc/ImageProductUsage/index.md
                   - name: Write
                     href: metering/api-ref/grpc/ImageProductUsage/write.md
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/grpc/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/grpc/ProductUsage/write.md
       - name: License Manager API reference
         items:
           - name: gRPC

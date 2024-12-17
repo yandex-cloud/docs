@@ -19,7 +19,7 @@ Updates the specified host group.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "maintenance_policy": "MaintenancePolicy",
   "scale_policy": {
     // Includes only one of the fields `fixed_scale`
@@ -46,7 +46,7 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -100,7 +100,7 @@ Includes only one of the fields `fixed_scale`. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "zone_id": "string",
     "status": "Status",
     "type_id": "string",
@@ -202,7 +202,7 @@ Name of the group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zone_id | **string**

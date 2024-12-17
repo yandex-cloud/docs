@@ -23,7 +23,7 @@ Update an existing thread.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -46,7 +46,7 @@ New description for the thread. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 New expiration configuration for the thread. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of labels for the thread. ||
 |#
@@ -81,7 +81,7 @@ New set of labels for the thread. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -120,7 +120,7 @@ Configuration for the expiration of the thread, defining when and how the thread
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the thread will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
 |#

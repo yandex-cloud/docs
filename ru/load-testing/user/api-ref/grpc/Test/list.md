@@ -87,14 +87,7 @@ Examples:
             "anonymous_agent": "bool"
             // end of the list of possible fields
           },
-          "files": {
-            // Includes only one of the fields `object_storage`
-            "object_storage": {
-              "bucket": "string",
-              "name": "string"
-            }
-            // end of the list of possible fields
-          }
+          "files": "map<string, FilePointer>"
         }
       ],
       "details": {
@@ -205,7 +198,7 @@ ID of the config. ||
 || agent_selector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 

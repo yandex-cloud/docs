@@ -20,7 +20,7 @@ POST https://logging.{{ api-host }}/logging/v1/logGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "retentionPeriod": "string",
   "dataStream": "string"
 }
@@ -40,7 +40,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the log group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels as `key:value` pairs. ||
 || retentionPeriod | **string** (duration)
@@ -85,7 +85,7 @@ If specified, all log records will be written to this data stream ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "retentionPeriod": "string",
     "dataStream": "string"
@@ -218,7 +218,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | **enum** (Status)

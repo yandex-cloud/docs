@@ -71,7 +71,7 @@ To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-gre
       "assignPublicIp": "boolean"
     },
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -538,7 +538,7 @@ Greenplum® cluster configuration. ||
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. ||
 || environment | **enum** (Environment)

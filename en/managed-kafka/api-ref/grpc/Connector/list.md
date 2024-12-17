@@ -48,7 +48,7 @@ To get the next page of results, set `page_token` to the [ListConnectorsResponse
     {
       "name": "string",
       "tasks_max": "google.protobuf.Int64Value",
-      "properties": "string",
+      "properties": "map<string, string>",
       "health": "Health",
       "status": "Status",
       "cluster_id": "string",
@@ -125,7 +125,7 @@ Name of the connector. ||
 || tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

@@ -30,7 +30,7 @@ Required field. ID of the SecurityProfile resource to return. ||
 {
   "id": "string",
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "name": "string",
   "description": "string",
   "defaultAction": "string",
@@ -357,7 +357,7 @@ ID of the security profile. ||
 || folderId | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

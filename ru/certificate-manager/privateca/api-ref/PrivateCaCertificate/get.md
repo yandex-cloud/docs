@@ -24,7 +24,7 @@ Request to retrieve details of a specific certificate.
 Required field. The ID of the certificate to retrieve. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 **HTTP Code: 200 - OK**
 

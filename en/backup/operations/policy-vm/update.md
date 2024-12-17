@@ -218,8 +218,8 @@ description: In this tutorial, you will learn how to update a backup policy in {
   1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy in which you want to edit the list of [VMs](../../../compute/concepts/vm.md).
   1. Update the list of VMs:
-     * To add a new VM, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.label_linked-instances }}** under **{{ ui-key.yacloud.backup.button_attach-instance }}**. In the window that opens, select the VM you want to link to the backup policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
-     * To remove a VM, under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM you want to unlink from the backup policy and select **{{ ui-key.yacloud.backup.action_detach-instance }}**.
+     * To add a new VM, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.value_vm-recourses }}** under **{{ ui-key.yacloud.backup.button_attach-instance }}**. In the window that opens, select the VM you want to link to the backup policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
+     * To remove a VM, under **{{ ui-key.yacloud.backup.value_vm-recourses }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM you want to unlink from the backup policy and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**.
 
 - CLI {#cli}
 

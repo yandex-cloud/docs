@@ -20,7 +20,7 @@ Updates an Apache Kafka® connector.
   "update_mask": "google.protobuf.FieldMask",
   "connector_spec": {
     "tasks_max": "google.protobuf.Int64Value",
-    "properties": "string",
+    "properties": "map<string, string>",
     // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`
     "connector_config_mirrormaker": {
       "source_cluster": {
@@ -101,7 +101,7 @@ Required field. Configuration of the connector to update. ||
 || tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connector tasks to update. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
 Example: `sync.topics.config.enabled: false`. ||
@@ -258,7 +258,7 @@ Default is 'us-east-1'. ||
   "response": {
     "name": "string",
     "tasks_max": "google.protobuf.Int64Value",
-    "properties": "string",
+    "properties": "map<string, string>",
     "health": "Health",
     "status": "Status",
     "cluster_id": "string",
@@ -389,7 +389,7 @@ Name of the connector. ||
 || tasks_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

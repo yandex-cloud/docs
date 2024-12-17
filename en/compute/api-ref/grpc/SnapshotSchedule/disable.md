@@ -54,7 +54,7 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "schedule_policy": {
       "start_at": "google.protobuf.Timestamp",
@@ -66,7 +66,7 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
     // end of the list of possible fields
     "snapshot_spec": {
       "description": "string",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   }
   // end of the list of possible fields
@@ -160,7 +160,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | enum **Status**
@@ -226,7 +226,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

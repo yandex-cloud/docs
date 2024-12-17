@@ -27,6 +27,7 @@ Syntax:
 	- [yc iam api-key get](api-key/get.md) — Show information about the specified API key
 	- [yc iam api-key list](api-key/list.md) — List API keys for the specified service account
 	- [yc iam api-key list-scopes](api-key/list-scopes.md) — List of scopes
+	- [yc iam api-key update](api-key/update.md) — Update an API key for the specified service account
 - [yc iam key](key/index.md) — Manage IAM keys
 	- [yc iam key create](key/create.md) — Create an IAM key for for authenticated account or the specified service account
 	- [yc iam key delete](key/delete.md) — Delete the specified IAM key

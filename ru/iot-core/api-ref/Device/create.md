@@ -25,7 +25,7 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices
       "certificateData": "string"
     }
   ],
-  "topicAliases": "string",
+  "topicAliases": "object",
   "password": "string"
 }
 ```
@@ -46,7 +46,7 @@ Description of the device. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
 
 Device certificate. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -98,7 +98,7 @@ Public part of the device certificate. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topicAliases": "object",
     "status": "string",
     "monitoringData": {
       "lastAuthIp": "string",
@@ -235,7 +235,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 

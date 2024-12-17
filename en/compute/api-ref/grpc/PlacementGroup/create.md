@@ -18,7 +18,7 @@ Creates a placement group in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
   "spread_placement_strategy": "SpreadPlacementStrategy",
   "partition_placement_strategy": {
@@ -41,7 +41,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || spread_placement_strategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**
@@ -96,7 +96,7 @@ specify the required placement strategy.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
     "spread_placement_strategy": "SpreadPlacementStrategy",
     "partition_placement_strategy": {
@@ -192,7 +192,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spread_placement_strategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy2)**

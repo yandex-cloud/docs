@@ -51,7 +51,7 @@ Required field. ID of the key to be deleted. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "signature_algorithm": "AsymmetricSignatureAlgorithm",
     "deletion_protection": "bool"
@@ -145,7 +145,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**

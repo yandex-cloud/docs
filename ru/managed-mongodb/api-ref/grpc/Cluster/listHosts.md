@@ -69,7 +69,7 @@ Page token. To get the next page of results, set `page_token` to the
         "hidden": "bool",
         "secondary_delay_secs": "int64",
         "priority": "double",
-        "tags": "string"
+        "tags": "map<string, string>"
       }
     }
   ],
@@ -198,5 +198,5 @@ Aggregated health of the service. If the field has default value, it is not retu
 || hidden | **bool** ||
 || secondary_delay_secs | **int64** ||
 || priority | **double** ||
-|| tags | **string** ||
+|| tags | **object** (map<**string**, **string**>) ||
 |#

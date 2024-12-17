@@ -28,7 +28,7 @@ Required field. ID of the Workflow. ||
 {
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "specification": {
     // Includes only one of the fields `specYaml`
     "specYaml": "string"
@@ -44,7 +44,7 @@ Required field. ID of the Workflow. ||
   },
   "networkId": "string",
   "serviceAccountId": "string",
-  "updateMask": "string"
+  "updateMask": "object"
 }
 ```
 
@@ -56,7 +56,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
@@ -71,7 +71,7 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || serviceAccountId | **string**
 
 ID of the Service Account which will be used for resources access in Workflow execution. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -174,7 +174,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -315,7 +315,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || status | **enum** (Status)

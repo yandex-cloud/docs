@@ -38,7 +38,7 @@ To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "last_authenticated_at": "google.protobuf.Timestamp"
 }
 ```
@@ -63,7 +63,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

@@ -9,9 +9,9 @@ Lists the available Certificate Authorities (CAs).
 
 ## gRPC request
 
-**rpc List ([ListCertificateAuthoritiesRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest)) returns ([ListCertificateAuthoritiesResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse))**
+**rpc List ([ListCertificateAuthoritiesRequest](#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest)) returns ([ListCertificateAuthoritiesResponse](#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse))**
 
-## ListCertificateAuthoritiesRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest}
+## ListCertificateAuthoritiesRequest {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest}
 
 ```json
 {
@@ -38,7 +38,7 @@ Token to retrieve the next page of results.
 This is returned from a previous call to ListCertificateAuthorities. ||
 |#
 
-## ListCertificateAuthoritiesResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse}
+## ListCertificateAuthoritiesResponse {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse}
 
 ```json
 {
@@ -68,7 +68,7 @@ Response containing the Certificate Authorities list from the ListCertificateAut
 
 #|
 ||Field | Description ||
-|| certificate_authorities[] | **[CertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority)**
+|| certificate_authorities[] | **[CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority)**
 
 List of matching Certificate Authorities. ||
 || next_page_token | **string**
@@ -76,7 +76,7 @@ List of matching Certificate Authorities. ||
 Token to retrieve the next page of results, if they were paginated. ||
 |#
 
-## CertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 A certificate authority (CA) used to sign certificates.
 

@@ -11,9 +11,9 @@ Only the fields specified in the `update_mask` will be updated.
 
 ## gRPC request
 
-**rpc Update ([UpdatePolicyRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdatePolicyRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Update ([UpdatePolicyRequest](#yandex.cloud.certificatemanager.v1.privateca.UpdatePolicyRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## UpdatePolicyRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdatePolicyRequest}
+## UpdatePolicyRequest {#yandex.cloud.certificatemanager.v1.privateca.UpdatePolicyRequest}
 
 ```json
 {
@@ -98,48 +98,48 @@ Required field. ID of the policy to update. ||
 || name | **string**
 
 New name for the policy. ||
-|| subject_policy | **[SubjectPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectPolicy)**
+|| subject_policy | **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
 
 New policy for the subject field of the certificate. ||
-|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
+|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
 
 New policy for the subject alternative name (SAN) field of the certificate. ||
-|| key_usages_white_list | **[KeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy)**
+|| key_usages_white_list | **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
 
 Whitelist of allowed key usages.
 
 Includes only one of the fields `key_usages_white_list`, `key_usages_black_list`.
 
 New policy for key usages. ||
-|| key_usages_black_list | **[KeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy)**
+|| key_usages_black_list | **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
 
 Blacklist of disallowed key usages.
 
 Includes only one of the fields `key_usages_white_list`, `key_usages_black_list`.
 
 New policy for key usages. ||
-|| extended_key_usages_white_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+|| extended_key_usages_white_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
 
 Whitelist of allowed extended key usages.
 
 Includes only one of the fields `extended_key_usages_white_list`, `extended_key_usages_black_list`.
 
 New policy for extended key usages. ||
-|| extended_key_usages_black_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+|| extended_key_usages_black_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
 
 Blacklist of disallowed extended key usages.
 
 Includes only one of the fields `extended_key_usages_white_list`, `extended_key_usages_black_list`.
 
 New policy for extended key usages. ||
-|| extension_white_list | **[ExtensionPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy)**
+|| extension_white_list | **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
 
 Whitelist of allowed extensions.
 
 Includes only one of the fields `extension_white_list`, `extension_black_list`.
 
 New policy for extensions. ||
-|| extension_black_list | **[ExtensionPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy)**
+|| extension_black_list | **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
 
 Blacklist of disallowed extensions.
 
@@ -153,7 +153,7 @@ Field mask that specifies which fields of the policy are going to be updated.
 Only the fields specified in the mask will be updated. ||
 |#
 
-## SubjectPolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectPolicy}
+## SubjectPolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy}
 
 Policy for the subject field of a certificate. Each string field could be a regexp
 
@@ -203,7 +203,7 @@ Allowed initials in the subject field. ||
 Allowed generation qualifier in the subject field. ||
 |#
 
-## SubjectAlternativeNamePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy}
+## SubjectAlternativeNamePolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy}
 
 Policy for the Subject Alternative Name (SAN) field of a certificate. Each string field could be a regexp
 
@@ -221,7 +221,7 @@ Allowed DNS names in the SAN field. ||
 || directory_name | **string**
 
 Allowed directory names in the SAN field. ||
-|| edi_party_name | **[EdiPartyName](#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName)**
+|| edi_party_name | **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
 
 Allowed EDI party names in the SAN field. ||
 || uniform_resource_identifier | **string**
@@ -235,7 +235,7 @@ Allowed IP addresses in the SAN field. ||
 Allowed registered IDs in the SAN field. ||
 |#
 
-## EdiPartyName {#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName}
+## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName}
 
 #|
 ||Field | Description ||
@@ -247,7 +247,7 @@ Specifies the entity or authority that assigned the partyName ||
 The actual identifier of the EDI party ||
 |#
 
-## KeyUsagePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy}
+## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy}
 
 Policy for key usages in a certificate.
 
@@ -269,7 +269,7 @@ List of key usages that are allowed or disallowed.
 - `DECIPHER_ONLY` ||
 |#
 
-## ExtendedKeyUsagePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy}
+## ExtendedKeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy}
 
 Policy for extended key usages in a certificate.
 
@@ -293,7 +293,7 @@ List of extended key usages that are allowed or disallowed.
 - `MS_EFS` ||
 |#
 
-## ExtensionPolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy}
+## ExtensionPolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy}
 
 Policy for certificate extensions.
 
@@ -418,7 +418,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdatePolicyMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdatePolicyMetadata)**
+|| metadata | **[UpdatePolicyMetadata](#yandex.cloud.certificatemanager.v1.privateca.UpdatePolicyMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -433,7 +433,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Policy](#yandex.cloud.priv.certificatemanager.v1.privateca.Policy)**
+|| response | **[Policy](#yandex.cloud.certificatemanager.v1.privateca.Policy)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -450,7 +450,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## UpdatePolicyMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdatePolicyMetadata}
+## UpdatePolicyMetadata {#yandex.cloud.certificatemanager.v1.privateca.UpdatePolicyMetadata}
 
 Metadata for the UpdatePolicy operation.
 
@@ -461,7 +461,7 @@ Metadata for the UpdatePolicy operation.
 ID of the policy being updated. ||
 |#
 
-## Policy {#yandex.cloud.priv.certificatemanager.v1.privateca.Policy}
+## Policy {#yandex.cloud.certificatemanager.v1.privateca.Policy}
 
 A policy defines the rules and constraints for issuing certificates within a certificate authority.
 
@@ -476,48 +476,48 @@ ID of the certificate authority the policy belongs to. ||
 || name | **string**
 
 Name of the policy. ||
-|| subject_policy | **[SubjectPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectPolicy2)**
+|| subject_policy | **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy2)**
 
 Policy for the subject field of the certificate. ||
-|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy2)**
+|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy2)**
 
 Policy for the Subject Alternative Name (SAN) extension of the certificate. ||
-|| key_usages_white_list | **[KeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy2)**
+|| key_usages_white_list | **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy2)**
 
 Whitelist of allowed key usages.
 
 Includes only one of the fields `key_usages_white_list`, `key_usages_black_list`.
 
 Policy for key usages. ||
-|| key_usages_black_list | **[KeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy2)**
+|| key_usages_black_list | **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy2)**
 
 Blacklist of disallowed key usages.
 
 Includes only one of the fields `key_usages_white_list`, `key_usages_black_list`.
 
 Policy for key usages. ||
-|| extended_key_usages_white_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2)**
+|| extended_key_usages_white_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2)**
 
 Whitelist of allowed extended key usages.
 
 Includes only one of the fields `extended_key_usages_white_list`, `extended_key_usages_black_list`.
 
 Policy for extended key usages. ||
-|| extended_key_usages_black_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2)**
+|| extended_key_usages_black_list | **[ExtendedKeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2)**
 
 Blacklist of disallowed extended key usages.
 
 Includes only one of the fields `extended_key_usages_white_list`, `extended_key_usages_black_list`.
 
 Policy for extended key usages. ||
-|| extension_white_list | **[ExtensionPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy2)**
+|| extension_white_list | **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy2)**
 
 Whitelist of allowed extensions.
 
 Includes only one of the fields `extension_white_list`, `extension_black_list`.
 
 Policy for certificate extensions. ||
-|| extension_black_list | **[ExtensionPolicy](#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy2)**
+|| extension_black_list | **[ExtensionPolicy](#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy2)**
 
 Blacklist of disallowed extensions.
 
@@ -532,7 +532,7 @@ Timestamp when the policy was created. ||
 Timestamp when the policy was last updated. ||
 |#
 
-## SubjectPolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectPolicy2}
+## SubjectPolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy2}
 
 Policy for the subject field of a certificate. Each string field could be a regexp
 
@@ -582,7 +582,7 @@ Allowed initials in the subject field. ||
 Allowed generation qualifier in the subject field. ||
 |#
 
-## SubjectAlternativeNamePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy2}
+## SubjectAlternativeNamePolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy2}
 
 Policy for the Subject Alternative Name (SAN) field of a certificate. Each string field could be a regexp
 
@@ -600,7 +600,7 @@ Allowed DNS names in the SAN field. ||
 || directory_name | **string**
 
 Allowed directory names in the SAN field. ||
-|| edi_party_name | **[EdiPartyName](#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName2)**
+|| edi_party_name | **[EdiPartyName](#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName2)**
 
 Allowed EDI party names in the SAN field. ||
 || uniform_resource_identifier | **string**
@@ -614,7 +614,7 @@ Allowed IP addresses in the SAN field. ||
 Allowed registered IDs in the SAN field. ||
 |#
 
-## EdiPartyName {#yandex.cloud.priv.certificatemanager.v1.privateca.EdiPartyName2}
+## EdiPartyName {#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName2}
 
 #|
 ||Field | Description ||
@@ -626,7 +626,7 @@ Specifies the entity or authority that assigned the partyName ||
 The actual identifier of the EDI party ||
 |#
 
-## KeyUsagePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.KeyUsagePolicy2}
+## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy2}
 
 Policy for key usages in a certificate.
 
@@ -648,7 +648,7 @@ List of key usages that are allowed or disallowed.
 - `DECIPHER_ONLY` ||
 |#
 
-## ExtendedKeyUsagePolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2}
+## ExtendedKeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy2}
 
 Policy for extended key usages in a certificate.
 
@@ -672,7 +672,7 @@ List of extended key usages that are allowed or disallowed.
 - `MS_EFS` ||
 |#
 
-## ExtensionPolicy {#yandex.cloud.priv.certificatemanager.v1.privateca.ExtensionPolicy2}
+## ExtensionPolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy2}
 
 Policy for certificate extensions.
 

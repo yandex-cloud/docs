@@ -4,6 +4,12 @@
 
     Где:
 
+    {% note info %}
+
+    {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+    {% endnote %}
+
     {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
     {% include [sdk-code-legend](../examples/sdk-code-legend.md) %}
@@ -17,5 +23,5 @@
     Результат выполнения:
 
     ```text
-    Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате – он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>)
+    Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате. Он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>)
     ```

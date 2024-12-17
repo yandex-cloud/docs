@@ -10,9 +10,9 @@ This will remove the template permanently from your folder.
 
 ## gRPC request
 
-**rpc Delete ([DeleteTemplateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteTemplateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Delete ([DeleteTemplateRequest](#yandex.cloud.certificatemanager.v1.privateca.DeleteTemplateRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## DeleteTemplateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteTemplateRequest}
+## DeleteTemplateRequest {#yandex.cloud.certificatemanager.v1.privateca.DeleteTemplateRequest}
 
 ```json
 {
@@ -72,7 +72,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteTemplateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteTemplateMetadata)**
+|| metadata | **[DeleteTemplateMetadata](#yandex.cloud.certificatemanager.v1.privateca.DeleteTemplateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -104,7 +104,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## DeleteTemplateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteTemplateMetadata}
+## DeleteTemplateMetadata {#yandex.cloud.certificatemanager.v1.privateca.DeleteTemplateMetadata}
 
 Metadata returned in the response of the template deletion operation.
 

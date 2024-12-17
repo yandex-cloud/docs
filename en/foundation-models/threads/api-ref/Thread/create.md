@@ -24,7 +24,7 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/threads
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "object",
       "content": {
         "content": [
           {
@@ -45,7 +45,7 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/threads
     "expirationPolicy": "string",
     "ttlDays": "string"
   },
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -71,7 +71,7 @@ Default user ID that will be used as the author for thread messages if no other 
 || expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Expiration configuration for the thread. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the thread. ||
 |#
@@ -86,7 +86,7 @@ This message is used, for example, to initialize a thread with some messages upo
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
@@ -177,7 +177,7 @@ Text content of the message. ||
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -237,7 +237,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
 |#

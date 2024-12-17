@@ -18,7 +18,7 @@ Creates a rule in the specified folder.
   "bus_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "filter": {
     // Includes only one of the fields `jq_filter`
     "jq_filter": "string"
@@ -117,7 +117,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels for the rule. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
@@ -385,7 +385,7 @@ Required field. Service account which has write permission on the queue. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "filter": {
       // Includes only one of the fields `jq_filter`
       "jq_filter": "string"
@@ -568,7 +568,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter2)**

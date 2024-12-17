@@ -402,8 +402,14 @@ items:
         items:
           - name: Overview
             href: cli-ref/s3api/index.md
+          - name: abort-multipart-upload
+            href: cli-ref/s3api/abort-multipart-upload.md
+          - name: complete-multipart-upload
+            href: cli-ref/s3api/complete-multipart-upload.md
           - name: copy-object
             href: cli-ref/s3api/copy-object.md
+          - name: create-multipart-upload
+            href: cli-ref/s3api/create-multipart-upload.md
           - name: delete-object
             href: cli-ref/s3api/delete-object.md
           - name: delete-objects
@@ -416,12 +422,20 @@ items:
             href: cli-ref/s3api/get-object-retention.md
           - name: head-object
             href: cli-ref/s3api/head-object.md
+          - name: list-multipart-uploads
+            href: cli-ref/s3api/list-multipart-uploads.md
+          - name: list-parts
+            href: cli-ref/s3api/list-parts.md
           - name: put-object
             href: cli-ref/s3api/put-object.md
           - name: put-object-legal-hold
             href: cli-ref/s3api/put-object-legal-hold.md
           - name: put-object-retention
             href: cli-ref/s3api/put-object-retention.md
+          - name: upload-part
+            href: cli-ref/s3api/upload-part.md
+          - name: upload-part-copy
+            href: cli-ref/s3api/upload-part-copy.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

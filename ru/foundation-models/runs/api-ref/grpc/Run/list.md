@@ -47,7 +47,7 @@ Token to retrieve the next page of results. ||
       "thread_id": "string",
       "created_by": "string",
       "created_at": "google.protobuf.Timestamp",
-      "labels": "string",
+      "labels": "map<string, string>",
       "state": {
         "status": "RunStatus",
         // Includes only one of the fields `error`, `completed_message`
@@ -64,7 +64,7 @@ Token to retrieve the next page of results. ||
             "id": "string",
             "role": "string"
           },
-          "labels": "string",
+          "labels": "map<string, string>",
           "content": {
             "content": [
               {
@@ -131,7 +131,7 @@ Identifier of the subject who created this run. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the run was created. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the run. ||
 || state | **[RunState](#yandex.cloud.ai.assistants.v1.runs.RunState)**
@@ -208,7 +208,7 @@ Timestamp representing when the message was created. ||
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**

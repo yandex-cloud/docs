@@ -21,7 +21,7 @@ Update stream.
   "title": "string",
   "description": "string",
   "thumbnail_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `on_demand`, `schedule`
   "on_demand": "OnDemandParams",
   "schedule": {
@@ -52,7 +52,7 @@ Stream description. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || on_demand | **[OnDemandParams](#yandex.cloud.video.v1.OnDemandParams)**
@@ -125,7 +125,7 @@ Required field.  ||
     // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -256,7 +256,7 @@ Time when stream was created. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last stream update. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

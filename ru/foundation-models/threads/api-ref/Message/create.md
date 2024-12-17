@@ -22,7 +22,7 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/messages
     "id": "string",
     "role": "string"
   },
-  "labels": "string",
+  "labels": "object",
   "content": {
     "content": [
       {
@@ -48,7 +48,7 @@ Required field. ID of the thread to which the message will be added. ||
 
 Author of the message, containing details about the message's creator.
 If not provided, the default author ID specified in the corresponding thread will be used. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
@@ -121,7 +121,7 @@ Text content of the message. ||
     "id": "string",
     "role": "string"
   },
-  "labels": "string",
+  "labels": "object",
   "content": {
     "content": [
       {
@@ -161,7 +161,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author2)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent2)**

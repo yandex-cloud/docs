@@ -72,7 +72,7 @@ Examples:
       ],
       "currentJobId": "string",
       "agentVersionId": "string",
-      "labels": "string",
+      "labels": "object",
       "logSettings": {
         "cloudLogGroupId": "string"
       }
@@ -149,7 +149,7 @@ ID of the test that is currently being executed by the agent. ||
 || agentVersionId | **string**
 
 Version of the agent. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**

@@ -10,7 +10,7 @@ Update an existing file.
 ## HTTP request
 
 ```
-PATCH https://rest-assistant.{{ api-host }}/files/v1/update/{fileId}
+PATCH https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
 ```
 
 ## Path parameters
@@ -28,14 +28,14 @@ Required field. ID of the file to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "expirationConfig": {
     "expirationPolicy": "string",
     "ttlDays": "string"
   },
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -43,7 +43,7 @@ Request message for updating an existing file.
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -62,7 +62,7 @@ New description for the file. ||
 || expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 New expiration configuration for the file. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of labels for the file. ||
 |#
@@ -99,7 +99,7 @@ New set of labels for the file. ||
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -159,7 +159,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the file. ||
 |#

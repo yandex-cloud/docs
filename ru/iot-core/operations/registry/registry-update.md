@@ -326,11 +326,7 @@
 
   Измените метку реестра:
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc iot registry update my-registry --labels test_label=my_registry_label

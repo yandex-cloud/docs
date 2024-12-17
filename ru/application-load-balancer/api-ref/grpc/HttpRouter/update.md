@@ -19,7 +19,7 @@ Updates the specified HTTP router.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "virtual_hosts": [
     {
       "name": "string",
@@ -342,7 +342,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the HTTP router. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 HTTP router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -968,7 +968,7 @@ regardless of the header's value. ||
     "name": "string",
     "description": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "virtual_hosts": [
       {
         "name": "string",
@@ -1360,7 +1360,7 @@ Description of the router. ||
 || folder_id | **string**
 
 ID of the folder that the router belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

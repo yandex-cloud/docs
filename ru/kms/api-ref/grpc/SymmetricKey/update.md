@@ -20,7 +20,7 @@ Updates the specified symmetric KMS key.
   "name": "string",
   "description": "string",
   "status": "Status",
-  "labels": "string",
+  "labels": "map<string, string>",
   "default_algorithm": "SymmetricAlgorithm",
   "rotation_period": "google.protobuf.Duration",
   "deletion_protection": "bool"
@@ -53,7 +53,7 @@ Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE o
 Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
 || default_algorithm | enum **SymmetricAlgorithm**
@@ -94,7 +94,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "primary_version": {
       "id": "string",
@@ -200,7 +200,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**

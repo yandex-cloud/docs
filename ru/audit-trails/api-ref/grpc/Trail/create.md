@@ -18,7 +18,7 @@ Creates a trail in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "destination": {
     // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`
     "object_storage": {
@@ -141,7 +141,7 @@ Name of the trail. ||
 || description | **string**
 
 Description of the trail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
 For example, `"type": "critical"` or `"source": "dictionary"`. ||
@@ -418,7 +418,7 @@ Policy with explicitly specified event group
     "updated_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "destination": {
       // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`
       "object_storage": {
@@ -623,7 +623,7 @@ Name of the trail ||
 || description | **string**
 
 Description of the trail ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination2)**

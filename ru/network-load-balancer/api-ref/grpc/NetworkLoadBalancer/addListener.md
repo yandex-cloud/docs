@@ -148,7 +148,7 @@ IP version.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "region_id": "string",
     "status": "Status",
     "type": "Type",
@@ -278,7 +278,7 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || region_id | **string**

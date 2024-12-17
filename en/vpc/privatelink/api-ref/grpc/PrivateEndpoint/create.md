@@ -18,7 +18,7 @@ Creates an private endpoint in the specified folder and network.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "network_id": "string",
   "address_spec": {
     // Includes only one of the fields `address_id`, `internal_ipv4_address_spec`
@@ -53,7 +53,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the private endpoint. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs. ||
 || network_id | **string**
@@ -141,7 +141,7 @@ Yandex Cloud Object Storage.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "network_id": "string",
     "status": "Status",
     "address": {
@@ -246,7 +246,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

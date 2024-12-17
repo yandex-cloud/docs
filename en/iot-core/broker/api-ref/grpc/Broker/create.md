@@ -18,7 +18,7 @@ Creates a broker in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "certificates": [
     {
       "certificate_data": "string"
@@ -49,7 +49,7 @@ Required field. Name of the broker. The name must be unique within the folder. |
 || description | **string**
 
 Description of the broker. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
@@ -147,7 +147,7 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "log_options": {
       "disabled": "bool",
@@ -247,7 +247,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

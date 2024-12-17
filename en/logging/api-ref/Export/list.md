@@ -58,7 +58,7 @@ Example of a filter: `name="my-export"`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "groupId": "string",
       "sinkId": "string",
       "params": {
@@ -125,7 +125,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

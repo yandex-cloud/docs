@@ -20,7 +20,7 @@ POST https://logging.{{ api-host }}/logging/v1/sinks
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "serviceAccountId": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -48,7 +48,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the sink. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels as `key:value` pairs. ||
 || serviceAccountId | **string**
@@ -121,7 +121,7 @@ Prefix to use for saved log object names ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "serviceAccountId": "string",
     // Includes only one of the fields `yds`, `s3`
     "yds": {
@@ -261,7 +261,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

@@ -41,7 +41,7 @@ To get a registry Name make a [RegistryService.List](/docs/iot-core/api-ref/grpc
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "status": "Status",
   "log_group_id": "string",
   "log_options": {
@@ -74,7 +74,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

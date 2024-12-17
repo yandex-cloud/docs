@@ -207,7 +207,7 @@
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. Перейдите на вкладку ![policies](../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
       1. Выберите одну из политик, созданных по умолчанию.
-      1. В блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
+      1. В блоке **{{ ui-key.yacloud.backup.value_vm-recourses }}** нажмите ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
       1. Выберите нужную ВМ из списка и нажмите **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
 
     {% endlist %}

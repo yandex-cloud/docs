@@ -16,7 +16,7 @@ Creates a security profile in the specified folder using the data specified in t
 ```json
 {
   "folder_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
   "default_action": "DefaultAction",
@@ -336,7 +336,7 @@ Creates a security profile in the specified folder using the data specified in t
 || folder_id | **string**
 
 Required field. ID of the folder to create a security profile in. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -650,7 +650,7 @@ Action to perform if maximum size of body exceeded.
   "response": {
     "id": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "name": "string",
     "description": "string",
     "default_action": "DefaultAction",
@@ -1045,7 +1045,7 @@ ID of the security profile. ||
 || folder_id | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

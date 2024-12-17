@@ -68,7 +68,7 @@ created_at ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "filter": {
         // Includes only one of the fields `jq_filter`
         "jq_filter": "string"
@@ -195,7 +195,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**

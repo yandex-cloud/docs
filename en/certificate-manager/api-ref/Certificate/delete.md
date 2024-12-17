@@ -51,7 +51,7 @@ Required field. ID of the certificate to be deleted. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "type": "string",
     "domains": [
       "string"
@@ -217,7 +217,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | **enum** (CertificateType)

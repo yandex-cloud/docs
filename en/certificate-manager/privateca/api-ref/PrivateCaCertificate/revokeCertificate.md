@@ -24,7 +24,7 @@ Request to revoke an issued certificate, making it invalid.
 Required field. The ID of the certificate to revoke. ||
 |#
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.RevokeCertificateRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.RevokeCertificateRequest}
 
 ```json
 {
@@ -117,7 +117,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[RevokeCertificateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.RevokeCertificateMetadata)**
+|| metadata | **[RevokeCertificateMetadata](#yandex.cloud.certificatemanager.v1.privateca.RevokeCertificateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -134,7 +134,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## RevokeCertificateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.RevokeCertificateMetadata}
+## RevokeCertificateMetadata {#yandex.cloud.certificatemanager.v1.privateca.RevokeCertificateMetadata}
 
 Metadata for the `RevokeCertificate` operation.
 

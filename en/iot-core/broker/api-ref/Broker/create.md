@@ -20,7 +20,7 @@ POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "certificates": [
     {
       "certificateData": "string"
@@ -51,7 +51,7 @@ Required field. Name of the broker. The name must be unique within the folder. |
 || description | **string**
 
 Description of the broker. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
@@ -157,7 +157,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -295,7 +295,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

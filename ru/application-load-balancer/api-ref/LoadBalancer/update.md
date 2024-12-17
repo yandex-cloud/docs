@@ -28,10 +28,10 @@ To get the application load balancer ID, make a [LoadBalancerService.List](/docs
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "listenerSpecs": [
     {
       "name": "string",
@@ -174,7 +174,7 @@ To get the application load balancer ID, make a [LoadBalancerService.List](/docs
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -191,7 +191,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the application load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -787,7 +787,7 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "regionId": "string",
     "networkId": "string",
@@ -1049,7 +1049,7 @@ Description of the application load balancer. ||
 || folderId | **string**
 
 ID of the folder that the application load balancer belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

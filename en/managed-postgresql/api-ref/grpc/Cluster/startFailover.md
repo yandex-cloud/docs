@@ -51,7 +51,7 @@ New master host. Switch to the most up-to-date replica if not provided. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -227,7 +227,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the PostgreSQL cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs.
 Maximum 64 per resource. ||

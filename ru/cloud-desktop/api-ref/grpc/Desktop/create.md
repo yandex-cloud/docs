@@ -190,7 +190,8 @@ Status of the desktop.
 - `STARTING`: Desktop is starting.
 - `STOPPING`: Desktop is stopping.
 - `STOPPED`: Desktop is stopped.
-- `ERROR`: Desktop is in error state. ||
+- `ERROR`: Desktop did not manage start or restart.
+- `CREATION_FAILED`: Desktop did not manage to get created or updated. ||
 || name | **string**
 
 Name of the desktop. ||

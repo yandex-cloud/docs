@@ -36,7 +36,7 @@ Required field. ID of the rule to return. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "filter": {
     // Includes only one of the fields `jqFilter`
     "jqFilter": "string"
@@ -155,7 +155,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**

@@ -48,14 +48,14 @@ To get a version ID make a [FunctionService.ListVersions](/docs/functions/functi
   "tags": [
     "string"
   ],
-  "environment": "string",
+  "environment": "object",
   "connectivity": {
     "networkId": "string",
     "subnetId": [
       "string"
     ]
   },
-  "namedServiceAccounts": "string",
+  "namedServiceAccounts": "object",
   "secrets": [
     {
       "id": "string",
@@ -188,13 +188,13 @@ Status of the version.
 || tags[] | **string**
 
 Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
 
 Network access. If specified the version will be attached to specified network/subnet(s). ||
-|| namedServiceAccounts | **string**
+|| namedServiceAccounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**

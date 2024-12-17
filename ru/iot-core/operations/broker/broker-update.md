@@ -337,11 +337,7 @@ description: Следуя данной инструкции, вы сможете
 
   Измените метку брокера:
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc iot broker update my-broker --labels test_label=my_broker_label

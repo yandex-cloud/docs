@@ -28,7 +28,7 @@ Creates a federation in the specified organization.
     "force_authn": "bool"
   },
   "case_insensitive_name_ids": "bool",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -84,7 +84,7 @@ Federation security settings. ||
 || case_insensitive_name_ids | **bool**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -134,7 +134,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
       "force_authn": "bool"
     },
     "case_insensitive_name_ids": "bool",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -264,7 +264,7 @@ Federation security settings. ||
 || case_insensitive_name_ids | **bool**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

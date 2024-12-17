@@ -17,7 +17,7 @@ Updates the specified ARL profile.
 {
   "advanced_rate_limiter_profile_id": "string",
   "update_mask": "google.protobuf.FieldMask",
-  "labels": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
   "advanced_rate_limiter_rules": [
@@ -253,7 +253,7 @@ Required field. ID of the ARL profile to update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the AdvancedRateLimiterProfile resource are going to be updated. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -572,7 +572,7 @@ String value of the key. ||
   "response": {
     "id": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "name": "string",
     "description": "string",
     "advanced_rate_limiter_rules": [
@@ -880,7 +880,7 @@ ID of the ARL profile. ||
 || folder_id | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

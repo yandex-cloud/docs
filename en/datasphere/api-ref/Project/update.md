@@ -27,10 +27,10 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "settings": {
     "serviceAccountId": "string",
     "subnetId": "string",
@@ -54,7 +54,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -70,7 +70,7 @@ Name of the project. 0-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the project. ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
@@ -166,7 +166,7 @@ The number of units that can be spent on the one execution. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "createdById": "string",
     "settings": {
       "serviceAccountId": "string",
@@ -310,7 +310,7 @@ Name of the project. 1-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || createdById | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings2)**
 

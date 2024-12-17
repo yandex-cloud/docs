@@ -20,7 +20,7 @@ POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "destination": {
     // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
     "objectStorage": {
@@ -143,7 +143,7 @@ Name of the trail. ||
 || description | **string**
 
 Description of the trail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
 For example, `"type": "critical"` or `"source": "dictionary"`. ||
@@ -428,7 +428,7 @@ Policy with explicitly specified event group
     "updatedAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "destination": {
       // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
       "objectStorage": {
@@ -678,7 +678,7 @@ Name of the trail ||
 || description | **string**
 
 Description of the trail ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination2)**

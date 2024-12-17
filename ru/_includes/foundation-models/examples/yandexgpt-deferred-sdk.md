@@ -5,34 +5,34 @@ from __future__ import annotations
 import time
 from yandex_cloud_ml_sdk import YCloudML
 
-messages_1 = '[\
-                {\
-                  "role": "system",\
-                  "text": "Найди ошибки в тексте и исправь их"\
-                },\
-                {\
-                  "role": "user",\
-                  "text": "Ламинат подойдет для укладке на кухне или в детской \
-                  комнате – он не боиться влаги и механических повреждений благодаря \
-                  защитному слою из облицованных меламиновых пленок толщиной 0,2 мм и \
-                  обработанным воском замкам."\
-                }\
-              ]'
-messages_2 = '[\
-                {\
-                  "role": "system",\
-                  "text": "Найди ошибки в тексте и исправь их"\
-                },\
-                {\
-                  "role": "user",\
-                  "text": "Ашипки саме сибя ни исрпвят."\
-                }\
-              ]'
+messages_1 = [
+    {
+        "role": "system",
+        "text": "Найди ошибки в тексте и исправь их",
+    },
+    {
+        "role": "user",
+        "text": """Ламинат подойдет для укладке на кухне или в детской 
+комнате – он не боиться влаги и механических повреждений благодаря 
+защитному слою из облицованных меламиновых пленок толщиной 0,2 мм и 
+обработанным воском замкам.""",
+    },
+]
 
-def main() -> None:
-    sdk = YCloudML(folder_id='<идентификатор_каталога>', auth="<API-ключ>")
+messages_2 = [
+    {"role": "system", "text": "Найди ошибки в тексте и исправь их"},
+    {"role": "user", "text": "Ашипки саме сибя ни исрпвят."},
+]
 
-    model = sdk.models.completions('yandexgpt')
+
+def main():
+
+    sdk = YCloudML(
+        folder_id="<идентификатор_каталога>",
+        auth="<API-ключ>",
+    )
+
+    model = sdk.models.completions("yandexgpt")
 
     # Variant 1: wait for the operation to complete using 5-second sleep periods
 
@@ -52,11 +52,12 @@ def main() -> None:
 
     print("Variant 2:")
 
-    operation = model.configure().run_deferred(messages_2)
+    operation = model.run_deferred(messages_2)
 
     result = operation.wait()
     print(result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 ```

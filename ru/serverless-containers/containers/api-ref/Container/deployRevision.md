@@ -38,7 +38,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
         "string"
       ]
     },
-    "environment": "string",
+    "environment": "object",
     "workingDir": "string"
   },
   "concurrency": "string",
@@ -203,7 +203,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || workingDir | **string**
@@ -506,7 +506,7 @@ Enabled access to AWS flavored metadata (IMDSv1)
           "string"
         ]
       },
-      "environment": "string",
+      "environment": "object",
       "workingDir": "string"
     },
     "resources": {
@@ -780,7 +780,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args2)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || workingDir | **string**

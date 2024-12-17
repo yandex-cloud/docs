@@ -37,7 +37,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 {
   "name": "string",
   "tasksMax": "string",
-  "properties": "string",
+  "properties": "object",
   "health": "string",
   "status": "string",
   "clusterId": "string",
@@ -97,7 +97,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

@@ -27,7 +27,7 @@ Required field. ID of the dashboards to update. ||
 ```json
 {
   "etag": "string",
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "content": {
@@ -105,7 +105,7 @@ Required field. ID of the dashboards to update. ||
 || etag | **string**
 
 The current etag of the dashboard. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

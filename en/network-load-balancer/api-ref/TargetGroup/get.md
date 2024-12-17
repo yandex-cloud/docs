@@ -34,7 +34,7 @@ To get the target group ID, use a [TargetGroupService.List](/docs/network-load-b
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "regionId": "string",
   "targets": [
     {
@@ -72,7 +72,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the target group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

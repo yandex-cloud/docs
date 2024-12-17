@@ -19,7 +19,7 @@ Updates the specified address.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "reserved": "bool",
   "deletion_protection": "bool",
   "dns_record_specs": [
@@ -50,7 +50,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the address. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 
@@ -109,7 +109,7 @@ Optional. If the PTR record is required, this parameter must be set to "true". |
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     // Includes only one of the fields `external_ipv4_address`
     "external_ipv4_address": {
       "address": "string",
@@ -225,7 +225,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

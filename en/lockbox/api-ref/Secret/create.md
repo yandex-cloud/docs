@@ -20,7 +20,7 @@ POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "kmsKeyId": "string",
   "versionDescription": "string",
   "versionPayloadEntries": [
@@ -60,7 +60,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`. ||
@@ -173,7 +173,7 @@ a string of punctuation characters to exclude from the default (at most 31, it's
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "kmsKeyId": "string",
     "status": "string",
     "currentVersion": {
@@ -343,7 +343,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kmsKeyId | **string**

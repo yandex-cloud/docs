@@ -20,7 +20,7 @@ POST https://logging.{{ api-host }}/logging/v1/exports
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "groupId": "string",
   "sinkId": "string",
   "params": {
@@ -55,7 +55,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the export. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export labels as `key:value` pairs. ||
 || groupId | **string**
@@ -132,7 +132,7 @@ Required field. Parameters for logs filtration ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "groupId": "string",
     "sinkId": "string",
     "params": {
@@ -279,7 +279,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

@@ -83,7 +83,7 @@ The expression must specify:
       // end of the list of possible fields
       "point_of_presence_id": "google.protobuf.StringValue",
       "capacity": "Capacity",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -170,7 +170,7 @@ Capacity of the trunkConnection
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
 - `CAPACITY_100_GBPS` ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

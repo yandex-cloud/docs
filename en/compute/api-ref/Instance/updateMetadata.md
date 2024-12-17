@@ -29,7 +29,7 @@ Required field. ID of the instance that is being updated. ||
   "delete": [
     "string"
   ],
-  "upsert": "string"
+  "upsert": "object"
 }
 ```
 
@@ -38,7 +38,7 @@ Required field. ID of the instance that is being updated. ||
 || delete[] | **string**
 
 List of keys to be deleted. ||
-|| upsert | **string**
+|| upsert | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be added or updated to this instance. ||
 |#
@@ -72,7 +72,7 @@ The metadata `key:value` pairs that will be added or updated to this instance. |
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "platformId": "string",
     "resources": {
@@ -82,7 +82,7 @@ The metadata `key:value` pairs that will be added or updated to this instance. |
       "gpus": "string"
     },
     "status": "string",
-    "metadata": "string",
+    "metadata": "object",
     "metadataOptions": {
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
@@ -337,7 +337,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zoneId | **string**
@@ -364,7 +364,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 

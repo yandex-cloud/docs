@@ -60,7 +60,7 @@ created_at ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "source": {
         // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
         "dataStream": {
@@ -133,7 +133,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**

@@ -22,7 +22,7 @@ Aliases:
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>Access key id. This is id of key resource in cloud, but not key id that is used for authentication.|
+|`--id`|<b>`string`</b><br/>Api key id. This is id of key resource in cloud, but not key id that is used for authentication.|
 
 #### Global Flags
 

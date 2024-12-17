@@ -15,5 +15,5 @@ The service does not operate with resources.
 ||Service | Description ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [SearchIndexFile](SearchIndexFile/index.md) | SearchIndexFileService provides operations for managing files within search indexes. ||
-|| [SearchIndex](SearchIndex/index.md) | ThreadService provides operations for managing search indexes. ||
+|| [SearchIndex](SearchIndex/index.md) | SearchIndexService provides operations for managing search indexes. ||
 |#

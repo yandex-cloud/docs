@@ -19,7 +19,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "zone_id": "string",
   "platform_id": "string",
   "resources_spec": {
@@ -28,7 +28,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
     "core_fraction": "int64",
     "gpus": "int64"
   },
-  "metadata": "string",
+  "metadata": "map<string, string>",
   "metadata_options": {
     "gce_http_endpoint": "MetadataOption",
     "aws_v1_http_endpoint": "MetadataOption",
@@ -196,7 +196,7 @@ Name of the instance. ||
 || description | **string**
 
 Description of the instance. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zone_id | **string**
@@ -215,7 +215,7 @@ For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
 
 Required field. Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
 The total size of all keys and values must be less than 512 KB.
@@ -634,7 +634,7 @@ Authentication and authorization in serial console when using SSH protocol
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "zone_id": "string",
     "platform_id": "string",
     "resources": {
@@ -644,7 +644,7 @@ Authentication and authorization in serial console when using SSH protocol
       "gpus": "int64"
     },
     "status": "Status",
-    "metadata": "string",
+    "metadata": "map<string, string>",
     "metadata_options": {
       "gce_http_endpoint": "MetadataOption",
       "aws_v1_http_endpoint": "MetadataOption",
@@ -861,7 +861,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zone_id | **string**
@@ -888,7 +888,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 

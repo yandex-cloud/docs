@@ -20,7 +20,7 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "configSpec": {
     "version": "string",
@@ -294,7 +294,7 @@ Required field. Name of the cluster. The name must be unique within the folder. 
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | **enum** (Environment)
@@ -1622,7 +1622,7 @@ Host master promotion priority ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -2363,7 +2363,7 @@ Name of the cluster. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | **enum** (Environment)

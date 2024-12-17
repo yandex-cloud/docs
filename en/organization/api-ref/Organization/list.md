@@ -51,7 +51,7 @@ The expression must specify:
       "name": "string",
       "description": "string",
       "title": "string",
-      "labels": "string"
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -101,7 +101,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -20,7 +20,7 @@ Updates the specified image.
   "name": "string",
   "description": "string",
   "min_disk_size": "int64",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -43,7 +43,7 @@ Description of the image. ||
 
 Minimum size of the disk that can be created from this image.
 Specified in bytes. Should be more than the volume of source data and more than the virtual disk size. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -71,7 +71,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "family": "string",
     "storage_size": "int64",
     "min_disk_size": "int64",
@@ -183,7 +183,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**

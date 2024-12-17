@@ -30,7 +30,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
   },
   "type": "TransferType",
   "name": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "transformation": {
     "transformers": [
       {
@@ -186,7 +186,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 - `SNAPSHOT_ONLY`: Snapshot
 - `INCREMENT_ONLY`: Increment ||
 || name | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 |#
 

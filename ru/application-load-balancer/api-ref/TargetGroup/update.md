@@ -28,10 +28,10 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "targets": [
     {
       // Includes only one of the fields `ipAddress`
@@ -46,7 +46,7 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -63,7 +63,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -134,7 +134,7 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "targets": [
       {
         // Includes only one of the fields `ipAddress`
@@ -264,7 +264,7 @@ Description of the target group. ||
 || folderId | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

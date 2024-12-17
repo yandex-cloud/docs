@@ -43,41 +43,37 @@
       {% cut "Примерный результат выполнения" %}
 
       ```text
-      new thread=Thread(id='fvt4n5lkst29********', expiration_config=ExpirationConfig(ttl_days=5, expiration_policy=<ExpirationPolicy.STATIC: 1>), name='SimpleAssistant', description=None, created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 5, 399924), updated_by='aje62tfcd0oj********', updated_at=datetime.datetime(2024, 12, 5, 7, 42, 5, 399924), expires_at=datetime.datetime(2024, 12, 10, 7, 42, 5, 399924), labels=None)
-      Введите ваш вопрос ассистенту:
-      Привет!
-      run=Run(id='fvtckgtjuv37********', assistant_id='fvtc6cl9s021********', thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 9, 893587), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
-      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvt07vgru2q4********', parts=('Здравствуйте! Чем могу помочь?',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 10, 975585), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT')), usage=Usage(input_text_tokens=12, completion_tokens=6, total_tokens=18))
+      new thread=Thread(id='fvt67i1ettn5********', expiration_config=ExpirationConfig(ttl_days=5, expiration_policy=<ExpirationPolicy.STATIC: 1>), name='SimpleAssistant', description=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 33, 8133), updated_by='ajegtlf2q28a********', updated_at=datetime.datetime(2024, 12, 15, 21, 5, 33, 8133), expires_at=datetime.datetime(2024, 12, 20, 21, 5, 33, 8133), labels=None)
+      Введите ваш вопрос ассистенту: Привет!
+      run=Run(id='fvtm4n1o2hla********', assistant_id='fvthtngdnlkq********', thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 312504), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
+      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtburadn35c********', parts=('Здравствуйте! Чем могу помочь?',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 728330), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT')), usage=Usage(input_text_tokens=12, completion_tokens=6, total_tokens=18))
       Answer: Здравствуйте! Чем могу помочь?
-      Введите ваш вопрос ассистенту:
-      Сколько будет 2 + 2?
-      run=Run(id='fvtp4fvk60be********', assistant_id='fvtc6cl9s021********', thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 34, 472706), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
-      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtmagied4nq********', parts=('2 + 2 = 4.',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 35, 527779), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT')), usage=Usage(input_text_tokens=36, completion_tokens=9, total_tokens=45))
+      Введите ваш вопрос ассистенту: Сколько будет 2 + 2?
+      run=Run(id='fvt2eajhkqnb********', assistant_id='fvthtngdnlkq********', thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 36, 751185), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
+      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtnmfeavsm1********', parts=('2 + 2 = 4.',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 37, 294861), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT')), usage=Usage(input_text_tokens=36, completion_tokens=9, total_tokens=45))
       Answer: 2 + 2 = 4.
-      Введите ваш вопрос ассистенту:
-      А 15234 - 265?
-      run=Run(id='fvta2i4su9pm********', assistant_id='fvtc6cl9s021********', thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 49, 209323), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
-      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvt7q3rm6dq8l46l9sot', parts=('15234 − 265 = 14969.',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 50, 436048), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT')), usage=Usage(input_text_tokens=68, completion_tokens=19, total_tokens=87))
+      Введите ваш вопрос ассистенту: А 15234 - 265?
+      run=Run(id='fvt55e1qr4d0********', assistant_id='fvthtngdnlkq********', thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 59, 483141), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
+      run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtujctocrak********', parts=('15234 − 265 = 14969.',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 8, 0, 244274), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT')), usage=Usage(input_text_tokens=68, completion_tokens=19, total_tokens=87))
       Answer: 15234 − 265 = 14969.
-      Введите ваш вопрос ассистенту:
-      exit
+      Введите ваш вопрос ассистенту: exit
       Вывод всей истории сообщений при выходе из чата:
-          message=Message(id='fvt7q3rm6dq8********', parts=('15234 − 265 = 14969.',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 50, 436048), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT'))
+          message=Message(id='fvtujctocrak********', parts=('15234 − 265 = 14969.',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 8, 0, 244274), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT'))
           message.text='15234 − 265 = 14969.'
 
-          message=Message(id='fvtghlkq0rou********', parts=('А 15234 - 265?',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 49, 109687), labels=None, author=Author(id='fvtvdtrvhbct********', role='USER'))
+          message=Message(id='fvthbaqg1rep********', parts=('А 15234 - 265?',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 59, 375702), labels=None, author=Author(id='fvt82v4kgb7i********', role='USER'))
           message.text='А 15234 - 265?'
 
-          message=Message(id='fvtmagied4nq********', parts=('2 + 2 = 4.',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 35, 527780), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT'))
+          message=Message(id='fvtnmfeavsm1********', parts=('2 + 2 = 4.',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 37, 294862), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT'))
           message.text='2 + 2 = 4.'
 
-          message=Message(id='fvtaqjvafdl1********', parts=('Сколько будет 2 + 2?',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 34, 330088), labels=None, author=Author(id='fvtvdtrvhbct********', role='USER'))
+          message=Message(id='fvtdd4fbb4n8********', parts=('Сколько будет 2 + 2?',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 36, 625764), labels=None, author=Author(id='fvt82v4kgb7i********', role='USER'))
           message.text='Сколько будет 2 + 2?'
 
-          message=Message(id='fvt07vgru2q4********', parts=('Здравствуйте! Чем могу помочь?',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 10, 975586), labels=None, author=Author(id='fvtc6cl9s021********', role='ASSISTANT'))
+          message=Message(id='fvtburadn35c********', parts=('Здравствуйте! Чем могу помочь?',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 728331), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT'))
           message.text='Здравствуйте! Чем могу помочь?'
 
-          message=Message(id='fvtjnb5mljhv********', parts=('Привет!',), thread_id='fvt4n5lkst29********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 42, 9, 686746), labels=None, author=Author(id='fvtvdtrvhbct********', role='USER'))
+          message=Message(id='fvt9apvs2au9********', parts=('Привет!',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 136965), labels=None, author=Author(id='fvt82v4kgb7i********', role='USER'))
           message.text='Привет!'
       ```
 

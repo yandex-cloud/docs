@@ -18,7 +18,7 @@ Request a certificate in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "domains": [
     "string"
   ],
@@ -38,7 +38,7 @@ Name of the certificate. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels for the certificate as `key:value` pairs. ||
 || domains[] | **string**
@@ -77,7 +77,7 @@ Flag that protects deletion of the certificate ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "type": "CertificateType",
     "domains": [
       "string"
@@ -205,7 +205,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | enum **CertificateType**

@@ -23,6 +23,7 @@ Aliases:
 - [yc iam api-key get](get.md) — Show information about the specified API key
 - [yc iam api-key list](list.md) — List API keys for the specified service account
 - [yc iam api-key list-scopes](list-scopes.md) — List of scopes
+- [yc iam api-key update](update.md) — Update an API key for the specified service account
 
 #### Global Flags
 

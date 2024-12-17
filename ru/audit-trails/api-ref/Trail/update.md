@@ -26,10 +26,10 @@ Required field. ID of the trail to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "destination": {
     // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
     "objectStorage": {
@@ -143,7 +143,7 @@ Required field. ID of the trail to update. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -159,7 +159,7 @@ New name of the trail. ||
 || description | **string**
 
 New description of the trail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
@@ -443,7 +443,7 @@ Policy with explicitly specified event group
     "updatedAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "destination": {
       // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
       "objectStorage": {
@@ -693,7 +693,7 @@ Name of the trail ||
 || description | **string**
 
 Description of the trail ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination2)**

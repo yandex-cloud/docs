@@ -34,7 +34,7 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "status": "string",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
@@ -71,7 +71,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**

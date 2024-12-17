@@ -19,7 +19,7 @@ Updates the specified secret.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "deletion_protection": "bool",
   // Includes only one of the fields `password_payload_specification`
   "password_payload_specification": {
@@ -50,7 +50,7 @@ New name of the secret. ||
 || description | **string**
 
 New description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || deletion_protection | **bool**
@@ -115,7 +115,7 @@ a string of punctuation characters to exclude from the default (at most 31, it's
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "kms_key_id": "string",
     "status": "Status",
     "current_version": {
@@ -244,7 +244,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kms_key_id | **string**

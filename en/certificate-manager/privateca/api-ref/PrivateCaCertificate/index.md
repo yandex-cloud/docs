@@ -13,7 +13,7 @@ A set of methods for managing private certificates that are issued by a Certific
 ||Method | Description ||
 || [IssueCertificate](issueCertificate.md) | Issues a new certificate for a given Certificate Authority (CA). ||
 || [IssueCertificateByCsr](issueCertificateByCsr.md) | Issues a new certificate using a CSR (Certificate Signing Request). ||
-|| [UpdateCertificate](updateCertificate.md) | Updates the specified certificate. ||
+|| [Update](update.md) | Updates the specified certificate. ||
 || [Delete](delete.md) | Deletes a certificate. ||
 || [Get](get.md) | Retrieves information about a specific certificate. ||
 || [List](list.md) | Lists the certificates issued by a given Certificate Authority (CA). ||

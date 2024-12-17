@@ -379,11 +379,7 @@ description: Следуя данной инструкции, вы сможете
 
   Измените облачную метку группы узлов {{ managed-k8s-name }}:
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
