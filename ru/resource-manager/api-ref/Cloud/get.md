@@ -36,7 +36,7 @@ To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cl
   "name": "string",
   "description": "string",
   "organizationId": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -66,7 +66,7 @@ Description of the cloud. 0-256 characters long. ||
 || organizationId | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

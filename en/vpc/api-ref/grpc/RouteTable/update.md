@@ -20,7 +20,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "static_routes": [
     {
       // Includes only one of the fields `destination_prefix`
@@ -30,7 +30,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
       "next_hop_address": "string",
       "gateway_id": "string",
       // end of the list of possible fields
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ]
 }
@@ -51,7 +51,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the route table. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 || static_routes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
@@ -80,7 +80,7 @@ Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 Next hop gateway id
 
 Includes only one of the fields `next_hop_address`, `gateway_id`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#
@@ -106,7 +106,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "network_id": "string",
     "static_routes": [
       {
@@ -117,7 +117,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
         "next_hop_address": "string",
         "gateway_id": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "map<string, string>"
       }
     ]
   }
@@ -212,7 +212,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -248,7 +248,7 @@ Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 Next hop gateway id
 
 Includes only one of the fields `next_hop_address`, `gateway_id`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

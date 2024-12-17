@@ -58,7 +58,7 @@ Example of a filter: `name="my-sink"`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "serviceAccountId": "string",
       // Includes only one of the fields `yds`, `s3`
       "yds": {
@@ -118,7 +118,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

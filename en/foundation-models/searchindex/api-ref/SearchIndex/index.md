@@ -5,7 +5,7 @@ sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/index.m
 
 # Search Index, REST: SearchIndex
 
-ThreadService provides operations for managing search indexes.
+SearchIndexService provides operations for managing search indexes.
 
 ## Methods
 

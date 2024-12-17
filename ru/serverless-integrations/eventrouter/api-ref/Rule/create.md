@@ -20,7 +20,7 @@ POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules
   "busId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "filter": {
     // Includes only one of the fields `jqFilter`
     "jqFilter": "string"
@@ -119,7 +119,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels for the rule. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
@@ -395,7 +395,7 @@ Required field. Service account which has write permission on the queue. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "filter": {
       // Includes only one of the fields `jqFilter`
       "jqFilter": "string"
@@ -616,7 +616,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter2)**

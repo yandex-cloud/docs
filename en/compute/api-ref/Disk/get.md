@@ -36,7 +36,7 @@ To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "typeId": "string",
   "zoneId": "string",
   "size": "string",
@@ -95,7 +95,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**

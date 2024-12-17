@@ -9,9 +9,9 @@ Returns the private key and passphrase for the specified certificate authority.
 
 ## gRPC request
 
-**rpc GetPrivateKey ([GetCertificateAuthorityPrivateKeyRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyRequest)) returns ([GetCertificateAuthorityPrivateKeyResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse))**
+**rpc GetPrivateKey ([GetCertificateAuthorityPrivateKeyRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyRequest)) returns ([GetCertificateAuthorityPrivateKeyResponse](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse))**
 
-## GetCertificateAuthorityPrivateKeyRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyRequest}
+## GetCertificateAuthorityPrivateKeyRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyRequest}
 
 ```json
 {
@@ -28,7 +28,7 @@ Request message for getting the private key of a certificate authority.
 Required field. ID of the certificate authority to get the private key for. ||
 |#
 
-## GetCertificateAuthorityPrivateKeyResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse}
+## GetCertificateAuthorityPrivateKeyResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse}
 
 ```json
 {

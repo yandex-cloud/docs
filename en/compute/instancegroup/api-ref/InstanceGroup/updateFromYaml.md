@@ -68,10 +68,10 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "instanceTemplate": {
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "platformId": "string",
       "resourcesSpec": {
         "memory": "string",
@@ -79,7 +79,7 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
         "coreFraction": "string",
         "gpus": "string"
       },
-      "metadata": "string",
+      "metadata": "object",
       "bootDiskSpec": {
         "mode": "string",
         "deviceName": "string",
@@ -226,7 +226,7 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
             "ruleType": "string",
             "metricType": "string",
             "metricName": "string",
-            "labels": "string",
+            "labels": "object",
             "target": "string",
             "folderId": "string",
             "service": "string"
@@ -250,7 +250,7 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
             "ruleType": "string",
             "metricType": "string",
             "metricName": "string",
-            "labels": "string",
+            "labels": "object",
             "target": "string",
             "folderId": "string",
             "service": "string"
@@ -292,7 +292,7 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
       "targetGroupSpec": {
         "name": "string",
         "description": "string",
-        "labels": "string"
+        "labels": "object"
       },
       "maxOpeningTrafficDuration": "string",
       "ignoreHealthChecks": "boolean"
@@ -330,7 +330,7 @@ Required field. [InstanceGroupService.Update](/docs/compute/api-ref/InstanceGrou
       "targetGroupSpec": {
         "name": "string",
         "description": "string",
-        "labels": "string"
+        "labels": "object"
       },
       "maxOpeningTrafficDuration": "string",
       "ignoreHealthChecks": "boolean"
@@ -470,7 +470,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the instance group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || instanceTemplate | **[InstanceTemplate](#yandex.cloud.compute.v1.instancegroup.InstanceTemplate)**
@@ -561,7 +561,7 @@ AutoHealingPolicy policy of the instance group. ||
 || description | **string**
 
 Description of the instance template. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || platformId | **string**
@@ -573,7 +573,7 @@ For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
 
 Required field. Computing resources of the instance such as the amount of memory and number of cores. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
@@ -1038,7 +1038,7 @@ specified in the [AutoScale.measurementDuration](#yandex.cloud.compute.v1.instan
 || metricName | **string**
 
 Required field. Name of custom metric in Monitoring that should be used for scaling. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of custom metric in Monitoring that should be used for scaling. ||
 || target | **string**
@@ -1181,7 +1181,7 @@ Name of the target group. ||
 || description | **string**
 
 Description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 |#
@@ -1282,7 +1282,7 @@ Name of the target group. ||
 || description | **string**
 
 Description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 |#

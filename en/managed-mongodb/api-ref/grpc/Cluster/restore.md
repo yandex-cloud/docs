@@ -18,7 +18,7 @@ Creates a new MongoDB cluster using the specified backup.
   "backup_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "environment": "Environment",
   "config_spec": {
     "version": "string",
@@ -1261,6 +1261,7 @@ Creates a new MongoDB cluster using the specified backup.
     },
     "access": {
       "data_lens": "bool",
+      "web_sql": "bool",
       "data_transfer": "bool"
     },
     "mongodb": {
@@ -1426,7 +1427,7 @@ Creates a new MongoDB cluster using the specified backup.
       "hidden": "google.protobuf.BoolValue",
       "secondary_delay_secs": "google.protobuf.Int64Value",
       "priority": "google.protobuf.DoubleValue",
-      "tags": "string"
+      "tags": "map<string, string>"
     }
   ],
   "network_id": "string",
@@ -1463,7 +1464,7 @@ The name can't be changed after the MongoDB cluster is created. ||
 || description | **string**
 
 Description of the new MongoDB cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary". ||
@@ -4801,6 +4802,9 @@ Disk size autoscaling settings ||
 || data_lens | **bool**
 
 Allow access for DataLens. ||
+|| web_sql | **bool**
+
+Allow access for Web SQL. ||
 || data_transfer | **bool**
 
 Allow access for DataTransfer. ||
@@ -5254,7 +5258,7 @@ The number of seconds "behind" the primary that this replica set member should "
 || priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Priority of host for the election in replSet ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tags ||
 |#
@@ -5342,7 +5346,7 @@ Hour of the day in UTC (in `HH` format). ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -8240,6 +8244,7 @@ Hour of the day in UTC (in `HH` format). ||
       },
       "access": {
         "data_lens": "bool",
+        "web_sql": "bool",
         "data_transfer": "bool"
       },
       "mongodb_config": {
@@ -8725,7 +8730,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the MongoDB cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | enum **Environment**
@@ -12526,6 +12531,9 @@ Disk size autoscaling settings ||
 || data_lens | **bool**
 
 Allow access for DataLens. ||
+|| web_sql | **bool**
+
+Allow access for Web SQL. ||
 || data_transfer | **bool**
 
 Allow access for DataTransfer. ||

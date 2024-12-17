@@ -35,6 +35,8 @@
 
       * `request_text` — текстовое содержимое сообщения. Суммарное количество [токенов](../../concepts/yandexgpt/tokens.md) на один запрос не должно превышать 8000.
 
+          {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
       * `model` — [идентификатор модели](../../../foundation-models/concepts/classifier/models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели.

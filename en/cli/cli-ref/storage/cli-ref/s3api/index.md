@@ -15,16 +15,23 @@ Syntax:
 
 #### Command Tree
 
+- [yc storage s3api abort-multipart-upload](abort-multipart-upload.md) — Aborts a multipart upload
+- [yc storage s3api complete-multipart-upload](complete-multipart-upload.md) — Completes a multipart upload
 - [yc storage s3api copy-object](copy-object.md) — Creates a copy of an object that is already stored in Object Storage
+- [yc storage s3api create-multipart-upload](create-multipart-upload.md) — Creates a new multipart upload
 - [yc storage s3api delete-object](delete-object.md) — Deletes an object from Object Storage
 - [yc storage s3api delete-objects](delete-objects.md) — Deletes objects based on a list of keys passed in a request
 - [yc storage s3api get-object](get-object.md) — Returns an object from Object Storage
 - [yc storage s3api get-object-legal-hold](get-object-legal-hold.md) — Returns the settings of the legal hold placed on the object version
 - [yc storage s3api get-object-retention](get-object-retention.md) — Returns settings of the retention put on an object version
 - [yc storage s3api head-object](head-object.md) — Returns object metadata from Object Storage
+- [yc storage s3api list-multipart-uploads](list-multipart-uploads.md) — Lists in-progress multipart uploads
+- [yc storage s3api list-parts](list-parts.md) — Lists parts of a multipart upload
 - [yc storage s3api put-object](put-object.md) — Puts an object and its metadata to Object Storage
 - [yc storage s3api put-object-legal-hold](put-object-legal-hold.md) — Puts or removes legal hold for an object version
 - [yc storage s3api put-object-retention](put-object-retention.md) — Puts retention on the object version or enables/disables a previously set lock
+- [yc storage s3api upload-part](upload-part.md) — Uploads a part in a multipart upload
+- [yc storage s3api upload-part-copy](upload-part-copy.md) — Uploads a part by copying data from an existing object as data source
 
 #### Global Flags
 

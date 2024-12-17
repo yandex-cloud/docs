@@ -56,11 +56,11 @@ Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "status": "Status",
       "node_template": {
         "name": "string",
-        "labels": "string",
+        "labels": "map<string, string>",
         "platform_id": "string",
         "resources_spec": {
           "memory": "int64",
@@ -72,7 +72,7 @@ Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/
           "disk_type_id": "string",
           "disk_size": "int64"
         },
-        "metadata": "string",
+        "metadata": "map<string, string>",
         "v4_address_spec": {
           "one_to_one_nat_spec": {
             "ip_version": "IpVersion"
@@ -208,7 +208,7 @@ Currently you can use filtering only on [Cluster.name](/docs/managed-kubernetes/
           "effect": "Effect"
         }
       ],
-      "node_labels": "string"
+      "node_labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -250,7 +250,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the node group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**
@@ -296,7 +296,7 @@ Support for unsafe sysctl parameters. For more details see [documentation](https
 || node_taints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
 Taints that are applied to the nodes of the node group at creation time. ||
-|| node_labels | **string**
+|| node_labels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
 |#
@@ -315,7 +315,7 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
 It may also contain another placeholders, see metadata doc for full list. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 these labels will be assigned to compute nodes (instances), created by the nodegroup ||
 || platform_id | **string**
@@ -327,7 +327,7 @@ Computing resources of the node such as the amount of memory and number of cores
 || boot_disk_spec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)**
 
 Specification for the boot disk that will be attached to the node. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 

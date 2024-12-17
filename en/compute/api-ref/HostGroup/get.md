@@ -34,7 +34,7 @@ To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/Host
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "status": "string",
   "typeId": "string",
@@ -75,7 +75,7 @@ Name of the group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**

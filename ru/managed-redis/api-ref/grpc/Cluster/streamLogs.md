@@ -67,7 +67,7 @@ Examples of a filter `message.hostname='node1.db.cloud.yandex.net'`. ||
 {
   "record": {
     "timestamp": "google.protobuf.Timestamp",
-    "message": "string"
+    "message": "map<string, string>"
   },
   "next_record_token": "string"
 }
@@ -93,7 +93,7 @@ This value is interchangeable with `next_page_token` from ListLogs method. ||
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

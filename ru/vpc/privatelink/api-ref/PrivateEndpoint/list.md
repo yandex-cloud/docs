@@ -62,7 +62,7 @@ the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "networkId": "string",
       "status": "string",
       "address": {
@@ -128,7 +128,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

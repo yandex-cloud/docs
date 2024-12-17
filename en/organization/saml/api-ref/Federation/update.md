@@ -27,7 +27,7 @@ To get the federation ID, make a [FederationService.List](/docs/organization/api
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "cookieMaxAge": "string",
@@ -40,13 +40,13 @@ To get the federation ID, make a [FederationService.List](/docs/organization/api
     "forceAuthn": "boolean"
   },
   "caseInsensitiveNameIds": "boolean",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -102,7 +102,7 @@ Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive name ids. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -160,7 +160,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
       "forceAuthn": "boolean"
     },
     "caseInsensitiveNameIds": "boolean",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -328,7 +328,7 @@ Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

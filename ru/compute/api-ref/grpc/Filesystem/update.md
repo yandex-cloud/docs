@@ -19,7 +19,7 @@ Updates the specified filesystem.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "size": "int64"
 }
 ```
@@ -40,7 +40,7 @@ New name of the filesystem. The name must be unique within the folder. ||
 || description | **string**
 
 New description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -76,7 +76,7 @@ Size of the filesystem, specified in bytes. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "type_id": "string",
     "zone_id": "string",
     "size": "int64",
@@ -173,7 +173,7 @@ Name of the filesystem. The name is unique within the folder. ||
 || description | **string**
 
 Description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

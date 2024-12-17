@@ -27,9 +27,9 @@ To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-open
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     "adminPassword": "string",
@@ -81,7 +81,7 @@ To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-open
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -94,7 +94,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the OpenSearch cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the OpenSearch cluster as `key:value` pairs.
 For example, `"project": "mvp"` or `"source": "dictionary"`.
@@ -274,7 +274,7 @@ Hour of the day in the UTC timezone. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -521,7 +521,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the OpenSearch cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the OpenSearch cluster as `key:value` pairs.
 Maximum 64 labels per resource. ||

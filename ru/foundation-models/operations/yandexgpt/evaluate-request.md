@@ -37,6 +37,12 @@ description: Следуя данной инструкции, вы научите
 
       Где:
 
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
+
       {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
@@ -53,22 +59,7 @@ description: Следуя данной инструкции, вы научите
       Token(id=1, special=True, text='<s>')
       Token(id=16861, special=False, text='▁Пользователь')
       Token(id=125851, special=False, text=':')
-      Token(id=502, special=False, text='▁[')
-      Token(id=2361, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125913, special=False, text='{')
-      Token(id=689, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125864, special=False, text='"')
-      Token(id=14726, special=False, text='role')
-      Token(id=956, special=False, text='":')
-      Token(id=450, special=False, text='▁"')
-      Token(id=10183, special=False, text='system')
-      Token(id=789, special=False, text='",')
-      Token(id=689, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125864, special=False, text='"')
-      Token(id=1277, special=False, text='text')
-      Token(id=956, special=False, text='":')
-      Token(id=450, special=False, text='▁"')
-      Token(id=64592, special=False, text='Найди')
+      Token(id=93552, special=False, text='▁Найди')
       Token(id=14660, special=False, text='▁ошибки')
       Token(id=273, special=False, text='▁в')
       Token(id=28802, special=False, text='▁тексте')
@@ -76,24 +67,8 @@ description: Следуя данной инструкции, вы научите
       Token(id=16283, special=False, text='▁исправ')
       Token(id=125839, special=False, text='ь')
       Token(id=1349, special=False, text='▁их')
-      Token(id=125864, special=False, text='"')
-      Token(id=2361, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=1735, special=False, text='},')
-      Token(id=2361, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125913, special=False, text='{')
-      Token(id=689, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125864, special=False, text='"')
-      Token(id=14726, special=False, text='role')
-      Token(id=956, special=False, text='":')
-      Token(id=450, special=False, text='▁"')
-      Token(id=2478, special=False, text='user')
-      Token(id=789, special=False, text='",')
-      Token(id=689, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125864, special=False, text='"')
-      Token(id=1277, special=False, text='text')
-      Token(id=956, special=False, text='":')
-      Token(id=450, special=False, text='▁"')
-      Token(id=125904, special=False, text='А')
+      Token(id=3, special=True, text='[NL]')
+      Token(id=556, special=False, text='▁А')
       Token(id=500, special=False, text='ши')
       Token(id=4291, special=False, text='пки')
       Token(id=680, special=False, text='▁са')
@@ -105,11 +80,7 @@ description: Следуя данной инструкции, вы научите
       Token(id=125813, special=False, text='р')
       Token(id=125828, special=False, text='п')
       Token(id=30104, special=False, text='вят')
-      Token(id=2960, special=False, text='."')
-      Token(id=2361, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125914, special=False, text='}')
-      Token(id=591, special=False, text='▁▁▁▁▁▁▁▁▁▁▁▁')
-      Token(id=125895, special=False, text=']')
+      Token(id=125820, special=False, text='.')
       Token(id=3, special=True, text='[NL]')
       Token(id=3, special=True, text='[NL]')
       Token(id=125904, special=False, text='А')

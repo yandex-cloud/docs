@@ -20,7 +20,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/projects
   "communityId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "settings": {
     "serviceAccountId": "string",
     "subnetId": "string",
@@ -53,7 +53,7 @@ Name of the project. 0-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the project. ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
@@ -149,7 +149,7 @@ The number of units that can be spent on the one execution. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "createdById": "string",
     "settings": {
       "serviceAccountId": "string",
@@ -293,7 +293,7 @@ Name of the project. 1-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || createdById | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings2)**
 

@@ -35,6 +35,7 @@ Syntax:
 |`--segment-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum segment subcluster.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Greenplum cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--cloud-storage`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of cloud storage for Greenplum cluster.<br/><br/>Possible property names:<br/><ul> <li><code>enabled</code>:     Enables cloud storage.</li> </ul>|
 |`--datalens-access`|Allow access for DataLens.|
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|

@@ -23,7 +23,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
   "name": "string",
   "description": "string",
   "computeInstanceParams": {
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -31,7 +31,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
       "coreFraction": "string",
       "gpus": "string"
     },
-    "metadata": "string",
+    "metadata": "object",
     "bootDiskSpec": {
       "mode": "string",
       "deviceName": "string",
@@ -115,7 +115,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
     "platformId": "string"
   },
   "agentVersion": "string",
-  "labels": "string",
+  "labels": "object",
   "logSettings": {
     "cloudLogGroupId": "string"
   }
@@ -145,7 +145,7 @@ Parameters for compute instance to be created. ||
 Version of the agent.
 
 If not provided, the most recent agent version will be used. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
@@ -157,7 +157,7 @@ Agent log settings ||
 
 #|
 ||Field | Description ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -168,7 +168,7 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 
 Required field. Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
 The total size of all keys and values must be less than 512 KB.
@@ -418,7 +418,7 @@ Id of Yandex Cloud log group to upload agent logs to ||
     ],
     "currentJobId": "string",
     "agentVersionId": "string",
-    "labels": "string",
+    "labels": "object",
     "logSettings": {
       "cloudLogGroupId": "string"
     }
@@ -575,7 +575,7 @@ ID of the test that is currently being executed by the agent. ||
 || agentVersionId | **string**
 
 Version of the agent. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings2)**

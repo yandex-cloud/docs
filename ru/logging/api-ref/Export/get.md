@@ -38,7 +38,7 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "groupId": "string",
   "sinkId": "string",
   "params": {
@@ -86,7 +86,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

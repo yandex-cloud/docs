@@ -39,7 +39,7 @@ To get a function ID make a [FunctionService.List](/docs/functions/functions/api
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "http_invoke_url": "string",
   "status": "Status"
 }
@@ -64,7 +64,7 @@ Name of the function. The name is unique within the folder. ||
 || description | **string**
 
 Description of the function. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs. ||
 || http_invoke_url | **string**

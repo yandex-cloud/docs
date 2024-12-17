@@ -33,7 +33,7 @@ To get the name of the topic, make a [TopicService.List](/docs/managed-kafka/api
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "topicSpec": {
     "name": "string",
     "partitions": "string",
@@ -76,7 +76,7 @@ To get the name of the topic, make a [TopicService.List](/docs/managed-kafka/api
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

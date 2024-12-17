@@ -63,7 +63,7 @@ Example of a filter: `name="my-export"`. ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "group_id": "string",
       "sink_id": "string",
       "params": {
@@ -123,7 +123,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || group_id | **string**

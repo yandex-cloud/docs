@@ -20,6 +20,9 @@ POST https://iam.{{ api-host }}/iam/v1/apiKeys
   "serviceAccountId": "string",
   "description": "string",
   "scope": "string",
+  "scopes": [
+    "string"
+  ],
   "expiresAt": "string"
 }
 ```
@@ -37,6 +40,9 @@ Description of the API key. ||
 || scope | **string**
 
 Scope of the API key. ||
+|| scopes[] | **string**
+
+Scopes of the API key. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp, if not specified, then the API key doesn't expire
@@ -62,6 +68,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "description": "string",
     "lastUsedAt": "string",
     "scope": "string",
+    "scopes": [
+      "string"
+    ],
     "expiresAt": "string"
   },
   "secret": "string"
@@ -116,6 +125,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || scope | **string**
 
 Scope of the API key. 0-256 characters long. ||
+|| scopes[] | **string**
+
+Scopes of the API key. 0-256 characters long. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp.

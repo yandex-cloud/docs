@@ -59,8 +59,8 @@ To register an order:
    1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Create cloud**. You will be redirected to the customer's billing account page in {{ billing-name }}.
    1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
    1. Enter a name for the cloud.
-   1. In the **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For subaccount 'Customer_name'`.
-   1. Click **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.
+   1. In the **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For subaccount 'Customer_name'`.
+   1. Click **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
       You can also [link](../operations/pin-cloud.md) an existing cloud to the customer's subaccount.
 

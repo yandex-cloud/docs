@@ -75,12 +75,7 @@ Required field.  ||
         "haAutomaticFailoverEnabled": "boolean",
         "blockAccessTokenEnabled": "boolean",
         "useDatanodeHostname": "boolean",
-        "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
-        },
+        "namenodes": "object",
         "nameservices": "string"
       },
       "yarn": {
@@ -88,14 +83,7 @@ Required field.  ||
         "resourcemanagerHaAutoFailoverEnabled": "boolean",
         "resourcemanagerHaAutoFailoverEmbedded": "boolean",
         "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
-        }
+        "haRm": "object"
       }
     },
     "hive": {
@@ -348,7 +336,7 @@ The check of access tokens is enabled by default. ||
 || useDatanodeHostname | **boolean**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
 
 List of HDFS service logical names.
 
@@ -388,7 +376,7 @@ Determines whether the embedded ActiveStandbyElector method should be used for t
 || resourcemanagerClusterId | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**
+|| haRm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
 
 Highly available ResourceManager service. ||
 |#
@@ -522,12 +510,7 @@ Kerberos server principal. ||
         "haAutomaticFailoverEnabled": "boolean",
         "blockAccessTokenEnabled": "boolean",
         "useDatanodeHostname": "boolean",
-        "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
-        },
+        "namenodes": "object",
         "nameservices": "string"
       },
       "yarn": {
@@ -535,14 +518,7 @@ Kerberos server principal. ||
         "resourcemanagerHaAutoFailoverEnabled": "boolean",
         "resourcemanagerHaAutoFailoverEmbedded": "boolean",
         "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
-        }
+        "haRm": "object"
       }
     },
     "hive": {
@@ -889,7 +865,7 @@ The check of access tokens is enabled by default. ||
 || useDatanodeHostname | **boolean**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**>)
 
 List of HDFS service logical names.
 
@@ -929,7 +905,7 @@ Determines whether the embedded ActiveStandbyElector method should be used for t
 || resourcemanagerClusterId | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**
+|| haRm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**>)
 
 Highly available ResourceManager service. ||
 |#

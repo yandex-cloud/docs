@@ -23,7 +23,7 @@ Creates a device in the specified registry.
       "certificate_data": "string"
     }
   ],
-  "topic_aliases": "string",
+  "topic_aliases": "map<string, string>",
   "password": "string"
 }
 ```
@@ -44,7 +44,7 @@ Description of the device. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
 
 Device certificate. ||
-|| topic_aliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -88,7 +88,7 @@ Public part of the device certificate. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "topic_aliases": "string",
+    "topic_aliases": "map<string, string>",
     "status": "Status",
     "monitoring_data": {
       "last_auth_ip": "string",
@@ -187,7 +187,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topic_aliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 

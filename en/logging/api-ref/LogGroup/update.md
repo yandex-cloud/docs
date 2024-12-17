@@ -28,10 +28,10 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGro
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "retentionPeriod": "string",
   "dataStream": "string"
 }
@@ -39,7 +39,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGro
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -56,7 +56,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New Description of the log group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New log group labels as `key:value` pairs. ||
 || retentionPeriod | **string** (duration)
@@ -101,7 +101,7 @@ If specified, log records will be written to this data stream ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "retentionPeriod": "string",
     "dataStream": "string"
@@ -234,7 +234,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | **enum** (Status)

@@ -19,7 +19,7 @@ Updates the specified bus.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "deletion_protection": "bool"
 }
 ```
@@ -38,7 +38,7 @@ New name of the bus. ||
 || description | **string**
 
 New description of the bus. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels of the bus. ||
 || deletion_protection | **bool**
@@ -68,7 +68,7 @@ New flag that disallow deletion of the bus. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "deletion_protection": "bool",
     "status": "Status"
   }
@@ -162,7 +162,7 @@ Name of the bus. ||
 || description | **string**
 
 Description of the bus. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || deletion_protection | **bool**

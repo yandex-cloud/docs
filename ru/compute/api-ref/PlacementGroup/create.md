@@ -20,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/placementGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
   "spreadPlacementStrategy": "object",
   "partitionPlacementStrategy": {
@@ -43,7 +43,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**
@@ -96,7 +96,7 @@ Placement strategy. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
     "spreadPlacementStrategy": "object",
     "partitionPlacementStrategy": {
@@ -230,7 +230,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**

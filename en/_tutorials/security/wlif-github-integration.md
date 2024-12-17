@@ -40,7 +40,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    1. In the **{{ ui-key.yacloud.iam.federations.field_audiences }}** field, enter the token recipient: `https://github.com/<github_user_name>`.
    1. In the **{{ ui-key.yacloud.iam.federations.field_jwks }}** field, enter the URL of the public key list: `https://token.actions.githubusercontent.com/.well-known/jwks`.
    1. In the **{{ ui-key.yacloud.iam.federations.field_name }}** field, enter a name for the federation, e.g., `test-iam-federation`.
-   1. Click **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.
+   1. Click **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
 {% endlist %}
 

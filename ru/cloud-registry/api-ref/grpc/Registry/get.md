@@ -41,8 +41,8 @@ To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref
   "type": "Type",
   "status": "Status",
   "description": "string",
-  "labels": "string",
-  "properties": "string",
+  "labels": "map<string, string>",
+  "properties": "map<string, string>",
   "created_at": "google.protobuf.Timestamp",
   "modified_at": "google.protobuf.Timestamp"
 }
@@ -86,10 +86,10 @@ Output only. Status of the registry.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

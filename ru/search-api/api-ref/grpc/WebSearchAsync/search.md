@@ -17,7 +17,8 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
     "search_type": "SearchType",
     "query_text": "string",
     "family_mode": "FamilyMode",
-    "page": "int64"
+    "page": "int64",
+    "fix_typo_mode": "FixTypoMode"
   },
   "sort_spec": {
     "sort_mode": "SortMode",
@@ -31,7 +32,9 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearchAsync/search.md
   "max_passages": "int64",
   "region": "string",
   "l10n": "Localization",
-  "folder_id": "string"
+  "folder_id": "string",
+  "response_format": "Format",
+  "user_agent": "string"
 }
 ```
 
@@ -66,6 +69,16 @@ The notification language for a search response.
 || folder_id | **string**
 
 ID of the folder. ||
+|| response_format | enum **Format**
+
+Search results format.
+
+- `FORMAT_UNSPECIFIED`
+- `FORMAT_XML`: XML format (default value)
+- `FORMAT_HTML`: HTML format ||
+|| user_agent | **string**
+
+User-Agent request header value. ||
 |#
 
 ## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
@@ -96,6 +109,13 @@ and those with profanity are excluded from search results. ||
 || page | **int64**
 
 The number of a requested page with search results ||
+|| fix_typo_mode | enum **FixTypoMode**
+
+Typos autocorrections mode
+
+- `FIX_TYPO_MODE_UNSPECIFIED`
+- `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
+- `FIX_TYPO_MODE_OFF`: Autocorrection is off. ||
 |#
 
 ## SortSpec {#yandex.cloud.searchapi.v2.SortSpec}
@@ -114,8 +134,8 @@ Documents sorting mode.
 Documents sorting order.
 
 - `SORT_ORDER_UNSPECIFIED`
-- `SORT_ORDER_ASC`: Direct order from most recent to oldest (default)..
-- `SORT_ORDER_DESC`: Reverse order from oldest to most recent. ||
+- `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
+- `SORT_ORDER_DESC`: Direct order from most recent to oldest (default). ||
 |#
 
 ## GroupSpec {#yandex.cloud.searchapi.v2.GroupSpec}
@@ -218,5 +238,5 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || raw_data | **bytes**
 
-Required field. Search results, usually in XML format. ||
+Required field. Search results, either in XML or HTML format depending on the request settings. ||
 |#

@@ -78,9 +78,20 @@ Required field. ID of the destination folder. ||
       "storageSizeLimit": "string"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
+      // Includes only one of the fields `fixedScale`, `autoScale`
       "fixedScale": {
         "size": "string"
+      },
+      "autoScale": {
+        "minSize": "string",
+        "maxSize": "string",
+        // Includes only one of the fields `targetTracking`
+        "targetTracking": {
+          // Includes only one of the fields `cpuUtilizationPercent`
+          "cpuUtilizationPercent": "string"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -107,9 +118,20 @@ Required field. ID of the destination folder. ||
         "storageSizeLimit": "string"
       },
       "scalePolicy": {
-        // Includes only one of the fields `fixedScale`
+        // Includes only one of the fields `fixedScale`, `autoScale`
         "fixedScale": {
           "size": "string"
+        },
+        "autoScale": {
+          "minSize": "string",
+          "maxSize": "string",
+          // Includes only one of the fields `targetTracking`
+          "targetTracking": {
+            // Includes only one of the fields `cpuUtilizationPercent`
+            "cpuUtilizationPercent": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -129,7 +151,7 @@ Required field. ID of the destination folder. ||
     // end of the list of possible fields
     "assignPublicIps": "boolean",
     "locationId": "string",
-    "labels": "string",
+    "labels": "object",
     "backupConfig": {
       "backupSettings": [
         {
@@ -413,7 +435,7 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
 || assignPublicIps | **boolean** ||
 || locationId | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || documentApiEndpoint | **string** ||
 || kinesisApiEndpoint | **string** ||
@@ -446,7 +468,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -454,6 +479,39 @@ Includes only one of the fields `fixedScale`. ||
 #|
 ||Field | Description ||
 || size | **string** (int64) ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+
+Includes only one of the fields `targetTracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpuUtilizationPercent | **string** (int64)
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}

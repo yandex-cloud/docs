@@ -34,7 +34,7 @@ Required field. ID of the community. ||
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "created_by_id": "string",
   "organization_id": "string",
   "zone_id": "string"
@@ -55,7 +55,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || created_by_id | **string**

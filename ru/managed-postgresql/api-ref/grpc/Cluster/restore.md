@@ -20,7 +20,7 @@ Creates a new PostgreSQL cluster using the specified backup.
   "time_inclusive": "bool",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "environment": "Environment",
   "config_spec": {
     "version": "string",
@@ -138,7 +138,7 @@ Required field. Name of the new PostgreSQL cluster. The name must be unique with
 || description | **string**
 
 Description of the new PostgreSQL cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary". ||
@@ -571,7 +571,7 @@ Includes only one of the fields `postgresql_config_9_6`, `postgresql_config_10_1
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -750,7 +750,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the PostgreSQL cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the PostgreSQL cluster as `` key:value `` pairs.
 Maximum 64 per resource. ||

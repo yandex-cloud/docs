@@ -51,7 +51,7 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
         "string"
       ]
     },
-    "environment": "string",
+    "environment": "map<string, string>",
     "working_dir": "string"
   },
   "resources": {
@@ -219,7 +219,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || working_dir | **string**

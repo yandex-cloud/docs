@@ -35,7 +35,7 @@ Currently page_size, page_token, filter and order_by are not supported and List 
     {
       "id": "string",
       "folder_id": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "name": "string",
       "description": "string",
       "advanced_rate_limiter_rules": [
@@ -287,7 +287,7 @@ ID of the ARL profile. ||
 || folder_id | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

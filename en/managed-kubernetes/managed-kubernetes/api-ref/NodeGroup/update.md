@@ -27,13 +27,13 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "nodeTemplate": {
     "name": "string",
-    "labels": "string",
+    "labels": "object",
     "platformId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -45,7 +45,7 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
       "diskTypeId": "string",
       "diskSize": "string"
     },
-    "metadata": "string",
+    "metadata": "object",
     "v4AddressSpec": {
       "oneToOneNatSpec": {
         "ipVersion": "string"
@@ -189,13 +189,13 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
       "effect": "string"
     }
   ],
-  "nodeLabels": "string"
+  "nodeLabels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -212,7 +212,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the node group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -243,7 +243,7 @@ Support for unsafe sysctl parameters. For more details see [documentation](https
 || nodeTaints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
 Taints that are applied to the nodes of the node group at creation time. ||
-|| nodeLabels | **string**
+|| nodeLabels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
 |#
@@ -262,7 +262,7 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
 It may also contain another placeholders, see metadata doc for full list. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 these labels will be assigned to compute nodes (instances), created by the nodegroup ||
 || platformId | **string**
@@ -274,7 +274,7 @@ Computing resources of the node such as the amount of memory and number of cores
 || bootDiskSpec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)**
 
 Specification for the boot disk that will be attached to the node. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
@@ -725,11 +725,11 @@ onto the node entirely. Enforced by the scheduler.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "nodeTemplate": {
       "name": "string",
-      "labels": "string",
+      "labels": "object",
       "platformId": "string",
       "resourcesSpec": {
         "memory": "string",
@@ -741,7 +741,7 @@ onto the node entirely. Enforced by the scheduler.
         "diskTypeId": "string",
         "diskSize": "string"
       },
-      "metadata": "string",
+      "metadata": "object",
       "v4AddressSpec": {
         "oneToOneNatSpec": {
           "ipVersion": "string"
@@ -887,7 +887,7 @@ onto the node entirely. Enforced by the scheduler.
         "effect": "string"
       }
     ],
-    "nodeLabels": "string"
+    "nodeLabels": "object"
   }
   // end of the list of possible fields
 }
@@ -1015,7 +1015,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the node group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
@@ -1061,7 +1061,7 @@ Support for unsafe sysctl parameters. For more details see [documentation](https
 || nodeTaints[] | **[Taint](#yandex.cloud.k8s.v1.Taint2)**
 
 Taints that are applied to the nodes of the node group at creation time. ||
-|| nodeLabels | **string**
+|| nodeLabels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
 |#
@@ -1080,7 +1080,7 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
 It may also contain another placeholders, see metadata doc for full list. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 these labels will be assigned to compute nodes (instances), created by the nodegroup ||
 || platformId | **string**
@@ -1092,7 +1092,7 @@ Computing resources of the node such as the amount of memory and number of cores
 || bootDiskSpec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec2)**
 
 Specification for the boot disk that will be attached to the node. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 

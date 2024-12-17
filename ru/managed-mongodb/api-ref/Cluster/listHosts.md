@@ -71,7 +71,7 @@ Page token. To get the next page of results, set `pageToken` to the
         "hidden": "boolean",
         "secondaryDelaySecs": "string",
         "priority": "string",
-        "tags": "string"
+        "tags": "object"
       }
     }
   ],
@@ -200,5 +200,5 @@ Aggregated health of the service. If the field has default value, it is not retu
 || hidden | **boolean** ||
 || secondaryDelaySecs | **string** (int64) ||
 || priority | **string** ||
-|| tags | **string** ||
+|| tags | **object** (map<**string**, **string**>) ||
 |#

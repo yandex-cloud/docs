@@ -18,7 +18,7 @@ Creates a log group in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "retention_period": "google.protobuf.Duration",
   "data_stream": "string"
 }
@@ -38,7 +38,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the log group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels as `key:value` pairs. ||
 || retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
@@ -75,7 +75,7 @@ If specified, all log records will be written to this data stream ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "retention_period": "google.protobuf.Duration",
     "data_stream": "string"
@@ -170,7 +170,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | enum **Status**

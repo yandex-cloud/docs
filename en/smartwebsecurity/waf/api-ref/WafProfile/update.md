@@ -26,10 +26,10 @@ Required field. ID of the WAF profile to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "rules": [
     {
       "ruleId": "string",
@@ -164,7 +164,7 @@ Required field. ID of the WAF profile to update. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -180,7 +180,7 @@ Name of the WAF profile. The name is unique within the folder. 1-50 characters l
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || rules[] | **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
@@ -487,7 +487,7 @@ Action to perform if maximum size of body exceeded.
     "cloudId": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "createdAt": "string",
     "rules": [
       {
@@ -737,7 +737,7 @@ Required field. Name of the WAF profile. The name is unique within the folder. 1
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || createdAt | **string** (date-time)

@@ -18,7 +18,7 @@ Creates a placement group in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "zone_id": "string",
   // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
   "spread_placement_strategy": "DiskSpreadPlacementStrategy",
@@ -41,7 +41,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zone_id | **string**
@@ -99,7 +99,7 @@ Placement strategy. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "zone_id": "string",
     "status": "Status",
     // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
@@ -197,7 +197,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zone_id | **string**

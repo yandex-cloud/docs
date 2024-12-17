@@ -50,8 +50,8 @@ Page token. To get the next page of results, set `pageToken` to the
       "type": "string",
       "status": "string",
       "description": "string",
-      "labels": "string",
-      "properties": "string",
+      "labels": "object",
+      "properties": "object",
       "createdAt": "string",
       "modifiedAt": "string"
     }
@@ -115,10 +115,10 @@ Output only. Status of the registry.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
 || createdAt | **string** (date-time)

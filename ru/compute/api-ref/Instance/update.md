@@ -27,10 +27,10 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "platformId": "string",
   "resourcesSpec": {
     "memory": "string",
@@ -38,7 +38,7 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
     "coreFraction": "string",
     "gpus": "string"
   },
-  "metadata": "string",
+  "metadata": "object",
   "metadataOptions": {
     "gceHttpEndpoint": "string",
     "awsV1HttpEndpoint": "string",
@@ -75,7 +75,7 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -91,7 +91,7 @@ Name of the instance. ||
 || description | **string**
 
 Description of the instance. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -108,7 +108,7 @@ For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
 
 Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
 The total size of all keys and values must be less than 512 KB.
@@ -308,7 +308,7 @@ Authentication and authorization in serial console when using SSH protocol
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "platformId": "string",
     "resources": {
@@ -318,7 +318,7 @@ Authentication and authorization in serial console when using SSH protocol
       "gpus": "string"
     },
     "status": "string",
-    "metadata": "string",
+    "metadata": "object",
     "metadataOptions": {
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
@@ -573,7 +573,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zoneId | **string**
@@ -600,7 +600,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 

@@ -15,7 +15,8 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/list.md
 {
   "folder_id": "string",
   "page_size": "int64",
-  "page_token": "string"
+  "page_token": "string",
+  "status": "Status"
 }
 ```
 
@@ -30,6 +31,15 @@ Maximum number of tuning tasks to return per page. ||
 || page_token | **string**
 
 Token to retrieve the next page of results. ||
+|| status | enum **Status**
+
+- `STATUS_UNSPECIFIED`
+- `CREATED`
+- `PENDING`
+- `IN_PROGRESS`
+- `COMPLETED`
+- `FAILED`
+- `CANCELED` ||
 |#
 
 ## ListTuningsResponse {#yandex.cloud.ai.tuning.v1.ListTuningsResponse}
@@ -77,7 +87,8 @@ Token to retrieve the next page of results. ||
 - `PENDING`
 - `IN_PROGRESS`
 - `COMPLETED`
-- `FAILED` ||
+- `FAILED`
+- `CANCELED` ||
 || folder_id | **string** ||
 || created_by | **string** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||

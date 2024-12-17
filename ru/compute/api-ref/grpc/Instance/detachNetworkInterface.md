@@ -56,7 +56,7 @@ Required field. The index of the network interface. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "zone_id": "string",
     "platform_id": "string",
     "resources": {
@@ -66,7 +66,7 @@ Required field. The index of the network interface. ||
       "gpus": "int64"
     },
     "status": "Status",
-    "metadata": "string",
+    "metadata": "map<string, string>",
     "metadata_options": {
       "gce_http_endpoint": "MetadataOption",
       "aws_v1_http_endpoint": "MetadataOption",
@@ -286,7 +286,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zone_id | **string**
@@ -313,7 +313,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 

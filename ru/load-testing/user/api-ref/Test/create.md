@@ -28,14 +28,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
         "anonymousAgent": "boolean"
         // end of the list of possible fields
       },
-      "files": {
-        // Includes only one of the fields `objectStorage`
-        "objectStorage": {
-          "bucket": "string",
-          "name": "string"
-        }
-        // end of the list of possible fields
-      }
+      "files": "object"
     }
   ],
   "testDetails": {
@@ -90,7 +83,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 
@@ -259,14 +252,7 @@ Example:
           "anonymousAgent": "boolean"
           // end of the list of possible fields
         },
-        "files": {
-          // Includes only one of the fields `objectStorage`
-          "objectStorage": {
-            "bucket": "string",
-            "name": "string"
-          }
-          // end of the list of possible fields
-        }
+        "files": "object"
       }
     ],
     "details": {
@@ -457,7 +443,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector2)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer2)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer2)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 

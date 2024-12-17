@@ -56,7 +56,7 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "url": "string",
     "status": "Status"
   }
@@ -150,7 +150,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**

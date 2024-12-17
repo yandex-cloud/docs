@@ -18,6 +18,9 @@ Creates an API key for the specified service account.
   "service_account_id": "string",
   "description": "string",
   "scope": "string",
+  "scopes": [
+    "string"
+  ],
   "expires_at": "google.protobuf.Timestamp"
 }
 ```
@@ -35,6 +38,9 @@ Description of the API key. ||
 || scope | **string**
 
 Scope of the API key. ||
+|| scopes[] | **string**
+
+Scopes of the API key. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp, if not specified, then the API key doesn't expire ||
@@ -51,6 +57,9 @@ API key expiration timestamp, if not specified, then the API key doesn't expire 
     "description": "string",
     "last_used_at": "google.protobuf.Timestamp",
     "scope": "string",
+    "scopes": [
+      "string"
+    ],
     "expires_at": "google.protobuf.Timestamp"
   },
   "secret": "string"
@@ -91,6 +100,9 @@ Timestamp for the last authentication using this API key. ||
 || scope | **string**
 
 Scope of the API key. 0-256 characters long. ||
+|| scopes[] | **string**
+
+Scopes of the API key. 0-256 characters long. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp. ||

@@ -24,7 +24,7 @@ Request message for getting the private key of a certificate authority.
 Required field. ID of the certificate authority to get the private key for. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityPrivateKeyResponse}
 
 **HTTP Code: 200 - OK**
 

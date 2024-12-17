@@ -51,7 +51,7 @@ The default value.
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "string",
+  "topicAliases": "object",
   "status": "string",
   "monitoringData": {
     "lastAuthIp": "string",
@@ -89,7 +89,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 

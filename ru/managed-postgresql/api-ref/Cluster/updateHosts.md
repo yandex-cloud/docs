@@ -1189,7 +1189,7 @@ To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-post
         }
         // end of the list of possible fields
       },
-      "updateMask": "string",
+      "updateMask": "object",
       "assignPublicIp": "boolean"
     }
   ]
@@ -1224,7 +1224,7 @@ When a replica becomes the master, its priority is ignored. ||
 || configSpec | **[ConfigHostSpec](#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
 
 Configuration of a PostgreSQL server for the host. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

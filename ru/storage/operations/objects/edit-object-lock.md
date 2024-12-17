@@ -133,6 +133,60 @@ description: Следуя данной инструкции, вы сможете
   1. В открывшемся окне выключите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки временной блокировки версии объекта:
+
+      ```bash
+      yc storage s3api put-object-retention --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Задайте настройки временной блокировки версии объекта:
+
+      ```bash
+      yc storage s3api put-object-retention \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии> \
+        --retention "{}" \
+        --bypass-governance-retention
+      ```
+
+      {% include [object-lock-retention-remove-cli-legend](../../../_includes/storage/object-lock-retention-remove-cli-legend.md) %}
+
+      Результат:
+
+      ```bash
+      request_id: m6384f81********
+      ```
+
+  1. {% include [get-object-retention-cli-command](../../../_includes/storage/get-object-retention-cli-command.md) %}
+
+      Выполнение команды завершится ошибкой с информацией о том, что для указанного объекта не задана блокировка:
+
+      ```text
+      The specified object does not have a ObjectLock configuration.
+      ```
 
 - AWS CLI {#aws-cli}
 

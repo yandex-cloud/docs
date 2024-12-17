@@ -20,7 +20,7 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   "organizationId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -36,7 +36,7 @@ Required field. Name of the cloud. ||
 || description | **string**
 
 Description of the cloud. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -70,7 +70,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "organizationId": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -199,7 +199,7 @@ Description of the cloud. 0-256 characters long. ||
 || organizationId | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

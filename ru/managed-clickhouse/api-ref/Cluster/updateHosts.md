@@ -30,7 +30,7 @@ To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clic
   "updateHostSpecs": [
     {
       "hostName": "string",
-      "updateMask": "string",
+      "updateMask": "object",
       "assignPublicIp": "boolean"
     }
   ]
@@ -52,7 +52,7 @@ New configurations to apply to hosts. ||
 
 Required field. Name of the host to update.
 To get the ClickHouse host name, use a [ClusterService.ListHosts](/docs/managed-clickhouse/api-ref/Cluster/listHosts#ListHosts) request. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

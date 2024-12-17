@@ -68,7 +68,7 @@ Required field. ID of the destination folder. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -1146,7 +1146,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the ClickHouse cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)

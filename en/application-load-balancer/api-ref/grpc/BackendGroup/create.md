@@ -18,7 +18,7 @@ Creates a backend group in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `http`, `grpc`, `stream`
   "http": {
     "backends": [
@@ -307,7 +307,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the backend group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -1015,7 +1015,7 @@ keep connections to the failed host. ||
     "name": "string",
     "description": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
@@ -1376,7 +1376,7 @@ Description of the backend group. The string is 0-256 characters long. ||
 || folder_id | **string**
 
 ID of the folder that the backend group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).

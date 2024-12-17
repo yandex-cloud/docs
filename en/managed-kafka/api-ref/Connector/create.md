@@ -31,7 +31,7 @@ To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster
   "connectorSpec": {
     "name": "string",
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
     "connectorConfigMirrormaker": {
       "sourceCluster": {
@@ -107,7 +107,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||
@@ -270,7 +270,7 @@ Default is 'us-east-1'. ||
   "response": {
     "name": "string",
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     "health": "string",
     "status": "string",
     "clusterId": "string",
@@ -432,7 +432,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

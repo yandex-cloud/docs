@@ -56,7 +56,7 @@ To get the privateConnection ID use a [PrivateConnectionService.List](/docs/cic/
       ]
     }
   ],
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -95,7 +95,7 @@ IPv4 peering config of connection ||
 || ipv4_static_routes[] | **[StaticRoute](#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
 
 IPv4 StaticRoute config of connection ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -145,5 +145,6 @@ It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
 || next_hop[] | **string**
 
 PeerIp.
-It's an ip with just an ipAddress format without mask. ||
+It's an ip with just an ipAddress format without mask.
+Will be removed in some next release ||
 |#

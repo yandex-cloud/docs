@@ -19,7 +19,7 @@ Updates the specified rule.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "filter": {
     // Includes only one of the fields `jq_filter`
     "jq_filter": "string"
@@ -121,7 +121,7 @@ New name of the rule. ||
 || description | **string**
 
 New description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels for the rule. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
@@ -388,7 +388,7 @@ Required field. Service account which has write permission on the queue. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "filter": {
       // Includes only one of the fields `jq_filter`
       "jq_filter": "string"
@@ -568,7 +568,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter2)**

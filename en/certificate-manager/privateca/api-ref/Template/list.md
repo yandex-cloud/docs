@@ -13,7 +13,7 @@ Lists all certificate templates in a specified folder.
 GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
 ```
 
-## Query parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateRequest}
+## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateRequest}
 
 Request message to list templates in a folder.
 
@@ -31,7 +31,7 @@ Token to retrieve specific pages of results.
 If this is set, the service will return the next page of results based on this token. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateResponse}
 
 **HTTP Code: 200 - OK**
 
@@ -55,7 +55,7 @@ Response containing the list of templates.
 
 #|
 ||Field | Description ||
-|| templates[] | **[Template](#yandex.cloud.priv.certificatemanager.v1.privateca.Template)**
+|| templates[] | **[Template](#yandex.cloud.certificatemanager.v1.privateca.Template)**
 
 List of certificate templates in the specified folder. ||
 || nextPageToken | **string**
@@ -65,7 +65,7 @@ If the number of results exceeds `page_size`, this token will be returned and ca
 the `ListTemplateRequest` for the next page. ||
 |#
 
-## Template {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 Json or yaml template for easier certificate issuing. If used while certificate creation, certificate would take all fields from template.
 

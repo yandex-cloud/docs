@@ -65,7 +65,7 @@ Page token. To get the next page of results, set `page_token` to the
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -93,7 +93,7 @@ This value is interchangeable with `next_record_token` from StreamLogs method. |
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

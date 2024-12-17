@@ -24,7 +24,7 @@ Request message to retrieve details of a template.
 Required field. ID of the template to retrieve. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 **HTTP Code: 200 - OK**
 

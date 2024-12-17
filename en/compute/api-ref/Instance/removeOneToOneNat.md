@@ -70,7 +70,7 @@ The network address that is assigned to the instance for this network interface.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "platformId": "string",
     "resources": {
@@ -80,7 +80,7 @@ The network address that is assigned to the instance for this network interface.
       "gpus": "string"
     },
     "status": "string",
-    "metadata": "string",
+    "metadata": "object",
     "metadataOptions": {
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
@@ -335,7 +335,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zoneId | **string**
@@ -362,7 +362,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 

@@ -90,7 +90,7 @@ Type of the service to request logs about.
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -121,7 +121,7 @@ A single log record.
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log record timestamp. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

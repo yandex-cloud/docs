@@ -27,10 +27,10 @@ To get the ID of a certificate use a [CertificateService.List](/docs/certificate
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "certificate": "string",
   "chain": "string",
   "privateKey": "string",
@@ -40,7 +40,7 @@ To get the ID of a certificate use a [CertificateService.List](/docs/certificate
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -56,7 +56,7 @@ New name for the certificate. ||
 || description | **string**
 
 New description for the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels for the certificate as `key:value` pairs. ||
 || certificate | **string**
@@ -102,7 +102,7 @@ Flag that protects deletion of the certificate ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "type": "string",
     "domains": [
       "string"
@@ -268,7 +268,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | **enum** (CertificateType)

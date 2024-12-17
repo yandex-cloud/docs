@@ -33,14 +33,14 @@ To get a format schema name, use the [FormatSchemaService.List](/docs/managed-cl
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "uri": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

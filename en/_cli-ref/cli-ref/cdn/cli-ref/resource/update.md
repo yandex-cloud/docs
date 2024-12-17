@@ -18,6 +18,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Specifies the resource ID.|
 |`--origin-group-id`|<b>`int`</b><br/>Origin group id|
+|`--add-labels`|<b>`key=value[,key=value...]`</b><br/>Resource labels to be added or updated|
+|`--remove-labels`|<b>`value[,value]`</b><br/>Resource labels to be removed|
+|`--remove-all-labels`|Remove all labels from the resource|
 |`--secondary-hostnames`|<b>`value[,value]`</b><br/>List of secondary hostnames.<br/>Mutually exclusive with --clear-secondary-hostnames|
 |`--clear-secondary-hostnames`|Clear secondary hostnames.<br/>Mutually exclusive with --secondary-hostnames|
 |`--origin-protocol`|<b>`string`</b><br/>Origin protocol. Valid values: HTTP, HTTPS, MATCH. Values: 'http', 'https', 'match'|

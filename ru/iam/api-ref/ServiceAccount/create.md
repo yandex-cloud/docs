@@ -20,7 +20,7 @@ POST https://iam.{{ api-host }}/iam/v1/serviceAccounts
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -37,7 +37,7 @@ The name must be unique within the cloud. ||
 || description | **string**
 
 Description of the service account. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -71,7 +71,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "lastAuthenticatedAt": "string"
   }
   // end of the list of possible fields
@@ -202,7 +202,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || lastAuthenticatedAt | **string** (date-time)

@@ -12,10 +12,11 @@ def local_path(path: str) -> pathlib.Path:
     return pathlib.Path(__file__).parent / path
 
 
-async def main() -> None:
+async def main():
 
     sdk = AsyncYCloudML(
-        folder_id="<идентификатор_каталога>", auth="<API-ключ>"
+        folder_id="<идентификатор_каталога>",
+        auth="<API-ключ>",
     )
 
     # Создаем датасет для дообучения базовой модели {{ gpt-lite }}
@@ -29,10 +30,10 @@ async def main() -> None:
     # Дождемся окончания загрузки данных и создания датасета
     operation = await dataset_draft.upload()
     dataset = await operation
-    print(f'new {dataset=}')
+    print(f"new {dataset=}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
 ```
 
@@ -40,4 +41,6 @@ if __name__ == '__main__':
 
 * `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md).
 * `<API-ключ>` — [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта, полученный ранее и необходимый для [аутентификации в API](../../../foundation-models/api-ref/authentication.md).
+
+    {% include [sdk-auth-details-paragraph](../sdk-auth-details-paragraph.md) %}
 * `<путь_к_файлу>` — путь к файлу, содержащему заранее подготовленные примеры для дообучения модели.

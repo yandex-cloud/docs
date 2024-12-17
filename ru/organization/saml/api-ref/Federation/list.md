@@ -65,7 +65,7 @@ The expression must specify:
         "forceAuthn": "boolean"
       },
       "caseInsensitiveNameIds": "boolean",
-      "labels": "string"
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -154,7 +154,7 @@ Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -24,7 +24,7 @@ Updates the specified parameters for the host.
       "priority": "google.protobuf.DoubleValue",
       "assign_public_ip": "bool",
       "update_mask": "google.protobuf.FieldMask",
-      "tags": "string"
+      "tags": "map<string, string>"
     }
   ]
 }
@@ -67,7 +67,7 @@ Determines whether the host should get a public IP address after the update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the MongoDB host should be updated. ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags). ||
 |#

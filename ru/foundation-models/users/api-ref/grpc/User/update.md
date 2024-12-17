@@ -23,7 +23,7 @@ Update an existing user.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -46,7 +46,7 @@ New description for the user. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 New expiration configuration for the user. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of labels for the user. ||
 |#
@@ -81,7 +81,7 @@ New set of labels for the user. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -118,7 +118,7 @@ Configuration for the expiration of the user, defining when and how the user wil
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the user will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the user. ||
 |#

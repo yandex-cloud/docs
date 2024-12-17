@@ -19,7 +19,7 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries
 {
   "folderId": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "object",
   "secure": "boolean"
 }
 ```
@@ -36,7 +36,7 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || secure | **boolean**
@@ -73,7 +73,7 @@ If true, registry will be created with pre-setup scanning policy (on push and on
     "name": "string",
     "status": "string",
     "createdAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -207,7 +207,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

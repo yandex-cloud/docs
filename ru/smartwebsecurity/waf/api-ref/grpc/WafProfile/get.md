@@ -35,7 +35,7 @@ Required field. ID of the WafProfile resource to return. ||
   "cloud_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "created_at": "google.protobuf.Timestamp",
   "rules": [
     {
@@ -186,7 +186,7 @@ Required field. Name of the WAF profile. The name is unique within the folder. 1
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

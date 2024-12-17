@@ -39,7 +39,7 @@ Required field. ID of the Workflow. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -91,7 +91,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || status | **enum** (Status)

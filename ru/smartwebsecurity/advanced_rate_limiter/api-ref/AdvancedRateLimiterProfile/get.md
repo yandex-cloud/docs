@@ -30,7 +30,7 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
 {
   "id": "string",
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "name": "string",
   "description": "string",
   "advancedRateLimiterRules": [
@@ -270,7 +270,7 @@ ID of the ARL profile. ||
 || folderId | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

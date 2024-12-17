@@ -100,7 +100,7 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "targets": [
       {
         // Includes only one of the fields `ipAddress`
@@ -230,7 +230,7 @@ Description of the target group. ||
 || folderId | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

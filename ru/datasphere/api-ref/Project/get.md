@@ -33,7 +33,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "createdById": "string",
   "settings": {
     "serviceAccountId": "string",
@@ -78,7 +78,7 @@ Name of the project. 1-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || createdById | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 

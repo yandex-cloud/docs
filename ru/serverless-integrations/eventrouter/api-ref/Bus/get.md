@@ -35,7 +35,7 @@ Required field. ID of the bus to get. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "deletionProtection": "boolean",
   "status": "string"
 }
@@ -68,7 +68,7 @@ Name of the bus. ||
 || description | **string**
 
 Description of the bus. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || deletionProtection | **boolean**

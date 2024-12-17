@@ -18,7 +18,7 @@ Creates a sink in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "service_account_id": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -46,7 +46,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the sink. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels as `key:value` pairs. ||
 || service_account_id | **string**
@@ -111,7 +111,7 @@ Prefix to use for saved log object names ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "service_account_id": "string",
     // Includes only one of the fields `yds`, `s3`
     "yds": {
@@ -213,7 +213,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || service_account_id | **string**

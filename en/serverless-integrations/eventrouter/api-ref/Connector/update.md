@@ -26,17 +26,17 @@ Required field. ID of the connector to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "deletionProtection": "boolean"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -52,7 +52,7 @@ New name of the connector. ||
 || description | **string**
 
 New description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels of the connector. ||
 || deletionProtection | **boolean**
@@ -91,7 +91,7 @@ New flag that disallow deletion of the connector. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "source": {
       // Includes only one of the fields `dataStream`, `messageQueue`, `timer`
       "dataStream": {
@@ -248,7 +248,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**

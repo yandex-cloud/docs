@@ -37,6 +37,8 @@ Syntax:
 |`--disk-type`|<b>`string`</b><br/>Storage type of a Kafka host.|
 |`--zookeeper-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ZooKeeper host (CPU, RAM etc.).|
 |`--zookeeper-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a ZooKeeper host in GB.|
+|`--controller-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a KRaft-controller host (CPU, RAM etc.).|
+|`--controller-disk-size`|<b>`byteSize`</b><br/>Storage volume available to a KRaft-controller host in GB.|
 |`--assign-public-ip`|Whether a Kafka brokers should get a public IP address.|
 |`--schema-registry`|Enables managed Schema Registry sevice.|
 |`--compression-type`|<b>`string`</b><br/>Allows to set Kafka cluster configuration property "compression.type". Possible values are: gzip, snappy, lz4, zstd, producer, uncompressed.|

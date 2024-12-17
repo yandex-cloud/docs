@@ -37,7 +37,7 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "monitoring": [
     {
       "name": "string",
@@ -51,7 +51,7 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
       "services": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "sshPublicKeys": [
         "string"
       ],
@@ -110,7 +110,7 @@ Name of the cluster. The name is unique within the folder. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Cluster labels as `key:value` pairs. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
@@ -227,7 +227,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.

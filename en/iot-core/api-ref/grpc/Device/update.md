@@ -19,7 +19,7 @@ Updates the specified device.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "topic_aliases": "string"
+  "topic_aliases": "map<string, string>"
 }
 ```
 
@@ -39,7 +39,7 @@ Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
-|| topic_aliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -67,7 +67,7 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "topic_aliases": "string",
+    "topic_aliases": "map<string, string>",
     "status": "Status",
     "monitoring_data": {
       "last_auth_ip": "string",
@@ -166,7 +166,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topic_aliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 

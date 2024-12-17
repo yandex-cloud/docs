@@ -19,7 +19,7 @@ Updates the specified network load balancer.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "listener_specs": [
     {
       "name": "string",
@@ -82,7 +82,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the network load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs.
 
@@ -277,7 +277,7 @@ For example `` /ping ``. The default path is `` / ``. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "region_id": "string",
     "status": "Status",
     "type": "Type",
@@ -407,7 +407,7 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || region_id | **string**

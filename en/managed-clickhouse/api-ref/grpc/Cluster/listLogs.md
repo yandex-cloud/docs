@@ -67,7 +67,7 @@ returned by the previous list request. ||
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -95,7 +95,7 @@ This value is interchangeable with the [StreamLogRecord.next_record_token](/docs
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

@@ -26,7 +26,7 @@ Required field. ID of the backend group to update the backend in. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   // Includes only one of the fields `http`, `grpc`, `stream`
   "http": {
     "name": "string",
@@ -262,7 +262,7 @@ Required field. ID of the backend group to update the backend in. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -794,7 +794,7 @@ keep connections to the failed host. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
@@ -1189,7 +1189,7 @@ Description of the backend group. The string is 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the backend group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).

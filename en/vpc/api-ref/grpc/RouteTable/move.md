@@ -51,7 +51,7 @@ Required field. ID of the destination folder. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "network_id": "string",
     "static_routes": [
       {
@@ -62,7 +62,7 @@ Required field. ID of the destination folder. ||
         "next_hop_address": "string",
         "gateway_id": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "map<string, string>"
       }
     ]
   }
@@ -157,7 +157,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -193,7 +193,7 @@ Includes only one of the fields `next_hop_address`, `gateway_id`. ||
 Next hop gateway id
 
 Includes only one of the fields `next_hop_address`, `gateway_id`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -45,7 +45,7 @@ Page token. To get the next page of results, set `pageToken` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "encryptionAlgorithm": "string",
       "deletionProtection": "boolean"
@@ -97,7 +97,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)

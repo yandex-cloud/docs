@@ -14,7 +14,7 @@ This endpoint creates a new CA with given properties and cryptographic settings.
 POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:generate
 ```
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCertificateAuthorityRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.GenerateCertificateAuthorityRequest}
 
 ```json
 {
@@ -75,7 +75,7 @@ Required field. The name of the Certificate Authority. ||
 || description | **string**
 
 An optional description of the Certificate Authority. ||
-|| subjectSpec | **[Subject](#yandex.cloud.priv.certificatemanager.v1.privateca.Subject)**
+|| subjectSpec | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Required field. The subject (e.g., common name, organization, etc.) for the CA. ||
 || algorithm | **enum** (Algorithm)
@@ -158,21 +158,21 @@ Enable Online Certificate Status Protocol (OCSP) support. ||
 Protect the CA from accidental deletion. Deny deletion of ca if set ||
 |#
 
-## Subject {#yandex.cloud.priv.certificatemanager.v1.privateca.Subject}
+## Subject {#yandex.cloud.certificatemanager.v1.privateca.Subject}
 
 Subject field of certificate https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6
 
 #|
 ||Field | Description ||
-|| baseRdn | **[BaseRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN)**
+|| baseRdn | **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
 
 Required field. Most used field of subject ||
-|| additionalRdn | **[AdditionalRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN)**
+|| additionalRdn | **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
 
 Additional fields of subject ||
 |#
 
-## BaseRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN}
+## BaseRDN {#yandex.cloud.certificatemanager.v1.privateca.BaseRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -201,7 +201,7 @@ Common name. For tls certificates it is domain usually. ||
 Email address of certificate owner ||
 |#
 
-## AdditionalRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN}
+## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -310,7 +310,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[GenerateCertificateAuthorityMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCertificateAuthorityMetadata)**
+|| metadata | **[GenerateCertificateAuthorityMetadata](#yandex.cloud.certificatemanager.v1.privateca.GenerateCertificateAuthorityMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -325,7 +325,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[CertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority)**
+|| response | **[CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -342,7 +342,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## GenerateCertificateAuthorityMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCertificateAuthorityMetadata}
+## GenerateCertificateAuthorityMetadata {#yandex.cloud.certificatemanager.v1.privateca.GenerateCertificateAuthorityMetadata}
 
 Metadata for the GenerateCertificateAuthority operation.
 
@@ -370,7 +370,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## CertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 A certificate authority (CA) used to sign certificates.
 

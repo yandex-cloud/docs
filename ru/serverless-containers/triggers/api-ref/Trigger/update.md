@@ -28,10 +28,10 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "rule": {
     // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
     "timer": {
@@ -495,7 +495,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -512,7 +512,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the trigger. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs.
 
@@ -1184,7 +1184,7 @@ Required field. SA which has write permission on storage. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "rule": {
       // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
       "timer": {
@@ -1772,7 +1772,7 @@ Name of the trigger. ||
 || description | **string**
 
 Description of the trigger. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||
 || rule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule2)**

@@ -13,6 +13,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [Classifiers](Classifiers/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Project](Project/index.md) |  ||
 || [Talk](Talk/index.md) |  ||

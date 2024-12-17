@@ -36,7 +36,7 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "regionId": "string",
   "status": "string",
   "type": "string",
@@ -105,7 +105,7 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

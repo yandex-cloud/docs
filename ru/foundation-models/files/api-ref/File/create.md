@@ -22,7 +22,7 @@ POST https://rest-assistant.{{ api-host }}/files/v1/files
   "description": "string",
   "mimeType": "string",
   "content": "string",
-  "labels": "string",
+  "labels": "object",
   "expirationConfig": {
     "expirationPolicy": "string",
     "ttlDays": "string"
@@ -50,7 +50,7 @@ If not specified, will be deduced automatically based on the file content. ||
 || content | **string** (bytes)
 
 Required field. Binary content of the file. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the file. ||
 || expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
@@ -90,7 +90,7 @@ Expiration configuration for the file. ||
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -150,7 +150,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the file. ||
 |#

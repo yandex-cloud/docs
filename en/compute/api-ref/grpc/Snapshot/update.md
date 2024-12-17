@@ -21,7 +21,7 @@ Values of omitted parameters are not changed.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -40,7 +40,7 @@ Name of the snapshot. ||
 || description | **string**
 
 Description of the snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -68,7 +68,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "storage_size": "int64",
     "disk_size": "int64",
     "product_ids": [
@@ -176,7 +176,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storage_size | **int64**

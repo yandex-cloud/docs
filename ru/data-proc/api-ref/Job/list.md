@@ -77,7 +77,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         // Includes only one of the fields `mainJarFileUri`, `mainClass`
         "mainJarFileUri": "string",
         "mainClass": "string"
@@ -96,7 +96,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "mainJarFileUri": "string",
         "mainClass": "string",
         "packages": [
@@ -122,7 +122,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "mainPythonFileUri": "string",
         "pythonFileUris": [
           "string"
@@ -138,9 +138,9 @@ Example of a filter: `name=my-job`. ||
         ]
       },
       "hiveJob": {
-        "properties": "string",
+        "properties": "object",
         "continueOnFailure": "boolean",
-        "scriptVariables": "string",
+        "scriptVariables": "object",
         "jarFileUris": [
           "string"
         ],
@@ -293,7 +293,7 @@ and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
 URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values, used to configure Data Proc and MapReduce. ||
 || mainJarFileUri | **string**
@@ -325,7 +325,7 @@ and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
 URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values, used to configure Data Proc and Spark. ||
 || mainJarFileUri | **string**
@@ -362,7 +362,7 @@ and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
 URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values, used to configure Data Proc and PySpark. ||
 || mainPythonFileUri | **string**
@@ -386,13 +386,13 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Property names and values, used to configure Data Proc and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| scriptVariables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
 || jarFileUris[] | **string**

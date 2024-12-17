@@ -20,14 +20,14 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "versionId": "string",
     "hadoop": {
       "services": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "sshPublicKeys": [
         "string"
       ],
@@ -95,7 +95,7 @@ The name can't be changed after the Data Proc cluster is created. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Cluster labels as `key:value` pairs. ||
 || configSpec | **[CreateClusterConfigSpec](#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
@@ -178,7 +178,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
@@ -340,7 +340,7 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "monitoring": [
       {
         "name": "string",
@@ -354,7 +354,7 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
         "services": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "sshPublicKeys": [
           "string"
         ],
@@ -512,7 +512,7 @@ Name of the cluster. The name is unique within the folder. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Cluster labels as `key:value` pairs. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
@@ -629,7 +629,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.

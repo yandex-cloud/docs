@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/ai/assistants/v1/searchindex/api-ref/grpc/SearchInd
 
 # Search Index, gRPC: SearchIndexService
 
-ThreadService provides operations for managing search indexes.
+SearchIndexService provides operations for managing search indexes.
 
 ## Methods
 

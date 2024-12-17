@@ -33,7 +33,7 @@ Required field. ID of the WafProfile resource to return. ||
   "cloudId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "createdAt": "string",
   "rules": [
     {
@@ -184,7 +184,7 @@ Required field. Name of the WAF profile. The name is unique within the folder. 1
 || description | **string**
 
 Optional description of the WAF profile. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || createdAt | **string** (date-time)

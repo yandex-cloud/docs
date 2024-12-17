@@ -55,7 +55,7 @@ Example of a filter: `name=my-dns-zone`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "zone": "string",
       "privateVisibility": {
         "networkIds": [
@@ -113,7 +113,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

@@ -27,17 +27,17 @@ To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "minDiskSize": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -57,7 +57,7 @@ Description of the image. ||
 
 Minimum size of the disk that can be created from this image.
 Specified in bytes. Should be more than the volume of source data and more than the virtual disk size. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -93,7 +93,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "family": "string",
     "storageSize": "string",
     "minDiskSize": "string",
@@ -243,7 +243,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**

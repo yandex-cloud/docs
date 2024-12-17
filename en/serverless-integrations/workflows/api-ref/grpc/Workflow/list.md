@@ -60,7 +60,7 @@ Example of a filter: `name=my-workflow`. ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "status": "Status",
       "log_options": {
         "disabled": "bool",
@@ -111,7 +111,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || status | enum **Status**

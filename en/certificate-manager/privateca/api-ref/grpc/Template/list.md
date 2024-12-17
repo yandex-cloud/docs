@@ -9,9 +9,9 @@ Lists all certificate templates in a specified folder.
 
 ## gRPC request
 
-**rpc List ([ListTemplateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateRequest)) returns ([ListTemplateResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateResponse))**
+**rpc List ([ListTemplateRequest](#yandex.cloud.certificatemanager.v1.privateca.ListTemplateRequest)) returns ([ListTemplateResponse](#yandex.cloud.certificatemanager.v1.privateca.ListTemplateResponse))**
 
-## ListTemplateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateRequest}
+## ListTemplateRequest {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateRequest}
 
 ```json
 {
@@ -37,7 +37,7 @@ Token to retrieve specific pages of results.
 If this is set, the service will return the next page of results based on this token. ||
 |#
 
-## ListTemplateResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.ListTemplateResponse}
+## ListTemplateResponse {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateResponse}
 
 ```json
 {
@@ -59,7 +59,7 @@ Response containing the list of templates.
 
 #|
 ||Field | Description ||
-|| templates[] | **[Template](#yandex.cloud.priv.certificatemanager.v1.privateca.Template)**
+|| templates[] | **[Template](#yandex.cloud.certificatemanager.v1.privateca.Template)**
 
 List of certificate templates in the specified folder. ||
 || next_page_token | **string**
@@ -69,7 +69,7 @@ If the number of results exceeds `page_size`, this token will be returned and ca
 the `ListTemplateRequest` for the next page. ||
 |#
 
-## Template {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 Json or yaml template for easier certificate issuing. If used while certificate creation, certificate would take all fields from template.
 

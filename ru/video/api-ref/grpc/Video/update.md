@@ -21,7 +21,7 @@ Update video.
   "description": "string",
   "thumbnail_id": "string",
   "auto_transcode": "AutoTranscode",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
   "public_access": "VideoPublicAccessParams",
   "auth_system_access": "VideoAuthSystemAccessParams",
@@ -54,7 +54,7 @@ Auto start transcoding.
 - `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
 - `ENABLE`: Enable auto transcoding.
 - `DISABLE`: Disable auto transcoding. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || public_access | **[VideoPublicAccessParams](#yandex.cloud.video.v1.VideoPublicAccessParams)**
@@ -129,7 +129,7 @@ Includes only one of the fields `public_access`, `auth_system_access`, `sign_url
     // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -283,7 +283,7 @@ Time when video was created. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last video update. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

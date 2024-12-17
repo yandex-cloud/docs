@@ -21,7 +21,7 @@ The schedule is updated only after all snapshot creations and deletions triggere
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "schedule_policy": {
     "start_at": "google.protobuf.Timestamp",
     "expression": "string"
@@ -32,7 +32,7 @@ The schedule is updated only after all snapshot creations and deletions triggere
   // end of the list of possible fields
   "snapshot_spec": {
     "description": "string",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
 }
 ```
@@ -55,7 +55,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs.
 
@@ -116,7 +116,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#
@@ -142,7 +142,7 @@ Snapshot labels as `key:value` pairs. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "schedule_policy": {
       "start_at": "google.protobuf.Timestamp",
@@ -154,7 +154,7 @@ Snapshot labels as `key:value` pairs. ||
     // end of the list of possible fields
     "snapshot_spec": {
       "description": "string",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   }
   // end of the list of possible fields
@@ -248,7 +248,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | enum **Status**
@@ -314,7 +314,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

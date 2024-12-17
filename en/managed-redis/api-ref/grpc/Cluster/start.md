@@ -47,7 +47,7 @@ Required field. ID of the Redis cluster to start. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -411,7 +411,8 @@ Required field. ID of the Redis cluster to start. ||
         "planned_usage_threshold": "google.protobuf.Int64Value",
         "emergency_usage_threshold": "google.protobuf.Int64Value",
         "disk_size_limit": "google.protobuf.Int64Value"
-      }
+      },
+      "backup_retain_period_days": "google.protobuf.Int64Value"
     },
     "network_id": "string",
     "health": "Health",
@@ -530,7 +531,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the Redis cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
@@ -664,6 +665,9 @@ Unified configuration of a Redis cluster. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
+|| backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Retain period of automatically created backup in days ||
 |#
 
 ## RedisConfigSet5_0 {#yandex.cloud.mdb.redis.v1.config.RedisConfigSet5_0}

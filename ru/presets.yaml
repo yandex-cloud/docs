@@ -152,6 +152,7 @@ default:
   dd: Dedicated
   ddos-protection-full-name: Yandex DDoS Protection
   ddos-protection-name: DDoS Protection
+  ddos-protection-short-name: DDoS Protection
   device-id: b91qprkvbks9********
   disk-type-example: network-ssd
   dns-full-name: Yandex Cloud DNS
@@ -278,6 +279,7 @@ default:
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/242/yandex-code-assist.zip
   link-ca-jb-2024-3: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/243/yandex-code-assist.zip
+  link-ca-jb-repository: https://proxy.src.yandexcloud.net/proxy/plugin/jetbrains/stable
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
@@ -5515,6 +5517,9 @@ default:
           label_value: Значение
       iam:
         cloud:
+          create:
+            popup-create-cloud_button_add: Создать
+            popup-create-cloud_label_organization: Организация
           label_acl: Права доступа
     yacloud_components:
       acl:
@@ -6044,7 +6049,7 @@ default:
         section_dependencies: Зависимости
         section_scheduler: Конфигурация планировщика
         section_storage: Хранилище DAG-файлов
-        section_triggerer: Конфигурация triggerer
+        section_triggerer: Конфигурация Triggerer
         section_webserver: Конфигурация веб-сервера
         section_workers: Конфигурация воркеров
         title_pip-packages: Pip-пакеты
@@ -6197,12 +6202,12 @@ default:
         title_kms-key: Ключ шифрования
       backup:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
-        action_detach-instance: Отвязать от политики
+        action_detach-vm-instance: Отвязать ВМ от политики
         action_recovery: Восстановить ВМ
         action_recovery-start: Восстановить
         button_action-activate: Активировать
-        button_attach-instance: Привязать ВМ
-        button_attach-instance-submit: Привязать
+        button_attach-instance: Привязать ресурс
+        button_attach-instance-submit: 'Привязать  '
         button_create-policy: Создать политику
         context_current-vm: текущая
         field_auto-delete: Хранение копий
@@ -6224,7 +6229,6 @@ default:
         label_backups: Резервные копии
         label_create: Подключён
         label_instances: Виртуальные машины
-        label_linked-instances: Виртуальные машины
         label_policies: Политики копирования
         title_backup: Резервное копирование
         value_day-fri: Пятница
@@ -6235,6 +6239,7 @@ default:
         value_retention-save-all: Хранить все копии
         value_retention-save-last-f: Только последнюю
         value_type-incremental: Инкрементальный
+        value_vm-recourses: Виртуальные машины
       baremetal:
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
@@ -7168,9 +7173,6 @@ default:
         cloud:
           change-org:
             button_change: Изменить
-          create:
-            popup-create-cloud_button_add: Создать
-            popup-create-cloud_label_organization: Организация
           edit:
             popup-edit-cloud_button_save: Сохранить
           folders-create:
@@ -7256,7 +7258,7 @@ default:
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: Все сервисы
-            label_search-api: Search API
+            label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_smartcaptcha: SmartCaptcha

@@ -228,9 +228,8 @@ items:
                   - name: IssueCertificateByCsr
                     href: >-
                       privateca/api-ref/grpc/PrivateCaCertificate/issueCertificateByCsr.md
-                  - name: UpdateCertificate
-                    href: >-
-                      privateca/api-ref/grpc/PrivateCaCertificate/updateCertificate.md
+                  - name: Update
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/update.md
                   - name: Delete
                     href: privateca/api-ref/grpc/PrivateCaCertificate/delete.md
                   - name: Get
@@ -407,9 +406,8 @@ items:
                   - name: IssueCertificateByCsr
                     href: >-
                       privateca/api-ref/PrivateCaCertificate/issueCertificateByCsr.md
-                  - name: UpdateCertificate
-                    href: >-
-                      privateca/api-ref/PrivateCaCertificate/updateCertificate.md
+                  - name: Update
+                    href: privateca/api-ref/PrivateCaCertificate/update.md
                   - name: Delete
                     href: privateca/api-ref/PrivateCaCertificate/delete.md
                   - name: Get

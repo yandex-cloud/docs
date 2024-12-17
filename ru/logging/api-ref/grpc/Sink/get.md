@@ -40,7 +40,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/grpc/Sink/list#
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "service_account_id": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -74,7 +74,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || service_account_id | **string**

@@ -90,6 +90,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 {% include [public-access](../../_includes/storage/security/public-access.md) %}
 
+
 ## Статистика {#stats}
 
 {{ objstorage-name }} автоматически отправляет метрики работы бакетов в сервис [{{ monitoring-full-name }}](../../monitoring/).
@@ -99,6 +100,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
 
 Также общую статистику бакета можно [посмотреть с помощь {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+
 
 ## Особенности использования {#details-of-usage}
 

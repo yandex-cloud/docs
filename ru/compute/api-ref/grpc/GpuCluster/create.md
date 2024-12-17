@@ -18,7 +18,7 @@ Creates a GPU cluster in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "zone_id": "string",
   "interconnect_type": "GpuInterconnectType"
 }
@@ -39,7 +39,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || zone_id | **string**
@@ -75,7 +75,7 @@ Type of interconnect to use for this GPU cluster.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "zone_id": "string",
     "interconnect_type": "GpuInterconnectType"
@@ -171,7 +171,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | enum **Status**

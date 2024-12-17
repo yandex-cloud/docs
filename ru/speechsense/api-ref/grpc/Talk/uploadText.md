@@ -15,14 +15,15 @@ rpc for uploading text talk document
 
 ```json
 {
+  "talk_id": "string",
   "metadata": {
     "connection_id": "string",
-    "fields": "string",
+    "fields": "map<string, string>",
     "users": [
       {
         "id": "string",
         "role": "UserRole",
-        "fields": "string"
+        "fields": "map<string, string>"
       }
     ]
   },
@@ -46,6 +47,9 @@ request to create text based dialog
 
 #|
 ||Field | Description ||
+|| talk_id | **string**
+
+talk_id, blank if initial upload request and present on metadata update ||
 || metadata | **[TalkMetadata](#yandex.cloud.speechsense.v1.TalkMetadata)** ||
 || text_content | **[TextContent](#yandex.cloud.speechsense.v1.TextContent)** ||
 |#
@@ -57,7 +61,7 @@ request to create text based dialog
 || connection_id | **string**
 
 id of connection this talk belongs too ||
-|| fields | **string**
+|| fields | **object** (map<**string**, **string**>)
 
 channel defined fields ||
 || users[] | **[UserMetadata](#yandex.cloud.speechsense.v1.UserMetadata)**
@@ -76,7 +80,7 @@ per user specific metadata ||
 - `USER_ROLE_OPERATOR`
 - `USER_ROLE_CLIENT`
 - `USER_ROLE_BOT` ||
-|| fields | **string** ||
+|| fields | **object** (map<**string**, **string**>) ||
 |#
 
 ## TextContent {#yandex.cloud.speechsense.v1.TextContent}

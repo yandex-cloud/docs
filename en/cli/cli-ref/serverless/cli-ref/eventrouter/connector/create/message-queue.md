@@ -11,7 +11,7 @@ Create a message queue connector
 
 Syntax: 
 
-`yc serverless eventrouter connector create message-queue <CONNECTOR-NAME> [Flags...] [Flags...] [Global Flags...]`
+`yc serverless eventrouter connector create message-queue <CONNECTOR-NAME> [Flags...] [Global Flags...]`
 
 #### Flags
 

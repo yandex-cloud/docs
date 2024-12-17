@@ -87,7 +87,7 @@ example:
         ],
         "cmd": "string",
         "env": {
-          "vars": "string",
+          "vars": "map<string, string>",
           // Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`
           "docker_image_resource_id": "string",
           "docker_image_spec": {
@@ -148,7 +148,7 @@ example:
           {
             "name": "string",
             "description": "string",
-            "labels": "string",
+            "labels": "map<string, string>",
             "size_gb": "int64",
             "var": "string"
           }
@@ -156,6 +156,9 @@ example:
         "graceful_shutdown_parameters": {
           "timeout": "google.protobuf.Duration",
           "signal": "int64"
+        },
+        "spark_parameters": {
+          "connector_id": "string"
         }
       },
       "data_expires_at": "google.protobuf.Timestamp",
@@ -209,7 +212,8 @@ example:
           },
           "log_file_name": "string",
           // end of the list of possible fields
-          "description": "string"
+          "description": "string",
+          "type": "ErrorType"
         }
       ],
       "output_datasets": [
@@ -217,7 +221,7 @@ example:
           "desc": {
             "name": "string",
             "description": "string",
-            "labels": "string",
+            "labels": "map<string, string>",
             "size_gb": "int64",
             "var": "string"
           },
@@ -277,7 +281,8 @@ Status of the job.
 - `SUCCESS`
 - `ERROR`
 - `CANCELLED`
-- `CANCELLING` ||
+- `CANCELLING`
+- `PREPARING` ||
 || config | **string**
 
 Config of the job, copied from configuration file. ||
@@ -368,6 +373,9 @@ List of DataSets descriptions to create. ||
 || graceful_shutdown_parameters | **[GracefulShutdownParameters](#yandex.cloud.datasphere.v2.jobs.GracefulShutdownParameters)**
 
 Graceful shutdown settings. ||
+|| spark_parameters | **[SparkParameters](#yandex.cloud.datasphere.v2.jobs.SparkParameters)**
+
+Spark connector settings. ||
 |#
 
 ## File {#yandex.cloud.datasphere.v2.jobs.File}
@@ -406,7 +414,7 @@ Variable to use in cmd substitution. ||
 
 #|
 ||Field | Description ||
-|| vars | **string**
+|| vars | **object** (map<**string**, **string**>)
 
 Environment variables. ||
 || docker_image_resource_id | **string**
@@ -525,7 +533,7 @@ Name to create dataset with ||
 || description | **string**
 
 Description to show in UI ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || size_gb | **int64**
 
 Size of dataset to create ||
@@ -544,6 +552,15 @@ Var name to replace in cmd, like in FileDesc ||
 default 15 (SIGTERM) ||
 |#
 
+## SparkParameters {#yandex.cloud.datasphere.v2.jobs.SparkParameters}
+
+#|
+||Field | Description ||
+|| connector_id | **string**
+
+ID of the Spark connector. ||
+|#
+
 ## FileUploadError {#yandex.cloud.datasphere.v2.jobs.FileUploadError}
 
 #|
@@ -555,6 +572,11 @@ Includes only one of the fields `output_file_desc`, `log_file_name`. ||
 
 Includes only one of the fields `output_file_desc`, `log_file_name`. ||
 || description | **string** ||
+|| type | enum **ErrorType**
+
+- `ERROR_TYPE_UNSPECIFIED`
+- `UPLOAD_FAILED`
+- `NOT_FOUND` ||
 |#
 
 ## OutputDataset {#yandex.cloud.datasphere.v2.jobs.OutputDataset}

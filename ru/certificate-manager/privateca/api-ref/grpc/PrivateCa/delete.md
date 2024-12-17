@@ -9,9 +9,9 @@ Deletes an existing Certificate Authority (CA).
 
 ## gRPC request
 
-**rpc Delete ([DeleteCertificateAuthorityRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateAuthorityRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Delete ([DeleteCertificateAuthorityRequest](#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateAuthorityRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## DeleteCertificateAuthorityRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateAuthorityRequest}
+## DeleteCertificateAuthorityRequest {#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateAuthorityRequest}
 
 ```json
 {
@@ -71,7 +71,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteCertificateAuthorityMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateAuthorityMetadata)**
+|| metadata | **[DeleteCertificateAuthorityMetadata](#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateAuthorityMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -103,7 +103,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## DeleteCertificateAuthorityMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.DeleteCertificateAuthorityMetadata}
+## DeleteCertificateAuthorityMetadata {#yandex.cloud.certificatemanager.v1.privateca.DeleteCertificateAuthorityMetadata}
 
 Metadata returned from the DeleteCertificateAuthority operation.
 

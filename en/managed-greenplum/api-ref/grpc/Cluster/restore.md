@@ -20,7 +20,7 @@ Creates a new Greenplum® cluster using the specified backup.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "environment": "Environment",
   "config": {
     "backup_window_start": "google.type.TimeOfDay",
@@ -95,7 +95,7 @@ Required field. Name of the Greenplum® cluster. The name must be unique within 
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs.
 For example, "project":"mvp" or "source":"dictionary". ||
@@ -301,7 +301,7 @@ Hour of the day in the UTC timezone. ||
       "assign_public_ip": "bool"
     },
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -733,7 +733,7 @@ Greenplum® cluster configuration. ||
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. ||
 || environment | enum **Environment**

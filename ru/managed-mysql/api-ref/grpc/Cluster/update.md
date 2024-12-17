@@ -18,7 +18,7 @@ Updates a cluster.
   "cluster_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "config_spec": {
     "version": "string",
     // Includes only one of the fields `mysql_config_5_7`, `mysql_config_8_0`
@@ -254,7 +254,7 @@ Field mask that specifies which settings of the cluster should be updated. ||
 || description | **string**
 
 New description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of custom labels for the cluster as `key:value` pairs.
 
@@ -1440,7 +1440,7 @@ Hour of the day in UTC (in `HH` format). ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -2138,7 +2138,7 @@ Name of the cluster. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | enum **Environment**

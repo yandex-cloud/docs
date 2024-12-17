@@ -18,7 +18,7 @@ Creates an address in the specified folder and network.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `external_ipv4_address_spec`
   "external_ipv4_address_spec": {
     "address": "string",
@@ -55,7 +55,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the address. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs. ||
 || external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
@@ -137,7 +137,7 @@ Optional. If the PTR record is required, this parameter must be set to "true". |
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     // Includes only one of the fields `external_ipv4_address`
     "external_ipv4_address": {
       "address": "string",
@@ -253,7 +253,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

@@ -77,7 +77,7 @@ Examples:
       ],
       "current_job_id": "string",
       "agent_version_id": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "log_settings": {
         "cloud_log_group_id": "string"
       }
@@ -154,7 +154,7 @@ ID of the test that is currently being executed by the agent. ||
 || agent_version_id | **string**
 
 Version of the agent. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || log_settings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**

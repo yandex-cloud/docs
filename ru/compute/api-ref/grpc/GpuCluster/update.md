@@ -21,7 +21,7 @@ Currently only name, description and labels can be updated.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -43,7 +43,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New GPU cluster labels as `key:value` pairs.
 
@@ -75,7 +75,7 @@ to add or remove a label:
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "zone_id": "string",
     "interconnect_type": "GpuInterconnectType"
@@ -171,7 +171,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | enum **Status**

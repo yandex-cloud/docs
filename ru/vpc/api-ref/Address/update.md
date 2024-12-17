@@ -28,10 +28,10 @@ To get the address ID make a [AddressService.List](/docs/vpc/api-ref/Address/lis
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "reserved": "boolean",
   "deletionProtection": "boolean",
   "dnsRecordSpecs": [
@@ -47,7 +47,7 @@ To get the address ID make a [AddressService.List](/docs/vpc/api-ref/Address/lis
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -64,7 +64,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the address. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 
@@ -131,7 +131,7 @@ Optional. If the PTR record is required, this parameter must be set to "true". |
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `externalIpv4Address`
     "externalIpv4Address": {
       "address": "string",
@@ -285,7 +285,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

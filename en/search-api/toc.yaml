@@ -89,6 +89,12 @@ items:
                     href: api-ref/grpc/WebSearchAsync/index.md
                   - name: Search
                     href: api-ref/grpc/WebSearchAsync/search.md
+              - name: WebSearch
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/WebSearch/index.md
+                  - name: Search
+                    href: api-ref/grpc/WebSearch/search.md
           - name: REST
             items:
               - name: Overview

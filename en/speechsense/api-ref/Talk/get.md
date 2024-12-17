@@ -24,7 +24,7 @@ POST https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/get
   "talkIds": [
     "string"
   ],
-  "resultsMask": "string"
+  "resultsMask": "object"
 }
 ```
 
@@ -46,7 +46,7 @@ id of project to search data ||
 
 ids of talks to return. Requesting too many talks may result in "message exceeds maximum size" error.
 Up to 100 of talks per request is recommended. ||
-|| resultsMask | **string** (field-mask)
+|| resultsMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

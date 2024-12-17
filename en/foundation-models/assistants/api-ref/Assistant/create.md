@@ -24,7 +24,7 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/assistants
     "expirationPolicy": "string",
     "ttlDays": "string"
   },
-  "labels": "string",
+  "labels": "object",
   "modelUri": "string",
   "instruction": "string",
   "promptTruncationOptions": {
@@ -65,7 +65,7 @@ Description of the assistant. ||
 || expirationConfig | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Expiration configuration for the assistant. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the user. ||
 || modelUri | **string**
@@ -177,7 +177,7 @@ This ensures that the combined prompt and search results do not exceed the token
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "string",
+  "labels": "object",
   "modelUri": "string",
   "instruction": "string",
   "promptTruncationOptions": {
@@ -257,7 +257,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the assistant. ||
 || modelUri | **string**

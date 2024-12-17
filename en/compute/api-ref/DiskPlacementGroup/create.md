@@ -20,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/diskPlacementGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
   "spreadPlacementStrategy": "object",
@@ -43,7 +43,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -102,7 +102,7 @@ Placement strategy. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "status": "string",
     // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
@@ -238,7 +238,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**

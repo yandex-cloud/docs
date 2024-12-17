@@ -176,6 +176,12 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
             "sse_algorithm": "string"
           }
         ]
+      },
+      "allowed_private_endpoints": {
+        "enabled": "bool",
+        "private_endpoints": [
+          "string"
+        ]
       }
     }
   ]
@@ -277,7 +283,10 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 || encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
 
 Configuration for bucket's encryption
-For detauls, see [documentation](/docs/storage/concepts/encryption) ||
+For details, see [documentation](/docs/storage/concepts/encryption) ||
+|| allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+
+Bucket allowed private endpoints. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -793,4 +802,17 @@ Includes only one of the fields `days`, `years`. ||
 ||Field | Description ||
 || kms_master_key_id | **string** ||
 || sse_algorithm | **string** ||
+|#
+
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| private_endpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
 |#

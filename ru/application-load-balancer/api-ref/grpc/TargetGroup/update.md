@@ -19,7 +19,7 @@ Updates the specified target group.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "targets": [
     {
       // Includes only one of the fields `ip_address`
@@ -49,7 +49,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -112,7 +112,7 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "name": "string",
     "description": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "targets": [
       {
         // Includes only one of the fields `ip_address`
@@ -211,7 +211,7 @@ Description of the target group. ||
 || folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

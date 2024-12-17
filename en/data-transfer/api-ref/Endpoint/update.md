@@ -26,7 +26,7 @@ Required field. Identifier of the endpoint to be updated. ||
 {
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "settings": {
     // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
     "mysqlSource": {
@@ -145,7 +145,8 @@ Required field. Identifier of the endpoint to be updated. ||
       "securityGroups": [
         "string"
       ],
-      "changefeedCustomName": "string"
+      "changefeedCustomName": "string",
+      "changefeedCustomConsumerName": "string"
     },
     "ydsSource": {
       "database": "string",
@@ -676,6 +677,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "stream": "string",
       "serviceAccountId": "string",
       "saveTxOrder": "boolean",
+      "compressionCodec": "string",
       "serializer": {
         // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
         "serializerAuto": "object",
@@ -698,7 +700,7 @@ Required field. Identifier of the endpoint to be updated. ||
     }
     // end of the list of possible fields
   },
-  "updateMask": "string"
+  "updateMask": "object"
 }
 ```
 
@@ -710,11 +712,11 @@ The new endpoint name. Must be unique within the folder. ||
 || description | **string**
 
 The new description for the endpoint. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
 The new endpoint name. Must be unique within the folder. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -792,7 +794,7 @@ You can leave it empty, then it will be possible to transfer tables from several
 databases at the same time from this source. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -1209,6 +1211,7 @@ Security groups ||
 || changefeedCustomName | **string**
 
 Pre-created change feed ||
+|| changefeedCustomConsumerName | **string** ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -1531,7 +1534,7 @@ Database name associated with the credentials ||
 || connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
 || includeTables[] | **string**
 
-While list of tables for replication. If none or empty list is presented - will
+White list of tables for replication. If none or empty list is presented - will
 replicate all tables. Can contain * patterns. ||
 || excludeTables[] | **string**
 
@@ -1605,7 +1608,7 @@ same names as on the source. If this field is empty, then you must fill below db
 schema for service table. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -1955,6 +1958,12 @@ SA which has read access to the stream. ||
 Save transaction order
 Not to split events queue into separate per-table queues.
 Incompatible with setting Topic prefix, only with Topic full name. ||
+|| compressionCodec | **enum** (YdsCompressionCodec)
+
+- `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+- `YDS_COMPRESSION_CODEC_RAW`
+- `YDS_COMPRESSION_CODEC_GZIP`
+- `YDS_COMPRESSION_CODEC_ZSTD` ||
 || serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
 
 Data serialization format ||

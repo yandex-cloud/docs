@@ -81,7 +81,7 @@ Always return `next_page_token`, even if current page is empty. ||
   "logs": [
     {
       "timestamp": "string",
-      "message": "string"
+      "message": "object"
     }
   ],
   "nextPageToken": "string"
@@ -116,7 +116,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

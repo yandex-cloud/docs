@@ -28,7 +28,7 @@ Create new resource rule with specified unique name and rule patter.
       // Includes only one of the fields `value`, `default_value`
       "value": {
         "simple_value": "int64",
-        "custom_values": "int64"
+        "custom_values": "map<string, int64>"
       },
       "default_value": "int64"
       // end of the list of possible fields
@@ -111,7 +111,7 @@ Create new resource rule with specified unique name and rule patter.
     },
     "static_headers": {
       "enabled": "bool",
-      "value": "string"
+      "value": "map<string, string>"
     },
     "cors": {
       "enabled": "bool",
@@ -141,7 +141,7 @@ Create new resource rule with specified unique name and rule patter.
     },
     "static_request_headers": {
       "enabled": "bool",
-      "value": "string"
+      "value": "map<string, string>"
     },
     "custom_server_name": {
       "enabled": "bool",
@@ -330,7 +330,7 @@ A set of the caching response time parameters.
 Caching time for a response with codes 200, 206, 301, 302.
 Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
 Use `custom_values` field to specify a custom caching time for a response with specific codes. ||
-|| custom_values | **int64**
+|| custom_values | **object** (map<**string**, **int64**>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
 Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
@@ -489,7 +489,7 @@ A set of the strings map parameters.
 
 True - the option is enabled and its `value` is applied to the resource.
 False - the option is disabled and its default value is used for the resource. ||
-|| value | **string**
+|| value | **object** (map<**string**, **string**>)
 
 Value of the option. ||
 |#
@@ -593,7 +593,7 @@ The list of IP addresses to be allowed or denied. ||
         // Includes only one of the fields `value`, `default_value`
         "value": {
           "simple_value": "int64",
-          "custom_values": "int64"
+          "custom_values": "map<string, int64>"
         },
         "default_value": "int64"
         // end of the list of possible fields
@@ -676,7 +676,7 @@ The list of IP addresses to be allowed or denied. ||
       },
       "static_headers": {
         "enabled": "bool",
-        "value": "string"
+        "value": "map<string, string>"
       },
       "cors": {
         "enabled": "bool",
@@ -706,7 +706,7 @@ The list of IP addresses to be allowed or denied. ||
       },
       "static_request_headers": {
         "enabled": "bool",
-        "value": "string"
+        "value": "map<string, string>"
       },
       "custom_server_name": {
         "enabled": "bool",
@@ -969,7 +969,7 @@ A set of the caching response time parameters.
 Caching time for a response with codes 200, 206, 301, 302.
 Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
 Use `custom_values` field to specify a custom caching time for a response with specific codes. ||
-|| custom_values | **int64**
+|| custom_values | **object** (map<**string**, **int64**>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
 Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
@@ -1128,7 +1128,7 @@ A set of the strings map parameters.
 
 True - the option is enabled and its `value` is applied to the resource.
 False - the option is disabled and its default value is used for the resource. ||
-|| value | **string**
+|| value | **object** (map<**string**, **string**>)
 
 Value of the option. ||
 |#
