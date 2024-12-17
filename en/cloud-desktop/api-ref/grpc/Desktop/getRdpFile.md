@@ -51,14 +51,14 @@ Required field. Type of the access binding, e.g. userAccount, serviceAccount, sy
 
 ```json
 {
-  "headers": "string",
+  "headers": "map<string, string>",
   "content": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| headers | **string**
+|| headers | **object** (map<**string**, **string**>)
 
 HTTP headers mapping. ||
 || content | **string**

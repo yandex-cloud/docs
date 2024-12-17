@@ -53,7 +53,7 @@ Required field. ID of the destination folder. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -2951,6 +2951,7 @@ Required field. ID of the destination folder. ||
       },
       "access": {
         "data_lens": "bool",
+        "web_sql": "bool",
         "data_transfer": "bool"
       },
       "mongodb_config": {
@@ -3439,7 +3440,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the MongoDB cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | enum **Environment**
@@ -7240,6 +7241,9 @@ Disk size autoscaling settings ||
 || data_lens | **bool**
 
 Allow access for DataLens. ||
+|| web_sql | **bool**
+
+Allow access for Web SQL. ||
 || data_transfer | **bool**
 
 Allow access for DataTransfer. ||

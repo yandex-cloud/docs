@@ -38,7 +38,7 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
   "name": "string",
   "description": "string",
   "folder_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "virtual_hosts": [
     {
       "name": "string",
@@ -362,7 +362,7 @@ Description of the router. ||
 || folder_id | **string**
 
 ID of the folder that the router belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

@@ -31,7 +31,7 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "configSpec": {
     "clickhouse": {
       "config": {
@@ -336,7 +336,7 @@ To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clic
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -576,6 +576,8 @@ items:
                     href: dataset/api-ref/grpc/Dataset/list.md
                   - name: ListUploadFormats
                     href: dataset/api-ref/grpc/Dataset/listUploadFormats.md
+                  - name: ListUploadSchemas
+                    href: dataset/api-ref/grpc/Dataset/listUploadSchemas.md
                   - name: GetUploadDraftUrl
                     href: dataset/api-ref/grpc/Dataset/getUploadDraftUrl.md
                   - name: StartMultipartUploadDraft

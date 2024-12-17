@@ -69,7 +69,7 @@ paths:
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <идентификатор_шлюза> \
+       --id <идентификатор_API-шлюза> \
        --variables <список_переменных>
      ```
 

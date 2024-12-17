@@ -20,7 +20,7 @@ Updates the specified asymmetric KMS key.
   "name": "string",
   "description": "string",
   "status": "Status",
-  "labels": "string",
+  "labels": "map<string, string>",
   "deletion_protection": "bool"
 }
 ```
@@ -51,7 +51,7 @@ Using the [AsymmetricSignatureKeyService.Update](#Update) method you can only se
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
 || deletion_protection | **bool**
@@ -80,7 +80,7 @@ Flag that inhibits deletion of the asymmetric KMS key ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "signature_algorithm": "AsymmetricSignatureAlgorithm",
     "deletion_protection": "bool"
@@ -174,7 +174,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**

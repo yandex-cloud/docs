@@ -30,7 +30,7 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
     "forceAuthn": "boolean"
   },
   "caseInsensitiveNameIds": "boolean",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -86,7 +86,7 @@ Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -144,7 +144,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
       "forceAuthn": "boolean"
     },
     "caseInsensitiveNameIds": "boolean",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -312,7 +312,7 @@ Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

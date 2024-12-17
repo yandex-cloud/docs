@@ -63,11 +63,7 @@ The expression must specify:
       "saml_user_account": {
         "federation_id": "string",
         "name_id": "string",
-        "attributes": {
-          "value": [
-            "string"
-          ]
-        }
+        "attributes": "map<string, Attribute>"
       }
       // end of the list of possible fields
     }
@@ -139,7 +135,7 @@ Required field. ID of the federation that the federation belongs to. ||
 
 Required field. Name Id of the SAML federated user.
 The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

@@ -61,10 +61,10 @@ will be reduced by the specified number of instance IDs. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "instance_template": {
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "platform_id": "string",
       "resources_spec": {
         "memory": "int64",
@@ -72,7 +72,7 @@ will be reduced by the specified number of instance IDs. ||
         "core_fraction": "int64",
         "gpus": "int64"
       },
-      "metadata": "string",
+      "metadata": "map<string, string>",
       "boot_disk_spec": {
         "mode": "Mode",
         "device_name": "string",
@@ -219,7 +219,7 @@ will be reduced by the specified number of instance IDs. ||
             "rule_type": "RuleType",
             "metric_type": "MetricType",
             "metric_name": "string",
-            "labels": "string",
+            "labels": "map<string, string>",
             "target": "double",
             "folder_id": "string",
             "service": "string"
@@ -243,7 +243,7 @@ will be reduced by the specified number of instance IDs. ||
             "rule_type": "RuleType",
             "metric_type": "MetricType",
             "metric_name": "string",
-            "labels": "string",
+            "labels": "map<string, string>",
             "target": "double",
             "folder_id": "string",
             "service": "string"
@@ -285,7 +285,7 @@ will be reduced by the specified number of instance IDs. ||
       "target_group_spec": {
         "name": "string",
         "description": "string",
-        "labels": "string"
+        "labels": "map<string, string>"
       },
       "max_opening_traffic_duration": "google.protobuf.Duration",
       "ignore_health_checks": "bool"
@@ -323,7 +323,7 @@ will be reduced by the specified number of instance IDs. ||
       "target_group_spec": {
         "name": "string",
         "description": "string",
-        "labels": "string"
+        "labels": "map<string, string>"
       },
       "max_opening_traffic_duration": "google.protobuf.Duration",
       "ignore_health_checks": "bool"
@@ -424,7 +424,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the instance group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || instance_template | **[InstanceTemplate](#yandex.cloud.compute.v1.instancegroup.InstanceTemplate)**
@@ -515,7 +515,7 @@ AutoHealingPolicy policy of the instance group. ||
 || description | **string**
 
 Description of the instance template. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || platform_id | **string**
@@ -527,7 +527,7 @@ For more information, see [Platforms](/docs/compute/concepts/vm-platforms). ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
 
 Required field. Computing resources of the instance such as the amount of memory and number of cores. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
 
@@ -992,7 +992,7 @@ specified in the [AutoScale.measurement_duration](#yandex.cloud.compute.v1.insta
 || metric_name | **string**
 
 Required field. Name of custom metric in Monitoring that should be used for scaling. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of custom metric in Monitoring that should be used for scaling. ||
 || target | **double**
@@ -1135,7 +1135,7 @@ Name of the target group. ||
 || description | **string**
 
 Description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 |#
@@ -1236,7 +1236,7 @@ Name of the target group. ||
 || description | **string**
 
 Description of the target group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 |#

@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/updateCertificate.md
+sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/update.md
 ---
 
-# Certificate Manager Private CA API, REST: PrivateCaCertificate.UpdateCertificate
+# Certificate Manager Private CA API, REST: PrivateCaCertificate.Update
 
 Updates the specified certificate.
 
@@ -24,11 +24,11 @@ Request to update the properties of an existing certificate.
 Required field. The ID of the certificate to update. ||
 |#
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateRequest}
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "deletionProtection": "boolean"
@@ -39,7 +39,7 @@ Request to update the properties of an existing certificate.
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -136,7 +136,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCertificateMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateMetadata)**
+|| metadata | **[UpdateCertificateMetadata](#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -151,7 +151,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate)**
+|| response | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -168,7 +168,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## UpdateCertificateMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateMetadata}
+## UpdateCertificateMetadata {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateMetadata}
 
 Metadata for the `UpdateCertificate` operation, tracking the ID of the updated certificate.
 
@@ -196,7 +196,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 A private certificate issued by a private certificate authority.
 

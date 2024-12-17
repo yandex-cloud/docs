@@ -34,8 +34,8 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
       "secondaryDelaySecs": "string",
       "priority": "number",
       "assignPublicIp": "boolean",
-      "updateMask": "string",
-      "tags": "string"
+      "updateMask": "object",
+      "tags": "object"
     }
   ]
 }
@@ -71,7 +71,7 @@ The minimum value is `0` if the Managed Service for MongoDB cluster contains thr
 || assignPublicIp | **boolean**
 
 Determines whether the host should get a public IP address after the update. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -81,7 +81,7 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags). ||
 |#

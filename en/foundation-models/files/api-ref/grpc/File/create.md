@@ -20,7 +20,7 @@ Create a new file.
   "description": "string",
   "mime_type": "string",
   "content": "bytes",
-  "labels": "string",
+  "labels": "map<string, string>",
   "expiration_config": {
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
@@ -48,7 +48,7 @@ If not specified, will be deduced automatically based on the file content. ||
 || content | **bytes**
 
 Required field. Binary content of the file. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the file. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
@@ -86,7 +86,7 @@ Expiration configuration for the file. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -125,7 +125,7 @@ Configuration for the expiration of the file, defining when and how the file wil
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the file will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the file. ||
 |#

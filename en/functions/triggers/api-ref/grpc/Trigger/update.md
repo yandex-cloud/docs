@@ -19,7 +19,7 @@ Updates the specified trigger.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "rule": {
     // Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`
     "timer": {
@@ -498,7 +498,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the trigger. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs.
 
@@ -1162,7 +1162,7 @@ Required field. SA which has write permission on storage. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "rule": {
       // Includes only one of the fields `timer`, `message_queue`, `iot_message`, `iot_broker_message`, `object_storage`, `container_registry`, `cloud_logs`, `logging`, `billing_budget`, `data_stream`, `mail`
       "timer": {
@@ -1712,7 +1712,7 @@ Name of the trigger. ||
 || description | **string**
 
 Description of the trigger. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||
 || rule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule2)**

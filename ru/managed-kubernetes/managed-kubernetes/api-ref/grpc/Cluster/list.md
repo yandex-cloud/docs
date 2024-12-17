@@ -59,7 +59,7 @@ The expression must specify:
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "status": "Status",
       "health": "Health",
       "network_id": "string",
@@ -204,7 +204,7 @@ Name of the Kubernetes cluster. ||
 || description | **string**
 
 Description of the Kubernetes cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

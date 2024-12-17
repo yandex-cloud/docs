@@ -51,7 +51,7 @@ Required field. Name of the listener to remove from the application load balance
     "name": "string",
     "description": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "region_id": "string",
     "network_id": "string",
@@ -285,7 +285,7 @@ Description of the application load balancer. ||
 || folder_id | **string**
 
 ID of the folder that the application load balancer belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

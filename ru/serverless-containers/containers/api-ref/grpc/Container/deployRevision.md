@@ -36,7 +36,7 @@ Deploys a revision for the specified container.
         "string"
       ]
     },
-    "environment": "string",
+    "environment": "map<string, string>",
     "working_dir": "string"
   },
   "concurrency": "int64",
@@ -201,7 +201,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || working_dir | **string**
@@ -510,7 +510,7 @@ Enabled access to AWS flavored metadata (IMDSv1)
           "string"
         ]
       },
-      "environment": "string",
+      "environment": "map<string, string>",
       "working_dir": "string"
     },
     "resources": {
@@ -746,7 +746,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args2)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || working_dir | **string**

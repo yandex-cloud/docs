@@ -20,7 +20,7 @@ Updates the specified organization.
   "name": "string",
   "description": "string",
   "title": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -42,7 +42,7 @@ Description of the organization. ||
 || title | **string**
 
 Display name of the organization. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -68,7 +68,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "title": "string",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -159,7 +159,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

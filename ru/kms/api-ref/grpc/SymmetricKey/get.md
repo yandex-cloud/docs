@@ -38,7 +38,7 @@ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "status": "Status",
   "primary_version": {
     "id": "string",
@@ -76,7 +76,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**

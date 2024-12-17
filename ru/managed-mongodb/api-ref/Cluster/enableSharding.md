@@ -52,7 +52,7 @@ Required field. ID of the MongoDB cluster to enable sharding for. ||
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "string"
+      "tags": "object"
     }
   ],
   "mongoinfra": {
@@ -163,7 +163,7 @@ The number of seconds "behind" the primary that this replica set member should "
 || priority | **number** (double)
 
 Priority of host for the election in replSet ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tags ||
 |#

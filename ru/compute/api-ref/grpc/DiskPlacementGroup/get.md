@@ -36,7 +36,7 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "zone_id": "string",
   "status": "Status",
   // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
@@ -66,7 +66,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zone_id | **string**

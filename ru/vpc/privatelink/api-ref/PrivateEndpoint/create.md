@@ -20,7 +20,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/endpoints
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "addressSpec": {
     // Includes only one of the fields `addressId`, `internalIpv4AddressSpec`
@@ -55,7 +55,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the private endpoint. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs. ||
 || networkId | **string**
@@ -142,7 +142,7 @@ If enabled - vpc will create private dns records for specified service. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "status": "string",
     "address": {
@@ -285,7 +285,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

@@ -60,7 +60,7 @@ To get the organization ID, use a [yandex.cloud.organizationmanager.v1.Organizat
       "name": "string",
       "description": "string",
       "organization_id": "string",
-      "labels": "string"
+      "labels": "map<string, string>"
     }
   ],
   "next_page_token": "string"
@@ -103,7 +103,7 @@ Description of the cloud. 0-256 characters long. ||
 || organization_id | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

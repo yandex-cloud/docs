@@ -23,7 +23,7 @@ Update an existing file.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -46,7 +46,7 @@ New description for the file. ||
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 New expiration configuration for the file. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New set of labels for the file. ||
 |#
@@ -81,7 +81,7 @@ New set of labels for the file. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -120,7 +120,7 @@ Configuration for the expiration of the file, defining when and how the file wil
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the file will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the file. ||
 |#

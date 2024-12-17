@@ -88,6 +88,7 @@ For more information on configuring the access, see [{#T}](../operations/buckets
 
 {% include [public-access](../../_includes/storage/security/public-access.md) %}
 
+
 ## Statistics {#stats}
 
 {{ objstorage-name }} automatically delivers bucket performance metrics to [{{ monitoring-full-name }}](../../monitoring/).
@@ -97,6 +98,7 @@ Performance statistics are available from the [bucket page](../operations/bucket
 For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
 
 You can also access aggregate bucket statistics [through the {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+
 
 ## Recommendations and limitations {#details-of-usage}
 

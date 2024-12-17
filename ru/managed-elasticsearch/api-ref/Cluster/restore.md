@@ -20,7 +20,7 @@ POST https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters:restore
   "backupId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "configSpec": {
     "version": "string",
@@ -91,7 +91,7 @@ Required field. Name of the ElasticSearch cluster. The name must be unique withi
 || description | **string**
 
 Description of the ElasticSearch cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary". ||
@@ -317,7 +317,7 @@ The flag shows whether to create the extension in disabled state. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -526,7 +526,7 @@ The name must be unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the Elasticsearch cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Elasticsearch cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||

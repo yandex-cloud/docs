@@ -37,7 +37,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "rule": {
     // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
     "timer": {
@@ -526,7 +526,7 @@ Name of the trigger. ||
 || description | **string**
 
 Description of the trigger. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||
 || rule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)**

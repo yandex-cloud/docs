@@ -83,14 +83,14 @@ Example of a filter: `status="ACTIVE"`. ||
       "tags": [
         "string"
       ],
-      "environment": "string",
+      "environment": "map<string, string>",
       "connectivity": {
         "network_id": "string",
         "subnet_id": [
           "string"
         ]
       },
-      "named_service_accounts": "string",
+      "named_service_accounts": "map<string, string>",
       "secrets": [
         {
           "id": "string",
@@ -235,13 +235,13 @@ Status of the version.
 || tags[] | **string**
 
 Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
 
 Network access. If specified the version will be attached to specified network/subnet(s). ||
-|| named_service_accounts | **string**
+|| named_service_accounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**

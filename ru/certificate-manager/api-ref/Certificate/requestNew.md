@@ -20,7 +20,7 @@ POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requ
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "domains": [
     "string"
   ],
@@ -40,7 +40,7 @@ Name of the certificate. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels for the certificate as `key:value` pairs. ||
 || domains[] | **string**
@@ -87,7 +87,7 @@ Flag that protects deletion of the certificate ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "type": "string",
     "domains": [
       "string"
@@ -253,7 +253,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | **enum** (CertificateType)

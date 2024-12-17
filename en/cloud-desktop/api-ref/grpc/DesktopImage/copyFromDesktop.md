@@ -55,7 +55,7 @@ Required field. ID of the desktop to copy the image from. ||
     "created_at": "google.protobuf.Timestamp",
     "status": "Status",
     "name": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "storage_size": "int64",
     "min_disk_size": "int64"
   }
@@ -153,7 +153,7 @@ Status of the image.
 || name | **string**
 
 Name of the image. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Description of the image. ||
 || storage_size | **int64**

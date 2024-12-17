@@ -83,7 +83,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -352,7 +352,7 @@ The name must be unique within the folder. 1-63 characters long. Value must matc
 || description | **string**
 
 Description of the Apache Kafka® cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Kafka® cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||

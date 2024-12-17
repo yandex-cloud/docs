@@ -20,7 +20,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "regionId": "string",
   "networkId": "string",
   "listenerSpecs": [
@@ -177,7 +177,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the application load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -759,7 +759,7 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "regionId": "string",
     "networkId": "string",
@@ -1021,7 +1021,7 @@ Description of the application load balancer. ||
 || folderId | **string**
 
 ID of the folder that the application load balancer belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

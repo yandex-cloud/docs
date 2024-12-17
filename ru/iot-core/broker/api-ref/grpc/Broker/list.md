@@ -51,7 +51,7 @@ Page token. To get the next page of results, set `page_token` to the
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "status": "Status",
       "log_options": {
         "disabled": "bool",
@@ -102,7 +102,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

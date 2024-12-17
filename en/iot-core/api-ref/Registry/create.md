@@ -20,7 +20,7 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "certificates": [
     {
       "certificateData": "string"
@@ -51,7 +51,7 @@ Required field. Name of the registry. The name must be unique within the folder.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateRegistryRequest.Certificate)**
@@ -157,7 +157,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logGroupId": "string",
     "logOptions": {
@@ -296,7 +296,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

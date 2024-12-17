@@ -18,7 +18,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfile
 ```json
 {
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "name": "string",
   "description": "string",
   "defaultAction": "string",
@@ -338,7 +338,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfile
 || folderId | **string**
 
 Required field. ID of the folder to create a security profile in. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -660,7 +660,7 @@ Action to perform if maximum size of body exceeded.
   "response": {
     "id": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "name": "string",
     "description": "string",
     "defaultAction": "string",
@@ -1086,7 +1086,7 @@ ID of the security profile. ||
 || folderId | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

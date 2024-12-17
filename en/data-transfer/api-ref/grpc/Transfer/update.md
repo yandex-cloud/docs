@@ -28,7 +28,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/update.md
   },
   "name": "string",
   "update_mask": "google.protobuf.FieldMask",
-  "labels": "string",
+  "labels": "map<string, string>",
   "transformation": {
     "transformers": [
       {
@@ -189,7 +189,7 @@ described here:
 <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
 The only exception: if the repeated field is specified in the mask, then
 the new value replaces the old one instead of being appended to the old one. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 |#
 

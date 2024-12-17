@@ -18,7 +18,7 @@ Updates the specified registry.
   "registry_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -37,7 +37,7 @@ Field mask that specifies which fields of the Registry resource are going to be 
 Name of the registry.
 
 There may be only one registry per folder. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -65,7 +65,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "name": "string",
     "status": "Status",
     "created_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -161,7 +161,7 @@ Output only. Status of the registry.
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

@@ -38,7 +38,7 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "string"
+      "tags": "object"
     }
   ]
 }
@@ -98,7 +98,7 @@ The number of seconds "behind" the primary that this replica set member should "
 || priority | **number** (double)
 
 Priority of host for the election in replSet ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tags ||
 |#

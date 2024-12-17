@@ -46,7 +46,7 @@ Required field. ID of the thread to retrieve. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -85,7 +85,7 @@ Configuration for the expiration of the thread, defining when and how the thread
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the thread will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
 |#

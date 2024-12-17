@@ -27,16 +27,16 @@ To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cl
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -52,7 +52,7 @@ Name of the cloud. ||
 || description | **string**
 
 Description of the cloud. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -86,7 +86,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "organizationId": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -215,7 +215,7 @@ Description of the cloud. 0-256 characters long. ||
 || organizationId | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

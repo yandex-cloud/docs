@@ -19,12 +19,12 @@ second - audio metadata, others should contain audio bytes in chunks
   // Includes only one of the fields `metadata`, `audio`
   "metadata": {
     "connection_id": "string",
-    "fields": "string",
+    "fields": "map<string, string>",
     "users": [
       {
         "id": "string",
         "role": "UserRole",
-        "fields": "string"
+        "fields": "map<string, string>"
       }
     ]
   },
@@ -74,7 +74,7 @@ Includes only one of the fields `metadata`, `audio`. ||
 || connection_id | **string**
 
 id of connection this talk belongs too ||
-|| fields | **string**
+|| fields | **object** (map<**string**, **string**>)
 
 channel defined fields ||
 || users[] | **[UserMetadata](#yandex.cloud.speechsense.v1.UserMetadata)**
@@ -93,7 +93,7 @@ per user specific metadata ||
 - `USER_ROLE_OPERATOR`
 - `USER_ROLE_CLIENT`
 - `USER_ROLE_BOT` ||
-|| fields | **string** ||
+|| fields | **object** (map<**string**, **string**>) ||
 |#
 
 ## AudioStreamingRequest {#yandex.cloud.speechsense.v1.AudioStreamingRequest}

@@ -26,10 +26,10 @@ Required field. ID of the secret to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "deletionProtection": "boolean",
   // Includes only one of the fields `passwordPayloadSpecification`
   "passwordPayloadSpecification": {
@@ -48,7 +48,7 @@ Required field. ID of the secret to update. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -64,7 +64,7 @@ New name of the secret. ||
 || description | **string**
 
 New description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || deletionProtection | **boolean**
@@ -137,7 +137,7 @@ a string of punctuation characters to exclude from the default (at most 31, it's
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "kmsKeyId": "string",
     "status": "string",
     "currentVersion": {
@@ -304,7 +304,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kmsKeyId | **string**

@@ -59,8 +59,8 @@
    1. В открывшемся окне нажмите кнопку ![image](../../_assets/plus-sign.svg) **Создать облако**. Вы перейдете на страницу платежного аккаунта клиента в {{ billing-name }}.
    1. В блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
    1. Введите название облака.
-   1. В поле **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_label_organization }}** выберите [организацию](../../organization/quickstart.md) с именем `For subaccount 'Название_клиента'`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.
+   1. В поле **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_label_organization }}** выберите [организацию](../../organization/quickstart.md) с именем `For subaccount 'Название_клиента'`.
+   1. Нажмите кнопку **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
       Также вы можете [привязать](../operations/pin-cloud.md) к сабаккаунту клиента уже существующее облако.
 

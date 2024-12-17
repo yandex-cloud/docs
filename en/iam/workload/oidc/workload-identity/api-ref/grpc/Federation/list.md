@@ -57,7 +57,7 @@ returned by a previous list request. ||
       ],
       "issuer": "string",
       "jwks_url": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "created_at": "google.protobuf.Timestamp"
     }
   ],
@@ -112,7 +112,7 @@ URL of the external IdP server to be used for authentication. ||
 || jwks_url | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

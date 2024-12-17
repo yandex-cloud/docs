@@ -18,7 +18,7 @@ Creates a Kubernetes cluster in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "network_id": "string",
   "master_spec": {
     // Includes only one of the fields `zonal_master_spec`, `regional_master_spec`
@@ -141,7 +141,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the Kubernetes cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || network_id | **string**
@@ -515,7 +515,7 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "health": "Health",
     "network_id": "string",
@@ -708,7 +708,7 @@ Name of the Kubernetes cluster. ||
 || description | **string**
 
 Description of the Kubernetes cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

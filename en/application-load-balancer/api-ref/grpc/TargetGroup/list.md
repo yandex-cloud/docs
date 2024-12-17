@@ -60,7 +60,7 @@ Example of a filter: `name=my-target-group`. ||
       "name": "string",
       "description": "string",
       "folder_id": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "targets": [
         {
           // Includes only one of the fields `ip_address`
@@ -110,7 +110,7 @@ Description of the target group. ||
 || folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

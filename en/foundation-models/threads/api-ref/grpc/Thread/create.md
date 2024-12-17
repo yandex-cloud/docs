@@ -22,7 +22,7 @@ Create a new thread.
         "id": "string",
         "role": "string"
       },
-      "labels": "string",
+      "labels": "map<string, string>",
       "content": {
         "content": [
           {
@@ -43,7 +43,7 @@ Create a new thread.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -69,7 +69,7 @@ Default user ID that will be used as the author for thread messages if no other 
 || expiration_config | **[ExpirationConfig](#yandex.cloud.ai.common.ExpirationConfig)**
 
 Expiration configuration for the thread. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the thread. ||
 |#
@@ -84,7 +84,7 @@ This message is used, for example, to initialize a thread with some messages upo
 || author | **[Author](#yandex.cloud.ai.assistants.v1.threads.Author)**
 
 Author of the message, containing details about the message's creator. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the message. ||
 || content | **[MessageContent](#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
@@ -173,7 +173,7 @@ Text content of the message. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -212,7 +212,7 @@ Configuration for the expiration of the thread, defining when and how the thread
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp representing when the thread will expire. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
 |#

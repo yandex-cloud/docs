@@ -9,9 +9,9 @@ Deletes the specified policy.
 
 ## gRPC request
 
-**rpc Delete ([DeletePolicyRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.DeletePolicyRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Delete ([DeletePolicyRequest](#yandex.cloud.certificatemanager.v1.privateca.DeletePolicyRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## DeletePolicyRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.DeletePolicyRequest}
+## DeletePolicyRequest {#yandex.cloud.certificatemanager.v1.privateca.DeletePolicyRequest}
 
 ```json
 {
@@ -71,7 +71,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeletePolicyMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.DeletePolicyMetadata)**
+|| metadata | **[DeletePolicyMetadata](#yandex.cloud.certificatemanager.v1.privateca.DeletePolicyMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -103,7 +103,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## DeletePolicyMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.DeletePolicyMetadata}
+## DeletePolicyMetadata {#yandex.cloud.certificatemanager.v1.privateca.DeletePolicyMetadata}
 
 Metadata for the DeletePolicy operation.
 

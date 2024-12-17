@@ -36,7 +36,7 @@ To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "signatureAlgorithm": "string",
   "deletionProtection": "boolean"
@@ -69,7 +69,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)

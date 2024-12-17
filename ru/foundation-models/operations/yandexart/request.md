@@ -50,6 +50,12 @@
 
       Где:
 
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
+
       * `message1` — основная часть запроса на генерацию изображения.
       * `message2` — уточняющая часть запроса на генерацию изображения.
 

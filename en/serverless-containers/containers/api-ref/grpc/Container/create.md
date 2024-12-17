@@ -18,7 +18,7 @@ Creates a container in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -36,7 +36,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 |#
@@ -62,7 +62,7 @@ Resource labels as `key:value` pairs. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "url": "string",
     "status": "Status"
   }
@@ -153,7 +153,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**

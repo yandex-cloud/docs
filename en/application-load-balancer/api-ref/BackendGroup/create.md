@@ -20,7 +20,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `http`, `grpc`, `stream`
   "http": {
     "backends": [
@@ -309,7 +309,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the backend group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -1016,7 +1016,7 @@ keep connections to the failed host. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
@@ -1408,7 +1408,7 @@ Description of the backend group. The string is 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the backend group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).

@@ -189,13 +189,13 @@ Entry stream name. ||
 
 ```json
 {
-  "errors": "google.rpc.Status"
+  "errors": "map<int64, google.rpc.Status>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| errors | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+|| errors | **object** (map<**int64**, **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**>)
 
 The error result of the operation in case of failure or cancellation. ||
 |#

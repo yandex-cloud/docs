@@ -27,11 +27,11 @@ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
   "status": "string",
-  "labels": "string",
+  "labels": "object",
   "defaultAlgorithm": "string",
   "rotationPeriod": "string",
   "deletionProtection": "boolean"
@@ -40,7 +40,7 @@ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -67,7 +67,7 @@ Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE o
 Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
 || defaultAlgorithm | **enum** (SymmetricAlgorithm)
@@ -116,7 +116,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "primaryVersion": {
       "id": "string",
@@ -260,7 +260,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)

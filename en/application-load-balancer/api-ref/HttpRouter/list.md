@@ -55,7 +55,7 @@ Example of a filter: `name=my-http-router`. ||
       "name": "string",
       "description": "string",
       "folderId": "string",
-      "labels": "string",
+      "labels": "object",
       "virtualHosts": [
         {
           "name": "string",
@@ -398,7 +398,7 @@ Description of the router. ||
 || folderId | **string**
 
 ID of the folder that the router belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

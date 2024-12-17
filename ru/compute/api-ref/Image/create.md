@@ -23,7 +23,7 @@ POST https://compute.{{ api-host }}/compute/v1/images
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "family": "string",
   "minDiskSize": "string",
   "productIds": [
@@ -62,7 +62,7 @@ Name of the image. ||
 || description | **string**
 
 Description of the image. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || family | **string**
@@ -195,7 +195,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "family": "string",
     "storageSize": "string",
     "minDiskSize": "string",
@@ -345,7 +345,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**

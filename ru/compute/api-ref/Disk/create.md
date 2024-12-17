@@ -23,7 +23,7 @@ POST https://compute.{{ api-host }}/compute/v1/disks
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "typeId": "string",
   "zoneId": "string",
   "size": "string",
@@ -63,7 +63,7 @@ Name of the disk. ||
 || description | **string**
 
 Description of the disk. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || typeId | **string**
@@ -177,7 +177,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "typeId": "string",
     "zoneId": "string",
     "size": "string",
@@ -335,7 +335,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**

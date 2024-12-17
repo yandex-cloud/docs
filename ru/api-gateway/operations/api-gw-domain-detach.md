@@ -1,6 +1,6 @@
 ---
-title: Как отключить домен от шлюза {{ api-gw-full-name }}
-description: Из статьи вы узнаете, как отключить домен от шлюза {{ api-gw-full-name }}.
+title: Как отключить домен от API-шлюза {{ api-gw-full-name }}
+description: Из статьи вы узнаете, как отключить домен от API-шлюза {{ api-gw-full-name }}.
 ---
 
 # Отключить домен
@@ -9,9 +9,9 @@ description: Из статьи вы узнаете, как отключить д
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится шлюз.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите на имя нужного шлюза.
+  1. Нажмите на имя нужного API-шлюза.
   1. Перейдите в раздел ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
   1. В строке с доменом нажмите кнопку ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
   1. Подтвердите отключение.
@@ -54,7 +54,7 @@ description: Из статьи вы узнаете, как отключить д
             yc dns zone list-records <идентификатор_зоны_DNS>
             ```
         
-            Нужная запись имеет тип `ANAME` и значение вида `<идентификатор_шлюза>.apigw.yandexcloud.net`.
+            Нужная запись имеет тип `ANAME` и значение вида `<идентификатор_API-шлюза>.apigw.yandexcloud.net`.
 
         1. Удалите запись:
 

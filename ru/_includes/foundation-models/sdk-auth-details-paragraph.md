@@ -1,0 +1,1 @@
+В примерах используется аутентификация с помощью API-ключа. {{ ml-sdk-full-name }} также поддерживает аутентификацию с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и [OAuth-токена](../../iam/concepts/authorization/oauth-token.md). Подробнее см. в разделе [Аутентификация в {{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md#authentication).

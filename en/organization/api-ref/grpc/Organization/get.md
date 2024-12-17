@@ -38,7 +38,7 @@ To get the organization ID, use a [OrganizationService.List](/docs/organization/
   "name": "string",
   "description": "string",
   "title": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -61,7 +61,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

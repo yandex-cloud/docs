@@ -30,13 +30,13 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "source": {
     "id": "string",
     "folder_id": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "settings": {
       // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
       "mysql_source": {
@@ -157,7 +157,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
         "security_groups": [
           "string"
         ],
-        "changefeed_custom_name": "string"
+        "changefeed_custom_name": "string",
+        "changefeed_custom_consumer_name": "string"
       },
       "yds_source": {
         "database": "string",
@@ -698,6 +699,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
         "stream": "string",
         "service_account_id": "string",
         "save_tx_order": "bool",
+        "compression_codec": "YdsCompressionCodec",
         "serializer": {
           // Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`
           "serializer_auto": "SerializerAuto",
@@ -726,7 +728,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
     "folder_id": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "settings": {
       // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
       "mysql_source": {
@@ -847,7 +849,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
         "security_groups": [
           "string"
         ],
-        "changefeed_custom_name": "string"
+        "changefeed_custom_name": "string",
+        "changefeed_custom_consumer_name": "string"
       },
       "yds_source": {
         "database": "string",
@@ -1388,6 +1391,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/get.md
         "stream": "string",
         "service_account_id": "string",
         "save_tx_order": "bool",
+        "compression_codec": "YdsCompressionCodec",
         "serializer": {
           // Includes only one of the fields `serializer_auto`, `serializer_json`, `serializer_debezium`
           "serializer_auto": "SerializerAuto",
@@ -1575,7 +1579,7 @@ Transfer core entity
 || folder_id | **string** ||
 || name | **string** ||
 || description | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || source | **[Endpoint](#yandex.cloud.datatransfer.v1.Endpoint)** ||
 || target | **[Endpoint](#yandex.cloud.datatransfer.v1.Endpoint)** ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -1609,7 +1613,7 @@ Transfer core entity
 || folder_id | **string** ||
 || name | **string** ||
 || description | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)** ||
 |#
 
@@ -1679,7 +1683,7 @@ You can leave it empty, then it will be possible to transfer tables from several
 databases at the same time from this source. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -2099,6 +2103,7 @@ Security groups ||
 || changefeed_custom_name | **string**
 
 Pre-created change feed ||
+|| changefeed_custom_consumer_name | **string** ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -2444,7 +2449,7 @@ Database name associated with the credentials ||
 || connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
 || include_tables[] | **string**
 
-While list of tables for replication. If none or empty list is presented - will
+White list of tables for replication. If none or empty list is presented - will
 replicate all tables. Can contain * patterns. ||
 || exclude_tables[] | **string**
 
@@ -2518,7 +2523,7 @@ same names as on the source. If this field is empty, then you must fill below db
 schema for service table. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -2888,6 +2893,12 @@ SA which has read access to the stream. ||
 Save transaction order
 Not to split events queue into separate per-table queues.
 Incompatible with setting Topic prefix, only with Topic full name. ||
+|| compression_codec | enum **YdsCompressionCodec**
+
+- `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+- `YDS_COMPRESSION_CODEC_RAW`
+- `YDS_COMPRESSION_CODEC_GZIP`
+- `YDS_COMPRESSION_CODEC_ZSTD` ||
 || serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
 
 Data serialization format ||

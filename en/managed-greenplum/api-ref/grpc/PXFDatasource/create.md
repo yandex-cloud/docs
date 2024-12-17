@@ -65,12 +65,7 @@ Creates PXF datasource
         "ha_automatic_failover_enabled": "google.protobuf.BoolValue",
         "block_access_token_enabled": "google.protobuf.BoolValue",
         "use_datanode_hostname": "google.protobuf.BoolValue",
-        "namenodes": {
-          "rpc_address": "string",
-          "service_rpc_address": "string",
-          "http_address": "string",
-          "https_address": "string"
-        },
+        "namenodes": "map<string, PXFDatasourceHDFSDfsNamenode>",
         "nameservices": "string"
       },
       "yarn": {
@@ -78,14 +73,7 @@ Creates PXF datasource
         "resourcemanager_ha_auto_failover_enabled": "google.protobuf.BoolValue",
         "resourcemanager_ha_auto_failover_embedded": "google.protobuf.BoolValue",
         "resourcemanager_cluster_id": "string",
-        "ha_rm": {
-          "resourcemanager_address": "string",
-          "resourcemanager_scheduler_address": "string",
-          "resourcemanager_resource_tracker_address": "string",
-          "resourcemanager_admin_address": "string",
-          "resourcemanager_webapp_address": "string",
-          "resourcemanager_webapp_https_address": "string"
-        }
+        "ha_rm": "map<string, PXFDatasourceHDFSYarnHaRm>"
       }
     },
     "hive": {
@@ -341,7 +329,7 @@ The check of access tokens is enabled by default. ||
 || use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
 
 List of HDFS service logical names.
 
@@ -381,7 +369,7 @@ Determines whether the embedded ActiveStandbyElector method should be used for t
 || resourcemanager_cluster_id | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| ha_rm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**
+|| ha_rm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
 
 Highly available ResourceManager service. ||
 |#
@@ -507,12 +495,7 @@ Kerberos server principal. ||
         "ha_automatic_failover_enabled": "google.protobuf.BoolValue",
         "block_access_token_enabled": "google.protobuf.BoolValue",
         "use_datanode_hostname": "google.protobuf.BoolValue",
-        "namenodes": {
-          "rpc_address": "string",
-          "service_rpc_address": "string",
-          "http_address": "string",
-          "https_address": "string"
-        },
+        "namenodes": "map<string, PXFDatasourceHDFSDfsNamenode>",
         "nameservices": "string"
       },
       "yarn": {
@@ -520,14 +503,7 @@ Kerberos server principal. ||
         "resourcemanager_ha_auto_failover_enabled": "google.protobuf.BoolValue",
         "resourcemanager_ha_auto_failover_embedded": "google.protobuf.BoolValue",
         "resourcemanager_cluster_id": "string",
-        "ha_rm": {
-          "resourcemanager_address": "string",
-          "resourcemanager_scheduler_address": "string",
-          "resourcemanager_resource_tracker_address": "string",
-          "resourcemanager_admin_address": "string",
-          "resourcemanager_webapp_address": "string",
-          "resourcemanager_webapp_https_address": "string"
-        }
+        "ha_rm": "map<string, PXFDatasourceHDFSYarnHaRm>"
       }
     },
     "hive": {
@@ -843,7 +819,7 @@ The check of access tokens is enabled by default. ||
 || use_datanode_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**>)
 
 List of HDFS service logical names.
 
@@ -883,7 +859,7 @@ Determines whether the embedded ActiveStandbyElector method should be used for t
 || resourcemanager_cluster_id | **string**
 
 Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| ha_rm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**
+|| ha_rm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**>)
 
 Highly available ResourceManager service. ||
 |#

@@ -25,7 +25,7 @@ Retrieve the CSR for a specific Certificate Authority.
 Required field. The ID of the Certificate Authority for which you want to retrieve the CSR. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
 
 **HTTP Code: 200 - OK**
 

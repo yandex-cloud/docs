@@ -18,7 +18,7 @@ Updates the specified Greenplum® cluster.
   "cluster_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "config": {
     "version": "string",
@@ -198,7 +198,7 @@ Field mask that specifies which fields of the Greenplum® cluster resource shoul
 || description | **string**
 
 New description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs.
 For example, `"project":"mvp"` or `"source":"dictionary"`.
@@ -903,7 +903,7 @@ enable Cloud Storage for cluster ||
       "assign_public_ip": "bool"
     },
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -1332,7 +1332,7 @@ Greenplum® cluster configuration. ||
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. ||
 || environment | enum **Environment**

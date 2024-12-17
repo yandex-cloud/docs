@@ -47,7 +47,7 @@ Page token. To get the next page of results, set `page_token` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "logGroupId": "string",
       "logOptions": {
@@ -106,7 +106,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

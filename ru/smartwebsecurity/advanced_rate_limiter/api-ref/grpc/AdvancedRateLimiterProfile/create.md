@@ -16,7 +16,7 @@ Creates a ARL profile in the specified folder using the data specified in the re
 ```json
 {
   "folder_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
   "advanced_rate_limiter_rules": [
@@ -249,7 +249,7 @@ Creates a ARL profile in the specified folder using the data specified in the re
 || folder_id | **string**
 
 Required field. ID of the folder to create a ARL profile in. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -568,7 +568,7 @@ String value of the key. ||
   "response": {
     "id": "string",
     "folder_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "name": "string",
     "description": "string",
     "advanced_rate_limiter_rules": [
@@ -876,7 +876,7 @@ ID of the ARL profile. ||
 || folder_id | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

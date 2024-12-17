@@ -29,15 +29,15 @@ Required field. ID of the rule to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -50,7 +50,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Rule labels as `key:value` pairs.
 
@@ -88,7 +88,7 @@ to add or remove a label:
   "response": {
     "id": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "direction": "string",
     "ports": {
       "fromPort": "string",
@@ -221,7 +221,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)

@@ -148,6 +148,8 @@ items:
                 href: api-ref/grpc/Payload/index.md
               - name: Get
                 href: api-ref/grpc/Payload/get.md
+              - name: GetEx
+                href: api-ref/grpc/Payload/getEx.md
           - name: Secret
             items:
               - name: Overview
@@ -200,6 +202,8 @@ items:
                 href: api-ref/Payload/index.md
               - name: Get
                 href: api-ref/Payload/get.md
+              - name: GetEx
+                href: api-ref/Payload/getEx.md
           - name: Secret
             items:
               - name: Overview

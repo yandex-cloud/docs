@@ -19,7 +19,7 @@ Updates dataset.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -37,7 +37,7 @@ Name of the dataset. ||
 || description | **string**
 
 Description of the dataset. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the dataset. ||
 |#
@@ -59,7 +59,7 @@ Labels of the dataset. ||
     "rows": "int64",
     "size_bytes": "int64",
     "created_by_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "created_by": "string",
     "updated_by": "string",
     "validation_error": [
@@ -131,7 +131,7 @@ Size of the dataset. ||
 || created_by_id | **string**
 
 Deprecated. Use created_by instead ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the dataset ||
 || created_by | **string**

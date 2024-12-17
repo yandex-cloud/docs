@@ -17,7 +17,8 @@ A set of methods for managing datasets.
 || [Update](update.md) | Updates dataset. ||
 || [Delete](delete.md) | Deletes dataset. ||
 || [List](list.md) | Lists datasets in specified folder. ||
-|| [ListUploadFormats](listUploadFormats.md) | Lists supported upload formats for the specified dataset task type. ||
+|| [ListUploadFormats](listUploadFormats.md) | Deprecated. Use ListUploadSchemas. ||
+|| [ListUploadSchemas](listUploadSchemas.md) | Lists supported dataset upload formats types and schemas for the specified dataset task type. ||
 || [GetUploadDraftUrl](getUploadDraftUrl.md) | Returns an S3 presigned URL for dataset upload. ||
 || [StartMultipartUploadDraft](startMultipartUploadDraft.md) | Returns a list of S3 presigned URLs for multipart upload of dataset. ||
 || [FinishMultipartUploadDraft](finishMultipartUploadDraft.md) | Finishes multipart upload of the dataset. ||

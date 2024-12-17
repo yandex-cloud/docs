@@ -9,9 +9,9 @@ Retrieves specified certificate template.
 
 ## gRPC request
 
-**rpc Get ([GetTemplateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetTemplateRequest)) returns ([Template](#yandex.cloud.priv.certificatemanager.v1.privateca.Template))**
+**rpc Get ([GetTemplateRequest](#yandex.cloud.certificatemanager.v1.privateca.GetTemplateRequest)) returns ([Template](#yandex.cloud.certificatemanager.v1.privateca.Template))**
 
-## GetTemplateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetTemplateRequest}
+## GetTemplateRequest {#yandex.cloud.certificatemanager.v1.privateca.GetTemplateRequest}
 
 ```json
 {
@@ -28,7 +28,7 @@ Request message to retrieve details of a template.
 Required field. ID of the template to retrieve. ||
 |#
 
-## Template {#yandex.cloud.priv.certificatemanager.v1.privateca.Template}
+## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
 
 ```json
 {

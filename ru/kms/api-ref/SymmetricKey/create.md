@@ -20,7 +20,7 @@ POST https://{{ api-host-kms }}/kms/v1/keys
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "defaultAlgorithm": "string",
   "rotationPeriod": "string",
   "deletionProtection": "boolean"
@@ -38,7 +38,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`. ||
@@ -90,7 +90,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "primaryVersion": {
       "id": "string",
@@ -237,7 +237,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)

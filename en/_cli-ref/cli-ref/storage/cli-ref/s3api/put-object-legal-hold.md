@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--legal-hold`|<b>`key=value[,key=value...]`</b><br/>Legal hold status. Syntax: Status=string|
+|`--legal-hold`|<b>`string`</b><br/>Legal hold status. Shorthand Syntax: Status=(ON\|OFF) JSON Syntax: {"Status": "string"}. Example of usage: 1) --legal-hold Status=ON 2) --legal-hold '{"Status":"ON"}'|
 |`--version-id`|<b>`string`</b><br/>Version ID used to reference a specific version of the object.|
 
 #### Global Flags

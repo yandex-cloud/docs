@@ -39,6 +39,12 @@ description: Следуя данной инструкции, вы научите
 
       Где:
 
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
+
       * `messages_1` и `messages_2` — массивы сообщений, которые задают контекст для модели и используются для разных способов получения результата выполнения асинхронного запроса:
 
           * `role` — роль отправителя сообщения:
@@ -61,9 +67,9 @@ description: Следуя данной инструкции, вы научите
 
       ```text
       Variant 1:
-      GPTModelResult(alternatives=(Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате — он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=104, completion_tokens=47, total_tokens=151), model_version='07.03.2024')
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате – он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=74, completion_tokens=46, total_tokens=120), model_version='23.10.2024')
       Variant 2:
-      GPTModelResult(alternatives=(Alternative(role='assistant', text='[              {                "role": "system",                "text": "Найди ошибки в тексте и исправь их"              },              {                "role": "user",                "text": "Ошибки сами себя не исправят."              }            ]', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=67, completion_tokens=53, total_tokens=120), model_version='07.03.2024')
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Ошибки сами себя не исправят.\n\nАшипки → ошибки.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=32, completion_tokens=16, total_tokens=48), model_version='23.10.2024')
       ```
 
       Код дожидается получения результата сначала для первого способа, затем — для второго.

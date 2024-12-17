@@ -35,7 +35,7 @@ Currently page_size, page_token, filter and order_by are not supported and List 
     {
       "id": "string",
       "folder_id": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "name": "string",
       "description": "string",
       "default_action": "DefaultAction",
@@ -374,7 +374,7 @@ ID of the security profile. ||
 || folder_id | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

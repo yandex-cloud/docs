@@ -19,7 +19,7 @@ Updates the specified rule.
   "rule_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -37,7 +37,7 @@ Field mask that specifies which attributes of the Address should be updated. ||
 || description | **string**
 
 New description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Rule labels as `key:value` pairs.
 
@@ -67,7 +67,7 @@ to add or remove a label:
   "response": {
     "id": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "direction": "Direction",
     "ports": {
       "from_port": "int64",
@@ -169,7 +169,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | enum **Direction**

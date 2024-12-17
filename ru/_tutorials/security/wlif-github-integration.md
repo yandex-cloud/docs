@@ -40,7 +40,7 @@
    1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** введите получателя токена `https://github.com/<имя_пользователя_github>`.
    1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите URL списка публичных ключей `https://token.actions.githubusercontent.com/.well-known/jwks`.
    1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя федерации, например `test-iam-federation`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.create.popup-create-cloud_button_add }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
 {% endlist %}
 

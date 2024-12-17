@@ -36,7 +36,7 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "monitoring": [
     {
@@ -2939,6 +2939,7 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref
     },
     "access": {
       "dataLens": "boolean",
+      "webSql": "boolean",
       "dataTransfer": "boolean"
     },
     "mongodbConfig": {
@@ -3360,7 +3361,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the MongoDB cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the MongoDB cluster as `` key:value `` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)
@@ -7185,6 +7186,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 || dataLens | **boolean**
 
 Allow access for DataLens. ||
+|| webSql | **boolean**
+
+Allow access for Web SQL. ||
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||

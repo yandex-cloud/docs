@@ -19,7 +19,7 @@ Updates the specified container.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -40,7 +40,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description for the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs.
 
@@ -69,7 +69,7 @@ to add or remove a label, request the current set of labels with a [ContainerSer
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "url": "string",
     "status": "Status"
   }
@@ -160,7 +160,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**

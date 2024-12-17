@@ -9,9 +9,9 @@ Returns the certificate chain for the specified certificate.
 
 ## gRPC request
 
-**rpc GetChain ([GetCertificateChainRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateChainRequest)) returns ([GetCertificateChainResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateChainResponse))**
+**rpc GetChain ([GetCertificateChainRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainRequest)) returns ([GetCertificateChainResponse](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainResponse))**
 
-## GetCertificateChainRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateChainRequest}
+## GetCertificateChainRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainRequest}
 
 ```json
 {
@@ -28,7 +28,7 @@ Request message for GetChain.
 Required field. ID of the certificate to get the chain for. ||
 |#
 
-## GetCertificateChainResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateChainResponse}
+## GetCertificateChainResponse {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateChainResponse}
 
 ```json
 {

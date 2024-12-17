@@ -19,7 +19,7 @@ Update channel.
   "field_mask": "google.protobuf.FieldMask",
   "title": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -37,7 +37,7 @@ Channel title. ||
 || description | **string**
 
 Channel description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#
@@ -64,7 +64,7 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
     "description": "string",
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -158,7 +158,7 @@ Time when channel was created. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last channel update. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

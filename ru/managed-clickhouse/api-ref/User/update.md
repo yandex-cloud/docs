@@ -31,7 +31,7 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "password": "string",
   "permissions": [
     {
@@ -200,7 +200,7 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

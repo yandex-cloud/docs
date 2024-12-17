@@ -29,9 +29,20 @@ Creates a new database.
     "storage_size_limit": "int64"
   },
   "scale_policy": {
-    // Includes only one of the fields `fixed_scale`
+    // Includes only one of the fields `fixed_scale`, `auto_scale`
     "fixed_scale": {
       "size": "int64"
+    },
+    "auto_scale": {
+      "min_size": "int64",
+      "max_size": "int64",
+      // Includes only one of the fields `target_tracking`
+      "target_tracking": {
+        // Includes only one of the fields `cpu_utilization_percent`
+        "cpu_utilization_percent": "int64"
+        // end of the list of possible fields
+      }
+      // end of the list of possible fields
     }
     // end of the list of possible fields
   },
@@ -58,9 +69,20 @@ Creates a new database.
       "storage_size_limit": "int64"
     },
     "scale_policy": {
-      // Includes only one of the fields `fixed_scale`
+      // Includes only one of the fields `fixed_scale`, `auto_scale`
       "fixed_scale": {
         "size": "int64"
+      },
+      "auto_scale": {
+        "min_size": "int64",
+        "max_size": "int64",
+        // Includes only one of the fields `target_tracking`
+        "target_tracking": {
+          // Includes only one of the fields `cpu_utilization_percent`
+          "cpu_utilization_percent": "int64"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -80,7 +102,7 @@ Creates a new database.
   // end of the list of possible fields
   "assign_public_ips": "bool",
   "location_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "backup_config": {
     "backup_settings": [
       {
@@ -231,7 +253,7 @@ Includes only one of the fields `zonal_database`, `regional_database`, `dedicate
 Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
 || assign_public_ips | **bool** ||
 || location_id | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backup_config | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || monitoring_config | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletion_protection | **bool** ||
@@ -261,7 +283,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixed_scale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixed_scale`. ||
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -269,6 +294,39 @@ Includes only one of the fields `fixed_scale`. ||
 #|
 ||Field | Description ||
 || size | **int64** ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| min_size | **int64**
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| max_size | **int64**
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| target_tracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+
+Includes only one of the fields `target_tracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpu_utilization_percent | **int64**
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpu_utilization_percent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}
@@ -613,9 +671,20 @@ Required. Parameter value ||
       "storage_size_limit": "int64"
     },
     "scale_policy": {
-      // Includes only one of the fields `fixed_scale`
+      // Includes only one of the fields `fixed_scale`, `auto_scale`
       "fixed_scale": {
         "size": "int64"
+      },
+      "auto_scale": {
+        "min_size": "int64",
+        "max_size": "int64",
+        // Includes only one of the fields `target_tracking`
+        "target_tracking": {
+          // Includes only one of the fields `cpu_utilization_percent`
+          "cpu_utilization_percent": "int64"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -642,9 +711,20 @@ Required. Parameter value ||
         "storage_size_limit": "int64"
       },
       "scale_policy": {
-        // Includes only one of the fields `fixed_scale`
+        // Includes only one of the fields `fixed_scale`, `auto_scale`
         "fixed_scale": {
           "size": "int64"
+        },
+        "auto_scale": {
+          "min_size": "int64",
+          "max_size": "int64",
+          // Includes only one of the fields `target_tracking`
+          "target_tracking": {
+            // Includes only one of the fields `cpu_utilization_percent`
+            "cpu_utilization_percent": "int64"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -664,7 +744,7 @@ Required. Parameter value ||
     // end of the list of possible fields
     "assign_public_ips": "bool",
     "location_id": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "backup_config": {
       "backup_settings": [
         {
@@ -904,7 +984,7 @@ Includes only one of the fields `zonal_database`, `regional_database`, `dedicate
 Includes only one of the fields `zonal_database`, `regional_database`, `dedicated_database`, `serverless_database`. ||
 || assign_public_ips | **bool** ||
 || location_id | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backup_config | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig2)** ||
 || document_api_endpoint | **string** ||
 || kinesis_api_endpoint | **string** ||
@@ -937,7 +1017,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixed_scale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale2)**
 
-Includes only one of the fields `fixed_scale`. ||
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale2)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale2}
@@ -945,6 +1028,39 @@ Includes only one of the fields `fixed_scale`. ||
 #|
 ||Field | Description ||
 || size | **int64** ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale2}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| min_size | **int64**
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| max_size | **int64**
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| target_tracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking2)**
+
+Includes only one of the fields `target_tracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking2}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpu_utilization_percent | **int64**
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpu_utilization_percent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase2}

@@ -26,7 +26,7 @@ Required field. ID of the video. ||
 
 ```json
 {
-  "fieldMask": "string",
+  "fieldMask": "object",
   "subtitleIds": [
     "string"
   ]
@@ -35,7 +35,7 @@ Required field. ID of the video. ||
 
 #|
 ||Field | Description ||
-|| fieldMask | **string** (field-mask)
+|| fieldMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -98,7 +98,7 @@ IDs of active video subtitles. ||
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -297,7 +297,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

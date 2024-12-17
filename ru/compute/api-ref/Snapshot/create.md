@@ -21,7 +21,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshots
   "diskId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "hardwareGeneration": {
     // Includes only one of the fields `legacyFeatures`, `generation2Features`
     "legacyFeatures": {
@@ -49,7 +49,7 @@ Name of the snapshot. ||
 || description | **string**
 
 Description of the snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
@@ -119,7 +119,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "storageSize": "string",
     "diskSize": "string",
     "productIds": [
@@ -268,7 +268,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)

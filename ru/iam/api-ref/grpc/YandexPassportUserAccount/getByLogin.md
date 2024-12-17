@@ -39,11 +39,7 @@ Required field. Login of the YandexPassportUserAccount resource to return. ||
   "saml_user_account": {
     "federation_id": "string",
     "name_id": "string",
-    "attributes": {
-      "value": [
-        "string"
-      ]
-    }
+    "attributes": "map<string, Attribute>"
   },
   // end of the list of possible fields
   "last_authenticated_at": "google.protobuf.Timestamp"
@@ -99,7 +95,7 @@ Required field. ID of the federation that the federation belongs to. ||
 
 Required field. Name Id of the SAML federated user.
 The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.iam.v1.SamlUserAccount.Attribute)**
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.iam.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

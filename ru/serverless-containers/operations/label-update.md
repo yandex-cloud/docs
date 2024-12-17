@@ -11,11 +11,7 @@ description: Следуя данной инструкции, вы сможете
     
     Чтобы изменить метку контейнера, выполните команду:
   
-    {% note warning %}
-    
-    Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-    
-    {% endnote %}
+    {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
     ```
     yc serverless container update <имя_контейнера> --labels <ключ>=<значение>

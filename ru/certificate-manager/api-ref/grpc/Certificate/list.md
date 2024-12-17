@@ -56,7 +56,7 @@ The output type of the certificate.
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "type": "CertificateType",
       "domains": [
         "string"
@@ -135,7 +135,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | enum **CertificateType**

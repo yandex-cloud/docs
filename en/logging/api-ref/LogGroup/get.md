@@ -38,7 +38,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGro
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "retentionPeriod": "string",
   "dataStream": "string"
@@ -72,7 +72,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | **enum** (Status)

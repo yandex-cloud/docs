@@ -226,8 +226,8 @@ description: Из статьи вы узнаете, как изменить по
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Выберите политику резервного копирования, в которой нужно изменить список [виртуальных машин](../../../compute/concepts/vm.md).
   1. Измените список ВМ:
-     * Чтобы добавить новую ВМ, в блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**. В открывшемся окне выберите ВМ, которую нужно привязать к политике резервного копирования, и нажмите кнопку **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
-     * Чтобы удалить ВМ, в блоке **{{ ui-key.yacloud.backup.label_linked-instances }}** напротив ВМ, которую нужно отвязать от политики резервного копирования, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_detach-instance }}**.
+     * Чтобы добавить новую ВМ, в блоке **{{ ui-key.yacloud.backup.value_vm-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**. В открывшемся окне выберите ВМ, которую нужно привязать к политике резервного копирования, и нажмите кнопку **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
+     * Чтобы удалить ВМ, в блоке **{{ ui-key.yacloud.backup.value_vm-recourses }}** напротив ВМ, которую нужно отвязать от политики резервного копирования, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**.
 
 - CLI {#cli}
 

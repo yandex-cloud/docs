@@ -29,16 +29,16 @@ To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapsh
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -54,7 +54,7 @@ Name of the snapshot. ||
 || description | **string**
 
 Description of the snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -90,7 +90,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "storageSize": "string",
     "diskSize": "string",
     "productIds": [
@@ -236,7 +236,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)

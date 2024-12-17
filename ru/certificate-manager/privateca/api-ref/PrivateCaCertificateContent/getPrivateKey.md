@@ -24,7 +24,7 @@ Request message for GetPrivateKey.
 Required field. ID of the certificate to get the private key for. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.GetCertificatePrivateKeyResponse}
 
 **HTTP Code: 200 - OK**
 

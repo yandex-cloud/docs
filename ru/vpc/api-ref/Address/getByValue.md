@@ -37,7 +37,7 @@ External ipv4 address specification. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `externalIpv4Address`
   "externalIpv4Address": {
     "address": "string",
@@ -92,7 +92,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

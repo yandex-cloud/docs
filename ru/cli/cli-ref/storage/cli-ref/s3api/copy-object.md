@@ -17,13 +17,14 @@ Syntax:
 
 | Flag | Description |
 |----|----|
+|`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
+|`--copy-source`|<b>`string`</b><br/>Specifies the source object for the copy operation.|
+|`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
 |`--acl`|<b>`string`</b><br/>Sets a predefined ACL for an object.|
-|`--bucket`|<b>`string`</b><br/>[REQUIRED] The name of the destination bucket.|
 |`--cache-control`|<b>`string`</b><br/>Directives for caching data according to RFC 2616.|
 |`--content-disposition`|<b>`string`</b><br/>Name Object Storage will suggest for the object to save it as a file when downloaded. Compliant with RFC 2616.|
 |`--content-encoding`|<b>`string`</b><br/>Defines the content encoding according to RFC 2616.|
 |`--content-type`|<b>`string`</b><br/>Data type in a request.|
-|`--copy-source`|<b>`string`</b><br/>Specifies the source object for the copy operation.|
 |`--copy-source-if-match`|<b>`string`</b><br/>Copies the object if its entity tag (ETag) matches the specified tag.|
 |`--copy-source-if-none-match`|<b>`string`</b><br/>Copies the object if its entity tag (ETag) is different than the specified ETag.|
 |`--copy-source-if-modified-since`|<b>`timestamp`</b><br/>Copies the object if it has been modified since the specified time.|
@@ -33,7 +34,6 @@ Syntax:
 |`--grant-read`|<b>`string`</b><br/>Grants the access grantee object read permission.|
 |`--grant-read-acp`|<b>`string`</b><br/>Grants the access grantee object ACL read permission.|
 |`--grant-write-acp`|<b>`string`</b><br/>Grants the access grantee object ACL write permission.|
-|`--key`|<b>`string`</b><br/>[REQUIRED] The key of the destination object.|
 |`--metadata`|<b>`key=value[,key=value...]`</b><br/>User-defined metadata.|
 |`--metadata-directive`|<b>`string`</b><br/>Specifies whether the metadata is copied from the source object or replaced with metadata thats provided in the request.|
 |`--storage-class`|<b>`string`</b><br/>Object storage class.|

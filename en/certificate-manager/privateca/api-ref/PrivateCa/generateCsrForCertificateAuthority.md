@@ -14,7 +14,7 @@ This allows generating the CSR which can be used to receive the final certificat
 POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/generateCsr
 ```
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityRequest}
 
 ```json
 {
@@ -92,11 +92,11 @@ Required field. Unique name for the Certificate Authority. ||
 || description | **string**
 
 Optional description of the Certificate Authority for users to add additional context. ||
-|| issuer | **[Issuer](#yandex.cloud.priv.certificatemanager.v1.privateca.Issuer)**
+|| issuer | **[Issuer](#yandex.cloud.certificatemanager.v1.privateca.Issuer)**
 
 Required field. Specifies the Certificate Authority issuer.
 Required to define the issuer attributes for the CSR. ||
-|| subjectSpec | **[Subject](#yandex.cloud.priv.certificatemanager.v1.privateca.Subject)**
+|| subjectSpec | **[Subject](#yandex.cloud.certificatemanager.v1.privateca.Subject)**
 
 Required field. Subject specifies the distinguished name (DN) fields for the CA (e.g., CN, O, etc.).
 This is a required field that defines the identity information of the certificate. ||
@@ -185,19 +185,19 @@ Protection flag that prevents accidental deletion of the Certificate Authority.
 If set to true, the CA cannot be deleted unless this flag is removed. ||
 |#
 
-## Issuer {#yandex.cloud.priv.certificatemanager.v1.privateca.Issuer}
+## Issuer {#yandex.cloud.certificatemanager.v1.privateca.Issuer}
 
 Issuer field of certificate. Contains same inner field with subject. https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
 #|
 ||Field | Description ||
-|| baseRdn | **[BaseRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN)**
+|| baseRdn | **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
 
 Required field.  ||
-|| additionalRdn | **[AdditionalRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN)** ||
+|| additionalRdn | **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)** ||
 |#
 
-## BaseRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN}
+## BaseRDN {#yandex.cloud.certificatemanager.v1.privateca.BaseRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -226,7 +226,7 @@ Common name. For tls certificates it is domain usually. ||
 Email address of certificate owner ||
 |#
 
-## AdditionalRDN {#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN}
+## AdditionalRDN {#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN}
 
 https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.4
 
@@ -255,16 +255,16 @@ Initials of certificate subject in arbitrary form. ||
 Generation qualifier of certificate subject in arbitrary form. ||
 |#
 
-## Subject {#yandex.cloud.priv.certificatemanager.v1.privateca.Subject}
+## Subject {#yandex.cloud.certificatemanager.v1.privateca.Subject}
 
 Subject field of certificate https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.6
 
 #|
 ||Field | Description ||
-|| baseRdn | **[BaseRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.BaseRDN)**
+|| baseRdn | **[BaseRDN](#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
 
 Required field. Most used field of subject ||
-|| additionalRdn | **[AdditionalRDN](#yandex.cloud.priv.certificatemanager.v1.privateca.AdditionalRDN)**
+|| additionalRdn | **[AdditionalRDN](#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
 
 Additional fields of subject ||
 |#
@@ -337,7 +337,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[GenerateCsrForCertificateAuthorityMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityMetadata)**
+|| metadata | **[GenerateCsrForCertificateAuthorityMetadata](#yandex.cloud.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -352,7 +352,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[CsrForSignCertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CsrForSignCertificateAuthority)**
+|| response | **[CsrForSignCertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -369,7 +369,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## GenerateCsrForCertificateAuthorityMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityMetadata}
+## GenerateCsrForCertificateAuthorityMetadata {#yandex.cloud.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityMetadata}
 
 Metadata returned from the GenerateCsrForCertificateAuthority operation.
 
@@ -397,7 +397,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## CsrForSignCertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
+## CsrForSignCertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CsrForSignCertificateAuthority}
 
 Certificate Signing Request (CSR) for signing a certificate authority.
 

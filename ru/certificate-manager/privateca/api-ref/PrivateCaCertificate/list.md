@@ -13,7 +13,7 @@ Lists the certificates issued by a given Certificate Authority (CA).
 GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates
 ```
 
-## Query parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesRequest}
+## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesRequest}
 
 Request to list certificates issued by a specific Certificate Authority.
 
@@ -30,7 +30,7 @@ Maximum number of certificates to return per page, optional. Default is 100. ||
 Page token, allows request for the next page of results from a previous list call. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesResponse}
 
 **HTTP Code: 200 - OK**
 
@@ -58,7 +58,7 @@ Response to the `ListCertificates` request, containing the certificates and pagi
 
 #|
 ||Field | Description ||
-|| certificates[] | **[PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate)**
+|| certificates[] | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
 
 The list of certificates issued by the Certificate Authority. ||
 || nextPageToken | **string**
@@ -66,7 +66,7 @@ The list of certificates issued by the Certificate Authority. ||
 Token to use to fetch the next page of results, if there are more results. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 A private certificate issued by a private certificate authority.
 

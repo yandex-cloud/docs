@@ -20,7 +20,7 @@ POST https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "specification": {
     // Includes only one of the fields `specYaml`
     "specYaml": "string"
@@ -51,7 +51,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
@@ -159,7 +159,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -300,7 +300,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || status | **enum** (Status)

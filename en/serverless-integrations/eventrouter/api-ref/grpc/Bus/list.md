@@ -53,7 +53,7 @@ created_at ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "deletion_protection": "bool",
       "status": "Status"
     }
@@ -94,7 +94,7 @@ Name of the bus. ||
 || description | **string**
 
 Description of the bus. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || deletion_protection | **bool**

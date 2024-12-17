@@ -10,9 +10,9 @@ This allows updating attributes of an already existing CA, such as name, descrip
 
 ## gRPC request
 
-**rpc Update ([UpdateCertificateAuthorityRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateAuthorityRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+**rpc Update ([UpdateCertificateAuthorityRequest](#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateAuthorityRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
-## UpdateCertificateAuthorityRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateAuthorityRequest}
+## UpdateCertificateAuthorityRequest {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateAuthorityRequest}
 
 ```json
 {
@@ -111,7 +111,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCertificateAuthorityMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateAuthorityMetadata)**
+|| metadata | **[UpdateCertificateAuthorityMetadata](#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateAuthorityMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -126,7 +126,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[CertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority)**
+|| response | **[CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -143,7 +143,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## UpdateCertificateAuthorityMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.UpdateCertificateAuthorityMetadata}
+## UpdateCertificateAuthorityMetadata {#yandex.cloud.certificatemanager.v1.privateca.UpdateCertificateAuthorityMetadata}
 
 Metadata returned from the UpdateCertificateAuthority operation.
 
@@ -154,7 +154,7 @@ Metadata returned from the UpdateCertificateAuthority operation.
 The ID of the Certificate Authority that was updated. ||
 |#
 
-## CertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 A certificate authority (CA) used to sign certificates.
 

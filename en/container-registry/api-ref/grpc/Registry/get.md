@@ -39,7 +39,7 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
   "name": "string",
   "status": "Status",
   "created_at": "google.protobuf.Timestamp",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -67,7 +67,7 @@ Output only. Status of the registry.
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

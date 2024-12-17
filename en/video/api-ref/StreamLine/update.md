@@ -26,10 +26,10 @@ Required field. ID of the line. ||
 
 ```json
 {
-  "fieldMask": "string",
+  "fieldMask": "object",
   "title": "string",
   "thumbnailId": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
   "rtmpPush": "object",
   "srtPush": "object",
@@ -51,7 +51,7 @@ Required field. ID of the line. ||
 
 #|
 ||Field | Description ||
-|| fieldMask | **string** (field-mask)
+|| fieldMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -67,7 +67,7 @@ Line title. ||
 || thumbnailId | **string**
 
 ID of the thumbnail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || rtmpPush | **object**
@@ -206,7 +206,7 @@ Required field. URL of a RTSP streaming server. ||
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -401,7 +401,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

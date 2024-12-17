@@ -21,6 +21,14 @@ items:
             href: operations/api-gw-vars.md
           - name: Настроить канареечный релиз
             href: operations/api-gw-canary.md
+          - name: Управлять метками
+            items:
+              - name: Добавить метку
+                href: operations/label-add.md
+              - name: Изменить метку
+                href: operations/label-update.md
+              - name: Удалить метку
+                href: operations/label-delete.md
           - name: Посмотреть графики мониторинга
             href: operations/api-gw-monitoring.md
           - name: Управлять логами

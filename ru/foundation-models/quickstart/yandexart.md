@@ -75,6 +75,8 @@
       Где:
       * `message` — переменная, значение которой содержит текст запроса на генерацию изображения.
 
+          {% include [sdk-input-format](../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
       
   1. Выполните созданный файл:
@@ -86,8 +88,6 @@
      **Результат**: 
 
      ![succulent](../../_assets/yandexgpt/succulent.jpeg)
-
-  
 
 - API {#api}
 

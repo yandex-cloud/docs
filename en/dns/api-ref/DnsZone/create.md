@@ -20,7 +20,7 @@ POST https://dns.{{ api-host }}/dns/v1/zones
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zone": "string",
   "privateVisibility": {
     "networkIds": [
@@ -46,7 +46,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**
@@ -105,7 +105,7 @@ Network IDs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zone": "string",
     "privateVisibility": {
       "networkIds": [
@@ -243,7 +243,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

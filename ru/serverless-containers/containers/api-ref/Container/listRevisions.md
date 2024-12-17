@@ -77,7 +77,7 @@ Example of a filter: `status="ACTIVE"`. ||
             "string"
           ]
         },
-        "environment": "string",
+        "environment": "object",
         "workingDir": "string"
       },
       "resources": {
@@ -271,7 +271,7 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Additional environment for the container. ||
 || workingDir | **string**

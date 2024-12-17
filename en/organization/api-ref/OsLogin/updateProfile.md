@@ -28,7 +28,7 @@ Required field.  ||
   "uid": "string",
   "homeDirectory": "string",
   "shell": "string",
-  "updateMask": "string"
+  "updateMask": "object"
 }
 ```
 
@@ -42,7 +42,7 @@ Required field. must not contain . or end in ~ ||
 1000 - 2^63 - 1 ||
 || homeDirectory | **string** ||
 || shell | **string** ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

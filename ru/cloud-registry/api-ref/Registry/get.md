@@ -39,8 +39,8 @@ To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref
   "type": "string",
   "status": "string",
   "description": "string",
-  "labels": "string",
-  "properties": "string",
+  "labels": "object",
+  "properties": "object",
   "createdAt": "string",
   "modifiedAt": "string"
 }
@@ -84,10 +84,10 @@ Output only. Status of the registry.
 || description | **string**
 
 Description of the registry. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
 || createdAt | **string** (date-time)

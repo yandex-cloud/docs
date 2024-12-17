@@ -19,7 +19,7 @@ Creates an asymmetric KMS key in the specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "encryption_algorithm": "AsymmetricEncryptionAlgorithm",
   "deletion_protection": "bool"
 }
@@ -36,7 +36,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`. ||
@@ -74,7 +74,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "encryption_algorithm": "AsymmetricEncryptionAlgorithm",
     "deletion_protection": "bool"
@@ -168,7 +168,7 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**

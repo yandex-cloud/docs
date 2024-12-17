@@ -18,7 +18,7 @@ Creates Workflow in specified folder.
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "specification": {
     // Includes only one of the fields `spec_yaml`
     "spec_yaml": "string"
@@ -49,7 +49,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
@@ -149,7 +149,7 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "log_options": {
       "disabled": "bool",
@@ -252,7 +252,7 @@ Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Workflow labels as `key:value` pairs. ||
 || status | enum **Status**

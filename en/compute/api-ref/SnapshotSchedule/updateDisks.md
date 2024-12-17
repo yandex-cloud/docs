@@ -82,7 +82,7 @@ To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/comput
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "schedulePolicy": {
       "startAt": "string",
@@ -94,7 +94,7 @@ To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/comput
     // end of the list of possible fields
     "snapshotSpec": {
       "description": "string",
-      "labels": "string"
+      "labels": "object"
     }
   }
   // end of the list of possible fields
@@ -226,7 +226,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
@@ -299,7 +299,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

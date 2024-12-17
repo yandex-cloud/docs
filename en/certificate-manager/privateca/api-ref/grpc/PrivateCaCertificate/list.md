@@ -9,9 +9,9 @@ Lists the certificates issued by a given Certificate Authority (CA).
 
 ## gRPC request
 
-**rpc List ([ListCertificatesRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesRequest)) returns ([ListCertificatesResponse](#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesResponse))**
+**rpc List ([ListCertificatesRequest](#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesRequest)) returns ([ListCertificatesResponse](#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesResponse))**
 
-## ListCertificatesRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesRequest}
+## ListCertificatesRequest {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesRequest}
 
 ```json
 {
@@ -36,7 +36,7 @@ Maximum number of certificates to return per page, optional. Default is 100. ||
 Page token, allows request for the next page of results from a previous list call. ||
 |#
 
-## ListCertificatesResponse {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificatesResponse}
+## ListCertificatesResponse {#yandex.cloud.certificatemanager.v1.privateca.ListCertificatesResponse}
 
 ```json
 {
@@ -62,7 +62,7 @@ Response to the `ListCertificates` request, containing the certificates and pagi
 
 #|
 ||Field | Description ||
-|| certificates[] | **[PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate)**
+|| certificates[] | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
 
 The list of certificates issued by the Certificate Authority. ||
 || next_page_token | **string**
@@ -70,7 +70,7 @@ The list of certificates issued by the Certificate Authority. ||
 Token to use to fetch the next page of results, if there are more results. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 A private certificate issued by a private certificate authority.
 

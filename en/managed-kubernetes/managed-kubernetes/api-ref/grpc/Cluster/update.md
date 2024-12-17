@@ -19,7 +19,7 @@ Updates the specified Kubernetes cluster.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `gateway_ipv4_address`
   "gateway_ipv4_address": "string",
   // end of the list of possible fields
@@ -106,7 +106,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the Kubernetes cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -381,7 +381,7 @@ IPv6 range for allocating Kubernetes service IP addresses ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
     "health": "Health",
     "network_id": "string",
@@ -574,7 +574,7 @@ Name of the Kubernetes cluster. ||
 || description | **string**
 
 Description of the Kubernetes cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | enum **Status**

@@ -57,7 +57,7 @@ Example of a filter: `name="my-function"`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "httpInvokeUrl": "string",
       "status": "string"
     }
@@ -108,7 +108,7 @@ Name of the function. The name is unique within the folder. ||
 || description | **string**
 
 Description of the function. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs. ||
 || httpInvokeUrl | **string**

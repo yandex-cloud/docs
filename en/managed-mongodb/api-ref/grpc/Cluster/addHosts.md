@@ -26,7 +26,7 @@ Creates new hosts for a cluster.
       "hidden": "google.protobuf.BoolValue",
       "secondary_delay_secs": "google.protobuf.Int64Value",
       "priority": "google.protobuf.DoubleValue",
-      "tags": "string"
+      "tags": "map<string, string>"
     }
   ]
 }
@@ -87,7 +87,7 @@ The number of seconds "behind" the primary that this replica set member should "
 || priority | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Priority of host for the election in replSet ||
-|| tags | **string**
+|| tags | **object** (map<**string**, **string**>)
 
 Host tags ||
 |#

@@ -28,10 +28,10 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "serviceAccountId": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -47,7 +47,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -64,7 +64,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New Description of the sink. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New sink labels as `key:value` pairs. ||
 || serviceAccountId | **string**
@@ -137,7 +137,7 @@ Prefix to use for saved log object names ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "serviceAccountId": "string",
     // Includes only one of the fields `yds`, `s3`
     "yds": {
@@ -277,7 +277,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

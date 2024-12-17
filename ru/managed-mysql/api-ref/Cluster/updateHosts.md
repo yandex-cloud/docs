@@ -31,7 +31,7 @@ To get the MySQL cluster ID, use a [ClusterService.List](/docs/managed-mysql/api
     {
       "hostName": "string",
       "replicationSource": "string",
-      "updateMask": "string",
+      "updateMask": "object",
       "backupPriority": "string",
       "assignPublicIp": "boolean",
       "priority": "string"
@@ -59,7 +59,7 @@ To get a MySQL host name, use a [ClusterService.ListHosts](/docs/managed-mysql/a
 
 [Host.name](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.Host) of the host to be used as the replication source (for cascading replication).
 To get a MySQL host name, use a [ClusterService.ListHosts](/docs/managed-mysql/api-ref/Cluster/listHosts#ListHosts) request. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -155,6 +155,12 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
         "sse_algorithm": "string"
       }
     ]
+  },
+  "allowed_private_endpoints": {
+    "enabled": "bool",
+    "private_endpoints": [
+      "string"
+    ]
   }
 }
 ```
@@ -239,6 +245,9 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 
 Configuration for bucket's encryption
 For detauls, see [documentation](/docs/storage/concepts/encryption) ||
+|| allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+
+requires permission s3:PutBucketAllowedPrivateEndpoints ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -756,6 +765,19 @@ Includes only one of the fields `days`, `years`. ||
 || sse_algorithm | **string** ||
 |#
 
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| private_endpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -910,6 +932,12 @@ Includes only one of the fields `days`, `years`. ||
           "kms_master_key_id": "string",
           "sse_algorithm": "string"
         }
+      ]
+    },
+    "allowed_private_endpoints": {
+      "enabled": "bool",
+      "private_endpoints": [
+        "string"
       ]
     }
   }
@@ -1069,7 +1097,10 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 || encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption2)**
 
 Configuration for bucket's encryption
-For detauls, see [documentation](/docs/storage/concepts/encryption) ||
+For details, see [documentation](/docs/storage/concepts/encryption) ||
+|| allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints2)**
+
+Bucket allowed private endpoints. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags2}
@@ -1585,4 +1616,17 @@ Includes only one of the fields `days`, `years`. ||
 ||Field | Description ||
 || kms_master_key_id | **string** ||
 || sse_algorithm | **string** ||
+|#
+
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| private_endpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
 |#

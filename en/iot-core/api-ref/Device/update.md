@@ -28,16 +28,16 @@ To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/lis
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "topicAliases": "string"
+  "topicAliases": "object"
 }
 ```
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -53,7 +53,7 @@ Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -89,7 +89,7 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topicAliases": "object",
     "status": "string",
     "monitoringData": {
       "lastAuthIp": "string",
@@ -226,7 +226,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 

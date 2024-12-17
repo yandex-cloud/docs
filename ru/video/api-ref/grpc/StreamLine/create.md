@@ -18,7 +18,7 @@ Create stream line.
   "channel_id": "string",
   "title": "string",
   "thumbnail_id": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `rtmp_push`, `srt_push`, `rtmp_pull`, `srt_pull`, `tcp_pull`, `rtsp_pull`
   "rtmp_push": "RTMPPushParams",
   "srt_push": "SRTPushParams",
@@ -53,7 +53,7 @@ Required field. Line title. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || rtmp_push | **[RTMPPushParams](#yandex.cloud.video.v1.RTMPPushParams)**
@@ -226,7 +226,7 @@ Required field. URL of a RTSP streaming server. ||
     // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
-    "labels": "string"
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -376,7 +376,7 @@ Time when line was created. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of last line update. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 |#

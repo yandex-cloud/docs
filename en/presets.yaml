@@ -150,6 +150,7 @@ default:
   dd: Dedicated
   ddos-protection-full-name: Yandex DDoS Protection
   ddos-protection-name: DDoS Protection
+  ddos-protection-short-name: DDoS Protection
   device-id: b91qprkvbks9********
   disk-type-example: network-ssd
   dns-full-name: Yandex Cloud DNS
@@ -5511,6 +5512,9 @@ default:
           label_value: Value
       iam:
         cloud:
+          create:
+            popup-create-cloud_button_add: Create
+            popup-create-cloud_label_organization: Organization
           label_acl: Access bindings
     yacloud_components:
       acl:
@@ -6193,7 +6197,7 @@ default:
         title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
-        action_detach-instance: Detach from policy
+        action_detach-vm-instance: Detach VM from policy
         action_recovery: Restore VM
         action_recovery-start: Recover
         button_action-activate: Activate
@@ -6220,7 +6224,6 @@ default:
         label_backups: Backups
         label_create: Connected
         label_instances: Virtual machines
-        label_linked-instances: Virtual machines
         label_policies: Backup policies
         title_backup: Backups
         value_day-fri: Friday
@@ -6231,6 +6234,7 @@ default:
         value_retention-save-all: Retain all backups
         value_retention-save-last-f: Only the last
         value_type-incremental: Incremental
+        value_vm-recourses: Virtual machines
       baremetal:
         action_destroy-raid: Remove RAID
         action_disk-layout-settings: Configure disk layout
@@ -6286,13 +6290,13 @@ default:
         field_origin-state: Priority
         field_rewrite-rule-body: Rewrite rule
         field_rewrite-rule-flag: Flag
-        field_rewrite-rule-redirect: Redirecting requests
+        field_rewrite-rule-redirect: Redirect requests
         field_secure-key: Secret key
         field_secure-key-enabled: Access via secure token
         field_secure-key-type: Limit access by IP address
-        label_access: Access to content
+        label_access: Enable access to content
         label_activate-provider-empty-container_action-text: Activate provider
-        label_additional: Additional
+        label_additional: Additional settings
         label_balancer: L7 load balancer
         label_bucket: Bucket
         label_bucket-key-prefix: Prefix
@@ -6344,7 +6348,7 @@ default:
         label_responses-hit: Responses hit
         label_responses-miss: Response miss
         label_responses2xx: Responses with 2xx codes
-        label_section-additional: Additional
+        label_section-additional: Additional settings
         label_section-content: Content
         label_section-domain: Domain names for content distribution
         label_section-origins-list: Origin
@@ -6356,7 +6360,7 @@ default:
         label_status-backup: Backup
         value_active: Active
         value_backup: Backup
-        value_certificate-custom: Certificate from Certificate Manager
+        value_certificate-custom: Use from Certificate Manager
         value_certificate-no: Don't use
         value_certificate-status-ready: Issued
         value_do-not-use: Don't use
@@ -7162,9 +7166,6 @@ default:
         cloud:
           change-org:
             button_change: Change
-          create:
-            popup-create-cloud_button_add: Create
-            popup-create-cloud_label_organization: Organization
           edit:
             popup-edit-cloud_button_save: Save
           folders-create:
@@ -7250,7 +7251,7 @@ default:
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: All services
-            label_search-api: Search API
+            label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
             label_smartcaptcha: SmartCaptcha

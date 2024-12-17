@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <идентификатор_шлюза> \
+       --id <идентификатор_API-шлюза> \
        --canary-weight <процент_запросов> \
        --canary-variables=<список_переменных>
      ```

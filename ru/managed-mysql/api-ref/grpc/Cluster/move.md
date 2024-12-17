@@ -57,7 +57,7 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -761,7 +761,7 @@ Name of the cluster. ||
 || description | **string**
 
 Description of the cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the cluster as `key:value` pairs. ||
 || environment | enum **Environment**

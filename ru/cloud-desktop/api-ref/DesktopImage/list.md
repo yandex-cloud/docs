@@ -57,7 +57,7 @@ The default sorting order is ascending. ||
       "createdAt": "string",
       "status": "string",
       "name": "string",
-      "labels": "string",
+      "labels": "object",
       "storageSize": "string",
       "minDiskSize": "string"
     }
@@ -114,7 +114,7 @@ Status of the image.
 || name | **string**
 
 Name of the image. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Description of the image. ||
 || storageSize | **string** (int64)

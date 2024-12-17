@@ -61,7 +61,8 @@ Required field.  ||
 - `PENDING`
 - `IN_PROGRESS`
 - `COMPLETED`
-- `FAILED` ||
+- `FAILED`
+- `CANCELED` ||
 || folder_id | **string** ||
 || created_by | **string** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||

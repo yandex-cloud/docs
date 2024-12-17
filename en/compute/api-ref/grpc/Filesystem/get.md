@@ -39,7 +39,7 @@ To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "type_id": "string",
   "zone_id": "string",
   "size": "int64",
@@ -68,7 +68,7 @@ Name of the filesystem. The name is unique within the folder. ||
 || description | **string**
 
 Description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

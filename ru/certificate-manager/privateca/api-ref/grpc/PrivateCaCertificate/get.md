@@ -9,9 +9,9 @@ Retrieves information about a specific certificate.
 
 ## gRPC request
 
-**rpc Get ([GetCertificateRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateRequest)) returns ([PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate))**
+**rpc Get ([GetCertificateRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateRequest)) returns ([PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate))**
 
-## GetCertificateRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateRequest}
+## GetCertificateRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateRequest}
 
 ```json
 {
@@ -28,7 +28,7 @@ Request to retrieve details of a specific certificate.
 Required field. The ID of the certificate to retrieve. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 ```json
 {

@@ -19,7 +19,7 @@ Updates the specified connector.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "deletion_protection": "bool"
 }
 ```
@@ -38,7 +38,7 @@ New name of the connector. ||
 || description | **string**
 
 New description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels of the connector. ||
 || deletion_protection | **bool**
@@ -69,7 +69,7 @@ New flag that disallow deletion of the connector. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "source": {
       // Includes only one of the fields `data_stream`, `message_queue`, `timer`
       "data_stream": {
@@ -188,7 +188,7 @@ Name of the connector. ||
 || description | **string**
 
 Description of the connector. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || source | **[Source](#yandex.cloud.serverless.eventrouter.v1.Source)**

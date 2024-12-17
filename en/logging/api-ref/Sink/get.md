@@ -38,7 +38,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "serviceAccountId": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -79,7 +79,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

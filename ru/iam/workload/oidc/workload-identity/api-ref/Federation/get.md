@@ -41,7 +41,7 @@ To get the OIDC workload identity federation ID, make a [FederationService.List]
   ],
   "issuer": "string",
   "jwksUrl": "string",
-  "labels": "string",
+  "labels": "object",
   "createdAt": "string"
 }
 ```
@@ -76,7 +76,7 @@ URL of the external IdP server to be used for authentication. ||
 || jwksUrl | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||
 || createdAt | **string** (date-time)

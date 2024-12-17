@@ -65,7 +65,7 @@ Required field. ID of the desktop to copy the image from. ||
     "createdAt": "string",
     "status": "string",
     "name": "string",
-    "labels": "string",
+    "labels": "object",
     "storageSize": "string",
     "minDiskSize": "string"
   }
@@ -201,7 +201,7 @@ Status of the image.
 || name | **string**
 
 Name of the image. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Description of the image. ||
 || storageSize | **string** (int64)

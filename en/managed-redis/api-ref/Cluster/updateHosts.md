@@ -32,7 +32,7 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
       "hostName": "string",
       "replicaPriority": "string",
       "assignPublicIp": "boolean",
-      "updateMask": "string"
+      "updateMask": "object"
     }
   ]
 }
@@ -61,7 +61,7 @@ Works only for non-sharded clusters. Default value is 100. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on update. ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

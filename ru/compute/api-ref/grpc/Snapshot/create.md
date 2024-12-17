@@ -19,7 +19,7 @@ Creates a snapshot of the specified disk.
   "disk_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "hardware_generation": {
     // Includes only one of the fields `legacy_features`, `generation2_features`
     "legacy_features": {
@@ -47,7 +47,7 @@ Name of the snapshot. ||
 || description | **string**
 
 Description of the snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
@@ -119,7 +119,7 @@ and UEFI boot (with UEFI related features).
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "storage_size": "int64",
     "disk_size": "int64",
     "product_ids": [
@@ -230,7 +230,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storage_size | **int64**

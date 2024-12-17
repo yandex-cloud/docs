@@ -33,10 +33,10 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "connectorSpec": {
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
     "connectorConfigMirrormaker": {
       "sourceCluster": {
@@ -92,7 +92,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -114,7 +114,7 @@ Required field. Configuration of the connector to update. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks to update. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of new or changed properties to update for the connector. They are passed with the connector configuration to Managed Service for Apache Kafka®.
 Example: `sync.topics.config.enabled: false`. ||
@@ -272,7 +272,7 @@ Default is 'us-east-1'. ||
   "response": {
     "name": "string",
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     "health": "string",
     "status": "string",
     "clusterId": "string",
@@ -434,7 +434,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

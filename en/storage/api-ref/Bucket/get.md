@@ -194,6 +194,12 @@ bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/p
         "sseAlgorithm": "string"
       }
     ]
+  },
+  "allowedPrivateEndpoints": {
+    "enabled": "boolean",
+    "privateEndpoints": [
+      "string"
+    ]
   }
 }
 ```
@@ -291,7 +297,10 @@ For details about the concept, see [documentation](/docs/storage/concepts/object
 || encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
 
 Configuration for bucket's encryption
-For detauls, see [documentation](/docs/storage/concepts/encryption) ||
+For details, see [documentation](/docs/storage/concepts/encryption) ||
+|| allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+
+Bucket allowed private endpoints. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -821,4 +830,17 @@ Includes only one of the fields `days`, `years`. ||
 ||Field | Description ||
 || kmsMasterKeyId | **string** ||
 || sseAlgorithm | **string** ||
+|#
+
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| privateEndpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
 |#

@@ -9,9 +9,9 @@ Retrieves detailed information about a specific Certificate Authority (CA).
 
 ## gRPC request
 
-**rpc Get ([GetCertificateAuthorityRequest](#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityRequest)) returns ([CertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority))**
+**rpc Get ([GetCertificateAuthorityRequest](#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityRequest)) returns ([CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority))**
 
-## GetCertificateAuthorityRequest {#yandex.cloud.priv.certificatemanager.v1.privateca.GetCertificateAuthorityRequest}
+## GetCertificateAuthorityRequest {#yandex.cloud.certificatemanager.v1.privateca.GetCertificateAuthorityRequest}
 
 ```json
 {
@@ -29,7 +29,7 @@ Required field. The ID of the Certificate Authority to retrieve.
 This must be a valid Certificate Authority ID in your account. ||
 |#
 
-## CertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 ```json
 {

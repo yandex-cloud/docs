@@ -33,7 +33,7 @@ Creates a version for the specified function.
   "content": "bytes",
   "version_id": "string",
   // end of the list of possible fields
-  "environment": "string",
+  "environment": "map<string, string>",
   "tag": [
     "string"
   ],
@@ -43,7 +43,7 @@ Creates a version for the specified function.
       "string"
     ]
   },
-  "named_service_accounts": "string",
+  "named_service_accounts": "map<string, string>",
   "secrets": [
     {
       "id": "string",
@@ -166,7 +166,7 @@ and the user must have read permissions to the source version.
 Includes only one of the fields `package`, `content`, `version_id`.
 
 Source of the deployment package for the version. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
 || tag[] | **string**
@@ -175,7 +175,7 @@ Function version tags. For details, see [Version tag](/docs/functions/concepts/f
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
 
 Function version connectivity. If specified the version will be attached to specified network/subnet(s). ||
-|| named_service_accounts | **string**
+|| named_service_accounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
@@ -508,14 +508,14 @@ Enabled access to AWS flavored metadata (IMDSv1)
     "tags": [
       "string"
     ],
-    "environment": "string",
+    "environment": "map<string, string>",
     "connectivity": {
       "network_id": "string",
       "subnet_id": [
         "string"
       ]
     },
-    "named_service_accounts": "string",
+    "named_service_accounts": "map<string, string>",
     "secrets": [
       {
         "id": "string",
@@ -709,13 +709,13 @@ Status of the version.
 || tags[] | **string**
 
 Version tags. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity2)**
 
 Network access. If specified the version will be attached to specified network/subnet(s). ||
-|| named_service_accounts | **string**
+|| named_service_accounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret2)**

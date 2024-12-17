@@ -13,7 +13,7 @@ Lists the available Certificate Authorities (CAs).
 GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities
 ```
 
-## Query parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest}
+## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest}
 
 List Certificate Authorities in specified folder.
 This supports pagination.
@@ -32,7 +32,7 @@ Token to retrieve the next page of results.
 This is returned from a previous call to ListCertificateAuthorities. ||
 |#
 
-## Response {#yandex.cloud.priv.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse}
+## Response {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesResponse}
 
 **HTTP Code: 200 - OK**
 
@@ -64,7 +64,7 @@ Response containing the Certificate Authorities list from the ListCertificateAut
 
 #|
 ||Field | Description ||
-|| certificateAuthorities[] | **[CertificateAuthority](#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority)**
+|| certificateAuthorities[] | **[CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority)**
 
 List of matching Certificate Authorities. ||
 || nextPageToken | **string**
@@ -72,7 +72,7 @@ List of matching Certificate Authorities. ||
 Token to retrieve the next page of results, if they were paginated. ||
 |#
 
-## CertificateAuthority {#yandex.cloud.priv.certificatemanager.v1.privateca.CertificateAuthority}
+## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
 
 A certificate authority (CA) used to sign certificates.
 

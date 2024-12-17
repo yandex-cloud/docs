@@ -32,7 +32,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
   },
   "type": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "object",
   "transformation": {
     "transformers": [
       {
@@ -188,7 +188,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer
 - `SNAPSHOT_ONLY`: Snapshot
 - `INCREMENT_ONLY`: Increment ||
 || name | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 |#
 

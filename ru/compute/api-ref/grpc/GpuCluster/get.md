@@ -39,7 +39,7 @@ To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/g
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "status": "Status",
   "zone_id": "string",
   "interconnect_type": "GpuInterconnectType"
@@ -67,7 +67,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | enum **Status**

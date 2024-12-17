@@ -109,11 +109,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
   Чтобы изменить метку ресурса сервиса воспользуйтесь командой:
 

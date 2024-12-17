@@ -18,7 +18,7 @@ Updates the specified ClickHouse cluster.
   "cluster_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "config_spec": {
     "version": "string",
     "clickhouse": {
@@ -377,7 +377,7 @@ Field mask that specifies which fields of the ClickHouse Cluster resource should
 || description | **string**
 
 New description of the ClickHouse cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
@@ -1535,7 +1535,7 @@ Hour of the day in UTC (in `HH` format). ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "environment": "Environment",
     "monitoring": [
       {
@@ -2564,7 +2564,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the ClickHouse cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. ||
 || environment | enum **Environment**

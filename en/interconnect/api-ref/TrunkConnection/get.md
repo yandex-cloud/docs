@@ -61,7 +61,7 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/work
   // end of the list of possible fields
   "pointOfPresenceId": "string",
   "capacity": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -128,7 +128,7 @@ Capacity of the trunkConnection
 - `CAPACITY_40_GBPS`
 - `CAPACITY_50_GBPS`
 - `CAPACITY_100_GBPS` ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

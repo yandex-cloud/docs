@@ -39,7 +39,7 @@ To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/grpc/G
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   // Includes only one of the fields `shared_egress_gateway`
   "shared_egress_gateway": "SharedEgressGateway"
   // end of the list of possible fields
@@ -67,7 +67,7 @@ Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
 || description | **string**
 
 Description of the gateway. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs.
 No more than 64 per resource.

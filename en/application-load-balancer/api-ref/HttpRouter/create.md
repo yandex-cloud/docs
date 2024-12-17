@@ -20,7 +20,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "virtualHosts": [
     {
       "name": "string",
@@ -340,7 +340,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the HTTP router. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 HTTP router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -965,7 +965,7 @@ regardless of the header's value. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "virtualHosts": [
       {
         "name": "string",
@@ -1388,7 +1388,7 @@ Description of the router. ||
 || folderId | **string**
 
 ID of the folder that the router belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Router labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

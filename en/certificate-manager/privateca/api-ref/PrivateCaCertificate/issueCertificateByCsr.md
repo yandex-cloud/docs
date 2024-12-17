@@ -13,7 +13,7 @@ Issues a new certificate using a CSR (Certificate Signing Request).
 POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates:issueByCsr
 ```
 
-## Body parameters {#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateByCsrRequest}
+## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateByCsrRequest}
 
 ```json
 {
@@ -134,7 +134,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[IssueCertificateByCsrMetadata](#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateByCsrMetadata)**
+|| metadata | **[IssueCertificateByCsrMetadata](#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateByCsrMetadata)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -149,7 +149,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCertificate](#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate)**
+|| response | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -166,7 +166,7 @@ If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
-## IssueCertificateByCsrMetadata {#yandex.cloud.priv.certificatemanager.v1.privateca.IssueCertificateByCsrMetadata}
+## IssueCertificateByCsrMetadata {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateByCsrMetadata}
 
 Metadata for the `IssueCertificateByCsr` operation.
 
@@ -194,7 +194,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## PrivateCertificate {#yandex.cloud.priv.certificatemanager.v1.privateca.PrivateCertificate}
+## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
 
 A private certificate issued by a private certificate authority.
 

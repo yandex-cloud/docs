@@ -69,7 +69,7 @@ The expression must specify:
       "ipv4PeerAnnouncedPrefixes": [
         "string"
       ],
-      "labels": "string"
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -145,7 +145,7 @@ Cloud services that the publicConnection connects to.
 
 IPv4 Peer Announced Prefixes
 It's an list of ip with format ipPrefix/length where address part of ipPrefix is 0 ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

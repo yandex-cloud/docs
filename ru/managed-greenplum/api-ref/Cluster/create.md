@@ -20,7 +20,7 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "config": {
     "version": "string",
@@ -217,7 +217,7 @@ Required field. Name of the Greenplum® cluster. The name must be unique within 
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs.
 For example, `"project":"mvp"` or `"source":"dictionary"`. ||
@@ -972,7 +972,7 @@ enable Cloud Storage for cluster ||
       "assignPublicIp": "boolean"
     },
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -1439,7 +1439,7 @@ Greenplum® cluster configuration. ||
 || description | **string**
 
 Description of the Greenplum® cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Greenplum® cluster as `key:value` pairs. Maximum 64 labels per resource. ||
 || environment | **enum** (Environment)

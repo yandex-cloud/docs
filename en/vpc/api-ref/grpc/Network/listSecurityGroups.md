@@ -50,14 +50,14 @@ returned by a previous list request to get the next page of results. ||
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "network_id": "string",
       "status": "Status",
       "rules": [
         {
           "id": "string",
           "description": "string",
-          "labels": "string",
+          "labels": "map<string, string>",
           "direction": "Direction",
           "ports": {
             "from_port": "int64",
@@ -122,7 +122,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the security group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.
@@ -160,7 +160,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | enum **Direction**

@@ -18,7 +18,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLim
 ```json
 {
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "name": "string",
   "description": "string",
   "advancedRateLimiterRules": [
@@ -251,7 +251,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLim
 || folderId | **string**
 
 Required field. ID of the folder to create a ARL profile in. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -578,7 +578,7 @@ String value of the key. ||
   "response": {
     "id": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "name": "string",
     "description": "string",
     "advancedRateLimiterRules": [
@@ -917,7 +917,7 @@ ID of the ARL profile. ||
 || folderId | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**

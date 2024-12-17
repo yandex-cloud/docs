@@ -21,7 +21,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "staticRoutes": [
     {
@@ -32,7 +32,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables
       "nextHopAddress": "string",
       "gatewayId": "string",
       // end of the list of possible fields
-      "labels": "string"
+      "labels": "object"
     }
   ]
 }
@@ -51,7 +51,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the route table. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `` key:value `` pairs. ||
 || networkId | **string**
@@ -83,7 +83,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#
@@ -117,7 +117,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "staticRoutes": [
       {
@@ -128,7 +128,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
         "nextHopAddress": "string",
         "gatewayId": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "object"
       }
     ]
   }
@@ -261,7 +261,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -297,7 +297,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

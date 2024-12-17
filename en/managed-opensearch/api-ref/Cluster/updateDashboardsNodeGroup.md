@@ -29,7 +29,7 @@ Required field. Name of the Dashboards type host group to be updated. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "nodeGroupSpec": {
     "resources": {
       "resourcePresetId": "string",
@@ -55,7 +55,7 @@ Required field. Name of the Dashboards type host group to be updated. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

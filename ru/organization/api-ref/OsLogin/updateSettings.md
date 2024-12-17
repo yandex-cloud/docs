@@ -31,7 +31,7 @@ Required field.  ||
   "sshCertificateSettings": {
     "enabled": "boolean"
   },
-  "updateMask": "string"
+  "updateMask": "object"
 }
 ```
 
@@ -39,7 +39,7 @@ Required field.  ||
 ||Field | Description ||
 || userSshKeySettings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)** ||
 || sshCertificateSettings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)** ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

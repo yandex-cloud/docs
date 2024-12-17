@@ -38,7 +38,7 @@ To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/grpc/
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "storage_size": "int64",
   "disk_size": "int64",
   "product_ids": [
@@ -78,7 +78,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storage_size | **int64**

@@ -27,9 +27,9 @@ To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clic
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     "clickhouse": {
@@ -383,7 +383,7 @@ To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clic
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -396,7 +396,7 @@ The rest of the fields will be reset to the default. ||
 || description | **string**
 
 New description of the ClickHouse cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
@@ -1579,7 +1579,7 @@ Hour of the day in UTC (in `HH` format). ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -2651,7 +2651,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the ClickHouse cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the ClickHouse cluster as `key:value` pairs. Maximum 64 per resource. ||
 || environment | **enum** (Environment)

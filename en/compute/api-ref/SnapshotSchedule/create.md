@@ -20,7 +20,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "schedulePolicy": {
     "startAt": "string",
     "expression": "string"
@@ -31,7 +31,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules
   // end of the list of possible fields
   "snapshotSpec": {
     "description": "string",
-    "labels": "string"
+    "labels": "object"
   },
   "diskIds": [
     "string"
@@ -57,7 +57,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || schedulePolicy | **[SchedulePolicy](#yandex.cloud.compute.v1.SchedulePolicy)**
@@ -124,7 +124,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#
@@ -158,7 +158,7 @@ Snapshot labels as `key:value` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "schedulePolicy": {
       "startAt": "string",
@@ -170,7 +170,7 @@ Snapshot labels as `key:value` pairs. ||
     // end of the list of possible fields
     "snapshotSpec": {
       "description": "string",
-      "labels": "string"
+      "labels": "object"
     }
   }
   // end of the list of possible fields
@@ -302,7 +302,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
@@ -375,7 +375,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

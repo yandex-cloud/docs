@@ -207,7 +207,7 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. Go to the ![policies](../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
       1. Select one of the policies created by default.
-      1. Under **{{ ui-key.yacloud.backup.label_linked-instances }}**, click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
+      1. Under **{{ ui-key.yacloud.backup.value_vm-recourses }}**, click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
       1. Select the VM from the list and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
 
     {% endlist %}

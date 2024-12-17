@@ -19,7 +19,7 @@ Updates the specified placement group.
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
@@ -39,7 +39,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -67,7 +67,7 @@ The existing set of `labels` is completely replaced by the provided set. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
     "spread_placement_strategy": "SpreadPlacementStrategy",
     "partition_placement_strategy": {
@@ -163,7 +163,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spread_placement_strategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**

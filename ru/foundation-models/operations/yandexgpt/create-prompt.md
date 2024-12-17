@@ -327,11 +327,8 @@ description: Следуя данной инструкции, вы научите
       Результат выполнения:
 
       ```text
-      Alternative(role='assistant', text='[', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text":', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Исправьте ошибки в тексте."              },              {                "', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Исправьте ошибки в тексте."              },              {                "role": "user",                "text": "Ошибки сами', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Исправьте ошибки в тексте."              },              {                "role": "user",                "text": "Ошибки сами себя не исправят"              }            ]', status=<AlternativeStatus.FINAL: 3>)
+      Alternative(role='assistant', text='О', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='Ошибки сами себя не исправят.', status=<AlternativeStatus.FINAL: 3>)
       ```
 
 - Python {#python}

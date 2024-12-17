@@ -19,7 +19,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "network_id": "string",
   "zone_id": "string",
   "v4_cidr_blocks": [
@@ -51,7 +51,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the subnet. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `` key:value `` pairs. ||
 || network_id | **string**
@@ -109,7 +109,7 @@ List of NTP servers for this subnet. ||
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "network_id": "string",
     "zone_id": "string",
     "v4_cidr_blocks": [
@@ -220,7 +220,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

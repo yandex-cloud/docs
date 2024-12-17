@@ -36,7 +36,7 @@ To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "lastAuthenticatedAt": "string"
 }
 ```
@@ -68,7 +68,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || lastAuthenticatedAt | **string** (date-time)

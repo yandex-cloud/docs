@@ -26,10 +26,10 @@ Required field. ID of the rule to update. ||
 
 ```json
 {
-  "updateMask": "string",
+  "updateMask": "object",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "filter": {
     // Includes only one of the fields `jqFilter`
     "jqFilter": "string"
@@ -119,7 +119,7 @@ Required field. ID of the rule to update. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **string** (field-mask)
+|| updateMask | **object** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -135,7 +135,7 @@ New name of the rule. ||
 || description | **string**
 
 New description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New labels for the rule. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter)**
@@ -410,7 +410,7 @@ Required field. Service account which has write permission on the queue. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "filter": {
       // Includes only one of the fields `jqFilter`
       "jqFilter": "string"
@@ -628,7 +628,7 @@ Name of the rule. ||
 || description | **string**
 
 Description of the rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || filter | **[Filter](#yandex.cloud.serverless.eventrouter.v1.Filter2)**

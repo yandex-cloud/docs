@@ -40,7 +40,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/grpc/L
   "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "status": "Status",
   "retention_period": "google.protobuf.Duration",
   "data_stream": "string"
@@ -67,7 +67,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | enum **Status**
