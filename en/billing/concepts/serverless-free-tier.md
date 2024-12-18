@@ -8,6 +8,8 @@ description: In this article, you will learn about the free tier and what servic
 
 Some {{ yandex-cloud }} services offer special plans where certain amounts of services are provided free of charge. These are selected to enable you to develop and launch a small service, website, or application, or try out the service features.
 
+{% include [price-formula/free-tier](../../_includes/pricing/price-formula/free-tier.md) %}
+
 {% note info %}
 
 Free tier applies to billing accounts. If multiple organizations or clouds are linked to a billing account, the tag counts all the resources they consume.
@@ -17,6 +19,8 @@ For example, Cloud-1 and Cloud-2 are linked to a billing account. Cloud-1 has co
 > (500,000 + 600,000) - 1,000,000 = 100,000
 
 {% endnote %}
+
+To calculate the cost of using the services, use our [calculator]({{ link-cloud-calculator }}) on the {{ yandex-cloud }} website or see the .
 
 
 Free tier applies to the following services:

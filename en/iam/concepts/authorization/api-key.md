@@ -32,7 +32,7 @@ The scope limits the use of API keys in addition to the user's personal access p
 
 Available scopes are listed below:
 
-* `yc.postbox.send`: For sending emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
+* `yc.postbox.send`: For sending e-mails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 

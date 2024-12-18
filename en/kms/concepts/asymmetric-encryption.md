@@ -35,7 +35,7 @@ openssl pkeyutl \
 Where:
 * `-in`: Path to the file with the message to be encrypted.
 * `-inkey`: Path to the file containing the public encryption key.
-
+  
 The hash function is specified at the end of the selected key. Only `sha256` is used for encryption. {{ kms-short-name }} accepts encrypted text in `base64` encoding and decrypts it with the private key.
 
 The maximum size of a message to encrypt depends on the length of an encryption key and hash function (see [RFC2437](https://datatracker.ietf.org/doc/html/rfc2437#section-7.1)). The maximum message size can be calculated using the following formula:

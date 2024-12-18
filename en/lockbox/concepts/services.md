@@ -1,6 +1,6 @@
 ---
 title: Integrating {{ lockbox-full-name }} with {{ yandex-cloud }} services
-description: In this tutorial, you will learn in which {{ yandex-cloud }} services you can use {{ lockbox-name }} secrets.
+description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ lockbox-name }} secrets.
 ---
 
 # Integration with {{ yandex-cloud }} services
@@ -16,7 +16,7 @@ You can use {{ lockbox-name }} [secrets](./secret.md) in the following {{ yandex
 
 If a {{ sf-name }} [function](../../functions/concepts/function.md) requires sensitive data to operate, e.g., database passwords, [static access keys](../../iam/concepts/authorization/access-key.md), or an [OAuth token](../../iam/concepts/authorization/oauth-token.md), use {{ lockbox-name }} secrets to transfer such data to the function. This will prevent unauthorized third-party access to sensitive data.
 
-For a {{ sf-name }} function to access the data stored in a {{ lockbox-name }} secret, assign the `lockbox.payloadViewer` [role](../security/index.md#lockbox-payloadViewer) for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to execute the function.
+For a {{ sf-name }} function to access the data stored in a {{ lockbox-name }} secret, assign the `lockbox.payloadViewer` [role](../security/index.md#lockbox-payloadViewer) for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to invoke the function.
 
 ## {{ connection-manager-full-name }} {#conn-manager}
 
@@ -34,7 +34,7 @@ For External Secrets Operator to access the data stored in a {{ lockbox-name }} 
 
 To prevent unauthorized access to [API keys](../../iam/concepts/authorization/api-key.md), tokens, database passwords, and other sensitive data used by {{ serverless-containers-name }} [containers](../../serverless-containers/concepts/container.md), store such data in {{ lockbox-name }} secrets.
 
-For a {{ serverless-containers-name }} container to access the data stored in a {{ lockbox-name }} secret, assign the [lockbox.payloadViewer](../security/index.md#lockbox-payloadViewer) `role` for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to run the container.
+For a {{ serverless-containers-name }} container to access the data stored in a {{ lockbox-name }} secret, assign the `lockbox.payloadViewer` [role](../security/index.md#lockbox-payloadViewer) for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to run the container.
 
 
 #### See also {#see-also}

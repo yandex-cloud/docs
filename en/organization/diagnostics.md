@@ -7,7 +7,13 @@ description: In this tutorial, you will learn about possible errors related to f
 
 ## Federation not found {#federation-not-found}
 
-Federation with the requested ID not found. Check the specified ID or contact your federation administrator. If you have any issues, please contact [support]({{ link-console-support }}).
+Federation with the requested ID not found. Check the specified ID or contact your federation administrator.
+
+To get the federation ID:
+
+{% include [get-federation-id](../_includes/organization/get-federation-id.md) %}
+
+If you have any issues, please contact [support]({{ link-console-support }}).
 
 ## Internal application error {#internal-server-error}
 

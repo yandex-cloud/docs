@@ -24,6 +24,8 @@ items:
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
             href: operations/refresh-connection.md
+          - name: Updating the {{ backup-name }} agent on a VM
+            href: operations/update-backup-agent.md
           - name: Updating a Linux VM connection with {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
           - name: Deleting a VM from {{ backup-name }}

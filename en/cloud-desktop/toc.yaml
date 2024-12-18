@@ -24,9 +24,9 @@ items:
             href: operations/desktops/create.md
           - name: Connecting to a desktop
             href: operations/desktops/connect.md
-          - name: Resetting desktop user password
+          - name: Resetting a desktop user password
             href: operations/desktops/password-reset.md
-          - name: Starting, restarting, and stopping a desktop
+          - name: Launching, restarting, and stopping a desktop
             href: operations/desktops/start-stop.md
           - name: Updating a desktop
             href: operations/desktops/update.md
@@ -48,7 +48,7 @@ items:
     items:
       - name: Desktops and their groups
         href: concepts/desktops-and-groups.md
-      - name: Access control lists (ACLs)
+      - name: Access control list (ACL)
         href: concepts/acl.md
       - name: Disks
         href: concepts/disks.md

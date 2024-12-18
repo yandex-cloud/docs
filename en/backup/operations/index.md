@@ -10,8 +10,11 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 * [Creating a Linux VM with a connection to {{ backup-name }}](create-vm.md)
 * [Creating a Windows Server VM with a connection to {{ backup-name }}](create-vm-windows.md)
 * [Connecting a Linux VM to {{ backup-name }}](connect-vm-linux.md)
+* [Connecting a Linux VM with OS Login to {{ backup-name }}](connect-vm-oslogin-linux.md)
 * [Connecting a Windows Server VM to {{ backup-name }}](connect-vm-windows.md)
 * [Updating a VM connection to {{ backup-name }}](refresh-connection.md)
+* [Updating the {{ backup-name }} agent on a VM](update-backup-agent.md)
+* [Updating a connection of a Linux VM with OS Login to {{ backup-name }}](refresh-connection-oslogin-linux.md)
 * [Deleting a VM from {{ backup-name }}](delete-vm.md)
 
 ## Managing {{ baremetal-name }} servers in {{ backup-name }} {#connect-baremetal}

@@ -89,7 +89,9 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
 
    ```bash
-   cat <path_to_file_with_authorized_key> | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   cat <path_to_file_with_authorized_key> | helm registry login cr.yandex \
+     --username 'json_key' \
+     --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
      --version 0.28.1+yckms \
      --untar && \

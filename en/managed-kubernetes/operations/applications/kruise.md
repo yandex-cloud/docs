@@ -36,12 +36,12 @@ Kruise advantages include:
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_kruise.helmChart.name }} \
-      --version {{ mkt-k8s-key.yc_kruise.helmChart.tag }} \
-      --untar && \
+     --version {{ mkt-k8s-key.yc_kruise.helmChart.tag }} \
+     --untar && \
    helm install \
-      --namespace <namespace> \
-      --create-namespace \
-      kruise ./kruise/
+     --namespace <namespace> \
+     --create-namespace \
+     kruise ./kruise/
    ```
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}

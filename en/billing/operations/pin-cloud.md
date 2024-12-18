@@ -27,7 +27,7 @@ To link a cloud to a billing account or change the billing account a cloud is li
   1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_bind-cloud }}**.
   1. Select the cloud from the list.
   1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** and the added cloud will appear on the list.
-  1. If you are changing the billing account of the cloud, pay any outstanding charges on your previous billing account.
+  1. If you are changing the cloud's billing account, pay any outstanding charges on the old billing account.
 
 - {{ TF }} {#tf}
 

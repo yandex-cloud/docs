@@ -23,13 +23,13 @@ The security profile connection method depends on who manages the [{{ alb-full-n
 
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
-To connect a security profile using the {{ yandex-cloud }} interfaces:
+To connect a security profile to a virtual host:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md) you need.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the security profile to connect to the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens, select:
@@ -133,6 +133,38 @@ To connect a security profile using the {{ yandex-cloud }} interfaces:
       ```
 
   For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  You can connect a {{ sws-full-name }} security profile to a [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) load balancer in the virtual host settings.
+
+  1. In the {{ TF }} configuration file for the `yandex_alb_virtual_host` resource, specify the `security_profile_id` parameter in the `route_options` section.
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<virtual_host_name>"
+        ...
+
+        route_options {
+          security_profile_id   = "<security_profile_ID>"
+        }
+      }
+      ```
+
+  1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the resources' updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc alb http-router get <HTTP_router_ID>
+  ```
 
 - API {#api}
 

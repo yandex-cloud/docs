@@ -1,6 +1,6 @@
 ---
 title: '{{ alb-full-name }} pricing policy'
-description: This article describes the {{ alb-name }} pricing policy.
+description: This article provides the {{ alb-name }} pricing policy.
 editable: false
 ---
 

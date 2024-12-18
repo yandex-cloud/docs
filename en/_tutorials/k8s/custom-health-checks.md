@@ -1,8 +1,9 @@
-# Health checking your applications in a {{ managed-k8s-full-name }} cluster with the {{ alb-full-name }} Ingress controller
+# Health checking your apps in a {{ managed-k8s-full-name }} cluster using a {{ alb-full-name }} L7 load balancer
+
 
 You can use the [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
 
-The Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
+An Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
 
 The L7 load balancer automatically health checks the application in this cluster. Depending on the results, the L7 load balancer allows or denies external traffic to the backend ([Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource). For more information, see [Health checks](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
@@ -14,7 +15,8 @@ You can view health check results in the [management console]({{ link-console-ma
 
 {% include [alb-custom-hc-enabling](../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
 
-To deploy an application in a {{ managed-k8s-name }} cluster, configure access to it, and set up health checks via {{ alb-name }}:
+To deploy an application in a {{ managed-k8s-name }} cluster and configure access to it and health checks via an {{ alb-name }} L7 load balancer:
+
 1. [Prepare your cloud](#before-begin).
 1. [Create a Docker image](#docker-image).
 1. [Deploy a test application](#test-app).
@@ -67,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -261,7 +263,7 @@ To prepare an address for the load balancer:
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to bind the reserved IP address to the delegated domain.
 
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -301,9 +303,9 @@ To create resources:
 
 1. In the `ingress.yaml` file, specify the following values for annotations:
 
-   * `ingress.alb.yc.io/subnets`: List of IDs for the subnets hosting the {{ managed-k8s-name }} cluster.
-   * `ingress.alb.yc.io/security-groups`: List of security group IDs for {{ alb-name }}.
-   * `ingress.alb.yc.io/external-ipv4-address`: Reserved static public IP address.
+   * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }} L7 load balancer.
+   * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
+   * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Specify the previously reserved static public IP address.
 
 1. In the same `ingress.yaml` file, specify the delegated domain in the `spec.rules.host` parameter.
 1. To create the `Ingress` and `HttpBackendGroup` resources, run the following command from the root of the repository directory:
@@ -315,18 +317,18 @@ To create resources:
 
 1. Wait until the resources are created and the load balancer is deployed and assigned a public IP address. This may take a few minutes.
 
-   To track the creation of the `Ingress` resource and make sure there are no errors, open the logs of the pod where the creation process is running:
+   To follow the load balancer's creation and make sure it is error-free, open the logs of the pod the creation process was run in:
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
    1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) where the resource creation process is running.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-      You will see the resource creation logged and the logs displayed in real time. Any errors that occur will also be logged.
+      The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
 ## Check the result {#check-result}
 
-1. Make sure the `Ingress` resource has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
+1. Make sure the load balancer was created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
 
    ```bash
    kubectl get ingress alb-demo --namespace=yc-alb

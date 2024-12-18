@@ -58,7 +58,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
         --description "<profile_description>" \
         --labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value> \
         --default-action <action> \
-        --captcha-id <CAPTCHA_ID> \
+        --captcha-id <captcha_ID> \
         --security-rules-file <path_to_file_with_rules>
      ```
 
@@ -66,8 +66,8 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
      * `--name`: Security profile name. This is a required parameter. If you specify only the profile name without additional parameters, a single [basic rule](../concepts/rules.md#base-rules) will be created in the security profile.
      * `--description`: Text description of the security profile. This is an optional parameter.
-     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. For example: `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to the service. To block requests, set the parameter to `deny`.
+     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter, e.g., `--labels foo=baz,bar=baz'`.
+     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
 
@@ -87,6 +87,87 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
      ```
 
   For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<security_profile_name>"
+        default_action                   = "DENY"
+        captcha_id                       = "<captcha_ID>"
+        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
+
+        # Smart Protection rule
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        # Basic rule
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # WAF profile rule
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<WAF_profile_ID>"
+          }
+        }
+      }
+      ```
+
+      Where:
+      * `name`: Security profile name.
+      * `default_action`: Action for the default basic rule. The action will apply to traffic not covered by the other rules. The possible values are `ALLOW` (allows all requests to the service) and `DENY` (denies them).
+      * `captcha_id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
+      * `advanced_rate_limiter_profile_id`: [ARL profile security](../concepts/arl.md) ID. This is an optional parameter.
+      * `security_rule`: Security [rule](../concepts/rules.md) description:
+         * `name`: Security rule name.
+         * `priority`: Rule [priority](../concepts/rules.md). Possible values: from 1 to 1,000,000.
+         * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
+            * `mode`: [Rule action](../concepts/rules.md#rule-action). The possible values are `FULL`, which means full protection (suspicious requests are sent to CAPTCHA), or `API`, which means API protection (suspicious requests are blocked).
+         * `waf`: Web Application Firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional parameter block contains:
+            * `waf_profile_id`: [WAF profile](../concepts/waf.md) ID.
+
+      If you do not specify the `smart_protection` or `waf` rule type, a basic rule will be created with simple filtering based on conditions specified under `rule_condition`.
+
+      For more information about the `yandex_sws_security_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Create resources:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc smartwebsecurity security-profile get <security_profile_ID>
+  ```
 
 - API {#api}
 
