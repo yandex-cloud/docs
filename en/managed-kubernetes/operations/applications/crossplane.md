@@ -46,7 +46,6 @@ You can install Crossplane in any of the following ways:
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run the following command:
 
-
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \
@@ -57,7 +56,6 @@ You can install Crossplane in any of the following ways:
      --set-file providerJetYc.creds=key.json \
      crossplane ./crossplane/
    ```
-
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -182,7 +180,7 @@ You can install Crossplane in any of the following ways:
    kubectl describe crd instances.compute.yandex-cloud.jet.crossplane.io
    ```
 
-   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repo](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 ## Use cases {#examples}
 

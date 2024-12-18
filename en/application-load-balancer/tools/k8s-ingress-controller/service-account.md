@@ -24,17 +24,17 @@ The {{ alb-name }} tools for {{ managed-k8s-name }}, i.e., [Ingress controller](
 
 - Gateway API
 
-   | Service | Type of permission required | Minimum role |
-   | ----- | ----- | ----- |
-   | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
-   | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
-   | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Manage certificates (for HTTPS load balancers) | `certificate-manager.certificates.admin` |
-   | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
-
+  | Service | Type of permission required | Minimum role |
+  | ----- | ----- | ----- |
+  | {{ alb-name }}<br/>([roles](../../security/index.md)) | Manage service resources | `alb.editor` |
+  | {{ vpc-name }}<br/>([roles](../../../vpc/security/index.md)) | Manage internal or external connectivity depending on load balancer type | `vpc.publicAdmin` (external)<br/>`vpc.privateAdmin` (internal) |
+  | {{ certificate-manager-name }}<br/>([roles](../../../certificate-manager/security/index.md)) | Manage certificates (for HTTPS load balancers) | `certificate-manager.certificates.admin` |
+  | {{ compute-name }}<br/>([roles](../../../compute/security/index.md)) | Get information on virtual machines created as {{ managed-k8s-name }} cluster nodes | `compute.viewer` |
+  
 {% endlist %}
 
 
-An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. The key must be specified in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller or Gateway API. For instance, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/iam/cli-ref/key/create.md) and saved it to `sa-key.json`, the chart installation command may look like this:
+An [authorized key](../../../iam/concepts/authorization/key.md) is used to authenticate the service account. You must specify the key in the `saKeySecretKey` value when installing a Helm chart with an Ingress controller or Gateway API. For example, if you created the key via the [`yc iam key create` CLI command](../../../cli/cli-ref/iam/cli-ref/key/create.md) and saved it to `sa-key.json`, the chart installation command may look like this:
 
 ```bash
 helm install \

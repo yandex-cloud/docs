@@ -55,7 +55,7 @@ The infrastructure support costs include:
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-### Set up access rights {#roles}
+### Configure access permissions {#roles}
 
 Set up [access rights for the folder](../../resource-manager/operations/folder/set-access-bindings.md):
 
@@ -240,7 +240,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    {% endlist %}
 
-1. Create a [subnet](../../vpc/concepts/network.md#subnet) named `subnet-a` in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md):
+1. Create [subnets](../../vpc/concepts/network.md#subnet) named `subnet-a`, `subnet-b`, and `subnet-d` in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` [availability zones](../../overview/concepts/geo-scope.md), respectively:
 
    {% list tabs group=instructions %}
 
@@ -250,12 +250,10 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
      1. In the list of services, select **{{ vpc-name }}**.
      1. Click the `shared-net` name.
      1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
-     1. Enter the subnet name: `subnet-a`.
-     1. Select the `{{ region-id }}-a` availability zone from the drop-down list.
+     1. Enter the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`, respectively.
+     1. Select the availability zone (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`, respectively) from the drop-down list.
      1. Enter the subnet CIDR: `10.1.11.0` as IP address and `24` as subnet mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-
-     Similarly, create `subnet-b` and `subnet-d` in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones in **net-folder**.
 
    - CLI {#cli}
 
@@ -398,7 +396,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-a`.
       * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -452,21 +450,21 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
        --network-interface subnet-name=subnet-a,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=dev-vm --hostname=dev-vm \
        --zone={{ region-id }}-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-b,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-b,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=prod-vm --hostname=prod-vm \
        --zone={{ region-id }}-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
 

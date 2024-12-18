@@ -11,73 +11,73 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
 1. Install a special Cosign build for your OS:
 
-   {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
+    {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
 1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - Bash {#bash}
+    - Bash {#bash}
 
       ```bash
       export YC_IAM_TOKEN=$(yc iam create-token)
       ```
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
       ```powershell
       $env:YC_IAM_TOKEN = $(yc iam create-token)
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 ## Sign a local file {#create-signature}
 
 1. Create a digital signature key pair and save it to {{ kms-short-name }}:
 
-   ```bash
-   cosign generate-key-pair \
-       --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
-   ```
+    ```bash
+    cosign generate-key-pair \
+        --kms yckms:///folder/<folder_ID>/keyname/<key_pair_name>
+    ```
 
-   Where:
-   * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where the new key pair will be saved.
-   * `<key_pair_name>`: Name of the signature key pair you create.
+    Where:
+    * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to save the new key pair in.
+    * `<key_pair_name>`: Name of the signature key pair you are creating.
 
-   Result:
+    Result:
 
-   ```bash
-   client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
-   client.go:310: generated yckms KEY_ID: 'abj15qhhh98d********'
-   Public key written to cosign.pub
-   ```
+    ```bash
+    client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
+    client.go:310: generated yckms KEY_ID: 'abj15qhhh98d********'
+    Public key written to cosign.pub
+    ```
 
-   The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
-
-   You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md) command.
+    The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
+    
+    You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
 
 1. Sign a local file:
 
-   ```bash
-   cosign sign-blob \
-       --key yckms:///<key_pair_ID> \
-       --tlog-upload=false \
-       <path_to_file>
-   ```
+    ```bash
+    cosign sign-blob \
+        --key yckms:///<key_pair_ID> \
+        --tlog-upload=false \
+        <path_to_file>
+    ```
 
-   Where:
-   * `<key_pair_ID>`: ID of the signature key pair obtained in the previous step.
-   * `<path_to_file>`: Path to the local file you want to sign.
+    Where:
+    * `<key_pair_ID>`: ID of the signature key pair obtained in the previous step.
+    * `<path_to_file>`: Path to the local file you want to sign.
 
-   Result:
+    Result:
 
-   ```bash
-   Using payload from: <path_to_file>
-   client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
-   <digital_signature_value>
-   ```
+    ```bash
+    Using payload from: <path_to_file>
+    client.go:183: Using IAM Token from 'YC_IAM_TOKEN' environment variable as credentials
+    <digital_signature_value>
+    ```
 
-   Save the resulting digital signature value. You will need it for signature verification in the next step.
+    Save the resulting digital signature value. You will need it for signature verification in the next step.
 
 ## Verify the digital signature {#verify-signature}
 
@@ -92,7 +92,7 @@ cosign verify-blob \
 ```
 
 Where:
-* `--key`: Signature key pair ID obtained earlier.
+* `--key`: Previously obtained ID of the signature key pair.
 * `--signature`: Digital signature value obtained in the previous step.
 * `<path_to_file>`: Path to the local file whose signature you want to verify.
 

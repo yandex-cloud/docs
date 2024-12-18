@@ -9,16 +9,16 @@ description: Step-by-step guides on using encryption keys in {{ yandex-cloud }}.
 
 ### Key {#key}
 
-- [{#T}](key.md#create)
-- [{#T}](key.md#rotate)
-- [{#T}](key.md#update)
-- [{#T}](key.md#delete)
+- [Creating a key](key.md#create)
+- [Rotating a key](key.md#rotate)
+- [Editing a key](key.md#update)
+- [Deleting a key](key.md#delete)
 - [{#T}](key-access.md)
 
 ### Key version {#version}
 
-- [{#T}](version.md#make-primary)
-- [{#T}](version.md#delete)
+- [Making a version primary](version.md#make-primary)
+- [Deleting a key version](version.md#delete)
 
 ### Data encryption {#symmetric-encrypt}
 

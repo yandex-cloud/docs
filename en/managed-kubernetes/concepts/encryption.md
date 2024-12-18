@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} adopts many [information security measures](../../security/standarts.md). They include multi-level encryption of {{ managed-k8s-name }} data:
 
-* Data is encrypted using system keys when it is placed in a {{ yandex-cloud }} storage. This protects your data from compromise in the event of physical disk theft from {{ yandex-cloud }} data centers.
+* Data is encrypted using system keys when it is placed in a {{ yandex-cloud }} storage. This protects your data from being compromised in the event of a physical theft of disks from {{ yandex-cloud }} data centers.
 * Data is encrypted when transmitted over the network using the TLS protocol. The keys used for TLS are stored on hosts running the protocol. This ensures that the data is protected against interception.
 
 The following cryptographic algorithms are used:
@@ -63,6 +63,6 @@ Secrets are decrypted in a similar way.
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
-* [{#T}](../../kms/tutorials/k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+* [{#T}](../../kms/tutorials/k8s.md)

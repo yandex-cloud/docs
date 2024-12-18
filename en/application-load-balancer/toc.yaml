@@ -57,7 +57,7 @@ items:
             href: operations/application-load-balancer-manage-logs.md
           - name: Getting log group ID of an L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
-          - name: Stopping and restarting an L7 load balancer
+          - name: Stopping and starting an L7 load balancer
             href: operations/application-load-balancer-stop-and-start.md
           - name: Moving a VM to a target group in a new availability zone
             href: operations/application-load-balancer-relocate.md
@@ -97,19 +97,23 @@ items:
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Setting up Gateway API
         href: tutorials/gateway-api.md
-      - name: Setting up the {{ alb-name }} Ingress controller
+      - name: >-
+          Configuring an {{ alb-name }} L7 load balancer using an Ingress
+          controller
         href: tutorials/alb-ingress-controller.md
-      - name: Logging settings for {{ alb-name }} Ingress controllers
+      - name: >-
+          Configuring logging for an {{ alb-name }} L7 load balancer using an
+          Ingress controller
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Fault-tolerant website with load balancing using {{ alb-name }}
         href: tutorials/application-load-balancer-website.md
       - name: >-
-          Health checking your applications in a {{ k8s }} cluster with the {{
-          alb-name }} Ingress controller
+          Health checking your apps in a {{ managed-k8s-name }} cluster using an
+          {{ alb-name }} L7 load balancer
         href: tutorials/custom-health-checks.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the next-generation firewall.
+          dedicated DMZ based on the next-generation firewall
         href: tutorials/high-accessible-dmz.md
   - name: Concepts
     items:

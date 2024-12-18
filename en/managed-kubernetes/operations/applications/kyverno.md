@@ -45,7 +45,6 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 
-
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_kyverno.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_kyverno.helmChart.tag }} \
@@ -55,7 +54,6 @@ To find vulnerabilities in {{ k8s }} clusters, use [Chaos Mesh](chaos-mesh.md). 
      --create-namespace \
      multi-kyverno ./multi-kyverno/
    ```
-
 
    Select a namespace that does not contain any applications or objects, or else Kyverno will not run properly.
 

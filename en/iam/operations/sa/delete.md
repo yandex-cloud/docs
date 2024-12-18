@@ -45,6 +45,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       | aje9sda1ufvq******** | account_name     | account_description           |
       +----------------------+------------------+-------------------------------+
       ```
+
   1. Delete the service account:
 
       ```bash
@@ -96,7 +97,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
      
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can verify that the service account was deleted in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+     You can check the deletion of the service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc iam service-account list
@@ -108,8 +109,4 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
 {% endlist %}
 
-{% note info %}
-
-You cannot delete a service account while it is linked to some cloud resources, such as instance groups. First, update the service account in the resource settings or delete the resource and then delete the service account.
-
-{% endnote %}
+You cannot delete a service account while it is linked to some cloud [resources](../../../overview/roles-and-resources.md#resources). First, update the service account in the resource's settings or delete the resource and then delete the service account. For example, if your service account is linked to a VM, first [delete](../../../compute/operations/vm-control/vm-delete.md) the VM and then delete the service account.

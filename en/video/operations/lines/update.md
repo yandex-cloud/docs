@@ -5,6 +5,12 @@ description: Follow this guide to edit a {{ video-full-name }} line.
 
 # Editing a line
 
+{% note info %}
+
+The broadcast key will get updated after you edit a line. Replace it in your [broadcasting software](../streams/start.md#configure-soft).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ video-name }} interface {#console}

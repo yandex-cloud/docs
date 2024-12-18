@@ -154,7 +154,10 @@ Although the policies are designed for pods, Kyverno applies them to any resourc
       ```text
       clusterpolicy.kyverno.io/require-labels created
       ```
+
+
 1. {% include [install policy reporter](../../../_includes/managed-kubernetes/install-policy-reporter.md) %}
+
 
 ## Test Kyverno & Kyverno Policies {#check-apps}
 

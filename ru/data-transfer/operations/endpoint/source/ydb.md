@@ -73,7 +73,7 @@ description: Из статьи вы узнаете, как задать наст
 
       Для трансферов типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} обязательно указывать пути, в том числе и при репликации всех таблиц.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.changefeed_custom_name.title }}** — Укажите здесь название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — Укажите здесь название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
 
 {% endlist %}
 

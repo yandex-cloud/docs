@@ -5,6 +5,12 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## November 2024 {#november-2024}
+
+### Updates {#updates}
+
+* Added support for labels.
+
 ## September — October 2024 {#sept-oct-2024}
 
 ### Updates {#updates}

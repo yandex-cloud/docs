@@ -52,7 +52,6 @@ After installing NodeLocal DNS, use the following values:
 
 1. To install a Helm chart from NodeLocal DNS, run this command:
 
-
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_node-local-dns.helmChart.name }} \
      --version {{ mkt-k8s-key.yc_node-local-dns.helmChart.tag }} \
@@ -62,7 +61,6 @@ After installing NodeLocal DNS, use the following values:
      --set config.clusterIp="<kube-dns_IP_address>" \
      node-local-dns ./node-local-dns/
    ```
-
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ managed-k8s-full-name }}
+title: Guides on using {{ managed-k8s-full-name }}
 description: In this article, you will learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups.
 ---
 
@@ -15,7 +15,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](connect/index.md)
 * [{#T}](connect/security-groups.md)
 * [{#T}](connect/create-static-conf.md)
-
 
 ## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
@@ -49,7 +48,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
-
 
 ## Network scenarios {#network-scenarios}
 

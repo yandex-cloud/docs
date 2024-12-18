@@ -11,13 +11,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
 - Management console {#console}
 
-   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
-   1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-   1. Enter the HTTP router name.
-   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-   1. Enter **{{ ui-key.yacloud.common.name }}**.
-   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
-   1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+  1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Enter the HTTP router name.
+  1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+  1. Enter **{{ ui-key.yacloud.common.name }}**.
+  1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
+  1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}** and select **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
@@ -91,7 +91,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      Where:
      * `--http-router-name`: HTTP router name.
      * `--authority`: Domains for the `:authority` headers that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`.
-     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
 
 
      Result:
@@ -127,7 +127,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
        To specify a routing condition, you can also use the following options:
        * `--exact-fqmn-match` to route all requests matching the specified FQMN. The parameter should be followed by `/<FQMN>/`.
-       * `--regex-fqmn-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). The parameter should be followed by `/<regular_expression>`.
+       * `--regex-fqmn-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Specify `/<regular_expression>` following the parameter.
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
      * `--request-max-timeout`: Maximum request idle timeout in seconds.
 

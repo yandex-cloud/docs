@@ -11,26 +11,26 @@ The basic check is carried out when the main challenge is performed.
 You can choose between these two types of main challenges in {{ captcha-name }}:
 
 * **{{ ui-key.yacloud.smartcaptcha.value_pre-check-checkbox }}**: User must click **I am not a robot**.
+  
+  {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-checkbox }}" %}
 
-   {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-checkbox }}" %}
+  ![image](../../_assets/smartcaptcha/checkbox-task.gif)
 
-   ![image](../../_assets/smartcaptcha/checkbox-task.gif)
-
-   {% endcut %}
+  {% endcut %}
 
 * **{{ ui-key.yacloud.smartcaptcha.value_pre-check-slider }}**: User must move the slider from left to right.
+  
+  {% note info %}
 
-   {% note info %}
+  The slider is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
 
-   The slider is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
+  {% endnote %}
+  
+  {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-slider }}" %}
 
-   {% endnote %}
+  ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
 
-   {% cut "{{ ui-key.yacloud.smartcaptcha.value_pre-check-slider }}" %}
-
-   ![image](../../_assets/smartcaptcha/slider-task.gif =370x93)
-
-   {% endcut %}
+  {% endcut %}
 
 ## Additional challenge {#additional-task}
 
@@ -41,44 +41,46 @@ If the service regards the result of the main challenge seems suspicious, or if 
 There are several types of additional challenges in {{ captcha-name }}:
 
 * ![image](../../_assets/console-icons/text.svg) **Text recognition**: The user has to type a distorted text from the picture into a special field.
+  
+  {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-image_text }}" %}
 
-   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-image_text }}" %}
+  ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
 
-   ![image](../../_assets/smartcaptcha/text-task.gif =370x401)
-
-   {% endcut %}
+  {% endcut %}
 
 * ![image](../../_assets/console-icons/picture.svg) **Silhouettes**: The user has to mark several icons from the picture in a particular order.
+  
+  {% note info %}
 
-   {% note info %}
+  The silhouettes are at the [Preview](../../overview/concepts/launch-stages.md) stage, so they may not work correctly on some types of devices. For example, on TV sets.
 
-   The silhouettes are at the [Preview](../../overview/concepts/launch-stages.md) stage, so they may not work correctly on some types of devices. For example, on TV sets.
+  {% endnote %}
+  
+  {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-silhouettes }}" %}
 
-   {% endnote %}
+  ![image](../../_assets/smartcaptcha/silhouette-task.gif)
 
-   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-silhouettes }}" %}
-
-   ![image](../../_assets/smartcaptcha/silhouette-task.gif)
-
-   {% endcut %}
+  {% endcut %}
 
 * ![image](../../_assets/console-icons/layout-cells-large.svg) **Kaleidoscope**: The user has to build a picture from individual parts by shuffling them using a slider. To complete the challenge, the user has to move the slider to a position in which the image parts are arranged correctly.
+  
+  {% note info %}
 
-   {% note info %}
+  The Kaleidoscope is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
 
-   The Kaleidoscope is in the [Preview](../../overview/concepts/launch-stages.md) stage, so it may not work correctly on some types of devices. For example, on TV sets.
+  {% endnote %}
+  
+  {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-kaleidoscope }}" %}
 
-   {% endnote %}
+  ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x405)
 
-   {% cut "{{ ui-key.yacloud.smartcaptcha.value_challenge-kaleidoscope }}" %}
-
-   ![image](../../_assets/smartcaptcha/kaleidoscope-task.gif =370x405)
-
-   {% endcut %}
+  {% endcut %}
 
 ## Difficulty levels of captcha challenges {#task-difficulty}
 
-There are several difficulty levels for challenges in {{ captcha-name }}:
+There are several difficulty levels in {{ captcha-name }} affecting the main and additional challenges, as well as the [invisible captcha](invisible-captcha.md) show threshold.
+
+Difficulty levels: 
 
 * **{{ ui-key.yacloud.smartcaptcha.value_complexity-easy }}**. Low level main challenge threshold. When completing an additional challenge, users will be offered simple images for recognition of text, silhouettes, or kaleidoscope.
 * **{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}**. Medium level main challenge threshold. When completing an additional challenge, users will be offered medium level images for recognition of text, silhouettes, or kaleidoscope.

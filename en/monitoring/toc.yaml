@@ -31,7 +31,7 @@ items:
             href: operations/dashboard/create.md
           - name: Copying dashboards
             href: operations/dashboard/copy.md
-          - name: Adding widgets to a dashboard
+          - name: Adding a widget to a dashboard
             href: operations/dashboard/add-widget.md
           - name: Adding a dashboard parameter
             href: operations/dashboard/add-parameters.md

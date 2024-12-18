@@ -26,15 +26,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+
+
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
+
 
 ## Install the NGINX Ingress controller {#install-controller}
 
 {% list tabs group=instructions %}
 
+
 - {{ marketplace-full-name }} {#marketplace}
 
   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../operations/applications/ingress-nginx.md).
+
 
 - Manually {#manual}
 
@@ -81,6 +86,7 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
 
 ## Install the certificate manager {#install-certs-manager}
 
+
 You can install the certificate manager in one of the following ways:
 * Using [{{ marketplace-full-name }}](../../marketplace/): To install cert-manager [integrated with {{ dns-name }}](../operations/applications/cert-manager-cloud-dns.md).
 
@@ -91,11 +97,14 @@ You can install the certificate manager in one of the following ways:
 
   You will need to create and configure any `Issuer` and `ClusterIssuer` objects manually.
 
+
 {% list tabs group=instructions %}
+
 
 - {{ marketplace-full-name }} {#marketplace}
 
   Install the cert-manager app with the {{ dns-name }} ACME webhook plugin [by following this guide](../operations/applications/cert-manager-cloud-dns.md).
+
 
 - Manually {#manual}
 
