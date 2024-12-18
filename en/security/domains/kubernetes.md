@@ -24,7 +24,7 @@ To comply with PCI DSS or other security standards when using {{ managed-k8s-nam
 
 Wherever possible, ensure maximum isolation between resources:
 
-* Use a separate organization for each "large-scale" project.
+* Use a separate organization for each _big_ project.
 * Use a separate cloud for each development team.
 * Use a separate {{ k8s }} cluster located in a separate folder for each service.
 * Use a separate namespace for each microservice.
@@ -41,7 +41,7 @@ Less strong isolation models are also possible, for example:
 ## {{ managed-k8s-name }} network security {#network-security}
 
 We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet.
-Use firewall protection when needed (for example, [security groups](../../vpc/concepts/security-groups.md)). In the section below, you can find links to instructions on how to set up firewall protection in security groups.
+Use firewall protection where needed (for example, [security groups](../../vpc/concepts/security-groups.md)). In the section below, you can find links to instructions on how to set up firewall protection in security groups.
 
 ### Segmentation {#segmentation}
 
@@ -54,7 +54,7 @@ When using an ALB as an [Ingress Gateway](../../application-load-balancer/tools/
 1. Apply the security group to the ALB.
 2. Additionally, apply the security group to the node group:
 
-    * Source type: `<security group applied to the ALB>`.
+    * Source type: `<security group applied for the ALB>`.
     * Destination type: `node group`.
     * Port range: 30000-32767.
 
@@ -81,7 +81,7 @@ For online endpoints, we recommend allocating an independent {{ k8s }} cluster o
 
 To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource.
 
-There exist at least two variants of an Ingress controller that you can use in {{ yandex-cloud }}:
+There are at least two Ingress controller options that you can use in {{ yandex-cloud }}:
 - [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 - [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
@@ -100,7 +100,7 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources 
 * [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Examples:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Here is an example:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -177,10 +177,12 @@ We recommend that you use SecretManager solutions to work with {{ k8s }} secrets
 
  {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with Yandex Lockbox support](/marketplace/products/yc/external-secrets).
 
+
 Useful instructions on working with External Secrets:
 
-* [Instructions](https://external-secrets.io/latest/provider/yandex-lockbox/) to work with External Secrets and {{ lockbox-name }} from the project description.
-* [Instructions](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) to work with External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
+* [Guide](https://external-secrets.io/latest/provider/yandex-lockbox/) on External Secrets and {{ lockbox-name }} from the project description.
+* [Guide](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) on External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation.
+
 
 Many methods to differentiate access to secrets using this tool have been [described](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service).
 
@@ -252,7 +254,7 @@ Set up backups in {{ managed-k8s-name }} by following the [guide](../../managed-
 
 Requirements listed in [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) from {{ k8s }} let you prevent threats related to {{ k8s }} objects.
 
-To implement the requirements, you can either use the {{ k8s }} built-in [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software, e.g., other Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
+To implement the requirements, you can either use the built-in {{ k8s }} [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) tool or open-source software, e.g., other admission controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
 
 Examples using Kyverno:
 
@@ -266,7 +268,7 @@ To control compliance with Pod Security Standards, you can also use the followin
 
 Or a separate [Kubesec](https://kubesec.io/) tool.
 
-## Practices for securely creating and using Docker images {#best-practices-docker-image}
+## Secure practices of creating and using a Docker image {#best-practices-docker-image}
 
 Use these check lists to meet requirements for secure creation of images:
 
@@ -289,7 +291,7 @@ Data loads with different security contexts (such as different severities of dat
 
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 
-* {{ k8s }} API events ({{ k8s }} Audit logging)
+* {{ k8s }} API events ({{ k8s }} audit logging)
 * {{ k8s }} node events
 * {{ k8s }} pod events
 * {{ k8s }} metrics

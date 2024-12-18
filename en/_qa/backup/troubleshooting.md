@@ -7,7 +7,7 @@ This section describes typical problems you may encounter while using {{ backup-
 Make sure that:
 
 * [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
-* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor) assigned.
+* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
 * [Security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for your VM.
 
 For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
@@ -28,7 +28,7 @@ A virtual machine becomes outdated after [restoring its backup to another VM](..
 Error message:
 
 ```text
-Not all of the items are mapped. Please, check your target instance and its volumes.
+Not all of the items are mapped. Please, check your goal instance and its volumes.
 ```
 
 The error occurs because {{ backup-name }} cannot find a disk on the target VM that matches the size criterion.
@@ -49,6 +49,10 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 Make sure that:
 
 * [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
-* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor) assigned.
+* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
 * The PowerShell execution policies allow scripts. If they do not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+
+#### How to update a {{ backup-name }} backup agent on a VM? {#update-backup-agent}
+
+See [How to update a {{ backup-name }} backup agent on a VM](../../backup/operations/update-backup-agent.md).

@@ -2,6 +2,7 @@ Install the Velero application as follows:
 
 {% list tabs group=instructions %}
 
+
 - {{ marketplace-full-name }} {#marketplace}
 
     Install the Velero application by following [this guide](../../managed-kubernetes/operations/applications/velero-yc-csi.md). In the **Object Storage bucket name** field, specify the bucket you [created earlier](#before-you-begin).
@@ -11,6 +12,7 @@ Install the Velero application as follows:
     If the name of the namespace where Velero is installed is not `velero`, use the additional `--namespace <Velero_application_namespace>` parameter for all the commands that follow.
 
     {% endnote %}
+
 
 - Manually {#manual}
 

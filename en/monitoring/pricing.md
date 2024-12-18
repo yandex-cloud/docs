@@ -17,7 +17,7 @@ Currently, {{ monitoring-short-name }} charges for writing custom metrics via th
 Reading metrics via the {{ prometheus-name }} Remote API is not yet billable.
 
 Pricing features:
-* After writing or reading the first 50 million values via the {{ monitoring-short-name }} API, the writing charge is reduced. See [{#T}](#prices).
+* After writing or reading the first 50 million values via the {{ monitoring-short-name }} API, the writing charge is reduced. See .
 * There is no charge for writing {{ yandex-cloud }} resource metrics collected automatically.
 * There is no charge for reading metrics via the {{ monitoring-short-name }} interface and {{ yandex-cloud }} console.
 * There is no charge for incoming and outgoing traffic in {{ monitoring-short-name }}.

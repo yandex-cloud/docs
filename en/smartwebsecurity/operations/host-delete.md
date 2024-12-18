@@ -9,7 +9,7 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md) you need.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the security profile to disconnect from the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
   1. Go to the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab.
@@ -102,6 +102,37 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
      ```
 
   For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  You can disconnect a {{ sws-full-name }} security profile from a load balancer in [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) in the virtual host settings.
+
+  1. In the {{ TF }} configuration file, for the `yandex_alb_virtual_host` resource, delete the `security_profile_id` (security profile ID) parameter under `route_options`
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<virtual_host_name>"
+        ...
+
+        route_options {
+          security_profile_id   = "<security_profile_ID>"
+        }
+      }
+      ```
+
+  1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the resources' updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc alb http-router get <HTTP_router_ID>
+  ```
 
 - API {#api}
 

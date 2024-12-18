@@ -154,11 +154,14 @@
 
   Результат:
 
+
   ```text
-  {% if region == "ru" or region == "int" %}- yc.postbox.send{% endif %}
+  - yc.postbox.send
   - yc.ydb.tables.manage
   - yc.ydb.topics.manage
   ```
+
+
 
 - API {#api}
 

@@ -7251,7 +7251,7 @@ default:
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
-            label_managed-redis: Managed Service for&nbsp;Redis
+            label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
@@ -9646,6 +9646,9 @@ default:
                         title: Группы безопасности
                       service_account_id:
                         title: Идентификатор сервисного аккаунта
+                    YdbCustomFeedSettings:
+                      changefeed_custom_name:
+                        title: Название предсозданного changefeed
                     YdbPartitionPolicy:
                       keep_part_count:
                         title: Количество таблиц
@@ -9656,8 +9659,6 @@ default:
                       time_column:
                         title: Разбивать по столбцу
                     YdbSource:
-                      changefeed_custom_name:
-                        title: Название предсозданного changefeed
                       connection:
                         title: Настройки подключения
                       paths:

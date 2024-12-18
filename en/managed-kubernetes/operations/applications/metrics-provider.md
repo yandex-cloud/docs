@@ -56,8 +56,7 @@ The provider transforms the request to collect external metrics from a {{ manage
 
 1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Add the `metric-provider` repository:
-
+1. Add a repository named `metric-provider`:
 
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
@@ -65,7 +64,6 @@ The provider transforms the request to collect external metrics from a {{ manage
      --version {{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
      --untar
    ```
-
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -99,7 +97,7 @@ The provider transforms the request to collect external metrics from a {{ manage
      * `NONE`: Returns no values.
      * `PREVIOUS`: Returns the value from the previous data point.
    * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to receive in response to a request. The value of this parameter must be greater than `10`.
-   * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. The value of the parameter must be greater than `0`.
+   * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for decimation: points inside the window are combined into a single one using the aggregation function. The value of this parameter must be greater than `0`.
    * `yandexMetrics.downsampling.disabled`: Disable data decimation. Possible values: `true` or `false`.
 
      {% note info %}

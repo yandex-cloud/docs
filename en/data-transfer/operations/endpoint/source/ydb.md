@@ -73,7 +73,7 @@ To create or edit an endpoint of a managed database, you need to have the [`ydb.
 
       For {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfers, specifying paths is required, including when you replicate all tables.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.changefeed_custom_name.title }}**: Here, specify the name of the update stream if it was already created. Otherwise, leave the field blank.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}**: Here, specify the name of the update stream if it was already created. Otherwise, leave the field blank.
 
 {% endlist %}
 

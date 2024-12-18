@@ -17,7 +17,7 @@ Roles for a resource can be assigned by users who have the `logging.admin` role 
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign roles for individual resources within the service:
+You can also assign roles for individual resources of the service:
 
 {% list tabs group=instructions %}
 

@@ -248,13 +248,17 @@ items:
             href: tutorials/fluent-bit-logging.md
           - name: Setting up Gateway API
             href: tutorials/marketplace/gateway-api.md
-          - name: Setting up the {{ alb-name }} Ingress controller
+          - name: >-
+              Configuring an {{ alb-name }} L7 load balancer using an Ingress
+              controller
             href: tutorials/alb-ingress-controller.md
-          - name: Logging settings for {{ alb-name }} Ingress controllers
+          - name: >-
+              Configuring logging for an {{ alb-name }} L7 load balancer using
+              an Ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Health checking your apps in a cluster using the {{ alb-name }}
-              Ingress controller
+              Health checking your apps in a {{ managed-k8s-name }} cluster
+              using an {{ alb-name }} L7 load balancer
             href: tutorials/custom-health-checks.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md

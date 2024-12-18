@@ -41,7 +41,6 @@
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Gatekeeper, run the following command:
   
-
     ```bash
     helm pull oci://{{ mkt-k8s-key.yc_gatekeeper.helmChart.name }} \
       --version {{ mkt-k8s-key.yc_gatekeeper.helmChart.tag }} \
@@ -52,10 +51,9 @@
       gatekeeper ./gatekeeper/
     ```
 
-
   You can redefine optional parameters in the install command using the following key: `--set <parameter_name>=<new_value>`.
 
-  The list of parameters available for redefining and their default values are shown in the table below:
+  See the table below for a list of redefinable parameters and their default values:
 
   Parameter name | Description | Default value
   --- | --- | ---

@@ -27,7 +27,9 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
 
+
 To learn about installing the NGINX Ingress controller using {{ marketplace-full-name }}, see [this guide](../operations/applications/ingress-nginx.md).
+
 
 ## {{ container-registry-full-name }} usage {#container-registry}
 
@@ -65,7 +67,6 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](filebeat-oss-monitoring.md)
-
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}
 

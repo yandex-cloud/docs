@@ -14,11 +14,11 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
-   1. [Create service accounts](../../iam/operations/sa/create.md):
-      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
-      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
+  1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
+  1. [Create service accounts](../../iam/operations/sa/create.md):
+     * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+     * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
      {% note tip %}
 
@@ -76,9 +76,11 @@ Prepare the infrastructure:
 
 {% list tabs %}
 
+
 - Using {{ yandex-cloud }}
 
   Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md). In the application settings, specify the ID of the [log group](#before-you-begin) you [created earlier](../../logging/concepts/log-group.md). You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
+
 
 - Manually
 
@@ -159,27 +161,14 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - Manually {#manual}
 
-   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
-   1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-   1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
-   1. [Delete the log group](../../logging/operations/delete-group.md).
+  1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
+  1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
+  1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+  1. [Delete the log group](../../logging/operations/delete-group.md).
 
 - {{ TF }} {#tf}
 
-  1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cluster-with-log-group.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cluster-with-log-group.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

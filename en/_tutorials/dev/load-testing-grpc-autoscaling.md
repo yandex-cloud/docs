@@ -1,7 +1,7 @@
 # Deploying and load testing a gRPC service with scaling
 
 
-Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to perform load testing of the service.
+Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 To deploy the service and perform load testing:
 
@@ -27,7 +27,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Prepare](../../managed-kubernetes/quickstart.md) your {{ managed-k8s-name }} cluster.
 1. [Install](../../managed-kubernetes/operations/applications/metrics-provider.md) Metrics Provider in the `kube-public` namespace.
 1. [Install](../../application-load-balancer/operations/k8s-ingress-controller-install.md) ALB Ingress Controller.
+
+
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
+
 
 
 ### Required paid resources {#paid-resources}
@@ -201,7 +204,7 @@ This instruction will use a gRPC service as a test target.
    * `<website_name>`: Domain name the TLS certificate corresponds to.
    * `<IP_address>`: IP address of the website.
 
-   An IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
+   The IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
 
 1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} stating the load balancer's public IP. If you are using ExternalDNS with a plugin for {{ dns-name }}, this record will be created automatically.
 
@@ -251,7 +254,7 @@ This instruction will use a gRPC service as a test target.
    yc alb backend-group list
    ```
 
-1. Create the {{ k8s-hpa }}:
+1. Create {{ k8s-hpa }}:
 
    ```bash
    kubectl apply -f hpa.yaml
