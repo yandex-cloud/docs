@@ -7,6 +7,8 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
+{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+
 ## Changing basic settings {#update-basic-parameters}
 
 {% list tabs group=instructions %}
@@ -43,7 +45,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+     The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
      See the [full backup policy specification](../../concepts/policy.md#specification) for details.
   1. Get the ID of the backup policy you want to update:
@@ -129,11 +131,11 @@ description: In this tutorial, you will learn how to update a backup policy in {
   To edit the basic parameters of a [backup policy](../../../backup/concepts/policy.md):
   1. Open the {{ TF }} configuration file and edit the required settings in the `yandex_backup_policy` resource description fragment:
 
-     {% cut "Sample `yandex_backup_policy` resource description in the {{ TF }} configuration" %}
+     {% cut "Below is an example with the description of the `yandex_backup_policy` resource in the {{ TF }} configuration" %}
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<VM_name>]-[<plan_ID>]-[<unique_ID>]"
+         archive_name                      = "[<VM_or_{{ baremetal-name }}_server_name>]-[<plan_ID>]-[<unique_ID>]"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true
@@ -207,11 +209,17 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% endlist %}
 
-## Updating a VM list {#update-vm-list}
+## Updating a list of VMs and {{ baremetal-name }} servers {#update-vm-list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+  {% note info %}
+
+  Currently, you can only update the list of VMs linked to a backup policy in the management console. To update the {{ baremetal-name }} server list, use the {{ yandex-cloud }} CLI or API.
+
+  {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
@@ -227,16 +235,18 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get the ID of the backup policy in which you want to edit the list of VMs:
+  1. Get the ID of the backup policy in which you want to edit the list of VMs or {{ baremetal-name }} servers:
 
      {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Get the IDs of VMs to add or delete:
+  1. Get the IDs of VMs you need to add or delete:
 
      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-  1. Edit the list of VMs in the backup policy.
-     * To link a VM to a backup policy:
+     To get the {{ baremetal-name }} server IDs, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The IDs are specified in the server list in the **{{ ui-key.yacloud.common.id }}** field.
+
+  1. Update the list of VMs and {{ baremetal-name }} servers in the backup policy.
+     * To link a VM or {{ baremetal-name }} server to a backup policy:
 
        View a description of the CLI command:
 
@@ -244,17 +254,17 @@ description: In this tutorial, you will learn how to update a backup policy in {
        yc backup policy apply --help
        ```
 
-       Link your VMs to the backup policy by specifying their IDs:
+       Link your VMs or {{ baremetal-name }} servers to the backup policy by specifying their IDs:
 
        ```bash
        yc backup policy apply <backup_policy_ID> \
-         --instance-ids <VM_IDs>
+         --instance-ids <VM_or_{{ baremetal-name }}_server_IDs>
        ```
 
-       Where `--instance-ids` are the IDs of the VMs you need to link to the backup policy. Multiple IDs should be comma-separated.
+       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers you need to link to the backup policy. Multiple IDs should be comma-separated.
 
        For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
-     * To unlink a VM from a backup policy:
+     * To unlink VMs or {{ baremetal-name }} servers from a backup policy:
 
        View a description of the CLI command:
 
@@ -262,20 +272,20 @@ description: In this tutorial, you will learn how to update a backup policy in {
        yc backup policy revoke --help
        ```
 
-       Unlink your VMs from the backup policy by specifying their IDs:
+       Unlink your VMs or {{ baremetal-name }} servers from the backup policy by specifying their IDs:
 
        ```bash
        yc backup policy revoke <backup_policy_ID> \
-         --instance-ids <VM_IDs>
+         --instance-ids <VM_or_{{ baremetal-name }}_server_IDs>
        ```
 
-       Where `--instance-ids` are the IDs of the VMs you need to unlink from the backup policy. Multiple IDs should be comma-separated.
+       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers you need to unlink from the backup policy. Multiple IDs should be comma-separated.
 
        For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
 - API {#api}
 
-  To edit the list of VMs whose backups are created according to a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md) gRPC API call.
+  To edit the list of VMs or {{ baremetal-name }} servers backed up according to a [backup policy](../../concepts/policy.md), use the [update](../../backup/api-ref/Policy/update.md) REST API method for the [Policy](../../backup/api-ref/Policy/index.md) resource or the [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md) gRPC API call.
 
 {% endlist %}
 

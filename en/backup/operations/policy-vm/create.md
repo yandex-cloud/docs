@@ -47,7 +47,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
 
      Save the configuration to a `.json` file.
 
-      The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
+     The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
      See the [full backup policy specification](../../concepts/policy.md#specification) for details.
 
@@ -194,7 +194,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
      Where:
 
      * `archive_name`: Names of generated archives. This is an optional parameter. The parameter variables include:
-       * `Machine Name`: [VM](../../../compute/concepts/vm.md) name.
+       * `Machine Name`: [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) name.
        * `Plan ID`: Plan ID.
        * `Unique ID`: Unique ID.
 
@@ -237,7 +237,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
           * `max_count`: Delete backups if their number exceeds `max_count`.
           * `repeat_period`: Period for applying the rules.
 
-          The `max_age` and `max_count` attributes are mutually exclusive. Using one of them disables the use of the other.
+          The `max_age` and `max_count` attributes are mutually exclusive. i.e., the use of one makes it impossible to use the other.
      * `scheduling`: Backup scheduling options:
        * `enabled`: Enable backup scheduling. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
        * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional parameter. The default value is `0` (unlimited).
@@ -254,7 +254,7 @@ Creating a policy becomes available after you [activate](../../concepts/index.md
          * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
          * `monthdays`: List of days to to which the schedule applies. This is an optional parameter. It can be used for the `MONTHLY` format.
          * `months`: List of months to which the schedules applies. This is an optional parameter.
-         * `repeat_at`: List of time periods in `HH:MM` (24-hour) format to which the schedule will apply. This is an optional parameter.
+         * `repeat_at`: List of time values in `HH:MM` (24-hour) format to which the schedule applies. This is an optional parameter.
          * `repeat_every`: Frequency for repeat backups. This is an optional parameter.
          * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, and `MONTHLY`.
          * `weekdays`: List of days of the week to which the schedule applies. It can be used for the `WEEKLY` format.

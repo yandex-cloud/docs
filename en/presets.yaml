@@ -5820,6 +5820,9 @@ default:
           action_send-invitation: Send invitation
           label_row-action-delete: Delete invitation
           label_row-action-resend: Resend
+        organization:
+          other-regions_attach-region_action: Connect region
+          other-regions_confirm-dialog_submit: Connect
         oslogin-profile:
           action:
             create: Create profile

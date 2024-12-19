@@ -1,4 +1,4 @@
-| Наименование тарифного плана | Professional&nbsp;<br/>(Pro) | Business&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>(Bsns) | Corporate&nbsp;&nbsp;&nbsp;&nbsp;<br/>(Corp) | Enterprise&nbsp;<br/>(ENT) |
+| Наименование тарифного плана | Professional&nbsp;<br/>(Pro),<br>вкл. НДС | Business&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>(Bsns),<br>вкл. НДС | Corporate&nbsp;&nbsp;&nbsp;&nbsp;<br/>(Corp),<br>вкл. НДС | Enterprise&nbsp;<br/>(ENT) |
 | --- | --- | --- | --- | --- |
 | Абонентская плата (АП), ежемесячно<br/>Включено в Абонентскую плату: <ul> <li>Фильтрация трафика</li> <li>Один защищенный IP-адрес для группы доменов с едиными правилами анализа и фильтрации</li> <li>Онлайн-отчеты</li> </ul> | 27&nbsp;600,00&nbsp;₽ | 93&nbsp;600,00&nbsp;₽ | 192&nbsp;000,00&nbsp;₽ | Рассчитывается индивидуально |
 | Включенный объем легитимного трафика в АП | 10&nbsp;Мбит/с | 10&nbsp;Мбит/с | 10&nbsp;Мбит/с | Рассчитывается индивидуально |

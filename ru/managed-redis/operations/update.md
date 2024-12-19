@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, как изменить на
 * [Увеличить размер хранилища](#change-disk-size).
 
 
-* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://redis.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://valkey.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -709,7 +709,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-  1. Настройте доступные параметры в соответствии с [документацией {{ RD }}](https://redis.io/documentation).
+  1. Настройте доступные параметры в соответствии с [документацией {{ RD }}](https://valkey.io/documentation).
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }} {#tf}

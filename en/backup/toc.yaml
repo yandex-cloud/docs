@@ -24,7 +24,7 @@ items:
             href: operations/connect-vm-windows.md
           - name: Updating a VM connection to {{ backup-name }}
             href: operations/refresh-connection.md
-          - name: Updating the {{ backup-name }} agent on a VM
+          - name: Prepare and install a {{ backup-name }} agent on your VMs
             href: operations/update-backup-agent.md
           - name: Updating a Linux VM connection with {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
@@ -62,6 +62,8 @@ items:
             href: operations/backup-vm/non-native-recovery.md
           - name: Restoring individual folders and files on a VM
             href: operations/backup-vm/recover-file-by-file.md
+          - name: Viewing the parameters of disks and partitions in a backup
+            href: operations/backup-vm/view-disk-layout.md
           - name: Deleting a backup
             href: operations/backup-vm/delete.md
       - name: Viewing operations with the service's resources
@@ -86,7 +88,7 @@ items:
     items:
       - name: Service overview
         href: concepts/index.md
-      - name: Connecting a VM to the service
+      - name: Connecting a VM and {{ baremetal-name }} servers to the service
         href: concepts/vm-connection.md
       - name: Backup policies
         href: concepts/policy.md

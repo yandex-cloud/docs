@@ -1,4 +1,4 @@
-| Minutes per month | Audio recognition | Speech analytics | Total |
+| Minutes per month | Audio recognition,<br>without VAT | Speech analytics,<br>without VAT | Total,<br>without VAT |
 |---|---|---|---|
 | 0 to 100,000           | $0.0048  | $0.01104 | $0.01584 |
 | 100,001 to 500,000     | $0.00288 | $0.00816 | $0.01104 |

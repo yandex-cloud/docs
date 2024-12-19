@@ -48,11 +48,11 @@ description: In this tutorial, you will learn how to delete a backup policy in *
   To delete a [backup policy](../../../backup/concepts/policy.md) created with {{ TF }}:
   1. Open the {{ TF }} configuration file and delete the fragment with the `yandex_backup_policy` resource description:
 
-     {% cut "Sample `yandex_backup_policy` resource description in the {{ TF }} configuration" %}
+     {% cut "Below is an example with the description of the `yandex_backup_policy` resource in the {{ TF }} configuration" %}
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<VM_name>]-[<plan_ID>]-[<unique_ID>]"
+         archive_name                      = "[<VM_or_{{ baremetal-name }}_server_name>]-[<plan_ID>]-[<unique_ID>]"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true

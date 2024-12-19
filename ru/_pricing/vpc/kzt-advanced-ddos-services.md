@@ -1,4 +1,4 @@
-| Наименование услуги | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
+| Наименование услуги | Professional<br/>(Pro),<br>вкл. НДС | Business<br/>(Bsns),<br>вкл. НДС | Corporate<br/>(Corp),<br>вкл. НДС | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
 | Включенный объем легитимного трафика в АП | 10 Мбит/с | 10 Мбит/с | 10 Мбит/с | Рассчитывается индивидуально |
 | Фильтрация HTTPS-трафика с использованием приватных ключей клиента | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |

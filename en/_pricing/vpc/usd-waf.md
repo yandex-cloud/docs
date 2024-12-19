@@ -1,4 +1,4 @@
-| WAF service plan | Elementary WAF | Advisory WAF |
+| WAF service plan | Elementary WAF,<br>without VAT | Advisory WAF,<br>without VAT |
 | --- | --- | --- |
 | Subscription fee, monthly | $240 | $608 |
 | Traffic included in the subscription fee | 3 Mbps | 3 Mbps |

@@ -1,4 +1,4 @@
-# Embedding private objects 
+# Embedding private objects
 
 {% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
 
@@ -67,14 +67,23 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
           These restrictions do not apply to signed parameters from the token.
 
-        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want to disable when embedding a chart. Available in **Enable all** mode.
+        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
         * (Optional) **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
+        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: XSLX, CSV, or Markown.
 
       - For a dashboard {#dashboard}
 
         * **Name**: Enter a name for the embedding.
         * **Key**: Select a previously created key for embedding.
-        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want to disable when embedding a dashboard. These restrictions do not apply to signed parameters from the token. By default, any parameters [specified](../operations/dashboard/add-parameters.md) in the dashboard settings can be provided in the embedding link.
+        * (Optional) **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to signed parameters from the token. By default, any parameters [specified](../operations/dashboard/add-parameters.md) in the dashboard settings can be provided in the embedding link.
+
+          {% note info %}
+
+          If there are selectors with restricted parameters on the dashboard, those will not be available when embedding.
+
+          {% endnote %}
+
+        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: XSLX, CSV, or Markown.
 
       {% endlist %}
 
@@ -246,7 +255,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         {{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT token.
+        Where `<token>` is the JWT.
 
       - For a dashboard {#dashboard}
 
@@ -254,7 +263,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         {{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT token.
+        Where `<token>` is the JWT.
 
       {% endlist %}
 
@@ -271,7 +280,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Where:
 
         * `src`: Embedding URL.
-        * `<token>`: JWT token.
+        * `<token>`: JWT.
         * `width`: Chart width.
         * `height`: Chart height.
         * `frameborder`: Chart border (yes or no).
@@ -285,7 +294,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Where:
 
         * `src`: Embedding URL.
-        * `<token>`: JWT token.
+        * `<token>`: JWT.
         * `width`: Dashboard width.
         * `height`: Dashboard height.
         * `frameborder`: Dashboard border (yes or no).
@@ -309,7 +318,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
   Where:
 
   * `src`: Embedding URL.
-  * `<token>`: JWT token.
+  * `<token>`: JWT.
   * `from=2022-01-01&to=2023-02-05`: Unsigned parameters.
 
 - For a dashboard {#dashboard}
@@ -321,7 +330,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
   Where:
 
   * `src`: Embedding URL.
-  * `<token>`: JWT token.
+  * `<token>`: JWT.
   * `from=2022-01-01&to=2023-02-05`: Unsigned parameters.
 
 {% endlist %}
@@ -343,7 +352,7 @@ In the embedding link, any unsigned parameters are ignored if:
 
 ## Recommendations {#recommendations}
 
-When embedding private objects, please follow these guidelines:
+When embedding private objects, follow these guidelines:
 
 * Default values should be provided in the link parameters.
 * Note that any parameter in the link will override any signed parameter with the same name.
@@ -370,7 +379,7 @@ When embedding private objects, please follow these guidelines:
 
 When embedding dashboards, consider the following:
 
-* Any embedded dashboard can only be opened in view mode. The navigation bar and the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden.
+* Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable the **Allow data export** option in the embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, allowing you to export the chart data.
 * When you open a dashboard, its [settings](../dashboard/settings.md) apply.
 * For any embedded dashboard, only the parameters [specified in the dashboard settings](../operations/dashboard/add-parameters.md) are enabled.
 * You cannot provide the state of filtered charts in the `state` parameter.

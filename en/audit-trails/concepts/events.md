@@ -28,6 +28,7 @@ On this page, you will find events for the following services:
 * [{{ marketplace-full-name }}](#marketplace)
 * [{{ org-full-name }}](#organization)
 * [{{ postbox-full-name }}](#postbox)
+* [{{ cloud-registry-full-name }}](#cloud-registry)
 * [{{ compute-full-name }}](#compute)
 * [{{ container-registry-full-name }}](#container-registry)
 * [{{ dataproc-full-name }}](#dataproc)
@@ -151,6 +152,12 @@ Service name: `organizationmanager`.
 Service name: `postbox`.
 
 {% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
+
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Service name: `cloudregistry`.
+
+{% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 

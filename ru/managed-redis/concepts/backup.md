@@ -14,7 +14,7 @@ keywords:
 
 {{ mrd-short-name }} обеспечивает автоматическое и ручное резервное копирование баз данных.
 
-{{ mrd-short-name }} использует AOF (append-only file) с форсированной записью на диск каждую секунду — выставлен параметр [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf).
+{{ mrd-short-name }} использует AOF (append-only file) с форсированной записью на диск каждую секунду — выставлен параметр [appendfsync everysec](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf).
 
 Резервная копия всех данных кластера (снимок в формате RDB) автоматически создается раз в день и хранится 7 дней. Отключить автоматическое создание резервных копий и изменить их срок хранения нельзя.
 

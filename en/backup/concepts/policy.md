@@ -6,7 +6,9 @@ Creating policies becomes available after you [activate](index.md#providers) {{ 
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
 
-By default, VMs in {{ backup-name }} are not linked to any backup policies. To start creating backups, [link VMs](../operations/policy-vm/attach-and-detach-vm.md) to one or more policies.
+By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are not linked to any backup policies. To start creating backups, link a [VM](../operations/policy-vm/attach-and-detach-vm.md) or [{{ baremetal-name }} server](../operations/backup-baremetal/backup-baremetal.md#agent-install) to one or more policies.
+
+{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
 
 The backup policy specifies:
 
@@ -18,13 +20,15 @@ The backup policy specifies:
 
 ## Storing backups {#retention}
 
-You can set up backup storage for the policy. The following can be stored for each VM included in the policy:
+You can set up backup storage for the policy. The following can be stored for each VM or {{ baremetal-name }} server included in the policy:
 
 * All backups created under this policy.
 * Only the last several backups.
 * Only the backups younger than a certain age, e.g., those created during the last few days.
 
-The settings apply to all VMs in the policy.
+The settings apply to all VMs and {{ baremetal-name }} servers in the policy.
+
+{% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
 If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For more information on the setup parameters of the backup retention rules, see the next section.
 

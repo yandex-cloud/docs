@@ -7,7 +7,7 @@ description: Follow this guide to create a connection to {{ CH }}.
 
 {% note info %}
 
-All data requests must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics for {{ CH }} connections](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
+All data requests must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics of using a connection to {{ CH }}](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -97,7 +97,13 @@ You can specify additional connection settings in the **Advanced connection sett
 
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
 
-## Specifics for {{ CH }} connections {#ch-connection-specify}
+* **Readonly**: Select a permission for requests to read data, write data, and change parameters. This setting must not exceed the user's corresponding setting in {{ CH }}:
+
+  * `0`: Allows all requests.
+  * `1`: Allows only data read requests.
+  * `2`: Allows requests to read data and edit settings.
+
+## Specifics of using a connection to {{ CH }} {#ch-connection-specify}
 
 In {{ CH }}, you can create a dataset on top of a `VIEW` that contains the `JOIN` section. To do this, make sure a view is created with the `join_use_nulls` option enabled. We recommend setting `join_use_nulls = 1` in the `SETTINGS` section:
 

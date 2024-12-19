@@ -63,6 +63,8 @@ items:
             href: operations/setup-federation.md
           - name: Configuring user group mapping for your federation
             href: operations/federation-group-mapping.md
+          - name: Renewing a {{ yandex-cloud }} SAML certificate
+            href: operations/renew-yc-certificate.md
       - name: Working with OS Login
         items:
           - name: Enabling access via OS Login

@@ -535,8 +535,6 @@ default:
   prometheus-name: Prometheus
   promql-name: PromQL
   RD: Valkey™
-  rd:
-    docs: https://redis.io/docs
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -5825,6 +5823,9 @@ default:
           action_send-invitation: Отправить приглашение
           label_row-action-delete: Удалить приглашение
           label_row-action-resend: Отправить повторно
+        organization:
+          other-regions_attach-region_action: Подключить регион
+          other-regions_confirm-dialog_submit: Подключить
         oslogin-profile:
           action:
             create: Создать профиль

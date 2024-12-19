@@ -104,15 +104,17 @@ Do not close the configuration tab in your browser.
 
           {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. You will need to install a {{ yandex-cloud }} SAML certificate on the IdP side.
+
+          {% include [download-saml-cert-when-creating-fed](../../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+          {% include [setup-cert-for-idp](../../../../_includes/organization/setup-cert-for-idp.md) %}
+
+          You will need this certificate later when configuring SAML-based sign-on for the Azure app.
 
       1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
       1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
-
-  1. Use the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field to download the certificate (if the option was enabled earlier).
-
-      You will need this certificate later when configuring SAML-based sign-on for the Azure app.
 
 {% endlist %}
 
@@ -130,7 +132,7 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 
   1. Click the row with `demo-federation` to add your certificate to.
 
-  1. At the bottom of the page, under **{{ ui-key.yacloud_org.page.federation.section.certificates }}**, click **{{ ui-key.yacloud_org.entity.certificate.action.add }}**.
+  1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
 
   1. Enter certificate name and description.
 
@@ -163,12 +165,14 @@ To enable {{ org-name }} to verify the app's SAML certificate during authenticat
 
     1. Click **Save** in the right-hand panel.
 
-1. (Optional) If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating a federation](#create-federation) in {{ org-full-name }}, add the federation certificate to the application:
+1. (Optional) If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating the federation](#create-federation) in {{ org-full-name }}, add the previously downloaded {{ yandex-cloud }} SAML certificate to the application:
 
     1. Find **SAML certificates** → **Verification certificates (optional)** and click **Edit**.
     1. Enable **Require verification certificates**.
     1. Click **Send certificate**.
     1. Upload the certificate in PEM format.
+    
+        If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
     1. Click **Save** in the right-hand panel.
 
 1. Click **Save**.
@@ -264,7 +268,7 @@ Configure the application for the new group to have access it.
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. [Create a user group](../../../operations/create-group.md) named `yc-demo-group` in {{ org-name }} and [authorize it](../../../operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 

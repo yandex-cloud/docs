@@ -1,4 +1,4 @@
-| Service | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
+| Service | Professional<br/>(Pro),<br>without VAT | Business<br/>(Bsns),<br>without VAT | Corporate<br/>(Corp),<br>without VAT | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
 | Subscription fee includes bandwidth for legitimate traffic | 10 Mbps | 10 Mbps | 10 Mbps | Calculated separately |
 | HTTPS filtering using customer's private keys | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |

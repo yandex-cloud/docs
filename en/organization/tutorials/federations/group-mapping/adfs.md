@@ -90,15 +90,17 @@ Make sure to meet the following prerequisites:
 
           {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. You will need to install a {{ yandex-cloud }} SAML certificate on the IdP side.
+
+          {% include [download-saml-cert-when-creating-fed](../../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+          {% include [setup-cert-for-idp](../../../../_includes/organization/setup-cert-for-idp.md) %}
+
+          You will need this certificate later when configuring the {{ microsoft-idp.adfs-abbreviated }} relying party trust.
 
       1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
       1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
-
-  1. Use the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field to download the certificate (if the option was enabled earlier).
-
-      You will need this certificate later when configuring the {{ microsoft-idp.adfs-abbreviated }} relying party trust.
 
 {% endlist %}
 
