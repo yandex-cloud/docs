@@ -18,7 +18,7 @@ There are differences between an escalation and other notification methods:
 
 * **Escalation**: Escalation policy instance initiated by the triggered alert.
 
-* **Escalation plan**: Scheduled (future) notifications within an active escalation. You should define the escalation plan before running the next iteration. If you are editing an ongoing escalation, the your changes will take effect starting from the next iteration.
+* **Escalation plan**: Scheduled (future) notifications within an active escalation. You should define the escalation plan before running the next iteration. If you are editing an ongoing escalation, your changes will take effect starting from the next iteration.
 
 * **Escalation step**: Next notification to send to the recipients.
 
@@ -58,11 +58,11 @@ Failed notification delivery means there was an error during the attempt to send
 
     {% note warning %}
 
-    For phone calls, the minimum delay is one minute. The escalation step and initial delay settings are ignored. This enables grouping calls in parallel escalations.
+    For phone calls, the minimum delay is always one minute. The escalation step and initial delay settings are ignored. This enables grouping calls in parallel escalations.
     
     {% endnote %}
 
-    If a step is marked as failed, there will be no latency before the next step. If the current step is the last one in the iteration, the latency before proceeding to the next iteration will take place whether the step is successful or not.
+    If a step is marked as failed, there will be no delay before the next step. If the current step is the last one in the iteration, the delay before proceeding to the next iteration will take place whether the step is successful or not.
 
 
 ### Stopping an escalation {#escalation-stop}

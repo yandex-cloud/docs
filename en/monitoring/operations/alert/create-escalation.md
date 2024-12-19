@@ -22,42 +22,42 @@ Make sure you have added [recipients](../../concepts/alerting/notification-chann
 
 1. Select an escalation schedule:
  
-   * **24/7**: Notify every day at any time.
+   * **24/7**: Send notifications every day at any time.
 
-   * **Working hours**: Notify on work days from 10:00 to 21:00 Moscow time (time zone UTC+3). Weekends and public holidays are as per the RF business calendar.
+   * **Working hours**: Send notifications on working days from 10:00 to 21:00 Moscow time (time zone UTC+3). Weekends and public holidays are as per the RF business calendar.
 
-   * **Custom setting**: Use a custom schedule for notifications:
+   * **Custom settings**: Send notifications based on a custom schedule:
 
-      * **Country**: Follow the selected country's business calendar.
+      * **Country**: Follow the business calendar of the the selected country.
 
         {% note info %}
 
-        To accommodate different sets of weekends and holidays across distributed teams, create multiple escalations for different countries.
+        To consider different sets of weekends and holidays in distributed teams, create multiple escalations for different countries.
 
         {% endnote %}
 
-      * **Time zone**: May not match the selected country.
+      * **Time zone**: May not match the country you selected.
       * **No notification on weekends and holidays**: Weekends and holidays as per the business calendar of the selected country.
-      * **Sending hours**: Start and end time of the notification interval in the selected time zone. To notify 24/7, click ![image](../../../_assets/console-icons/xmark.svg) next to this setting.
-      * **Send days**: Days of week for your escalation to send notifications. To send every day, check all days or clear the setting.
+      * **Sending hours**: Start and end time of the notification interval in the selected time zone. To send notifications 24/7, click ![image](../../../_assets/console-icons/xmark.svg) next to this setting.
+      * **Sending days**: Days of week for your escalation to send notifications. To send notifications every day, check all days or clear the setting.
 
         {% note info %}
 
-        The **No notification on weekends and holidays** setting has a higher priority than the **Send days** setting. Therefore, no notifications will be sent on weekends and holidays no matter what send days you select.
+        The **No notification on weekends and holidays** setting has a higher priority than the **Sending days** setting. Therefore, no notifications will be sent on weekends and holidays regardless of the sending days you selected.
 
         {% endnote %}
 
-1. Configure escalation steps, i.e., channel sequence and notification parameters:
+1. Configure escalation steps: Channel sequence and parameters for sending notifications:
 
-    * **Initial delay**: First iteration delay when starting an escalation, 2 minutes by default. To start without a delay, remove the value from this field.
+    * **Initial delay**: First iteration delay when starting an escalation, 2 minutes by default. To start escalation without delay, remove the value from this field.
     * Specify the parameters of the first escalation step: 
       * **Method**: [Notification method](../../concepts/alerting/notification-channel.md#channel-parameters):
        
           {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
 
-      * **Delay after step**: Delay before moving on to the next step if the notification is successfully delivered but escalation is not stopped. You can set the delay in seconds or minutes. For example, `30s`, `10m`, or `3m30s`.
+      * **Delay after step**: Delay before moving to the next step if the notification is successfully delivered but escalation is not stopped. You can set the delay in seconds or minutes. For example, `30s`, `10m`, or `3m30s`.
       
-        The default delay is `30m`. To send the next step notification without delay, remove the value from the field.
+        Default delay is `30m`. To send the next step notification without delay, remove the value from the field.
 
         {% note warning %}
 

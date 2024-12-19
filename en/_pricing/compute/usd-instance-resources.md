@@ -1,4 +1,4 @@
-| Resource | Cost per hour | Cost per hour | With CVoS for 6 months | With CVoS for 1 year |
+| Resource | Cost per hour,<br>without VAT | Cost per hour,<br>without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
 | --- | --- | --- | --- | ---
 | **Intel Broadwell** | Regular VM | Preemptible&nbsp;VM | |
 | 5% vCPU | {{ sku|USD|compute.vm.cpu.c05|string }} | {{ sku|USD|compute.vm.cpu.c05.preemptible|string }} | − | − |

@@ -96,7 +96,7 @@ items:
           Service account with an {{ oslogin }} profile for VM management via
           Ansible
         href: tutorials/sa-oslogin-ansible.md
-      - name: Integrations of service account identity federations
+      - name: Integrations of workload identity federations
         items:
           - name: GitHub
             href: tutorials/wlif-github-integration.md

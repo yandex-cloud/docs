@@ -1,26 +1,31 @@
-# Connecting {{ compute-name }} VMs to {{ backup-name }}
+# Connecting {{ compute-name }} VMs and {{ baremetal-full-name }} servers to {{ backup-name }}
 
-To back up your [{{ compute-full-name }}](../../compute/) [VM](../../compute/concepts/vm.md) using {{ backup-name }}, you need to connect it to this service and set it up properly.
+If you want to back up your [{{ compute-full-name }}](../../compute/) [instances](../../compute/concepts/vm.md) or [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) in {{ backup-name }}, you need them connected VM to the service and properly set up.
 
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
 
-To connect your VM to {{ backup-name }}, make sure it has one of the [supported operating systems](#os) installed. For more information on connecting VMs, see [this guide](../operations/index.md#connect-vm).
+You can connect the following to {{ backup-name }}:
+* VMs created from [supported {{ marketplace-full-name }} images](#os). The {{ backup-name }} agent is installed automatically on such VMs.
+* VMs created from other images, if those images are supported by the Cyberprotect backup [provider](./index.md#providers). You will need to [install the {{ backup-name }} agent on such VMs manually](#self-install).
+* {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can only install the {{ backup-name }} agent on {{ baremetal-name }} servers [manually](#self-install).
 
-For the connection to work properly, assign a [service account](#sa) with the `backup.editor` role to your VM and configure [network access](#vm-network-access) for the VM.
+For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
 
-After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM to the [backup policy](policy.md).
+For the connection to work properly on the VM, link a [service account](#sa) with the `backup.editor` role to the VM and configure [network access](#vm-network-access). You do not need to link the service account to {{ baremetal-name }} servers.
+
+After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM or the {{ baremetal-name }} server to the [backup policy](policy.md).
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
 You can also link a policy to a virtual machine while creating it. A policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
-## VM configuration requirements {#requirements}
+## VM and {{ baremetal-name }} server specification requirements {#requirements}
 
 {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
 
-## Supported operating systems {#os}
+## Supported {{ marketplace-name }} images with automatic installation of the {{ backup-name }} agent {#os}
 
-You can automatically install the {{ backup-name }} agent when creating a VM from {{ marketplace-full-name }} images:
+The {{ backup-name }} agent is available for automatic installation on VMs when you create your VMs from the following {{ marketplace-name }} images:
 
 ### Linux-based images {#linux}
 
@@ -56,28 +61,46 @@ The OS must be installed from a public image (a {{ marketplace-full-name }} prod
 
 {% endnote %}
 
-### Unaided installation {#self-install}
+Automatic installation of the {{ backup-name }} agent is not currently supported on {{ baremetal-name }} servers: you can only install it [manually](#self-install).
 
-You can install the {{ backup-name }} agent yourself:
+### Unaided installation on a supported operating system {#self-install}
 
-* [Guide for Linux](../operations/connect-vm-linux.md)
-* [Guide for Windows](../operations/connect-vm-windows.md)
+You can install the {{ backup-name }} agent yourself on a VM or {{ baremetal-name }} server:
 
-For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+{% list tabs group=backup_resource_type %}
+
+- VM instance {#vm}
+
+  * [Guide for Linux](../operations/connect-vm-linux.md)
+  * [Guide for Windows](../operations/connect-vm-windows.md)
+
+  For a complete list of supported operating systems, see the [backup provider documentation](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html).
+
+- {{ baremetal-name }} server {#baremetal-server}
+
+  You can install the {{ backup-name }} agent on a server running one of these operating systems:
+
+  {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
+
+  To install the agent on a server, follow this [guide on connecting a {{ baremetal-name }} server to {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
+
+{% endlist %}
 
 If you have issues while installing the agent, [contact]({{ link-console-support }}) technical support.
 
 ## Service account {#sa}
 
-[Service account](../../iam/concepts/users/service-accounts.md) is a special account on behalf of which VM backups are created and uploaded to a {{ backup-name }} storage.
+[Service account](../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect provider.
 
-When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`backup.editor` role](../security/index.md).
+When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the `backup.editor` [role](../security/index.md#backup-editor).
 
-You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a service account with relevant roles.
+You do not need to link the service account to the {{ baremetal-name }} server. The IAM token of the service account with the `backup.editor` [role](../security/index.md#backup-editor) is provided to the {{ backup-name }} agent when [installing](../operations/backup-baremetal/backup-baremetal.md#agent-install) it on the server.
 
-## VM network access permissions {#vm-network-access}
+You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a new service account with required roles.
 
-For the {{ backup-name }} agent to exchange data with the [backup provider](index.md#providers) servers, make sure the VM is granted network access to the IP addresses of {{ backup-name }} resources based on the following table:
+## Network access permissions {#vm-network-access}
+
+For the {{ backup-name }} agent to be able to exchange data with the [backup provider](index.md#providers) servers, make sure the VM or {{ baremetal-name }} server has network access to the IP addresses of the {{ backup-name }} resources as per the table below:
 
 {% list tabs group=traffic %}
 
@@ -87,6 +110,20 @@ For the {{ backup-name }} agent to exchange data with the [backup provider](inde
 
 {% endlist %}
 
-To provide network access, [assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
+To provide network access:
+{#provide-access}
+{% list tabs group=backup_resource_type %}
 
-The VM's [security group](../../vpc/concepts/security-groups.md) rules must allow access to the specified resources. You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
+- VM instance {#vm}
+
+  [Assign](../../compute/operations/vm-control/vm-attach-public-ip.md) the VM a public IP or use a [route table](../../vpc/concepts/routing.md#rt-vm) that allows internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or a custom router.
+
+  The VM's [security group](../../vpc/concepts/security-groups.md) rules must allow access to the specified resources. You can [add the rules](../../vpc/operations/security-group-add-rule.md) to an existing security group or [create](../../vpc/operations/security-group-create.md) a new group with the rules.
+
+- {{ baremetal-name }} server {#baremetal-server}
+
+  When [ordering a server](../../baremetal/operations/servers/server-lease.md), select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field to assign a public IP address to the server.
+
+  Make sure the sever network settings do not block outgoing traffic to the specified resources.
+
+{% endlist %}

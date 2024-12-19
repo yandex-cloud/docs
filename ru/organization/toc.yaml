@@ -25,6 +25,9 @@ items:
             href: operations/hide-user-info.md
           - name: Удалить организацию
             href: operations/delete-org.md
+          - name: Подключить управляемую организацию
+            href: operations/add-region.md
+            hidden: true
       - name: Управление пользователями
         items:
           - name: Обзор
@@ -129,6 +132,9 @@ items:
         href: concepts/groups.md
       - name: OS Login
         href: concepts/os-login.md
+      - name: Управляемые организации
+        href: concepts/controlled-org.md
+        hidden: true
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Диагностика ошибок

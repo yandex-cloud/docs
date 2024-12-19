@@ -1,4 +1,4 @@
-| Наименование услуги | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
+| Наименование услуги | Professional<br/>(Pro),<br>вкл. НДС | Business<br/>(Bsns),<br>вкл. НДС | Corporate<br/>(Corp),<br>вкл. НДС | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
 | Защищенные IP-адреса (сверх одного IP-адреса, включенного в АП), ежемесячно | 8&nbsp;400,00&nbsp;₽ | 19&nbsp;200,00&nbsp;₽ | 30&nbsp;000,00&nbsp;₽ | Рассчитывается индивидуально |
 | Базовая балансировка очищенного трафика между IP-адресами (Не более двух апстримов по алгоритму Round-robin) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |

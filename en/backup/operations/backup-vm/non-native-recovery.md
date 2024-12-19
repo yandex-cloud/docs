@@ -1,6 +1,14 @@
 # Restoring a VM from a backup of another VM
 
+{% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
 If a folder contains multiple VMs connected to {{ backup-name }}, you can restore a VM from a backup of another VM. This is required, for example, if the source VM is down.
+
+{% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+To learn how to restore a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) from another server's backup, see [Updating {{ baremetal-full-name }} server's connection to {{ backup-name }}](../backup-baremetal/refresh-connection.md).
 
 {% note info %}
 

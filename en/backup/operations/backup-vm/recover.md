@@ -5,7 +5,15 @@ description: Use this guide to restore a VM from a backup.
 
 # Restoring a VM from a backup
 
-{% note info %}
+{% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
+{% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+To learn how to restore a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) from a backup, see [Restoring a server from backup](../backup-baremetal/backup-baremetal.md#server-recovery).
+
+{% note tip %}
 
 If the current VM is down, [create](../#connect-vm) a new one with a connection to {{ backup-name }} and [restore](non-native-recovery.md) a backup to it. To restore from a backup, the new VM must be in `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses).
 

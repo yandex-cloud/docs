@@ -8,29 +8,51 @@ If your company has a user and access management system (e.g., Active Directory 
 
 ## Configuring federations in {{ org-full-name }} {#federation-usage}
 
-With identity federations, you can set up single sign-on (SSO) and use corporate accounts for authentication in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
+Using identity federations, you can configure a single sign-on (SSO) system and use corporate accounts for authentication in {{ org-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
 
 In {{ org-name }}, you can create an identity federation with any credential management service (identity provider) that supports the [SAML]({{ link-saml }}) protocol.
 
-Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the IdP server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
+Information about user logins and passwords is stored by the identity provider. When a user logs in to {{ org-name }}, they are directed to the identity provider (IdP) server for authentication. If authentication is successful, the user gets access to {{ yandex-cloud }} services.
 
 Since authentication takes place on the IdP server side, you can configure a more secure user data verification, such as two-factor authentication or USB tokens.
 
 You can set up identity federations for different identity providers:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md)
-* [Google Workspace](../tutorials/federations/integration-gworkspace.md)
-* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md)
-* [Keycloak](../tutorials/federations/integration-keycloak.md)
-* [Other SAML-compatible identity providers](../operations/setup-federation.md)
+* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [Google Workspace](../tutorials/federations/integration-gworkspace.md).
+* [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
+* [Keycloak](../tutorials/federations/integration-keycloak.md).
+* [Other SAML-compatible identity providers](../operations/setup-federation.md).
+
+### Signing authentication requests {#encrypted-assertions}
+
+You can enable signing authentication requests with a digital signature for additional security. You need to additionally set up a relying party trust between your {{ org-name }} identity federation and your identity provider (IdP).
+
+#### Setting up a relying party trust between an identity federation and an IdP {#build-trust}
+
+You set up a relying party trust between an {{ org-name }} identity federation and an identity provider in two steps:
+
+* Setting up a relying party trust on the identity federation side.
+
+    When informing {{ org-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. For {{ org-name }} to verify the signature, download and [add](../operations/setup-federation.md#add-certificate-fed) the certificate to your identity federation.
+
+    {% include [federation-certificates-note](../../_includes/organization/federation-certificates-note.md) %}
+
+* Setting up a relying party trust on the IdP server side.
+
+    When the {{ org-name }} identity federation sends a request to the identity provider, it signs such requests with a {{ yandex-cloud }} SAML certificate. For the identity provider to be able to verify the signature, download and add a {{ yandex-cloud }} SAML certificate to your IdP server.
+
+    A {{ yandex-cloud }} SAML certificate is valid for 5 years. You can view the certificate expiration date when creating an identity federation or updating its settings.
+    
+    {{ yandex-cloud }} generates a new SAML certificate automatically before the previous certificate's expiration date. Make sure to [start](../operations/renew-yc-certificate.md) using the new SAML certificate before the previous one expires.
 
 ### User group mapping {#group-mapping}
 
 {% include notitle [preview](../../_includes/note-preview-by-request.md) %}
 
-For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it is more convenient to grant roles and permissions to a group rather than individually.
+In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In this case, it is more convenient to grant roles and permissions to a group rather than individually.
 
-If you employ user groups in your identity provider or intend to do so, [configure user group mapping](../operations/federation-group-mapping.md) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access rights to {{ yandex-cloud }} resources as the corresponding groups in {{ org-name }}.
+If you have configured user groups in your identity provider or plan to do so, [set up user group mapping](../operations/federation-group-mapping.md) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
 
 ## Authenticating in a federation {#saml-authentication}
 

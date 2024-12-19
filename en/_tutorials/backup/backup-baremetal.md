@@ -1,17 +1,18 @@
 # Connecting a {{ baremetal-full-name }} server to {{ backup-full-name }}
 
-In {{ backup-name }}, you can configure [{{ baremetal-name }}](../../baremetal/concepts/servers.md) server backup.
+{% note info %}
 
-_{{ baremetal-name }} and the server backup feature will be released at the [Preview stage](../../overview/concepts/launch-stages.md) in Q4 2024._
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
+
+{% endnote %}
+
+In {{ backup-name }}, you can configure [{{ baremetal-name }}](../../baremetal/concepts/servers.md) server backup.
 
 For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
 The following server operating systems are supported: {#os-support}
-* Debian 11
-* Ubuntu 16.04 LTS
-* Ubuntu 18.04 LTS
-* Ubuntu 20.04 LTS
-* Ubuntu 22.04 LTS
+
+{% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
 To connect a server to {{ backup-name }}:
 1. [Prepare your cloud](#before-you-begin).
@@ -266,7 +267,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
 ## Run the backup process {#execute-policy}
 
-To take a server backup at a time other than the scheduled time defined in a backup policy, run this command:
+To start creating a backup outside of the backup policy schedule, run this command:
 
 ```bash
 yc backup policy execute \
@@ -280,9 +281,13 @@ Also, you can run the command in asynchronous mode using the `--async` parameter
 
 ## Restore your server from backup {#server-recovery}
 
+{% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
 If you need to restore one server's backup to another, or if the OS had been reinstalled on the source server, [reinstall](#agent-install) the backup agent on that server.
 
-{% note info %}
+{% include [avoid-errors-when-restoring-from-backup.md](../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+{% note tip %}
 
 If the server had used a RAID array, we recommend that you restore the backup to a server with a similar partition configuration. We also recommend that you make the partitions at least as big as on the source server.
 

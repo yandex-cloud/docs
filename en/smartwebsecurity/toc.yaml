@@ -96,6 +96,8 @@ items:
     href: pricing.md
   - name: CLI reference
     href: ../cli/cli-ref/smartwebsecurity/cli-ref/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API

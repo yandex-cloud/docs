@@ -7,14 +7,20 @@ description: In this tutorial, you will learn about backups in {{ backup-name }}
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
+{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+
 ## Backup types {#types}
 
-* _Full backups_ contain all data required for VM recovery. VMs recover faster from full backups than from incremental backups. However, full backups take up more storage space and it takes longer to create them.
-* _Incremental backups_ only contain data that differs from a previous VM backup. It takes longer to restore VMs as compared to recovery from full backups due to using a chain of incremental backups. Incremental backups are faster and take up less space than full backups. It is not cost-effective to use incremental backups if two consecutive backups are significantly different.
+
+
+* _Full backup_ contains all the data required to recover a VM or {{ baremetal-full-name }} server. VMs and {{ baremetal-name }} servers recover faster from full backups than from incremental backups. However, full backups take up more storage space and take longer to create.
+* _Incremental backup_ contains only data that is different from the previous VM or {{ baremetal-name }} server backup. VMs and servers take longer to recover from incremental backups than from full backups because of the use of chains of incremental backups. Incremental backups are made faster and take up less space than full backups. It is not advisable to use an incremental backup if there are many differences between two consecutive backups.
+
+You cannot restore a VM backup to a {{ baremetal-name }} server, nor restore a {{ baremetal-name }} server backup to a VM.
 
 {% note tip %}
 
-To take advantage of both types, combine them. For example, set two [backup policies](policy.md) for a single VM: schedule weekly full backups in one policy and daily incremental backups in the other.
+To take advantage of both types, combine them. For example, create two [backup policies](policy.md) for the same VM or {{ baremetal-name }} server: schedule weekly full backups in one policy and daily incremental backups in the other.
 
 {% endnote %}
 
@@ -22,10 +28,12 @@ To take advantage of both types, combine them. For example, set two [backup poli
 
 Backups created in {{ backup-name }} are stored in {{ objstorage-full-name }} internal buckets.
 
-Data in {{ objstorage-name }} is stored securely in compliance with the international and national standards. Learn more in the [{#T}](../../security/conform.md) section of the document about security in {{ yandex-cloud }}.
+Data in {{ objstorage-name }} is stored securely in compliance with the international and national standards. Learn more about security in {{ yandex-cloud }} in the [{#T}](../../security/conform.md) section of the document.
 
-You cannot get access to backup files and buckets that store them. VMs can only be recovered from backups using {{ backup-name }} tools.
+You cannot get access to backup files and buckets that store them. {{ backup-name }} is your only option to restore a VM or {{ baremetal-name }} server from a backup.
 
 ## File-by-file recovery {#file-by-file}
 
 With {{ backup-name }}, you can restore individual files and directories from a backup to any VM [connected](vm-connection.md) to the service. For more information, see [{#T}](../operations/backup-vm/recover-file-by-file.md).
+
+File-by-file recovery to {{ baremetal-name }} servers is currently not available.

@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ backup-full-name }} (S3)
-description: Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service.
+title: Access management in {{ backup-full-name }}
+description: Access management in {{ backup-full-name }} – {{ yandex-cloud }}'s data backup solution. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ backup-name }}
@@ -12,7 +12,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `backup.admin` or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `backup.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -27,6 +27,8 @@ Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a 
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
+
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 #### backup.editor {#backup-editor}
 

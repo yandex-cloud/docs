@@ -1,0 +1,1 @@
+To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of the [VM](../../compute/concepts/vm.md) or {{ baremetal-full-name }} [server](../../baremetal/concepts/servers.md). For more information, see [{#T}](../../backup/operations/backup-vm/view-disk-layout.md).

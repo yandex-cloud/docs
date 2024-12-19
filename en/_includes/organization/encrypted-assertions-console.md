@@ -1,1 +1,1 @@
-To make sure all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option.
+To make sure all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.

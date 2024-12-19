@@ -1,9 +1,17 @@
 ---
-title: Deleting a backup
-description: In this tutorial, you will learn how to delete a VM backup in **{{ backup-name }}**.
+title: Delete backup
+description: In this tutorial, you will learn how to delete a VM or {{ baremetal-full-name }} server backup in **{{ backup-full-name }}**.
 ---
 
-# Deleting a backup
+# Delete backup
+
+{% note info %}
+
+To delete backups, make sure the folder contains at least one VM or {{ baremetal-name }} server connected to {{ backup-name }}. If there are no such VMs or servers, temporarily [create](../create-vm.md) a new VM with a connection to {{ backup-name }} and delete the backups.
+
+{% endnote %}
+
+{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
 
 {% list tabs group=instructions %}
 
@@ -31,22 +39,24 @@ description: In this tutorial, you will learn how to delete a VM backup in **{{ 
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Get the ID of the VM instance whose backup you want to delete:
+  1. Get the ID of the VM whose backup you need to delete:
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+
+      To get the {{ baremetal-name }} server ID, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The ID is specified in the **{{ ui-key.yacloud.common.id }}** field in the line with the relevant server.
 
   1. Delete the backup:
 
       ```bash
       yc backup backups delete \
         --backup-id <backup_ID> \
-        --instance-id <VM_ID>
+        --instance-id <VM_or_{{ baremetal-name }}_server_ID>
       ```
 
       Where:
 
       * `--backup-id`: ID of the backup to delete.
-      * `--instance-id`: ID of the VM instance whose backup you want to delete.
+      * `--instance-id`: ID of the VM or {{ baremetal-name }} server whose backup you need to delete.
 
   For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
 
@@ -55,10 +65,4 @@ description: In this tutorial, you will learn how to delete a VM backup in **{{ 
   To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md) gRPC API call.
 
 {% endlist %}
-
-{% note info %}
-
-To delete backups, make sure the folder contains at least one VM connected to {{ backup-name }}. If there are no such VMs, [create](../create-vm.md) a new one with a connection to {{ backup-name }} and delete the backups.
-
-{% endnote %}
 

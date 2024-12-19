@@ -120,8 +120,7 @@ You cannot duplicate (copy) a folder and a connection with any permissions.
 
 ## Object access audit {#audit-access}
 
-A {{ datalens-short-name }} user can get access logs for {{ datalens-short-name }} objects (view, edit, delete).
-To get the logs, [contact support]({{ link-console-support }}).
+The Business [service plan users](../../datalens/pricing.md#service-plans) can get access logs to {{ datalens-short-name }} objects (view, edit, delete). To get the logs, [contact support]({{ link-console-support }}).
 
 
 

@@ -25,14 +25,14 @@ Before creating a connector in CHYT, prepare your table on {{ ytsaurus-name }}:
 
 - The table must be static. [Learn more about static tables in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-tables).
 
-- The table must be schematized. {{ datalens-short-name }} executes a query to a table and receives its schema to form a dataset. [Learn more about schemas in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-schema).
+- The table must be schematized. {{ datalens-short-name }} runs a query to the table and gets its schema to form a dataset. [Learn more about schemas in {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/static-schema).
 
 {% note tip %}
 
 We recommend:
 
-* Sorting tables by the basic fields the filtering is done by. For instance, you can sort tables by fields that contain dates.
-* Enabling [columnar chunk storage format](https://ytsaurus.tech/docs/ru/user-guide/storage/chunks#columns) using the `optimize_for = scan` attribute. This will enable {{ datalens-short-name }} to handle a table faster.
+* Sorting tables by the basic fields the filtering is done by. For example, by fields containing dates.
+* Enabling the [columnar chunk storage format](https://ytsaurus.tech/docs/ru/user-guide/storage/chunks#columns) using the `optimize_for = scan` attribute. This will enable {{ datalens-short-name }} to process the table faster.
 
 {% endnote %}
 
@@ -58,23 +58,23 @@ After creating a connection, you can create a dataset over it.
 
 1. Select the source indication method:
 
-   - **Table**: One table on {{ ytsaurus-name }}. URL from the browser or a full path to a table.
+    - **Table**: One table on {{ ytsaurus-name }}. URL from the browser or a full path to a table.
 
-   - **List**: Multiple tables on {{ ytsaurus-name }}. URL from the browser or a full path to a table. Use a new row for each table.
+    - **List**: Multiple tables on {{ ytsaurus-name }}. URL from the browser or a full path to a table. Use a new row for each table.
 
-   - **Range**: A range of tables on {{ ytsaurus-name }}. You can set your own table range using the **Start with** and **Finish at** fields. {{ datalens-short-name }} will add all the tables specified in the range to the dataset in alphabetical order. If the limit values are left blank, {{ datalens-short-name }} will use all the tables in the specified folder. You can also set only one limit value.
+    - **Range**: A range of tables on {{ ytsaurus-name }}. You can set your own table range using the **Start with** and **Finish at** fields. {{ datalens-short-name }} will add all the tables specified in the range to the dataset in alphabetical order. If the limit values are left blank, {{ datalens-short-name }} will use all the tables in the specified folder. You can also set only one limit value.
 
       {% note info %}
 
-      For example, there are twenty tables in a folder and they are named `table_1`, `table_2`, `table_3`, ... . If you specify the limit values as `1` and `5` , {{ datalens-short-name }} will use only five tables from the folder.
+      Let's assume a folder contains twenty tables named `table_1`, `table_2`, `table_3`, ... . If you set the limits as `1` and `5`, {{ datalens-short-name }} will use only five tables from the folder.
 
       {% endnote %}
 
-   - **SQL**: Selecting data for a dataset via an SQL query. We recommend copying a query from Query in {{ CH }} syntax and then pasting it into the field.
+    - **SQL**: Selecting data for a dataset via an SQL query. We recommend copying a query from Query in {{ CH }} syntax and then pasting it into the field. 
 
       {% note warning %}
 
-      First process a query from Query: delete all `;` symbols. An entire Query query from {{ datalens-short-name }} is executed as a subquery.
+      First, process the query you got from Query: delete all semicolon characters (`;`). An entire Query query from {{ datalens-short-name }} is executed as a subquery.
 
       {% endnote %}
 
@@ -129,6 +129,6 @@ The {{ ytsaurus-name }} table that I use has no schema. You cannot use such tabl
 
 {% cut "Requested database column does not exist error in the interface" %}
 
-See [more info](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
+[See here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) for more information.
 
 {% endcut %}
