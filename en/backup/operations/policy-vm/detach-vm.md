@@ -1,5 +1,9 @@
 # Unlinking a VM from a backup policy
 
+For information about unlinking a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) from a backup policy, see [Updating the list of VMs and {{ baremetal-name }} servers](./update.md#update-vm-list).
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

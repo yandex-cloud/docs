@@ -27,13 +27,22 @@ _Дообучение моделей по методу {{ lora }} находит
   1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
   1. Установите [gRPCurl](https://github.com/fullstorydev/grpcurl).
   1. {% include [curl](../../../_includes/curl.md) %}
+  1. (Опционально) Установите [утилиту jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов.
   1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аутентификации в API.
+  
+     {% note info %}
 
+     У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}.
+
+     {% endnote %}
+   
 {% endlist %}
 
 ## Загрузите датасет {#create-dataset}
 
-Подготовьте [данные для дообучения](../../concepts/tuning/index.md#generation-data) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Вы можете разбить свои данные на два датасета для обучения и валидации, но это не обязательно. 
+Подготовьте [данные для дообучения](../../concepts/tuning/index.md#generation-data) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Если вы хотите разить данные на два датасета для обучения и валидации, повторите следующие шаги для каждого датасета. Используйте полученные в результате загрузки идентификаторы при запуске дообучения.
+
+В этом примере дообучение запускается с использованием только обучающего датасета. 
 
 Создайте датасет для дообучения:
 
@@ -66,21 +75,27 @@ _Дообучение моделей по методу {{ lora }} находит
          "task_type": "TextToTextGeneration", 
          "upload_format": "jsonlines"
        }
-       EOM
+     EOM
      ```
 
   1. Получите ссылку, по которой вы сможете загрузить данные в датасет. В поле `size_bytes` укажите размер файла с данными для дообучения в байтах. Размер датасета в примере 10 КБ: 
   
      ```bash
      grpcurl \
-     -H "Authorization: Bearer $<IAM-токен>" \
-     -d '{"dataset_id": "<идентификатор_датасета>", "size_bytes": 10240}' \
-     llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/GetUploadDraftUrl
-     ```
+       -H "Authorization: Bearer $<IAM-токен>" \
+       -d '{"dataset_id": "<идентификатор_датасета>", "size_bytes": 10240}' \
+       llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/GetUploadDraftUrl | jq
+       ```
 
      В ответ вернется ссылка на созданный шаблон датасета.
 
-  1. [Декодируйте](https://www.url-encode-decode.com/) encode-символы в ссылке, полученной на предыдущем шаге, и загрузите данные:
+     {% note tip %}
+      
+     Если вы не использовали утилиту jq, в полученной ссылке замените все последовательности символов `\u0026` на `&`, чтобы использовать ее для загрузки датасета.
+
+     {% endnote %}
+
+  1. Загрузите данные:
   
       ```bash 
       curl --request PUT --upload-file <путь_к_файлу> "<ссылка>"
@@ -91,11 +106,20 @@ _Дообучение моделей по методу {{ lora }} находит
       ```bash
       grpcurl \
         -H "Authorization: Bearer $<IAM-токен>" \
-        -d '{"dataset_id": "<идентификатор_датасета>", "size_bytes": 1024}' \
+        -d '{"dataset_id": "<идентификатор_датасета>"}' \
         llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Validate
       ```
 
-      В ответ вернется объект, содержащий информацию о статусе операции валидации и, при наличии, отчет о возникших ошибках.
+      В ответ вернется объект, содержащий идентификатор операции валидации. 
+
+  1. Валидация датасета может занять некоторое время. Чтобы узнать статус операции и, при наличии, получить отчет о возникших ошибках, отправьте запрос, содержащий идентификатор из предыдущего шага:
+  
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer $<IAM-токен>" \
+       -d '{"operation_id": "ftnq****************"}' \
+       llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
+     ```
 
 {% endlist %}
 
@@ -123,7 +147,7 @@ _Дообучение моделей по методу {{ lora }} находит
      grpcurl \
        -H "Authorization: Bearer $<IAM-токен>" \
        -d @ \
-       "llm.api.cloud.yandex.net:443 yandex.cloud.ai.tuning.v1.TuningService/Tune" <<EOM
+       llm.api.cloud.yandex.net:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
        {
          "base_model_uri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest",
          "train_datasets": [{"dataset_id": "<идентификатор_датасета>", "weight": 1.0}],

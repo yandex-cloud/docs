@@ -13,6 +13,9 @@ items:
         items:
           - name: Создание облака
             href: operations/cloud/create.md
+          - name: Создание облака в другом регионе
+            href: operations/cloud/create-in-another-region.md
+            hidden: true
           - name: Переименование облака
             href: operations/cloud/update.md
           - name: Удаление облака

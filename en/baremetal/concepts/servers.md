@@ -12,7 +12,7 @@ You can manage a server using the KVM console, which is available from the [mana
 
 ## Server pools {#server-pools}
 
-Pools are infrastructurally separate data center modules physically hosting the servers. Pools are distributed across [availability zones](../../overview/concepts/geo-scope.md) located in [regions](../../overview/concepts/region.md). Currently, {{ baremetal-full-name }} is only available in the Russia region.
+Pools are infrastructurally separate data center modules servers physically reside in. Pools are distributed across [availability zones](../../overview/concepts/geo-scope.md) located in [regions](../../overview/concepts/region.md). Currently, {{ baremetal-full-name }} is only available in the Russia region.
 
 | Region        | Availability zone | Pools                               |
 |---------------|------------------|------------------------------------|

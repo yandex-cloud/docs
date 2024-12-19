@@ -5,7 +5,7 @@ description: You can grant users or user groups permissions to each workbook and
 
 # Setting up access in workbooks and collections {{ datalens-short-name }}
 
-You can grant users or [user groups](../../iam/operations/groups/create.md) permissions to each workbook and collection. [Permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
+You can assign access permissions to users and [user groups](../../iam/operations/groups/create.md) for each workbook and collection. [Access permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
 
 * Workbook permissions apply to all objects within the workbook.
 * Collection permissions apply to all collections and their workbooks, as well as objects within workbooks.
@@ -19,12 +19,15 @@ You can grant permissions to individual users or groups of [authenticated](../..
 
 {% endnote %}
 
-## Granting permissions {#wb-coll-grant}
+## Granting access permissions {#wb-coll-grant}
 
 To grant access permissions to a workbook or collection:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
+
+   {% include [datalens-workbooks-enable](../../_includes/datalens/datalens-workbooks-enable.md) %}
+
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the collection or workbook and select **Access**.
 
    Under **Inherited permissions**, you can see the users who inherited object permissions, because they were granted permissions to one of its parent objects. For each user, the inherited permission and the object that it is inherited from are displayed.

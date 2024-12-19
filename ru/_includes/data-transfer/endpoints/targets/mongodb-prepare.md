@@ -23,7 +23,7 @@
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     
-    1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
+    1. Убедитесь, что версия {{ MG }} на приемнике не ниже, чем на источнике.
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     

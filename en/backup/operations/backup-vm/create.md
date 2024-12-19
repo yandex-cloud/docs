@@ -1,19 +1,29 @@
 ---
-title: How to create a VM backup in {{ backup-full-name }}
-description: Follow this guide to create a backup of your VM.
+title: How to create a VM or {{ baremetal-full-name }} server backup in {{ backup-full-name }}
+description: Follow this guide to create a VM or {{ baremetal-name }} server backup.
 ---
 
-# Creating a VM backup
+# Creating a VM or {{ baremetal-full-name }} server backup
 
-To create a backup of your VM, [connect](../../concepts/vm-connection.md) it to {{ backup-name }}, and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
+To create a backup of a VM or {{ baremetal-name }} server, [connect](../../concepts/vm-connection.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
 
-VM backups in {{ backup-name }} are automatically created on the schedule specified in the respective policy.
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
-To create a non-scheduled VM backup:
+To learn how to create a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) backup, see [Starting creating a backup](../backup-baremetal/backup-baremetal.md#execute-policy).
+
+{{ backup-name }} automatically creates backups based on the schedule detailed in the policy.
+
+To create an out-of-schedule backup:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
+
+  {% note info %}
+
+  Currently, the management console supports creating backups only for {{ compute-full-name }} VMs. To create an out-of-schedule {{ baremetal-name }} server backup, use the {{ yandex-cloud }} CLI.
+
+  {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select a folder to create a backup in.
   1. In the list of services, select **{{ compute-name }}**.
@@ -36,26 +46,28 @@ To create a non-scheduled VM backup:
       yc backup policy execute --help
       ```
 
-  1. Get the ID of the backup policy to use for creating the backup:
+  1. Get the ID of the backup policy the backup will be based on:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Get the ID of the VM you want to back up:
+  1. Get the ID of the VM you need to back up:
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+
+      To get the {{ baremetal-name }} server ID, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The ID is specified in the **{{ ui-key.yacloud.common.id }}** field in the line with the relevant server.
 
   1. Create a backup:
 
       ```bash
       yc backup policy execute \
         --id <policy_ID> \
-        --instance-id <VM_ID>
+        --instance-id <VM_or_{{ baremetal-name }}_server_ID>
       ```
 
       Where:
 
-      * `--id`: ID of the backup policy to use for creating the backup.
-      * `--instance-id`: ID of the VM you want to back up.
+      * `--id`: ID of the backup policy the backup will be based on.
+      * `--instance-id`: ID of the VM or {{ baremetal-name }} server you need to back up.
 
       Result:
 

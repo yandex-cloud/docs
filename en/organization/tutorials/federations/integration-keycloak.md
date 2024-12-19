@@ -168,7 +168,11 @@ To follow the steps in this section, you will need:​
 
           {% include [fed-users-note](../../../_includes/organization/fed-users-note.md) %}
 
-      1. To make sure all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate. You can download the certificate in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field immediately after saving a federation.
+      1. To make sure all authentication requests from {{ yandex-cloud }} contain a digital signature, enable the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
+      
+          {% include [download-saml-cert-when-creating-fed](../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+      
+          You can also download a certificate after creating a federation. To do this, click ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field on the {{ org-full-name }} federation info page.
 
       1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
@@ -225,7 +229,7 @@ To follow the steps in this section, you will need:​
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--encrypted-assertions`: Flag enabling a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -338,7 +342,7 @@ To follow the steps in this section, you will need:​
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -473,7 +477,7 @@ To follow the steps in this section, you will need:​
       * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-        If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+        If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
         If this option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
@@ -731,7 +735,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**. (You may need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
       {#signature}
-      1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+      1. Click **Browse** and select the previously downloaded {{ yandex-cloud }} SAML certificate you are going to use to sign authentication requests. If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Confirm**.
 
@@ -743,7 +747,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**.
       {#signature}
-      1. Click **Select file** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+      1. Click **Select file** and select the previously downloaded {{ yandex-cloud }} SAML certificate you are going to use to sign authentication requests. If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Import**.
 

@@ -6,9 +6,7 @@ To configure SSO:
 
 1. [Create a federation in your organization](#create-federation).
 
-1. [Add certificates to a federation](#add-certificate).
-
-1. [Configure authentication on the {{ microsoft-idp.adfs-abbreviated }} side](#configure-sso).
+1. [Specify certificates for the federation](#add-certificate).
 
 1. [Add users to your organization](#add-users).
 
@@ -79,7 +77,9 @@ To create a federation:
 
   1. {% include [encrypted-assertions-console](../../../_includes/organization/encrypted-assertions-console.md) %}
 
-     {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
+      {% include [download-saml-cert-when-creating-fed](../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+      {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
 
   1. {% include [forceauthn-option-enable](../../../_includes/organization/forceauthn-option-enable.md) %}
 
@@ -119,7 +119,7 @@ To create a federation:
 
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
         * `--issuer`: ID of the identity provider that will be used for authentication.
@@ -170,7 +170,7 @@ To create a federation:
 
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
         * `case_insensitive_name_ids`: Toggles username case sensitivity.
            If this option is enabled, the IDs of federated user names will be case-insensitive.
         * `security_settings`: Federation security settings:
@@ -246,7 +246,7 @@ To create a federation:
 
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-         If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
       * `issuer`: ID of the identity provider that will be used for authentication.

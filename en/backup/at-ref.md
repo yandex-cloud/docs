@@ -14,3 +14,5 @@ The general format of the `event_type` field value is as follows:
 ```
 
 {% include [backup-events](../_includes/audit-trails/events/backup-events.md) %}
+
+{% include [baremetal-note](../_includes/backup/baremetal-note.md) %}

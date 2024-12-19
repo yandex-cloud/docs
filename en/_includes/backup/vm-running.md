@@ -1,5 +1,5 @@
 {% note info %}
 
-When creating a backup, make sure the VM is running.
+When initiating a backup, make sure the VM or {{ baremetal-name }} server is running.
 
 {% endnote %}

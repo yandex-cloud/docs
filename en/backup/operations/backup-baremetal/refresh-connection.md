@@ -5,6 +5,12 @@ description: Follow this guide to update a {{ baremetal-name }} server connectio
 
 # Updating a {{ baremetal-full-name }} server connection to {{ backup-name }}
 
+{% note info %}
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
+{% endnote %}
+
 If you deploy a backup of one server to another, the original server's connection to {{ backup-name }} becomes outdated. To continue backing up the original server and avoid conflicts with the new one, upgrade the source server connection to {{ backup-name }}:
 
 1. Get an [IAM token](../../../iam/operations/index.md#iam-tokens).

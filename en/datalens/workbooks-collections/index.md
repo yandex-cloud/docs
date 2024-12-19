@@ -18,12 +18,6 @@ Workbooks and collections are a new way to store objects in {{ datalens-short-na
 
 * A **collection** is a container used for grouping workbooks and other collections.
 
-{% note warning %}
-
-To enable workbooks, a user must have the `{{ roles-datalens-admin }}` role. They can do this only if a {{ datalens-short-name }} instance is deployed at the [organization](../concepts/organizations.md) level.
-
-{% endnote %}
-
 ## Features of the new approach {#features}
 
 Workbooks make it much easier to work with objects:
@@ -49,9 +43,10 @@ Object storage in workbooks and in folders of the old object model does not over
 
 ## How to enable workbooks and collections {#enable-workbooks}
 
-{% note info %}
+{% note warning %}
 
-Only workbooks and collections are available in new {{ datalens-short-name }} instances.
+* To enable workbooks, a user must have the `{{ roles-datalens-admin }}` role. They can do this only if a {{ datalens-short-name }} instance is deployed at the [organization](../concepts/organizations.md) level.
+* Only workbooks and collections are available in new {{ datalens-short-name }} instances.
 
 {% endnote %}
 

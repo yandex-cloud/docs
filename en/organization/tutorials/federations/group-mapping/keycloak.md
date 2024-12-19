@@ -107,13 +107,17 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
           {% include [fed-users-note](../../../../_includes/organization/fed-users-note.md) %}
 
-      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
+      1. (Optional) To make sure that all authentication requests from {{ yandex-cloud }} contain a digital signature, enable **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**. You will need to install a {{ yandex-cloud }} SAML certificate on the IdP side.
+
+          {% include [download-saml-cert-when-creating-fed](../../../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
+          {% include [setup-cert-for-idp](../../../../_includes/organization/setup-cert-for-idp.md) %}
+
+          You will need this certificate later when setting up the client in {{ keycloak }}.
 
       1. {% include [forceauthn-option-enable](../../../../_includes/organization/forceauthn-option-enable.md) %}
 
       1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
-
-  1. (Optional) Download the certificate from the link in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field if you previously enabled the corresponding option. You will need this certificate later when setting up the client in {{ keycloak }}.
 
 {% endlist %}
 
@@ -210,16 +214,19 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     1. Click **Save**.
 
-1. (Optional) If you enabled the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
+1. (Optional) If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating the federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
     1. On the **Keys** tab of the SAML application, check that the **Client Signature Required** option is enabled.
     1. Click the **Import key** button under the automatically generated certificate and select **Certificate PEM** in the **Archive Format** field.
-    1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+    1. Click **Browse** and select the previously downloaded {{ yandex-cloud }} SAML certificate you are going to use to sign authentication requests.
+
+        If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+
     1. Click **Import**.
     1. Enable the **Encrypt Assertions** option.
     1. In the window that opens, select the **Generate** method and click **Confirm**.
     1. Click **Import key** under the generated certificate and select **Certificate PEM** in the **Archive Format** field.
-    1. Click **Browse** and select the certificate to use for signing authentication requests. The certificate is available on the {{ org-full-name }} federation information page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+    1. Click **Browse** and select the certificate you are going to use to sign authentication requests. The certificate is available for download on the {{ org-full-name }} federation info page in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
     1. Click **Import**.
 
 ## Configure group mapping on the {{ keycloak }} side {#kc-mapping}

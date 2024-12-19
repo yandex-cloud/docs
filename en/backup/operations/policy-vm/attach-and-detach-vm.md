@@ -5,7 +5,11 @@ description: In this article, you will learn how to link a {{ compute-name }} VM
 
 # Linking a VM to a backup policy
 
-You can only link a VM to a policy if it is connected to {{ backup-full-name }}. For more information, see [Managing VMs in {{ backup-name }}](../index.md#connect-vm).
+You can only link a VM to a backup policy if it is connected to {{ backup-full-name }}. For more information, see [Managing VMs in {{ backup-name }}](../index.md#connect-vm).
+
+For information about linking a [{{ baremetal-name }}](../../../baremetal/concepts/servers.md) server to a backup policy, see [Updating the list of VMs and {{ baremetal-name }} servers](./update.md#update-vm-list).
+
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
 {% list tabs group=instructions %}
 

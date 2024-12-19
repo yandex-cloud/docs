@@ -2,8 +2,8 @@ title: Yandex Managed Service for Valkey™
 description:
   - >-
     Yandex Managed Service for Valkey™ allows you to deploy and maintain <a
-    href="https://valkey.io/">Valkey™</a> 6.2 and 7.0 server clusters in the
-    Yandex Cloud infrastructure. Valkey™ is a Redis-compatible high-performance
+    href="https://valkey.io/">Valkey™</a> 7.2 server clusters in the Yandex
+    Cloud infrastructure. Valkey™ is a Redis-compatible high-performance
     open-source NoSQL DBMS that works with key-value data.
   - |-
     Yandex Managed Service for Valkey™ is often used to: <ul>
