@@ -55,6 +55,14 @@
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Отключитесь от ВМ. Для этого введите команду `logout`.
 
+  1. Включите для ВМ авторизацию по SSH при подключении к серийной консоли, указав имя ВМ:
+
+      ```bash
+      yc compute instance update \
+      --name <имя_ВМ> \
+      --serial-port-settings ssh-authorization=instance_metadata
+      ```
+
   1. Подключитесь к ВМ.
 
       Пример команды подключения:
