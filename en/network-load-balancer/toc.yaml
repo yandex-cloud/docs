@@ -89,6 +89,22 @@ items:
           Deploying an Always On availability group with an internal network
           load balancer
         href: tutorials/mssql-alwayson-lb.md
+      - name: >-
+          Migrating services from a NLB to an L7 ALB to for DDoS protection
+          using {{ sws-name }}
+        items:
+          - name: Overview
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: NLB with target resources from VMs
+            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: NLB with target resources from an instance group
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: NLB with target resources from a {{ managed-k8s-name }} cluster
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: NLB as a target resource for an ALB
+            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
   - name: Concepts
     items:
       - name: Overview
@@ -114,7 +130,59 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/load-balancer/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: network-load-balancer
+        items:
+          - name: Overview
+            href: cli-ref/network-load-balancer/index.md
+          - name: add-listener
+            href: cli-ref/network-load-balancer/add-listener.md
+          - name: attach-target-group
+            href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: create
+            href: cli-ref/network-load-balancer/create.md
+          - name: delete
+            href: cli-ref/network-load-balancer/delete.md
+          - name: detach-target-group
+            href: cli-ref/network-load-balancer/detach-target-group.md
+          - name: get
+            href: cli-ref/network-load-balancer/get.md
+          - name: list
+            href: cli-ref/network-load-balancer/list.md
+          - name: list-operations
+            href: cli-ref/network-load-balancer/list-operations.md
+          - name: remove-listener
+            href: cli-ref/network-load-balancer/remove-listener.md
+          - name: start
+            href: cli-ref/network-load-balancer/start.md
+          - name: stop
+            href: cli-ref/network-load-balancer/stop.md
+          - name: target-states
+            href: cli-ref/network-load-balancer/target-states.md
+          - name: update
+            href: cli-ref/network-load-balancer/update.md
+      - name: target-group
+        items:
+          - name: Overview
+            href: cli-ref/target-group/index.md
+          - name: add-targets
+            href: cli-ref/target-group/add-targets.md
+          - name: create
+            href: cli-ref/target-group/create.md
+          - name: delete
+            href: cli-ref/target-group/delete.md
+          - name: get
+            href: cli-ref/target-group/get.md
+          - name: list
+            href: cli-ref/target-group/list.md
+          - name: list-operations
+            href: cli-ref/target-group/list-operations.md
+          - name: remove-targets
+            href: cli-ref/target-group/remove-targets.md
+          - name: update
+            href: cli-ref/target-group/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

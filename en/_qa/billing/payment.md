@@ -1,5 +1,12 @@
 # Questions about payment
 
+#### Where can I see the prices? {#pricing}
+
+You can see {{ yandex-cloud }} prices on the [pricing policy](../../billing/pricing.md) pages of individual services.
+
+
+To calculate the cost of your cloud resource configuration, use [our calculator]({{ link-cloud-calculator }}).
+
 #### Who can pay for resources? {#how-to-buy}
 
 You pay for resources by crediting money to your individual [personal account](../../billing/concepts/personal-account.md) as per the [agreement](../../billing/concepts/contract.md). Money can be credited to a personal account by individual entrepreneurs, businesses, and individuals.
@@ -75,7 +82,7 @@ For more information, see [Pricing](../../billing/pricing.md).
 #### If I pay an invoice by bank transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 
 
-You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you contracted with, you can find detailed information in the _Legal documents_ section for the [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
+You can pay within 14 calendar days (not counting public holidays) after the reporting period ends. Depending on which company you contracted with, you can find detailed information in the _Legal Documents_ section for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
  If you pay within this time period, your resources will not be blocked. Remember that it takes up to three business days for your payment to get through, so do not postpone it.
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}

@@ -13,6 +13,21 @@ items:
             href: security/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Migrating services from a NLB to an L7 ALB to for DDoS protection
+          using {{ sws-name }}
+        items:
+          - name: Overview
+            href: security/migration-from-nlb-to-alb/index.md
+          - name: NLB with target resources from VMs
+            href: security/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: NLB with target resources from an instance group
+            href: >-
+              security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: NLB with target resources from a {{ managed-k8s-name }} cluster
+            href: security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: NLB as a target resource for an ALB
+            href: security/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
       - name: Terminating TLS connections
         items:
           - name: Overview
@@ -49,6 +64,8 @@ items:
         items:
           - name: GitHub
             href: security/wlif-github-integration.md
+          - name: '{{ GL }}'
+            href: security/wlif-gitlab-integration.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -103,7 +120,7 @@ items:
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: infrastructure-management/gitlab-containers.md
-      - name: Testing applications with {{ GL }}
+      - name: App testing with {{ GL }}
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
@@ -748,8 +765,8 @@ items:
           dedicated DMZ based on the Check Point NGFW
         href: routing/high-accessible-dmz.md
       - name: >-
-          Cloud infrastructure segmentation with the Check Point Next-Generation
-          Firewall
+          Cloud infrastructure segmentation with the Check Point next-generation
+          firewall
         href: routing/network-segmentation-checkpoint.md
       - name: >-
           Implementing a secure high-availability network infrastructure with a

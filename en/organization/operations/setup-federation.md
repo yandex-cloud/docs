@@ -54,7 +54,7 @@ For IdP-specific examples, see our tutorials:
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} SAML certificate on the IdP side.
+        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} SAML certificate for your IdP.
 
             {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
 
@@ -81,36 +81,36 @@ For IdP-specific examples, see our tutorials:
 
         ```bash
         yc organization-manager federation saml create \
-            --name <federation_name> \
-            --organization-id <organization_ID> \
-            --cookie-max-age <cookie_lifetime> \
-            --issuer "<IdP_server_ID>" \
-            --sso-binding <POST_or_REDIRECT> \
-            --sso-url "<redirect_page_address>" \
-            --encrypted-assertions \
-            --auto-create-account-on-login \
-            --case-insensitive-name-ids \
-            --force-authn
+          --name <federation_name> \
+          --organization-id <organization_ID> \
+          --cookie-max-age <cookie_lifetime> \
+          --issuer "<IdP_server_ID>" \
+          --sso-binding <POST_or_REDIRECT> \
+          --sso-url "<redirect_page_address>" \
+          --encrypted-assertions \
+          --auto-create-account-on-login \
+          --case-insensitive-name-ids \
+          --force-authn
         ```
 
         Where:
 
-        * `name`: Federation name. It must be unique within the folder.
-        * `organization-id`: Organization ID.
-        * `cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate, e.g., `12h`.
-        * `issuer`: IdP server ID to use for authentication.
+        * `--name`: Federation name. It must be unique within the folder.
+        * `--organization-id`: Organization ID.
+        * `--cookie-max-age`: Time that must elapse before the browser asks the user to re-authenticate, e.g., `12h`.
+        * `--issuer`: IdP server ID to use for authentication.
 
             To learn how to get the IdP server ID, consult the provider's documentation or contact their support.
 
-        * `sso-binding`: Single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
-        * `sso-url`: URL of the page the browser redirects the user to for authentication.
+        * `--sso-binding`: Single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
+        * `--sso-url`: URL of the page the browser redirects the user to for authentication.
 
             To learn how to get the redirect page URL, consult your identity provider's documentation or contact their support.
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
         * (Optional) `--encrypted-assertions`: Ensures that authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
-        * (Optional) `auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
+        * (Optional) `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
@@ -132,7 +132,7 @@ For IdP-specific examples, see our tutorials:
         name            = "my-federation"
         description     = "My new SAML federation"
         organization_id = "<organization_ID>"
-        issuer          = "<IdP_server_ID>"
+        issuer          = "<IdP_server_ID>" 
         sso_url         = "<redirect_page_address>"
         sso_binding     = "<POST_or_REDIRECT>"
         cookie_max_age = <cookie_lifetime>
@@ -140,35 +140,40 @@ For IdP-specific examples, see our tutorials:
         case_insensitive_name_ids = "<true_or_false>"
         security_settings {
           encrypted_assertions = "<true_or_false>"
-          }
+          force_authn          = "<true_or_false>"
+        }
       }
       ```
 
       Where:
 
-        * `name`: Federation name. It must be unique within the folder.
-        * (Optional) `description`: Federation description.
-        * `organization_id`: Organization ID.
-        * `issuer`: IdP server ID to use for authentication.
+      * `name`: Federation name. It must be unique within the folder.
+      * (Optional) `description`: Federation description.
+      * `organization_id`: Organization ID.
+      * `issuer`: IdP server ID to use for authentication.
 
-            To learn how to get the IdP server ID, consult the provider's documentation or contact their support.
+          To learn how to get the IdP server ID, consult the provider's documentation or contact their support.
 
-        * `sso_binding`: Single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
-        * `sso_url`: URL of the page the browser redirects the user to for authentication.
+      * `sso_binding`: Single sign-on binding type. The possible values are `POST` and `REDIRECT`. Most identity providers support the `POST` binding type.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
-            To learn how to get the redirect page URL, consult your identity provider's documentation or contact their support.
+          To learn how to get the redirect page URL, consult your identity provider's documentation or contact their support.
 
-            {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
+          {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * `cookie_max_age`: Time, in seconds, before the browser prompts the user to re-authenticate. The default value is `28800` (8 hours).
-        * `auto_create_account_on_login`: If `true`, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
+      * `cookie_max_age`: Time, in seconds, before the browser prompts the user to re-authenticate. The default value is `28800` (8 hours).
+      * `auto_create_account_on_login`: If `true`, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
 
-            {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
+          {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * `case_insensitive_name_ids`: If `true`, federated user name IDs will be case-insensitive.
-        * `security_settings`: Federation security settings:
+      * `case_insensitive_name_ids`: If `true`, federated user name IDs will be case-insensitive.
+      * `security_settings`: Federation security settings:
 
-            * `encrypted_assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
+          * `encrypted_assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
+
+          * {% include [force-authn-tf](../../_includes/organization/force-authn-tf.md) %}
+
+      {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Check that the {{ TF }} configuration files are correct:
 
@@ -250,10 +255,10 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 1. Convert the certificate file to the PEM format:
 
     ```text
-      -----BEGIN CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
       <certificate value>
-      -----END CERTIFICATE-----
-      ```
+    -----END CERTIFICATE-------
+    ```
 
 1. Add the certificate to the federation:
 
@@ -267,7 +272,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
       1. Click the row with the federation you want to add a certificate to.
 
-      1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
+      1. Click **{{ ui-key.yacloud_org.page.federation.section.certificates }}** under **{{ ui-key.yacloud_org.entity.certificate.action.add }}** at the bottom of the page.
 
       1. Enter certificate name and description.
 
@@ -330,9 +335,9 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
 ## Adding a federation certificate to an IdP server {#add-certificate-idp}
 
-If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when creating the federation, all authentication requests from {{ yandex-cloud }} will contain a digital signature. The IdP server should be able to verify this signature. To enable this, you will need to add the {{ yandex-cloud }} certificate to the server:
+If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when creating a federation, all authentication requests from {{ yandex-cloud }} will contain a digital signature. The IdP server should be able to verify this signature. To enable this, you will need to add the {{ yandex-cloud }} certificate to the server:
 
-1. If you did not download a {{ yandex-cloud }} SAML certificate when creating the identity federation, download it now:
+1. If you did not download the {{ yandex-cloud }} SAML certificate when creating the identity federation, download it now:
 
     {% list tabs group=instructions %}
 
@@ -340,9 +345,9 @@ If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertio
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
       1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-      1. In the list that opens, select the identity federation of interest. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
+      1. In the list that opens, select the identity federation you need. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
 
-          If you see ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) to the left of ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**, your current {{ yandex-cloud }} SAML certificate has either expired or is about to expire.
+          If you see ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) to the left of ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**, your current {{ yandex-cloud }} SAML certificate either has expired or is about to expire.
 
           [Download a re-issued {{ yandex-cloud }} SAML certificate and install it](./renew-yc-certificate.md) in your identity federation.
 
@@ -506,6 +511,6 @@ Test federated user authentication:
 1. Enter your authentication data. By default, you must enter the UPN and password.
 1. Click **Sign in**.
 
-1. On successful authentication, the IdP server will redirect you to the ACS URL you specified in the server settings and from there to the management console home page.
+1. On successful authentication, the IdP server will redirect you to the ACS URL you specified in the server settings, and from there to the management console home page.
 
 Make sure you are logged in to the console as a federated user.

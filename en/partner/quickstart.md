@@ -99,12 +99,14 @@ Billing account requirements: {#restrictions}
 
 On the application confirmation page, you can view your application's details and follow its status. Please wait for the manager's feedback and approval of your application: this may take up to seven business days.
 
-## Step 7. Get a partner status {#step-7}
+## Step 7. Get your partner status {#step-7}
 
-If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become a {{ yandex-cloud }} partner program member after you complete the above steps.
+If you meet the partner [requirements](https://yandex.ru/legal/cloud_partnership_requirements/), you will become a {{ yandex-cloud }} partner program member after you complete the above steps, which means you will be able to use our [partner portal]({{ link-cloud-partners }}).
+
+See [{#T}](portal.md) to learn more about the portal and its features.
 
 ## What's next {#whats-next}
 
-* Please read the terms and conditions of the programs.
+* Read the [VAR program](program/var.md) terms and conditions.
 * Study the [key terms and definitions](./terms.md).
 * Learn about [technology specializations](./specializations/index.md).

@@ -7,6 +7,12 @@ description: Follow this guide to create a trigger for {{ yds-name }} that invok
 
 Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
+{% note info %}
+
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 To create a trigger, you will need:

@@ -73,6 +73,22 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Migrating services from a NLB to an L7 ALB to for DDoS protection
+          using {{ sws-name }}
+        items:
+          - name: Overview
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: NLB with target resources from VMs
+            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+          - name: NLB with target resources from an instance group
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+          - name: NLB with target resources from a {{ managed-k8s-name }} cluster
+            href: >-
+              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+          - name: NLB as a target resource for an ALB
+            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
   - name: Concepts
     expanded: true
     items:
@@ -95,7 +111,23 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/smartwebsecurity/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: security-profile
+        items:
+          - name: Overview
+            href: cli-ref/security-profile/index.md
+          - name: create
+            href: cli-ref/security-profile/create.md
+          - name: delete
+            href: cli-ref/security-profile/delete.md
+          - name: get
+            href: cli-ref/security-profile/get.md
+          - name: list
+            href: cli-ref/security-profile/list.md
+          - name: update
+            href: cli-ref/security-profile/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

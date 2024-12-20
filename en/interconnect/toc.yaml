@@ -6,7 +6,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Getting information about the {{ interconnect-name }} partners
+      - name: Getting information about {{ interconnect-name }} partners
         href: operations/partner-get-info.md
       - name: Getting information about {{ interconnect-name }} points of presence
         href: operations/pop-get-info.md
@@ -62,6 +62,50 @@ items:
         href: concepts/capacity.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: partner
+        items:
+          - name: Overview
+            href: cli-ref/partner/index.md
+          - name: get
+            href: cli-ref/partner/get.md
+          - name: list
+            href: cli-ref/partner/list.md
+      - name: point-of-presence
+        items:
+          - name: Overview
+            href: cli-ref/point-of-presence/index.md
+          - name: get
+            href: cli-ref/point-of-presence/get.md
+          - name: list
+            href: cli-ref/point-of-presence/list.md
+      - name: private-connection
+        items:
+          - name: Overview
+            href: cli-ref/private-connection/index.md
+          - name: get
+            href: cli-ref/private-connection/get.md
+          - name: list
+            href: cli-ref/private-connection/list.md
+      - name: public-connection
+        items:
+          - name: Overview
+            href: cli-ref/public-connection/index.md
+          - name: get
+            href: cli-ref/public-connection/get.md
+          - name: list
+            href: cli-ref/public-connection/list.md
+      - name: trunk-connection
+        items:
+          - name: Overview
+            href: cli-ref/trunk-connection/index.md
+          - name: get
+            href: cli-ref/trunk-connection/get.md
+          - name: list
+            href: cli-ref/trunk-connection/list.md
   - name: API reference
     items:
       - name: Authentication with the API

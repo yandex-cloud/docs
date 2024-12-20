@@ -12,6 +12,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa.md
 base: en/code-assistant

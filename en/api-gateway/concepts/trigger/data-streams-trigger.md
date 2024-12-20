@@ -5,7 +5,7 @@ description: In this article, you will learn about the {{ yds-name }} trigger, t
 
 # Trigger for {{ yds-name }} that sends messages to WebSocket connections
 
-A [trigger](../trigger/) for {{ yds-name }} sends messages to [WebSocket connections](../extensions/websocket.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
+[A trigger](../trigger/) for {{ yds-name }} sends messages to [WebSocket connections](../extensions/websocket.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 A trigger for {{ yds-name }} requires [service accounts](../../../iam/concepts/users/service-accounts.md) to manage the stream and send messages to WebSocket connections. You can use the same service account for both operations.
 
@@ -20,7 +20,9 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 
 ## Format of the message from the trigger for {{ yds-name }} {#format}
 
-After the trigger fires, it will send a message to WebSocket connections. The message format depends on the source and is represented by an array of `messages`:
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+Once the trigger fires, it will send a message with the `messages` array to WebSocket connections:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

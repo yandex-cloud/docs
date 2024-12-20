@@ -26,13 +26,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes a fee for storing a [secret](../../lockbox/concepts/secret.md) and requests to it (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
-### Create a service account federation {#federation-iam-accounts}
+### Create a workload identity federation {#federation-iam-accounts}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder you want to create a service account federation in.
+   1. In the [management console]({{ link-console-main }}), select the folder you want to create a workload identity federation in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Go to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
@@ -155,7 +155,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
        - name: GetIAMToken
          run: |
            SA_ID="<service_account_ID>"
-           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token= $not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')
+           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token=$not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')
            echo "IAMToken=${IAMTOKEN}" >> $GITHUB_OUTPUT
          id: IAMtoken
        # Requesting secret value via the API using an IAM token in {{ yandex-cloud }}

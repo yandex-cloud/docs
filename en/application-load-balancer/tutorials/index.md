@@ -7,6 +7,7 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+* [{#T}](migration-from-nlb-to-alb/index.md)
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](l7-bluegreen-deploy.md)
 * [{#T}](tls-termination/index.md)

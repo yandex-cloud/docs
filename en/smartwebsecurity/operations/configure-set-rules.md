@@ -1,9 +1,9 @@
 ---
-title: Configuring a basic WAF rule set
+title: Configuring a WAF basic rule set
 description: Follow this guide to configure a basic rule set for a WAF profile.
 ---
 
-# Configuring a basic WAF rule set
+# Configuring a WAF basic rule set
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
   1. Click **{{ ui-key.yacloud.smart-web-security.waf.label_action-edit-settings }}**.
   1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the sum of [anomaly](../concepts/waf.md#anomaly) values of the triggered rules that will block the request.
 
-      We recommend that you start with the anomaly threshold of `25` and gradually bring it down to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and [configure exclusion rules](exclusion-rule-add.md).
+      We recommend to start with the anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and [configure exclusion rules](exclusion-rule-add.md).
 
       Use **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode to test anomaly thresholds. The mode is activated when you add a WAF rule to the security profile.
 
@@ -27,6 +27,91 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
 
       You can turn any rule from the set into a blocking rule. A request that satisfies such a rule will be blocked regardless of the anomaly threshold you specified. To turn a rule into a blocking rule, click ![image](../../_assets/console-icons/ban.svg) to the right of it. If **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode is enabled in the security profile, requests will not get blocked.
   1. Click **{{ ui-key.yacloud.smart-web-security.waf.label_save-settings }}**.
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  You can dynamically activate all the basic set rules if their paranoia level is not higher than specified in the user variable. You can manually edit the parameters of dynamically configured rules. For example, you can turn a rule into a blocking one and activate a rule with paranoia level higher than specified in the variable.
+
+  1. Open the {{ TF }} configuration file and edit the fragment with `yandex_sws_waf_profile` description: add either a section named `rule` with a security rule or a section named `dynamic "rule"` with dynamically configured rules.
+
+      ```hcl
+      # In the basic set, rules of this paranoia level and below will be active
+      locals {
+        waf_paranoia_level = 1
+      }
+
+      # OWASP Core Rule Set data source
+      data "yandex_sws_waf_rule_set_descriptor" "owasp4" {
+        name    = "OWASP Core Ruleset"
+        version = "4.0.0"
+      }
+
+      # WAF profile
+      resource "yandex_sws_waf_profile" "default" {
+        name = "<WAF_profile_name>"
+
+        # Basic rule set
+        core_rule_set {
+          inbound_anomaly_score = 2
+          paranoia_level        = local.waf_paranoia_level
+          rule_set {
+            name    = "OWASP Core Ruleset"
+            version = "4.0.0"
+          }
+        }
+
+        # Turning the rule into a blocking one: the request will be blocked regardless of the anomaly threshold
+        rule {
+          rule_id     = "owasp-crs-v4.0.0-id942330-attack-sqli"
+          is_enabled  = true
+          is_blocking = true
+        }
+
+        # Turning the rule with paranoia level 4 into an active one
+        rule {
+          rule_id     = "owasp-crs-v4.0.0-id920202-protocol-enforcement"
+          is_enabled  = true
+          is_blocking = false
+        }
+
+        # Activating rules from the basic set if their paranoia level is not higher than specified in the waf_paranoia_level variable
+        dynamic "rule" {
+          for_each = [
+            for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
+            if rule.paranoia_level <= local.waf_paranoia_level
+          ]
+          content {
+            rule_id     = rule.value.id
+            is_enabled  = true
+            is_blocking = false
+          }
+        }
+
+        analyze_request_body {
+          is_enabled        = true
+          size_limit        = 8
+          size_limit_action = "IGNORE"
+        }
+      }
+      ```
+
+      Where:
+      * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than specified in the `waf_paranoia_level` variable. You can manually edit the parameters of dynamically configured rules. For example, you can turn a rule into a blocking one or activate a rule with paranoia level higher than specified in the variable.
+         * `rule_id`: Rule ID.
+         * `is_enabled`: Flag to enable or disable a rule.
+         * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
+
+      For more information about the `sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
+
+  1. Create resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the updates of your resources in the [management console]({{ link-console-main }}).
 
 {% endlist %}
 

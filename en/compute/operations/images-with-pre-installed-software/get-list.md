@@ -24,14 +24,59 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [standard-images](../../../_includes/standard-images.md) %}
+  * {% include [standard-images](../../../_includes/standard-images.md) %}
+
+      {% note info %}
+
+      By default, the command returns only the first 1,000 images. To view the full list of images, include the `--limit 0` parameter.
+
+      {% endnote %}
+
+  * To get a list of IDs of available [image families](../../concepts/image.md#family), run the following command:
+
+      ```bash
+      yc compute image list \
+        --folder-id standard-images \
+        --limit 0 \
+        --jq '.[].family' | sort | uniq
+      ```
+
+      Result:
+
+      ```text
+      ...
+      ubuntu-2204-lts
+      ubuntu-2204-lts-oslogin
+      ubuntu-2204-lts-vgpu-v13
+      ...
+      ```
+
+  * To get a list of available public images belonging to a particular family, run this command:
+
+      ```bash
+      yc compute image list --folder-id standard-images | grep <family_ID>
+      ```
+
+      Where `<family_ID>` is the image family ID, e.g., `ubuntu-2204-lts-oslogin`.
+
+      Result:
+
+      ```text
+      ...
+      | fd827n44qr0q******** | ubuntu-2204-lts-oslogin-v20240617 | ubuntu-2204-lts-oslogin | f2eofgd2cj0e******** | READY |
+      | fd827ukfjohd******** | ubuntu-2204-lts-oslogin-v20240701 | ubuntu-2204-lts-oslogin | f2evubhrcfsh******** | READY |
+      | fd82sdt0b96a******** | ubuntu-2204-lts-oslogin-v20240304 | ubuntu-2204-lts-oslogin | f2ecb2d55npl******** | READY |
+      ...
+      ```
+
+  For more information about the `yc compute image list` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/image/list.md).
 
 - API {#api}
 
   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-     * [How to get a token](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-     * [How to get a token](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+     * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
+     * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
   1. Get the list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call. In the request, specify the following parameters:
      * Specify `standard-images` as the folder ID.
      * The folder contains many images, so specify `pageSize=1000` or use the obtained value of `nextPageToken` to get the next page.

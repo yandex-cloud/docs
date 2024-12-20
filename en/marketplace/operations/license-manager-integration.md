@@ -1,8 +1,8 @@
 # Integration with the {{ license-manager }} API
 
 If you created a [subscription](../concepts/subscription.md) within one of these service plans:
-* `Subscription`: Set up integration with the [{{ license-manager }} API](../license-manager/api-ref/index.md) for your subscription to work properly.
-* `PAYG`: User will automatically switch to this service plan as soon as they unlink the subscription from a resource or as soon as the subscription expires. You can set up integration with the {{ license-manager }} API if required.
+* `Subscription`: Set up integration with the [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) or [{{ license-manager }} SaaS API](../license-manager/saas/api-ref/quickstart.md) for your subscription to work properly.
+* `PAYG`: User will automatically switch to this service plan as soon as they unlink the subscription from a resource or as soon as the subscription expires. You can set up integration with the [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) if required.
 
 {% list tabs group=service %}
 
@@ -62,9 +62,9 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 
         You can link an ID to a subscription using the [ensure](../license-manager/saas/api-ref/Lock/ensure.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Ensure](../license-manager/saas/api-ref/grpc/Lock/ensure.md) gRPC API call.
 
-        Provide the JWT token (`instanceToken`) and the unique user ID (`resourceId`) in the request. In the [response](../license-manager/saas/api-ref/Lock/ensure.md#yandex.cloud.operation.Operation), you will get the link ID (`lock_id`) in the `metadata` parameter. If the response returns an error, the subscription failed to link to the service and you need to ask the user to complete all the steps again.
+        Provide the JWT token (`instanceToken`) and the unique user ID (`resourceId`) in the request. In [response](../license-manager/saas/api-ref/Lock/ensure.md#yandex.cloud.operation.Operation), you will get the link ID (`lock_id`) in the `metadata` parameter. If the response returns an error, the subscription failed to link to the service and you need to ask the user to complete all the steps again.
 
-    1. Make sure to regularly check your subscription link is active. To do this, use the link ID (`lock_id`) obtained in the previous step.
+    1. Make sure to regularly check your subscription link is active. To do this, use the link ID (`lock_id`) you got in the previous step.
 
        To get up-to-date information about a linked subscription, use the [get](../license-manager/saas/api-ref/Lock/get.md) REST API method for the [Lock](../license-manager/saas/api-ref/Lock/index.md) resource or the [LockService/Get](../license-manager/saas/api-ref/grpc/Lock/get.md) gRPC API call.
 

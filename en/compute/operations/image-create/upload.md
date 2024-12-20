@@ -32,9 +32,10 @@ For setup instructions, see [{#T}](custom-image.md).
 ## Upload an image file to {{ objstorage-name }} {#upload-file}
 
 Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
+
 1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one with restricted access.
 1. Upload the image [using the management console](../../../storage/operations/objects/upload.md), the [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md), for example. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
-1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
+1. [Get](../../../storage/operations/objects/link-for-download.md) a signed [link](../../../storage/concepts/pre-signed-urls.md) to download the image from the bucket. Use this link when creating an image in {{ compute-name }}.
 
 ## Create an image in {{ compute-name }} {#create-image}
 
@@ -127,7 +128,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

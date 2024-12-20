@@ -2,6 +2,8 @@
 --- | ---
 | `CreateDatabase` | Creating a database |
 | `CreateUser` | Creating a database user |
+| `DatabaseUserLogin` | Connecting a user to a database |
+| `DatabaseUserLogout` | Disconnecting a user from a database |
 | `DatabaseUserSQLRequest`| User's SQL query to a database^1^ |
 | `DeleteDatabase` | Deleting a database |
 | `DeleteUser` | Deleting a database user |
