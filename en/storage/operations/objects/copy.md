@@ -13,7 +13,7 @@ If bucket objects are encrypted, first they will be copied to the host that exec
 
 Large objects uploaded using [multipart uploads](../../concepts/multipart.md) are stored in the bucket in parts. They are copied by invoking [copyPart](../../s3/api-ref/multipart/copypart.md) for each part. Therefore, multipart objects cost more to copy than regular ones.
 
-You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or an [individual bucket object](#copy-single-object). You can also copy objects between [buckets of different organizations](#copy-to-another-org-bucket).
+You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or an [individual bucket object](#copy-single-object).
 
 
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
@@ -134,55 +134,3 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 {% endlist %}
 
-## Copying objects to a bucket in a different organization {#copy-to-another-org-bucket}
-
-To copy objects to a bucket hosted in a different [organization](../../../overview/roles-and-resources.md), [create](../../../iam/operations/sa/create.md) two service accounts: one with the [`storage.viewer`](../../security/index.md#storage-viewer) role for the source bucket and the other one with the [`storage.editor`](../../security/index.md#storage-editor) role for the target bucket.
-
-{% list tabs group=instructions %}
-
-- AWS CLI {#cli}
-
-  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md) for each organization.
-  1. Make sure the profiles for the source and target service accounts are listed in the `~/.aws/credentials` file.
-  1. Set the target bucket's [access control list (ACL)](../../concepts/acl.md) with full access permissions granted to the source bucket's service account:
-
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-bucket-acl --profile <target_profile_name> \
-        --bucket <target_bucket_name> \
-        --grant-full-control id=<source_service_account_ID>
-      ```
-
-      Where:
-
-      * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--profile`: Name of the profile in the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the target bucket.
-      * `--bucket`: Target bucket name.
-      * `--grant-full-control`: Grants the source bucket service account access to the target bucket. Specify the service account ID of the organization from which the objects are copied.
-
-  1. Copy the objects:
-
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --profile <source_profile_name> \
-        s3://<source_bucket>/<object_key> \
-        s3://<target_bucket>/<object_key>
-      ```
-
-      Where:
-
-      * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `--profile`: Name of the profile in the AWS CLI [configuration file](../../tools/aws-cli.md#config-files) for the organization hosting the source bucket.
-      * `s3 cp`: Copy object command.
-
-      To copy all objects from the source bucket, use the `--recursive` parameter.
-
-      Result:
-
-      ```text
-      copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
-      ```
-
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
-
-{% endlist %}

@@ -101,6 +101,7 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 | `String` | `String` |
 | `Utf8` | `Utf8` |
 | `Json` | `Json` |
+| `JsonDocument` | `Json` |
 
 ### Optional data types {#supported_types_nullable}
 
@@ -123,3 +124,4 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
 | `Optional<Json>` | `Optional<Json>` |
+| `Optional<JsonDocument>` | `Optional<Json>` |

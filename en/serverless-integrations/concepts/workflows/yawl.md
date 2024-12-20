@@ -1,6 +1,6 @@
 ---
 title: YaWL specification in {{ sw-full-name }}
-description: This article describes a YaWL specification in {{ sw-name }}.
+description: This article describes the YaWL specification in {{ sw-name }}.
 keywords:
   - workflows
   - workflow
@@ -28,7 +28,7 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `title` | `string` | No | Step name.
 `description` | `string` | No | Step description.
-`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
+`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Tracker](#Tracker)\|<br/>[Postbox](#Postbox)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
 
 ## Integration steps {#integration-steps}
 
@@ -122,7 +122,7 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 `get` | [YdbDocumentGet](#YdbDocumentGet) | No | No | No | Configuring the `get` action to select an entry from the table.
 `put` | [YdbDocumentPut](#YdbDocumentPut) | No | No | No | Configuring the `put` action to add an entry to the table.
 `update` | [YdbDocumentUpdate](#YdbDocumentUpdate) | No | No | No | Configuring the `update` action to update an entry in the table.
-`scan` | [YdbDocumentScan](#YdbDocumentScan) | No | No | No | Configuring the `scan` action to get a list of entries from the table.
+`scan` | [YdbDocumentScan](#YdbDocumentScan) | No | No | No | Configuring the `scan` action to get a list of table entries.
 
 #### YdbDocumentGet {#YdbDocumentGet}
 
@@ -149,7 +149,7 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `limit` | `string` | No | No | Yes | Maximum number of items in the list
-`exclusive_start_key` | `string` | No | No | Yes | Primary key value for a database item to start the search from
+`exclusive_start_key` | `string` | No | No | Yes | Primary key value for a database item to start the search from.
 
 ### FunctionCall {#FunctionCall}
 
@@ -216,6 +216,212 @@ Field name | Type | Required | Default value | [Templating](templating.md) is su
 --- | --- | --- | --- | --- | ---
 `content` | `string` | Yes | No | Yes | Object contents.
 
+### Tracker {#Tracker}
+
+Accessing the {{ tracker-full-name }} API
+* The `oauth_token` and `service_account` fields are mutually exclusive.
+* The `get_issue`, `create_issue`, `update_issue`, `list_issues`, `link_issues`, `update_issue_status`, `create_comment`, `update_comment`, and `list_comments` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`endpoint` | `string` | No | `api.tracker.yandex.net` | Yes | Host for calling the {{ tracker-full-name }} API.
+`oauth_token` | `string` | No | No | Yes | [OAuth token](../../../iam/concepts/authorization/oauth-token.md) to be used for authorization when accessing the {{ tracker-short-name }} API.
+`service_account` | `boolean` | No | No | No | You can use only the `true` value. If set, the [service account](../../../iam/concepts/users/service-accounts.md) specified in the [workflow](./workflow.md) settings will be used for authorization when accessing the {{ tracker-short-name }} API.
+`organization` | [Organization](#tracker-organization) | Yes | No | No | Organization ID.
+`get_issue` | [TrackerGetIssue](#trackergetissue) | No | No | No | Description of the action to get an issue.
+`create_issue` | [TrackerCreateIssue](#trackercreateissue) | No | No | No | Description of the action to create an issue.
+`update_issue` | [TrackerUpdateIssue](#trackerupdateissue) | No | No | No | Description of the action to update an issue.
+`list_issues` | [TrackerListIssues](#trackerlistissues) | No | No | No | Description of the action to search for an issue.
+`link_issues` | [TrackerLinkIssues](#trackerlinkissues) | No | No | No | Description of the action to add a link between issues.
+`update_issue_status` | [TrackerUpdateIssueStatus](#trackerupdateissuestatus) | No | No | No | Description of the action to update an issue status.
+`create_comment` | [TrackerCreateComment](#trackercreatecomment) | No | No | No | Description of the action to create a comment.
+`update_comment` | [TrackerUpdateComment](#trackerupdatecomment) | No | No | No | Description of the action to update a comment.
+`list_comments` | [TrackerListComments](#trackerlistcomments) | No | No | No | Description of the action to display comments on an issue.
+
+#### Organization {#tracker-organization}
+
+The `yandex_organization_id` and `cloud_organization_id` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`yandex_organization_id` | `string` | No | No | Yes | Organization ID in {{ ya-360 }}.
+`cloud_organization_id` | `string` | No | No | Yes | [Organization](../../../organization/quickstart.md) ID in {{ org-full-name }}.
+
+#### TrackerGetIssue {#trackergetissue}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Issue key.
+
+#### TrackerCreateIssue {#trackercreateissue}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`queue` | `string` | Yes | No | Yes | Queue to create the issue in.
+`title` | `string` | Yes | No | Yes | Issue title.
+`parent` | `string` | No | No | Yes | Parent issue key.
+`description` | `string` | No | No | Yes | Issue description.
+`sprints` | `string` | No | No | Yes | One of more sprints. You can specify the value as a string or JSON array.
+`type` | `string` | No | No | Yes | Issue type.
+`priority` | `string` | No | No | Yes | Issue priority.
+`followers` | `string` | No | No | Yes | One or more followers. You can specify the value as a string or JSON array.
+`assignee` | `string` | No | No | Yes | Issue assignee.
+`author` | `string` | No | No | Yes | Issue reporter.
+`additional_properties` | `map[string]string` | No | No | Yes | Additional issue fields.
+
+#### TrackerUpdateIssue {#trackerupdateissue}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Issue key.
+`title` | `string` | No | No | Yes | Issue title.
+`parent` | `string` | No | No | Yes | Parent issue key.
+`description` | `string` | No | No | Yes | Issue description.
+`sprints` | [TrackerUpdateIssue.Action](#trackerupdateissue-action) | No | No | Yes | Linked sprints.
+`type` | `string` | No | No | Yes | Issue type.
+`priority` | `string` | No | No | Yes | Issue priority.
+`followers` | [TrackerUpdateIssue.Action](#trackerupdateissue-action) | No | No | Yes | Followers in the issue.
+`additional_properties` | [TrackerUpdateIssue.AdditionalProperties](#trackerupdateissue-additionalproperties) | No | No | Yes | Additional issue fields.
+
+#### TrackerUpdateIssue.Action {#trackerupdateissue-action}
+
+The `set_value`, `add_values_list`, `remove_values_list`, and `replace_values_map` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`set_value` | `string` | No | No | Yes | Replaces the issue field value. You can specify the value as a string or JSON array.
+`add_values_list` | `string` | No | No | Yes | Adds one or more values to the issue field. You can specify the value as a string or JSON array.
+`remove_values_list` | `string` | No | No | Yes | Deletes one or more values from the issue field. You can specify the value as a string or JSON array.
+`replace_values_map` | [InterpolatableMap](#tracker-interpolatablemap) | No | No | No | Describes a list of field values to be replaced and their new values.
+
+#### TrackerUpdateIssue.AdditionalProperties {#trackerupdateissue-additionalproperties}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`pairs` | `map[string]`[TrackerUpdateIssue.Action](#trackerupdateissue-action) | No | No | Yes | Dictionary of pairs: the name of the additional field and the action to perform on it.
+
+#### InterpolatableMap {#tracker-interpolatablemap}
+
+The `json` and `plain_value` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`json` | `string` | No | No | Yes | Dictionary containing a JSON array of pairs: current and new values of fields.
+`plain_value` | [MapValue](#tracker-mapvalue) | No | No | No | Dictionary containing an array of pairs: current and new values of fields as [MapValue](#tracker-mapvalue) objects.
+
+#### MapValue {#tracker-mapvalue}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`pairs` | `map[string]string` | Yes | No | Yes | Dictionary containing an array of pairs: current and new values of fields.
+
+#### TrackerListIssues {#trackerlistissues}
+
+The `queue`, `keys`, `filter`, and `query` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`page_size` | `string` | No | No | Yes | Maximum number of issues to be included in a response.
+`page_number` | `string` | No | No | Yes | Page number in the issue list output.
+`queue` | `string` | No | No | Yes | Queue to find issues in.
+`keys` | `string` | No | No | Yes | Issue keys that need to be found. You can specify the value as a string or JSON array.
+`filter` | [TrackerLinkIssues.SearchOptionsFilter](#trackerlistissues-searchoptionsfilter) | No | No | Yes | Issue search filter by field values.
+`query` | `string` | No | No | Yes | Filter in the request language.
+
+#### TrackerLinkIssues.SearchOptionsFilter {#trackerlistissues-searchoptionsfilter}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`issue_properties` | `map[string]string` | Yes | No | Yes | Fields to search by and the required values.
+`order` | `string` | No | No | Yes | The direction and field for sorting issues.
+
+#### TrackerLinkIssues {#trackerlinkissues}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Issue key.
+`link_key` | `string` | Yes | No | Yes | Key of the issue you need to link to the issue specified in the `key` field.
+`relationship` | `string` | Yes | No | Yes | Type of links between issues.
+
+#### TrackerUpdateIssueStatus {#trackerupdateissuestatus}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Key of the issue whose status you need to change.
+`transition` | `string` | Yes | No | Yes | Transition ID.
+`additional_properties` | [MapValue](#tracker-mapvalue) | No | No | Yes | Additional fields required for a transition.
+
+#### TrackerCreateComment {#trackercreatecomment}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Key of the issue to add a comment to.
+`text` | `string` | Yes | No | Yes | Text of the comment.
+`mentions` | `string` | No | No | Yes | Mentions by users. You can specify the value as a string or JSON array.
+
+#### TrackerUpdateComment {#trackerupdatecomment}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`id` | `string` | Yes | No | Yes | ID of the comment being updated.
+`issue_key` | `string` | Yes | No | Yes | Key of the issue the comment relates to.
+`text` | `string` | Yes | No | Yes | New comment text.
+
+#### TrackerListComments {#trackerlistcomments}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`key` | `string` | Yes | No | Yes | Issue key.
+`last_comment_id` | `string` | No | No | Yes | Comment's `id` parameter value after which the requested page will begin.
+`page_size` | `string` | No | No | Yes | Maximum number of comments per response.
+
+### Postbox {#Postbox}
+
+Sending emails with {{ postbox-full-name }}. The `simple` and `raw` fields are mutually exclusive.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`fromAddress` | `string` | Yes | No | No | {{ postbox-name }} [address](../../../postbox/concepts/glossary.md#adress) to send emails from.<br/><br/>[Service account](../../../iam/concepts/users/service-accounts.md) specified in the [workflow](./workflow.md) settings and the address specified in this field must reside in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+`destination` | [Destination](#postbox-destination) | Yes | No | No | Object describing addresses of recipients.
+`simple` | [SimpleMessage](#postbox-simplemessage) | No | No | No | Email that will be sent.
+`raw` | [RawMessage](#postbox-rawmessage) | No | No | No | Email that will be sent.
+
+#### Destination {#postbox-destination}
+
+After templating, the field values must have this format: a@example.com, b@example.com` or `[a@example.com, b@example.com]`.
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`toAddresses` | `string` | Yes | No | Yes | Addresses of email recipients.
+`ccAdresses` | `string` | No | No | Yes | Addresses of email copy recipients.
+
+#### RawMessage {#postbox-rawmessage}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`data` | `string` | Yes | No | Yes | Raw email type. For more information, see the [{{ postbox-name }} documentation](../../../postbox/aws-compatible-api/api-ref/send-email.md).
+
+#### SimpleMessage {#postbox-simplemessage}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`subject` | [MessageData](#postbox-messagedata) | Yes | No | No | Email subject.
+`body` | [Body](#postbox-body) | Yes | No | No | Email text.
+
+#### Body {#postbox-body}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`text` | [MessageData](#postbox-messagedata) | Yes | No | No | Object in charge of displaying the email in mail clients without HTML support.
+`html` | [MessageData](#postbox-messagedata) | Yes | No | No | Object in charge of displaying the email in mail clients with HTML support.
+
+#### MessageData {#postbox-messagedata}
+
+Field name | Type | Required | Default value | [Templating](templating.md) is supported | Description
+--- | --- | --- | --- | --- | ---
+`data` | `string` | Yes | No | Yes | Text.
+`charset` | `UTF_8`\|<br/>`ISO_8859_1`\|<br/>`Shift_JIS` | Yes | No | No | Encoding:
+
 ## Control steps {#management-steps}
 
 ### Switch {#Switch}
@@ -281,7 +487,7 @@ Terminates the workflow with an error. If placed inside [Foreach](#Foreach) or [
 
 Field name | Type | Required | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | ---
-`error` | `string` | Yes | Yes | Error message.
+`errorMessage` | `string` | Yes | Yes | Error message.
 
 ### NoOp {#NoOp}
 

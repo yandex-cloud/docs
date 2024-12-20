@@ -36,6 +36,8 @@ items:
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: '{{ sw-name }} API reference'
     items:
       - name: Authentication with the API

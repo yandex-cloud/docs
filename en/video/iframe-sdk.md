@@ -22,12 +22,12 @@ You can also set up [video size](#size) and the player [startup options](#parame
 
 ## Setting up video size {#size}
 
-To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width.
+To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width. 
 
-Example:
+Here is an example:
 
 ```html
-<iframe width="560" height="315"
+<iframe width="560" height="315" 
   frameborder="0"
     scrolling="no"
     allowfullscreen
@@ -54,7 +54,7 @@ To adjust the video to the container width, change the embed code as follows:
 
 ## Setting up the player startup options {#parameters}
 
-Customize your player appearance and video playback using special parameters.
+Customize your player appearance and video playback using special parameters. 
 
 Add `parameter=value` pairs separated by `&` to the embed code URL after `?`:
 
@@ -139,7 +139,7 @@ Playback looping:
 * `false`: Playback looping off.
 * `true`: Playback looping on.
 
-The default value is `false`.
+The default value is `false`. 
 ||
 || `mute` |
 Mute at startup:

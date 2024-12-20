@@ -17,3 +17,17 @@ Result:
 ...
 +----------------------+-------------------------------------+--------------------------+----------------------+--------+
 ```
+
+Where:
+
+* `ID`: Image ID.
+* `NAME`: Image name.
+* `FAMILY`: ID of the [image family](../compute/concepts/image.md#family) the image belongs to.
+* `PRODUCT IDS`: IDs of {{ marketplace-full-name }} [products](../marketplace/concepts/product.md) associated with the image.
+* `STATUS`: Current status of the image. It may take one of the following values:
+
+    * `STATUS_UNSPECIFIED`: Image status is not defined.
+    * `CREATING`: Image is being created.
+    * `READY`: Image is ready to use.
+    * `ERROR`: You cannot use the image due to an issue.
+    * `DELETING`: Image is being deleted.

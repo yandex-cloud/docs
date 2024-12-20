@@ -16,11 +16,13 @@ For more information about creating a trigger for {{ yds-name }}, see [{#T}](../
 * To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
 * For the trigger to fire, service accounts need the following roles:
     * `{{ roles-functions-invoker }}` for the function the trigger invokes.
-    * `yds.admin` for the stream that invokes the trigger when data is sent to it.
+    * `yds.admin` for the stream that invokes the trigger when data is sent there.
 
 ## Format of the message from the trigger for {{ yds-name }} {#format}
 
-After the trigger is activated, it sends a message to the function. The message format depends on the source and is represented by an array of `messages`:
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+Once the trigger fires, it will send a message with the `messages` array to the function:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

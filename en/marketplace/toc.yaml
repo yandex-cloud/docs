@@ -24,6 +24,8 @@ items:
             href: operations/license-manager-integration.md
       - name: Concepts
         items:
+          - name: Partner profile
+            href: concepts/publisher.md
           - name: Product
             href: concepts/product.md
           - name: Version
@@ -77,6 +79,8 @@ items:
                     href: metering/api-ref/grpc/ProductUsage/write.md
       - name: License Manager API reference
         items:
+          - name: Getting started with the {{ license-manager }} API
+            href: license-manager/api-ref/quickstart.md
           - name: gRPC
             items:
               - name: Overview
@@ -152,6 +156,8 @@ items:
                     href: license-manager/api-ref/Operation/cancel.md
       - name: License Manager SaaS API reference
         items:
+          - name: Getting started with the {{ license-manager }} SaaS API
+            href: license-manager/saas/api-ref/quickstart.md
           - name: gRPC
             items:
               - name: Overview

@@ -8,7 +8,7 @@ editable: false
 
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -62,8 +62,13 @@ editable: false
 
 
 
-### Готовые расчеты стоимости запросов {#query-examples}
+Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
 
+
+
+## Пример расчета стоимости {{ sws-name }} {#price-example}
+
+{% cut "Готовые расчеты стоимости запросов" %}
 
 Чтобы оценить порядок стоимости запросов, в таблице ниже представлены расчеты цен за определенное количество запросов в месяц. В это количество не включен нетарифицируемый лимит — 10 000 запросов.
 Стоимость приведена для ориентира, использование {{ sws-name }} вашими сервисами будет рассчитываться по фактическому количеству запросов.
@@ -80,12 +85,7 @@ editable: false
 
 {% endlist %}
 
-
-Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
-
-
-## Пример расчета стоимости {{ sws-name }} {#price-example}
-
+{% endcut %}
 
 {% list tabs group=pricing %}
 

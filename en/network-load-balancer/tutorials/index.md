@@ -17,3 +17,4 @@ description: Various {{ network-load-balancer-full-name }} use cases in {{ yande
 * [{#T}](./storage-vpc-access.md)
 * [{#T}](./updating-under-load.md)
 * [{#T}](./vpc-cr-access.md)
+* [{#T}](./migration-from-nlb-to-alb/index.md)

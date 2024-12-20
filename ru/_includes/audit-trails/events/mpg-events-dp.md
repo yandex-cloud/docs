@@ -2,6 +2,8 @@
 --- | ---
 `CreateDatabase` | Создание базы данных
 `CreateUser` | Создание пользователя базы данных
+`DatabaseUserLogin` | Подключение пользователя к базе данных
+`DatabaseUserLogout`| Отключение пользователя от базы данных
 `DatabaseUserSQLRequest`| SQL-запрос пользователя к базе данных^1^
 `DeleteDatabase` | Удаление базы данных
 `DeleteUser` | Удаление пользователя базы данных

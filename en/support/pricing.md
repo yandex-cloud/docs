@@ -1,4 +1,6 @@
 ---
+title: Technical support pricing
+description: This article discusses the support pricing policy.
 editable: false
 ---
 
