@@ -99,10 +99,6 @@ items:
         href: tutorials/index.md
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
-      - name: >-
-          Getting statistics of queries to {{ objstorage-full-name }} objects
-          using {{ yq-full-name }}
-        href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
       - name: Getting statistics of queries to objects using {{ yq-full-name }}
@@ -365,7 +361,69 @@ items:
           - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
   - name: YC CLI reference
-    href: ../cli/cli-ref/storage/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bucket
+        items:
+          - name: Overview
+            href: cli-ref/bucket/index.md
+          - name: create
+            href: cli-ref/bucket/create.md
+          - name: delete
+            href: cli-ref/bucket/delete.md
+          - name: delete-https
+            href: cli-ref/bucket/delete-https.md
+          - name: get
+            href: cli-ref/bucket/get.md
+          - name: get-https
+            href: cli-ref/bucket/get-https.md
+          - name: list
+            href: cli-ref/bucket/list.md
+          - name: set-https
+            href: cli-ref/bucket/set-https.md
+          - name: stats
+            href: cli-ref/bucket/stats.md
+          - name: update
+            href: cli-ref/bucket/update.md
+      - name: s3api
+        items:
+          - name: Overview
+            href: cli-ref/s3api/index.md
+          - name: abort-multipart-upload
+            href: cli-ref/s3api/abort-multipart-upload.md
+          - name: complete-multipart-upload
+            href: cli-ref/s3api/complete-multipart-upload.md
+          - name: copy-object
+            href: cli-ref/s3api/copy-object.md
+          - name: create-multipart-upload
+            href: cli-ref/s3api/create-multipart-upload.md
+          - name: delete-object
+            href: cli-ref/s3api/delete-object.md
+          - name: delete-objects
+            href: cli-ref/s3api/delete-objects.md
+          - name: get-object
+            href: cli-ref/s3api/get-object.md
+          - name: get-object-legal-hold
+            href: cli-ref/s3api/get-object-legal-hold.md
+          - name: get-object-retention
+            href: cli-ref/s3api/get-object-retention.md
+          - name: head-object
+            href: cli-ref/s3api/head-object.md
+          - name: list-multipart-uploads
+            href: cli-ref/s3api/list-multipart-uploads.md
+          - name: list-parts
+            href: cli-ref/s3api/list-parts.md
+          - name: put-object
+            href: cli-ref/s3api/put-object.md
+          - name: put-object-legal-hold
+            href: cli-ref/s3api/put-object-legal-hold.md
+          - name: put-object-retention
+            href: cli-ref/s3api/put-object-retention.md
+          - name: upload-part
+            href: cli-ref/s3api/upload-part.md
+          - name: upload-part-copy
+            href: cli-ref/s3api/upload-part-copy.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

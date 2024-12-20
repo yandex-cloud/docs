@@ -101,14 +101,14 @@ To create a federation:
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <organization_ID> \
-            --auto-create-account-on-login \
-            --cookie-max-age 12h \
-            --issuer "http://example.com/adfs/services/trust" \
-            --sso-url "https://example.com/adfs/ls/" \
-            --sso-binding POST \
-            --encrypted-assertions \
-            --force-authn
+          --organization-id <organization_ID> \
+          --auto-create-account-on-login \
+          --cookie-max-age 12h \
+          --issuer "http://example.com/adfs/services/trust" \
+          --sso-url "https://example.com/adfs/ls/" \
+          --sso-binding POST \
+          --encrypted-assertions \
+          --force-authn
         ```
 
         Where:
@@ -119,7 +119,7 @@ To create a federation:
 
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
         * `--issuer`: ID of the identity provider that will be used for authentication.
@@ -146,77 +146,85 @@ To create a federation:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Specify the federation parameters in the configuration file:
+  1. Specify the federation parameters in the configuration file.
 
-        * `name`: Federation name. It must be unique within the folder.
-        * `description`: Federation description.
-        * `organization_id`: [Organization ID](../../operations/organization-get-id.md).
-        * `labels`: Set of key/value label pairs assigned to the federation.
-        * `--issuer`: ID of the identity provider (IdP) that will be used for authentication.
+      Here is an example of the configuration file structure:
 
-            Specify a link in `http://<AD_FS_farm_FQDN>/adfs/services/trust` format.
+      ```hcl
+      resource "yandex_organizationmanager_saml_federation" federation {
+        name            = "my-federation"
+        organization_id = "<organization_ID>"
+        auto_create_account_on_login = "true"
+        issuer          = "http://example.com/adfs/services/trust"
+        sso_url         = "https://example.com/adfs/ls/"
+        sso_binding     = "POST"
+        security_settings {
+          encrypted_assertions = "true"
+          force_authn          = "true"
+        }
+      }
+      ```
 
-            {% include [get-adfs-farm-fqdn](../../../_includes/organization/get-adfs-farm-fqdn.md) %}
+      Where:
 
-        * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
-        * `sso_url`: URL of the page the browser has to redirect the user to for authentication.
+      * `name`: Federation name. It must be unique within the folder.
+      * `description`: Federation description.
+      * `organization_id`: [Organization ID](../../operations/organization-get-id.md).
+      * `labels`: Set of key/value label pairs assigned to the federation.
+      * `issuer`: Identity provider (IdP) ID that will be used for authentication.
 
-            Specify a link in `https://<AD_FS_farm_FQDN>/adfs/ls/` format.
+          Specify a link in `http://<AD_FS_farm_FQDN>/adfs/services/trust` format.
 
-            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+          {% include [get-adfs-farm-fqdn](../../../_includes/organization/get-adfs-farm-fqdn.md) %}
 
-        * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`.
-        * `auto_create_account_on_login`: Option enabling the automatic creation of new cloud users after authentication using an identity provider.
+      * `sso_binding`: Single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_url`: URL of the page the browser has to redirect the user to for authentication.
 
-            This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
+          Specify a link in `https://<AD_FS_farm_FQDN>/adfs/ls/` format.
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-        * `case_insensitive_name_ids`: Toggles username case sensitivity.
-           If this option is enabled, the IDs of federated user names will be case-insensitive.
-        * `security_settings`: Federation security settings:
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+
+      * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`.
+      * `auto_create_account_on_login`: Option enabling the automatic creation of new cloud users after authentication using an identity provider.
+
+          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
+
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+
+      * `case_insensitive_name_ids`: Toggles username case sensitivity.
+          If this option is enabled, the IDs of federated user names will be case-insensitive.
+      * `security_settings`: Federation security settings:
 
           * {% include [encrypted-assertions-tf](../../../_includes/organization/encrypted-assertions-tf.md) %}
 
-            {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
+              {% include [setup-cert-for-idp](../../../_includes/organization/setup-cert-for-idp.md) %}
 
-     Here is an example of the configuration file structure:
+          * {% include [force-authn-tf](../../../_includes/organization/force-authn-tf.md) %}
 
-     ```hcl
-     resource "yandex_organizationmanager_saml_federation" federation {
-      name            = "my-federation"
-      organization_id = "<organization_ID>"
-      auto_create_account_on_login = "true"
-      issuer          = "http://example.com/adfs/services/trust"
-      sso_url         = "https://example.com/adfs/ls/"
-      sso_binding     = "POST"
-      security_settings {
-         encrypted_assertions = "true"
-         }
-     }
-     ```
+      {% include [organizationmanager_saml_federation-tf](../../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
-     1. Run a check using this command:
+      1. In the command line, go to the folder where you created the configuration file.
+      1. Run a check using this command:
 
-        ```bash
-        terraform plan
-        ```
+          ```bash
+          terraform plan
+          ```
 
-     If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Create a federation.
 
-     1. If the configuration does not contain any errors, run this command:
+      1. If the configuration does not contain any errors, run this command:
 
-        ```bash
-        terraform apply
-        ```
+          ```bash
+          terraform apply
+          ```
 
-     1. Confirm you want to create a federation.
+      1. Confirm you want to create a federation.
 
-     This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
+      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
 - API {#api}
 
@@ -246,7 +254,7 @@ To create a federation:
 
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-         If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
       * `issuer`: ID of the identity provider that will be used for authentication.
@@ -360,10 +368,10 @@ When the identity provider informs {{ org-full-name }} that a user has been auth
           ```bash
           export IAM_TOKEN=CggaAT********
           curl -X POST \
-              -H "Content-Type: application/json" \
-              -H "Authorization: Bearer ${IAM_TOKEN}" \
-              -d '@body.json' \
-              "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${IAM_TOKEN}" \
+            -d '@body.json' \
+            "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
           ```
 
     {% endlist %}
@@ -460,8 +468,8 @@ Unique user ID | Required attribute. We recommend using one of the unique and fi
 List of groups the user belongs to. | This list is used for group mapping when authenticating the user in {{ yandex-cloud }}.<br><br>Use a `Token-Groups` family attribute.<br><br>Depending on the attribute you select, the group list format will vary.<br>For example, if using `Token-Groups - Unqualified Names`, short group names will be provided (e.g., `adfs_group`, `Domain Users`) that do not specify the domain.<br><br>For an example of how to configure group mapping, see [{#T}](./group-mapping/adfs.md). | `Group`
 Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | `Surname`
 Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | `Given Name`
-Full name | Displayed in {{ yandex-cloud }} services. Example: John Smith.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | `Name`
-Email | Used to send notifications from {{ yandex-cloud }} services. Example: `smith@example.com`.<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | `E-Mail Address`
+Full name | Displayed in {{ yandex-cloud }} services. Example: Ivan Ivanov.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | `Name`
+Email | Used to send notifications from {{ yandex-cloud }} services. Example: `ivanov@example.com`.<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | `E-Mail Address`
 Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890.<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | `phone`
 Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto`
 
@@ -651,7 +659,7 @@ Now that you are done configuring SSO, test authentication:
 
 1. Enter your authentication data. By default, you must enter the UPN and password. Then click **Sign in**.
 
-1. On successful authentication, {{ microsoft-idp.adfs-abbreviated }} will redirect you to the ACS URL you specified in the relying party trust settings and from there to the management console home page. In the top-right corner, you can see that you are logged in to the console under an {{ microsoft-idp.ad-short }} account.
+1. On successful authentication, {{ microsoft-idp.adfs-abbreviated }} will redirect you to the ACS URL you specified in the {{ microsoft-idp.adfs-abbreviated }} relying party trust settings, and from there to the management console home page. In the top-right corner, you can see that you are logged in to the console under an {{ microsoft-idp.ad-short }} account.
 
 ## What's next {#what-is-next}
 

@@ -18,12 +18,12 @@ Payment invoices are sent only to the email address of the user who created the 
 
 {% note info %}
 
-{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if you exceed your established billing threshold.
+{{ yandex-cloud }} reserves the right to issue a payment invoice during the current reporting period if your [personal account](personal-account.md) is in arrears.
 
 {% endnote %}
 
 
-Customers qualifying as a business and not using a linked corporate bank card to top up their account must [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) using the management console. Depending on which company you signed the agreement with, you can find more details in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
+Customers qualifying as a business and not using a linked corporate bank card to top up their account must [generate a payment invoice](../operations/pay-the-bill.md#legal-entities) via the management console by themselves. Depending on which company you signed the agreement with, you can find more details in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
 
 
 A payment invoice is not a primary accounting document. There are no special legal requirements for drafting this document. In accounting, correct charges for services are made based on reports and tax invoices where all the required details are specified. A payment invoice is generated automatically and there is no way to change customer data.

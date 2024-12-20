@@ -73,8 +73,9 @@ description: На странице представлены вопросы и о
 
 #### Как изменить тарифный план технической поддержки? {#change-pricing-plan}
 
-Изменить тарифный план технической поддержки может только владелец или администратор организации. См. детали в инструкции [Изменение тарифного плана](support-center.md#change-pricing).
+{% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
+См. детали в инструкции [Изменение тарифного плана](support-center.md#change-pricing).
 Ознакомьтесь с [Порядком оказания технической поддержки](overview.md). Повышение тарифного плана происходит сразу, а понижение — первого числа следующего месяца
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

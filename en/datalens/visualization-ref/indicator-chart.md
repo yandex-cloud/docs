@@ -1,6 +1,15 @@
+---
+title: Indicator in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the _Indicator_ visualization type in {{ datalens-short-name }}.
+---
+
 # Indicator ![](../../_assets/datalens/indicator.svg)
 
-An indicator reflects the value of a single key measure. It is used when a dashboard contains values that need to be monitored on a regular basis to understand the overall situation. These can be the number of incidents for the past day, plan performance, or a YoY increase in sales. Indicators are most often placed at the top or on the right side of a dashboard. Make sure there are no more than six indicators per screen so that they do not lose their urgency or confuse users. Using indicators of different sizes, you can build a hierarchy of the various metrics according to significance.
+An indicator reflects the value of a single key measure. You can use several measures to build a more [complex](#markup-indicator) and meaningful indicator.
+
+You may want to use indicators when a dashboard contains values you need to monitor on a regular basis to understand the general picture. This could be, for example, the number of incidents for the previous day, plan performance percentage, or year-on-year sales growth.
+
+Indicators are most commonly placed at the top or on the right side of a dashboard. Put no more than six indicators per screen so they remain in focus without confusing the user. Use indicators of different sizes to build a hierarchy of metrics according to their significance.
 
 ![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
 
@@ -67,6 +76,88 @@ To customize header display:
 {% cut "Chart settings window" %}
 
 ![indicator-chart-settings](../../_assets/datalens/release-notes/preview-disable.png)
+
+{% endcut %}
+
+### Creating a complex indicator {#markup-indicator}
+
+To create a complex indicator representing a number of measures, use the [markup functions](../function-ref/markup-functions.md). To do this:
+
+1. Create a [calculated field](../concepts/calculations/index.md) using the markup functions.
+1. Drag a field from **Measures** to the indicator's **Measure** section.
+
+{% cut "Text formatting" %}
+
+```markdown
+MARKUP(
+    BOLD(SIZE('Payment by card: ', '18px')),
+    BR(),
+    BR(),
+    SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Bank card')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px'),
+    BR(),
+    BR(),
+    SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Bank card')/COUNTD([OrderID])*100, 2)) +
+    ' % of total', '20px')
+)
+```
+
+![indicator-fonts](../../_assets/datalens/visualization-ref/indicator-chart/indicator-fonts.png)
+
+{% endcut %}
+
+{% cut "Indicator with multiple measures" %}
+
+```markdown
+MARKUP(
+    SIZE('Amount: ', '18px'),
+    BR(),
+    BR(),
+    COLOR(SIZE('- categories: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443'),
+    BR(),
+    COLOR(SIZE('- subcategories: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue'),
+    BR(),
+    COLOR(SIZE('- brands: ' + STR(COUNTD([ProductBrend])), '18px'), 'green'),
+    BR(),
+    COLOR(SIZE('- products: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
+)
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-some-measures.png)
+
+{% endcut %}
+
+{% cut "Indicator with a measure by category" %}
+
+```markdown
+MARKUP(
+    SIZE('Sales: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px'),
+    BR(),
+    COLOR(" ▲ ", "green")+": More than ₽50,000,000  | " + COLOR(" ▼ ", "red") + ": ₽50,000,000 or less",
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Home appliances'))+ ' ₽ | ', 'blue') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000,"green", "red")),
+        '20px'),
+    BR() + 'Home appliances',
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household chemicals'))+ ' ₽ | ', 'green') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000,"green", "red")),
+        '20px'),
+    BR() + 'Household chemicals',
+    BR(),
+    BR(),
+    SIZE(
+        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household products'))+ ' ₽ | ', 'violet') + 
+        COLOR(if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000,"green", "red")),
+        '20px'),
+    BR() + 'Household products'
+)
+```
+
+![indicator-categories](../../_assets/datalens/visualization-ref/indicator-chart/indicator-categories.png)
 
 {% endcut %}
 

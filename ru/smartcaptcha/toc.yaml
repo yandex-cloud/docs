@@ -35,6 +35,8 @@ items:
         href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Концепции
     items:
+      - name: Доступность капчи
+        href: concepts/accessibility.md
       - name: Валидация пользователя
         href: concepts/validation.md
       - name: Валидация домена

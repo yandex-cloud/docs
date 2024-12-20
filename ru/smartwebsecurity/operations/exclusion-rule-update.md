@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
       Более подробную информацию о параметрах ресурса `sws_waf_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-1. Примените изменения:
+  1. Примените изменения:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

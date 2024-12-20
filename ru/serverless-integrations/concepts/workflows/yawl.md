@@ -28,7 +28,7 @@ JSON-схему рабочего процесса см. в [репозитори
 --- | --- | --- | ---
 `title` | `string` | Нет | Название шага.
 `description` | `string` | Нет | Описание шага.
-`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Tracker](#Tracker)\|<br/>[Postbox](#Postbox)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
+`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Tracker](#Tracker)\|<br/>[Postbox](#Postbox)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)\|<br/>[Wait](#Wait)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
 
 ## Интеграционные шаги {#integration-steps}
 
@@ -496,6 +496,16 @@ HTTP-запрос на указанный эндпоинт.
 Имя поля | Тип | Обязательное | Поддерживается [шаблонизация](templating.md) | Описание
 --- | --- | --- | --- | ---
 `output` | `string` | Нет | Да | jq-выражение, фильтрующее выходные данные шага, которые добавляются в [состояние рабочего процесса](workflow.md#state).
+`next` | `string` | Нет | Нет | Идентификатор следующего шага.
+
+### Wait {#Wait}
+
+Ждет промежуток времени или до временной метки. Если время ожидания отрицательное или равно нулю, а также если временная метка уже прошла, шаг завершится мгновенно.
+
+Имя поля | Тип | Обязательное | Поддерживается шаблонизация | Описание
+--- | --- | --- | --- | ---
+`duration` | `Duration` | Нет | Нет | Длительность ожидания.
+`until` | `DateTime` | Нет | Нет | Временная метка в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2024-12-23T18:25:43.511Z`.
 `next` | `string` | Нет | Нет | Идентификатор следующего шага.
 
 ## Пример спецификации {#spec-example}

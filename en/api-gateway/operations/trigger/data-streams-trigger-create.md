@@ -7,6 +7,12 @@ description: Follow this guide to create a trigger for {{ yds-name }} that sends
 
 Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
+{% note info %}
+
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}

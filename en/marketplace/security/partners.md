@@ -13,7 +13,7 @@ In this section, you will learn:
 
 ## Which resources you can assign a role for {#resources}
 
- In the [{{ marketplace-short-name }} partner dashboard]({{ link-cloud-partners }}), you can [assign a role](#assign-role) to [Marketplace products](../concepts/product.md) and to a [partner profile](../quickstart.md#registration).
+ In the [{{ marketplace-short-name }} partner dashboard]({{ link-cloud-partners }}), you can [assign a role](#assign-role) to [Marketplace products](../concepts/product.md) and to a [partner profile](../concepts/publisher.md).
 
 ## Which roles exist in the service {#roles-list}
 

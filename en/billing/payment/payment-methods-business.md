@@ -4,10 +4,10 @@ Businesses and individual entrepreneurs can top up their personal accounts and p
 
 ## Funds transfer and payment against invoice {#transaction}
 
-To have funds transferred, you should first receive a [payment invoice](../concepts/bill.md). You can pay it at any bank or through an online banking system.<br/>Before making a transfer, make sure the following details in the payment order are entered correctly:
+To transfer funds, you should first get a [payment invoice](../concepts/bill.md). You can pay it at any bank or through an online banking system.<br/>Before making a transfer, make sure the following details in the payment order are entered correctly:
 
 * Payment amount.
-* Banking details of Yandex.Cloud LLC (Russia and Belarus), Cloud Services Kazakhstan LLP (Kazakhstan), Iron Hive doo Beograd (Serbia) for non-residents of Russia and Kazakhstan, or Direct Cursus Technology L.L.C. (Dubai) for non-resients of Russia and Kazakhstan.
+* Banking details of Yandex.Cloud LLC (Russia and Belarus), Cloud Services Kazakhstan LLP (Kazakhstan), Iron Hive doo Beograd (Serbia) (for non-residents of Russia and Kazakhstan), or Direct Cursus Technology L.L.C. (Dubai) (for non-resients of Russia and Kazakhstan).
 
   {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
 
@@ -28,7 +28,7 @@ The due date for payments is specified in Chapter 6 (Payment Procedure) of the [
 
 {% note info %}
 
-We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If the personal account balance drops to zero or exceeds the billing threshold, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
+We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If the personal account balance drops to zero, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 
 {% endnote %}
 

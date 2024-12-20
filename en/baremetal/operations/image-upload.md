@@ -23,13 +23,13 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+  1. In the [management console]({{ link-console-main }}), select the folder to create an image in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **Boot images**.
   1. Click **Upload image**.
   1. Enter the image name. The naming requirements are as follows:
 
-     * It must be 2 to 63 characters long.
+     * The name must be 2 to 63 characters long.
      * It may contain lowercase Latin letters, numbers, and hyphens.
      * It must start with a letter and cannot end with a hyphen.
 

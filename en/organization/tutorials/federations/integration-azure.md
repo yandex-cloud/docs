@@ -124,13 +124,13 @@ Add users to the IdP server:
 
         ```bash
         yc organization-manager federation saml create --name my-federation \
-            --organization-id <organization_ID> \
-            --auto-create-account-on-login \
-            --cookie-max-age 12h \
-            --issuer "https://sts.windows.net/<SAML_app_ID>/" \
-            --sso-url "https://login.microsoftonline.com/<SAML_app_ID>/saml2" \
-            --sso-binding POST \
-            --force-authn
+          --organization-id <organization_ID> \
+          --auto-create-account-on-login \
+          --cookie-max-age 12h \
+          --issuer "https://sts.windows.net/<SAML_app_ID>/" \
+          --sso-url "https://login.microsoftonline.com/<SAML_app_ID>/saml2" \
+          --sso-binding POST \
+          --force-authn
         ```
 
         Where:
@@ -139,10 +139,10 @@ Add users to the IdP server:
 
         * `--organization-id`: [Organization ID](../../operations/organization-get-id.md).
 
-        * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
+        * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -171,80 +171,89 @@ Add users to the IdP server:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Specify the federation parameters in the configuration file:
+  1. Specify the federation parameters in the configuration file.
 
-        * `name`: Federation name. It must be unique within the folder.
-        * `description`: Federation description.
-        * `organization_id`: [Organization ID](../../operations/organization-get-id.md).
-        * `labels`: Set of key/value label pairs assigned to the federation.
-        * `issuer`: ID of the IdP server to use for authentication.
+      Here is an example of the configuration file structure:
 
-            Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
+      ```hcl
+      resource "yandex_organizationmanager_saml_federation" federation {
+        name            = "my-federation"
+        organization_id = "<organization_ID>"
+        auto_create_account_on_login = "true"
+        issuer          = "https://sts.windows.net/<SAML_app_ID>/"
+        sso_url         = "https://login.microsoftonline.com/<SAML_app_ID>/saml2"
+        sso_binding     = "POST"
+        security_settings {
+          encrypted_assertions = "true"
+          force_authn          = "true"
+        }
+      }
+      ```
 
-            ```text
-            https://sts.windows.net/<SAML_app_ID>/
-            ```
+      Where:
 
-        * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
-        * `sso_url`: URL of the page the browser redirects the user to for authentication.
+      * `name`: Federation name. It must be unique within the folder.
+      * `description`: Federation description.
+      * `organization_id`: [Organization ID](../../operations/organization-get-id.md).
+      * `labels`: Set of key/value label pairs assigned to the federation.
+      * `issuer`: ID of the IdP server to use for authentication.
 
-            Use the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
+          Use the link from the **{{ microsoft-idp.entra-full }} ID** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
-            ```text
-            https://login.microsoftonline.com/<SAML_app_ID>/saml2
-            ```
+          ```text
+          https://sts.windows.net/<SAML_app_ID>/
+          ```
 
-            {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
+      * `sso_binding`: Specify the single sign-on binding type. Most identity providers support the `POST` binding type.
+      * `sso_url`: URL of the page the browser redirects the user to for authentication.
 
-        * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`.
-        * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
-        This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
+          Use the link from the **Login URL** field on the **SAML-based sign-on** page in {{ microsoft-idp.entra-id-short }}. The link should have the following format:
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
-        * `case_insensitive_name_ids`: Toggles username case sensitivity.
-           If this option is enabled, the IDs of federated user names will be case-insensitive.
-        * `security_settings`: Federation security settings:
-          * `encrypted_assertions`: Sign authentication requests.
-            If this option is enabled, all authentication requests from {{ yandex-cloud }} will contain a digital signature. You will need to download and install a {{ yandex-cloud }} certificate.
+          ```text
+          https://login.microsoftonline.com/<SAML_app_ID>/saml2
+          ```
 
-     Here is an example of the configuration file structure:
+          {% include [ssourl_protocol](../../../_includes/organization/ssourl_protocol.md) %}
 
-     ```hcl
-     resource "yandex_organizationmanager_saml_federation" federation {
-      name            = "my-federation"
-      organization_id = "<organization_ID>"
-      auto_create_account_on_login = "true"
-      issuer          = "https://sts.windows.net/<SAML_app_ID>/"
-      sso_url         = "https://login.microsoftonline.com/<SAML_app_ID>/saml2"
-      sso_binding     = "POST"
-      security_settings {
-         encrypted_assertions = "true"
-         }
-     }
-     ```
+      * `cookie_max_age`: Time in seconds before the browser asks the user to re-authenticate. The default value is `8 hours`.
+      * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
+      This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
+
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+
+      * `case_insensitive_name_ids`: Toggles username case sensitivity.
+          If this option is enabled, the IDs of federated user names will be case-insensitive.
+
+      * `security_settings`: Federation security settings: 
+
+          * {% include [encrypted-assertions-tf](../../../_includes/organization/encrypted-assertions-tf.md) %}
+
+          * {% include [force-authn-tf](../../../_includes/organization/force-authn-tf.md) %}
+
+      {% include [organizationmanager_saml_federation-tf](../../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
-     1. Run a check using this command:
+      1. In the command line, go to the folder where you created the configuration file.
+      1. Run a check using this command:
 
-        ```bash
-        terraform plan
-        ```
+          ```bash
+          terraform plan
+          ```
 
-     If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Create a federation.
 
-     1. If the configuration does not contain any errors, run this command:
+      1. If the configuration does not contain any errors, run this command:
 
-        ```bash
-        terraform apply
-        ```
+          ```bash
+          terraform apply
+          ```
 
-     1. Confirm you want to create a federation.
+      1. Confirm you want to create a federation.
 
-     This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
+      This will create a federation in the specified organization. You can check the new federation and its settings in the organization's [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) section.
 
 - API {#api}
 
@@ -271,10 +280,10 @@ Add users to the IdP server:
 
         * `organizationId`: [Organization ID](../../operations/organization-get-id.md).
 
-        * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
+        * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is disabled, users who are not added to the organization cannot log in to the management console, even if they authenticate with your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 

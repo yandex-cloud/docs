@@ -63,6 +63,26 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: captcha
+        items:
+          - name: Overview
+            href: cli-ref/captcha/index.md
+          - name: create
+            href: cli-ref/captcha/create.md
+          - name: delete
+            href: cli-ref/captcha/delete.md
+          - name: get
+            href: cli-ref/captcha/get.md
+          - name: list
+            href: cli-ref/captcha/list.md
+          - name: update
+            href: cli-ref/captcha/update.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: Authentication with the API

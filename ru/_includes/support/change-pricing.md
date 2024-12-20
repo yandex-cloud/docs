@@ -1,4 +1,6 @@
-Изменить тарифный план технической поддержки может только владелец организации. Чтобы изменить тарифный план технической поддержки {{ yandex-cloud }}:
+{% include [change-plan-roles](../../_includes/support/pricing-roles.md) %}
+
+Чтобы изменить тарифный план технической поддержки {{ yandex-cloud }}:
 
 1. На [главной странице]({{ link-console-support }}) {{ support-center-name }} на панели слева выберите раздел **{{ ui-key.support-center.common.plans }}**.
 1. В окне **{{ ui-key.support-center.tariff-plans.info.title_tariffs }}** будет указан платежный аккаунт, с которого будут списываться средства платных тарифов технической поддержки.
