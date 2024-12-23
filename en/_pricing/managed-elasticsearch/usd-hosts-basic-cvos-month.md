@@ -1,4 +1,4 @@
-| Resource | Price for 1 month | Price with CVoS for 1 year | Price with CVoS for 3 years |
+| Resource | Price for 1 month,<br>without VAT | Price with CVoS for 1 year,<br>without VAT | Price with CVoS for 3 years,<br>without VAT |
 |----------------|------------------------------------------------------------------:|---------------------------------------------------------------------------------:|---------------------------------------------------------------------------------:|
 | **Intel Cascade Lake** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|month|string }} | {{ sku|USD|v1.commitment.y1.mdb.elasticsearch.cpu.c100.v2|month|string }} (-29%) | {{ sku|USD|v1.commitment.y3.mdb.elasticsearch.cpu.c100.v2|month|string }} (-45%) |

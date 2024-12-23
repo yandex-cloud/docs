@@ -253,9 +253,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-regular: 1.27, 1.28, 1.29, 1.30
-  k8s-versions-stable: 1.27, 1.28, 1.29, 1.30
+  k8s-versions-rapid: 1.28, 1.29, 1.30
+  k8s-versions-regular: 1.28, 1.29, 1.30
+  k8s-versions-stable: 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -10328,7 +10328,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.14
+        tag: v0.2.15
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

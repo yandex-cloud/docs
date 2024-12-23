@@ -1,4 +1,4 @@
-| Resource | Markup for {{ mgp-name }} for 1 hour |
+| Resource | Markup for {{ mgp-name }} for 1 hour,<br>without VAT |
 |----------------|-------------------------------------:|
 | **Intel Cascade Lake** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.v2.cpu.c100.dedicated|string }} |

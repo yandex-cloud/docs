@@ -31,6 +31,8 @@ items:
         items:
           - name: Выполнение поисковых запросов
             href: operations/web-search.md
+          - name: Мобильная выдача
+            href: operations/v2-mobile.md
   - name: Концепции
     items:
       - name: Обзор
@@ -43,8 +45,6 @@ items:
                 href: concepts/get-request.md
               - name: POST-запросы
                 href: concepts/post-request.md
-              - name: HTML-ответ
-                href: concepts/html-response.md
               - name: Генеративный ответ
                 href: concepts/generative-response.md
           - name: Поиск по картинкам
@@ -59,6 +59,8 @@ items:
             href: concepts/web-search.md
       - name: XML-ответ
         href: concepts/response.md
+      - name: HTML-ответ
+        href: concepts/html-response.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

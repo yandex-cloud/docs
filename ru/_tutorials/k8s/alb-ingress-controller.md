@@ -11,7 +11,7 @@
 Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
 
 * [Ingress](../../managed-kubernetes/alb-ref/ingress.md) — правила распределения трафика между бэкендами и настройки балансировщика.
-* [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) — объединение бэкендов в группы.
+* [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md), [GrpcBackendGroup](../../managed-kubernetes/alb-ref/grpc-backend-group.md) — объединение бэкендов в группы.
 * [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) — управление несколькими Ingress-контроллерами в кластере {{ k8s }}.
 * [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
 
@@ -63,7 +63,7 @@
 * Параметры L7-балансировщика, которые задаются с помощью аннотаций.
 * Правила распределения входящего трафика между [сервисами {{ k8s }}](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
-    Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в ресурсе Ingress напрямую или в составе групп бэкендов [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md).
+    Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в ресурсе Ingress напрямую или в составе групп бэкендов [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md).
 
 Создайте тестовые приложения и ресурс Ingress:
 
@@ -689,7 +689,7 @@
 
 По умолчанию Ingress-контроллер {{ alb-name }} принимает от L7-балансировщика запросы для [проверок состояния](../../application-load-balancer/concepts/backend-group.md#health-checks) приложения на TCP-порт `10501` и проверяет работоспособность подов [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) на каждом узле кластера. Суть проверки состояния заключается в том, что когда `kube-proxy` работоспособен, то даже если приложение в конкретном поде не отвечает, {{ k8s }} перенаправит трафик в другой под с этим приложением или на другой узел.
 
-В параметрах ресурса [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) вы можете настроить собственные проверки состояния. Подробнее см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+В параметрах ресурса [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) вы можете настроить собственные проверки состояния. Подробнее см. в разделе [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## (Опционально) Настройте группу ресурсов Ingress {#configure-group}
 

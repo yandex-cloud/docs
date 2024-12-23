@@ -2,7 +2,7 @@
 
 - Prices per hour
 
-   | Resource | Price per hour | Price with CVoS for 6 months | Price with CVoS for 1 year |
+   | Resource | Price per hour,<br>without VAT | Price with CVoS for 6 months,<br>without VAT | Price with CVoS for 1 year,<br>without VAT |
    |----------------|--------------------------------------------------------:|-------------------------------------------------------------------------------------:|-------------------------------------------------------------------------------------:|
    | **Intel Cascade Lake** |
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|string }} | — | — |
@@ -18,7 +18,7 @@
 
 - Prices per month
 
-   | Resource | Price per hour | Price with CVoS for 6 months | Price with CVoS for 1 year |
+   | Resource | Price per hour,<br>without VAT | Price with CVoS for 6 months,<br>without VAT | Price with CVoS for 1 year,<br>without VAT |
    |----------------|--------------------------------------------------------------:|-------------------------------------------------------------------------------------:|-------------------------------------------------------------------------------------------------:|
    | **Intel Cascade Lake** |
    | 50% vCPU | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|month|string }} | — | — |
@@ -38,7 +38,7 @@
 
 {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
-| Service | Price of 1 GB per month |
+| Service | Price of 1 GB per month,<br>without VAT |
 |---------------------------------|----------------------------------------------------------------------------:|
 | Network HDD storage | {{ sku|USD|mdb.cluster.network-hdd.opensearch|month|string }} |
 | Non-replicated SSD storage | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.opensearch|month|string }} |

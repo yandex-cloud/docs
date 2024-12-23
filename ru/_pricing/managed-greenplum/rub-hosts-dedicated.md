@@ -1,4 +1,4 @@
-| Ресурс        | Наценка {{ mgp-name }} за 1 час                                  |
+| Ресурс        | Наценка {{ mgp-name }} за 1 час,<br>вкл. НДС                     |
 | ----- | ----: |
 | **Intel Cascade Lake**                                                           |
 | 100% vCPU     | {{ sku|RUB|mdb.cluster.greenplum.v2.cpu.c100.dedicated|string }} |

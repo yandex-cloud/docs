@@ -1,4 +1,4 @@
-| Resource | Price per hour | Price per month |
+| Resource | Price per hour,<br>without VAT | Price per month,<br>without VAT |
 |----------------|-----------------------------------------------------:|-----------------------------------------------------------:|
 | **Intel Broadwell** |
 | 5% vCPU | {{ sku|USD|mdb.cluster.mongodb.v1.cpu.c5|string }} | {{ sku|USD|mdb.cluster.mongodb.v1.cpu.c5|month|string }} |

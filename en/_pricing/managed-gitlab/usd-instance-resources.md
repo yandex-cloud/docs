@@ -1,4 +1,4 @@
-| Resource | Rate for 1 hour | Rate for 1 month |
+| Resource | Rate for 1 hour,<br>without VAT | Rate for 1 month,<br>without VAT |
 |--------|-------:|-------:|
 | **Basic configuration/<br/>approval rules disabled** |
 | 100% vCPU | {{ sku|USD|gitlab.instance.free.cpu|string }} | {{ sku|USD|gitlab.instance.free.cpu|month|string }} |

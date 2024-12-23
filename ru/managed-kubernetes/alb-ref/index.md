@@ -12,7 +12,7 @@ noIndex: true
 ## Ресурсы Ingress-контроллера {#ingress}
 
 * [Ingress](ingress.md) — правила распределения трафика между бэкендами.
-* [HttpBackendGroup](http-backend-group.md) — объединение бэкендов в группы.
+* [HttpBackendGroup](http-backend-group.md), [GrpcBackendGroup](grpc-backend-group.md) — объединение бэкендов в группы.
 * [IngressClass](ingress-class.md) — управление несколькими Ingress-контроллерами в кластере {{ k8s }}.
 * [Service](service-for-ingress.md) — описание [сервисов {{ k8s }}](../concepts/index.md#service), используемых в качестве бэкендов. Отличается от ресурса `Service` для Gateway API тем, что для сервисов Ingress-контроллера поддержаны аннотации.
 

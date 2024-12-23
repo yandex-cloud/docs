@@ -55,7 +55,11 @@ description: Узнайте, как работает Ingress-контролле�
 
     {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
-* На бэкендах развертываются сервисы, указанные в `Ingress` или `HttpBackendGroup`. Они настраиваются с помощью ресурсов [Service](../../k8s-ref/service-for-ingress.md).
+  * По ресурсам [GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md), позволяющим явно описывать группы бэкендов. Это [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `alb.yc.io`, предоставляемой Ingress-контроллером.
+
+    Указывать на `GrpcBackendGroup`, как и на сервисы, нужно в правилах `Ingress` (`spec.rules[*].http.paths[*].backend.resource`).  
+
+* На бэкендах развертываются сервисы, указанные в `Ingress` или `HttpBackendGroup`/`GrpcBackendGroup`. Они настраиваются с помощью ресурсов [Service](../../k8s-ref/service-for-ingress.md).
 
   {% include [k8s-ingress-controller-nodeport-note](../../../_includes/application-load-balancer/k8s-ingress-controller-nodeport-note.md) %}
 
@@ -66,7 +70,7 @@ description: Узнайте, как работает Ingress-контролле�
 | [Балансировщик](../../concepts/application-load-balancer.md) | Набор ресурсов [Ingress](../../k8s-ref/ingress.md) с одинаковыми значениями аннотации `ingress.alb.yc.io/group-name` |
 | [Виртуальные хосты](../../concepts/http-router.md#virtual-host) HTTP-роутера | `Ingress.spec.rules` |
 | [Маршруты](../../concepts/http-router.md#routes) виртуального хоста | `Ingress.spec.rules[*].http.paths` |
-| [Группа бэкендов](../../concepts/backend-group.md) | [HttpBackendGroup](../../k8s-ref/http-backend-group.md) или набор [сервисов](../../k8s-ref/service-for-ingress.md) |
+| [Группа бэкендов](../../concepts/backend-group.md) | [HttpBackendGroup](../../k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md) или набор [сервисов](../../k8s-ref/service-for-ingress.md) |
 | [Целевая группа](../../concepts/target-group.md) | [Группа узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера |
 
 ## Идентификаторы ресурсов балансировщика в кластере {{ k8s }} {#alb-ids}

@@ -1,11 +1,11 @@
 ---
 title: Как выполнять поиск в {{ search-api-full-name }} с помощью API v2
-description: Следуя данной инструкции, вы научитесь использовать интерфейс API v2 сервиса {{ search-api-name }} для отправки поисковых запросов и получения поисковой выдачи в формате XML.
+description: Следуя данной инструкции, вы научитесь использовать интерфейс API v2 сервиса {{ search-api-name }} для отправки поисковых запросов и получения поисковой выдачи в формате XML или HTML.
 ---
 
 # Выполнение поисковых запросов с помощью API v2
 
-[API v2](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет выполнять текстовый поиск в поисковой базе Яндекса и получать результат поиска в [формате XML](../concepts/response.md) в отложенном (асинхронном) режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
+[API v2](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет выполнять текстовый поиск в поисковой базе Яндекса и получать результат поиска в формате [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) в отложенном (асинхронном) режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -205,19 +205,37 @@ description: Следуя данной инструкции, вы научите
 
     {% endlist %}
 
-    В итоге в файл `result.json` будет сохранен результат выполнения поискового запроса, содержащий в поле `response.rawData` [XML-ответ](../concepts/response.md) в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
+    В итоге в файл `result.json` будет сохранен результат выполнения поискового запроса, содержащий в поле `response.rawData` [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) ответ в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
 
-1. Декодируйте результат из формата `Base64`:
+1. В зависимости от запрошенного формата ответа, декодируйте результат из формата `Base64`:
 
-    ```bash
-    echo "$(< result.json)" | \
-      jq -r .response.rawData | \
-      base64 --decode > result.xml
-    ```
+    {% list tabs group=search_api_request %}
 
-    В результате в файл `result.xml` будет сохранен XML-ответ по запросу.
+    - XML {#xml}
+
+      ```bash
+      echo "$(< result.json)" | \
+        jq -r .response.rawData | \
+        base64 --decode > result.xml
+      ```
+
+      В результате в файл `result.xml` будет сохранен XML-ответ по запросу.
+
+    - HTML {#html}
+
+      ```bash
+      echo "$(< result.json)" | \
+        jq -r .response.rawData | \
+        base64 --decode > result.html
+      ```
+
+      В результате в файл `result.html` будет сохранен HTML-ответ по запросу.
+
+    {% endlist %}
 
 #### См. также {#see-also}
 
 * [{#T}](../concepts/web-search.md)
 * [{#T}](../api-ref/authentication.md)
+* [{#T}](../concepts/response.md)
+* [{#T}](../concepts/html-response.md)
