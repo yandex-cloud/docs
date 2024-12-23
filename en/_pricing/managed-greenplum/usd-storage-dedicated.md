@@ -1,4 +1,4 @@
-| Service | {{ compute-name }} price | MDB price | Total price |
+| Service | {{ compute-name }} price,<br>without VAT | MDB price,<br>without VAT | Total price,<br>without VAT |
 |---------------------------------|---------------------------------------------------------:|---------------------------------------------------------------------------:|---------------------------------------------------------------------------:|
 | Network HDD storage | - | {{ sku|USD|mdb.cluster.network-hdd.greenplum|month|string }} | {{ sku|USD|mdb.cluster.network-hdd.greenplum|month|string }} |
 | Non-replicated SSD storage | - | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.greenplum|month|string }} | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.greenplum|month|string }} |

@@ -2,7 +2,7 @@
 
 - Prices per hour
 
-   | Resource | Price per hour | With CVoS for 6 months | With CVoS for 1 year |
+   | Resource | Price per hour,<br>without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
    |----------------|------------------------------------------------:|-----------------------------------------------------------------------------:|-----------------------------------------------------------------------------:|
    | **Intel Broadwell** |
    | 5% vCPU | {{ sku|USD|mdb.cluster.pg.v1.cpu.c5|string }} | − | − |
@@ -26,7 +26,7 @@
 
 - Prices per month
 
-   | Resource | Price per month | With CVoS for 6 months | With CVoS for 1 year |
+   | Resource | Price per month,<br>without VAT | With CVoS for 6 months,<br>without VAT | With CVoS for 1 year,<br>without VAT |
    |----------------|------------------------------------------------------:|-----------------------------------------------------------------------------------:|-----------------------------------------------------------------------------------:|
    | **Intel Broadwell** |
    | 5% vCPU | {{ sku|USD|mdb.cluster.pg.v1.cpu.c5|month|string }} | − | − |

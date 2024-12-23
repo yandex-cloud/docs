@@ -1,4 +1,4 @@
-| Resource | Markup for {{ mkf-name }} for 1 hour |
+| Resource | Markup for {{ mkf-name }} for 1 hour,<br>without VAT |
 |----------------|-------------------------------------:|
 | **Intel Cascade Lake** |
 | 100% vCPU | $0.003877 |

@@ -1,4 +1,4 @@
-| Ресурс        | Цена за 1 час                                              | Цена за 1 месяц                                                  |
+| Ресурс        | Цена за 1 час,<br>вкл. НДС                                 | Цена за 1 месяц,<br>вкл. НДС                                     |
 | ----- | ----: | ----: |
 | **Intel Cascade Lake**                                                                                                                        |
 | 100% vCPU     | {{ sku|RUB|mdb.cluster.elasticsearch.v2.cpu.c100|string }} | {{ sku|RUB|mdb.cluster.elasticsearch.v2.cpu.c100|month|string }} |

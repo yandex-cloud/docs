@@ -1,4 +1,4 @@
-| Service                         | Price per 1 GB per month                                               |
+| Service                         | Price per 1 GB per month,<br>without VAT                               |
 |---------------------------------|-----------------------------------------------------------------------:|
 | Non-replicated SSD storage^*^   | {{ sku|USD|mdb.cluster.network-ssd-nonreplicated.redis|month|string }} |
 | Network SSD storage             | {{ sku|USD|mdb.cluster.network-nvme.redis|month|string }}              |
