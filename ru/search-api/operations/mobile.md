@@ -3,61 +3,43 @@ title: Как получить результаты мобильной выда�
 description: Следуя данной инструкции, вы узнаете, как получить результаты мобильной выдачи с помощью API v1 сервиса {{ search-api-name }}.
 ---
 
-# Получение результатов мобильной выдачи
+# Получение мобильной выдачи с помощью API v1
 
-Мобильная выдача отличается от результатов по умолчанию формулой ранжирования и наличием ссылок на сайты, оптимизированные для мобильных устройств. Получение мобильной выдачи возможно только через интерфейс [API v1](../concepts/index.md#api-v1) сервиса {{ search-api-name }}.
+Мобильная выдача отличается от результатов по умолчанию формулой ранжирования и наличием ссылок на сайты, оптимизированные для мобильных устройств.
 
-Чтобы получить результаты мобильной выдачи, добавьте заголовок `user-agent` со спецификацией устройства и браузера. Например, для поискового запроса `query=youtube`:
+Чтобы получить результаты мобильной выдачи:
 
-{% list tabs group=programming_language %}
+1. Добавьте к запросу [заголовок](https://en.wikipedia.org/wiki/User-Agent_header) `user-agent`, содержащий описание устройства и браузера. Например:
 
-- cURL {#curl}
+    {% list tabs group=programming_language %}
 
-  ```bash
-  curl \
-    --header 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1' \
-    'https://yandex.ru/search/xml?query=youtube&user={USER}&key={KEY}&lr=2&l10n=en&page=0&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D1&filter=moderate&noredirect=1&nocache=da'
-  ```
+    - cURL {#curl}
 
-- Python {#python}
+      ```bash
+      curl \
+        --header 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1' \
+        '<GET-запрос>'
+      ```
 
-  ```python
-  import subprocess
-  
-  MOBILE_HEADER = 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
-  URL = f'https://yandex.ru/search/xml?query=youtube&user={USER}&key={KEY}&lr=2&l10n=en&page=0&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D1&filter=moderate&noredirect=1&nocache=da'
-  with open('mob.xml', 'w') as f:
-    subprocess.run(['curl', '-H', MOBILE_HEADER, URL], stdout=f)
-  ```
+    - Python {#python}
 
-{% endlist %}
+      ```python
+      import subprocess
 
-Результаты мобильной выдачи: 
+      MOBILE_HEADER = 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1'
+      URL = f'<GET-запрос>'
+      with open('mob.xml', 'w') as f:
+         subprocess.run(['curl', '-H', MOBILE_HEADER, URL], stdout=f)
+      ```
 
-```text
-https://m.youtube.com/
-https://apps.apple.com/ru/app/youtube/id544007664
-https://youtubego.com/?ref=website-popularity
-https://ru.m.wikipedia.org/wiki/YouTube
-https://en.m.wikipedia.org/wiki/YouTube
-https://www.pinterest.com/YouTube/
-https://ria.ru/organization_YouTube_LLC/
-https://about.youtube/
-https://youtube.fandom.com/wiki/YouTube
-https://iz.ru/tag/youtube
-```
+    {% endlist %}
 
-Результаты по умолчанию при запросе без заголовка `user-agent`: 
+    {% note info %}
 
-```text
-https://www.youtube.com/
-https://youtubego.com/?ref=website-popularity
-https://en.wikipedia.org/wiki/YouTube
-https://ru.wikipedia.org/wiki/YouTube
-https://www.pinterest.com/YouTube/
-https://iz.ru/tag/youtube
-https://about.youtube/
-https://ria.ru/organization_YouTube_LLC/
-https://www.RBC.ru/tags/?tag=YouTube
-https://lenta.ru/news/2023/08/24/block_to_come/
-```
+    В приведенном примере используется [GET-запрос](../concepts/get-request.md). При использовании [POST-запроса](../concepts/post-request.md) добавьте к нему аналогичный заголовок.
+
+    {% endnote %}
+
+1. Остальные параметры запроса задайте в соответствии со [спецификацией](../concepts/get-request.md#get-request-format) и [выполните](./searching.md#form-request) запрос.
+
+Результаты мобильной выдачи будут отличаться от результатов выдачи по умолчанию: различаться будут позиции сайтов в поисковой выдаче, общее количество найденных результатов и некоторые другие параметры.

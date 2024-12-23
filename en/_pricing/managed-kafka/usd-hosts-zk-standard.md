@@ -1,4 +1,4 @@
-| Resource | Price per hour | Price for 1 month |
+| Resource | Price per hour,<br>without VAT | Price for 1 month,<br>without VAT |
 |----------------|----------------------------------------------:|----------------------------------------------:|
 | **Intel Cascade Lake** |
 | 50% vCPU | {{ sku|USD|mdb.zk.kafka.v2.cpu.c50|string }} | {{ sku|USD|mdb.zk.kafka.v2.cpu.c50|string }} |

@@ -1,4 +1,4 @@
-| Resource | Price per hour | Price for 1 month |
+| Resource | Price per hour,<br>without VAT | Price for 1 month,<br>without VAT |
 |------------------|-----------------------------------------------------------:|-----------------------------------------------------------------:|
 | **Intel Cascade Lake** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }} | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|month|string }} |

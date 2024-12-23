@@ -1,4 +1,4 @@
-| Услуга                                                 | Цена за ГБ в месяц                                                     |
+| Услуга                                                 | Цена за ГБ в месяц,<br>вкл. НДС                                        |
 | --- | --: |
 | Хранилище на нереплицируемых SSD-дисках^*^             | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.redis|month|string }} |
 | Хранилище на сетевых SSD-дисках                        | {{ sku|RUB|mdb.cluster.network-nvme.redis|month|string }}              |

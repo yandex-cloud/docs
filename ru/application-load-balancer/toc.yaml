@@ -173,6 +173,8 @@ items:
                 href: k8s-ref/ingress.md
               - name: HttpBackendGroup
                 href: k8s-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: k8s-ref/grpc-backend-group.md
               - name: IngressClass
                 href: k8s-ref/ingress-class.md
               - name: Service для Ingress

@@ -50,6 +50,8 @@ items:
             href: operations/activate-promocode.md
           - name: Пополнить счет
             href: operations/pay-the-bill.md
+          - name: Принять коммерческие предложения
+            href: operations/get-offers.md
       - name: Анализ использования сервисов {{ yandex-cloud }}
         items:
           - name: Посмотреть историю платежей

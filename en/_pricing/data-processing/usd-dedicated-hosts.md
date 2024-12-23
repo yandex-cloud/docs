@@ -1,4 +1,4 @@
-| Computing resources | {{ dataproc-name }} surcharge per 1 hour              | {{ dataproc-name }} surcharge per month               |
+| Computing resources | {{ dataproc-name }} surcharge per 1 hour, without VAT | {{ dataproc-name }} surcharge per month, without VAT |
 |---------------------|------------------------------------------------------:|------------------------------------------------------:|
 | **Intel Cascade Lake**                                                                                                            |
 | 100% vCPU           | {{ sku|USD|mdb.dataproc.v2.cpu.c100|string }}         | {{ sku|USD|mdb.dataproc.v2.cpu.c100|month|string }}         |

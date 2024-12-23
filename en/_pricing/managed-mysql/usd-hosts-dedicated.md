@@ -1,4 +1,4 @@
-| Resource | {{ mmy-name }} markup for 1 hour |
+| Resource | {{ mmy-name }} markup for 1 hour,<br>without VAT |
 | ------------- | -----------------------------------------------------------: |
 | **Intel Cascade Lake** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.mysql.v2.cpu.c100.dedicated|string }} |
