@@ -97,7 +97,7 @@
 
             {% note warning %}
 
-            Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql#additional-settings) указана политика очистки `DROP` или `TRUNCATE`. Иначе данные на приемнике будут дублироваться при копировании.
+            Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) указана политика очистки `DROP` или `TRUNCATE`. Иначе данные на приемнике будут дублироваться при копировании.
 
             {% endnote %}
 

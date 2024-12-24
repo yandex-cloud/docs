@@ -26,6 +26,14 @@
 {% include [paid-resources](../_tutorials_includes/alb-with-ddos-protection/paid-resources.md) %}
 
 
+## Подготовьте сервисный аккаунт {#prepare-sa}
+
+{% include [alb-warning.md](../../_includes/instance-groups/alb-warning.md) %}
+
+{% include [sa.md](../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`.
+
 ## Создайте облачную сеть {#create-network}
 
 Все ресурсы, созданные в практическом руководстве, будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
@@ -99,7 +107,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -181,7 +189,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
      * Введите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `ddos-group`.
-     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`.
 
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
@@ -234,7 +242,7 @@
 
      ```yaml
      name: ddos-group
-     service_account_id: <идентификатор_сервисного_аккаунта>
+     service_account_id: <идентификатор_сервисного_аккаунта> // сервисный аккаунт должен иметь роль editor
      description: "DDoS alb scenario"
      instance_template:
          platform_id: standard-v3

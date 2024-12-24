@@ -12,6 +12,12 @@ To transfer metadata between {{ dataproc-name }} clusters:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+{% note warning %}
+
+{% include [connect-metastore-to-s3-with-policy](../../_tutorials_includes/metastore-to-s3-with-policy.md) %}
+
+{% endnote %}
+
 {% note info %}
 
 {{ metastore-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
@@ -154,12 +160,6 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-{% note warning %}
-
-Do not assign a [bucket policy](../../../storage/security/policy.md) for the bucket; otherwise, the {{ metastore-name }} cluster will not be able to write any data to the bucket.
-
-{% endnote %}
-
 ## Create a test table {#create-table}
 
 In the `dataproc-source` cluster, create a test table named `countries`:
@@ -237,9 +237,9 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
-    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`
-    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`
-    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 
@@ -285,38 +285,24 @@ The metadata from the `dataproc-source` cluster was successfully imported into t
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
+1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
 1. Delete other resources depending on how they were created:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md)
-        1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
-        1. [Route table](../../../vpc/operations/delete-route-table.md)
-        1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
-        1. [Security group](../../../vpc/operations/security-group-delete.md)
-        1. [Subnet](../../../vpc/operations/subnet-delete.md)
-        1. [Network](../../../vpc/operations/network-delete.md)
-        1. [Service account](../../../iam/operations/sa/delete.md)
+        1. [{{ dataproc-name }} clusters](../../../data-proc/operations/cluster-delete.md).
+        1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+        1. [Route table](../../../vpc/operations/delete-route-table.md).
+        1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Security group](../../../vpc/operations/security-group-delete.md).
+        1. [Subnet](../../../vpc/operations/subnet-delete.md).
+        1. [Network](../../../vpc/operations/network-delete.md).
+        1. [Service account](../../../iam/operations/sa/delete.md).
 
     - {{ TF }} {#tf}
 
-        1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `metastore-import.tf` configuration file.
-        1. Check that the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `metastore-import.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

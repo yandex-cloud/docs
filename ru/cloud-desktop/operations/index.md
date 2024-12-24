@@ -24,7 +24,6 @@ description: На странице представлен список поша�
 ## Образы {#desktops}
 
 * [{#T}](images/create-from-desktop.md)
-* [{#T}](images/create-from-compute.md)
 * [{#T}](images/delete.md)
 
 ## Дополнительные возможности {#add-features}

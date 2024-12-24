@@ -4,13 +4,13 @@
 
 * [How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows?](#get-ssl)
 
-* [What do I do if I get the revocation check error when using PowerShell to obtain a new SSL certificate?](#get-ssl-error)
+* [What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
 
 * [How do I install an SSL certificate to connect Power BI to {{ mpg-name }} using psql?](#power-bi)
 
 * [What do I do if I get the _SSL is required_ error?](#ssl-req)
 
-* [Can I connect to cluster hosts via SSH or get superuser permissions on hosts?](#connect-ssh)
+* [Can I connect to cluster hosts over SSH?](#connect-ssh)
 
 * [What is the maximum allowed number of concurrent connections to a single host in {{ mpg-name }}?](#host-conn)
 

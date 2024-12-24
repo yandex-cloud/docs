@@ -1,11 +1,13 @@
-The `ai.admin` role allows you to use Yandex Translate, Yandex Vision, Yandex SpeechKit, and Yandex Foundation Models.
+The `ai.admin` role enables using Yandex Translate, Yandex Vision, Yandex SpeechKit, and Yandex Foundation Models.
 
 Users with this role can:
 * Use Yandex Translate to [translate texts](../../translate/quickstart.md).
 * Use Yandex Vision OCR to [analyze images](../../vision/concepts/ocr/index.md).
 * Use Yandex SpeechKit for speech [recognition](../../speechkit/stt/index.md) and [synthesis](../../speechkit/tts/index.md).
-* Use Foundation Models [language models](../../foundation-models/concepts/yandexgpt/index.md) for text generation, YandexART models for image generation, as well as AI assistants within Yandex Foundation Models.
-* View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+* Use YandexGPT API [language models](../../foundation-models/concepts/yandexgpt/index.md) for text generation, YandexART models for image generation, and [AI assistants](../../foundation-models/concepts/assistant/index.md) within Yandex Foundation Models.
+* View info on datasets, as well as create, modify, and delete them.
+* Fine-tune text generation models in Yandex Foundation Models, as well as create, modify, and delete such models.
+* View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View information on Translate, Vision, SpeechKit, and Foundation Models quotas.
 
-This role also includes the `ai.editor` and `ai.assistants.admin` permissions.
+This role also includes the `ai.editor`, `ai.assistants.admin`, `ai.datasets.admin`, and `ai.models.admin` permissions.

@@ -26,19 +26,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
       * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 
          You can use the same service account for both operations.
 
-      * `thumbor-sa` service account for Thumbor.
+      * The `thumbor-sa` service account for Thumbor.
 
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -66,12 +66,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
       * Static access key for bucket creation.
       * Bucket.
 
-   1. In `k8s-for-thumbor.tf`, specify:
+   1. Specify the following in the `k8s-for-thumbor.tf` file:
 
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
@@ -147,14 +147,14 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
       1. Refresh the page.
 
-      In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+      In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
 
    - {{ TF }} {#tf}
 
       You can only upload objects to a bucket after you create it. Therefore, a separate configuration file is used for uploading images.
 
-      1. Download the `images-for-thumbor.tf` configuration file to the working directory containing the [k8s-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
-      1. Specify relative or absolute paths to the images in the `images-for-thumbor.tf` file. For example, if your images are stored in the same directory as the configuration files, specify:
+      1. Download the [images-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) configuration file to the working directory containing the `k8s-for-thumbor.tf` file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
+      1. In the `images-for-thumbor.tf` file, specify relative or absolute paths to the images. For example, if your images are stored in the same directory as the configuration files, specify:
 
          * `poster_rodents_bunnysize.jpg`
          * `poster_bunny_bunnysize.jpg`
@@ -307,49 +307,23 @@ You will see the prepared images of different sizes. Each image carries a [Creat
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
-{% list tabs group=instructions %}
+1. [Delete the objects](../../storage/operations/objects/delete.md) from the buckets.
+1. Delete the other resources depending on how they were created:
 
-- Manually {#manual}
+    {% list tabs group=instructions %}
 
-   Delete:
+    - Manually {#manual}
 
-   1. [CDN resource](../../cdn/operations/resources/delete-resource.md).
-   1. [CDN origin group](../../cdn/operations/origin-groups/delete-group.md).
-   1. [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. [Public static IP](../../vpc/operations/address-delete.md) if you reserved one for the cluster.
-   1. [Service accounts](../../iam/operations/sa/delete.md).
-   1. [Buckets](../../storage/operations/buckets/delete.md) and [objects in them](../../storage/operations/objects/delete.md).
+        1. [CDN resource](../../cdn/operations/resources/delete-resource.md).
+        1. [CDN origin group](../../cdn/operations/origin-groups/delete-group.md).
+        1. [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
+        1. [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        1. [Public static IP](../../vpc/operations/address-delete.md) if you reserved one for the cluster.
+        1. [Service accounts](../../iam/operations/sa/delete.md).
+        1. [Buckets](../../storage/operations/buckets/delete.md).
 
-- {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `images-for-thumbor.tf` configuration file. To delete a bucket, first delete the objects in it.
-   1. Check if the changes are correct using this command:
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   1. Delete the `k8s-for-thumbor.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `k8s-for-thumbor.tf` configuration file will be deleted.
-
-{% endlist %}
+    {% endlist %}

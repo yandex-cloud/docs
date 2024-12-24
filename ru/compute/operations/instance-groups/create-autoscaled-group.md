@@ -12,6 +12,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
+
 Чтобы создать автоматически масштабируемую группу ВМ:
 
 {% list tabs group=instructions %}
@@ -56,6 +58,8 @@ description: Следуя данной инструкции, вы сможете
        Где:
        * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
        * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+
+          Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -133,7 +137,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```yaml
      name: first-autoscaled-group
-     service_account_id: ajed6ilf11qg********
+     service_account_id: <идентификатор_сервисного_аккаунта>
      description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
      instance_template:
        platform_id: standard-v3
@@ -195,9 +199,9 @@ description: Следуя данной инструкции, вы сможете
        description = "Сервисный аккаунт для управления группой ВМ."
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
        folder_id = "<идентификатор_каталога>"
-       role      = "editor"
+       role      = "compute.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
@@ -267,12 +271,12 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `yandex_iam_service_account` — описание [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Все операции с группой ВМ выполняются от имени сервисного аккаунта.
-     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
      * `yandex_compute_instance_group` — описание группы ВМ.
        * Общая информация о группе ВМ:
          * `name` — имя группы ВМ.
          * `folder_id` — идентификатор каталога.
-         * `service_account_id` — идентификатор сервисного аккаунта.
+         * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
          * `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
        * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
          * `platform_id` — [платформа](../../concepts/vm-platforms.md).

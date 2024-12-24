@@ -21,119 +21,119 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
 - Manually {#manual}
 
-   1. [Create a {{ mmg-name }} target cluster](../../../managed-mongodb/operations/cluster-create.md) with the same configuration as the source cluster and with the following settings:
+    1. [Create a {{ mmg-name }} target cluster](../../../managed-mongodb/operations/cluster-create.md) with the same configuration as the source cluster and with the following settings:
 
-      * Cluster version: `6.0`
-      * Database name: `db1`
-      * Username: `user1`
+        * Cluster version: `6.0`.
+        * Database name: `db1`.
+        * Username: `user1`.
 
-      To connect to the cluster from the internet, enable public access to its hosts.
-
-
-   1. If using security groups in your cluster, make sure they are [configured correctly](../../../managed-mongodb/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
+        To connect to the cluster from the internet, enable public access to its hosts.
 
 
-   1. [Assign](../../../managed-mongodb/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
+    1. If using security groups in your cluster, make sure they are [configured correctly](../../../managed-mongodb/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
 
-   1. [Enable cluster sharding](../../../managed-mongodb/operations/shards.md#enable) and [add](../../../managed-mongodb/operations/shards.md#add-shard) the required number of shards.
+
+    1. [Grant](../../../managed-mongodb/operations/cluster-users.md#updateuser) the `readWrite` role for the `db1` database to `user1`.
+
+    1. [Enable cluster sharding](../../../managed-mongodb/operations/shards.md#enable) and [add](../../../managed-mongodb/operations/shards.md#add-shard) the required number of shards.
 
 - Using {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. In the same working directory, place a `.tf` file with the following contents:
+    1. In the same working directory, place a `.tf` file with the following contents:
 
-      ```hcl
-      resource "yandex_mdb_mongodb_cluster" "old" { }
-      ```
+        ```hcl
+        resource "yandex_mdb_mongodb_cluster" "old" { }
+        ```
 
-   1. Write the {{ MG }} version 4.4 cluster ID to an environment variable:
+    1. Write the {{ MG }} version 4.4 cluster ID to an environment variable:
 
-      ```bash
-      export MONGODB_CLUSTER_ID=<cluster_ID>
-      ```
+        ```bash
+        export MONGODB_CLUSTER_ID=<cluster_ID>
+        ```
 
-      You can request the ID with a [list of clusters in the folder](../../../managed-mongodb/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../../managed-mongodb/operations/cluster-list.md#list-clusters).
 
-   1. Import the {{ MG }} version 4.4 cluster settings into the {{ TF }} configuration:
+    1. Import the {{ MG }} version 4.4 cluster settings into the {{ TF }} configuration:
 
-      ```bash
-      terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
-      ```
+        ```bash
+        terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
+        ```
 
-   1. Get the imported configuration:
+    1. Get the imported configuration:
 
-      ```bash
-      terraform show
-      ```
+        ```bash
+        terraform show
+        ```
 
-   1. Copy it from the terminal and paste it into the `.tf` file.
-   1. Place the file in the new `imported-cluster` directory.
-   1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Copy it from the terminal and paste it into the `.tf` file.
+    1. Place the file in the new `imported-cluster` directory.
+    1. Modify the copied configuration so that you can create a new cluster from it:
 
-      * Specify a new cluster name in the `resource` string and the `name` parameter.
-      * Specify version `6.0` in the `version` parameter.
-      * Delete the `created_at`, `health`, `id`, `sharded`, and `status` parameters.
-      * In the `host` sections, delete the `health` and `name` parameters.
-      * If the `maintenance_window` section specifies the `type = "ANYTIME"` parameter value, delete the `hour` parameter.
-      * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_mongodb_user` resource.
-      * Delete all `database` sections (if any). You can add databases using the separate `yandex_mdb_mongodb_database` resource.
-      * (Optional) Make further modifications if you are looking for more customization.
+        * Specify the new cluster name in the `resource` string and the `name` parameter.
+        * Set the `version` parameter to `6.0`.
+        * Delete `created_at`, `health`, `id`, `sharded`, and `status`.
+        * In the `host` sections, delete `health` and `name`.
+        * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
+        * Delete all `user` sections (if any). You can add database users using the separate `yandex_mdb_mongodb_user` resource.
+        * Delete all `database` sections (if any). You can add databases using the separate `yandex_mdb_mongodb_database` resource.
+        * Optionally, make further changes if you need to customize the configuration.
 
-   1. Add the resource to create the database to the file:
+    1. Add the resource to create the database to the file:
 
-      ```hcl
-      resource "yandex_mdb_mongodb_database" "db1" {
-        cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-        name       = "db1"
-      }
-      ```
-
-      Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
-
-   1. Add the resource to create `user1` to the file:
-
-      ```hcl
-      resource "yandex_mdb_mongodb_user" "user1" {
-        cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
-        name       = "user1"
-        password   = "<user_password>"
-        permission {
-          database_name = "db1"
-          roles         = ["readWrite"]
+        ```hcl
+        resource "yandex_mdb_mongodb_database" "db1" {
+          cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
+          name       = "db1"
         }
-        depends_on = [
-          yandex_mdb_mongodb_database.db1
-        ]
-      }
-      ```
+        ```
 
-      Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
+        Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
 
-   1. In the `imported-cluster` directory, [get the authentication data](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. Add the resource to the file to create a user named `user1`:
 
-   1. In the same directory, [configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
+        ```hcl
+        resource "yandex_mdb_mongodb_user" "user1" {
+          cluster_id = yandex_mdb_mongodb_cluster.<cluster_name>.id
+          name       = "user1"
+          password   = "<user_password>"
+          permission {
+            database_name = "db1"
+            roles         = ["readWrite"]
+          }
+          depends_on = [
+            yandex_mdb_mongodb_database.db1
+          ]
+        }
+        ```
 
-   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
+        Where `<cluster_name>` is the new cluster name specified in the `yandex_mdb_mongodb_cluster` resource.
 
-   1. Check that the {{ TF }} configuration files are correct:
+    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-      ```bash
-      terraform validate
-      ```
+    1. In the same directory, [configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf).
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-   1. Create the required infrastructure:
+    1. Check that the {{ TF }} configuration files are correct:
 
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        ```bash
+        terraform validate
+        ```
 
-      {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   {% include [Terraform timeouts](../../../_includes/mdb/mmg/terraform/timeouts.md) %}
+    1. Create the required infrastructure:
+
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% include [Terraform timeouts](../../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 {% endlist %}
 
@@ -147,12 +147,12 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
 1. Estimate your database workload. If it exceeds 10,000 writes per second, plan several transfers.
 
-   1. Identify the high-workload collections.
-   1. Distribute your collections between several transfers.
+    1. Identify the high-workload collections.
+    1. Distribute your collections between several transfers.
 
 1. Set the oplog storage size with a 15-20% margin over the cluster disk size. This will allow {{ data-transfer-name }} to read changes from the source cluster throughout the data copying process.
 
-   For more information about oplog, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/tutorial/change-oplog-size).
+    For more information about oplog, see the [{{ MG }} documentation](https://www.mongodb.com/docs/manual/tutorial/change-oplog-size).
 
 ## Prepare the target cluster {#prepare-target}
 
@@ -162,58 +162,58 @@ If the source database has sharded collections, [prepare the target database](..
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each scheduled transfer and specify the endpoint parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ MG }}_source_cluster>` from the drop-down list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}**: `<{{ MG }}_source_cluster_name>` from the drop-down list.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}**: `<source_cluster_database_name>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}**: `<source_cluster_database_name>`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `<username>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `<username>`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: `<password>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: `<password>`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: For each endpoint, specify the list of included collections that you allocated for each transfer.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}**: For each endpoint, specify the list of included collections that you allocated for each transfer.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Specify [Time Series collections]({{ mg.docs.comd }}/core/timeseries-collections/), if your database has any. {{ data-transfer-name }} does not support the transfer of such collections.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}**: Specify [time series collections]({{ mg.docs.comd }}/core/timeseries-collections/) if your database has any. {{ data-transfer-name }} does not support migration of such collections.
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) for each planned transfer and specify endpoint parameters:
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MongoDB`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}**: `<name_of_{{ MG }}_target_cluster>` from the drop-down list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}**: `<{{ MG }}_target_cluster_name>` from the drop-down list.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}**: `db1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}**: `db1`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `user1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}**: `user1`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: `<password>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}**: `<password>`.
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: `db1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}**: `db1`.
 
-   If sharded collections have been created in the target database, select either the `Do not purge` or `TRUNCATE` purge policy.
+    If sharded collections have been created in the target database, select either the `Do not clean` or `TRUNCATE` cleanup policy.
 
-   {% include [MongoDB endpoint DROP clean policy warning](../../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
+    {% include [MongoDB endpoint DROP clean policy warning](../../../_includes/data-transfer/note-mongodb-clean-policy.md) %}
 
 1. [Create transfers](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
 
-   To copy large collections (over 1 GB) faster, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings:
+    To copy large collections (over 1 GB) faster, enable [parallel copy](../../../data-transfer/concepts/sharded.md) in the transfer settings:
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}**: `5` or more
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}**: `8` or more
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}**: `5` or more
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}**: `8` or more
 
-   The collection will split into the specified number of parts that will be copied concurrently.
+    The collection will split into the specified number of parts that will be copied concurrently.
 
-   For parallel copy to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
+    For parallel copy to work, the [data type](https://www.mongodb.com/docs/manual/reference/bson-types) in the `_id` field should be the same for all documents in a collection. If a transfer discovers a type mismatch, the collection will not be partitioned but transferred in a single thread instead. If needed, remove documents with mismatched data types from the collection before starting a transfer.
 
-   {% note info %}
+    {% note info %}
 
-   If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-enabled, the transfer will not be able to partition a collection because the `_id` field's type requirement will not be met for some of the documents in the collection.
+    If a document with a different data type is added to a collection after a transfer starts, the transfer will move it at the replication stage after the parallel copy operation is completed. However, when re-activated, the transfer will not be able to partition a collection because the `_id` field type requirement will not be met for some of the documents in the collection.
 
-   {% endnote %}
+    {% endnote %}
 
 ## Activate the transfers {#activate-transfer}
 
@@ -227,14 +227,14 @@ If the source database has sharded collections, [prepare the target database](..
 
 ## Test the transfer {#verify-transfer}
 
-1. [Connect to the `db1` database](../../../managed-mongodb/operations/connect/index.md) in the {{ mmg-name }} target cluster.
+1. [Connect](../../../managed-mongodb/operations/connect/index.md) to `db1` in the {{ mmg-name }} target cluster.
 
-1. Check whether the data collections have appeared in the `db1` database:
+1. Make sure the data collections have appeared in the `db1` database:
 
-   ```javascript
-   show collections
-   db.<collection_name>.find()
-   ```
+    ```javascript
+    show collections
+    db.<collection_name>.find()
+    ```
 
 ## Delete the resources you created {#clear-out}
 
@@ -243,32 +243,16 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 * [Transfer](../../../data-transfer/operations/transfer.md#delete)
 * [Endpoints](../../../data-transfer/operations/endpoint/index.md#delete)
 
-Delete the {{ mmg-name }} version `6.0` cluster depending on how it was created:
+Delete the {{ mmg-name }} cluster version `6.0` depending on how it was created:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-   Delete the [{{ mmg-name }} cluster](../../../managed-mongodb/operations/cluster-delete.md).
+    Delete the [{{ mmg-name }} cluster](../../../managed-mongodb/operations/cluster-delete.md).
 
 - Using {{ TF }} {#tf}
 
-   If you created your cluster using {{ TF }}:
-
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the configuration file with the `.tf` extension.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the deleted configuration file will be deleted.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

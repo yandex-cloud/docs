@@ -95,7 +95,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `mongo-express-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click the ![image](../../_assets/options.svg) icon next to the default security group created for `mongo-express-network`.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. Configure the security group:

@@ -1,0 +1,1 @@
+If you want to assign an [access policy](../../storage/concepts/policy.md) for a bucket and connect to it from a {{ metastore-full-name }} cluster, you will need some additional infrastructure setup. For more information, see [this guide](../../metadata-hub/operations/metastore/s3-policy-connect.md).

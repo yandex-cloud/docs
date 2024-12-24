@@ -15,7 +15,7 @@ To restart a host:
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. In the required host row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+  1. In the host's row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
   1. Confirm the host restart.
 
 - CLI {#cli}
@@ -39,7 +39,7 @@ To restart a host:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.restartHosts](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.RestartHosts](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -68,7 +68,7 @@ To restart a host:
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/RestartHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/restartHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.RestartHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/restartHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -83,7 +83,7 @@ To restart a host:
                       <list_of_host_names>
                     ]
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 

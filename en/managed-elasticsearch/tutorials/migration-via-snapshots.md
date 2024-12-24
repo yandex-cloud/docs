@@ -42,7 +42,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
         {% endnote %}
 
-    1. [Create a {{ mes-name }} target cluster](../operations/cluster-create.md#create-cluster) in the appropriate configuration with the following settings:
+    1. [Create a {{ mes-name }} target cluster](../operations/cluster-create.md#create-cluster) in desired configuration with the following settings:
 
         * Public access to hosts.
         * The {{ ES }} version must be the same or higher than the version in the source cluster.
@@ -284,22 +284,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-    To delete the infrastructure created with {{ TF }}:
-
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `mes-migration.tf` configuration file.
-    1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `mes-migration.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

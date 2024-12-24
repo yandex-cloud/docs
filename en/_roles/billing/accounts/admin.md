@@ -4,6 +4,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
+* View [client offers](../../../billing/concepts/glossary.md#client-offer).
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant billing accounts and modify such permissions (except for assigning and revoking the `billing.accounts.owner` role).
 * Activate, deactivate, or modify the [technical support](../../../support/overview.md) service plan, as well as change the billing account from which the payment is debited.
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).

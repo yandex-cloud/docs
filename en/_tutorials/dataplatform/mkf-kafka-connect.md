@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Properly configured {{ mkf-name }} cluster.
 
     1. In the file, specify the password for the user named `user` you are going to use to access the {{ mkf-name }} cluster, as well as the username and the public part of the SSH key for the virtual machine. If the virtual machine will be running Ubuntu 20.04 from the recommended [image list](../../compute/operations/images-with-pre-installed-software/get-list.md), the username you put here will be ignored. In which case use `ubuntu` for username to establish the [connection](#prepare-vm).
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
        ```bash
        terraform validate
@@ -228,22 +228,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-    To delete the infrastructure [created with {{ TF }}](#before-you-begin):
-
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `kafka-connect.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

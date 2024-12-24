@@ -10,6 +10,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 If a {{ dataproc-name }} cluster contains tables that should be available in another {{ dataproc-name }} cluster, [transfer the tables](../../../data-proc/tutorials/metastore-import.md) to the appropriate cluster using {{ metastore-name }}.
 
+{% note warning %}
+
+{% include [connect-metastore-to-s3-with-policy](../../_tutorials_includes/metastore-to-s3-with-policy.md) %}
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 Prepare the infrastructure:
@@ -67,7 +73,7 @@ Prepare the infrastructure:
         * `output-bucket`: Name of the output data bucket.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -82,12 +88,6 @@ Prepare the infrastructure:
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
-
-{% note warning %}
-
-Do not assign a [bucket policy](../../../storage/security/policy.md) for the bucket; otherwise, the {{ metastore-name }} cluster will not be able to write any data to the bucket.
-
-{% endnote %}
 
 ## Connect {{ dataproc-name }} to {{ metastore-name }} {#connect}
 
@@ -186,7 +186,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
             {% endcut %}
 
         1. In the script, specify the name of the output bucket the CSV file with the `countries` table will be saved to.
-        1. [Upload](../../../storage/operations/objects/upload.md#simple) the `obtain-table.py` file to the source data bucket's `scripts` folder.
+        1. [Upload](../../../storage/operations/objects/upload.md#simple) the `obtain-table.py` file to the source data bucket’s `scripts` folder.
 
     1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/obtain-table.py`.
     1. Wait for the job to complete and make sure the output bucket contains the `csv` folder with a table in CSV format.
@@ -198,6 +198,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
+1. [Delete the objects](../../../storage/operations/objects/delete.md) from the buckets.
 1. Delete other resources depending on how they were created:
 
     {% list tabs group=instructions %}
@@ -214,21 +215,6 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     - {{ TF }} {#tf}
 
-        1. [Delete the objects](../../../storage/operations/objects/delete.md) from the buckets.
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `dataproc-to-dataproc.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `dataproc-to-dataproc.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

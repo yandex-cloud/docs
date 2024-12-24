@@ -8,6 +8,10 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете использовать [теги](../../concepts/instance-groups/policies/allocation-policy.md#tags) и [переменные](../../concepts/instance-groups/variables-in-the-template.md), чтобы создать группу ВМ с заранее заданными [внутренними](../../../vpc/concepts/address.md#internal-addresses) и [публичными](../../../vpc/concepts/address.md#public-addresses) IP-адресами.
 
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
+
 Чтобы создать группу ВМ с фиксированными IP-адресами:
 
 {% list tabs group=instructions %}
@@ -113,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
       Пример YAML-спецификации:
 
       ```yml
-      service_account_id: ajegtlf2q28a********
+      service_account_id: <идентификатор_сервисного_аккаунта>
       name: my-vm-group-with-fixed-ips
       description: Example of using tags for managing ips. Created with CLI
       scale_policy:
@@ -200,7 +204,7 @@ description: Следуя данной инструкции, вы сможете
         folder_id           = "<идентификатор_каталога>"
         service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
         deletion_protection = false
-        depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
+        depends_on          = [yandex_resourcemanager_folder_iam_member.compute_editor]
         instance_template {
           name = "sample-vm-{instance.tag}"
           platform_id = "standard-v3"
@@ -269,9 +273,9 @@ description: Следуя данной инструкции, вы сможете
         description = "Сервисный аккаунт для управления группой ВМ."
       }
 
-      resource "yandex_resourcemanager_folder_iam_member" "editor" {
+      resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
         folder_id  = "<идентификатор_каталога>"
-        role       = "editor"
+        role       = "compute.editor"
         member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
         depends_on = [
           yandex_iam_service_account.ig-sa,
@@ -335,6 +339,9 @@ description: Следуя данной инструкции, вы сможете
           * `name` — имя группы ВМ.
           * `folder_id` — идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
           * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+
+            Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
+
           * `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
         * `instance_template` — [шаблон ВМ](../../concepts/instance-groups/instance-template.md):
           * `name` — имя виртуальной машины, содержащее шаблон [тега](../../concepts/instance-groups/policies/allocation-policy.md#tags), например `sample-vm-{instance.tag}`. После подстановки значений тегов в этот шаблон имена ВМ будут выглядеть как `sample-vm-ru1-a1`, `sample-vm-ru1-b2` и т.д.
@@ -380,7 +387,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+      * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
       * `yandex_vpc_network` — описание [облачной сети](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet` — описание [подсетей](../../../vpc/concepts/network.md#subnet), к которым будут подключены ВМ группы.
       * `yandex_vpc_address` — описание зарезервированного статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses).

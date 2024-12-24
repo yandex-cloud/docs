@@ -140,7 +140,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -158,7 +158,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Test the transfer {#verify-transfer}
 
-Check that the `people` index in the {{ mos-name }} cluster contains the data you sent:
+Check that the {{ mos-name }} cluster's `people` index contains the data that was sent:
 
 {% list tabs group=programming_language %}
 

@@ -43,7 +43,7 @@ Prepare the infrastructure:
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) and rules required to connect to the {{ mos-name }} cluster from the internet.
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * {{ mos-name }} target cluster.
         * Target endpoint.
         * Transfer.
@@ -54,7 +54,7 @@ Prepare the infrastructure:
         * `mos_password`: User password of the {{ OS }} database owner.
         * `profile_name`: Your YC CLI profile name.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -134,7 +134,7 @@ Prepare the infrastructure:
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
@@ -160,7 +160,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` for creating a target endpoint and transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -180,7 +180,7 @@ Prepare the infrastructure:
 
 1. [Connect to the {{ ydb-name }} database](../../../ydb/operations/connection.md).
 
-1. Run this request:
+1. Run the following query:
 
     ```sql
     SELECT * FROM people;
@@ -221,21 +221,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - Using {{ TF }} {#tf}
 
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `opensearch-to-ydb.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `opensearch-to-ydb.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

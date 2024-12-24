@@ -256,7 +256,7 @@ To monitor the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-e
 
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Go to **Metric Explorer**.
-1. Run this request:
+1. Run the following query:
 
     ```text
     "ch_s3_disk_parts_size"{service="managed-clickhouse", resource_type="cluster", node="by_host", resource_id="<cluster_ID>", subcluster_name="clickhouse_subcluster"}
@@ -274,22 +274,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `clickhouse-hybrid-storage.tf` file.
-    1. Run this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `clickhouse-hybrid-storage.tf` file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

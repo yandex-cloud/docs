@@ -12,6 +12,8 @@
 
 * [When running a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this?](#sharedPrefixes-property)
 
+* [When using dynamic partition overwrites, I get an error related to `PathOutputCommitProtocol`. How do I fix it?](#dynamic-partition-overwrite)
+
 * [Why does the `NAT should be enabled on the subnet` error occur and how do I fix it?](#nat)
 
 * [Why does the `Using fileUris is forbidden on lightweight cluster` error occur and how do I fix it?](#file-uri)
@@ -20,7 +22,7 @@
 
 * [Why is my cluster's status `Unknown`?](#unknown)
 
-* [What is the minimum computing power required for a subcluster to run with a master host?](#master-computing-power)
+* [What is the minimum computing power required for a subcluster with a master host?](#master-computing-power)
 
 * [How do I upgrade the image version in {{ dataproc-name }}?](#upgrade)
 

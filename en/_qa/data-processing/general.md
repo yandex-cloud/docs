@@ -4,7 +4,7 @@ You can move [light-weight clusters](../../data-proc/operations/migration-to-an-
 
 #### What should I do if data on storage subcluster hosts is distributed unevenly? {#data-unevenly-distributed}
 
-[Connect](../../data-proc/operations/connect.md) to the cluster master host and run the command to rebalance the data:
+[Connect](../../data-proc/operations/connect.md) to the cluster master host and run this command to rebalance the data:
 
 ```bash
 sudo -u hdfs hdfs balancer
@@ -37,6 +37,23 @@ previously initiated loading for a different type with name "com/amazonaws/auth/
 ```
 
 To fix this, [add](../../data-proc/operations/cluster-update.md) the `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value to the {{ dataproc-name }} cluster.
+
+#### When using dynamic partition overwrites, I get an error related to `PathOutputCommitProtocol`. How do I fix it? {#dynamic-partition-overwrite}
+
+When data processing uses dynamic partition overwrites, you may get this error:
+
+```text
+py4j.protocol.Py4JJavaError: An error occurred while calling o264.parquet.
+: java.io.IOException: PathOutputCommitProtocol does not support dynamicPartitionOverwrite
+```
+
+To fix it, [add](../../data-proc/operations/cluster-update.md) the following properties to the {{ dataproc-name }} cluster:
+
+* `spark:spark.sql.sources.partitionOverwriteMode : dynamic`
+* `spark:spark.sql.parquet.output.committer.class : org.apache.parquet.hadoop.ParquetOutputCommitter`
+* `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`
+
+You can also add properties when [creating a job](../../data-proc/operations/jobs.md).
 
 #### Why does the `NAT should be enabled on the subnet` error occur and how do I fix it? {#nat}
 
@@ -84,23 +101,23 @@ If your cluster's status changed from `Alive` to `Unknown`:
       --until 'YYYY-MM-DDThh:mm:ssZ'
    ```
 
-   In the `--since` and `--until` parameters, specify the period boundaries. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. Use the UTC time zone.
+   In the `--since` and `--until` parameters, specify the period boundaries. Time format: `YYYY-MM-DDThh:mm:ssZ`, e.g., `2020-08-10T12:00:00Z`. Use the UTC time zone.
 
    For more information, see [{#T}](../../data-proc/operations/logging.md).
 
-#### What is the minimum computing power required for a subcluster to run with a master host? {#master-computing-power}
+#### What is the minimum computing power required for a subcluster with a master host? {#master-computing-power}
 
 It depends on the driver deploy mode:
 
 {% include [subcluster-computing-nodes](../../_includes/data-processing/subcluster-computing-nodes.md) %}
 
-In {{ yandex-cloud }}, the computing power depends on the host class. For their ratio, see [Host classes](../../data-proc/concepts/instance-types.md).
+In {{ yandex-cloud }}, computing power depends on the host class. For their ratio, see [Host classes](../../data-proc/concepts/instance-types.md).
 
 #### How do I upgrade the image version in {{ dataproc-name }}? {#upgrade}
 
-The service has no built-in mechanism for updating [image versions](../../data-proc/concepts/environment.md). To update your image version, create a new cluster.
+The service has no built-in mechanism for [image version](../../data-proc/concepts/environment.md) upgrades. To upgrade your image version, create a new cluster.
 
-To make sure the version you use is always up-to-date, [automate](../../data-proc/tutorials/airflow-automation.md) the creation and removal of temporary {{ dataproc-name }} clusters using {{ maf-full-name }}. To run jobs automatically, other than {{ maf-name }} you can also [use](../../data-proc/tutorials/datasphere-integration.md) {{ ml-platform-full-name }}.
+To make sure the version you use is always up-to-date, [automate](../../data-proc/tutorials/airflow-automation.md) the creation and removal of temporary {{ dataproc-name }} clusters using {{ maf-full-name }}. To run jobs automatically, other than {{ maf-name }}, you can also [use](../../data-proc/tutorials/datasphere-integration.md) {{ ml-platform-full-name }}.
 
 #### How do I run jobs? {#jobs}
 

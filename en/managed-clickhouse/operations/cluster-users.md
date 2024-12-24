@@ -37,7 +37,7 @@ In a cluster with user management via SQL enabled:
 
 * User management via standard {{ yandex-cloud }} interfaces (management console, CLI, API, {{ TF }}) is unavailable.
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
-* Users are managed under the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
+* User management is performed using the `admin` account. You set its password when you select the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
 For more information about managing users via SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
@@ -63,7 +63,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -71,7 +71,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.list](../api-ref/User/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [User.list](../api-ref/User/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -80,7 +80,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/list.md#responses) to make sure the request was successful.
 
@@ -92,7 +92,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/List](../api-ref/grpc/User/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [UserService.List](../api-ref/grpc/User/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -108,7 +108,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
             yandex.cloud.mdb.clickhouse.v1.UserService.List
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.clickhouse.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -183,7 +183,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      ...
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
@@ -193,7 +193,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add a `user` section to the {{ mch-name }} cluster description:
+    1. Add a `user` block to the {{ mch-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -226,7 +226,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.create](../api-ref/User/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [User.create](../api-ref/User/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -282,7 +282,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
               --data '@body.json'
             ```
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/create.md#responses) to make sure the request was successful.
 
@@ -296,7 +296,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Create](../api-ref/grpc/User/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Create](../api-ref/grpc/User/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -346,7 +346,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
             * `quotas`: Array with [quota settings](../concepts/settings-list.md#quota-settings). One array element contains settings for a single quota.
 
-            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -413,7 +413,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -456,7 +456,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.update](../api-ref/User/update.md) method and make a request, e.g., using {{ api-examples.rest.tool }}:
+    1. Use the [User.update](../api-ref/User/update.md) method and send the following request, e.g., using {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -476,13 +476,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here we specified just a single parameter, `password`.
+            Here only one parameter is specified: `password`.
 
         * `password`: New user password.
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
@@ -494,7 +494,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and make a request, e.g., using {{ api-examples.grpc.tool }}:
+    1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -523,13 +523,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here we specified just a single parameter, `password`.
+            Here only one parameter is specified: `password`.
 
         * `password`: New user password.
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -601,7 +601,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -623,13 +623,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here we specified just a single parameter, `configSpec.adminPassword`.
+            Here only one parameter is specified: `configSpec.adminPassword`.
 
         * `configSpec.adminPassword`: New user password.
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -641,7 +641,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -671,13 +671,13 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here we specified just a single parameter, `config_spec.admin_password`.
+            Here only one parameter is specified: `config_spec.admin_password`.
 
         * `config_spec.admin_password`: New user password.
 
             The password must be from 8 to 128 characters long.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -719,7 +719,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --permissions=<DB_list>
      ```
 
-     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command grants the user access rights to the databases listed.
 
@@ -739,7 +739,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
        ...
      ```
 
-     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command overwrites all existing user quota settings with the new ones you provided to the command.
      Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that have not changed.
@@ -756,7 +756,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --settings=<list_of_{{ CH }}>_settings
      ```
 
-     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and doesn't reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
@@ -818,7 +818,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
             password = "<password>"
             ...
             settings {
-              <DBMS_settings_for_specific_user>
+              <DBMS_settings_for_individual_user>
             }
           }
         }
@@ -842,7 +842,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.update](../api-ref/User/update.md) method and make a request, e.g., using {{ api-examples.rest.tool }}:
+    1. Use the [User.update](../api-ref/User/update.md) method and send the following request, e.g., using {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -890,7 +890,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
@@ -902,7 +902,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and make a request, e.g., using {{ api-examples.grpc.tool }}:
+    1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -959,7 +959,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             {% endnote %}
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1009,7 +1009,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -1037,7 +1037,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.delete](../api-ref/User/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [User.delete](../api-ref/User/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -1046,7 +1046,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users/<username>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/delete.md#responses) to make sure the request was successful.
 
@@ -1058,7 +1058,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Delete](../api-ref/grpc/User/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [UserService.Delete](../api-ref/grpc/User/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1075,7 +1075,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
             yandex.cloud.mdb.clickhouse.v1.UserService.Delete
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

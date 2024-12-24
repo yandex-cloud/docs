@@ -38,9 +38,9 @@ To add your own geobase to a {{ CH }} cluster:
 {{ mch-short-name }} only works with publicly readable geobases that are uploaded to {{ objstorage-full-name }}:
 
 
-1. To bind your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 1. [Upload](../../storage/operations/objects/upload.md) the geobase archive to {{ objstorage-full-name }}.
-1. [Connect a service account to a cluster](s3-access.md#connect-service-account). Using your [service account](../../iam/concepts/users/service-accounts.md) you will set up access to the geobase archive.
+1. [Connect the service account to the cluster](s3-access.md#connect-service-account). You will use this [service account](../../iam/concepts/users/service-accounts.md) to configure access to the geobase archive.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket's ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the geobase archive.
@@ -75,7 +75,7 @@ To add your own geobase to a {{ CH }} cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
-             --set geobase_uri="<link_to_archive_with_geobase_in_Object_Storage>"
+             --set geobase_uri="<link_to_geobase_archive_in_Object_Storage>"
         ```
 
         You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -86,14 +86,14 @@ To add your own geobase to a {{ CH }} cluster:
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-    1. Add the `geobase_uri` parameter with a link to the archive with the geobase to connect in {{ objstorage-full-name }} to the {{ mch-name }} cluster settings:
+    1. In the {{ mch-name }} cluster settings, add the `geobase_uri` parameter with the link to the archive containing the geobase to connect in {{ objstorage-full-name }}:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
           ...
           clickhouse {
             config {
-              geobase_uri = "<link_to_archive_with_geobase_in_Object_Storage>"
+              geobase_uri = "<link_to_geobase_archive_in_Object_Storage>"
               ...
             }
           ...
@@ -114,15 +114,94 @@ To add your own geobase to a {{ CH }} cluster:
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To add a geobase to a {{ CH }} cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the link to the geobase archive in {{ objstorage-name }} in the `geobaseUri` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    {% note warning %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    This API method resets any cluster settings that are not provided explicitly in the request to their defaults. To avoid this, make sure to provide the names of the fields you want to change in the `updateMask` parameter.
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-    {% endnote %}
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.clickhouse.config.geobaseUri",
+                      "configSpec": {
+                        "clickhouse": {
+                          "config": {
+                            "geobaseUri": "<link>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here only one parameter is specified: `configSpec.clickhouse.config.geobaseUri`.
+
+        * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.clickhouse.config.geobase_uri"
+                    ]
+                  },
+                  "config_spec": {
+                    "clickhouse": {
+                      "config": {
+                        "geobase_uri": "<link>"
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here only one parameter is specified: `config_spec.clickhouse.config.geobase_uri`.
+
+        * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

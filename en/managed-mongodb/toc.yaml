@@ -71,7 +71,7 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Migrating a {{ mmg-name }} cluster from 4.4 to 6.0
+      - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
         href: tutorials/mongodb-versions.md
       - name: Migrating collections from a third-party {{ MG }} cluster
         href: tutorials/mongodb-migration-with-data-transfer.md

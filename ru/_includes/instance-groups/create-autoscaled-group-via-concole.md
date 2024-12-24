@@ -9,7 +9,7 @@
 
      {% include [name-fqdn](../compute/name-fqdn.md) %}
 
-   * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+   * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../compute/security/index.md#compute-editor). По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
 
      {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 

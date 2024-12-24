@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: Updating the {{ RD }} version
+          - name: '{{ RD }} version upgrade'
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -55,7 +55,7 @@ items:
         href: tutorials/index.md
       - name: Storing PHP sessions in {{ mrd-name }}
         href: tutorials/redis-as-php-sessions-storage.md
-      - name: Migrating databases to {{ mrd-name }}
+      - name: Migrating a database to {{ mrd-name }}
         href: tutorials/data-migration.md
   - name: Concepts
     items:

@@ -12,6 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 1. Если у вас нет файлового хранилища, [создайте его](../filesystem/create.md).
+1. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 1. Создайте группу ВМ:
 
     {% list tabs group=instructions %}
@@ -82,7 +83,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```yml
           name: my-vm-group-with-fs
-          service_account_id: ajegtlf2q28a********
+          service_account_id: <идентификатор_сервисного_аккаунта>
           description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
           instance_template:
             platform_id: standard-v3
@@ -170,9 +171,9 @@ description: Следуя данной инструкции, вы сможете
             description = "Сервисный аккаунт для управления группой ВМ."
           }
 
-          resource "yandex_resourcemanager_folder_iam_member" "editor" {
+          resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
             folder_id  = "<идентификатор_каталога>"
-            role       = "editor"
+            role       = "compute.editor"
             member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
             depends_on = [
               yandex_iam_service_account.ig-sa,
@@ -184,7 +185,7 @@ description: Следуя данной инструкции, вы сможете
             folder_id           = "<идентификатор_каталога>"
             service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
             deletion_protection = "<защита_от_удаления>"
-            depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
+            depends_on          = [yandex_resourcemanager_folder_iam_member.compute_editor]
             instance_template {
               platform_id = "standard-v3"
               resources {
@@ -250,7 +251,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-          * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+          * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
           * `yandex_compute_instance_group` — описание группы ВМ:
             * Общая информация о группе ВМ:
               * `name` — имя группы ВМ.

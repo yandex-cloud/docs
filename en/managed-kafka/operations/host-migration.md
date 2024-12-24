@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ KF }} cluster hosts to a different availability zone
-description: Follow this guide to move {{ KF }} cluster hosts to a different availability zone.
+description: Follow this guide to move hosts in a {{ KF }} cluster to a different availability zone.
 ---
 
 # Migrating {{ KF }} cluster hosts to a different availability zone
@@ -249,7 +249,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
          * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
          * The target availability zone has more than one subnet.
 
-         If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
+         If the cluster hosts are placed in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
          ```hcl
          resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -282,7 +282,7 @@ To move {{ KF }} hosts to a different availability zone in a cluster:
          * You are migrating {{ KF }} hosts to an availability zone where {{ ZK }} hosts were not previously placed.
          * The target availability zone has more than one subnet.
 
-         If the cluster hosts are placed in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-c` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
+         If the cluster hosts are placed in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones and you change the availability zones to `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`, specify a subnet only if there are multiple subnets in the `{{ region-id }}-d` zone. Otherwise, you do not need to specify a subnet.
 
       * List of settings to update in the `updateMask` parameter.
 

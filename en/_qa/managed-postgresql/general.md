@@ -89,13 +89,8 @@ For more information, see [{#T}](../../managed-postgresql/concepts/maintenance.m
 
 #### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, 14, 15, and 16, as well as {{ PG }} 11, 12, 13, 14, and 15 for 1C.
+{{ mpg-short-name }} supports {{ PG }} 13, 14, 15, 16, and 17, as well as {{ PG }} 13, 14, 15, and 16 for 1C.
 
-#### Which {{ PG }} version and settings are best when creating a database for 1C? {#1c-version}
-
-We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1C version 8.3.18: compatibility with earlier 1C versions is not guaranteed.
-
-Please contact 1C tech support for settings optimized for cluster operation.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
@@ -179,9 +174,9 @@ Cluster backups are stored and available in all three data centers.
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
-No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. Users with the  [role`mdb_admin`](../../managed-postgresql/concepts/roles#mdb-admin) have the highest privileges for working with clusters.
+Yes, you can. To do this, [assign](../../managed-postgresql/operations/grant.md#grant-role) the `mdb_superuser` [role](../../managed-postgresql/concepts/roles.md#mdb-superuser) to the user.
 
-#### Can I copy data from a {{ mpg-name }} table to a local file? Сan I populate a table with data from a local file? {#copy-write-data}
+#### Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file? {#copy-write-data}
 
 Yes, you can both copy data from a table to a local file and populate a table with data from a local file. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
 

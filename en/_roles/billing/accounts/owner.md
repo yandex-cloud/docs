@@ -4,6 +4,7 @@ When creating your billing account, you get the `billing.accounts.owner` role au
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
+* View [client offers](../../../billing/concepts/glossary.md#client-offer).
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant billing accounts and modify such permissions.
 * Activate, deactivate, or modify the [technical support](../../../support/overview.md) service plan, as well as change the billing account from which the payment is debited.
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).

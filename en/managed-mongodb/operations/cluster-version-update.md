@@ -5,7 +5,7 @@ You can only upgrade your {{ mmg-name }} cluster to a version that immediately f
 
 {% note info %}
 
-Starting February 3, 2025, clusters running {{ MG }} 5.0 will be [forcibly upgraded](../qa/general.md#dbms-deprecated) to version 6.0 as version 5.0 [will be discontinued](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
+Starting February 3, 2025, clusters running {{ MG }} 5.0 will be [automatically upgraded](../qa/general.md#dbms-deprecated) to version 6.0 as 5.0 [will be discontinued](https://www.mongodb.com/support-policy). We recommend that you upgrade to the latest {{ MG }} versions in advance.
 
 {% endnote %}
 
@@ -21,7 +21,7 @@ After upgrading, you cannot roll a cluster back to the previous version.
 Make sure this does not affect your applications:
 
 1. See the {{ MG }} [changelog](https://docs.mongodb.com/manual/release-notes/) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
+1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}

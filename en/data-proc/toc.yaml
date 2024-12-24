@@ -57,8 +57,6 @@ items:
             href: operations/jobs-hive.md
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
-      - name: '{{ metastore-name }} clusters'
-        href: operations/metastore/cluster-create.md
       - name: Logs and monitoring
         items:
           - name: Working with logs
@@ -155,8 +153,6 @@ items:
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'
         href: concepts/interfaces.md
-      - name: '{{ metastore-full-name }} clusters'
-        href: concepts/metastore.md
       - name: Jobs in {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Spark jobs

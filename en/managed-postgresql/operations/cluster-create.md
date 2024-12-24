@@ -97,7 +97,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able to connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg).
@@ -340,82 +340,77 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
 
-     ```bash
-     curl \
-       --request POST \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
-       --data '{
-                 "folderId": "<folder_ID>",
-                 "name": "<cluster_name>",
-                 "environment": "<environment>",
-                 "networkId": "<network_ID>",
-                 "securityGroupIds": [
-                   "<security_group_1_ID>",
-                   "<security_group_2_ID>",
-                   ...
-                   "<security_group_N_ID>"
-                 ],
-                 "deletionProtection": <deletion_protection:_true_or_false>,
-                 "configSpec": {
-                   "version": "<{{ PG }}_version>",
-                   "resources": {
-                     "resourcePresetId": "<host_class>",
-                     "diskSize": "<storage_size_in_bytes>",
-                     "diskTypeId": "<disk_type>"
-                   },
-                   "access": {
-                     "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
-                     "webSql": <access_to_{{ websql-name }}:_true_or_false>,
-                     "serverless": <access_to_Cloud_Functions:_true_or_false>,
-                     "dataTransfer": <access_to_Data_Transfer:_true_or_false>,
-                     "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <activate_statistics_collection:_true_or_false>,
-                     "sessionsSamplingInterval": "<session_sampling_interval>",
-                     "statementsSamplingInterval": "<statement_sampling_interval>"
-                   }
-                 },
-                 "databaseSpecs": [
-                   {
-                     "name": "<DB_name>",
-                     "owner": "<database_owner_name>"
-                   },
-                   { <similar_configuration_for_DB_2> },
-                   { ... },
-                   { <similar_configuration_for_DB_N> }
-                 ],
-                 "userSpecs": [
-                   {
-                     "name": "<username>",
-                     "password": "<user_password>",
-                     "permissions": [
-                       {
-                         "databaseName": "<DB_name>"
-                       }
-                     ],
-                     "login": <allow_user_to_connect_to_DB:_true_or_false>
-                   },
-                   { <similar_configuration_for_user_2> },
-                   { ... },
-                   { <similar_configuration_for_user_N> }
-                 ],
-                 "hostSpecs": [
-                   {
-                     "zoneId": "<availability_zone>",
-                     "subnetId": "<subnet_ID>",
-                     "assignPublicIp": <public_host_address:_true_or_false>
-                   },
-                   { <similar_configuration_for_host_2> },
-                   { ... },
-                   { <similar_configuration_for_host_N> }
-                 ]
-               }'
+     ```json
+     {
+       "folderId": "<folder_ID>",
+       "name": "<cluster_name>",
+       "environment": "<environment>",
+       "networkId": "<network_ID>",
+       "securityGroupIds": [
+         "<security_group_1_ID>",
+         "<security_group_2_ID>",
+         ...
+         "<security_group_N_ID>"
+       ],
+       "deletionProtection": <deletion_protection:_true_or_false>,
+       "configSpec": {
+         "version": "<{{ PG }}_version>",
+         "resources": {
+           "resourcePresetId": "<host_class>",
+           "diskSize": "<storage_size_in_bytes>",
+           "diskTypeId": "<disk_type>"
+         },
+         "access": {
+           "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
+           "webSql": <access_to_{{ websql-name }}:_true_or_false>,
+           "serverless": <access_to_Cloud_Functions:_true_or_false>,
+           "dataTransfer": <access_to_Data_Transfer:_true_or_false>,
+           "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
+         },
+         "performanceDiagnostics": {
+           "enabled": <activate_statistics_collection:_true_or_false>,
+           "sessionsSamplingInterval": "<session_sampling_interval>",
+           "statementsSamplingInterval": "<statement_sampling_interval>"
+         }
+       },
+       "databaseSpecs": [
+         {
+           "name": "<DB_name>",
+           "owner": "<database_owner_name>"
+         },
+         { <similar_configuration_for_DB_2> },
+         { ... },
+         { <similar_configuration_for_DB_N> }
+       ],
+       "userSpecs": [
+         {
+           "name": "<username>",
+           "password": "<user_password>",
+           "permissions": [
+             {
+               "databaseName": "<DB_name>"
+             }
+           ],
+           "login": <allow_user_to_connect_to_DB:_true_or_false>
+         },
+         { <similar_configuration_for_user_2> },
+         { ... },
+         { <similar_configuration_for_user_N> }
+       ],
+       "hostSpecs": [
+         {
+           "zoneId": "<availability_zone>",
+           "subnetId": "<subnet_ID>",
+           "assignPublicIp": <public_host_address:_true_or_false>
+         },
+         { <similar_configuration_for_host_2> },
+         { ... },
+         { <similar_configuration_for_host_N> }
+       ]
+     }
      ```
 
 
@@ -476,6 +471,17 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
+  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
+       --data "@body.json"
+     ```
+
   1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
@@ -485,85 +491,77 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "folder_id": "<folder_ID>",
-             "name": "<cluster_name>",
-             "environment": "<environment>",
-             "network_id": "<network_ID>",
-             "security_group_ids": [
-               "<security_group_1_ID>",
-               "<security_group_2_ID>",
-               ...
-               "<security_group_N_ID>"
-             ],
-             "deletion_protection": <deletion_protection:_true_or_false>,
-             "config_spec": {
-               "version": "<{{ PG }}_version>",
-               "resources": {
-                 "resource_preset_id": "<host_class>",
-                 "disk_size": "<storage_size_in_bytes>",
-                 "disk_type_id": "<disk_type>"
-               },
-               "access": {
-                 "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
-                 "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
-                 "serverless": <access_to_Cloud_Functions:_true_or_false>,
-                 "data_transfer": <access_to_Data_Transfer:_true_or_false>,
-                 "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <activate_statistics_collection:_true_or_false>,
-                 "sessions_sampling_interval": "<session_sampling_interval>",
-                 "statements_sampling_interval": "<statement_sampling_interval>"
-               }
-             },
-             "database_specs": [
-               {
-                 "name": "<DB_name>",
-                 "owner": "<database_owner_name>"
-               },
-               { <similar_configuration_for_DB_2> },
-               { ... },
-               { <similar_configuration_for_DB_N> }
-             ],
-             "user_specs": [
-               {
-                 "name": "<username>",
-                 "password": "<user_password>",
-                 "permissions": [
-                   {
-                     "database_name": "<DB_name>"
-                   }
-                 ],
-                 "login": <allow_user_to_connect_to_DB:_true_or_false>
-               },
-               { <similar_configuration_for_user_2> },
-               { ... },
-               { <similar_configuration_for_user_N> }
-             ],
-             "host_specs": [
-               {
-                 "zone_id": "<availability_zone>",
-                 "subnet_id": "<subnet_ID>",
-                 "assign_public_ip": <public_host_address:_true_or_false>
-               },
-               { <similar_configuration_for_host_2> },
-               { ... },
-               { <similar_configuration_for_host_N> }
-             ]
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Create
+     ```json
+     {
+       "folder_id": "<folder_ID>",
+       "name": "<cluster_name>",
+       "environment": "<environment>",
+       "network_id": "<network_ID>",
+       "security_group_ids": [
+         "<security_group_1_ID>",
+         "<security_group_2_ID>",
+         ...
+         "<security_group_N_ID>"
+       ],
+       "deletion_protection": <deletion_protection:_true_or_false>,
+       "config_spec": {
+         "version": "<{{ PG }}_version>",
+         "resources": {
+           "resource_preset_id": "<host_class>",
+           "disk_size": "<storage_size_in_bytes>",
+           "disk_type_id": "<disk_type>"
+         },
+         "access": {
+           "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
+           "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
+           "serverless": <access_to_Cloud_Functions:_true_or_false>,
+           "data_transfer": <access_to_Data_Transfer:_true_or_false>,
+           "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
+         },
+         "performance_diagnostics": {
+           "enabled": <activate_statistics_collection:_true_or_false>,
+           "sessions_sampling_interval": "<session_sampling_interval>",
+           "statements_sampling_interval": "<statement_sampling_interval>"
+         }
+       },
+       "database_specs": [
+         {
+           "name": "<DB_name>",
+           "owner": "<database_owner_name>"
+         },
+         { <similar_configuration_for_DB_2> },
+         { ... },
+         { <similar_configuration_for_DB_N> }
+       ],
+       "user_specs": [
+         {
+           "name": "<username>",
+           "password": "<user_password>",
+           "permissions": [
+             {
+               "database_name": "<DB_name>"
+             }
+           ],
+           "login": <allow_user_to_connect_to_DB:_true_or_false>
+         },
+         { <similar_configuration_for_user_2> },
+         { ... },
+         { <similar_configuration_for_user_N> }
+       ],
+       "host_specs": [
+         {
+           "zone_id": "<availability_zone>",
+           "subnet_id": "<subnet_ID>",
+           "assign_public_ip": <public_host_address:_true_or_false>
+         },
+         { <similar_configuration_for_host_2> },
+         { ... },
+         { <similar_configuration_for_host_N> }
+       ]
+     }
      ```
 
 
@@ -623,6 +621,21 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Create \
+       < body.json
+     ```
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -725,15 +738,15 @@ To create a {{ PG }} cluster copy:
   Create a {{ mpg-name }} cluster with the following test specifications:
 
 
-  * Name: `mypg`
-  * Environment: `production`
-  * Network: `default`
-  * Security group: `{{ security-group }}`
-  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone
-  * Network SSD storage (`{{ disk-type-example }}`): 20 GB
-  * User: `user1`, password: `user1user1`
-  * Database: `db1`, owner: `user1`
-  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled
+  * Name: `mypg`.
+  * Environment: `production`.
+  * Network: `default`.
+  * Security group: `{{ security-group }}`.
+  * With one `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet, in the `{{ region-id }}-a` availability zone.
+  * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
+  * User: `user1`, password: `user1user1`.
+  * Database: `db1`, owner: `user1`.
+  * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
   Run the following command:

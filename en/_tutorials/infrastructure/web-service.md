@@ -169,7 +169,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create the security group. 
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Enter a name for the security group: `vpn-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `network`, which you created earlier.
@@ -207,7 +207,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
   
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create the security group. 
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Enter a name for the security group: `web-service-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `network`, which you created earlier.

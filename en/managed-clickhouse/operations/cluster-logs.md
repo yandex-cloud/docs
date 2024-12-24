@@ -45,7 +45,7 @@
         Where:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-        * `--columns`: List of columns for data output:
+        * `--columns`: List of data columns:
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `component`: Type of component to log, e.g., `HTTP-Session`.
             * `message`: Message output by the component.
@@ -64,7 +64,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -72,7 +72,7 @@
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:logs' \
             --url-query serviceType=CLICKHOUSE \
-            --url-query columnFilter=<list_of_columns_for_data_output> \
+            --url-query columnFilter=<list_of_data_columns> \
             --url-query fromTime=<time_range_left_boundary> \
             --url-query toTime=<time_range_right_boundary>
         ```
@@ -80,7 +80,7 @@
         Where:
 
         * `serviceType`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -91,7 +91,7 @@
         * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
     1. View the [server response](../api-ref/Cluster/listLogs.md#responses) to make sure the request was successful.
@@ -104,7 +104,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -116,7 +116,7 @@
             -d '{
                     "cluster_id": "<cluster_ID>",
                     "service_type" : "CLICKHOUSE",
-                    "column_filter": [<list_of_columns_for_data_output>],
+                    "column_filter": [<list_of_data_columns>],
                     "from_time": "<time_range_left_boundary>" \
                     "to_time": "<time_range_right_boundary>"
                 }' \
@@ -127,7 +127,7 @@
         Where:
 
         * `service_type`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -138,7 +138,7 @@
         * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
     1. View the [server response](../api-ref/grpc/Cluster/listLogs.md#yandex.cloud.mdb.clickhouse.v1.ListClusterLogsResponse) to make sure the request was successful.
@@ -171,7 +171,7 @@ This method allows you to get cluster logs in real time.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -179,7 +179,7 @@ This method allows you to get cluster logs in real time.
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:stream_logs' \
             --url-query serviceType=CLICKHOUSE \
-            --url-query columnFilter=<list_of_columns_for_data_output> \
+            --url-query columnFilter=<list_of_data_columns> \
             --url-query fromTime=<time_range_left_boundary> \
             --url-query toTime=<time_range_right_boundary> \
             --url-query filter=<log_filter>
@@ -188,7 +188,7 @@ This method allows you to get cluster logs in real time.
         Where:
 
         * `serviceType`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -207,7 +207,7 @@ This method allows you to get cluster logs in real time.
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
     1. View the [server response](../api-ref/Cluster/streamLogs.md#responses) to make sure the request was successful.
@@ -220,7 +220,7 @@ This method allows you to get cluster logs in real time.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -232,7 +232,7 @@ This method allows you to get cluster logs in real time.
             -d '{
                     "cluster_id": "<cluster_ID>",
                     "service_type" : "CLICKHOUSE",
-                    "column_filter": [<list_of_columns_for_data_output>],
+                    "column_filter": [<list_of_data_columns>],
                     "from_time": "<time_range_left_boundary>",
                     "to_time": "<time_range_right_boundary>",
                     "filter": "<log_filter>"
@@ -244,7 +244,7 @@ This method allows you to get cluster logs in real time.
         Where:
 
         * `service_type`: Type of the service to request logs for. The only valid value is `CLICKHOUSE`.
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             {% include [column-filter-list](../../_includes/mdb/api/column-filter-list.md) %}
 
@@ -263,7 +263,7 @@ This method allows you to get cluster logs in real time.
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
     1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) to make sure the request was successful.

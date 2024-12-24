@@ -3924,6 +3924,7 @@ default:
         opensearch|month|string: "0,025600\_$"
         pg|month|string: "0,025600\_$"
       network-nvme:
+        ch|month|number: 0.10408
         ch|month|string: "0,104080\_$"
         elasticsearch|month|string: "0,104080\_$"
         greenplum|month|string: "0,104080\_$"
@@ -5219,6 +5220,12 @@ default:
       ui_Portfolios_smart-components_project-list_utils:
         field-name-resolution: Резолюция
         filter-macro-empty_: Без значения
+      ui_Queues_constants:
+        information-time-tracking-title: Учёт времени
+        process-type-development: Разработка
+        process-type-project: Управление проектами
+        process-type-standard: Базовый
+        process-type-support: Поддержка
       ui_Queues_pages_page-queue-admin_AliasesCreateForm:
         mail-address: Почта
         mail-allow-external: Принимать письма не только от сотрудников организации
@@ -5278,12 +5285,6 @@ default:
       ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Создать рабочий процесс
         default-type-title: Тип задачи по умолчанию
-      ui_Queues_smart-components_new-process_ProcessTypeStepRedesign:
-        information-time-tracking-title: Учёт времени
-        process-type-development: Разработка
-        process-type-project: Управление проектами
-        process-type-standard: Базовый
-        process-type-support: Поддержка
       ui_Queues_smart-components_new-process_QueueSetupForm:
         next-button: Продолжить
       ui_Queues_smart-components_QueueAdminTemplateOptions:
@@ -8607,6 +8608,7 @@ default:
           label_gateways: Шлюзы
           value_gateway-type-egress-nat: NAT-шлюз
         label_network: Сеть
+        label_security-groups: Группы безопасности
         network:
           overview:
             button_create_route-table: Создать таблицу маршрутизации
@@ -8640,7 +8642,6 @@ default:
             label_ingress: Входящий трафик
           switch_overview: Обзор
           switch_route-table: Таблицы маршрутизации
-          switch_security-groups: Группы безопасности
         networks:
           button_create: Создать сеть
           create:
@@ -8690,7 +8691,6 @@ default:
         switch_list: Облачные сети
         switch_networks: Подсети
         switch_route-tables: Таблица маршрутизации
-        switch_security-groups: Группы безопасности
         title_network-map-page: Карта облачной сети
       yagpt:
         foundation-models:

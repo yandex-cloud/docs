@@ -5,7 +5,7 @@
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
 
-To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze the cluster state along with its logs.
+To identify potential issues in a cluster, [use other tools](../tutorials/performance-problems.md) to analyze the cluster state alongside its logs.
 
 
 ## Getting a cluster log {#get-log}
@@ -80,23 +80,42 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.listLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:logs?serviceType=<service_type>&columnFilter=<column_list>&fromTime=<time_range_left_boundary>&toTime=<time_range_right_boundary>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:logs' \
+       --url-query serviceType=<service_type> \
+       --url-query columnFilter=<column_list> \
+       --url-query fromTime=<time_range_left_boundary> \
+       --url-query toTime=<time_range_right_boundary>
      ```
 
      Where:
 
      * `serviceType`: Type of the service to get logs for:
 
-       * `POSTGRESQL`: {{ PG }} operation logs.
-       * `POOLER`: Connection pooler operation logs.
+       * `POSTGRESQL`: {{ PG }} operations.
+       * `POOLER`: Connection manager operations.
 
-     * `columnFilter`: List of columns to output data for. To provide values, use the `message` object fields from the response to your request.
+     * `columnFilter`: Name of the data column:
+
+       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `db`: [Database name](databases.md#list-db).
+       * `level`: Logging level, e.g., `info`.
+       * `pid`: ID of the current session’s server process.
+       * `text`: Message output by the component.
+
+       {% note info %}
+
+       The list of data columns depends on the selected `serviceType`. The example shows only the main columns for the `POOLER` type.
+
+       {% endnote %}
+
+       {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
+
      * `fromTime`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, Example: `2024-09-18T15:04:05Z`.
      * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
@@ -111,7 +130,7 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -137,10 +156,25 @@ To identify potential issues in a cluster, [use other tools](../tutorials/perfor
 
      * `service_type`: Type of the service to get logs for:
 
-       * `POSTGRESQL`: {{ PG }} operation logs.
-       * `POOLER`: Connection pooler operation logs.
+       * `POSTGRESQL`: {{ PG }} operations.
+       * `POOLER`: Connection manager operations.
 
-     * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
+     * `column_filter`: List of data columns:
+
+       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `db`: [Database name](databases.md#list-db).
+       * `level`: Logging level, e.g., `info`.
+       * `pid`: ID of the current session’s server process.
+       * `text`: Message output by the component.
+
+       {% note info %}
+
+       The list of data columns depends on the selected `service_type`. The example shows only the main columns for the `POOLER` type.
+
+       {% endnote %}
+
+       {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
+
      * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
@@ -176,13 +210,15 @@ This method allows you to get cluster logs in real time.
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.streamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:stream_logs?serviceType=<service_type>&columnFilter=<column_list>'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>:stream_logs' \
+       --url-query serviceType=<service_type> \
+       --url-query columnFilter=<column_list>
      ```
 
      Where:
@@ -192,7 +228,21 @@ This method allows you to get cluster logs in real time.
        * `POSTGRESQL`: {{ PG }} operation logs.
        * `POOLER`: Connection pooler operation logs.
 
-     * `columnFilter`: List of columns to output data for. To provide values, use the `message` object fields from the response to your request.
+     * `columnFilter`: Name of the data column:
+
+       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `db`: [Database name](databases.md#list-db).
+       * `level`: Logging level, e.g., `info`.
+       * `pid`: ID of the current session’s server process.
+       * `text`: Message output by the component.
+
+       {% note info %}
+
+       The list of data columns depends on the selected `serviceType`. The example shows only the main columns for the `POOLER` type.
+
+       {% endnote %}
+
+       {% include [column-filter-rest](../../_includes/mdb/api/column-filter-rest.md) %}
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -207,7 +257,7 @@ This method allows you to get cluster logs in real time.
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -234,9 +284,21 @@ This method allows you to get cluster logs in real time.
        * `POSTGRESQL`: {{ PG }} operation logs.
        * `POOLER`: Connection pooler operation logs.
 
-     * `column_filter`: Array of columns to output data for. The array elements are strings, where each string is a column name. To provide values, use the `message` object fields from the response to your request.
-     * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
-     * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
+     * `column_filter`: List of data columns:
+
+       * `hostname`: [Host name](hosts.md#list-hosts).
+       * `db`: [Database name](databases.md#list-db).
+       * `level`: Logging level, e.g., `info`.
+       * `pid`: ID of the current session’s server process.
+       * `text`: Message output by the component.
+
+       {% note info %}
+
+       The list of data columns depends on the selected `service_type`. The example shows only the main columns for the `POOLER` type.
+
+       {% endnote %}
+
+       {% include [column-filter-grpc](../../_includes/mdb/api/column-filter-grpc.md) %}
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

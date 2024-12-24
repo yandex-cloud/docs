@@ -98,7 +98,7 @@ There are no restrictions for non-sharded clusters.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
        * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
-       * Security groups for the cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+       * Security groups for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
 
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the hosts:

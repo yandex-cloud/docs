@@ -78,7 +78,7 @@ The cost of resources for syncing secrets includes:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
@@ -199,24 +199,11 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+  1. [Delete](../../vpc/operations/address-delete.md) the {{ managed-k8s-name }} cluster's [public static IP address](../../vpc/concepts/address.md#public-addresses) if you had reserved one.
   1. [Delete `lockbox-secret`](../../lockbox/operations/secret-delete.md).
 
 - {{ TF }} {#tf}
 
-  1. In the terminal, go to the directory that contains the current {{ TF }} configuration file with an infrastructure plan.
-  1. Delete the `k8s-cluster-and-lockbox.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-cluster-and-lockbox.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

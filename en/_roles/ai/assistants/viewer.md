@@ -1,9 +1,9 @@
-The `ai.assistants.viewer` role enables reading threads and files, searching for files within a directory using indexes, and viewing information on AI-driven assistants, uploaded files, and their indexes.
+The `ai.assistants.viewer` role enables reading threads and files, searching for files within a directory using indexes, and viewing information on AI assistants, uploaded files, and their indexes.
 
 Users with this role can:
-* View info on [AI-driven assistants](../../../foundation-models/concepts/assistant/index.md).
-* View info on AI-driven assistant users.
-* View info on AI-driven assistant user threads and read them.
+* View info on [AI assistants](../../../foundation-models/concepts/assistant/index.md).
+* View info on AI assistant users.
+* View info on AI assistant user threads and read them.
 * View info on uploaded files and view them.
 * View info on file search indexes and search for files within a directory using these indexes.
 * View info on [quotas](../../../foundation-models/concepts/limits.md#yandexgpt-quotas) for Yandex Foundation Models.

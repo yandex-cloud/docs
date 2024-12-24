@@ -15,10 +15,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * Manually {#manual}
 
-   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network` without subnets.
+   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`, without subnets.
    1. [Create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet-b` in the `{{ region-id }}-b` availability zone.
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `dataproc-subnet-b` subnet.
-   1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` in `dataproc-network`.
+   1. [Create a security group](../../../vpc/operations/security-group-create.md) named `dataproc-security-group` in the `dataproc-network` network.
    1. [Configure the security group](../../../data-proc/operations/cluster-create.md#change-security-groups).
    1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-sa` with the following roles:
 
@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
       * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
-      * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}**: Master with one `Data` subcluster and one `Compute` subcluster.
+      * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}**: Master, one subcluster named `Data` and one subcluster named `Compute`.
 
    1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) with the following parameters:
 
@@ -61,15 +61,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Create a {{ KF }} topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) with the following parameters:
 
       * **Name**: `dataproc-kafka-topic`.
-      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
-      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`
+      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
+      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`.
 
    1. [Create a {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-user) with the following parameters:
 
       * **Name**: `user1`.
       * **Password**: `password1`.
-      * **Topics to grant the user permissions for**: `*` (all topics).
-      * **Permissions for topics**: `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, and `ACCESS_ROLE_ADMIN`.
+      * **Topics the user gets permissions for**: `*` (all topics).
+      * **Permissions for the topics**: `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, and `ACCESS_ROLE_ADMIN`.
 
 * {{ TF }} {#tf}
 
@@ -93,12 +93,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * {{ KF }} user.
       * {{ KF }} topic.
 
-   1. In the `kafka-and-data-proc.tf` file, specify:
+   1. Specify the following in the `kafka-and-data-proc.tf` file:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Check that the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -252,7 +252,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-   The file resides in the new `kafka-read-batch-output` folder in the bucket.
+   The file resides in the new folder named `kafka-read-batch-output` in the bucket.
 
 1. Read messages from the topic during stream processing. To do this, create another PySpark job. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-read-stream.py` script path.
 1. Wait for the new job status to change to `Done`.
@@ -274,7 +274,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-   The files reside in the new `kafka-read-stream-output` folder in the bucket.
+   The files reside in the new folder named `kafka-read-stream-output` in the bucket.
 
 {% include [get-logs-info](../../../_includes/data-processing/note-info-get-logs.md) %}
 
@@ -282,40 +282,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs group=instructions %}
+1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
+1. Delete the other resources depending on how they were created:
 
-* Manually {#manual}
+    {% list tabs group=instructions %}
 
-   Delete:
+    - Manually {#manual}
 
-   1. [{{ dataproc-name }} cluster](../../../data-proc/operations/cluster-delete.md)
-   1. [{{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md)
-   1. [Objects from the {{ objstorage-name }} bucket](../../../storage/operations/objects/delete.md)
-   1. [Bucket](../../../storage/operations/buckets/delete.md)
-   1. [Security group](../../../vpc/operations/security-group-delete.md)
-   1. [Subnet](../../../vpc/operations/subnet-delete.md)
-   1. [Route table](../../../vpc/operations/delete-route-table.md)
-   1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md)
-   1. [Network](../../../vpc/operations/network-delete.md)
-   1. [Service account](../../../iam/operations/sa/delete.md)
+        1. [{{ dataproc-name }} cluster](../../../data-proc/operations/cluster-delete.md).
+        1. [{{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Bucket](../../../storage/operations/buckets/delete.md).
+        1. [Security group](../../../vpc/operations/security-group-delete.md).
+        1. [Subnet](../../../vpc/operations/subnet-delete.md).
+        1. [Route table](../../../vpc/operations/delete-route-table.md).
+        1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
+        1. [Network](../../../vpc/operations/network-delete.md).
+        1. [Service account](../../../iam/operations/sa/delete.md).
 
-* {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-   1. [Delete the objects](../../../storage/operations/objects/delete.md) from the buckets.
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `kafka-and-data-proc.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-      This will delete all the resources described in the `kafka-and-data-proc.tf` configuration file.
-
-{% endlist %}
+    {% endlist %}

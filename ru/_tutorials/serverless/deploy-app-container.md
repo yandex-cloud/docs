@@ -95,7 +95,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `mongo-express-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) напротив группы безопасности, созданной по умолчанию для сети `mongo-express-network`.
   1. В открывшемся меню нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. Настройте группу безопасности:

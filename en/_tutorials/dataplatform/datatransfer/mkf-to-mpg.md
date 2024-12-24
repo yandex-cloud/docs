@@ -52,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ KF }} and {{ PG }} versions
             * {{ KF }} and {{ PG }} user passwords
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -205,7 +205,7 @@ Create a local `sample.json` file with the following test data:
             * `kf_source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a target endpoint and transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -274,20 +274,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - {{ TF }} {#tf}
 
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `kafka-postgresql.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `kafka-postgresql.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

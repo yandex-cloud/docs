@@ -116,7 +116,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
             * `ch_password`: {{ mch-name }} cluster admin user password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -186,7 +186,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: `1` to create a function.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -242,7 +242,7 @@ You will see a Parquet file in the bucket.
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -262,7 +262,7 @@ You will see a Parquet file in the bucket.
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this request:
+    1. Run the following query:
 
         ```sql
         SELECT * FROM ac05e4fe818e463f88a8a299d290734d_snappy_parquet;
@@ -288,6 +288,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
 
 Delete the other resources depending on how they were created:
 
@@ -304,22 +305,7 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. [Delete the objects from the bucket](../../storage/operations/objects/delete.md).
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `ya-direct-to-mch.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `ya-direct-to-mch.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

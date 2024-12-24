@@ -17,56 +17,56 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
-   1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) in any suitable configuration.
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
 
-   1. If using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) to be able to connect to the cluster from the internet.
+    1. If you are using security groups, [configure them](../../managed-kafka/operations/connect/index.md#configuring-security-groups) so that you can connect to the cluster from the internet.
 
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-ydb/blob/main/data-transfer-mmy-ydb.tf) configuration file to the same working directory.
+    1. Download the [data-transfer-mmy-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-mysql-to-ydb/blob/main/data-transfer-mmy-ydb.tf) configuration file to the same working directory.
 
-      This file describes:
+        This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
-      * {{ mmy-name }} source cluster.
-      * {{ ydb-name }} database.
-      * Source endpoint.
-      * Transfer.
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
+        * {{ mmy-name }} source cluster.
+        * Database: {{ ydb-name }}.
+        * Source endpoint.
+        * Transfer.
 
-   1. Specify in the `data-transfer-mmy-ydb.tf` file:
+    1. Specify the following in the `data-transfer-mmy-ydb.tf` file:
 
-      * The {{ mmy-name }} source cluster parameters that will also be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+        * The {{ mmy-name }} source cluster parameters that will be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
-         * `source_mysql_version`: {{ MY }} version.
-         * `source_db_name`: Database name.
-         * `source_user` and `source_password`: Database owner username and password.
+            * `source_mysql_version`: {{ MY }} version.
+            * `source_db_name`: Database name.
+            * `source_user` and `source_password`: Name and user password of the database owner.
 
-      * `target_db_name`: {{ ydb-name }} database name.
+        * `target_db_name`: {{ ydb-name }} database name.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+        ```bash
+        terraform validate
+        ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Create the required infrastructure:
+    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -78,79 +78,79 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Add test data to the database. As an example, we will use a simple table with information transmitted by car sensors.
 
-   Create a table:
+    Create a table:
 
-   ```sql
-   CREATE TABLE measurements (
-       device_id varchar(200) NOT NULL,
-       datetime timestamp NOT NULL,
-       latitude real NOT NULL,
-       longitude real NOT NULL,
-       altitude real NOT NULL,
-       speed real NOT NULL,
-       battery_voltage real,
-       cabin_temperature real NOT NULL,
-       fuel_level real,
-       PRIMARY KEY (device_id)
-   );
-   ```
+    ```sql
+    CREATE TABLE measurements (
+        device_id varchar(200) NOT NULL,
+        datetime timestamp NOT NULL,
+        latitude real NOT NULL,
+        longitude real NOT NULL,
+        altitude real NOT NULL,
+        speed real NOT NULL,
+        battery_voltage real,
+        cabin_temperature real NOT NULL,
+        fuel_level real,
+        PRIMARY KEY (device_id)
+    );
+    ```
 
-   Populate the table with data:
+    Populate the table with data:
 
-   ```sql
-   INSERT INTO measurements VALUES
-       ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
-       ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
-   ```
+    ```sql
+    INSERT INTO measurements VALUES
+        ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
+    ```
 
 ## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `YDB`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `ydb.editor` role.
 
 1. Create a source endpoint and transfer:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+        1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ MY }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
-            Select a source cluster from the list and specify its connection settings.
+                Select a source cluster from the list and specify its connection settings.
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   - {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-      1. Uncomment the following in the `data-transfer-mmy-ydb.tf` file:
+        1. In the `data-transfer-mmy-ydb.tf` file, uncomment the following:
 
-         * The `target_endpoint_id` variable and set it to the value of the endpoint ID for the target created in the previous step.
-         * The `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
+            * `target_endpoint_id` variable. Also, set it to the value of the endpoint ID for the target created in the previous step.
+            * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+            ```bash
+            terraform validate
+            ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+            If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Create the required infrastructure:
+        1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, your transfer will be activated automatically.
+            Once created, your transfer will be activated automatically.
 
-   {% endlist %}
+    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -158,58 +158,58 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ ydb-name }} database:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-      1. Select the database from the list.
-      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-      1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with the test data.
+        1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. Select the database from the list.
+        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with test data.
 
-   - CLI {#cli}
+    - CLI {#cli}
 
-      1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-      1. Check that the database contains the `<source_cluster_DB_name>_measurements` table with the test data:
+        1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
+        1. Check that the database contains the `<source_cluster_DB_name>_measurements` table with test data:
 
-         ```sql
-         SELECT *
-         FROM <source_cluster_DB_name>_measurements;
-         ```
+            ```sql
+            SELECT *
+            FROM <source_cluster_DB_name>_measurements;
+            ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md) and add data to the `measurements` table:
+1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md) and populate the `measurements` table with data:
 
-   ```sql
-   INSERT INTO measurements VALUES
-       ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
-   ```
+    ```sql
+    INSERT INTO measurements VALUES
+        ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+    ```
 
 1. Check that the {{ ydb-name }} database shows information about the added row:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-      1. Select the database from the list.
-      1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-      1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table.
+        1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. Select the database from the list.
+        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table.
 
-   - CLI {#cli}
+    - CLI {#cli}
 
-      1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-      1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table:
+        1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
+        1. Check that new data has been added to the `<source_cluster_DB_name>_measurements` table:
 
-         ```sql
-         SELECT *
-         FROM <source_cluster_DB_name>_measurements;
-         ```
+            ```sql
+            SELECT *
+            FROM <source_cluster_DB_name>_measurements;
+            ```
 
-   {% endlist %}
+    {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
@@ -223,7 +223,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 
@@ -231,26 +231,12 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-   * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-   * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+    * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
+    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `data-transfer-mmy-ydb.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `data-transfer-mmy-ydb.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

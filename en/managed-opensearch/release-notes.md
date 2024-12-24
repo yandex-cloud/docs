@@ -19,7 +19,7 @@ Added automatic increase of disk size. In the [cluster settings](operations/upda
 
 A new version is out: {{ OS }} [2.12.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md).
 
-## February 2024{#feb-2024}
+## February 2024 {#feb-2024}
 
 Now you can manage {{ OS }} clusters using the [CLI commands](../cli/cli-ref/managed-opensearch/cli-ref/index.md) and [{{ TF }}](./tf-ref.md).
 
