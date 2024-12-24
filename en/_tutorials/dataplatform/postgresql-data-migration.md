@@ -279,21 +279,7 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-migration-pgsql-mpg.tf` configuration file.
-    1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-migration-pgsql-mpg.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 
@@ -323,10 +309,10 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) with any suitable configuration. The following parameters must be the same as in the source cluster:
+    1. Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. The following parameters must be the same as in the source cluster:
 
-        * {{ PG }} version
-        * Username
+        * Version: {{ PG }}.
+        * Username.
 
             {% include [user-name-restore](../../_includes/mdb/mpg/note-user-name-restore.md) %}
 
@@ -334,7 +320,7 @@ Create the required resources:
 
     1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
-      * **{{ ui-key.yacloud.compute.instances.create.section_storages }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
+        * **{{ ui-key.yacloud.compute.instances.create.section_storages }}** → **{{ ui-key.yacloud.compute.disk-form.field_size }}**: Sufficient to store both archived and unarchived dumps.
 
             The recommended size is two or more times the total dump and dump archive size.
 
@@ -501,20 +487,6 @@ Delete the resources you no longer need to avoid paying for them:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-restore-pgsql-mpg.tf` configuration file.
-    1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-restore-pgsql-mpg.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

@@ -113,7 +113,7 @@ Register the `rollup` configuration in your cluster to decimate and aggregate or
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E0C56BD4 && \
-    echo "deb https://packages./deb stable main" | sudo tee \
+    echo "deb https://packages.{{ ch-domain }}/deb stable main" | sudo tee \
     /etc/apt/sources.list.d/clickhouse.list
     ```
 
@@ -130,10 +130,10 @@ Register the `rollup` configuration in your cluster to decimate and aggregate or
 1. Get an SSL certificate:
 
     ```bash
-    sudo mkdir --parents  && \
-    sudo wget "" \
-         --output-document  && \
-    sudo chmod 655  && \
+    sudo mkdir --parents {{ crt-local-dir }} && \
+    sudo wget "{{ crt-web-path-root }}" \
+         --output-document {{ crt-local-dir }}{{ crt-local-file-root }} && \
+    sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file-root }} && \
     sudo update-ca-certificates
     ```
 
@@ -142,14 +142,14 @@ Register the `rollup` configuration in your cluster to decimate and aggregate or
 1. If you are using security groups for a cloud network, [configure them](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) to allow all required traffic between the cluster and the VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md). 
-1. Run the {{ CH }} CLI with the following parameters: instead of `<host_FQDN>`, `<db_name>`, `<db_username>` and `<DB_user_password>`, specify the previously saved parameters.
+1. Run the {{ CH }} CLI with the following parameters: replace `<host_FQDN>`, `<DB_name>`, `<DB_username>`, and `<DB_user_password>` with the previously saved values.
 
     ```bash
     clickhouse-client --host <host_FQDN> \
                       --secure \
-                      --user <db_username> \
-                      --database <db_name> \
-                      --password <db_user_password> \
+                      --user <DB_user_name> \
+                      --database <DB_name> \
+                      --password <DB_user_password> \
                       --port 9440
     ```
 

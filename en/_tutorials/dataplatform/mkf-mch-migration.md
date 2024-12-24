@@ -1,7 +1,7 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 
-A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} tables powered by [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/) tables.
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
@@ -65,12 +65,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `source_user_consumer` and `source_password_consumer`: Consumer's username and password.
             * `source_topic_name`: Topic name.
 
-        * The {{ mch-name }} target cluster parameters that will also be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+        * The {{ mch-name }} target cluster parameters that will be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
             * `target_db_name`: {{ mch-name }} database name.
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -308,7 +308,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
             * The `source_endpoint_id` variable and set it to the value of the endpoint ID for the source created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -387,20 +387,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-transfer-mkf-mch.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-transfer-mkf-mch.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

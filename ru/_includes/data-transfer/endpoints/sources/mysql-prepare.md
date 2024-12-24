@@ -1,6 +1,7 @@
 {% list tabs %}
 
 - {{ mmy-name }}
+
     
     1. [Включите режим полного бинарного лога](../../../../managed-mysql/operations/update.md#change-mysql-config) на источнике, установив значение `FULL` или `NOBLOB` для [параметра **Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image).
     

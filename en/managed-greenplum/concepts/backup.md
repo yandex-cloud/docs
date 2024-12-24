@@ -14,7 +14,7 @@ For example, if the backup was created on November 10, 2022, 12:00:00 UTC, the c
 
 PITR mode is enabled by default. It supports automatic backups only.
 
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone. You may need to do this, e.g., if your hosts reside in the `{{ region-id }}-c` availability zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone).
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore). You can also restore your cluster to move its hosts to a different availability zone.
 
 ## Creating backups {#size}
 

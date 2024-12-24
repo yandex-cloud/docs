@@ -137,7 +137,7 @@ For a VPN to work properly, enable receiving and transmitting traffic to UDP por
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you want to create a security group.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Enter a name for the security group: `vpn-sg`.
     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network that the security group will refer to.

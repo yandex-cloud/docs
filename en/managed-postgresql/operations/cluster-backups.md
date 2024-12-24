@@ -241,37 +241,32 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
-     ```bash
-     curl \
-        --request POST \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
-        --data '{
-                  "backupId": "<backup_ID>",
-                  "time": "<time>",
-                  "folderId": "<folder_ID>",
-                  "name": "<cluster_name>",
-                  "environment": "<environment>",
-                  "networkId": "<network_ID>",
-                  "configSpec": {
-                    "version": "<{{ PG }}_version>",
-                    "resources": {
-                      "resourcePresetId": "<host_class>",
-                      "diskSize": "<storage_size_in_bytes>",
-                      "diskTypeId": "<disk_type>"
-                    }
-                  },
-                  "hostSpecs": [
-                    {
-                      "zoneId": "<availability_zone>",
-                      "subnetId": "<subnet_ID>",
-                      "assignPublicIp": <public_host_address:_true_or_false>
-                    }
-                  ]
-                }'
+     ```json
+     {
+       "backupId": "<backup_ID>",
+       "time": "<time>",
+       "folderId": "<folder_ID>",
+       "name": "<cluster_name>",
+       "environment": "<environment>",
+       "networkId": "<network_ID>",
+       "configSpec": {
+         "version": "<{{ PG }}_version>",
+         "resources": {
+           "resourcePresetId": "<host_class>",
+           "diskSize": "<storage_size_in_bytes>",
+           "diskTypeId": "<disk_type>"
+         }
+       },
+       "hostSpecs": [
+         {
+           "zoneId": "<availability_zone>",
+           "subnetId": "<subnet_ID>",
+           "assignPublicIp": <public_host_address:_true_or_false>
+         }
+       ]
+     }
      ```
 
      Where:
@@ -295,11 +290,22 @@ When restored to the current state, the new cluster will match the state of:
          * `diskSize`: Disk size in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-     * `hostSpecs`: Settings for the cluster hosts as an array of elements, one for each host. Each element has the following structure:
+     * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+
+  1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore' \
+       --data "@body.json"
+     ```
 
   1. View the [server response](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -310,41 +316,35 @@ When restored to the current state, the new cluster will match the state of:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "backup_id": "<backup_ID>",
-             "time": "<time>",
-             "folder_id": "<folder_ID>",
-             "name": "<cluster_name>",
-             "environment": "<environment>",
-             "network_id": "<network_ID>",
-             "config_spec": {
-               "version": "<{{ PG }}_version>",
-               "resources": {
-                 "resource_preset_id": "<host_class>",
-                 "disk_size": "<storage_size_in_bytes>",
-                 "disk_type_id": "<disk_type>"
-               }
-             },
-             "host_specs": [
-               {
-                 "zone_id": "<availability_zone>",
-                 "subnet_id": "<subnet_ID>",
-                 "assign_public_ip": <public_host_address:_true_or_false>
-               }
-             ]
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Restore
+     ```json
+     {
+       "backup_id": "<backup_ID>",
+       "time": "<time>",
+       "folder_id": "<folder_ID>",
+       "name": "<cluster_name>",
+       "environment": "<environment>",
+       "network_id": "<network_ID>",
+       "config_spec": {
+         "version": "<{{ PG }}_version>",
+         "resources": {
+           "resource_preset_id": "<host_class>",
+           "disk_size": "<storage_size_in_bytes>",
+           "disk_type_id": "<disk_type>"
+         }
+       },
+       "host_specs": [
+         {
+           "zone_id": "<availability_zone>",
+           "subnet_id": "<subnet_ID>",
+           "assign_public_ip": <public_host_address:_true_or_false>
+         }
+       ]
+     }
      ```
+
+     Where:
 
      * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
      * `time`: Time point to restore the {{ PG }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
@@ -365,13 +365,28 @@ When restored to the current state, the new cluster will match the state of:
          * `disk_size`: Disk size in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-     * `host_specs`: Settings for the cluster hosts as an array of elements, one for each host. Each element has the following structure:
+     * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Restore \
+       < body.json
+     ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -414,7 +429,7 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -435,7 +450,7 @@ When restored to the current state, the new cluster will match the state of:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.postgresql.v1.Backup) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md#yandex.cloud.mdb.postgresql.v1.Backup) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -453,7 +468,7 @@ When restored to the current state, the new cluster will match the state of:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -500,7 +515,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. To get a list of cluster backups:
 
-     1. Use the [Cluster.listBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+     1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -515,13 +530,14 @@ When restored to the current state, the new cluster will match the state of:
 
   1. To get a list of backups for all the clusters in a folder:
 
-     1. Use the [Backup.list](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+     1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
            --request GET \
            --header "Authorization: Bearer $IAM_TOKEN" \
-           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups?folderId=<folder_ID>'
+           --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/backups' \
+           --url-query folderId=<folder_ID>
         ```
 
 
@@ -539,7 +555,7 @@ When restored to the current state, the new cluster will match the state of:
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. To get a list of cluster backups:
 
-     1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+     1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -561,7 +577,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. To get a list of backups for all the clusters in a folder:
 
-     1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+     1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -619,7 +635,7 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -639,7 +655,7 @@ When restored to the current state, the new cluster will match the state of:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -741,7 +757,7 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -790,7 +806,7 @@ When restored to the current state, the new cluster will match the state of:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -909,7 +925,7 @@ When restored to the current state, the new cluster will match the state of:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1.  Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1.  Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -941,7 +957,6 @@ When restored to the current state, the new cluster will match the state of:
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
-
 - gRPC API {#grpc-api}
 
   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
@@ -950,7 +965,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -988,7 +1003,7 @@ When restored to the current state, the new cluster will match the state of:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
 {% endlist %}
 
@@ -1035,7 +1050,7 @@ You can only delete backups that were created manually.
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.delete](../api-ref/Backup/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Backup.Delete](../api-ref/Backup/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1055,7 +1070,7 @@ You can only delete backups that were created manually.
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService/Delete](../api-ref/grpc/Backup/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [BackupService.Delete](../api-ref/grpc/Backup/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

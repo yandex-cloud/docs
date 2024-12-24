@@ -53,7 +53,7 @@ Prepare the infrastructure:
         * {{ PG }} user password.
         * Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -118,7 +118,7 @@ Prepare the infrastructure:
         * `objstorage_endpoint_id`: Target endpoint ID.
         * `transfer_enabled`: `1` to create a transfer.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -169,20 +169,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - {{ TF }} {#tf}
 
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `postgresql-to-objstorage.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `postgresql-to-objstorage.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

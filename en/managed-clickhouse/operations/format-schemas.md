@@ -96,14 +96,72 @@ You can find examples of working with the Cap'n Proto and Protobuf formats when 
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To create a format schema, use the [create](../api-ref/FormatSchema/create.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Create](../api-ref/grpc/FormatSchema/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name in the `formatSchemaName` parameter.
-    * Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`, in the `type` parameter.
-    * Link to the file in {{ objstorage-full-name }} in the `uri` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [FormatSchema.Create](../api-ref/FormatSchema/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas' \
+            --data '{
+                      "formatSchemaName": "<schema_name>",
+                      "type": "<schema_type>",
+                      "uri": "<file_link>"
+                    }'
+        ```
+
+        Where:
+
+        * `formatSchemaName`: Schema name.
+        * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
+        * `uri`: Link to the file with the schema in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [FormatSchemaService.Create](../api-ref/grpc/FormatSchema/create.md) call and and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "format_schema_name": "<schema_name>",
+                    "type": "<schema_type>",
+                    "uri": "<file_link>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Create
+        ```
+
+        Where:
+
+        * `format_schema_name`: Schema name.
+        * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
+        * `uri`: Link to the file with the schema in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -174,16 +232,82 @@ To update the contents of a schema that is already connected to the cluster:
 
         {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update a data format schema, use the [update](../api-ref/FormatSchema/update.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Update](../api-ref/grpc/FormatSchema/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
-    * New link to the file in {{ objstorage-full-name }} in the `uri` parameter.
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [FormatSchema.Update](../api-ref/FormatSchema/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas/<schema_name>' \
+            --data '{
+                      "updateMask": "uri",
+                      "uri": "<file_link>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here only one parameter is specified: `uri`.
+
+        * `uri`: Link to the new file with the schema in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [FormatSchemaService.Update](../api-ref/grpc/FormatSchema/update.md) call and and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "format_schema_name": "<schema_name>",
+                    "update_mask": {
+                      "paths": ["uri"]
+                    },
+                    "uri": "<file_link>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Create
+        ```
+
+        Where:
+
+        * `format_schema_name`: Schema name.
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here only one parameter is specified: `uri`.
+
+        * `uri`: Link to the new model file in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -240,12 +364,52 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To delete a data format schema, use the [delete](../api-ref/FormatSchema/delete.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Delete](../api-ref/grpc/FormatSchema/delete.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [FormatSchema.Delete](../api-ref/FormatSchema/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas/<schema_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the schema name with a [list of schemas](#list-format-schemas) in the cluster.
+
+    1. View the [server response](../api-ref/FormatSchema/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [FormatSchemaService.Delete](../api-ref/grpc/FormatSchema/delete.md) call and and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "format_schema_name": "<schema_name>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Delete
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the schema name with a [list of schemas](#list-format-schemas) in the cluster.
+
+    1. View the [server response](../api-ref/grpc/FormatSchema/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -272,11 +436,51 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
   You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get a list of data format schemas, use the [list](../api-ref/FormatSchema/list.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/List](../api-ref/grpc/FormatSchema/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [FormatSchema.List](../api-ref/FormatSchema/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [FormatSchemaService.List](../api-ref/grpc/FormatSchema/list.md) call and and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -299,12 +503,52 @@ After disabling a format schema, the corresponding object is kept in the {{ objs
 
   You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get detailed information about a data format schema, use the [get](../api-ref/FormatSchema/get.md) REST API method for the [FormatSchema](../api-ref/FormatSchema/index.md) resource or the [FormatSchemaService/Get](../api-ref/grpc/FormatSchema/get.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-    * Format schema name in the `formatSchemaName` parameter. You can request the schema name with a [list of format schemas in the cluster](#list-format-schemas).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [FormatSchema.Get](../api-ref/FormatSchema/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas/<schema_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the schema name with a [list of schemas](#list-format-schemas) in the cluster.
+
+    1. View the [server response](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [FormatSchemaService.Get](../api-ref/grpc/FormatSchema/get.md) call and and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/format_schema_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "format_schema_name": "<schema_name>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Get
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the schema name with a [list of schemas](#list-format-schemas) in the cluster.
+
+    1. View the [server response](../api-ref/grpc/FormatSchema/get.md#yandex.cloud.mdb.clickhouse.v1.FormatSchema) to make sure the request was successful.
 
 {% endlist %}
 

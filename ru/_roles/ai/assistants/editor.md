@@ -10,4 +10,4 @@
 * просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-Включает разрешения, предоставляемые ролью `ai.assistants.viewer`.
+Включает разрешения, предоставляемые ролями `ai.playground.user` и `ai.assistants.viewer`.

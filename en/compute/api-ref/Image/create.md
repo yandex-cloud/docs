@@ -103,7 +103,8 @@ Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`. ||
 
 URI of the source image to create the new image from.
 Currently only supports links to images that are stored in Object Storage.
-Currently only supports Qcow2, VMDK, and RAW formats.
+Must be a valid [pre-signed URL](/docs/storage/concepts/pre-signed-urls).
+Currently only supports Qcow2, VMDK, and RAW image formats.
 
 Includes only one of the fields `imageId`, `diskId`, `snapshotId`, `uri`. ||
 || os | **[Os](#yandex.cloud.compute.v1.Os)**

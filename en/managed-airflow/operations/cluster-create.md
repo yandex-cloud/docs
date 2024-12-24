@@ -71,7 +71,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. Set the number of instances and resources for the {{ maf-name }} [components](../concepts/index.md#components):
+  1. Set the number of instances and a [computing resource](../concepts/index.md#presets) configuration for the {{ maf-name }} [components](../concepts/index.md#components):
 
       * Web server
       * Scheduler
@@ -289,7 +289,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `config`: Cluster configuration:
 
             * `versionId`: {{ AF }} version.
-            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, such as the following:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
                 ```bash
                 "airflow": {
@@ -299,15 +299,19 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, and `worker`: Configuration of {{ maf-name }} [components](../concepts/index.md#components):
+            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
-                * `minCount` and `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
                     * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
@@ -460,7 +464,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `config`: Cluster configuration:
 
             * `version_id`: {{ AF }} version.
-            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, such as the following:
+            * `airflow.config`: [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties. Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
 
                 ```bash
                 "airflow": {
@@ -470,15 +474,19 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, and `worker`: Configuration of {{ maf-name }} [components](../concepts/index.md#components):
+            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
-                * `min_count` and `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
                     * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:

@@ -10,7 +10,7 @@
 
 
 1. На стартовой странице [**Моя страница**](https://tracker.yandex.ru/pages/my), на виджете **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.widget-title }}**, нажмите кнопку **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.choose-template-button }}**.
-1. Выберите **{{ ui-key.startrek.ui_Queues_smart-components_new-process_ProcessTypeStepRedesign.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
+1. Выберите **{{ ui-key.startrek.ui_Queues_constants.process-type-standard }}** и нажмите кнопку **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 1. Укажите параметры очереди:
     * Название очереди задач;
     * [Ключ очереди](manager/create-queue.md#key);

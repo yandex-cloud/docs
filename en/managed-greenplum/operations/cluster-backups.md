@@ -49,7 +49,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of cluster backups:
 
-        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -64,7 +64,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [Backup.List](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -90,7 +90,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of cluster backups:
 
-        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -112,7 +112,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -156,7 +156,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -177,7 +177,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -217,7 +217,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -238,7 +238,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -271,7 +271,7 @@ When you restore a cluster from a backup, you create a new cluster with the back
 
 For a new cluster, you should set all the parameters that are required at creation.
 
-To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. You may need to do this, for example, if your cluster hosts reside in the `{{ region-id }}-c` zone which is to be [deprecated](/blog/posts/2023/08/new-availability-zone). During cluster recovery from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), familiarize yourself with the [migration process in {{ data-transfer-name }}](hosts/host-migration.md#data-transfer) before recovering from a backup.
+To migrate {{ mgp-name }} cluster hosts to a different availability zone, restore your cluster from a backup. During cluster recovery from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), familiarize yourself with the [migration process in {{ data-transfer-name }}](hosts/host-migration.md#data-transfer) before recovering from a backup.
 
 {% note warning %}
 
@@ -456,7 +456,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
             * `restoreOnly` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
-    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -542,7 +542,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
             * `restore_only` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
-    1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

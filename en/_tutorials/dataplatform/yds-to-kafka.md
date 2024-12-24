@@ -41,7 +41,7 @@ Prepare the data transfer infrastructure:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mkf-name }} cluster.
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * {{ mkf-name }} cluster.
         * {{ mkf-name }} topic named `sensors`.
         * {{ mkf-name }} user with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the `sensors` topic.
@@ -55,7 +55,7 @@ Prepare the data transfer infrastructure:
         * `mkf_user_password`: User password in {{ mkf-name }} cluster.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -172,7 +172,7 @@ Prepare the data transfer infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -239,14 +239,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    
-    1. Run this command:
-
-        ```bash
-        terraform destroy
-        ```
-
-    1. Confirm the deletion of resources.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

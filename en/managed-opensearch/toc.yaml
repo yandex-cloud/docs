@@ -23,7 +23,7 @@ items:
             items:
               - name: Updating cluster settings
                 href: operations/update.md
-              - name: Upgrading the {{ OS }} version
+              - name: '{{ OS }} version upgrade'
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/plugins.md

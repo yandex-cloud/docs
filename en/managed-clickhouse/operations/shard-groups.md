@@ -24,13 +24,53 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of shard groups in a cluster, use the [listShardGroups](../api-ref/Cluster/listShardGroups.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.ListShardGroups](../api-ref/Cluster/listShardGroups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups'
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/listShardGroups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.ListShardGroups](../api-ref/grpc/Cluster/listShardGroups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShardGroups
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/listShardGroups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -58,13 +98,54 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
     --name=<shard_group_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To get detailed information about a shard group, use the [getShardGroup](../api-ref/Cluster/getShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) gRPC API call and provide the following in the request:
-  * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.GetShardGroup](../api-ref/Cluster/getShardGroup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups/<shard_group_name>'
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/Cluster/getShardGroup.md#yandex.cloud.mdb.clickhouse.v1.ShardGroup) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.GetShardGroup](../api-ref/grpc/Cluster/getShardGroup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "shard_group_name": "<shard_group_name>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.GetShardGroup
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/grpc/Cluster/getShardGroup.md#yandex.cloud.mdb.clickhouse.v1.ShardGroup) to make sure the request was successful.
 
 {% endlist %}
 
@@ -97,7 +178,7 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
   Where `--shards` is the list of list of shard names to include in the group.
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   You can request a shard name with a [list of shards in the cluster](shards.md#list-shards).
 
@@ -136,13 +217,76 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a shard group, use the [createShardGroup](../api-ref/Cluster/createShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) gRPC API call and provide the following in the request:
-  * ID of the cluster in which you want to create a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the shard group, in the `shardGroupName` parameter.
-  * List of shard names to include in the group, in the `shardNames` parameter. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster.
-  * Description of the shard group, in the `description` parameter, if required.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.CreateShardGroup](../api-ref/Cluster/createShardGroup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups' \
+       --data '{
+                 "shardGroupName": "<shard_group_name>",
+                 "description": "<shard_group_description>",
+                 "shardNames": [
+                   "<shard_1>", "<shard_2>", ... "<shard_N>"
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `shardGroupName`: Shard group name.
+     * `description`: Shard group description.
+     * `shardNames`: List of shards to include into the new group.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/createShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.CreateShardGroup](../api-ref/grpc/Cluster/createShardGroup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+         -format json \
+         -import-path ~/cloudapi/ \
+         -import-path ~/cloudapi/third_party/googleapis/ \
+         -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+         -d '{
+               "cluster_id": "<cluster_ID>",
+               "shard_group_name": "<shard_group_name>",
+               "description": "<shard_group_description>",
+               "shard_names": [
+                 "<shard_1>", "<shard_2>", ... "<shard_N>"
+               ]
+             }' \
+         {{ api-host-mdb }}:{{ port-https }} \
+         yandex.cloud.mdb.clickhouse.v1.ClusterService.CreateShardGroup
+     ```
+
+     Where:
+
+     * `shard_group_name`: Shard group name.
+     * `description`: Shard group description.
+     * `shard_names`: List of shards to include into the new group.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/createShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -174,9 +318,9 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
   Where `--shards` is the new list of shard names to include in the group.
 
-  This command replaces the existing list of shards in the group with the new one provided in the `--shards` parameter. Before running the command, make sure that you added all the appropriate shards in the new list.
+  This command replaces the existing list of shards in the group with the new one provided in the `--shards` parameter. Before running the command, make sure that you have added all the required shards to the new list.
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
@@ -217,16 +361,85 @@ You can group several [shards](../concepts/sharding.md) of a {{ CH }} cluster in
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To update a shard group, use the [updateShardGroup](../api-ref/Cluster/updateShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) gRPC API call and provide the following in the request:
-  * ID of the cluster in which you want to change a group, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
-  * New description for the shard group, in the `description` parameter, if required.
-  * New list of shard names to included in the group, in the `shardNames` parameter, if required. To find out the names, [get a list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure that you added all the appropriate shards in the new list.
-  * Names of parameters to change, in the `updateMask` parameter.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.updateShardGroup](../api-ref/Cluster/updateShardGroup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups/<shard_group_name>' \
+       --data '{
+                 "updateMask": "description,shardNames",
+                 "description": "<shard_group_description>",
+                 "shardNames": [
+                   "<shard_1>", "<shard_2>", ... "<shard_N>"
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+     * `description`: New description of the shard group.
+     * `shardNames`: New list of shards to include in the group. To learn shard names, get a [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/Cluster/updateShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.UpdateShardGroup](../api-ref/grpc/Cluster/updateShardGroup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "shard_group_name": "<shard_group_name>",
+             "update_mask": {
+               "paths": [
+                 "description", "shard_names"
+               ]
+             },
+             "description": "<shard_group_description>",
+             "shard_names": [
+               "<shard_1>", "<shard_2>", ... "<shard_N>"
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShardGroup
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+     * `description`: New description of the shard group.
+     * `shard_names`: New list of shards to include in the group. To learn shard names, get a [list of shards](shards.md#list-shards) in the cluster. This list will replace the current one, so make sure you have added all the required shards to the new list.
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/grpc/Cluster/updateShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -258,7 +471,7 @@ Tables created on the deleted group are kept, but they are disabled and attempts
      --name=<shard_group_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   You can request the name of the shard group with a [list of shard groups in the cluster](#list-shard-groups).
 
@@ -280,11 +493,52 @@ Tables created on the deleted group are kept, but they are disabled and attempts
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To delete a shard group, use the [deleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) gRPC API call and provide the following in the request:
-  * ID of the cluster to delete a group from, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the shard group, in the `shardGroupName` parameter. To find out the name, [get a list of shard groups](#list-shard-groups) in the cluster.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Cluster.DeleteShardGroup](../api-ref/Cluster/deleteShardGroup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shardGroups/<shard_group_name>'
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/Cluster/deleteShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.DeleteShardGroup](../api-ref/grpc/Cluster/deleteShardGroup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "shard_group_name": "<shard_group_name>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteShardGroup
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the shard group name with a [list of groups in the cluster](#list-shard-groups).
+
+  1. View the [server response](../api-ref/grpc/Cluster/deleteShardGroup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

@@ -23,10 +23,6 @@ Segment hosts have standalone DBMS's (_segments_) deployed on them. They store d
 
 The number of segments is the same for each host. When [expanding a cluster](../operations/hosts/cluster-expand.md), you can increase the number of segments. They will be added to all hosts — both new and existing ones. You cannot add segments to existing hosts without expanding the cluster.
 
-
-All {{ mgp-name }} cluster hosts are placed in the same availability zone, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`. You cannot create hosts in `{{ region-id }}-c` as it is to be [discontinued](/blog/posts/2023/08/new-availability-zone). If you have hosts located in this availability zone, [restore your cluster from a backup](../operations/cluster-backups.md#restore). While restoring the cluster, specify a different availability zone.
-
-
 VMs for cluster hosts can be hosted on:
 
 * _Regular {{ yandex-cloud }} hosts_:

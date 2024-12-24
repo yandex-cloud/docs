@@ -58,7 +58,7 @@ Prepare the data transfer infrastructure:
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -138,7 +138,7 @@ Prepare the data transfer infrastructure:
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` user password.
 
@@ -168,7 +168,7 @@ Prepare the data transfer infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` for creating a target endpoint and transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -236,16 +236,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - {{ TF }} {#tf}
 
-        1. In the terminal, go to the working directory with the `opensearch-to-clickhouse.tf` configuration file.
-        1. Delete the resources using this command:
-
-            ```bash
-            terraform destroy
-            ```
-
-        1. Type `yes` and press **Enter**.
-
-            All the resources described in the `opensearch-to-clickhouse.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

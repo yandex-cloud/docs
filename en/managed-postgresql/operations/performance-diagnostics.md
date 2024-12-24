@@ -62,7 +62,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
   1. To enable statistics collection when creating a cluster:
 
-     1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL command for cluster creation](cluster-create.md#create-cluster):
+     1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL command for cluster creation](cluster-create.md#create-cluster):
 
         ```bash
         curl \
@@ -93,7 +93,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
   1. To enable statistics collection when updating an existing cluster:
 
-     1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+     1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -132,7 +132,7 @@ For information on how to identify and troubleshoot cluster performance problems
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. To enable statistics collection when creating a cluster:
 
-     1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method and add the `config_spec.performance_diagnostics` parameter to the [grpcurl cluster creation command](cluster-create.md#grpc-api):
+     1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method and add the `config_spec.performance_diagnostics` parameter to the [grpcurl cluster creation command](cluster-create.md#grpc-api):
 
         ```bash
         grpcurl \
@@ -166,7 +166,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
   1. To enable statistics collection when updating an existing cluster:
 
-     1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+     1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -202,7 +202,7 @@ For information on how to identify and troubleshoot cluster performance problems
         * `sessions_sampling_interval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statements_sampling_interval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
-     1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -235,7 +235,7 @@ For information on how to identify and troubleshoot cluster performance problems
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [PerformanceDiagnosticsService.ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -295,7 +295,7 @@ For more information about what statistics you can get, see the [{{ PG }} docume
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [PerformanceDiagnosticsService.ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \

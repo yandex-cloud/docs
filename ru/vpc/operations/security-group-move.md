@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится группа безопасности.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, которую требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. В выпадающем списке выберите каталог назначения.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.

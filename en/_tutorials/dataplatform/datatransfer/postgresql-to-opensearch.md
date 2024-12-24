@@ -55,7 +55,7 @@ Prepare the infrastructure:
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -92,7 +92,7 @@ Prepare the infrastructure:
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/opensearch.md) with the following parameters:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
@@ -121,7 +121,7 @@ Prepare the infrastructure:
           * `target_endpoint_id`: Target endpoint ID.
           * `transfer_enabled`: `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Check that the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
@@ -173,21 +173,7 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `postgresql-to-opensearch.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `postgresql-to-opensearch.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

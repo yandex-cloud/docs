@@ -58,7 +58,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
         * Transfer.
 
     1. In the `postgresql-to-clickhouse.tf` file, specify the passwords of the {{ PG }} and {{ CH }} admin user.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -123,7 +123,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
         1. In the `postgresql-to-clickhouse.tf` file, set the `transfer_enabled` parameter to `1`.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -222,22 +222,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - {{ TF }} {#tf}
 
-        If you created your resources using {{ TF }}:
-
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `postgresql-to-clickhouse.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `postgresql-to-clickhouse.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

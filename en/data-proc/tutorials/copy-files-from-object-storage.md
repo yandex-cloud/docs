@@ -86,7 +86,7 @@ In this example, you first create a file with secrets and then place it in HDFS:
            hdfs://<HDFS_host>/<path>/
     ```
 
-    `<HDFS_host>` is the target HDFS server you are using. You can get the default server using the command:
+    `<HDFS_host>`: Your target HDFS server. You can get the default server using this command:
 
     ```bash
     hdfs getconf -confKey fs.defaultFS
@@ -142,7 +142,7 @@ To speed up file writes to {{ objstorage-name }}, you can:
 
 ### Using S3A committers {#s3a-committers}
 
-S3A committers are Apache Hadoop software modules used for writing data to object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.0.3/cloud-integration.html) documentation.
+S3A committers are Apache Hadoop software modules used for writing data to object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) documentation.
 
 {% note info %}
 
@@ -158,7 +158,7 @@ S3A committers run in three basic modes:
 | `magic`       | MapReduce, Spark | No (data is written directly to S3) | Not supported                   | Maximum    |
 | `partitioned` | Spark            | Yes^*^                      | Replacing partitions and appending them        | Standard         |
 
-^*^ In `directory` and `partitioned` modes, no checks are made for actual presence of HDFS for storing intermediate data. Some jobs may be successfully completed without HDFS. However, this may cause issues with complex jobs, such as "file not found" errors or incomplete uploads of job results to {{ objstorage-name }}.
+^*^ In `directory` and `partitioned` modes, no checks are performed for actual presence of HDFS for storing intermediate data. Some jobs may be successfully completed without HDFS. However, this may cause issues with complex jobs, such as "file not found" errors or incomplete uploads of job results to {{ objstorage-name }}.
 
 To enable S3A committers, configure the following [settings](../concepts/settings-list.md):
 
@@ -220,6 +220,12 @@ When working with data in Parquet format, the following Spark job settings are r
 * `spark.sql.parquet.mergeSchema : false`
 * `spark.sql.parquet.filterPushdown : true`
 
+When working with data in Parquet format and using dynamic partition overwrites, the following settings are recommended:
+
+* `spark:spark.sql.sources.partitionOverwriteMode : dynamic`
+* `spark:spark.sql.parquet.output.committer.class : org.apache.parquet.hadoop.ParquetOutputCommitter`
+* `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`
+
 When working with data in Orc format, the following Spark job settings are recommended:
 
 * `spark.sql.orc.cache.stripe.details.size : 10000`
@@ -238,7 +244,7 @@ If these values are excessively high, you may run out of {{ metastore-name }} sy
 
 {% endnote %}
 
-For more information, see the [Apache Spark documentation](https://spark.apache.org/docs/3.0.3/cloud-integration.html) and the [Component properties](../concepts/settings-list.md) section.
+For more information, see the [Apache Spark documentation](https://spark.apache.org/docs/3.5.3/cloud-integration.html) and the [Component properties](../concepts/settings-list.md) section.
 
 ## Using s3fs {#s3fs}
 

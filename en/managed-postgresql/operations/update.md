@@ -133,7 +133,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -172,7 +172,7 @@ We recommend changing the host class only when the cluster has no active workloa
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -204,7 +204,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md).
 
@@ -307,7 +307,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -351,7 +351,7 @@ You can change the DBMS settings of the hosts in your cluster.
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -460,7 +460,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    * `--backup-retain-period-days`: Automatic backup retention period, in days.
+    * `--backup-retain-period-days`: Automatic backup retention period in days.
 
     * `--datalens-access`: Enables access from DataLens. The default value is `false`. For more information on setting up a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
@@ -600,52 +600,47 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 
-     ```bash
-     curl \
-       --request PATCH \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
-       --data '{
-                 "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
-                 "configSpec": {
-                   "poolerConfig": {
-                     "poolingMode": "<connection_pooling_mode>",
-                     "poolDiscard": <discard_client_state_after_each_transaction:_true_or_false>
-                   },
-                   "backupWindowStart": {
-                     "hours": "<hours>",
-                     "minutes": "<minutes>",
-                     "seconds": "<seconds>",
-                     "nanos": "<nanoseconds>"
-                   },
-                   "backupRetainPeriodDays": "<number_of_days>",
-                   "access": {
-                     "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
-                     "webSql": <access_to_{{ websql-name }}:_true_or_false>,
-                     "serverless": <access_to_Cloud_Functions:_true_or_false>,
-                     "dataTransfer": <access_to_Data_Transfer:_true_or_false>,
-                     "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <activate_statistics_collection:_true_or_false>,
-                     "sessionsSamplingInterval": "<session_sampling_interval>",
-                     "statementsSamplingInterval": "<statement_sampling_interval>"
-                   }
-                 },
-                 "maintenanceWindow": {
-                   "weeklyMaintenanceWindow": {
-                     "day": "<day_of_week>",
-                     "hour": "<hour>"
-                   }
-                 },
-                 "deletionProtection": <deletion_protection:_true_or_false>
-               }'
+     ```json
+     {
+       "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
+       "configSpec": {
+         "poolerConfig": {
+           "poolingMode": "<connection_pooling_mode>",
+           "poolDiscard": <discard_client_state_after_each_transaction:_true_or_false>
+         },
+         "backupWindowStart": {
+           "hours": "<hours>",
+           "minutes": "<minutes>",
+           "seconds": "<seconds>",
+           "nanos": "<nanoseconds>"
+         },
+         "backupRetainPeriodDays": "<number_of_days>",
+         "access": {
+           "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
+           "webSql": <access_to_{{ websql-name }}:_true_or_false>,
+           "serverless": <access_to_Cloud_Functions:_true_or_false>,
+           "dataTransfer": <access_to_Data_Transfer:_true_or_false>,
+           "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
+         },
+         "performanceDiagnostics": {
+           "enabled": <activate_statistics_collection:_true_or_false>,
+           "sessionsSamplingInterval": "<session_sampling_interval>",
+           "statementsSamplingInterval": "<statement_sampling_interval>"
+         }
+       },
+       "maintenanceWindow": {
+         "weeklyMaintenanceWindow": {
+           "day": "<day_of_week>",
+           "hour": "<hour>"
+         }
+       },
+       "deletionProtection": <deletion_protection:_true_or_false>
+     }
      ```
 
 
@@ -681,7 +676,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
 
 
-       * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+       * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
          * `enabled`: Enable collecting statistics.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
@@ -706,6 +701,17 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
+       --data "@body.json"
+     ```
+
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 - gRPC API {#grpc-api}
@@ -715,69 +721,63 @@ Changing additional settings will cause the cluster to restart. The exceptions a
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Create a file named `body.json` and add the following contents to it:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
 
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "cluster_id": "<cluster_ID>",
-             "update_mask": {
-               "paths": [
-                 "config_spec.pooler_config",
-                 "config_spec.backup_window_start",
-                 "config_spec.backup_retain_period_days",
-                 "config_spec.access",
-                 "config_spec.performance_diagnostics.sessions_sampling_interval",
-                 "config_spec.performance_diagnostics.statements_sampling_interval",
-                 "maintenance_window",
-                 "deletion_protection"
-               ]
-             },
-             "config_spec": {
-               "pooler_config": {
-                 "pooling_mode": "<connection_pooling_mode>",
-                 "pool_discard": <discard_client_state_after_each_transaction:_true_or_false>
-               },
-               "backup_window_start": {
-                 "hours": "<hours>",
-                 "minutes": "<minutes>",
-                 "seconds": "<seconds>",
-                 "nanos": "<nanoseconds>"
-               },
-               "backup_retain_period_days": "<number_of_days>",
-               "access": {
-                 "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
-                 "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
-                 "serverless": <access_to_Cloud_Functions:_true_or_false>,
-                 "data_transfer": <access_to_Data_Transfer:_true_or_false>,
-                 "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <activate_statistics_collection:_true_or_false>,
-                 "sessions_sampling_interval": "<session_sampling_interval>",
-                 "statements_sampling_interval": "<statement_sampling_interval>"
-               }
-             },
-             "maintenance_window": {
-               "weekly_maintenance_window": {
-                 "day": "<day_of_week>",
-                 "hour": "<hour>"
-               }
-             },
-             "deletion_protection": <deletion_protection:_true_or_false>
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     ```json
+     {
+       "cluster_id": "<cluster_ID>",
+       "update_mask": {
+         "paths": [
+           "config_spec.pooler_config",
+           "config_spec.backup_window_start",
+           "config_spec.backup_retain_period_days",
+           "config_spec.access",
+           "config_spec.performance_diagnostics.sessions_sampling_interval",
+           "config_spec.performance_diagnostics.statements_sampling_interval",
+           "maintenance_window",
+           "deletion_protection"
+         ]
+       },
+       "config_spec": {
+         "pooler_config": {
+           "pooling_mode": "<connection_pooling_mode>",
+           "pool_discard": <discard_client_state_after_each_transaction:_true_or_false>
+         },
+         "backup_window_start": {
+           "hours": "<hours>",
+           "minutes": "<minutes>",
+           "seconds": "<seconds>",
+           "nanos": "<nanoseconds>"
+         },
+         "backup_retain_period_days": "<number_of_days>",
+         "access": {
+           "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
+           "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
+           "serverless": <access_to_Cloud_Functions:_true_or_false>,
+           "data_transfer": <access_to_Data_Transfer:_true_or_false>,
+           "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
+         },
+         "performance_diagnostics": {
+           "enabled": <activate_statistics_collection:_true_or_false>,
+           "sessions_sampling_interval": "<session_sampling_interval>",
+           "statements_sampling_interval": "<statement_sampling_interval>"
+         }
+       },
+       "maintenance_window": {
+         "weekly_maintenance_window": {
+           "day": "<day_of_week>",
+           "hour": "<hour>"
+         }
+       },
+       "deletion_protection": <deletion_protection:_true_or_false>
+     }
      ```
 
+
+     Where:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
      * `config_spec`: Cluster settings:
@@ -809,7 +809,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
 
 
-       * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+       * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
          * `enabled`: Enables statistics collection.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
@@ -833,6 +833,21 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update \
+       < body.json
+     ```
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -912,7 +927,7 @@ To switch the master:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.startFailover](../api-ref/Cluster/startFailover.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -938,7 +953,7 @@ To switch the master:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1004,7 +1019,7 @@ To switch the master:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.move](../api-ref/Cluster/move.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Move](../api-ref/Cluster/move.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1030,7 +1045,7 @@ To switch the master:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Move](../api-ref/grpc/Cluster/move.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1124,7 +1139,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1164,7 +1179,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

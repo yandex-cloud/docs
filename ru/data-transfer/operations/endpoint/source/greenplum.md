@@ -29,6 +29,10 @@ description: Из статьи вы узнаете, как задать наст
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
+## Подготовка базы данных {{ GP }} {#prepare}
+
+{% include [prepare greenplum db](../../../../_includes/data-transfer/endpoints/sources/greenplum-prepare.md) %}
+
 ## Настройка эндпоинта-источника {{ GP }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:

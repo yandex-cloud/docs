@@ -122,7 +122,7 @@ For a service whose subnet and security group is different from the agent's ones
         * **Response time limit**: `100ms`
         * **Window duration**: `10s`
 
-        This criterion stops the test if the 75th percentile exceeds 100 milliseconds within 10 seconds (within 10 seconds, the time to process 25% of requests exceeds 100 milliseconds).
+        This criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the time to process 25% of requests exceeds 100 milliseconds).
      1. Specify one more [autostop](../../load-testing/concepts/auto-stop.md):
         * **Autostop type 2**: `INSTANCES`
         * **Limit**: `90%`

@@ -12,7 +12,7 @@ After creating a cluster, you can:
 * [Change the public access setting](#change-public-access).
 * [Change additional cluster settings](#change-additional-settings).
 * [Edit the scheduled maintenance operations settings](#change-background-settings).
-* [Update  settings {{ GP }}](#change-gp-settings) according to the {{ GP }} documentation.
+* [Update settings {{ GP }}](#change-gp-settings) according to the {{ GP }} documentation.
 * [Change the host class](#change-resource-preset).
 * [Increase storage size](#change-disk-size).
 
@@ -955,7 +955,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
             In this case, list all the {{ GP }} settings to update.
 
-        * `configSpec.greenplumConfig_<{{ PG }}>`_version: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
+        * `configSpec.greenplumConfig_<{{ GP }}>`_version: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
 
             See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 

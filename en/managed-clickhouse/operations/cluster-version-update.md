@@ -1,11 +1,11 @@
 ---
-title: How to change {{ CH }} cluster settings in {{ mch-full-name }}
-description: Follow this guide to update a {{ CH }} cluster version.
+title: How to change a {{ CH }} cluster version in {{ mch-full-name }}
+description: Follow this guide to change a {{ CH }} cluster version.
 ---
 
 # {{ CH }} version upgrade
 
-You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, the sequence for upgrading {{ mch-name }} from version 22.8 to 24.3 is as follows: 22.8 → 23.3 → 23.8 → 24.3.
+You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, for {{ mch-name }}, the upgrade sequence from version 22.8 to 24.3 is: 22.8 → 23.3 → 23.8 → 24.3.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -15,7 +15,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - Management console {#console}
 
-    In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    In the [management console]({{ link-console-main }}), open the {{ mos-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 - CLI {#cli}
 
@@ -35,7 +35,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Versions.list](../api-ref/Versions/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Versions.List](../api-ref/Versions/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -54,7 +54,7 @@ To learn more about updates within a single version and host maintenance, see [M
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [VersionsService/List](../api-ref/grpc/Versions/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [VersionsService.List](../api-ref/grpc/Versions/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -76,7 +76,7 @@ To learn more about updates within a single version and host maintenance, see [M
 Make sure this does not affect your applications:
 
 1. See the {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) to check how updates might affect your applications.
-1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
+1. Try a version upgrade on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Updating the version {#start-update}
@@ -156,7 +156,7 @@ Make sure this does not affect your applications:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -178,11 +178,11 @@ Make sure this does not affect your applications:
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here we specified just a single parameter, `configSpec.version`.
+            Here only one parameter is specified: `configSpec.version`.
 
         * `configSpec.version`: target {{ CH }} version, {{ versions.api.str }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -194,7 +194,7 @@ Make sure this does not affect your applications:
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -224,11 +224,11 @@ Make sure this does not affect your applications:
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here we specified just a single parameter, `config_spec.version`.
+            Here only one parameter is specified: `config_spec.version`.
 
         * `config_spec.version`: target {{ CH }} version, {{ versions.api.str }}.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

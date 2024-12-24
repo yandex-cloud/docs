@@ -16,7 +16,7 @@ To install `postgresql_anonymizer` in a {{ PG }} cluster:
 1. [Connect the shared library](./cluster-extensions.md#libraries-connection) named `anon` to your cluster.
 1. [Add](./cluster-extensions.md#update-extensions) the `anon` extension to your database.
 
-1. [Assign](../grant.md#grant-role) the `mdb_admin` role to the owner of this database, if not assigned yet.
+1. [Assign](../grant.md#grant-role) the `mdb_admin` or `mdb_superuser` role to the owner of this database, if not assigned yet.
 
     You can get the owner's name with the [list of databases in the cluster](../databases.md#list-db).
 

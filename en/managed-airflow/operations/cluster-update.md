@@ -34,7 +34,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. Under the settings of {{ maf-name }} [components](../concepts/index.md#components), such as **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and resources.
+    1. In the settings sections of {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and [computing resource configuration](../concepts/index.md#presets).
 
     1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the `Triggerer` service. If it is enabled, specify the number of instances and resources.
 
@@ -144,7 +144,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
         ```json
         {
-          "updateMask": "<list_of_parameters_to_change>",
+          "updateMask": "<list_of_parameters_to_update>",
           "name": "<cluster_name>",
           "description": "<cluster_description>",
           "labels": { <label_list> },
@@ -228,15 +228,19 @@ After creating a cluster, you can change its basic and advanced settings.
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, and `worker`: Configuration of {{ maf-name }} [components](../concepts/index.md#components):
+            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
-                * `minCount` and `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
                     * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
@@ -280,9 +284,9 @@ After creating a cluster, you can change its basic and advanced settings.
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom log group ID. Logs will be written to this group.
 
-                Specify either `folderId` or `logGroupId`.
+                Specify one of the two parameters: `folderId` or `logGroupId`.
 
-    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -311,7 +315,7 @@ After creating a cluster, you can change its basic and advanced settings.
         ```json
         {
           "cluster_id": "<cluster_ID>",
-          "update_mask": "<list_of_parameters_to_change>",
+          "update_mask": "<list_of_parameters_to_update>",
           "name": "<cluster_name>",
           "description": "<cluster_description>",
           "labels": { <label_list> },
@@ -411,15 +415,19 @@ After creating a cluster, you can change its basic and advanced settings.
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, and `worker`: Configuration of {{ maf-name }} [components](../concepts/index.md#components):
+            * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
-                * `min_count` and `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
                     * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
 
             * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
@@ -465,7 +473,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
                 Specify either `folder_id` or `log_group_id`.
 
-    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

@@ -124,7 +124,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [User.update](../api-ref/User/update.md) method and make a request, e.g., using {{ api-examples.rest.tool }}:
+    1. Use the [User.update](../api-ref/User/update.md) method and send the following request, e.g., using {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -158,7 +158,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and make a request, e.g., using {{ api-examples.grpc.tool }}:
+    1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

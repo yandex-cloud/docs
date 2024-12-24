@@ -225,7 +225,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
             image: bitnami/kubectl:latest
             stage: deploy
             script:
-              - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>
+              - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_agent_name>
               - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
           ```
 
@@ -270,13 +270,13 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
             image: bitnami/kubectl:latest
             stage: deploy
             script:
-              - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_Agent_name>
+              - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_agent_name>
               - cat k8s.yaml | sed -e "s,__VERSION__,${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}," | kubectl apply -f -
           ```
 
           {% endcut %}
 
-        Replace `<GitLab_Agent_name>` with the name of the agent in {{ mgl-name }}.
+        Replace `<GitLab_agent_name>` with the name of the agent in {{ mgl-name }}.
 
       {% endlist %}
 
@@ -319,20 +319,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    - {{ TF }} {#tf}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.
-     1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-     1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `k8s-and-registry-for-gitlab.tf` configuration file will be deleted.
+     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 

@@ -33,7 +33,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.list](../api-ref/Database/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Database.List](../api-ref/Database/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -53,7 +53,7 @@ You can add, rename, and remove databases, as well as view information about the
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService/List](../api-ref/grpc/Database/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.List](../api-ref/grpc/Database/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -200,7 +200,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.create](../api-ref/Database/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Database.Create](../api-ref/Database/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -254,7 +254,7 @@ You can add, rename, and remove databases, as well as view information about the
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService/Create](../api-ref/grpc/Database/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Create](../api-ref/grpc/Database/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -346,7 +346,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.update](../api-ref/Database/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Database.Update](../api-ref/Database/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -383,7 +383,7 @@ You can add, rename, and remove databases, as well as view information about the
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService/Update](../api-ref/grpc/Database/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -412,7 +412,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `new_database_name`: New DB name.
 
@@ -420,7 +420,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -466,7 +466,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.update](../api-ref/Database/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Database.Update](../api-ref/Database/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -486,7 +486,7 @@ You can add, rename, and remove databases, as well as view information about the
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `deletionProtection`: DB deletion protection.
 
@@ -501,7 +501,7 @@ You can add, rename, and remove databases, as well as view information about the
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService/Update](../api-ref/grpc/Database/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Update](../api-ref/grpc/Database/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -530,13 +530,13 @@ You can add, rename, and remove databases, as well as view information about the
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `deletion_protection`: DB deletion protection.
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -572,7 +572,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
      --cluster-name <cluster_name>
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](cluster-list.md).
+  You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -599,7 +599,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Database.delete](../api-ref/Database/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Database.Delete](../api-ref/Database/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -619,7 +619,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -638,7 +638,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 
      You can get the cluster ID with the [list of clusters in your folder](cluster-list.md#list-clusters) and the DB name, with the [list of databases in your cluster](#list-db).
 
-  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

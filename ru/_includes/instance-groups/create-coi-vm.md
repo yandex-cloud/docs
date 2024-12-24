@@ -4,6 +4,8 @@
 
 {% include [sa.md](sa.md) %}
 
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../compute/security/index.md#compute-editor).
+
 Чтобы создать группу ВМ на базе {{ coi }}:
 
 1. {% include [cli-install.md](../cli-install.md) %}
@@ -46,7 +48,7 @@
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8a********
+     service_account_id: <идентификатор_сервисного_аккаунта>
      description: "This instance group was created from YAML config."
      ```
 
@@ -54,6 +56,8 @@
 
      * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
      * `service_account_id` — идентификатор сервисного аккаунта.
+
+        Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../compute/security/index.md#compute-editor).
 
        {% include [sa-dependence-brief](../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -140,10 +144,10 @@
 
      ```yaml
      name: container-optimized-group
-     service_account_id: aje3932acd8a********
+     service_account_id: <идентификатор_сервисного_аккаунта>
      description: "This instance group was created from YAML config."
      instance_template:
-       service_account_id: aje3932acd8a******** # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
+       service_account_id: <идентификатор_сервисного_аккаунта> # Идентификатор сервисного аккаунта для доступа к приватным Docker-образам.
        platform_id: standard-v3
        resources_spec:
          memory: 2G

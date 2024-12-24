@@ -24,6 +24,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
+  Список публичных образов размещен в каталоге **standard-images**.
+
   * {% include [standard-images](../../../_includes/standard-images.md) %}
 
       {% note info %}

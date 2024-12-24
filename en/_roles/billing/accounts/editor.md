@@ -4,6 +4,7 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 * Display [billing accounts](../../../billing/concepts/billing-account.md) in the list of all accounts.
 * View billing account data.
+* View [client offers](../../../billing/concepts/glossary.md#client-offer).
 * View and download [reporting (or closing) documents](../../../billing/payment/documents.md).
 * Generate new [reconciliation reports](../../../billing/concepts/act.md#reconciliation-report).
 * View and download generated reconciliation reports.

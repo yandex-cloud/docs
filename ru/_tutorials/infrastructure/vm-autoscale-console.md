@@ -18,7 +18,7 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-autoscale` и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `editor`:
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-autoscale`. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor):
 
    {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. В открывшемся окне:
         * В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-autoscale`.
-        * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+        * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `compute.editor` и `load-balancer.editor`.
         * Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -50,12 +50,20 @@
         name: for-autoscale
         ```
 
-     1. Назначьте роль сервисному аккаунту:
+     1. Назначьте роль `compute.editor` сервисному аккаунту:
 
         ```bash
-        yc resource-manager folder add-access-binding b1g23ga82bcv******** \
-          --role editor \
-          --subject serviceAccount:ajelabcde12f********
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
+          --role compute.editor \
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+        ```
+
+     1. Назначьте роль `load-balancer.editor` сервисному аккаунту:
+
+        ```bash
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
+          --role load-balancer.editor \
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
    - API {#api}

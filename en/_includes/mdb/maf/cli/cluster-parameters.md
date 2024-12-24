@@ -15,13 +15,17 @@ Where:
 * `--security-group-ids`: List of security group IDs.
 * `--webserver`, `--scheduler`, `--worker`, `--triggerer`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
 
-    * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
+    * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
     * `min-count`, `max-count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource-preset-id`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+    * `resource-preset-id`: [ID of the computing resources](../../../../managed-airflow/concepts/index.md#presets) of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+        * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM
+        * `c2-m4`: 2 vCPUs, 4 GB RAM
         * `c2-m8`: 2 vCPUs, 8 GB RAM
+        * `c4-m8`: 4 vCPUs, 8 GB RAM
         * `c4-m16`: 4 vCPUs, 16 GB RAM
+        * `c8-m16`: 8 vCPUs, 16 GB RAM
         * `c8-m32`: 8 vCPUs, 32 GB RAM
 
 * `--deb-packages`, `--pip-packages`: Lists of deb and pip packages enabling you to install additional libraries and applications in the cluster for running DAG files:

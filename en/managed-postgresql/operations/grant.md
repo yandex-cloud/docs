@@ -21,11 +21,12 @@ To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles ass
 
 With {{ mpg-name }}, you cannot access [predefined](https://www.postgresql.org/docs/current/predefined-roles.html) roles, including the superuser role. You can assign users only the following special roles:
 
+* `mdb_superuser`
 * `mdb_admin`
 * `mdb_monitor`
 * `mdb_replication`
 
-Users with the `mdb_admin` [role](../concepts/roles.md#mdb-admin) have the highest privileges for working with clusters. For more information, see [Assigning roles](../concepts/roles.md).
+Users with the `mdb_superuser` [role](../concepts/roles.md#mdb-superuser) have the highest privileges for working with clusters. For more information, see [Assigning roles](../concepts/roles.md).
 
 {% note info %}
 
@@ -71,7 +72,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
         For a complete list of editable fields in the {{ mpg-name }} cluster user configuration, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
-    1. Find the `yandex_mdb_postgresql_user` resource of the user you need.
+    1. Locate the user's `yandex_mdb_postgresql_user` resource.
     1. Add the `grants` attribute with the list of required roles:
   
         ```hcl
@@ -97,7 +98,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. To check the list of current roles, use the [User.get](../api-ref/User/get.md) method and execute this request, e.g., via {{ api-examples.rest.tool }}:
+  1. To check the list of current roles, use the [User.Get](../api-ref/User/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -110,7 +111,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      The list of current roles is in the `grants` parameter in the command output.
 
-  1. To change the list of roles for a user, use the [User.update](../api-ref/User/update.md) method and execute this request:
+  1. To change the list of roles for a user, use the [User.Update](../api-ref/User/update.md) method and make a request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -150,7 +151,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. To check the list of current roles, use the [UserService/Get](../api-ref/grpc/User/get.md) call and execute this request, e.g., via {{ api-examples.grpc.tool }}:
+  1. To check the list of current roles, use the [UserService.Get](../api-ref/grpc/User/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -169,7 +170,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      The list of current roles is in the `grants` parameter in the command output.
 
-  1. To change the list of roles for a user, use the [UserService/Update](../api-ref/grpc/User/update.md) call and execute this request:
+  1. To change the list of roles for a user, use the [UserService.Update](../api-ref/grpc/User/update.md) call and make a request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -200,7 +201,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       In this case, only one parameter is provided.
+       Only one parameter is provided in this case.
 
      * `grants`: Array of strings with new roles. Each row corresponds to a separate role. The possible values are:
 
@@ -211,7 +212,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](cluster-users.md#list-users).
 
-  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

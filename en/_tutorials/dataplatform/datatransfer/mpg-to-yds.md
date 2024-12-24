@@ -47,14 +47,14 @@ Prepare the infrastructure:
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
         * {{ mpg-name }} source cluster.
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * Service account to use to access {{ yds-name }}.
         * Source endpoint.
         * Transfer.
 
     1. In the `postgresql-yds.tf` file, specify the {{ PG }} user password.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -123,7 +123,7 @@ Prepare the infrastructure:
             * `yds_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -177,20 +177,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `postgresql-yds.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `postgresql-yds.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

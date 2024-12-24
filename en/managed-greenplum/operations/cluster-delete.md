@@ -34,25 +34,9 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
 - {{ TF }} {#tf}
 
-  To delete the infrastructure created with {{ TF }}:
+    {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the {{ TF }} configuration file of the cluster.
-    1. Check that the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-       If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-       All the resources described in the configuration file will be deleted.
-
-  {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
 
 - REST API {#api}
 
@@ -60,7 +44,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Delete](../api-ref/Cluster/delete.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Delete](../api-ref/Cluster/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -81,7 +65,7 @@ description: In this tutorial, you will learn how to delete a cluster in {{ mgp-
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
