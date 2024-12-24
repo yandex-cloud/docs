@@ -80,7 +80,7 @@ You can create backups and restore clusters from existing backups, including poi
           ```
 
 
-          You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+          You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
       1. View the [server response](../api-ref/Backup/list.md#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) to make sure the request was successful.
@@ -133,7 +133,7 @@ You can create backups and restore clusters from existing backups, including poi
           ```
 
 
-          You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+          You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
       1. View the [server response](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) to make sure the request was successful.
@@ -277,7 +277,7 @@ You can create backups and restore clusters from existing backups, including poi
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Backup) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -295,7 +295,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -319,7 +319,7 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster [to a particular point in time](../concepts/backup.md) after creating this backup (Point-in-Time-Recovery), configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly.
 
-     If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   To restore a previously deleted cluster from a backup:
@@ -330,7 +330,7 @@ For a new cluster, you should set all the parameters that are required at creati
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
 
-     If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+     If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mmy-name }} will launch the operation to create a cluster from the backup.
@@ -368,7 +368,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
      The backup completion time is shown in the `CREATED AT` column of the list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
-  1. Request the creation of a cluster from a backup:
+  1. Request creating a cluster from a backup:
 
 
       ```bash
@@ -547,7 +547,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
+      * `backupId`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
       * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
       * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
@@ -566,7 +566,7 @@ For a new cluster, you should set all the parameters that are required at creati
               * `diskSize`: Disk size in bytes.
               * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-      * `hostSpecs`: Settings for the cluster hosts as an array of elements,  one for each host. Each element has the following structure:
+      * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -622,7 +622,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with a [list of backups](#list-backups).
+      * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
       * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
       * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
@@ -641,7 +641,7 @@ For a new cluster, you should set all the parameters that are required at creati
               * `disk_size`: Disk size in bytes.
               * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-      * `host_specs`: Settings for the cluster hosts as an array of elements, one for each host. Each element has the following structure:
+      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
@@ -662,7 +662,7 @@ For a new cluster, you should set all the parameters that are required at creati
           < body.json
       ```
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -816,7 +816,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `config_spec.backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
@@ -839,7 +839,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [modifying a cluster](update.md).
 
 - CLI {#cli}
 
@@ -847,7 +847,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To set a retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
+  To set the retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
 
     ```bash
     {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -883,7 +883,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }}  provider documentation]({{ tf-provider-mmy }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmy }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
@@ -915,7 +915,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
 
@@ -964,7 +964,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 

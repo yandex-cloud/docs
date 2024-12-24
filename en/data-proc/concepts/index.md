@@ -4,24 +4,18 @@
 
 ## Resources {#resources}
 
-The main entity of the service is a _cluster_. It groups together all resources available in Hadoop, including storage and computing capacity.
+The service's main entity is a _cluster_. It groups together all resources available in Hadoop, including storage and computing capacity.
 
 Each cluster consists of _subclusters_. They integrate _hosts_ that perform identical functions:
 
-* Subcluster with a master host (`masternode`), such as NameNode for HDFS or ResourceManager for YARN.
+* Subcluster with a master host (`masternode`), e.g., NameNode for HDFS or ResourceManager for YARN.
 
-   Each cluster may only have one subcluster with a master host.
+  Each cluster may only have one subcluster with a master host.
 
-* Data storage subclusters (`Data` or `datanode`), such as DataNode for HDFS.
-* Data processing subclusters (`Compute` or `computenode`), such as NodeManager for YARN.
+* Data storage subclusters (`Data` or `datanode`), e.g., DataNode for HDFS.
+* Data processing subclusters (`Compute` or `computenode`), e.g., NodeManager for YARN.
 
 Subclusters of a single cluster must reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md).
-
-{% note warning %}
-
-The `{{ region-id }}-c` availability zone is [being discontinued](/blog/posts/2023/08/new-availability-zone). If your cluster is hosted in this availability zone, create a new cluster and move the workload to it. Learn how to migrate [lightweight clusters](../operations/migration-to-an-availability-zone.md) and [HDFS clusters](../tutorials/hdfs-cluster-migration.md).
-
-{% endnote %}
 
 Hosts in each subcluster are created with the computing capacity that is consistent with the specified _host class_. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
@@ -31,15 +25,15 @@ VMs for cluster hosts can be hosted on:
 
 * _Regular {{ yandex-cloud }} hosts_:
 
-   These are physical servers for hosting cluster VMs. These hosts are selected randomly from the available pool of hosts that meet the requirements of the selected subcluster configuration.
+    These are physical servers for hosting cluster VMs. These hosts are selected randomly from the available pool of hosts that meet the requirements of the selected subcluster configuration.
 
 * _Dedicated {{ yandex-cloud }} hosts_:
 
-   These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from _dedicated host groups_ specified when creating a cluster.
+    These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from _dedicated host groups_ specified when creating a cluster.
 
-   Such a placement option makes sure the VMs are physically isolated. A {{ dataproc-name }} cluster using dedicated hosts includes all features of a regular cluster.
+    This placement option ensures physical isolation of the VMs. A {{ dataproc-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
-   For more information about dedicated hosts, see the [{{ compute-full-name }} documentation](../../compute/concepts/dedicated-host.md).
+    For more information about dedicated hosts, see the [{{ compute-full-name }} documentation](../../compute/concepts/dedicated-host.md).
 
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).

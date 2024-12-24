@@ -46,7 +46,7 @@ Prepare the infrastructure:
 
         This file describes:
 
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * Service account with the `yds.editor` role.
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
@@ -64,7 +64,7 @@ Prepare the infrastructure:
         * `target_user` and `target_password`: Username and password of the {{ CH }} database owner.
         * `transfer_enabled`: `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -200,7 +200,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -264,21 +264,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    - {{ TF }} {#tf}
 
-       1. In the terminal window, go to the directory containing the infrastructure plan.
-       1. Delete the `data-transfer-yds-mch.tf` configuration file.
-       1. Make sure the {{ TF }} configuration files are correct using this command:
-
-           ```bash
-           terraform validate
-           ```
-
-           If there are any errors in the configuration files, {{ TF }} will point them out.
-
-       1. Confirm updating the resources.
-
-           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-           All the resources described in the `data-transfer-yds-mch.tf` configuration file will be deleted.
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 

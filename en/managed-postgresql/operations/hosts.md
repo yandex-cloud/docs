@@ -50,7 +50,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.listHosts](../api-ref/Cluster/listHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -70,7 +70,7 @@ You can add and remove cluster hosts and manage their settings. For information 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -180,7 +180,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
      For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
-  1. Add a `host` section to the {{ mpg-name }} cluster description:
+  1. Add a `host` block to the {{ mpg-name }} cluster description:
 
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -219,7 +219,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -270,7 +270,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -316,7 +316,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -339,7 +339,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
   To change the parameters of the cluster host:
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Set new settings for the host:
      1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
@@ -411,7 +411,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -445,7 +445,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
      Where `updateHostSpecs` is an array of hosts being changed. One array element contains settings for a single host and has the following structure:
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
-     * `hostName`: [FQDN of the host being changed](connect.md#fqdn).
+     * `hostName`: [FQDN of a host being changed](connect.md#fqdn).
      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
      * `replicationSource`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual). In the parameter, specify the FQDN of the host to be used as a replication source.
      * `priority`: Host priority among all hosts.
@@ -464,7 +464,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -516,7 +516,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -532,7 +532,7 @@ If you cannot [connect](connect.md) to the host after you changed it, check that
 
 You can remove a host from a {{ PG }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master when deleted, {{ mpg-short-name }} automatically assigns the replica of the next highest priority as the master.
+If the host is the master at the time of deletion, {{ mpg-short-name }} will automatically assign the next highest priority replica as the master.
 
 {% list tabs group=instructions %}
 
@@ -541,7 +541,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
   To remove a host from a cluster:
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
 - CLI {#cli}
 
@@ -583,7 +583,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -611,7 +611,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -634,6 +634,6 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

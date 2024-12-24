@@ -88,13 +88,17 @@ Where:
 * `security_group_ids`: List of security group IDs.
 * `webserver`, `scheduler`, `worker`, `triggerer`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
 
-    * `count`: Number of instances in the cluster for the web server, scheduler, and trigger.
+    * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
     * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-    * `resource_preset_id`: ID of the web server, scheduler, worker, and trigger computing resources. The possible values are:
+    * `resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
 
+        * `c1-m2`: 1 vCPU, 2 GB RAM
         * `c1-m4`: 1 vCPU, 4 GB RAM
+        * `c2-m4`: 2 vCPUs, 4 GB RAM
         * `c2-m8`: 2 vCPUs, 8 GB RAM
+        * `c4-m8`: 4 vCPUs, 8 GB RAM
         * `c4-m16`: 4 vCPUs, 16 GB RAM
+        * `c8-m16`: 8 vCPUs, 16 GB RAM
         * `c8-m32`: 8 vCPUs, 32 GB RAM
 
 * `deb_packages`, `pip_packages`: Lists of deb and pip packages enabling you to install additional libraries and applications in the cluster for running DAG files:
@@ -112,7 +116,7 @@ Where:
 
     With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
 
-* `lockbox_secrets_backend.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../../../../managed-airflow/concepts/impersonation.md#lockbox-integration). Possible values: `true` or `false`.
+* `lockbox_secrets_backend.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../../../../managed-airflow/concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 * `airflow_config`: [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `core` for configuration section, `load_examples` for key, and `False` for value.
 * `logging`: Logging parameters:
 

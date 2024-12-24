@@ -111,7 +111,7 @@ The infrastructure support costs include:
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
 1. Check if there is an account in the {{ yandex-cloud }} cloud with `admin` permissions for the folder the solution is being deployed in.
 1. [Install Git](https://github.com/git-guides/install-git).
-1. Check the cloud quotas to be able to deploy your resources in this use case:
+1. Check whether your cloud quotas allow you to deploy your resources for this scenario:
 
     {% cut "Information about resources to be created" %}
 
@@ -153,24 +153,24 @@ The infrastructure support costs include:
     export YC_TOKEN=$(yc iam create-token)
     ```
 
-1. Variable parameters of resources to create are defined in the `variables.tf` file. Insert your custom variable values into the `terraform.tfvars` file. Mandatory parameters to be updated are indicated in the table below.
+1. Variable parameters of resources to create are defined in the `variables.tf` file. Insert your custom variable values into the `terraform.tfvars` file. Refer to the table below to see which parameters need changing.
 
     {% cut "Detailed information about values to set" %}
 
-    | Parameter<br>name | Replace with<br>a custom<br>value | Description | Type | Example |
+    | Name<br>of parameter | Replace with<br>a custom<br>value | Description | Type | Example |
     | --- | --- | --- | --- | --- |
     | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `"b1gentmqf1ve********"` |
     | `vpc_id` | — | ID of the cloud network access to {{ objstorage-name }} is set up for. If omitted, a new network will be created. | `string` | `"enp48c1ndilt********"` |
-    | `yc_availability_zones` | — | List of [availability zones](../../overview/concepts/geo-scope.md) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-    | `subnet_prefix_list` | — | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list. The prefixes should be listed as {{ region-id }}-a, {{ region-id }}-b, and so on). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
+    | `yc_availability_zones` | — | List of the [availability zones](../../overview/concepts/geo-scope.md) for deploying NAT instances | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
+    | `subnet_prefix_list` | — | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the following order: {{ region-id }}-a, {{ region-id }}-b, and so on). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
     | `nat_instances_count` | — | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `4` |
     | `bucket_private_access` | — | Only allow bucket access from the public IPs of NAT instances. If `true`, access is limited. To remove the limit, set `false`. | `bool` | `true` |
-    | `bucket_console_access` | — | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To deny access, set `false`. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `bool` | `true` |
-    | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is mandatory if the `bucket_private_access` parameter is set to `true`. | `string` | `"A.A.A.A"` |
+    | `bucket_console_access` | — | Allow bucket access via the {{ yandex-cloud }} management console. If `true`, access is allowed. To deny access, set `false`. This parameter is required if `bucket_private_access` is set to `true`. | `bool` | `true` |
+    | `mgmt_ip` | Yes | Public IP of your workstation where you are deploying the infrastructure using {{ TF }}. It is used to allow your workstation to perform actions with the bucket when deploying {{ TF }}. This parameter is required if `bucket_private_access` is set to `true`. | `string` | `"A.A.A.A"` |
     | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ objstorage-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
-    | `vm_username` | — | NAT instance and test VM user names | `string` | `"admin"` |
+    | `vm_username` | — | NAT instance and test VM user names. | `string` | `"admin"` |
     | `s3_ip` | No | {{ objstorage-name }} public IP address | `string` | `213.180.193.243` |
-    | `s3_fqdn` | No | {{ objstorage-name }} domain name | `string` | `{{ s3-storage-host }}` |  
+    | `s3_fqdn` | No | {{ objstorage-name }} domain name | `string` | `{{ s3-storage-host }}` |
 
     {% endcut %}
 
@@ -199,10 +199,10 @@ The infrastructure support costs include:
     | Name | Description | Sample value |
     | ----------- | ----------- | ----------- |
     | `path_for_private_ssh_key` | File with a private key used to connect to the NAT instances and test VM over SSH | `./pt_key.pem` |
-    | `vm_username` | NAT instance and test VM user names | `admin` |
-    | `test_vm_password` | `admin` user password for the test VM | `v3RCqU****` |
+    | `vm_username` | NAT instance and test VM user names. | `admin` |
+    | `test_vm_password` | `admin` user password for the test VM. | `v3RCqU****` |
     | `s3_bucket_name` | Bucket name in {{ objstorage-name }} | `s3-bucket-<...>` |
-    | `s3_nlb_ip_address` | IP address of the internal load balancer | `10.10.1.100` |
+    | `s3_nlb_ip_address` | IP address of the internal load balancer. | `10.10.1.100` |
 
     {% endcut %}
 
@@ -285,10 +285,6 @@ The infrastructure support costs include:
 
 ## Delete the resources you created {#clear-out}
 
-To delete the resources you created using {{ TF }}, run the `terraform destroy` command.
+To delete the resources created with {{ TF }}:
 
-{% note warning %}
-
-{{ TF }} will permanently delete all the resources that were created while deploying the solution.
-
-{% endnote %}
+{% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}

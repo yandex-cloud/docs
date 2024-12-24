@@ -16,9 +16,13 @@ Clusters remain fully accessible during the backup window.
 
 The size and amount of backups are not limited. Automatically created backups are stored for seven days, while manually created ones are stored indefinitely.
 
+#### Can I delete a backup? {#delete-backup}
+
+Yes, if you created it manually. To delete a backup, [follow this guide](../../managed-clickhouse/operations/cluster-backups.md#delete-backup).
+
 #### Can I change the automatic backup retention period? {#backup-retain-days}
 
-When [creating](../../managed-clickhouse/operations/cluster-create.md) or [modifying](../../managed-clickhouse/operations/update.md#change-additional-settings) a cluster, you can set the retention period for automatic backups.
+You can set the retention period for automatic backups when [creating](../../managed-clickhouse/operations/cluster-create.md) or [modifying](../../managed-clickhouse/operations/update.md#change-additional-settings) a cluster.
 
 #### What does a daily backup include? {#daily-backups}
 

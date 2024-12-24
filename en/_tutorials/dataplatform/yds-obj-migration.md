@@ -16,46 +16,46 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
-   1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+    1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
 - {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [data-transfer-yds-obj.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-object-storage/blob/main/data-transfer-yds-obj.tf) configuration file to the same working directory.
+    1. Download the [data-transfer-yds-obj.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-yds-to-object-storage/blob/main/data-transfer-yds-obj.tf) configuration file to the same working directory.
 
-      This file describes:
+        This file describes:
 
-      * {{ ydb-name }} database.
-      * A service account with the `yds.editor`, `storage.editor`, and `storage.uploader` roles.
-      * Bucket in {{ objstorage-name }}.
-      * Transfer.
+        * Database: {{ ydb-name }}.
+        * Service account with the `yds.editor`, `storage.editor`, and `storage.uploader` roles.
+        * Bucket in {{ objstorage-name }}.
+        * Transfer.
 
-   1. In the `data-transfer-yds-obj.tf` file, specify:
+    1. Specify the following in the `data-transfer-yds-obj.tf` file:
 
-      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
-      * `sa_name`: Name of the service account to create a bucket in and use in endpoints.
-      * `source_db_name`: {{ ydb-name }} database name.
-      * `bucket_name`: {{ objstorage-name }} bucket name.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the resources will be created in.
+        * `sa_name`: Name of the service account for creating a bucket and for use in endpoints.
+        * `source_db_name`: {{ ydb-name }} database name.
+        * `bucket_name`: Bucket name in {{ objstorage-name }}.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+        ```bash
+        terraform validate
+        ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+        If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Create the required infrastructure:
+    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -83,114 +83,114 @@ Prepare the infrastructure:
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+    * **Endpoint parameters**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-            Create and upload the `json_schema.json` file in JSON format:
+                Create and upload a `json_schema.json` data schema file in JSON format:
 
-            {% cut "json_schema.json" %}
+                {% cut "json_schema.json" %}
 
-            ```json
-            [
-                {
-                    "name": "device_id",
-                    "type": "string"
-                },
-                {
-                    "name": "datetime",
-                    "type": "datetime"
-                },
-                {
-                    "name": "latitude",
-                    "type": "double"
-                },
-                {
-                    "name": "longitude",
-                    "type": "double"
-                },
-                {
-                    "name": "altitude",
-                    "type": "double"
-                },
-                {
-                    "name": "speed",
-                    "type": "double"
-                },
-                {
-                    "name": "battery_voltage",
-                    "type": "any"
-                },
-                {
-                    "name": "cabin_temperature",
-                    "type": "double"
-                },
-                {
-                    "name": "fuel_level",
-                    "type": "any"
-                }
-            ]
-            ```
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "any"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "double"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "any"
+                    }
+                ]
+                ```
 
-            {% endcut %}
+                {% endcut %}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ objstorage-name }}`
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageEndpoint.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ objstorage-name }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageEndpoint.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Enter the name of the bucket in {{ objstorage-name }}.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select or create a service account with the `storage.uploader` role.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Enter the name of the bucket in {{ objstorage-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select or create a service account with the `storage.uploader` role.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: Select `JSON` or `CSV` if you have enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** in the advanced settings for the source endpoint.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: Select `JSON` or `CSV` if you have enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** in the advanced settings for the source endpoint.
 
 1. Create a transfer:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
-   - {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-      1. In the `data-transfer-yds-obj.tf` file, uncomment:
+        1. In the `data-transfer-yds-obj.tf` file, uncomment the following:
 
-         * Variables:
+            * Variables:
 
-            * `source_endpoint_id` and set it to the value of the endpoint ID for the source.
-            * `target_endpoint_id` and set it to the value of the endpoint ID for the target.
+                * `source_endpoint_id`, and set it to the endpoint ID value for the source.
+                * `target_endpoint_id`, and set it to the endpoint ID value for the target.
 
-         * `yandex_datatransfer_transfer` resource.
+            * `yandex_datatransfer_transfer` resource.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+            ```bash
+            terraform validate
+            ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+            If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Create the required infrastructure:
+        1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         Once created, your transfer will be activated automatically.
+            Once created, your transfer will be activated automatically.
 
-   {% endlist %}
+    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -198,33 +198,33 @@ Prepare the infrastructure:
 
 1. Make sure that the data from the {{ yds-name }} stream has been moved to the bucket {{ objstorage-name }}:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Select the bucket from the list.
-   1. Check that the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
+    1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Select the bucket from the list.
+    1. Check that the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
 
 1. Send a new message [to a {{ yds-name }} stream](../../data-streams/operations/aws-cli/send.md):
 
-   ```json
-   {
-       "device_id": "rhibbh3y08qm********",
-       "datetime": "2020-06-06 09:49:54",
-       "latitude": 55.71294467,
-       "longitude": 37.66542005,
-       "altitude": 429.13,
-       "speed": 55.5,
-       "battery_voltage": null,
-       "cabin_temperature": 18,
-       "fuel_level": 32
-   }
-   ```
+    ```json
+    {
+        "device_id": "rhibbh3y08qm********",
+        "datetime": "2020-06-06 09:49:54",
+        "latitude": 55.71294467,
+        "longitude": 37.66542005,
+        "altitude": 429.13,
+        "speed": 55.5,
+        "battery_voltage": null,
+        "cabin_temperature": 18,
+        "fuel_level": 32
+    }
+    ```
 
 1. Make sure that the following data has been added to the {{ objstorage-name }} bucket:
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-   1. Select the bucket from the list.
-   1. Check that the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) has been added to the bucket and includes the new data.
+    1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Select the bucket from the list.
+    1. Check that the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
 
 ## Delete the resources you created {#clear-out}
 
@@ -246,26 +246,12 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-   * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-   * If you created any service accounts when creating your endpoints, [delete them](../../iam/operations/sa/delete.md).
+    * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+    * If you created any service accounts when creating your endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `data-transfer-yds-obj.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources defined in the `data-transfer-yds-obj.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

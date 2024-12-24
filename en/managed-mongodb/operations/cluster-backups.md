@@ -46,7 +46,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
 
-      If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+      If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -64,7 +64,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
 
-      If you do not change the setting, the cluster will be restored to the state when the backup was completed.
+      If you do not change the setting, the cluster will be restored to the state it was in when the backup was completed.
 
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -125,7 +125,7 @@ When restored to the current state, the new cluster will match the state of:
 
       Where:
 
-      * `--recovery-target-timestamp`: Time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster will be restored to when the backup was completed.
+      * `--recovery-target-timestamp`: Time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this parameter, the cluster state will be restored to the backup completion time.
       * `--environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
 
@@ -141,7 +141,7 @@ When restored to the current state, the new cluster will match the state of:
     * ID of the backup you need, in the `backupId` parameter. To find out the ID, [get a list of cluster backups](#list-backups).
     * Name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. It must be unique within the folder.
 
-    In the `recoveryTargetSpec.timestamp` parameter, specify the time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you do not specify the parameter, the cluster will be restored to when the backup was completed.
+    In the `recoveryTargetSpec.timestamp` parameter, specify the time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this parameter, the cluster state will be restored to the backup completion time.
 
 {% endlist %}
 
@@ -297,7 +297,7 @@ When restored to the current state, the new cluster will match the state of:
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), you can set a retention period for automatic backups when [creating](cluster-create.md) or [updating a cluster](update.md).
+  In the [management console]({{ link-console-main }}), you can set the retention period for automatic backups when [creating](cluster-create.md) or [modifying a cluster](update.md).
 
 - CLI {#cli}
 
@@ -305,7 +305,7 @@ When restored to the current state, the new cluster will match the state of:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To set a retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
+  To set the retention period for automatic backups, provide the required value in the `--backup-retain-period-days` argument of the `cluster update` command:
 
     ```bash
     {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
@@ -358,7 +358,7 @@ When restored to the current state, the new cluster will match the state of:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -380,7 +380,7 @@ When restored to the current state, the new cluster will match the state of:
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `configSpec.backupRetainPeriodDays`: Automatic backup retention period.
 
@@ -398,7 +398,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -428,7 +428,7 @@ When restored to the current state, the new cluster will match the state of:
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          In this case, only one parameter is provided.
+          Only one parameter is provided in this case.
 
       * `config_spec.backup_retain_period_days`: Automatic backup retention period.
 

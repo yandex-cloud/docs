@@ -149,7 +149,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -186,7 +186,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
         * `copySchema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -198,7 +198,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -221,9 +221,9 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
                         { ... },
                         { <similar_settings_for_new_host_N> }
                     ],
-                    "copy_schema": <data_schema_copying_enabled or_not>
+                    "copy_schema": <enabling_or_disabling_data_schema_copying>
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
         ```
 
@@ -239,7 +239,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
         * `copy_schema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -266,7 +266,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
   To change the parameters of the cluster host:
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -284,7 +284,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
     --assign-public-ip=<public_access_to_host>
   ```
 
-  Where `assign-public-ip` is the Internet access to the host via a public IP address, `true` or `false`.
+  Where `assign-public-ip` is internet access to the host via a public IP address, `true` or `false`.
 
   You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -294,7 +294,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-  1. In the host, use the `host` section to add or edit the `assign_public_ip` parameter.
+  1. Add or edit the `assign_public_ip` parameter in the host's `host` block.
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -325,7 +325,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -351,11 +351,11 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
         * `hostName`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Here we specified just a single parameter, `assignPublicIp`.
+            Here only one parameter is specified: `assignPublicIp`.
 
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -367,7 +367,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -391,7 +391,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
                         "assign_public_ip": <public_access_to_host>
                     }]
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateHosts
         ```
 
@@ -400,11 +400,11 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
         * `host_name`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Here we specified just a single parameter, `assign_public_ip`.
+            Here only one parameter is specified: `assign_public_ip`.
 
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -440,7 +440,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -480,63 +480,11 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
-
-        ```bash
-        curl \
-            --request POST \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:batchDelete' \
-            --data '{
-                      "hostNames": [
-                        <list_of_host_names>
-                      ]
-                    }'
-        ```
-
-        Where `hostNames` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
-
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-    1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    {% include [zk-hosts-rest](../../_includes/mdb/mch/api/delete-zk-hosts-rest.md) %}
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-
-    1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                    "cluster_id": "<cluster_ID>",
-                    "host_names": [
-                      <list_of_host_names>
-                    ]
-                }' \
-            {{ api-host-mdb }}:443 \
-            yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
-        ```
-
-        Where `host_names` is an array of strings. Each string is the name of a host to delete. You can request host names with a [list of hosts in the cluster](#list-hosts).
-
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-    1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/delete-zk-hosts-grpc.md) %}
 
 {% endlist %}
 

@@ -8,9 +8,13 @@ You cannot upgrade a regular cluster version to versions optimized for _1C:Enter
 
 {% endnote %}
 
-You can only upgrade to a version that immediately follows the current one, e.g., from version 11 to 12. Upgrades to higher versions are performed in steps. For example, upgrading the {{ PG }} version from 11 to 15 is performed in the following sequence: 11 → 12 → 13 → 14 → 15.
+You can only upgrade to a version that immediately follows the current one, e.g., from version 14 to 15. Upgrades to higher versions are performed in steps. For example, for {{ PG }}, the upgrade sequence from version 13 to 15 is: 13 → 14 → 15.
 
-You can upgrade to version 16 only using {{ data-transfer-full-name }}. To do so, [create a version 16 cluster](cluster-create.md#create-cluster) and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+{% note warning %}
+
+You can upgrade to version 16 and 17 only using {{ data-transfer-full-name }}. To do so, [create a cluster](cluster-create.md#create-cluster) with the new version and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+
+{% endnote %}
 
 In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
@@ -30,7 +34,7 @@ To learn more about updates within a single version and host maintenance, see [M
 Make sure this does not affect your applications:
 
 1. See the {{ PG }} [changelog](https://www.postgresql.org/docs/release/) to see how upgrades may affect your applications or installed [extensions](./extensions/cluster-extensions.md).
-1. Try upgrading the version on a test cluster. You can deploy it from a backup of the main cluster.
+1. Try a version upgrade on a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
 1. [Create a backup](cluster-backups.md) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
@@ -42,10 +46,10 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
-### Upgrading a cluster to {{ PG }} 16 {#update-to-v16}
+### Upgrading a cluster to {{ PG }} 16 or 17 {#update-to-v16}
 
-  1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16.
-  1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
+1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 16 or 17.
+1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
 
 ### Upgrading a cluster to {{ PG }} 15 or lower {#update-to-v15-or-lower}
 
@@ -120,7 +124,7 @@ Make sure this does not affect your applications:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -157,7 +161,7 @@ Make sure this does not affect your applications:
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -193,7 +197,7 @@ Make sure this does not affect your applications:
 
      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

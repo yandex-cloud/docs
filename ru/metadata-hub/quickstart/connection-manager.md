@@ -2,12 +2,12 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }} и {{ TR }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ OS }} и {{ TR }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 
 1. Чтобы включить интеграцию сервиса с кластерами управляемых баз данных, обратитесь в [техническую поддержку]({{ link-console-support }}). Когда доступ к {{ connection-manager-full-name }} будет подтвержден, подключения для кластеров управляемых баз данных начнут создаваться автоматически.
-1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md), [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md) или [{{ mch-short-name }}](../../managed-clickhouse/operations/cluster-create.md).
+1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md), [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md), [{{ mch-short-name }}](../../managed-clickhouse/operations/cluster-create.md), [{{ mrd-name }}](../../managed-redis/operations/cluster-create.md) или [{{ mos-short-name }}](../../managed-opensearch/operations/cluster-create.md).
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно проверить подключение.
 1. Выберите сервис **{{ metadata-hub-full-name }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.

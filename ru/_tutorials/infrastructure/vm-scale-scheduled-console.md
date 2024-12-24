@@ -30,7 +30,7 @@
   1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `vm-scale-scheduled-sa`.
   1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../iam/concepts/access-control/roles.md):
-     * `compute.admin` — для управления группой ВМ.
+     * `compute.editor` — для управления группой ВМ.
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу.
      * `{{ roles-functions-invoker }}` — для запуска функции {{ sf-name }}.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -55,12 +55,12 @@
 
      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
   1. Назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
-     * `compute.admin` — для управления группой ВМ:
+     * `compute.editor` — для управления группой ВМ:
 
        ```bash
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
-         --role compute.admin \
+         --role compute.editor \
          --folder-name example-folder
        ```
 

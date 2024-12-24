@@ -69,4 +69,8 @@ For more information about creating a backup manually, see [Managing backups](..
 
 To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
 
+## Deleting a backup {#deletion}
+
+You can delete only manual backups. To delete such a backup, [follow this guide](../operations/cluster-backups.md#delete-backup).
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

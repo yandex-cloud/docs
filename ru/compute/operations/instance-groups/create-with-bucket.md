@@ -11,8 +11,9 @@ description: Следуя данной инструкции, вы сможете
 Чтобы создать группу ВМ, в которой к каждой ВМ будет автоматически подключаться общий бакет {{ objstorage-name }}:
 
 1. {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+1. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 1. Если у вас нет бакета {{ objstorage-name }}, [создайте его](../../../storage/operations/buckets/create.md).
-1. Операции с бакетом выполняются от имени сервисного аккаунта, созданного в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что, что и сам бакет. Если такого сервисного аккаунта нет, создайте его. Для работы с бакетом назначьте сервисному аккаунту [роль](../../../storage/security/index.md#storage-editor) `storage.editor`.
+1. Операции с бакетом выполняются от имени сервисного аккаунта, созданного в том же [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), что и сам бакет. Если такого сервисного аккаунта нет, создайте его. Для работы с бакетом назначьте сервисному аккаунту роль [storage.editor](../../../storage/security/index.md#storage-editor).
 
     Для работы с группой виртуальных машин и с бакетом можно использовать как один, так и два разных сервисных аккаунта.
 
@@ -86,7 +87,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```yml
           name: vm-group-with-object-storage
-          service_account_id: ajegtlf2q28a********
+          service_account_id: <идентификатор_сервисного_аккаунта> // сервисный аккаунт с ролью compute.editor
           description: "Эта группа ВМ создана с помощью YAML-файла конфигурации."
           instance_template:
             platform_id: standard-v3
@@ -108,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
                 }
                 security_group_ids:
                   - enpuatgvejtn********
-            service_account_id: aje1ki4ae68u********
+            service_account_id: <идентификатор_сервисного_аккаунта> // сервисный аккаунт с ролью storage.editor
             metadata:
               user-data: |-
                 #cloud-config
@@ -181,9 +182,9 @@ description: Следуя данной инструкции, вы сможете
             description = "Сервисный аккаунт для управления бакетом."
           }
 
-          resource "yandex_resourcemanager_folder_iam_member" "editor" {
+          resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
             folder_id  = "<идентификатор_каталога>"
-            role       = "editor"
+            role       = "compute.editor"
             member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
             depends_on = [
               yandex_iam_service_account.ig-sa,
@@ -204,7 +205,7 @@ description: Следуя данной инструкции, вы сможете
             folder_id           = "<идентификатор_каталога>"
             service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
             deletion_protection = "<защита_от_удаления>"
-            depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
+            depends_on          = [yandex_resourcemanager_folder_iam_member.compute_editor]
             instance_template {
               platform_id = "standard-v3"
               resources {
@@ -266,12 +267,12 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-          * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+          * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
           * `yandex_compute_instance_group` — описание группы ВМ:
             * Общая информация о группе ВМ:
               * `name` — имя группы ВМ.
               * `folder_id` — идентификатор каталога.
-              * `service_account_id` — идентификатор сервисного аккаунта для группы ВМ.
+              * `service_account_id` — идентификатор сервисного аккаунта для группы ВМ. У данного сервисного аккаунта должна быть роль `compute.editor`
               * `deletion_protection` — защита группы ВМ от удаления: `true` или `false`. Пока опция включена, группу ВМ удалить невозможно. Значение по умолчанию `false`.
             * [Шаблон ВМ](../../concepts/instance-groups/instance-template.md):
               * `platform_id` — [платформа](../../concepts/vm-platforms.md).
@@ -279,7 +280,7 @@ description: Следуя данной инструкции, вы сможете
               * `boot_disk` — настройки загрузочного [диска](../../concepts/disk.md).
                 * `mode` — режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
                 * `image_id` — идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md).
-              * `service_account_id` — идентификатор сервисного аккаунта для бакета.    
+              * `service_account_id` — идентификатор сервисного аккаунта для бакета. У данного сервисного аккаунта должна быть роль `storage.editor`
               * `network_interface` — настройка [сети](../../../vpc/concepts/network.md#network). Укажите идентификаторы сети, [подсети](../../../vpc/concepts/network.md#subnet) и [групп безопасности](../../../vpc/concepts/security-groups.md).
               * `metadata` — в [метаданных](../../concepts/vm-metadata.md) необходимо передать:
                 * Имя пользователя ВМ и открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) этого пользователя на ВМ. 

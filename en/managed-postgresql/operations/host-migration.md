@@ -69,12 +69,68 @@ description: Follow this guide to move hosts in a {{ PG }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+            --data '{
+                       "hostSpecs": [
+                          {
+                             "zoneId": "<availability_zone>",
+                             "subnetId": "<subnet_ID>",
+                             "assignPublicIp": <public_host_address:_true_or_false>
+                          }
+                       ]
+                    }'
+         ```
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                   "cluster_id": "<cluster_ID>",
+                   "host_specs": [
+                      {
+                         "zone_id": "<availability_zone>",
+                         "subnet_id": "<subnet_ID>",
+                         "assign_public_ip": <public_host_address:_true_or_false>
+                      }
+                   ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
+         ```
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 
@@ -117,12 +173,55 @@ description: Follow this guide to move hosts in a {{ PG }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      1. Use the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter.
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/hosts:batchDelete' \
+            --data '{
+                       "hostNames": [
+                          "<host_FQDN>"
+                       ]
+                    }'
+         ```
+
+         Where `hostNames` is the array with the host to delete.
+
+         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+
+      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. Use the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                   "cluster_id": "<cluster_ID>",
+                   "host_names": [
+                      "<host_FQDN>"
+                   ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.postgresql.v1.ClusterService.DeleteHosts
+         ```
+
+         Where `host_names` is the array with the host to delete.
+
+         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+
+      1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 

@@ -3923,6 +3923,7 @@ default:
         opensearch|month|string: $0.025600
         pg|month|string: $0.025600
       network-nvme:
+        ch|month|number: 0.10408
         ch|month|string: $0.104080
         elasticsearch|month|string: $0.104080
         greenplum|month|string: $0.104080
@@ -5216,6 +5217,12 @@ default:
       ui_Portfolios_smart-components_project-list_utils:
         field-name-resolution: Resolution
         filter-macro-empty_: No value
+      ui_Queues_constants:
+        information-time-tracking-title: Time tracking
+        process-type-development: Development
+        process-type-project: Project management
+        process-type-standard: Basic
+        process-type-support: Support
       ui_Queues_pages_page-queue-admin_AliasesCreateForm:
         mail-address: Email
         mail-allow-external: Accept letters not only from employees of the organization
@@ -5275,12 +5282,6 @@ default:
       ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
         action-new-process: Create workflow
         default-type-title: Default issue type
-      ui_Queues_smart-components_new-process_ProcessTypeStepRedesign:
-        information-time-tracking-title: Time tracking
-        process-type-development: Development
-        process-type-project: Project management
-        process-type-standard: Basic
-        process-type-support: Support
       ui_Queues_smart-components_new-process_QueueSetupForm:
         next-button: Next
       ui_Queues_smart-components_QueueAdminTemplateOptions:
@@ -8602,6 +8603,7 @@ default:
           label_gateways: Gateways
           value_gateway-type-egress-nat: Egress NAT
         label_network: Network
+        label_security-groups: Security groups
         network:
           overview:
             button_create_route-table: Create routing table
@@ -8635,7 +8637,6 @@ default:
             label_ingress: Ingress
           switch_overview: Overview
           switch_route-table: Routing tables
-          switch_security-groups: Security groups
         networks:
           button_create: Create network
           create:
@@ -8685,7 +8686,6 @@ default:
         switch_list: Cloud networks
         switch_networks: Subnets
         switch_route-tables: Route table
-        switch_security-groups: Security groups
         title_network-map-page: Cloud network map
       yagpt:
         foundation-models:

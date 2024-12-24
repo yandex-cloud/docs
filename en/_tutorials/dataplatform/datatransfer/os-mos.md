@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -94,7 +94,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
     curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people' && \
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <source_cluster_username>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
          --data'
@@ -173,7 +173,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -192,7 +192,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 ## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-2. Check that the `people` index in the {{ mos-name }} cluster contains the data you sent:
+1. Check that the {{ mos-name }} cluster's `people` index contains the data that was sent:
 
     {% list tabs group=programming_language %}
 
@@ -235,20 +235,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - {{ TF }} {#tf}
 
-        1. In the terminal window, go to the directory containing the infrastructure plan.
-        1. Delete the `data-transfer-os-mos.tf` configuration file.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
-            ```
-
-            If there are any errors in the configuration files, {{ TF }} will point them out.
-
-        1. Confirm updating the resources.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            All the resources described in the `data-transfer-os-mos.tf` configuration file will be deleted.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

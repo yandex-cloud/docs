@@ -84,31 +84,14 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 The cost of using a cluster with the following parameters for 30 days:
 
 * **{{ CH }}** hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **Storage for {{ CH }} hosts**: 100 GB of network HDD storage per host.
 * **{{ ZK }}** hosts (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
-* **Storage**: 100 GB of network HDD storage.
-
-Cost calculation for {{ CH }} hosts:
+* **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
 
 
 
 
-{% include [usd-managed-clickhouse-ch](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-ch.md) %}
-
-
-Cost calculation for {{ ZK }} hosts:
-
-
-
-
-{% include [usd-managed-clickhouse-zk](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-zk.md) %}
-
-
-Calculation for the storage cost and total cost:
-
-
-
-
-{% include [usd-managed-clickhouse-storage](../_pricing_examples/managed-clickhouse/usd-managed-clickhouse-storage.md) %}
+{% include [usd-hour](../_pricing_examples/managed-clickhouse/usd-hour.md) %}
 
 
 

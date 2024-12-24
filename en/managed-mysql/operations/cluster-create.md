@@ -441,7 +441,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
       * `configSpec`: Cluster settings:
 
-          * `version`: {{ PG }} version.
+          * `version`: {{ MY }} version.
           * `resources`: Cluster resources:
 
               * `resourcePresetId`: [Host class](../concepts/instance-types.md).
@@ -584,7 +584,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
       * `config_spec`: Cluster settings:
 
-          * `version`: {{ PG }} version.
+          * `version`: {{ MY }} version.
           * `resources`: Cluster resources:
 
               * `resource_preset_id`: [Host class](../concepts/instance-types.md).
@@ -617,7 +617,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
               For each database, add a separate element with permission settings to the `permissions` array.
 
-      * `host_specs`: Cluster host settings as an array of elements,  one for each host. Each element has the following structure:
+      * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.

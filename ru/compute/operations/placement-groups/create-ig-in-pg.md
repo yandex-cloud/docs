@@ -8,6 +8,10 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете создать [группу ВМ](../../concepts/instance-groups/index.md) в [группе размещения](../../concepts/placement-groups.md).
 
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -59,7 +63,9 @@ description: Следуя данной инструкции, вы сможете
         Где:
 
         * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
-        * `service_account_id` — идентификатор сервисного аккаунта.
+        * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+
+          Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
 
           {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -143,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
 
       ```yaml
       name: first-fixed-group
-      service_account_id: ajed6ilf11qg********
+      service_account_id: <идентификатор_сервисного_аккаунта>
       description: "This instance group was created from YAML config."
       instance_template:
         platform_id: standard-v3

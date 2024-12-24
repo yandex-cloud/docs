@@ -12,6 +12,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor).
+
 {% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
 
 Чтобы создать группу ВМ с L7-балансировщиком нагрузки:
@@ -31,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции с группами ВМ выполняются от имени сервисного аккаунта.
+     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor). По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -121,6 +123,8 @@ description: Следуя данной инструкции, вы сможете
        Где:
        * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
        * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+
+         Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor). По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -280,9 +284,15 @@ description: Следуя данной инструкции, вы сможете
        description = "Сервисный аккаунт для управления группой ВМ."
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
        folder_id = "<идентификатор_каталога>"
-       role      = "editor"
+       role      = "compute.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "alb.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
@@ -354,7 +364,9 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа сервисного аккаунта к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), где:
+       * `role = "compute.editor"` — назначение сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) для создания, обновления и удаления ВМ в группе.
+       * `role = "alb.editor"` — назначение сервисному аккаунту роли [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) для интеграции группы ВМ c балансировщиком {{ alb-name }}.
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:
          * `name` — имя группы ВМ.

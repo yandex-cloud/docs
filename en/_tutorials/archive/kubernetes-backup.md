@@ -71,7 +71,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      * `storage_sa_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) with the `storage.admin` role. It will be used to create a bucket in {{ objstorage-name }} with `READ and WRITE` permissions in the [ACL](../../storage/concepts/acl.md) for the `sa_name_velero` service account.
      * `bucket_name`: Bucket name in {{ objstorage-name }}.
   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Check that the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
@@ -220,19 +220,6 @@ If you no longer need the resources you created, delete them:
 
 - {{ TF }} {#tf}
 
-  1. In the terminal window, go to the directory containing the infrastructure plan.
-  1. Delete the `velero-backup.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are any errors in the configuration files, {{ TF }} will point them out.
-  1. Confirm updating the resources.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `velero-backup.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

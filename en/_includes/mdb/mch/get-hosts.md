@@ -29,7 +29,7 @@
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
-  You can request the cluster name with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+  You can request the cluster name with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -37,7 +37,7 @@
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -58,7 +58,7 @@
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -70,7 +70,7 @@
             -d '{
                     "cluster_id": "<cluster_ID>"
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 

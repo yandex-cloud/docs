@@ -10,7 +10,7 @@ In {{ tracker-name }}, you can [create](manager/create-queue.md) and [set up](ma
 
 
 1. On the [**My page**](https://tracker.yandex.ru/pages/my) home page, click **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.choose-template-button }}** in the **{{ ui-key.startrek.ui_Dashboards_smart-components_InfoPresetsWidget.widget-title }}** widget.
-1. Select **{{ ui-key.startrek.ui_Queues_smart-components_new-process_ProcessTypeStepRedesign.process-type-standard }}** and click **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
+1. Select **{{ ui-key.startrek.ui_Queues_constants.process-type-standard }}** and click **{{ ui-key.startrek.ui_Queues_smart-components_new-process_QueueSetupForm.next-button }}**.
 1. Specify the queue parameters:
    * Issue queue name
    * [Queue key](manager/create-queue.md#key)

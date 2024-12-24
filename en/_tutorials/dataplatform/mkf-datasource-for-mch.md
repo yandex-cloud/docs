@@ -73,7 +73,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Names of the {{ mkf-name }} clusters' topics.
         * Username and password that will be used to access a {{ mch-name }} cluster.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
        ```bash
        terraform validate
@@ -207,7 +207,7 @@ The {{ mch-name }} cluster will use the [JSONEachRow]({{ ch.docs }}/interfaces/f
 For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster to write incoming data to:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run this request:
+1. Run the following query:
 
     ```sql
     CREATE TABLE IF NOT EXISTS db1.<table_name_for_topic>
@@ -330,7 +330,7 @@ To create a materialized view:
 To get all the data from the appropriate materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database in the {{ mch-name }} cluster using `clickhouse-client`.
-1. Run this request:
+1. Run the following query:
 
     ```sql
     SELECT * FROM db1.<view_name>;
@@ -359,22 +359,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-from-kafka-to-clickhouse.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-from-kafka-to-clickhouse.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

@@ -935,3 +935,6 @@ keywords:
     ```
 
 {% endlist %}
+
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

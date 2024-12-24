@@ -45,7 +45,7 @@ To deploy a cloud infrastructure to provide access to {{ container-registry-shor
 1. [Prepare the environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Test the solution](#test-functionality).
-1. [Recommendations for solution deployment in the production environment](#deployment-requirements)
+1. [Tips for solution deployment in the production environment](#deployment-requirements)
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -73,8 +73,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 | Resource | Amount |
 | ----------- | ----------- |
 | Virtual machines | 3 |
-| VM instance vCPUs | 6 |
-| VM instance RAM | 6 GB |
+| VM vCPUs | 6 |
+| VM RAM | 6 GB |
 | Disks | 3 |
 | HDD size | 30 GB |
 | SSD size | 20 GB |
@@ -251,16 +251,16 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% cut "Description of variables in terraform.tfvars" %}
 
-   | Name<br>name | Needs<br>editing | Description | Type | Example |
+   | Name<br>of parameter | Needs<br>editing | Description | Type | Example |
    | --- | --- | --- | --- | --- |
    | `folder_id` | Yes | ID of the folder to host the solution components | `string` | `b1gentmqf1ve9uc54nfh` |
    | `vpc_id` | - | ID of the cloud network for which access to {{ container-registry-short-name }} is set up. If not specified, such network will be created. | `string` | `enp48c1ndilt42veuw4x` |
    | `yc_availability_zones` | - | List of [availability zones](../../overview/concepts/geo-scope) for deploying NAT instances  | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-   | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order) | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
+   | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `2` |
    | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. `true` means the access is limited. To remove the limit, set `false`. | `bool` | `true` |
    | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ container-registry-short-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
-   | `vm_username` | - | NAT instance and test VM user names | `string` | `admin` |
+   | `vm_username` | - | NAT instance and test VM user names. | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |
    | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` | 
    | `s3_ip` | - | {{ objstorage-short-name }} public IP address | `string` | `213.180.193.243` |
@@ -296,7 +296,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Once the `terraform apply` process is completed, the command line will output information required for connecting to the test VM and running test operations with {{ container-registry-short-name }}. Later on, you can view this information by running the `terraform output` command:
 
-   {% cut "Viewing information on deployed resources" %}
+   {% cut "Expand to view the information on deployed resources" %}
 
    | Name | Description | Sample value |
    | ----------- | ----------- | ----------- |
@@ -304,8 +304,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `cr_registry_id` | Registry ID in {{ container-registry-short-name }} | `crp1r4h00mj*********` |
    | `path_for_private_ssh_key` | File with a private key used to connect to the NAT instances and test VM over SSH | `./pt_key.pem` |
    | `s3_nlb_ip_address` | IP address of the internal load balancer for {{ objstorage-short-name }} | `10.10.1.200` |
-   | `test_vm_password` | `admin` user password for the test VM | `v3RCqUrQN?x)` |
-   | `vm_username` | NAT instance and test VM user names | `admin` |
+   | `test_vm_password` | `admin` user password for the test VM. | `v3RCqUrQN?x)` |
+   | `vm_username` | NAT instance and test VM user names. | `admin` |
 
    {% endcut %}
 
@@ -399,8 +399,8 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 * When deploying NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).
-* Once the solution is deployed, reduce the number of NAT VMs or update the list of availability zones in the `yc_availability_zones` parameter only during a pre-scheduled time window. While applying changes, traffic handling may be interrupted.
-* If the `CPU steal time` metric of a NAT instance shows a high value as the {{ container-registry-name }} load goes up, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
+* Once the solution is deployed, reduce the number of NAT instances or update the list of availability zones in the `yc_availability_zones` parameter only during a pre-scheduled time window. While applying changes, traffic handling may be interrupted.
+* If a NAT instance demonstrates a high `CPU steal time` metric value as the {{ container-registry-name }} workload goes up, we recommend enabling a [software-accelerated network](../..//vpc/concepts/software-accelerated-network.md) for that NAT instance.
 * If you are using your own DNS server, create type `A` resource records in its settings in the following format:
 
    | Name | Type | Value |
@@ -414,17 +414,16 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Delete the resources you created {#clear-out}
 
-1. In the [management console]({{ link-console-main }}), go to the folder where the resources were created.
-1. Select **{{ container-registry-name }}**.
-1. Select the `test-registry` registry.
-1. Select the `hello-world` repository.
-1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).
-1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
-1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
-1. To delete the resources you created using {{ TF }}, run the `terraform destroy` command.
+- Manually {#manual}
 
-   {% note warning %}
+    1. In the [management console]({{ link-console-main }}), go to the folder where the resources were created.
+    1. Select **{{ container-registry-name }}**.
+    1. Select the `test-registry` registry.
+    1. Select the `hello-world` repository.
+    1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).
+    1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
+    1. In the window that opens, click **{{ ui-key.yacloud.cr.image.popup-confirm_button_delete }}**.
 
-   {{ TF }} will permanently delete all the resources that were created while deploying the solution.
+- Using {{ TF }} {#tf}
 
-   {% endnote %}
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}

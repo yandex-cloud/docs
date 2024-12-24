@@ -6,6 +6,8 @@
 
 * [How many backups are stored in {{ mch-name }}? For how long?](#how-many-backups)
 
+* [Can I delete a backup?](#delete-backup)
+
 * [Can I change the automatic backup retention period?](#backup-retain-days)
 
 * [What does a daily backup include?](#daily-backups)

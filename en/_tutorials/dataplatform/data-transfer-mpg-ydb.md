@@ -38,9 +38,9 @@ Prepare the data transfer infrastructure:
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mpg-name }} cluster.
         * {{ mpg-name }} source cluster.
-        * {{ PG }} database.
+        * Database: {{ PG }}.
         * {{ mpg-name }} user.
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * Source endpoint.
         * Transfer.
 
@@ -53,7 +53,7 @@ Prepare the data transfer infrastructure:
         * `target_db_name`: {{ ydb-name }} database name.
         * `transfer_enabled`: Set `0` to ensure that no transfer and source endpoint is created before you [manually create a target endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -139,7 +139,7 @@ Prepare the data transfer infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a source endpoint and a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -173,7 +173,7 @@ Prepare the data transfer infrastructure:
     * {{ ydb-short-name }} CLI
 
         1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-        1. Check that the database contains the `public_sensors` table with the test data:
+        1. Check that the database contains a table named `public_sensors` with the test data:
 
             ```bash
             ydb table query execute \
@@ -225,21 +225,12 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
     1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
-    1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+    1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
     1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
     1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 
-    1. In the terminal, go to the working directory with the `data-transfer-mpg-ydb.tf` configuration file.
-    1. Delete the resources using this command:
-
-        ```bash
-        terraform destroy
-        ```
-
-    1. Type `yes` and press **Enter**.
-
-        All the resources described in the `data-transfer-mpg-ydb.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

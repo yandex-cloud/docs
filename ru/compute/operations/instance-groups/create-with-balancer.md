@@ -12,6 +12,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor).
+
 {% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
 
 Чтобы создать группу ВМ с сетевым балансировщиком нагрузки:
@@ -31,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
+     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor). По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -279,9 +281,15 @@ description: Следуя данной инструкции, вы сможете
        description = "Сервисный аккаунт для управления группой ВМ."
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "compute-editor" {
        folder_id = "<идентификатор_каталога>"
-       role      = "editor"
+       role      = "compute.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "load-balancer.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
@@ -377,7 +385,9 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа сервисного аккаунта к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), где:
+       * `role = "compute.editor"` — назначение сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) для возможности создания, обновления и удаления ВМ в группе.
+       * `role = "load-balancer.editor"` — назначение сервисному аккаунту роли [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) для интеграции группы ВМ с [сетевым балансировщиком {{ network-load-balancer-name }}](../../../network-load-balancer/concepts/index.md).
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:
          * `name` — имя группы ВМ.

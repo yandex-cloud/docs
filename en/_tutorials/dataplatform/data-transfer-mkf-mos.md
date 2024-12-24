@@ -20,11 +20,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster in any suitable configuration. To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
-        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
+        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
         1. [Create a {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) target cluster in any suitable configuration with the following settings:
 
@@ -71,7 +71,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `os_user_password`: `admin` user password.
             * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -153,7 +153,7 @@ Create a local `sample.json` file with the following test data:
 
 {% note tip %}
 
-You can provide data to the {{ mos-name }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see section [{#T}](../../managed-opensearch/operations/cluster-users.md).
+You can provide data to the {{ mos-name }} cluster as the `admin` user with the `superuser` role; however, it is more secure to create separate users with limited privileges for each job. For more information, see [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
 {% endnote %}
 
@@ -262,7 +262,7 @@ You can provide data to the {{ mos-name }} cluster as the `admin` user with the 
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -298,7 +298,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
     To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Check that the `sensors` index in the {{ mos-name }} cluster contains the data you sent:
+1. Check that the the {{ mos-name }} cluster's `sensors` index contains the data that was sent:
 
     {% list tabs group=programming_language %}
 
@@ -343,25 +343,11 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-   1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
-   1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+    1. [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
 
 - Using {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-transfer-mkf-mos.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-transfer-mkf-mos.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

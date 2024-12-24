@@ -36,7 +36,7 @@ resource "yandex_iam_service_account" "vm-scale-scheduled-sa" {
 
 resource "yandex_resourcemanager_folder_iam_member" "vm-scale-scheduled-sa-role-compute" {
   folder_id = var.folder_id
-  role      = "compute.admin"
+  role      = "compute.editor"
   member    = "serviceAccount:${yandex_iam_service_account.vm-scale-scheduled-sa.id}"
 }
 

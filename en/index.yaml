@@ -22,7 +22,7 @@ links:
   - title: Certificate Manager
     description: Managing TLS certificates
     href: certificate-manager/
-  - title: Yandex Cloud CLI
+  - title: CLI Yandex Cloud
     description: Command line interface
     href: cli/
   - title: Cloud Apps
@@ -37,6 +37,9 @@ links:
   - title: Cloud Interconnect
     description: Connecting to Yandex Cloud resources via a dedicated link
     href: interconnect/
+  - title: Cloud Router
+    description: Creating network topologies
+    href: cloud-router/
   - title: Cloud Logging
     description: Logs of services and user applications
     href: logging/
@@ -44,17 +47,23 @@ links:
     description: Service for sending notifications
     href: notifications/
   - title: Cloud Router
-    description: Network topologies management
+    description: Service for managing network topologies
     href: cloud-router/
   - title: Cloud Video
     description: Video hosting and online streaming
     href: video/
+  - title: Code Assistant
+    description: AI-driven developer assistant that provides code autocompletion
+    href: code-assistant/
   - title: Compute Cloud
     description: Virtual machines and disks
     href: compute/
   - title: Container Registry
     description: Docker image management
     href: container-registry/
+  - title: Cloud Registry
+    description: Managing artifacts
+    href: cloud-registry/
   - title: Container Solution
     description: VM use cases
     href: cos/
@@ -86,7 +95,7 @@ links:
     description: Generative ML models
     href: foundation-models/
   - title: Identity and Access Management
-    description: Identification and access control to cloud resources
+    description: Identification and cloud resource access control
     href: iam/
   - title: IoT Core
     description: Solutions for the internet of things
@@ -143,10 +152,10 @@ links:
     description: A group of database management services
     href: mdb/
   - title: Message Queue
-    description: Queues for messaging between applications
+    description: Message queues for applications
     href: message-queue/
   - title: Yandex MetaData Hub
-    description: Connection management
+    description: Managing connection settings and data schemas
     href: metadata-hub/
   - title: Using Microsoft products
     description: Using Microsoft products
@@ -175,6 +184,9 @@ links:
   - title: Serverless Containers
     description: Running containers without Kubernetes®
     href: serverless-containers/
+  - title: Serverless Integrations
+    description: Integrations across Yandex Cloud services
+    href: serverless-integrations/
   - title: Yandex Cloud tutorials
     description: Guides for handling various tasks using cloud services
     href: tutorials/
@@ -213,7 +225,7 @@ links:
   - title: Virtual Private Cloud
     description: Cloud-based network management
     href: vpc/
-  - title: '{{ ydb-name }}'
+  - name: '{{ ydb-name }}'
     description: Distributed fault-tolerant SQL DBMS
     href: ydb/
   - title: WebSQL

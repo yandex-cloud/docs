@@ -25,7 +25,7 @@
 
 ## Подготовьте окружение {#create-environment}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load` и назначьте ему роль `editor`:
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load`. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor):
 
    {% list tabs group=instructions %}
 
@@ -35,7 +35,7 @@
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-load`.
-     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `editor`.
+     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor).
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -57,19 +57,27 @@
         name: for-load
         ```
 
-     1. Назначьте роль сервисному аккаунту:
+     1. Назначьте роль сервисному аккаунту роль compute.editor:
 
         ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv******** \
-          --role editor \
-          --subject serviceAccount:ajeab0cnib1p********
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
+          --role compute.editor \
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
+
+      1. Назначьте роль сервисному аккаунту роль load-balancer.editor:
+
+          ```bash
+          yc resource-manager folder add-access-binding <идентификатор_каталога> \
+            --role load-balancer.editor \
+            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+          ```
 
    - API {#api}
 
      1. Создайте сервисный аккаунт `for-load`:
          Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
-     1. Назначьте сервисному аккаунту в текущем каталоге роль `editor`:
+     1. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor):
          Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
    {% endlist %}

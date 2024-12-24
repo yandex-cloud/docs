@@ -50,40 +50,40 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 - Using {{ TF }} {#tf}
 
-   1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-   1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [trails-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-audit-trails-to-opensearch/blob/main/trails-to-opensearch.tf) configuration file to the same working directory.
+    1. Download the [trails-to-opensearch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-audit-trails-to-opensearch/blob/main/trails-to-opensearch.tf) configuration file to the same working directory.
 
-      This file describes:
+       This file describes:
 
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
-      * {{ mos-name }} target cluster.
-      * Transfer.
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mos-name }} cluster.
+        * {{ mos-name }} target cluster.
+        * Transfer.
 
-   1. In the `trails-to-opensearch.tf` file, specify the following variables:
+    1. In the `trails-to-opensearch.tf` file, specify these variables:
 
-      * `os_version`: {{ OS }} version in the target cluster.
-      * `os_admin_password`: `admin` user password.
-      * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+        * `os_version`: {{ OS }} version in the target cluster.
+        * `os_admin_password`: `admin` user password.
+        * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Check that the {{ TF }} configuration files are correct using this command:
 
-      ```bash
-      terraform validate
-      ```
+        ```bash
+        terraform validate
+        ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+       If there are any errors in the configuration files, {{ TF }} will point them out.
 
-   1. Create the required infrastructure:
+    1. Create the required infrastructure:
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+       {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
@@ -91,62 +91,62 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/data-streams.md):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-   * **Endpoint parameters**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+    * **Endpoint parameters**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`.
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-   * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.title }}**:
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.title }}**:
 
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../../managed-opensearch/operations/cluster-users.md).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin` user](../../managed-opensearch/operations/cluster-users.md).
 
 1. Create and activate the transfer:
 
    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
-      1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}** type that will use the created endpoints.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-   - Using {{ TF }} {#tf}
+    - Using {{ TF }} {#tf}
 
-      1. In the `trails-to-opensearch.tf` file, specify the following variables:
+        1. In the `trails-to-opensearch.tf` file, specify these variables:
 
-         * `source_endpoint_id`: Source endpoint ID.
-         * `target_endpoint_id`: Target endpoint ID.
-         * `transfer_enabled`: Set to `1` to enable transfer creation.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
-         ```bash
-         terraform validate
-         ```
+            ```bash
+            terraform validate
+            ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+           If there are any errors in the configuration files, {{ TF }} will point them out.
 
-      1. Create the required infrastructure:
+        1. Create the required infrastructure:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
    {% endlist %}
 
@@ -159,11 +159,11 @@ Make sure the data from {{ at-name }} is successfully uploaded to {{ OS }}:
 1. Select the `Global` tenant.
 1. Create a new index template named `audit-trails*`:
 
-   1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
-   1. Under **Management**, select **Stack Management**.
-   1. Go to **Index Patterns** and click **create an index pattern** at the bottom of the page.
-   1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.
-   1. In **Time field**, select `application_usage_daily.timestamp` and click **Create index pattern**.
+    1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
+    1. Under **Management**, select **Stack Management**.
+    1. Go to **Index Patterns** and click **create an index pattern** at the bottom of the page.
+    1. In the **Index pattern name** field, specify `audit-trails*` and click **Next step**.
+    1. In **Time field**, select `application_usage_daily.timestamp` and click **Create index pattern**.
 
 1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
@@ -187,18 +187,18 @@ All required event fields are converted to [Elastic Common Schema (ECS)]({{ link
 
 1. Clone the {{ yandex-cloud }} Security Solution Library repository:
 
-   ```bash
-   git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
-   ```
+    ```bash
+    git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
+    ```
 
 1. Connect to the target cluster using [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
 1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **Management**, select **Stack Management**.
 1. Go to **Saved Objects** and import files from the `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/` folder:
 
-   * `dashboard.ndjson`
-   * `filters.ndjson`
-   * `search.ndjson`
+    * `dashboard.ndjson`
+    * `filters.ndjson`
+    * `search.ndjson`
 
 ### Dashboard {#dashboard}
 
@@ -216,20 +216,20 @@ Run a ready-to-use query to view security events that can be selected using filt
 
 1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
-1. In the **Open** tab, select the `Search:Yandexcloud: Yandexcloud: Interesting fields` query.
+1. In the **Open** tab, select `Search:Yandexcloud: Yandexcloud: Interesting fields`.
 
 ![opensearch-search-yandexcloud-interesting-fields](../../_assets/mdb/opensearch-search-yandexcloud-interesting-fields.png)
 
 ### Alert settings {#alerts}
 
-Use code samples for the `monitor` and `trigger` entities when setting up [alerts]({{ os.docs }}/monitoring-plugins/alerting/index/):
+Use code examples for the `monitor` and `trigger` entities when setting up [alerts]({{ os.docs }}/monitoring-plugins/alerting/index/):
 
 1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Plugins**, select **Alerting**.
 1. Copy the sample file contents and paste them into the creation window:
 
-   * [monitor.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/monitor.json)
-   * [trigger_action_example.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
+    * [monitor.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/monitor.json)
+    * [trigger_action_example.json](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch/blob/main/update-opensearch-scheme/content-for-transfer/trigger_action_example.json)
 
 ## Delete the resources you created {#clear-out}
 
@@ -253,25 +253,11 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-   [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+    [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
 
 - Using {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `trails-to-opensearch.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `trails-to-opensearch.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

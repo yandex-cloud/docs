@@ -17,6 +17,8 @@ items:
         href: operations/cluster-stop.md
       - name: Working with {{ AF }} interfaces
         href: operations/af-interfaces.md
+      - name: Connecting to a {{ objstorage-full-name }} bucket with a bucket policy
+        href: operations/s3-policy-connect.md
       - name: Uploading DAG files to a cluster
         href: operations/upload-dags.md
       - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}

@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names are generated in this format: `<topic_prefix>.<{{ ydb-short-name }}_table_name>`. In this tutorial, we will use the `cdc` prefix as an example.
+       1. Configure {{ KF }} topics in the target cluster. The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. The format for data topic names is as follows: `<topic_prefix>.<{{ ydb-short-name }}_table_name>`. In this tutorial, we will use the `cdc` prefix as an example.
 
           * If topics are managed using standard {{ yandex-cloud }} interfaces (management console, CLI, or API):
 
@@ -62,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
            * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-           * {{ ydb-name }} database.
+           * Database: {{ ydb-name }}.
            * {{ mkf-name }} target cluster.
            * {{ KF }} topic.
            * {{ KF }} user.
@@ -84,7 +84,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_user_password`: User password.
            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-       1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. Check that the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -196,7 +196,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -231,7 +231,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         -K:
     ```
 
-    You can obtain the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
+    You can get the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md) and [add test data](../../ydb/operations/crud.md) to the `sensors` table:
 
@@ -412,7 +412,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created a service account together with the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. If you had created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:
 
@@ -425,20 +425,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `data-transfer-ydb-mkf.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `data-transfer-mkf-ydb.tf` configuration file will be deleted.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

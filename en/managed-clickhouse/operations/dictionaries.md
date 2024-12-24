@@ -55,7 +55,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.listExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListExternalDictionaries](../api-ref/Cluster/listExternalDictionaries.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -76,7 +76,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListExternalDictionaries](../api-ref/grpc/Cluster/listExternalDictionaries.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -164,7 +164,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.createExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.CreateExternalDictionary](../api-ref/Cluster/createExternalDictionary.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -257,7 +257,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.CreateExternalDictionary](../api-ref/grpc/Cluster/createExternalDictionary.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -385,7 +385,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.updateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.UpdateExternalDictionary](../api-ref/Cluster/updateExternalDictionary.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -475,7 +475,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.UpdateExternalDictionary](../api-ref/grpc/Cluster/updateExternalDictionary.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         1. Create a file named `body.json` and add the following contents to it:
 
@@ -598,7 +598,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.deleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.DeleteExternalDictionary](../api-ref/Cluster/deleteExternalDictionary.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -625,7 +625,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.DeleteExternalDictionary](../api-ref/grpc/Cluster/deleteExternalDictionary.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -694,7 +694,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     {% cut "{{ MY }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}**: List of {{ MY }} replicas to use as the dictionary source.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_replicas }}**: List of {{ MY }} replicas that will be used as the dictionary source.
         For replicas, you can set general connection settings or set up a port, username and password.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}**: Port for connecting to the source.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}**: Name of source database user.
@@ -772,7 +772,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * `password`: Password to access the source database.
     * `table`: Source table name.
     * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` selection condition is the same as the `WHERE id=10` SQL command.
-    * `secure`: Whether to use SSL to establish the connection.
+    * `secure`: Whether to use SSL when establishing the connection.
 
     {% endcut %}
 
@@ -794,7 +794,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
     * `password`: Password to access the source database.
     * `table`: Source table name.
     * `where`: Condition for selecting rows to generate a dictionary from. For example, the `id=10` condition is the same as the `WHERE id=10` SQL clause.
-    * `share-connection`: Whether to share the connection between multiple requests.
+    * `share-connection`: Whether to make the connection shared across multiple requests.
     * `close-connection`: Whether to close the connection after each request.
 
     {% endcut %}
@@ -834,7 +834,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
   * `--layout-type`: Memory layout type for the dictionary. Supported methods: `flat`, `hashed`, `cache`, `range_hashed`, `complex_key_hashed`, and `complex_key_cache`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
   * `--layout-size-in-cells`: Number of cache cells for the `cache` and `complex_key_cache` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-  * `--layout-max-array-size`: Maximum key value for the `flat` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+  * `--layout-max-array-size`: Maximum key value for the `flat` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
   * `--structure-id`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `flat`, `hashed`, `cache`, and `range_hashed` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
   * `--structure-key`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `complex_key_hashed` and `complex_key_cache` methods:
 
@@ -922,7 +922,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
         * `user`: Database user name.
         * `password`: Password for access to the database.
       * `invalidateQuery`: Query for checking changes in a {{ MY }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
-      * `shareConnection`: Whether to share the connection between multiple requests.
+      * `shareConnection`: Whether to make the connection shared across multiple requests.
       * `closeConnection`: Whether to close the connection after each request.
 
       {% endcut %}
@@ -952,7 +952,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
     * `layout.sizeInCells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.maxArraySize`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `layout.maxArraySize`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
     * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
     * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
 
@@ -1032,7 +1032,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
         * `user`: Database user name.
         * `password`: Password for access to the database.
       * `invalidate_query`: Query for checking changes in a {{ MY }} dictionary. {{ CH }} updates the dictionary only if the results of this query change.
-      * `share_connection`: Whether to share the connection between multiple requests.
+      * `share_connection`: Whether to make the connection shared across multiple requests.
       * `close_connection`: Whether to close the connection after each request.
 
       {% endcut %}
@@ -1062,7 +1062,7 @@ Changing dictionary settings will restart {{ CH }} servers on the cluster hosts.
 
     * `layout.type`: Memory layout type for the dictionary. Supported methods: `FLAT`, `HASHED`, `CACHE`, `RANGE_HASHED`, `COMPLEX_KEY_HASHED`, and `COMPLEX_KEY_CACHE`. For more information about how to store dictionaries in memory, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/) documentation.
     * `layout.size_in_cells`: Number of cache cells for the `CACHE` and `COMPLEX_KEY_CACHE` methods. For more information about the cache, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache) documentation.
-    * `layout.max_array_size`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, as this size is proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
+    * `layout.max_array_size`: Maximum key value for the `FLAT` method. Determines the memory size used by the dictionary, this size being proportional to the biggest key value. For more information about the key value, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#flat).
     * `structure.id.name`: Dictionary key column name. The key column must be the UInt64 data type. It is used for the `FLAT`, `HASHED`, `CACHE`, and `RANGE_HASHED` methods. For more information about keys, see the [{{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key) documentation.
     * `structure.key.attributes`: Description of the dictionary's composite key. A composite key may consist of one or more elements. It is used for the `COMPLEX_KEY_HASHED` and `COMPLEX_KEY_CACHE` methods:
 

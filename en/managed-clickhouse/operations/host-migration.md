@@ -80,12 +80,84 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "CLICKHOUSE",
+                           "zoneId": "<availability_zone>",
+                           "subnetId": "<subnet_ID>",
+                           "assignPublicIp": <public_access_to_host>
+                         }
+                       ]
+                     }'
+         ```
+
+         Where `hostSpecs` is an array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
+
+         * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+         * `zoneId`: Availability zone.
+         * `subnetId`: Subnet ID.
+         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_specs": [
+                         {
+                             "type": "CLICKHOUSE",
+                             "zone_id": "<availability_zone>",
+                             "subnet_id": "<subnet_ID>",
+                             "assign_public_ip": <public_access_to_host>
+                         }
+                     ]
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Where `host_specs` is an array with settings for the new hosts. One array element contains settings for a single host and has the following structure:
+
+         * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+         * `zone_id`: Availability zone.
+         * `subnet_id`: Subnet ID.
+         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 
@@ -128,12 +200,13 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter. You can get FQDN names in the [management console]({{ link-console-main }}), on the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab of the cluster page.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 
@@ -199,12 +272,83 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `resources` and `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "ZOOKEEPER",
+                           "zoneId": "<availability_zone>",
+                           "subnetId": "<subnet_ID>",
+                           "assignPublicIp": <public_access_to_host>
+                         }
+                       ]
+                     }'
+         ```
+
+         Where `host_specs` is an array with settings for the new host. One array element contains settings for a single host and has the following structure:
+
+         * `type`: `ZOOKEEPER` host type.
+         * `zoneId`: Availability zone.
+         * `subnetId`: Subnet ID.
+         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_specs": [
+                         {
+                             "type": "ZOOKEEPER",
+                             "zone_id": "<availability_zone>",
+                             "subnet_id": "<subnet_ID>",
+                             "assign_public_ip": <public_access_to_host>
+                         }
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Where `host_specs` is an array with settings for the new hosts. One `host_specs` array element contains settings for a single host and has the following structure:
+
+         * `type`: `ZOOKEEPER` host type.
+         * `zone_id`: Availability zone.
+         * `subnet_id`: Subnet ID.
+         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 
@@ -237,12 +381,13 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter. You can get FQDN names in the [management console]({{ link-console-main }}), on the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab of the cluster page.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 

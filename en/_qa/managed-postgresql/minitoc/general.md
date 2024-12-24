@@ -8,9 +8,9 @@
 
 * [How do I get started with {{ mpg-short-name }}?](#quickstart)
 
-* [How many database hosts can a cluster contain?](#how-many-hosts)
+* [How many database hosts can there be in one cluster?](#how-many-hosts)
 
-* [How can I access a running database host?](#db-access)
+* [How can I access a running DB host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
@@ -18,13 +18,12 @@
 
 * [Which {{ PG }} version does {{ mpg-short-name }} use?](#dbms-version)
 
-* [Which {{ PG }} version and settings are best when creating a database for 1С?](#1c-version)
 
 * [What happens when a new DBMS version is released?](#new-version)
 
 * [What happens when a DBMS version becomes deprecated?](#dbms-deprecated)
 
-* [How is usage cost calculated for a database host?](#db-cost)
+* [How do you calculate usage cost for a database host?](#db-cost)
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
@@ -32,7 +31,7 @@
 
 * [Is database host backup enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during backup?](#backup-window)
+* [When are backups performed? Is a database cluster available during a backup?](#backup-window)
 
 * [Are {{ PG }} database cluster connections encrypted?](#encryption)
 
@@ -50,7 +49,7 @@
 
 * [Can I get superuser privileges in {{ PG }}?](#superuser)
 
-* [Can I copy data from a {{ mpg-name }} table to a local file? Сan I populate a table with data from a local file?](#copy-write-data)
+* [Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file?](#copy-write-data)
 
 * [Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters?](#vacuum)
 

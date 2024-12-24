@@ -11,9 +11,9 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 {{ mch-short-name }} only works with readable models uploaded to {{ objstorage-full-name }}:
 
 
-1. To bind your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your account in {{ yandex-cloud }} is assigned the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+1. To link your [service account](../../iam/concepts/users/service-accounts.md) to the cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 1. [Upload](../../storage/operations/objects/upload.md) the trained model file to {{ objstorage-full-name }}.
-1. [Connect a service account to a cluster](s3-access.md#connect-service-account). Use your [service account](../../iam/concepts/users/service-accounts.md) to configure access permissions for the model file.
+1. [Connect the service account to the cluster](s3-access.md#connect-service-account). You will use your [service account](../../iam/concepts/users/service-accounts.md) to configure permissions to access the model file.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket's ACL, [add the `READ` permission](../../storage/operations/buckets/edit-acl.md) to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the model file.
@@ -40,13 +40,53 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
     {{ yc-mdb-ch }} ml-model list --cluster-name=<cluster_name>
     ```
 
-    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get a list of models in a cluster, use the [list](../api-ref/MlModel/list.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/List](../api-ref/grpc/MlModel/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [MlModel.List](../api-ref/MlModel/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels'
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [MlModelService.List](../api-ref/grpc/MlModel/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.List
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -74,14 +114,52 @@ Read more about the `catboostEvaluate()` function in the [{{ CH }} documentation
 
     You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To get model details, use the [get](../api-ref/MlModel/get.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Get](../api-ref/grpc/MlModel/get.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
-    * Model name in the `mlModelName` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    You can request the model name with a [list of cluster models](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    1. Use the [MlModel.Get](../api-ref/MlModel/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels/<model_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and model name with a [list of models](#list) in the cluster.
+
+    1. View the [server response](../api-ref/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [MlModelService.Get](../api-ref/grpc/MlModel/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "ml_model_name": "<model_name>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Get
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and model name with a [list of models](#list) in the cluster.
+
+    1. View the [server response](../api-ref/grpc/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel) to make sure the request was successful.
 
 {% endlist %}
 
@@ -126,7 +204,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
       --uri=<link_to_model_file_in_Object_Storage>
     ```
 
-    You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -159,16 +237,72 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To create a model, use the [create](../api-ref/MlModel/create.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Create](../api-ref/grpc/MlModel/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
-    * Model name in the `mlModelName` parameter.
-    * `ML_MODEL_TYPE_CATBOOST` model type in the `type` parameter.
-    * Link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    1. Use the [MlModel.Create](../api-ref/MlModel/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels' \
+            --data '{
+                      "mlModelName": "<model_name>",
+                      "type": "ML_MODEL_TYPE_CATBOOST",
+                      "uri": "<file_link>"
+                    }'
+        ```
+
+        Where:
+
+        * `mlModelName`: Model name.
+        * `type`: Model type, always takes the `ML_MODEL_TYPE_CATBOOST` value.
+        * `uri`: Link to the model file in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [MlModelService.Create](../api-ref/grpc/MlModel/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "ml_model_name": "<model_name>",
+                    "type": "ML_MODEL_TYPE_CATBOOST",
+                    "uri": "<file_link>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
+        ```
+
+        Where:
+
+        * `ml_model_name`: Model name.
+        * `type`: Model type, always takes the `ML_MODEL_TYPE_CATBOOST` value.
+        * `uri`: Link to the model file in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/MlModel/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -181,7 +315,7 @@ To apply the model to data stored in a {{ CH }} cluster:
 
    ```sql
    SELECT 
-       catboostEvaluate('<model_file_path>', 
+       catboostEvaluate('<path_to_model_file>', 
                      <column_1_name>,
                      <column_2_name>,
                      ...
@@ -263,16 +397,82 @@ To update the contents of a model that is already connected to the cluster:
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update a model, use the [update](../api-ref/MlModel/update.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Update](../api-ref/grpc/MlModel/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * Model name in the `mlModelName` parameter.
-    * New link to the model file in {{ objstorage-full-name }} in the `uri` parameter.
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [MlModel.Update](../api-ref/MlModel/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels/<model_name>' \
+            --data '{
+                      "updateMask": "uri",
+                      "uri": "<file_link>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Here only one parameter is specified: `uri`.
+
+        * `uri`: Link to the new model file in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [MlModelService.Update](../api-ref/grpc/MlModel/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "ml_model_name": "<schema_name>",
+                    "update_mask": {
+                      "paths": ["uri"]
+                    },
+                    "uri": "<file_link>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
+        ```
+
+        Where:
+
+        * `ml_model_name`: Model name.
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Here only one parameter is specified: `uri`.
+
+        * `uri`: Link to the new model file in {{ objstorage-name }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/MlModel/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -329,14 +529,52 @@ After disabling a model, the corresponding object is kept in the {{ objstorage-f
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To delete a model, use the [delete](../api-ref/MlModel/delete.md) REST API method for the [MlModel](../api-ref/MlModel/index.md) resource or the [MlModelService/Delete](../api-ref/grpc/MlModel/delete.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter.
-    * Model name in the `mlModelName` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and model name with a [list of models in the cluster](#list-ml).
+    1. Use the [MlModel.Delete](../api-ref/MlModel/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels/<model_name>'
+        ```
+
+        You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and model name with a [list of models](#list) in the cluster.
+
+    1. View the [server response](../api-ref/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [MlModelService.Delete](../api-ref/grpc/MlModel/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "ml_model_name": "<schema_name>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
+        ```
+
+        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
