@@ -55,6 +55,14 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
 
+  1. Enable SSH authorization for the VM when connecting to the serial console by specifying the VM name:
+
+      ```bash
+      yc compute instance update \
+      --name <VM_name> \
+      --serial-port-settings ssh-authorization=instance_metadata
+      ```
+
   1. Connect to the VM.
 
       Connection command example:
