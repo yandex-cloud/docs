@@ -5,10 +5,19 @@ from __future__ import annotations
 import pathlib
 from yandex_cloud_ml_sdk import YCloudML
 from yandex_cloud_ml_sdk.search_indexes import StaticIndexChunkingStrategy, TextSearchIndexType
+from os import walk
+
+mypath = "<path_to_files_with_examples>"
+files_list = []
+
+for (dirpath, dirnames, filenames) in walk(mypath):
+    for i in enumerate(filenames):
+        filenames[i[0]] = mypath + filenames[i[0]]
+    files_list.extend(filenames)
+    break
 
 def local_path(path: str) -> pathlib.Path:
     return pathlib.Path(__file__).parent / path
-
 
 def main() -> None:
     sdk = YCloudML(folder_id="<folder_ID>", auth="<API_key>")
@@ -16,7 +25,7 @@ def main() -> None:
     # Uploading files with examples
     # The files will be stored for five days
     files = []
-    for path in ['bali.md', 'kazakhstan.md']:
+    for path in (files_list):
         file = sdk.files.upload(
             local_path(path),
             ttl_days=5,
@@ -39,7 +48,7 @@ def main() -> None:
     # Waiting until the search index is created
     search_index = operation.wait()
 
-    # Creating a tool to work with one or even more than one search index, as needed
+    # Creating a tool to work with the search index or multiple search indexes if that was the case
     tool = sdk.tools.search_index(search_index)
     
     # Creating an assistant for the Latest {{ gpt-pro }} model
@@ -47,10 +56,30 @@ def main() -> None:
     assistant = sdk.assistants.create('yandexgpt', tools=[tool])
     thread = sdk.threads.create()
 
-    thread.write("How much is a visa to Bali?")
-    run = assistant.run(thread)
-    result = run.wait()
-    print('Answer:', result.text)
+    input_text = ""
+
+    while input_text != "exit":
+        print("Enter your question to the assistant:")
+        input_text = input()
+        if input_text != "exit":
+            thread.write(input_text)
+
+            # Providing the model with the whole thread contents
+            run = assistant.run(thread)
+    
+            # To get the result, wait until the run is complete   
+            result = run.wait()
+    
+            # Displaying the response
+            print('Answer:', result.text)
+
+    # This is how you print all the messages stored in the thread
+
+    print('Outputting the whole message history when exiting the chat:')
+
+    for message in thread:
+        print(f"    {message=}")
+        print(f"    {message.text=}\n")
 
     # Delete everything you no longer need
     search_index.delete()
@@ -60,12 +89,6 @@ def main() -> None:
     for file in files:
         file.delete()
 
-
 if __name__ == '__main__':
     main()
 ```
-
-Where:
-
-* `<folder_ID>`: ID of the folder in which the service account was created.
-* `<API_key>`: Service account API key you got earlier.

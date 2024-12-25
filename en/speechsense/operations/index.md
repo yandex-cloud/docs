@@ -1,6 +1,6 @@
 ---
 title: Guides on using {{ speechsense-name }}
-description: The page contains all guides for {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
+description: The page contains all guides on how to use {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
 ---
 
 # Step-by-step guides for {{ speechsense-name }}
@@ -13,7 +13,10 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 * Searching data:
 
   * [{#T}](data/search-data-grpc.md)
-  * [{#T}](data/search-data-rest.md)
+  * Data search via the REST API:
+    * [{#T}](data/rest-full-text-search.md)
+    * [{#T}](data/rest-search-filters.md)
+    * [{#T}](data/rest-get-dialog-data.md)
 
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)

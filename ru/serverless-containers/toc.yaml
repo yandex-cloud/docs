@@ -65,6 +65,8 @@ items:
                 href: operations/description-update.md
           - name: Сделать ревизию активной
             href: operations/activate-revision.md
+          - name: Изменить режим работы контейнера
+            href: operations/update-runtime.md
           - name: Масштабировать контейнер
             items:
               - name: Посмотреть настройки масштабирования
@@ -153,16 +155,16 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Среда выполнения
+        href: concepts/runtime.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
+      - name: Монтирование файловых систем
+        href: concepts/mounting.md
       - name: Долгоживущие контейнеры
         href: concepts/long-lived-containers.md
       - name: Уведомления о завершении выполнения контейнера
         href: concepts/termination-notifications.md
-      - name: Сетевое взаимодействие
-        href: concepts/networking.md
-      - name: Среда выполнения
-        href: concepts/runtime.md
-      - name: Монтирование файловых систем
-        href: concepts/mounting.md
       - name: Триггер
         items:
           - name: Обзор

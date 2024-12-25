@@ -17,11 +17,14 @@ datasphere -h
 Результат выполнения команды:
 
 ```bash
-usage: datasphere [-h] [-t TOKEN] [-l {ERROR,WARNING,INFO,DEBUG}] [--log-config LOG_CONFIG] {version,project} ...
+usage: datasphere [-h] [-t TOKEN] [-l {ERROR,WARNING,INFO,DEBUG}] [--log-config LOG_CONFIG] [--log-dir LOG_DIR] [--profile PROFILE] {version,changelog,project,generate-requirements} ...
 
 positional arguments:
-  {version,project}
+  {version,changelog,project,generate-requirements}
     version             Show version
+    changelog           Show changelog
+    generate-requirements
+                        Generate requirements for specified root module(s)
 
 options:
   -h, --help            show this help message and exit
@@ -31,14 +34,23 @@ options:
                         Logging level
   --log-config LOG_CONFIG
                         Custom logging config
+  --log-dir LOG_DIR     Logs directory (temporary directory by default)
+  --profile PROFILE     `yc` utility profile
 ```
 
 ## Команды {{ ds-cli }} {#commands}
 
-Для управления заданиями используются команды раздела `datasphere project job`:
+Для управления заданиями и утилитой воспользуйтесь командами:
+
 * [запуск](#execute) и восстановление сессии задания;
 * [просмотр](#list) информации о заданиях;
-* [отмена](#cancel) задания.
+* [отмена](#cancel) задания;
+* [установка](#set-data-ttl) времени жизни данных задания;
+* [генерация](#generate-requirements) параметров окружения задания;
+* [получение](#projects-list) списка проектов сообщества;
+* [получение](#project-get) информации о проекте;
+* [просмотр](#version) версии {{ ds-cli }};
+* [просмотр](#changelog) журнала изменений {{ ds-cli }}.
 
 ### Запуск заданий {#execute}
 
@@ -63,9 +75,15 @@ datasphere project job execute -p <идентификатор_проекта> -c
 datasphere project job attach --id <идентификатор_задания>
 ```
 
-Узнать идентификатор задания можно в интерфейсе {{ ml-platform-name }} в виджете заданий на странице проекта.
+Узнать идентификатор задания можно в интерфейсе {{ ml-platform-name }} во вкладке {{ ds-jobs }} на странице проекта.
 
 Отслеживание и запись логов возобновятся после восстановления сессии задания.
+
+Чтобы [повторно](fork.md) запустить задание, выполните команду:
+
+```bash
+datasphere project job fork
+```
 
 ### Просмотр информации о задании {#list}
 
@@ -103,6 +121,78 @@ datasphere project job get --id <идентификатор_задания>
 
 Запущенное задание будет остановлено.
 
+### Установка времени жизни данных задания {#set-data-ttl}
+
+Вы можете установить время жизни данных задания, выполнив команду:
+
+```bash
+datasphere project job set-data-ttl --id <идентификатор_задания> --days <количество_дней>
+```
+
+Где `--days` — количество дней, по прошествии которых данные задания будут удалены (по умолчанию — 14 дней).
+
+### Генерация параметров окружения задания {#generate-requirements}
+
+Чтобы сгенерировать параметры окружения вашего задания, выполните команду:
+
+```bash
+datasphere generate-requirements <корневой_модуль>
+```
+
+Где `<корневой_модуль>` — корневой модуль задания.
+
+В ответ вернется файл `requirements.txt` со списком параметров окружения для указанного модуля. Его можно использовать в [файле конфигурации](index.md#config) задания для явного указания зависимостей.
+
+### Получение списка проектов сообщества {#project-list}
+
+Вы можете посмотреть все проекты сообщества, выполнив команду:
+
+```bash
+datasphere project list -c <идентификатор_сообщества>
+```
+
+В ответ вернется таблица со следующими полями:
+
+* идентификатор проекта;
+* название проекта;
+* идентификатор сообщества.
+
+### Получение информации о проекте {#project-get}
+
+Чтобы посмотреть информацию о конкретном проекте, выполните команду:
+
+```bash
+datasphere project get --id <идентификатор_проекта>
+```
+
+В ответ вернется таблица со следующими полями:
+
+* идентификатор проекта;
+* название проекта;
+* идентификатор сообщества.
+
+### Просмотр версии {{ ds-cli }} {#version}
+
+Чтобы посмотреть текущую версию {{ ds-cli }}, выполните команду:
+
+```bash
+datasphere version
+```
+
+{% note info %}
+
+При каждом использовании {{ ds-cli }} проверяется актуальность текущей версии. Если будет обнаружена новая версия, утилита выведет соответствующее сообщение. Чтобы избежать проблем с совместимостью, обновляйте {{ ds-cli }} по мере появления новых версий.
+
+{% endnote %}
+
+### Посмотреть журнал изменений {{ ds-cli }} {#changelog}
+
+Чтобы посмотреть изменения в актуальной версии {{ ds-cli }}, выполните команду:
+
+```bash
+datasphere changelog
+```
+
 ## Логи заданий {#logs}
 
 При запуске задания через {{ ds-cli }} командная оболочка первым сообщением уведомляет пользователя о сохранении логов в рабочей директории пользователя. Например:
@@ -124,6 +214,12 @@ datasphere project job get --id <идентификатор_задания>
 
 ```bash
 datasphere --log-dir <новая_директория>
+```
+
+Вы можете загрузить [результаты](../../operations/projects/use-job-results.md) задания, выполнив команду:
+
+```bash
+datasphere project job download-files --id <идентификатор_задания>
 ```
 
 #### См. также {#see-also}

@@ -5,18 +5,32 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 9/12/24 {#091224}
+
+Upon request, {{ lora }}-based model and classifier [tuning](../concepts/tuning/index.md) has been added in Preview.
+
+{{ yagpt-name }}-based classifiers are now [publicly available](../../overview/concepts/launch-stages.md). 
+
+## Release as of 4/12/24 {#041224}
+
+[{{ llama }} 3.1 models](../concepts/yandexgpt/models.md) are now available in {{ foundation-models-name }}. For model usage costs, see [{#T}](../pricing.md). {{ meta-disclaimer }}
+
+## Release as of 2/12/24 {#021224}
+
+The {{ yagpt-name }} 4th generation model became available in the main branch (`Latest`). Version 3 will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
+
 ## Release as of 21/11/24 {#211124}
 
 The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now available to all {{ foundation-models-full-name }} users at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
-## Release as of 01/11/2024 {#011124}
+## Release as of 01/11/24 {#011124}
 
 1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed according to the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
 1. Increased the {{ yandexart-name }} quotas for the number of generation requests per minute and full day (24 hours).
 1. Increased the {{ yagpt-name }} quota for the number of concurrent generations. For information on the restrictions in place, refer to [{#T}](../concepts/limits.md).
-1. Starting December 1, 2024, the test version (`RC` branch) of the {{ yagpt-name }} model will be the main version (`Latest` branch), while the current version will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
+1. Starting December 2, 2024, the test version (`RC` branch) of the {{ yagpt-name }} model will be the main version (`Latest` branch), while the current version will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
 
-## Release as of 24/10/2024 {#241024}
+## Release as of 24/10/24 {#241024}
 
 1. The {{ yagpt-name }} 4th generation model is available for testing (`RC` branch). Compared to the previous generation, the model's response speed has increased by an average of 2.5 times. The maximum context the model operates has also been increased. In asynchronous mode, 4th generation models can process up to 32,000 tokens. And now there is the {{ gpt-pro }} 32k model added to process large contexts in synchronous mode. For more information on model limitations, see [{#T}](../concepts/limits.md).
 1. Increased the maximum number of tokens per response in the management console.

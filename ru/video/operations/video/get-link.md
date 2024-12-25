@@ -54,3 +54,5 @@ description: Следуя данной инструкции, вы сможете
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 {% endlist %}
+
+{% include [video-object-fit](../../../_includes/video/video-object-fit.md) %}

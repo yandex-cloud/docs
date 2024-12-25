@@ -1,44 +1,47 @@
 title: Yandex Translate
 description:
   - >-
-    This service allows you to integrate <a
-    href="https://translate.yandex.ru/">Yandex&#160;Translate</a> algorithms
-    into end-user applications or  web projects. Yandex Translate can translate
-    individual words and complete texts, supporting more than 100 languages.
-  - To access the service, use the <a href=api-ref/authentication>API</a>.
+    Use this service to integrate <a href="https://translate.yandex.ru/">Yandex
+    Translate</a> algorithms into end-user applications or web projects. Yandex
+    Translate can translate individual words and complete texts, supporting over
+    100 languages.
   - >-
-    Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully
-    secure</a> and in compliance with Russian Federal Law 152-FZ.
+    You can access Yandex Translate via the <a
+    href=api-ref/authentication>API</a>.
+  - >-
+    The Yandex Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
+    protected</a> in accordance with the Russian Federal Law "On Personal Data"
+    152-FZ.
   - >-
     The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.ru/legal/cloud_sla_translate">Service Level for Yandex
-    Translate</a>.
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in <a
+    href="https://yandex.ru/legal/cloud_sla_translate">Yandex Translate service
+    level document</a>.
 meta:
   title: Yandex Translate
   description: >-
-    This service allows you to integrate Yandex Translate algorithms into
-    end-user applications or web projects.
+    Use this service to integrate Yandex Translate algorithms into end-user
+    applications or web projects.
 links:
   - title: Getting started
     description: Translate your text
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about the concepts of the service
+    description: Learn more about how it works
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/authentication
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational restrictions
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Set up access permissions to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

@@ -1,5 +1,6 @@
 ---
 title: Тариф в {{ marketplace-full-name }}
+description: Из статьи вы узнаете, что такое тариф в {{ marketplace-name }}.
 ---
 
 # Тариф

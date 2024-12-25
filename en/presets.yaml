@@ -346,6 +346,7 @@ default:
   lockbox-name: Yandex Lockbox
   lockbox-short-name: Lockbox
   login-example: login@yandex.ru
+  lora: LoRA
   m1-2xlarge: m1.2xlarge (16 vCPU, 128 GB)
   m1-3xlarge: m1.3xlarge (24 vCPU, 192 GB)
   m1-4xlarge: m1.4xlarge (32 vCPU, 256 GB)
@@ -6022,6 +6023,7 @@ default:
         action_create-video: Upload video
         label_access_rights-auth-system-access: Users with permission
         label_access_rights-public: All users
+        label_access_rights-sign-url-access: By temporary link
         label_accessRights: Access
         label_allow-access: Grant access
         label_subtitles: Subtitles
@@ -8393,9 +8395,6 @@ default:
           context_phonemes-title: Phonemes
           context_word-stress-title: Stress
           context_word-title: Emphasize word
-        label_playground: SpeechKit Playground
-        label_speech-synthesis: Speech synthesis
-        label_speech-to-text: Speech recognition
         speech-synthesis:
           field_audio: Audio format
           field_language: Language
@@ -9643,6 +9642,8 @@ default:
                       service_account_id:
                         title: Service account ID
                     YdbCustomFeedSettings:
+                      changefeed_custom_consumer_name:
+                        title: Name of pre-created consumer
                       changefeed_custom_name:
                         title: Name of pre-created changefeed
                     YdbPartitionPolicy:
@@ -9868,7 +9869,6 @@ default:
         execute: Execute
         factory-reset: Factory reset
         folder: Folder
-        foundation-models: Foundation models
         general: General settings
         id: ID
         input: Input
@@ -9905,7 +9905,6 @@ default:
         suspend: Suspend
         timeout: Timeout
         tuned-foundation-models: Tuned foundation models
-        tuning-model: Tune model
         type: Type
       data-proc:
         available-clusters: Available clusters
@@ -9929,12 +9928,6 @@ default:
         security-group: Security group
       external-ide:
         external-ide-vm-configuration: VM configuration for remote connection
-      foundation-model:
-        data-for-tuning: Data for tuning
-        learning-rate: Learning rate
-        samples-file: File with samples
-        start-tuning: Start tuning
-        test-in-playground: Test in Playground
       import-ipynb:
         open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
@@ -10076,12 +10069,6 @@ default:
       transferring:
         title: Transfer projects
         transfer-selected-projects: Transfer selected projects
-      yagpt-playground:
-        request:
-          title: Request
-        send-request: Send request
-        temperature:
-          title: Temperature
     yc-ui-talkanalytics:
       common:
         delete-key-value: Delete

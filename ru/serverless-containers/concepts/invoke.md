@@ -12,7 +12,9 @@ description: Вы можете вызвать контейнер с помощь
 
 {% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
 
-{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
+{% include [port-variable-note](../../_includes/serverless-containers/port-variable-note.md) %}
+
+{% include [invoke-container](../../_includes/serverless-containers/invoke-container.md) %}
 
 ## HTTPS {#https}
 
@@ -24,7 +26,7 @@ description: Вы можете вызвать контейнер с помощь
 
 {% list tabs %}
 
-- Заголовки запроса
+- Заголовки запроса {#request-headers}
     
     Удаляются из запроса:
 
@@ -42,7 +44,7 @@ description: Вы можете вызвать контейнер с помощь
     - "Www-Authenticate"
     - "Cookie"
 
-- Заголовки ответа
+- Заголовки ответа {#response-headers}
         
     - Удаляются из ответа:
         - "Host"

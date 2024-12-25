@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
    Где:
    * `<имя_пользователя>` — имя пользователя {{ OS }}.
    * `<пароль>` — пароль пользователя {{ OS }}.
-   * `<имя_хоста>` — имя хоста {{ mos-name }} с [ролью DATA](../../../managed-opensearch/concepts/host-roles.md#data), например, `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
+   * `<имя_хоста>` — имя хоста {{ mos-name }} с [ролью DATA](../../../managed-opensearch/concepts/host-roles.md#data), например, `rc1a-7hkolet********.{{ dns-zone }}`.
 
    Успешный ответ приходит в виде:
 
@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
    * **Название приложения** — укажите название приложения, например `filebeat-oss`.
    * **Имя пользователя {{ OS }}** — введите имя учетной записи, под которой Filebeat OSS будет подключаться к кластеру {{ mos-name }}.
    * **Пароль для подключения к {{ OS }}** — введите пароль для учетной записи в кластере {{ mos-name }}.
-   * **FQDN сервиса {{ OS }}** — укажите URL и порт для хоста кластера {{ mos-name }} с ролью DATA, например `https://rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-opensearch/operations/connect.md).
+   * **FQDN сервиса {{ OS }}** — укажите URL и порт для хоста кластера {{ mos-name }} с ролью DATA, например `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-opensearch/operations/connect.md).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 

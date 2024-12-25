@@ -1,3 +1,8 @@
+---
+title: Интеграция с {{ license-manager }} API
+description: Следуя данной инструкции, вы сможете настроить интеграцию с {{ license-manager }} API.
+---
+
 # Интеграция с {{ license-manager }} API
 
 Если вы создали [подписку](../concepts/subscription.md) внутри тарифа:

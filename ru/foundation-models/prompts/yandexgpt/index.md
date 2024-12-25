@@ -1,3 +1,8 @@
+---
+title: Библиотека промтов {{ yagpt-full-name }}
+description: В этом разделе собраны промты для {{ yagpt-name }}.
+---
+
 # Библиотека промтов {{ yagpt-full-name }}
 
 ## Контент {#content}

@@ -13,283 +13,291 @@ Use {{ assistant-api }} to create a chat with the model. For an example of a cha
 
 {% endnote %}
 
-To create a chat with a model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
+To create a chat with a model in your application and avoid delays in responses, send prompts in [synchronous](../../concepts/index.md#working-mode) mode using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
-To create a chat:
+## Getting started {#before-begin}
 
-1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+{% list tabs group=programming_language %}
 
-1. Prepare a model request file, e.g., `body.json`:
+- SDK {#sdk}
 
-   ```json
-   {
-     "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
-     "completionOptions": {
-       "stream": false,
-       "temperature": 0.6,
-       "maxTokens": "2000"
-     },
-     "messages": [
-       {
-         "role": "system",
-         "text": "You are a smart assistant"
-       },
-       {
-         "role": "user",
-         "text": "Hello! What fields of science did Albert Einstein study?"
-       }
-     ]
-   }
-   ```
+  To use the examples of requests using SDK:
 
-   Where:
+  {% include [sdk-before-begin-ai-langmodel-user](../../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
 
-   {% include [api-parameters](../../../_includes/foundation-models/yandexgpt/api-parameters.md) %}
+- cURL {#curl}
 
-1. Send a request to the model:
+  {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-   {% list tabs group=programming_language %}
+  {% include [curl](../../../_includes/curl.md) %}
 
-   - cURL {#curl}
+- Python {#python}
 
-     Run this command:
+  {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-     ```bash
-     export FOLDER_ID=<folder_ID>
-     export IAM_TOKEN=<IAM_token>
-     curl \
-       --request POST \
-       --header "Content-Type: application/json" \
-       --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --header "x-folder-id: ${FOLDER_ID}" \
-       --data "@<path_to_JSON_file>" \
-       "https://llm.{{ api-host }}/foundationModels/v1/completion"
-     ```
+{% endlist %}
 
-     Where:
+## Build a chat {#develop-chat}
 
-     * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-     * `IAM_TOKEN`: Your account's IAM token.
+{% list tabs group=programming_language %}
 
-   - Python 3 {#python}
+- SDK {#sdk}
 
-     1. Create a file named `index.py` and add the following code to it:
+  1. Create a file named `create-chat.py` and paste the following code into it:
 
-        ```python
-        import requests
-        import json
-        import os
+      ```python
+      #!/usr/bin/env python3
 
-        def gpt(auth_headers):
+      from __future__ import annotations
+      from yandex_cloud_ml_sdk import YCloudML
 
-            url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+      messages = '[\
+                    {\
+                      "role": "system",\
+                      "text": "You are a smart assistant"\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "Hi! What fields of science did Albert Einstein study?"\
+                    }\
+                  ]'
 
-            with open('body.json', 'r', encoding='utf-8') as f:
-                data = json.dumps(json.load(f))
-            resp = requests.post(url, headers=auth_headers, data=data)
+      def main() -> None:
+          sdk = YCloudML(folder_id='<folder_ID>', auth="<API_key>")
 
-            if resp.status_code != 200:
-                raise RuntimeError(
-                    'Invalid response received: code: {}, message: {}'.format(
-                        {resp.status_code}, {resp.text}
-                    )
-                )
+          result = sdk.models.completions('yandexgpt').configure(temperature=0.6).run(messages)
 
-            return resp.text
+          for alternative in result:
+              print(alternative)
 
-        if __name__ == "__main__":
-            if os.getenv('IAM_TOKEN') is not None:
-                iam_token = os.environ['IAM_TOKEN']
-                headers = {
-                    'Authorization': f'Bearer {iam_token}',
-                }
-            elif os.getenv('API_KEY') is not None:
-                api_key = os.environ['API_KEY']
-                headers = {
-                    'Authorization': f'Api-Key {api_key}',
-                }
-            else:
-                print ('Please save either an IAM token or an API key into a corresponding `IAM_TOKEN` or `API_KEY` environment variable.')
-                exit()
+      if __name__ == '__main__':
+          main()
+      ```
 
-            print(gpt(headers))
-        ```
+      Where:
 
-     1. Save the authentication data to the environment variable:
+      {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
-        **Authentication with an IAM token:**
+      {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-        ```bash
-        export IAM_TOKEN=<IAM_token>
-        ```
+  1. Run the created file:
 
-        **Authentication with an API key (for service accounts only):**
+      ```bash
+      python3 create-chat.py
+      ```
 
-        ```bash
-        export API_KEY=<API_key>
-        ```
+      Result:
 
-     1. Run the created file:
+      ```text
+      Alternative(role='assistant', text='This looks like the beginning of a dialog between the user and the smart assistant. In response to the user’s question, the smart assistant can provide information about the fields of science studied by Albert Einstein.\n\nHere is an example:\n\n[              {                "role": "system",                "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."              }            ]', status=<AlternativeStatus.FINAL: 3>)
+      ```
 
-        ```bash
-        python index.py
-        ```
+  1. Add the model's response to the previous request and the user's new question to the end of the `messages` array in the `create-chat.py` file:
 
-   {% endlist %}
+      ```python
+      ...
+      messages = '[\
+                    {\
+                      "role": "system",\
+                      "text": "You are a smart assistant"\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "Hi! What fields of science did Albert Einstein study?"\
+                    },\
+                    {\
+                      "role": "assistant",\
+                      "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "What important discoveries did he make?"\
+                    }\
+                  ]'
+      ...
+      ```
 
-1. In response to your request, the model will return the generated text:
+  1. Execute the file again:
 
-   {% cut "Result:" %}
- 
-   ```json
-   {
-     "result": {
-       "alternatives": [
-         {
-           "message": {
-             "role": "assistant",
-             "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
-           },
-           "status": "ALTERNATIVE_STATUS_FINAL"
-         }
-       ],
-       "usage": {
-         "inputTextTokens": "28",
-         "completionTokens": "110",
-         "totalTokens": "138"
-       },
-       "modelVersion": "18.01.2024"
-     }
-   }
-   ```
- 
-   {% endcut %}
- 
-   Save the `message` record value for use in subsequent requests.
+      ```bash
+      python3 create-chat.py
+      ```
 
-1. Add the `messages` record value obtained in the model's response to your previous request, as well as the new user question, to the end of the `message` array in the request file:
+      Result:
 
-   ```json
-   {
-     "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
-     "completionOptions": {
-       "stream": false,
-       "temperature": 0.6,
-       "maxTokens": "2000"
-     },
-     "messages": [
-       {
-         "role": "system",
-         "text": "You are a smart assistant"
-       },
-       {
-         "role": "user",
-         "text": "Hello! What fields of science did Albert Einstein study?"
-       },
-       {
-         "role": "assistant",
-         "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
-       },
-       {
-         "role": "user",
-         "text": "What important discoveries did he make?"
-       }
-     ]
-   }
-   ```
+      ```text
+      Alternative(role='assistant', text='**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics.\n\n* The theory of special relativity describes the laws of physics at speeds close to the speed of light. It was published in 1905 and became one of the most important scientific achievements of the early 20th century.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time. This theory was published in 1915.\n* Albert Einstein’s studies in quantum physics have led to the emergence of a new field of science, quantum electrodynamics. They also helped explain multiple phenomena occurring at the atomic and subatomic levels.' status=<AlternativeStatus.FINAL: 3>)
+      ```
 
-1. Send a new request to the model, repeating _Step 3_ of this guide. In response to your request, the model will again return the generated text:
+  1. Continue expanding the request context with the received responses and user questions:
 
-   {% cut "Result:" %}
+      ```python
+      ...
+      messages = '[\
+                    {\
+                      "role": "system",\
+                      "text": "You are a smart assistant"\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "Hi! What fields of science did Albert Einstein study?"\
+                    },\
+                    {\
+                      "role": "assistant",\
+                      "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "What important discoveries did he make?"\
+                    },\
+                    {\
+                      "role": "assistant",\
+                      "text": "**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics.\n\n* The theory of special relativity describes the laws of physics at speeds close to the speed of light. It was published in 1905 and became one of the most important scientific achievements of the early 20th century.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time. This theory was published in 1915.\n* Albert Einstein’s studies in quantum physics have led to the emergence of a new field of science, quantum electrodynamics. They also helped explain multiple phenomena occurring at the atomic and subatomic levels."\
+                    },\
+                    {\
+                      "role": "user",\
+                      "text": "Make it shorter"\
+                    }\
+                  ]'
+      ...
+      ```
 
-   ```json
-   {
-     "result": {
-       "alternatives": [
-         {
-           "message": {
-             "role": "assistant",
-             "text": "Here are some discoveries commonly associated with the name of Albert Einstein:\n1. **Special theory of relativity (STR)**: Theory describing motion, laws of mechanics, and spatiotemporal relationships at random velocities less than the speed of light in a vacuum.\n1. **General theory of relativity (GTR)**: Geometric theory of gravitation based on the prediction of the interrelation between the spacetime, matter, and energy coordinates.\n1. **Quantum theory of the photoelectric effect**: Explanation of the photoelectric effect, a phenomenon of electron emission from matter under the influence of electromagnetic radiation.\n1. **Brownian motion**: Phenomenon of chaotic, random movement of microscopic particles suspended in a liquid or gas, caused by the thermal motion of molecules in the surrounding medium.\n1. **Equivalence principle**: Idea that gravitational and inertial mass are different aspects of the same physical quantity.\n1. **Cosmological solutions of the GTR equations**: Contribution to the theory of the structure and dynamics of the universe.\n1. **Nuclear model of the atom**: Description of the atom structure based on protons, neutrons, and electrons.\nThese are just some of the discoveries made by Albert Einstein. His contributions to science and philosophy are immense, and his research continues to shape our ideas of nature and the universe."
-           },
-           "status": "ALTERNATIVE_STATUS_FINAL"
-         }
-       ],
-       "usage": {
-         "inputTextTokens": "154",
-         "completionTokens": "278",
-         "totalTokens": "432"
-       },
-       "modelVersion": "18.01.2024"
-     }
-   }
-   ```
+      Result:
 
-   {% endcut %}
+      ```text
+      Alternative(role='assistant', text='**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries:\n* The **theory of special relativity** describes the laws of physics at speeds close to the speed of light.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time.\n* His studies in **quantum physics** have led to the emergence of quantum electrodynamics and helped explain phenomena occurring at the atomic and subatomic levels.' status=<AlternativeStatus.FINAL: 3>)
+      ```
 
-   Once again, save the `message` record value for use in subsequent requests.
+- cURL {#curl}
 
-1. Continue expanding the request context with the received responses and user questions:
+  1. Prepare a model request file, e.g., `body.json`:
+  
+      {% include notitle [create-chat-body-json-part](../../../_includes/foundation-models/yandexgpt/create-chat-body-json-part.md) %}
 
-   ```json
-   {
-     "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
-     "completionOptions": {
-       "stream": false,
-       "temperature": 0.6,
-       "maxTokens": "2000"
-     },
-     "messages": [
-       {
-         "role": "system",
-         "text": "You are a smart assistant"
-       },
-       {
-         "role": "user",
-         "text": "Hello! What fields of science did Albert Einstein study?"
-       },
-       {
-         "role": "assistant",
-         "text": "Albert Einstein was an outstanding physicist, whose works in theoretical physics, theoretical mechanics, and philosophy of science became fundamental. He dedicated his career to studying the fundamentals of the Universe, including the theory of relativity, both special and general. Additionally, Albert Einstein studied:\n\n* thermodynamics,\n* statistical mechanics,\n* electromagnetism,\n* quantum theory,\n* special relativity, and more.\n\n His general relativity works found wide recognition and had a profound influence on the development of modern physics."
-       },
-       {
-         "role": "user",
-         "text": "What important discoveries did he make?"
-       },
-       {
-         "role": "assistant",
-         "text": "Here are some discoveries commonly associated with the name of Albert Einstein:\n1. **Special theory of relativity (STR)**: Theory describing motion, laws of mechanics, and spatiotemporal relationships at random velocities less than the speed of light in a vacuum.\n1. **General theory of relativity (GTR)**: Geometric theory of gravitation based on the prediction of the interrelation between the spacetime, matter, and energy coordinates.\n1. **Quantum theory of the photoelectric effect**: Explanation of the photoelectric effect, a phenomenon of electron emission from matter under the influence of electromagnetic radiation.\n1. **Brownian motion**: Phenomenon of chaotic, random movement of microscopic particles suspended in a liquid or gas, caused by the thermal motion of molecules in the surrounding medium.\n1. **Equivalence principle**: Idea that gravitational and inertial mass are different aspects of the same physical quantity.\n1. **Cosmological solutions of the GTR equations**: Contribution to the theory of the structure and dynamics of the universe.\n1. **Nuclear model of the atom**: Description of the atom structure based on protons, neutrons, and electrons.\nThese are just some of the discoveries made by Albert Einstein. His contributions to science and philosophy are immense, and his research continues to shape our ideas of nature and the universe."
-       },
-       {
-         "role": "user",
-         "text": "Give me a shorter response"
-       }
-     ]
-   }
-   ```
+  1. Send a request to the model:
 
-   {% cut "Result:" %}
+      ```bash
+      export FOLDER_ID=<folder_ID>
+      export IAM_TOKEN=<IAM_token>
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --header "x-folder-id: ${FOLDER_ID}" \
+        --data "@<path_to_JSON_file>" \
+        "https://llm.{{ api-host }}/foundationModels/v1/completion"
+      ```
 
-   ```json
-   {
-     "result": {
-       "alternatives": [
-         {
-           "message": {
-             "role": "assistant",
-             "text": "Albert Einstein was an outstanding physicist who studied the fundamentals of the universe, including the theory of relativity, thermodynamics, and electromagnetism.\n\nSome of his well-known discoveries include the following: special and general theories of relativity, quantum theory of the photoelectric effect, and others."
-           },
-           "status": "ALTERNATIVE_STATUS_FINAL"
-         }
-       ],
-       "usage": {
-         "inputTextTokens": "452",
-         "completionTokens": "54",
-         "totalTokens": "506"
-       },
-       "modelVersion": "18.01.2024"
-     }
-   }
-   ```
+      Where:
 
-   {% endcut %}
+      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
+      * `IAM_TOKEN`: Your account's IAM token.
 
+  1. In response to your request, the model will return the generated text:
+
+      {% include notitle [create-chat-step-3](../../../_includes/foundation-models/yandexgpt/create-chat-step-3.md) %}
+
+  1. Add the `message` record value from the model's response to the previous request and the user's new question to the end of the `messages` array in the request file:
+
+      {% include notitle [create-chat-step-4](../../../_includes/foundation-models/yandexgpt/create-chat-step-4.md) %}
+
+  1. Send a new request to the model repeating Step 2 of this guide. In response to your request, the model will again return the generated text:
+
+      {% include notitle [create-chat-step-5](../../../_includes/foundation-models/yandexgpt/create-chat-step-5.md) %}
+
+  1. Continue expanding the request context with the received responses and user questions:
+
+      {% include notitle [create-chat-step-6](../../../_includes/foundation-models/yandexgpt/create-chat-step-6.md) %}
+
+- Python {#python}
+
+  1. Prepare a model request file, e.g., `body.json`:
+  
+      {% include notitle [create-chat-body-json-part](../../../_includes/foundation-models/yandexgpt/create-chat-body-json-part.md) %}
+
+  1. Send a request to the model:
+
+      1. Create a file named `index.py` and add the following code to it:
+
+         ```python
+         import requests
+         import json
+         import os
+
+         def gpt(auth_headers):
+
+             url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+
+             with open('body.json', 'r', encoding='utf-8') as f:
+                 data = json.dumps(json.load(f))
+             resp = requests.post(url, headers=auth_headers, data=data)
+
+             if resp.status_code != 200:
+                 raise RuntimeError(
+                     'Invalid response received: code: {}, message: {}'.format(
+                         {resp.status_code}, {resp.text}
+                     )
+                 )
+
+             return resp.text
+
+         if __name__ == "__main__":
+             if os.getenv('IAM_TOKEN') is not None:
+                 iam_token = os.environ['IAM_TOKEN']
+                 headers = {
+                     'Authorization': f'Bearer {iam_token}',
+                 }
+             elif os.getenv('API_KEY') is not None:
+                 api_key = os.environ['API_KEY']
+                 headers = {
+                     'Authorization': f'Api-Key {api_key}',
+                 }
+             else:
+                 print ('Please save either an IAM token or an API key into a corresponding `IAM_TOKEN` or `API_KEY` environment variable.')
+                 exit()
+
+             print(gpt(headers))
+         ```
+
+      1. Save the authentication data to the environment variable:
+
+         **Authentication with an IAM token:**
+
+         ```bash
+         export IAM_TOKEN=<IAM_token>
+         ```
+
+         **Authentication with an API key (for service accounts only):**
+
+         ```bash
+         export API_KEY=<API_key>
+         ```
+
+      1. Run the created file:
+
+         ```bash
+         python index.py
+         ```
+
+  1. In response to your request, the model will return the generated text:
+
+      {% include notitle [create-chat-step-3](../../../_includes/foundation-models/yandexgpt/create-chat-step-3.md) %}
+
+  1. Add the `message` record value from the model's response to the previous request and the user's new question to the end of the `messages` array in the request file:
+
+      {% include notitle [create-chat-step-4](../../../_includes/foundation-models/yandexgpt/create-chat-step-4.md) %}
+
+  1. Send a new request to the model repeating Step `2.3` of this guide. In response to your request, the model will again return the generated text:
+
+      {% include notitle [create-chat-step-5](../../../_includes/foundation-models/yandexgpt/create-chat-step-5.md) %}
+
+  1. Continue expanding the request context with the received responses and user questions:
+
+      {% include notitle [create-chat-step-6](../../../_includes/foundation-models/yandexgpt/create-chat-step-6.md) %}
+
+{% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/yandexgpt/index.md)
+* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

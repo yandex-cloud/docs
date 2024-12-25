@@ -22,7 +22,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
     - Bash {#bash}
 
         ```bash
-        cd <path_to_cloudapi_directory> && \
+        cd <path_to_cloudapi_folder> && \
         mkdir search_data && \
         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
             --python_out=./search_data/ \
@@ -40,7 +40,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
 
     {% endlist %}
 
-1. In the `search_data` directory, create the `search_data.py` Python script that will search for conversations in {{ speechsense-name }}.
+1. In the `search_data` directory, create the `search_data.py` Python script that will search for dialogs in {{ speechsense-name }}.
 
     {% cut "Example of the `search_data.py` script with filtering and full-text search" %}
 
@@ -175,7 +175,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
                 classifier_filter=classifier_filter,
                 page_token=page_token)
 
-            # Searching for IDs of suitable conversations
+            # Searching for IDs of relevant dialogs
             search_response = talk_service_stub.Search(search_request, metadata=(
                 ('authorization', f'Api-Key {api_key}'),
                 # For IAM token authentication, provide the header
@@ -184,13 +184,13 @@ To search data using the {{ yandex-cloud }} gRPC API:
             page_token = search_response.next_page_token
             # print(f'found falks {search_response.talks_count}')
 
-            # By default, only the basic fields of the conversation will be returned.
+            # By default, only the basic fields of the dialog will be returned.
             # To include the analysis results, add them to the request
             fields_to_include = FieldMask(
                 paths=['transcription', 'speech_statistics', 'silence_statistics', 'interrupts_statistics',
                        'conversation_statistics', 'points', 'text_classifiers'])
 
-            # Requesting full data on conversations by ID
+            # Requesting full data on dialogs by ID
             get_request = talk_service_pb2.GetTalkRequest(
                 organization_id=organization_id,
                 space_id=space_id,
@@ -206,7 +206,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
                 # ('authorization', f'Bearer {iam_token}'),
             ))
 
-            # Printing conversations
+            # Printing dialogs
             for talk in get_response.talk:
                 print(MessageToJson(talk, ensure_ascii=False))
 
@@ -252,7 +252,7 @@ To search data using the {{ yandex-cloud }} gRPC API:
 
     Where:
 
-    * `--organization-id`: ID of the organization the request takes place in. To get the ID, go to [{{ cloud-center }}]({{ cloud-center-link }}) and click ![icon](../../../_assets/console-icons/copy.svg) under the name of the organization in the ![icon](../../../_assets/console-icons/briefcase.svg) section.
+    * `--organization-id`: ID of the organization the request takes place in. To get the ID, go to [{{ cloud-center }}]({{ cloud-center-link }}) and click ![icon](../../../_assets/console-icons/copy.svg) under the organization name, in the ![icon](../../../_assets/console-icons/briefcase.svg) section.
     * `--space-id`: ID of the space the request takes place in. To get the ID, go to [{{ speechsense-name }}]({{ link-speechsense-main }}), open the page of the space you need and click **ID**.
     * `--connection-id`: ID of the connection the request takes place in. To get the ID, go to [{{ speechsense-name }}]({{ link-speechsense-main }}), open the page of the space you need. On the **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** tab, open the page of the connection and click **ID**.
     * `--project-id`: ID of the project the request takes place in. To get an ID, go to [{{ speechsense-name }}]({{ link-speechsense-main }}), open the page of the space you need. On the **{{ ui-key.yc-ui-talkanalytics.projects.projects }}** tab, open the page of the project and click **ID**.
@@ -265,22 +265,24 @@ To search data using the {{ yandex-cloud }} gRPC API:
 ### Search query {#search-query}
 
 * `Query`: Full-text search that allows you to search through an audio text transcript or chat text messages.
-* `Filter`: Allows you to search by user metadata, classifiers, conversation summary, or statistics.
+* `Filter`: Allows you to search by user metadata, classifiers, dialog summary, or statistics.
 
-  Under `Filter`, provide the dialog feature you are searching by in the `key` field.
+  Under `Filter`, provide the dialog feature you are filtering by in the `key` field.
 
-  * `userMeta.<field_name>`: Searching by user metadata. Where `<field_name>` is the user metadata field that was specified when uploading the conversation, e.g., `userMeta.date`. The filter type must match the metadata field type, which you selected when creating the connection.
-  * `talk.classifiers.<classifier_name>.count`: Searching by classifiers.
-  * `talk.summarization.points.<question_ID>`: Searching by conversation summary. You can view IDs of the questions from the conversation summary in the response of the GET request.
+  * `userMeta.<field_name>`: Filtering by user metadata. Where `<field_name>` is the user metadata field that was specified when uploading the dialog, e.g., `userMeta.date`. The filter type must match the metadata field type, which you specified when creating the connection.
+  * `talk.classifiers.<classifier_name>.count`: Filtering by classifiers.
+  * `talk.summarization.points.<question_ID>`: Filtering by dialog summary. You can view IDs of the questions from the dialog summary in the response to the GET request.
   * Searching by statistics (only for audio):
 
-    * `talk.statistics.duration_seconds`: Duration of the conversation.
-    * `talk.statistics.simultaneous_silence.duration_seconds`, `talk.statistics.simultaneous_silence.ratio`: Simultaneous silence in seconds or as a percentage.
-    * `talk.statistics.simultaneous_speech.duration_seconds`, `talk.statistics.simultaneous_speech.ratio`: Simultaneous speech in seconds or as a percentage.
-    * `talk.statistics.interrupts.count`: Number of conversation partner interruptions.
-    * `talk.statistics.phrases.count`, `talk.statistics.words.count`, `talk.statistics.letters.count`: Number of phrases, words, or characters in the conversation.
+    * `talk.statistics.duration_seconds`: Dialog duration in seconds.
+    * `talk.statistics.simultaneous_silence.duration_seconds`: Simultaneous silence duration in seconds.
+    * `talk.statistics.simultaneous_silence.ratio`: Simultaneous silence ratio.
+    * `talk.statistics.simultaneous_speech.duration_seconds`: Simultaneous speech duration in seconds.
+    * `talk.statistics.simultaneous_speech.ratio`: Simultaneous speech ratio.
+    * `talk.statistics.interrupts.count`: Number of dialog partner interruptions.
+    * `talk.statistics.phrases.count`, `talk.statistics.words.count`, `talk.statistics.letters.count`: Number of phrases, words, or characters in the dialog.
     * `talk.statistics.words.count_per_second`, `talk.statistics.letters.count_per_second`: Number of words or characters per second in the specified channel (the channel should be specified in the filter).
-    * `talk.statistics.interrupts.duration_seconds`: Duration of interruption by the specified conversation channel (the channel should be specified in the filter), in seconds.
+    * `talk.statistics.interrupts.duration_seconds`: Duration of speaker interruptions by another speaker, in seconds. The channel of the interrupting speaker is specified in the filter.
 
 Under `Filter` and `Query`, you can provide a channel. For a full-text search, it means that the search will only be conducted in the audio text transcript for the specified channel. For filters, this means that filtering will be done only by metadata, classifier positives, or statistics related to this channel.
 
@@ -292,27 +294,27 @@ In connections for chats, the channels are numbered as follows:
 
 In connections for audio recordings, the channels have a preset numeration.
 
-Other types of filters in the `search` request:
+Other types of filters in the search query:
 
-* `AnyMatchFilter`: Specifies whether the metadata, classifier, statistics, or conversation summary fields contain the value from the filter. For example, a filter with the `key = userMeta.ticket_id` and `values = [123, 345]` parameters will find conversations with `123` or `345` in the `ticket_id` metadata field.
-* `IntRangeFilter`: Checks if the keyed integer value belongs to the specified range. Suitable for searching by classifiers, integer metadata fields, and some types of statistics.
-* `DoubleRangeFilter`: Same as `IntRangeFilter` but used for floating-point numbers. Suitable for searching by some types of statistics and metadata fields of the required type.
-* `BooleanFilter`: Checks if the keyed `boolean` has the suitable value (`True` or `False`). Suitable for searching by conversation summary and `boolean` metadata fields.
+* `AnyMatchFilter`: Specifies whether the metadata, classifier, statistics, or dialog summary fields contain the value from the filter. For example, a filter with the `key = userMeta.ticket_id` and `values = [123, 345]` parameters will return dialogs with `123` or `345` in the `ticket_id` metadata field.
+* `IntRangeFilter`: Checks that the given integer value falls within the range specified in the filter. Suitable for filtering by classifiers, integer metadata fields, and statistics with integer values.
+* `DoubleRangeFilter`: Checks that the given floating-point number falls within the range specified in the filter. Suitable for filtering by classifiers, metadata fields, and statistics with floating-point values.
+* `BooleanFilter`: Checks if the keyed `boolean` has the suitable value (`True` or `False`). Suitable for searching by dialog summary and `boolean` metadata fields.
 
 For more information about search query parameters, see the [API reference](../../api-ref/grpc/Talk/search.md).
 
 ### GET request {#get-query}
 
-In the GET request, one important parameter is the result mask provided in the `fields_to_include` field. If the `fields_to_include` parameter is not provided, you will get only the basic information about the conversation, such as the IDs of the project, connection, and space, information about when and by whom the conversation was created or modified, and the metadata added when uploading the conversation.
+In the GET request, one important parameter is the result mask provided in the `fields_to_include` field. If the `fields_to_include` parameter is not provided, you will get only the basic information about the dialog, such as the IDs of the project, connection, and space, information about when and by whom the dialog was created or modified, and the metadata added when uploading the dialog.
 
 To get additional information, provide the keys you need in the mask:
 
-* `transcription`: Text transcript of the audio recording or text messages from the chat.
+* `transcription`: Audio text transcript or chat text messages.
 * `speech_statistics`: Speech statistics.
-* `silence_statistics`: Statistics of pauses in the conversation.
-* `interrupts_statistics`: Statistics of conversation partner interruptions.
-* `conversation_statistics`: Conversation statistics.
-* `points`: Conversation summary.
+* `silence_statistics`: Statistics of pauses in the dialog.
+* `interrupts_statistics`: Statistics of dialog partner interruptions.
+* `conversation_statistics`: Dialog statistics.
+* `points`: Dialog summary.
 * `text_classifiers`: Statistics for classifiers (tags).
 
 For more information about GET request parameters, see the [API reference](../../api-ref/grpc/Talk/get.md).

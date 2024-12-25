@@ -6025,6 +6025,7 @@ default:
         action_create-video: Загрузить видео
         label_access_rights-auth-system-access: Для авторизованных пользователей
         label_access_rights-public: Для всех пользователей
+        label_access_rights-sign-url-access: По временной ссылке
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
         label_subtitles: Субтитры
@@ -8398,9 +8399,6 @@ default:
           context_phonemes-title: Фонемы
           context_word-stress-title: Ударение
           context_word-title: Акцент на слове
-        label_playground: SpeechKit Playground
-        label_speech-synthesis: Синтез речи
-        label_speech-to-text: Распознавание речи
         speech-synthesis:
           field_audio: Формат аудио
           field_language: Язык
@@ -9648,6 +9646,8 @@ default:
                       service_account_id:
                         title: Идентификатор сервисного аккаунта
                     YdbCustomFeedSettings:
+                      changefeed_custom_consumer_name:
+                        title: Название предсозданного consumer
                       changefeed_custom_name:
                         title: Название предсозданного changefeed
                     YdbPartitionPolicy:
@@ -9871,7 +9871,6 @@ default:
         execute: Выполнить
         factory-reset: Сбросить проект
         folder: Каталог
-        foundation-models: Фундаментальные модели
         general: Общие настройки
         id: ID
         input: Входные значения
@@ -9908,7 +9907,6 @@ default:
         suspend: Приостановить
         timeout: Таймаут
         tuned-foundation-models: Дообученные фундаментальные модели
-        tuning-model: Дообучить модель
         type: Тип
       data-proc:
         available-clusters: Доступные кластеры
@@ -9932,12 +9930,6 @@ default:
         security-group: Группа безопасности
       external-ide:
         external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
-      foundation-model:
-        data-for-tuning: Данные для дообучения
-        learning-rate: Темп обучения
-        samples-file: Файл с примерами
-        start-tuning: Запустить дообучение
-        test-in-playground: Попробовать в Playground
       import-ipynb:
         open-in-dataSphere: Запустить в Yandex DataSphere
       invite-link:
@@ -10079,12 +10071,6 @@ default:
       transferring:
         title: Перенос проектов
         transfer-selected-projects: Перенести выбранные проекты
-      yagpt-playground:
-        request:
-          title: Запрос
-        send-request: Отправить запрос
-        temperature:
-          title: Температура
     yc-ui-talkanalytics:
       common:
         delete-key-value: Удалить

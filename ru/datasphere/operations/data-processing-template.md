@@ -26,11 +26,7 @@
 ## Поделиться шаблоном {{ dataproc-name }} {#share}
 
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
-<<<<<<< HEAD
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
-=======
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-processing-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
->>>>>>> develop
 1. Выберите нужный шаблон в списке.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
 1. Включите опцию видимости напротив названия сообщества, в котором нужно поделиться шаблоном.
@@ -49,16 +45,9 @@
 ## Удалить шаблон {{ dataproc-name }} {#delete}
 
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
-<<<<<<< HEAD
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
-1. Выберите в списке шаблон, который нужно удалить.
-1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
-=======
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![data-proc-template](../../_assets/datasphere/data-processing-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Выберите в списке шаблон, который нужно удалить.
 1. Нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% include [deletion-time](../../_includes/datasphere/deletion-time.md) %}
->>>>>>> develop

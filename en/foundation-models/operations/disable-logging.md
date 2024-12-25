@@ -1,12 +1,12 @@
 # Disabling request logging
 
-Models log all request data by default. If you provide personal data, confidential information, or any kind of sensitive information in your requests, disable logging. To do this, add the `x-data-logging-enabled: false` option to the REST request header or gRPC call metadata. Requests submitted with logging disabled will not be saved on {{ yandex-cloud }} servers.
+Models log all request data by default. If you provide personal or private data or any kind of sensitive information in your requests, you may want to disable logging. To do this, add the `x-data-logging-enabled: false` option to the REST request header or gRPC call metadata. The requests you submit without logging will not be saved on {{ yandex-cloud }} servers.
 
 Request example:
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
   {% include [curl](../../_includes/curl.md) %}
   

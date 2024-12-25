@@ -1,3 +1,8 @@
+---
+title: Передача логов кластера {{ metastore-full-name }} в {{ cloud-logging-full-name }}
+description: Следуя данной инструкции, вы сможете настроить передачу логов кластера {{ metastore-name }} в {{ cloud-logging-name }}.
+---
+
 # Передача логов кластера {{ metastore-name }} в {{ cloud-logging-full-name }}
 
 Вы можете настроить регулярный сбор логов о работе кластера {{ metastore-name }}. Логи поставляются в [лог-группу](../../../logging/concepts/log-group.md) в сервисе {{ cloud-logging-full-name }}. Можно выбрать лог-группу одного из двух типов:

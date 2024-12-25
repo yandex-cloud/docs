@@ -1,3 +1,8 @@
+---
+title: Релизы COI
+description: Из статьи вы узнаете, как узнать свою версию COI и ознакомитесь с предыдущими релизами.
+---
+
 # Релизы COI
 
 {% cut "Как узнать свою версию COI" %}
@@ -42,3 +47,4 @@
 ## Предыдущие релизы {#previous-releases}
 
 {% include [previous-releases](../_includes/cos/previous-releases.md) %}
+

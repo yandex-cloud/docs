@@ -73,7 +73,15 @@ description: Из статьи вы узнаете, как задать наст
 
       Для трансферов типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} обязательно указывать пути, в том числе и при репликации всех таблиц.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — Укажите здесь название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — укажите название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
+
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}** — укажите потребителя данных (consumer), которого вы создали для потока изменений. По умолчанию используется потребитель с именем `__data_transfer_consumer`.
+
+      {% note info %}
+
+      Если указан потребитель данных, то для подключения трансфера к {{ ydb-short-name }} сервисному аккаунту, указанному в настройках эндпоинта, достаточно роли `ydb.viewer`. Если потребитель данных не указан, сервисному аккаунту требуется роль `ydb.editor`, чтобы создать потребителя по умолчанию.
+
+      {% endnote %}
 
 {% endlist %}
 

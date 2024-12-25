@@ -1,3 +1,8 @@
+---
+title: Создать сообщество
+description: Следуя данной инструкции, вы сможете создать сообщество.
+---
+
 # Создать сообщество
 
 1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}

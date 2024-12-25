@@ -9,6 +9,12 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release as of 9/12/24 {#091224}
+
+Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../foundation-models/concepts/yandexgpt/models.md#model-lifecycle).
+
+Use the {{ foundation-models-full-name }} [tools](../foundation-models/concepts/tuning/index.md) to tune models.
+
 ## Release as of 11/11/24 {#111124}
 
 Now you can use a service agent to work with {{ yandex-cloud }} services from {{ ml-platform-name }} notebooks, e.g., issue authorization tokens. To enable this feature in a community, follow [this guide](operations/community/create-ssa.md). For more information on how service agents work, see the [{{ iam-name }} documentation](../iam/concepts/service-control.md#service-agent).

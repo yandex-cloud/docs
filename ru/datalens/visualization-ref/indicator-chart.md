@@ -89,16 +89,12 @@ description: Из статьи вы узнаете, как в {{ datalens-short-
 {% cut "Форматирование текста" %}
 
 ```markdown
-MARKUP(
-    BOLD(SIZE('Оплата по карте: ', '18px')),
-    BR(),
-    BR(),
-    SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px'),
-    BR(),
-    BR(),
-    SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')/COUNTD([OrderID])*100, 2)) +
-    ' %  от общего количества', '20px')
-)
+BOLD(SIZE('Оплата по карте: ', '18px')) +
+BR() + BR() +
+SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px') +
+BR() + BR() +
+SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Банковская карта')/COUNTD([OrderID])*100, 2)) +
+' %  от общего количества', '20px')
 ```
 
 ![indicator-fonts](../../_assets/datalens/visualization-ref/indicator-chart/indicator-fonts.png)
@@ -108,18 +104,15 @@ MARKUP(
 {% cut "Индикатор с несколькими показателями" %}
 
 ```markdown
-MARKUP(
-    SIZE('Количество: ', '18px'),
-    BR(),
-    BR(),
-    COLOR(SIZE('- категорий: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443'),
-    BR(),
-    COLOR(SIZE('- подкатегорий: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue'),
-    BR(),
-    COLOR(SIZE('- брендов: ' + STR(COUNTD([ProductBrend])), '18px'), 'green'),
-    BR(),
-    COLOR(SIZE('- продуктов: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
-)
+SIZE('Количество: ', '18px') +
+BR() + BR() +
+COLOR(SIZE('- категорий: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443') +
+BR() +
+COLOR(SIZE('- подкатегорий: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue') +
+BR() +
+COLOR(SIZE('- брендов: ' + STR(COUNTD([ProductBrend])), '18px'), 'green') +
+BR() +
+COLOR(SIZE('- продуктов: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
 ```
 
 ![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-some-measures.png)
@@ -129,35 +122,55 @@ MARKUP(
 {% cut "Индикатор с отображением показателя по категориям" %}
 
 ```markdown
-MARKUP(
-    SIZE('Продажи: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px'),
-    BR(),
-    COLOR(" ▲ ", "green")+" — боле 50000000 ₽  | " + COLOR(" ▼ ", "red") + " — 50000000 ₽ и менее",
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Техника для дома'))+ ' ₽ | ', 'blue') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000,"green", "red")),
-        '20px'),
-    BR() + 'Техника для дома',
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовая химия'))+ ' ₽ | ', 'green') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000,"green", "red")),
-        '20px'),
-    BR() + 'Бытовая химия',
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовые товары'))+ ' ₽ | ', 'violet') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000,"green", "red")),
-        '20px'),
-    BR() + 'Бытовые товары'
-)
+SIZE('Продажи: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px') +
+BR() +
+COLOR(" ▲ ", "green")+" — боле 50000000 ₽  | " + COLOR(" ▼ ", "red") + " — 50000000 ₽ и менее" +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Техника для дома'))+ ' ₽ | ', 'blue') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Техника для дома')>50000000,"green", "red")),
+    '20px') +
+BR() + 'Техника для дома' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовая химия'))+ ' ₽ | ', 'green') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовая химия')>50000000,"green", "red")),
+    '20px') +
+BR() + 'Бытовая химия' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Бытовые товары'))+ ' ₽ | ', 'violet') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Бытовые товары')>50000000,"green", "red")),
+    '20px') +
+BR() + 'Бытовые товары'
 ```
 
 ![indicator-categories](../../_assets/datalens/visualization-ref/indicator-chart/indicator-categories.png)
+
+{% endcut %}
+
+{% cut "Индикатор с изображением" %}
+
+```markdown
+IMAGE('https://storage.yandexcloud.net/dl--********//datalens.jpg', 32, 32, 'alt-text-1') +
+COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='DataLens')), '32px'), '#AEC5F3') +
+BR()+
+COLOR(SIZE('DataLens', '20px'), '#AEC5F3')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl--********//powerbi.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Power BI')), '32px'), '#B8A754')+
+BR()+
+COLOR(SIZE('Power BI', '20px'), '#B8A754')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl-********/tableu.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Tableau')), '32px'), '#4D5DAB')+
+BR()+
+COLOR(SIZE('Tableau', '20px'), '#4D5DAB')
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-image.png)
 
 {% endcut %}
 

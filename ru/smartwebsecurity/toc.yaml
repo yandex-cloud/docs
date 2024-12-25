@@ -33,6 +33,8 @@ items:
             href: operations/waf-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/waf-profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/waf-profile-get.md
           - name: Удалить профиль
             href: operations/waf-profile-delete.md
           - name: Настроить набор базовых правил
@@ -49,6 +51,8 @@ items:
             href: operations/arl-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/arl-profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/arl-profile-get.md
           - name: Удалить профиль
             href: operations/arl-profile-delete.md
           - name: Добавить правило

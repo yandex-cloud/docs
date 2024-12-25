@@ -1,3 +1,8 @@
+---
+title: Отчеты в {{ speechsense-full-name }}
+description: Из статьи вы узнаете про виды отчетов в {{ speechsense-name }}.
+---
+
 # Отчеты в {{ speechsense-name }}
 
 {{ speechsense-name }} предоставляет следующие виды отчетов:

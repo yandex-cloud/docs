@@ -2,7 +2,17 @@
 
 [Speech synthesis](../tts/index.md) converts text to speech and saves it to an audio file. In this section, you will learn how to synthesize speech from text using the {{ speechkit-short-name }} [API v1](../tts/request.md) (REST).
 
-Send a request to convert text to speech:
+In the example, the API is used via the [cURL](https://curl.se/) utility.
+
+## Authentication for API access {#auth}
+
+{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
+
+In the example below, authentication is performed under a Yandex account.
+
+## Execute a request {#execute}
+
+Submit a text-to-speech conversion request:
 
 ```bash
 read -r -d '' TEXT << EOM
@@ -22,8 +32,8 @@ curl
 
 Where:
 
-* `FOLDER_ID`: Folder ID you got [before you started](index.md#before-you-begin).
-* `IAM_TOKEN`: IAM token you got [before you started](index.md#before-you-begin).
+* `FOLDER_ID`: Folder ID you got [earlier](#auth).
+* `IAM_TOKEN`: IAM token you got [earlier](#auth).
 * `TEXT`: Text to be recognized with URL encoding applied.
 * `lang`: Text [language](../tts/index.md#langs).
 * `voice`: [Voice](../tts/voices.md) for speech synthesis.

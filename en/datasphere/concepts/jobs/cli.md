@@ -53,6 +53,8 @@ Where:
 * `<project_ID>`: ID of the {{ ml-platform-name }} project in which you are going to run the job.
 * `<configuration_file>`: Path to the [job configuration file](index.md#config).
 
+To run jobs under a service account, [authenticate](../../../cli/operations/authentication/service-account.md) in the {{ yandex-cloud }} CLI as this service account and [add](../../operations/projects/update.md) it to the {{ ml-platform-name }} project's member list with the `{{ roles-datasphere-project-developer }}` [role](../../security/index.md). If you run a job with the [{{ compute-full-name }}](../../../compute/) VM, [link](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) the service account to it.
+
 Running a job locks the shell session until the job completes. The job code operation [logs](#logs) will be output to the standard `stdout` output and `stderr` error streams. The job execution system logs will be written to a separate file in the user's working directory.
 
 If the shell session is interrupted during job execution, the job will continue to run in {{ ml-platform-name }}, but the execution logs will not be saved. To resume logging, recover the session by running the following command:

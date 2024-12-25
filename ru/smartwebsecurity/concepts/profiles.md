@@ -10,6 +10,8 @@ _Профиль безопасности_ — основной элемент с
 
 Чтобы задействовать {{ sws-name }}, [подключите профиль безопасности](../operations/host-connect.md) к виртуальному хосту L7-балансировщика, трафик с которого распределяется на защищаемые ресурсы. Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, то подключать профиль безопасности следует с помощью [аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
 
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
 #### См. также {#see-also}
 
 * [Управление профилями безопасности](../operations/index.md#profiles)

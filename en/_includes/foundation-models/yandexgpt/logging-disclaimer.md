@@ -1,5 +1,5 @@
 {% note info %}
 
-To improve the quality of the responses you get, {{ yagpt-full-name }} logs user prompts. Do not use sensitive information and personal data in your prompts.
+The {{ foundation-models-name }} API logs the users' prompts to improve the quality of responses it generates. Do not use sensitive information and personal data in your prompts.
 
 {% endnote %}

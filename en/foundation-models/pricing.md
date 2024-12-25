@@ -22,7 +22,7 @@ editable: false
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the overall number of prompt and response [tokens](concepts/yandexgpt/tokens.md) and depends on the {{ yagpt-full-name }} request parameters. Namely, the cost depends on the following:
+Text generation cost is based on the total number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
 
 * [Model](concepts/yandexgpt/models.md) that gets a request.
 * Model [working mode](concepts/index.md#working-mode).
@@ -37,11 +37,13 @@ The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenize
 
 #### Fine-tuned models {#rules-tuned-generating}
 
-The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
+At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy:
+
+* The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
+* The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
+* The use of a fine-tuned {{ llama }} 8b^1^ model is charged according to the {{ llama }} 8b policy.
 
 ### Text classification {#rules-text-classifier}
-
-At the [Preview](../overview/concepts/launch-stages.md) stage, the use of classifiers based on {{ yagpt-name }} is free of charge.
 
 {% note warning %}
 
@@ -159,5 +161,10 @@ Cost of using {{ yagpt-full-name }} for text vectorization with the following pa
 
 
 
+{% include [usd-embedding-k1](../_pricing_examples/foundation-models/usd-embedding-k1.md) %}
+
+
+
 
 ^1^ {{ meta-disclaimer }}
+

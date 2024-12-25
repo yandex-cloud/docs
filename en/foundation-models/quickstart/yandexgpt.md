@@ -20,6 +20,12 @@ To get started in {{ yandex-cloud }}:
 
   You can start working from the management console right away.
 
+- SDK {#sdk}
+
+  To use the examples of requests using SDK:
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
+
 - API {#api}
 
   To run sample requests using the API, install [cURL](https://curl.haxx.se).
@@ -61,6 +67,10 @@ To get started in {{ yandex-cloud }}:
   1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
 
      ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
+
+- SDK {#sdk}
+
+  {% include [yandexgpt-sdk-entire-generation-block](../../_includes/foundation-models/yandexgpt/yandexgpt-sdk-entire-generation-block.md) %}
 
 - API {#api}
 
@@ -109,7 +119,7 @@ To get started in {{ yandex-cloud }}:
      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
      * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-     In the response, the service will return the generated text:
+     The service will respond with the generated text:
 
      ```json
      {

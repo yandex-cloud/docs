@@ -1,3 +1,8 @@
+---
+title: Пошаговые инструкции для {{ postbox-full-name }}
+description: В этом разделе собраны пошаговые инструкции для {{ postbox-name }}.
+---
+
 # Пошаговые инструкции для {{ postbox-name }}
 
 * [{#T}](create-address.md)
