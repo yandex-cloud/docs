@@ -56,38 +56,66 @@ description: Следуя данной инструкции, вы научите
       {% cut "Результат выполнения запроса — список полученных токенизатором токенов:" %}
 
       ```text
-      Token(id=1, special=True, text='<s>')
-      Token(id=16861, special=False, text='▁Пользователь')
-      Token(id=125851, special=False, text=':')
-      Token(id=93552, special=False, text='▁Найди')
-      Token(id=14660, special=False, text='▁ошибки')
-      Token(id=273, special=False, text='▁в')
-      Token(id=28802, special=False, text='▁тексте')
-      Token(id=286, special=False, text='▁и')
-      Token(id=16283, special=False, text='▁исправ')
-      Token(id=125839, special=False, text='ь')
-      Token(id=1349, special=False, text='▁их')
-      Token(id=3, special=True, text='[NL]')
-      Token(id=556, special=False, text='▁А')
-      Token(id=500, special=False, text='ши')
-      Token(id=4291, special=False, text='пки')
-      Token(id=680, special=False, text='▁са')
-      Token(id=527, special=False, text='ме')
-      Token(id=822, special=False, text='▁си')
-      Token(id=1377, special=False, text='бя')
-      Token(id=834, special=False, text='▁ни')
-      Token(id=1634, special=False, text='▁ис')
-      Token(id=125813, special=False, text='р')
-      Token(id=125828, special=False, text='п')
-      Token(id=30104, special=False, text='вят')
-      Token(id=125820, special=False, text='.')
-      Token(id=3, special=True, text='[NL]')
-      Token(id=3, special=True, text='[NL]')
-      Token(id=125904, special=False, text='А')
-      Token(id=845, special=False, text='сси')
-      Token(id=57590, special=False, text='стент')
-      Token(id=125851, special=False, text=':')
-      Token(id=4, special=True, text='[SEP]')
+      {"tokens":
+        [{"id":"1","text":"\u003cs\u003e","special":true},
+        {"id":"19078","text":"▁Управление","special":false},
+        {"id":"10810","text":"▁генера","special":false},
+        {"id":"26991","text":"тивными","special":false},
+        {"id":"77514","text":"▁моделями","special":false},
+        {"id":"10578","text":"▁осуществляется","special":false},
+        {"id":"277","text":"▁с","special":false},
+        {"id":"4390","text":"▁помощью","special":false},
+        {"id":"68740","text":"▁пром","special":false},
+        {"id":"769","text":"тов","special":false},
+        {"id":"125820","text":".","special":false},
+        {"id":"43429","text":"▁Эффек","special":false},
+        {"id":"7146","text":"тивный","special":false},
+        {"id":"68740","text":"▁пром","special":false},
+        {"id":"125810","text":"т","special":false},
+        {"id":"4923","text":"▁должен","special":false},
+        {"id":"29443","text":"▁содержать","special":false},
+        {"id":"24719","text":"▁контек","special":false},
+        {"id":"269","text":"ст","special":false},
+        {"id":"43640","text":"▁запроса","special":false},
+        {"id":"355","text":"▁(","special":false},
+        {"id":"98434","text":"инструк","special":false},
+        {"id":"1511","text":"цию","special":false},
+        {"id":"125855","text":")","special":false},
+        {"id":"571","text":"▁для","special":false},
+        {"id":"6234","text":"▁модели","special":false},
+        {"id":"286","text":"▁и","special":false},
+        {"id":"15616","text":"▁непосредственно","special":false},
+        {"id":"19633","text":"▁задание","special":false},
+        {"id":"125827","text":",","special":false},
+        {"id":"6050","text":"▁которое","special":false},
+        {"id":"7549","text":"▁модель","special":false},
+        {"id":"7160","text":"▁должна","special":false},
+        {"id":"18879","text":"▁выполнить","special":false},
+        {"id":"125827","text":",","special":false},
+        {"id":"31323","text":"▁учитывая","special":false},
+        {"id":"818","text":"▁пере","special":false},
+        {"id":"56857","text":"данный","special":false},
+        {"id":"24719","text":"▁контек","special":false},
+        {"id":"269","text":"ст","special":false},
+        {"id":"125820","text":".","special":false},
+        {"id":"10500","text":"▁Чем","special":false},
+        {"id":"8504","text":"▁конкре","special":false},
+        {"id":"93886","text":"тнее","special":false},
+        {"id":"73199","text":"▁составлен","special":false},
+        {"id":"68740","text":"▁пром","special":false},
+        {"id":"125810","text":"т","special":false},
+        {"id":"125827","text":",","special":false},
+        {"id":"1819","text":"▁тем","special":false},
+        {"id":"1800","text":"▁более","special":false},
+        {"id":"470","text":"▁то","special":false},
+        {"id":"10969","text":"чными","special":false},
+        {"id":"3315","text":"▁будут","special":false},
+        {"id":"11306","text":"▁результаты","special":false},
+        {"id":"1630","text":"▁работы","special":false},
+        {"id":"6234","text":"▁модели","special":false},
+        {"id":"125820","text":".","special":false}],
+      "modelVersion":"23.10.2024"
+      }
       ```
 
       {% endcut %}

@@ -37,7 +37,7 @@
 
       Where `IAM_TOKEN` is the IAM token of the service account.
 
-    * With [API keys](../../iam/concepts/authorization/api-key).
+    * With an [API key](../../iam/concepts/authorization/api-key).
 
       {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 
@@ -65,10 +65,10 @@
 
     Save the recognition operation `id` you get in the response.
 
-1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of audio.
+1. Wait until the recognition is completed. It takes about 10 seconds to recognize one minute of audio.
 1. [Request information](../../api-design-guide/concepts/operation.md#monitoring) about the operation:
 
-    * Authorization using an IAM token:
+    * Authentication with an IAM token:
 
         ```bash
         curl \
@@ -78,7 +78,7 @@
           https://operation.{{ api-host }}/operations/<recognition_operation_ID>
         ```
 
-    * Authorization using an API key:
+    * Authentication with an API key:
 
         ```bash
         curl \
@@ -103,7 +103,7 @@
 
 1. Request the operation result:
 
-    * Authorization using an IAM token:
+    * Authentication with an IAM token:
 
         ```bash
         curl \
@@ -113,7 +113,7 @@
           https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
-    * Authorization using an API key:
+    * Authentication with an API key:
 
         ```bash
         curl \

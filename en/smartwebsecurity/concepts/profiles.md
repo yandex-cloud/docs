@@ -10,6 +10,8 @@ You can create a profile:
 
 To activate {{ sws-name }}, [connect the security profile](../operations/host-connect.md) to the virtual host of the L7 load balancer from which the traffic is distributed to the resources being protected. When an {{ alb-name }} [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) manages the load balancer, connect the security profile using an [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md).
 
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
 #### See also {#see-also}
 
 * [Managing security profiles](../operations/index.md#profiles)

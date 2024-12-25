@@ -112,3 +112,5 @@ description: Следуя данной инструкции, вы сможете
 #### См. также {#see-also}
 
 * [{#T}](operation-logs.md)
+* [{#T}](waf-profile-get.md)
+* [{#T}](arl-profile-get.md)

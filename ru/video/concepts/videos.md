@@ -10,7 +10,15 @@
 
 {% include [image-characteristic](../../_includes/video/image-characteristic.md) %}
 
-Вы можете [опубликовать](../operations/video/get-link.md) по прямой ссылке или разместить на сайте как одиночные видео, так и видео, сгруппированные в [плейлисты](playlists.md) в определенной последовательности. Подробнее о публикации плейлистов см. в разделе [{#T}](../operations/playlists/get-link.md).
+Вы можете [опубликовать](../operations/video/get-link.md) видео и выбрать тип доступа:
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке. {#temporary-link}
+
+    {% include [video-temporary-links](../../_includes/video/video-temporary-links.md) %}
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео будет доступно неограниченное время и всем, у кого есть ссылка на видео. {#permanent-link}
+
+На сайте можно разместить как одиночные видео, так и [плейлисты](playlists.md) с видео в определенной последовательности. В плейлистах будут доступны к просмотру только видео с постоянными ссылками. Подробнее о публикации плейлистов см. в разделе [{#T}](../operations/playlists/get-link.md).
 
 ## Статусы {#statuses}
 

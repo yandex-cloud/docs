@@ -13,73 +13,85 @@ items:
         href: operations/index.md
       - name: Disabling request logging
         href: operations/disable-logging.md
-      - name: '{{ yagpt-full-name }}'
+      - name: Text generation
         items:
+          - name: Estimating request size in tokens
+            href: operations/yandexgpt/evaluate-request.md
           - name: Sending a request in prompt mode
             href: operations/yandexgpt/create-prompt.md
           - name: Sending a series of requests in chat mode
             href: operations/yandexgpt/create-chat.md
           - name: Sending an asynchronous request
             href: operations/yandexgpt/async-request.md
-      - name: Classifiers based on {{ yagpt-name }}
+      - name: Image generation
+        items:
+          - name: Generating an image
+            href: operations/yandexart/request.md
+      - name: Classification
         items:
           - name: Using prompt-based classifiers
             href: operations/classifier/readymade.md
           - name: Using fine-tuned classifiers
             href: operations/classifier/additionally-trained.md
+      - name: Embeddings
+        items:
+          - name: Using embeddings to search through the knowledge base
+            href: operations/embeddings/search.md
       - name: '{{ assistant-api }}'
         items:
           - name: Creating a simple assistant
             href: operations/assistant/create.md
           - name: Creating a search assistant
             href: operations/assistant/create-with-searchindex.md
-      - name: '{{ yandexart-name }}'
+      - name: Model tuning
         items:
-          - name: Generating an image
-            href: operations/yandexart/request.md
+          - name: Model tuning in {{ foundation-models-name }}
+            href: operations/tuning/create.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: '{{ yagpt-full-name }}'
+      - name: Text generation
         items:
-          - name: '{{ yagpt-full-name }} overview'
+          - name: Overview
             href: concepts/yandexgpt/index.md
           - name: Models
             href: concepts/yandexgpt/models.md
           - name: Tokens
             href: concepts/yandexgpt/tokens.md
-      - name: Embeddings
-        href: concepts/embeddings.md
-      - name: Classifiers based on {{ yagpt-name }}
-        items:
-          - name: Classifier overview
-            href: concepts/classifier/index.md
-          - name: Models
-            href: concepts/classifier/models.md
-      - name: '{{ assistant-api }}'
-        href: concepts/assistant/index.md
-      - name: '{{ yandexart-name }}'
+      - name: Image generation
         items:
           - name: '{{ yandexart-name }} overview'
             href: concepts/yandexart/index.md
           - name: Models
             href: concepts/yandexart/models.md
+      - name: Classification
+        items:
+          - name: Overview
+            href: concepts/classifier/index.md
+          - name: Models
+            href: concepts/classifier/models.md
+      - name: Embeddings
+        href: concepts/embeddings.md
+      - name: '{{ assistant-api }}'
+        href: concepts/assistant/index.md
+      - name: Fine-tuning
+        items:
+          - name: Overview
+            href: concepts/tuning/index.md
+          - name: Fine-tuning text generation models
+            href: concepts/tuning/generating.md
+          - name: Fine-tuning classifiers
+            href: concepts/tuning/classifier.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Tutorials
-    items:
-      - name: '{{ yagpt-name }} model tuning'
-        href: tutorials/yagpt-tuning.md
-      - name: Tuning classifiers based on {{ yagpt-name }}
-        href: tutorials/yagpt-tuning-classifier.md
   - name: API references
     items:
       - name: Overview
         href: concepts/api.md
       - name: Authentication with the API
         href: api-ref/authentication.md
-      - name: '{{ yagpt-full-name }}'
+      - name: Text Generation API
         items:
           - name: REST
             items:
@@ -147,28 +159,46 @@ items:
                   - name: TokenizeCompletion
                     href: >-
                       text-generation/api-ref/grpc/Tokenizer/tokenizeCompletion.md
-      - name: Embeddings API
+      - name: '{{ yandexart-name }}'
         items:
           - name: REST
             items:
               - name: Overview
-                href: embeddings/api-ref/index.md
-              - name: Embeddings
+                href: image-generation/api-ref/index.md
+              - name: ImageGenerationAsync
                 items:
                   - name: Overview
-                    href: embeddings/api-ref/Embeddings/index.md
-                  - name: TextEmbedding
-                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+                    href: image-generation/api-ref/ImageGenerationAsync/index.md
+                  - name: Generate
+                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/Operation/cancel.md
           - name: gRPC
             items:
               - name: Overview
-                href: embeddings/api-ref/grpc/index.md
-              - name: Embeddings
+                href: image-generation/api-ref/grpc/index.md
+              - name: ImageGenerationAsync
                 items:
                   - name: Overview
-                    href: embeddings/api-ref/grpc/Embeddings/index.md
-                  - name: TextEmbedding
-                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/index.md
+                  - name: Generate
+                    href: >-
+                      image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: image-generation/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: image-generation/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: image-generation/api-ref/grpc/Operation/cancel.md
       - name: Text Classification API
         items:
           - name: REST
@@ -199,6 +229,28 @@ items:
                   - name: FewShotClassify
                     href: >-
                       text-classification/api-ref/grpc/TextClassification/fewShotClassify.md
+      - name: Embeddings API
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: embeddings/api-ref/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/Embeddings/textEmbedding.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: embeddings/api-ref/grpc/index.md
+              - name: Embeddings
+                items:
+                  - name: Overview
+                    href: embeddings/api-ref/grpc/Embeddings/index.md
+                  - name: TextEmbedding
+                    href: embeddings/api-ref/grpc/Embeddings/textEmbedding.md
       - name: '{{ assistant-api }}'
         items:
           - name: REST
@@ -500,46 +552,80 @@ items:
                     href: files/api-ref/grpc/File/delete.md
                   - name: List
                     href: files/api-ref/grpc/File/list.md
-      - name: ' {{ yandexart-name }}'
+      - name: Dataset API
         items:
-          - name: REST
-            items:
-              - name: Overview
-                href: image-generation/api-ref/index.md
-              - name: ImageGenerationAsync
-                items:
-                  - name: Overview
-                    href: image-generation/api-ref/ImageGenerationAsync/index.md
-                  - name: Generate
-                    href: image-generation/api-ref/ImageGenerationAsync/generate.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: image-generation/api-ref/Operation/index.md
-                  - name: Get
-                    href: image-generation/api-ref/Operation/get.md
-                  - name: Cancel
-                    href: image-generation/api-ref/Operation/cancel.md
           - name: gRPC
             items:
               - name: Overview
-                href: image-generation/api-ref/grpc/index.md
-              - name: ImageGenerationAsync
+                href: dataset/api-ref/grpc/index.md
+              - name: Dataset
                 items:
                   - name: Overview
-                    href: >-
-                      image-generation/api-ref/grpc/ImageGenerationAsync/index.md
-                  - name: Generate
-                    href: >-
-                      image-generation/api-ref/grpc/ImageGenerationAsync/generate.md
+                    href: dataset/api-ref/grpc/Dataset/index.md
+                  - name: Describe
+                    href: dataset/api-ref/grpc/Dataset/describe.md
+                  - name: Validate
+                    href: dataset/api-ref/grpc/Dataset/validate.md
+                  - name: Create
+                    href: dataset/api-ref/grpc/Dataset/create.md
+                  - name: Update
+                    href: dataset/api-ref/grpc/Dataset/update.md
+                  - name: Delete
+                    href: dataset/api-ref/grpc/Dataset/delete.md
+                  - name: List
+                    href: dataset/api-ref/grpc/Dataset/list.md
+                  - name: ListUploadFormats
+                    href: dataset/api-ref/grpc/Dataset/listUploadFormats.md
+                  - name: ListUploadSchemas
+                    href: dataset/api-ref/grpc/Dataset/listUploadSchemas.md
+                  - name: GetUploadDraftUrl
+                    href: dataset/api-ref/grpc/Dataset/getUploadDraftUrl.md
+                  - name: StartMultipartUploadDraft
+                    href: dataset/api-ref/grpc/Dataset/startMultipartUploadDraft.md
+                  - name: FinishMultipartUploadDraft
+                    href: dataset/api-ref/grpc/Dataset/finishMultipartUploadDraft.md
+                  - name: ListTypes
+                    href: dataset/api-ref/grpc/Dataset/listTypes.md
+                  - name: GetPreview
+                    href: dataset/api-ref/grpc/Dataset/getPreview.md
               - name: Operation
                 items:
                   - name: Overview
-                    href: image-generation/api-ref/grpc/Operation/index.md
+                    href: dataset/api-ref/grpc/Operation/index.md
                   - name: Get
-                    href: image-generation/api-ref/grpc/Operation/get.md
+                    href: dataset/api-ref/grpc/Operation/get.md
                   - name: Cancel
-                    href: image-generation/api-ref/grpc/Operation/cancel.md
+                    href: dataset/api-ref/grpc/Operation/cancel.md
+      - name: Tuning API
+        items:
+          - name: gRPC
+            items:
+              - name: Overview
+                href: tuning/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: tuning/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: tuning/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: tuning/api-ref/grpc/Operation/cancel.md
+              - name: Tuning
+                items:
+                  - name: Overview
+                    href: tuning/api-ref/grpc/Tuning/index.md
+                  - name: Tune
+                    href: tuning/api-ref/grpc/Tuning/tune.md
+                  - name: List
+                    href: tuning/api-ref/grpc/Tuning/list.md
+                  - name: Describe
+                    href: tuning/api-ref/grpc/Tuning/describe.md
+                  - name: Cancel
+                    href: tuning/api-ref/grpc/Tuning/cancel.md
+                  - name: GetMetricsUrl
+                    href: tuning/api-ref/grpc/Tuning/getMetricsUrl.md
+                  - name: GetOptions
+                    href: tuning/api-ref/grpc/Tuning/getOptions.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Access management

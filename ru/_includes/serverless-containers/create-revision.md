@@ -8,13 +8,15 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Выберите контейнер, [ревизию](../../serverless-containers/concepts/container.md#revision) которого хотите создать.
   1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-  1. В разделе **{{ ui-key.yacloud.serverless-containers.section_image }}** вы можете дополнительно указать параметры ревизии:
-      * **{{ ui-key.yacloud.serverless-containers.label_command }}** — команды, которые контейнер выполнит при запуске. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
-      * **{{ ui-key.yacloud.serverless-containers.label_args }}** — соответствует инструкции `CMD` в Dockerfile. Аргументы указываются в формате `ключ = значение`. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
+  1. В разделе **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      * Укажите URL Docker-образа из {{ container-registry-full-name }}.
+      * Если необходимо, дополнительно укажите параметры ревизии:
+          * **{{ ui-key.yacloud.serverless-containers.label_command }}** — команды, которые контейнер выполнит при запуске. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
+          * **{{ ui-key.yacloud.serverless-containers.label_args }}** — соответствует инструкции `CMD` в Dockerfile. Аргументы указываются в формате `ключ = значение`. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
 
-          В контейнер можно передать несколько аргументов. Для этого нажмите **{{ ui-key.yacloud.common.add }}**.
+              В контейнер можно передать несколько аргументов. Для этого нажмите **{{ ui-key.yacloud.common.add }}**.
 
-      * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
+          * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 

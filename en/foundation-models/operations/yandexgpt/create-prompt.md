@@ -5,19 +5,36 @@ description: Follow this guide to learn how to use {{ yagpt-full-name }} in prom
 
 # Sending a request in prompt mode
 
-To generate text in [prompt mode](../../concepts/index.md#working-mode), send a request to the model using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method.
+To generate text in [prompt mode](../../concepts/index.md#working-mode), send a request to the model using the [completion](../../text-generation/api-ref/TextGeneration/completion.md) method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  To use the examples of requests using SDK:
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
+
+- cURL {#curl}
+
+  {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+
+  {% include [curl](../../../_includes/curl.md) %}
+
+- Python {#python}
+
+  {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+
+{% endlist %}
+
 
 ## Request to a model via the REST API {#request}
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
-
-  {% include [curl](../../../_includes/curl.md) %}
+- cURL {#curl}
   
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -76,7 +93,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
            {
              "message": {
                "role": "assistant",
-               "text": "To be or not to be: that is the question."
+               "text": "To be, or not to be: that is the question."
              },
              "status": "ALTERNATIVE_STATUS_FINAL"
            }
@@ -126,7 +143,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
              json=data,
          ).json()
      
-         #Printing out the result
+         #Printing the result
          print(response)
      
      if __name__ == '__main__':
@@ -138,7 +155,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
          run(args.iam_token, args.folder_id, args.user_text)
      ```
 
-  1. Run the `test.py` file, substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
+  1. Run the `test.py` file, providing the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
 
      ```bash
      export IAM_TOKEN=<IAM_token>
@@ -164,6 +181,10 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 {% list tabs group=programming_language %}
 
+- SDK {#sdk}
+
+  {% include [yandexgpt-sdk-entire-generation-block](../../../_includes/foundation-models/yandexgpt/yandexgpt-sdk-entire-generation-block.md) %}
+
 - Python {#python}
 
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
@@ -174,7 +195,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
      git clone https://github.com/yandex-cloud/cloudapi
      ```
 
-  1. Use the pip package manager to install the `grpcio-tools` package:
+  1. Use the `pip` package manager to install the `grpcio-tools` package:
 
      ```bash
      pip install grpcio-tools
@@ -255,7 +276,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
          run(args.iam_token, args.folder_id, args.user_text)
      ```
 
-  1. Run the `test.py` file, substituting the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
+  1. Run the `test.py` file, providing the [IAM token](../../../iam/concepts/authorization/iam-token.md) and [folder ID](../../../resource-manager/operations/folder/get-id.md) values:
 
      ```bash
      export IAM_TOKEN=<IAM_token>
@@ -279,94 +300,137 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
 
 ### Streaming request via the gRPC API {#stream}
 
-With the `stream` parameter enabled, the server will provide not just the final text generation result but intermediate results as well. Each intermediate response contains the whole currently available generation result. Until the final response is received, the generation results may change as new messages arrive. 
+{% list tabs group=programming_language %}
 
-You can see most clearly how the `stream` parameter works when creating and processing large texts.
+- SDK {#sdk}
 
-{% note warning %}
+  If the `run_stream` method is used, the server will provide not just the final text generation result but intermediate results as well. Each intermediate response contains the whole generation result that is currently available. Until the final response is received, the generation results may change as new messages arrive.
 
-The `stream` parameter is not available for the model's [asynchronous mode](async-request.md).
+  The difference the `run_stream` method makes can be seen most directly when creating and processing large texts.
 
-{% endnote %}
+  1. Create a file named `generate-text.py` and paste the following code into it:
 
-Generate the gRPC client interface code as described in [this guide](#request-grpc). At _Step 6_, generate a file named `test.py` with the code to access the model.
+      {% include [yandexgpt-stream-sdk](../../../_includes/foundation-models/examples/yandexgpt-stream-sdk.md) %}
 
-```python
-# coding=utf8
-import argparse
-import grpc
+      Where:
 
-import yandex.cloud.ai.foundation_models.v1.text_common_pb2 as pb
-import yandex.cloud.ai.foundation_models.v1.text_generation.text_generation_service_pb2_grpc as service_pb_grpc
-import yandex.cloud.ai.foundation_models.v1.text_generation.text_generation_service_pb2 as service_pb
+      {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
-def run(iam_token, folder_id, user_text):
-    cred = grpc.ssl_channel_credentials()
-    channel = grpc.secure_channel('llm.api.cloud.yandex.net:443', cred)
-    stub = service_pb_grpc.TextGenerationServiceStub(channel)
+      {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-    request = service_pb.CompletionRequest(
-            model_uri=f"gpt://{folder_id}/yandexgpt",
-            completion_options=pb.CompletionOptions(
-                max_tokens={"value": 2000},
-                temperature={"value": 0.5},
-                stream=True
-            ),
-        )
-        message_system = request.messages.add()
-        message_system.role = "system"
-        message_system.text = "Correct errors in the text."
-    
-        message_user = request.messages.add()
-        message_user.role = "user"
-        message_user.text = user_text
-    
-        it = stub.Completion(request, metadata=(
-            ('authorization', f'Bearer {iam_token}'),
-        ))             
-        
-        for response in it:
-            print(response)
+  1. Run the created file:
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--iam_token", required=True, help="IAM token")
-    parser.add_argument("--folder_id", required=True, help="Folder id")
-    parser.add_argument("--user_text", required=True, help="User text")
-    args = parser.parse_args()
-    run(args.iam_token, args.folder_id, args.user_text)
-```
+      ```bash
+      python3 generate-text.py
+      ```
 
-{% cut "Result:" %}
+      Result:
 
-```text
-alternatives {
-  message {
-    role: "assistant"
-    text: "E"
+      ```text
+      Alternative(role='assistant', text='[', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='[              {                "role": "system",                "text":', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "role": "user",                "text": "Errors will not', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "role": "user",                "text": "Errors will not correct themselves"              }            ]', status=<AlternativeStatus.FINAL: 3>)
+      ```
+
+- Python {#python}
+
+  With the `stream` parameter enabled, the server will provide not just the final text generation result but intermediate results as well. Each intermediate response contains the whole generation result that is currently available. Until the final response is received, the generation results may change as new messages arrive. 
+
+  The difference the `stream` parameter makes can be seen most directly when creating and processing large texts.
+
+  {% note warning %}
+
+  The `stream` parameter is not available for the model's [asynchronous mode](async-request.md).
+
+  {% endnote %}
+
+  Generate the gRPC client interface code as described in [this guide](#request-grpc). At _Step 6_, generate a file named `test.py` with the code to access the model.
+
+  ```python
+  # coding=utf8
+  import argparse
+  import grpc
+
+  import yandex.cloud.ai.foundation_models.v1.text_common_pb2 as pb
+  import yandex.cloud.ai.foundation_models.v1.text_generation.text_generation_service_pb2_grpc as service_pb_grpc
+  import yandex.cloud.ai.foundation_models.v1.text_generation.text_generation_service_pb2 as service_pb
+
+  def run(iam_token, folder_id, user_text):
+      cred = grpc.ssl_channel_credentials()
+      channel = grpc.secure_channel('llm.api.cloud.yandex.net:443', cred)
+      stub = service_pb_grpc.TextGenerationServiceStub(channel)
+
+      request = service_pb.CompletionRequest(
+              model_uri=f"gpt://{folder_id}/yandexgpt",
+              completion_options=pb.CompletionOptions(
+                  max_tokens={"value": 2000},
+                  temperature={"value": 0.5},
+                  stream=True
+              ),
+          )
+          message_system = request.messages.add()
+          message_system.role = "system"
+          message_system.text = "Correct errors in the text."
+      
+          message_user = request.messages.add()
+          message_user.role = "user"
+          message_user.text = user_text
+      
+          it = stub.Completion(request, metadata=(
+              ('authorization', f'Bearer {iam_token}'),
+          ))             
+          
+          for response in it:
+              print(response)
+
+  if __name__ == '__main__':
+      parser = argparse.ArgumentParser()
+      parser.add_argument("--iam_token", required=True, help="IAM token")
+      parser.add_argument("--folder_id", required=True, help="Folder id")
+      parser.add_argument("--user_text", required=True, help="User text")
+      args = parser.parse_args()
+      run(args.iam_token, args.folder_id, args.user_text)
+  ```
+
+  {% cut "Result:" %}
+
+  ```text
+  alternatives {
+    message {
+      role: "assistant"
+      text: "E"
+    }
+    status: ALTERNATIVE_STATUS_PARTIAL
   }
-  status: ALTERNATIVE_STATUS_PARTIAL
-}
-usage {
-  input_text_tokens: 29
-  completion_tokens: 1
-  total_tokens: 30
-}
-model_version: "07.03.2024"
-
-alternatives {
-  message {
-    role: "assistant"
-    text: "Errors will not correct themselves."
+  usage {
+    input_text_tokens: 29
+    completion_tokens: 1
+    total_tokens: 30
   }
-  status: ALTERNATIVE_STATUS_FINAL
-}
-usage {
-  input_text_tokens: 29
-  completion_tokens: 9
-  total_tokens: 38
-}
-model_version: "07.03.2024"
-```
+  model_version: "07.03.2024"
 
-{% endcut %}
+  alternatives {
+    message {
+      role: "assistant"
+      text: "Errors will not correct themselves."
+    }
+    status: ALTERNATIVE_STATUS_FINAL
+  }
+  usage {
+    input_text_tokens: 29
+    completion_tokens: 9
+    total_tokens: 38
+  }
+  model_version: "07.03.2024"
+  ```
+
+  {% endcut %}
+
+{% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/yandexgpt/index.md)
+* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

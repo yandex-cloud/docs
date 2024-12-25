@@ -14,7 +14,7 @@ editable: false
 
 ## What goes into the cost of using {{ search-api-name }} {#rules}
 
-The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([Reporting period](../billing/concepts/reporting-period.md)).
+The cost of using {{ search-api-name }} is calculated based on the number of search requests initiated within a calendar month ([reporting period](../billing/concepts/reporting-period.md)).
 
 ## Prices for the Russia region {#prices}
 

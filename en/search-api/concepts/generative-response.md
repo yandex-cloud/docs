@@ -9,7 +9,7 @@ You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](.
 
 {% include [note-preview-by-request](../../_includes/note-preview.md) %}
 
-Currently, generative response is only available for queries submitted via the [API v1](./index.md#api-v1).
+Currently, you can get a generative response only to queries submitted via the [API v1](./index.md#api-v1).
 
 ## Search query {#request}
 
@@ -213,7 +213,7 @@ Here is an example of a generative response with website limitation:
 ```json
 {
   "message": {
-      "content": "The cost of {{ search-api-name }} **is calculated based on the number of search queries initiated within a calendar month**. [1]\n\n**Price per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: free of charge. [1]\n- Night-time queries, over 1,000 requests per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 requests per month (1,000 requests per day) for all new users. [1]\n\nPrices may differ from region to region, and payment currency depends on the legal entity the user signed the agreement with. [1]",
+      "content": "The cost of {{ search-api-name }} **is calculated based on the number of search queries initiated within a calendar month**. [1]\n\n**Price per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: free of charge. [1]\n- Night-time queries, over 1,000 requests per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 queries per month (1,000 queries per day) for all new users. [1]\n\nPrices may differ from region to region, and payment currency depends on the legal entity the user signed the agreement with. [1]",
       "role": "assistant"
   },
   "links": [

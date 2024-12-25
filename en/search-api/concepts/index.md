@@ -27,7 +27,7 @@ With {{ search-api-name }} API v1, you can choose between default search and sea
 
 In addition to various text search options, API v1 allows you to search for images based on a text query. [Image search](./pic-search.md) only supports the GET method for queries.
 
-To use the API v1 interface, you need to [register](../operations/workaround.md) in {{ search-api-name }}:
+To use the API v1 interface, you must [register](../operations/workaround.md) in {{ search-api-name }}:
 * Make a list of trusted IP addresses you are going to use to submit search queries.
 * Select one of the three available text search types:
 

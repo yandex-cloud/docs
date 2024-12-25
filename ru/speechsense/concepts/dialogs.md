@@ -1,3 +1,8 @@
+---
+title: Диалоги в {{ speechsense-full-name }}
+description: Из статьи вы узнаете о диалогах в {{ speechsense-name }}.
+---
+
 # Диалоги в {{ speechsense-name }}
 
 _Диалог_ — это объект {{ speechsense-name }}. Диалоги бывают двух типов:

@@ -12,11 +12,12 @@ You can test speech recognition and synthesis on the {{ speechkit-name }} [demo 
 
 To recognize speech from an audiofile via the {{ speechkit-name }} Playground interface:
 
-1. Open the [management console]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. In the left-hand panel, click ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.speechkit.label_playground }}** and go to the **{{ ui-key.yacloud.speechkit.label_speech-to-text }}** tab.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. In the window that opens, select the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** section.
 1. In the **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** field, select the language you need or leave `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
-1. Click **Select file** or drag the file to the loading area.
-1. Click **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}** to start the speech recognition process.
+1. Click **Select file** or drag the audio file to the loading area.
+1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}** to start speech recognition in the audio file.
 
 {{ speechkit-name }} Playground features basic speech recognition options. For more flexible recognition settings, use the [API](#stt-quickstart).
 
@@ -24,28 +25,25 @@ To recognize speech from an audiofile via the {{ speechkit-name }} Playground in
 
 To convert text to audio via the {{ speechkit-name }} Playground interface: 
 
-1. Open the [management console]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. In the left-hand panel, click ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.speechkit.label_playground }}** and go to the **{{ ui-key.yacloud.speechkit.label_speech-synthesis }}** tab.
-1. Under **{{ ui-key.yacloud.speechkit.speech-synthesis.label_synthesis-settings }}**:
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. In the window that opens, select the **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}** section.
+1. In the settings section on the left side of the window:
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}**: Select the length of pauses between words or specify it yourself.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-title }}**: Emphasize the essential words.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-stress-title }}**: Mark the stressed vowels to clarify the correct pronunciation of the words.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_phonemes-title }}**: Monitor the correct pronunciation of words using phonemes.
-1. Under **{{ ui-key.yacloud.speechkit.speech-synthesis.label_synthesis-settings }}**:
+1. Under **{{ ui-key.yacloud.speechkit.speech-synthesis.label_synthesis-settings }}** on the right side of the window:
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_language }}**: Select the speaker's language.
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_voice }}**: Specify the speaker's voice.
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_role }}**: Select the speaker's role.
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_speed }}**: Set the speaker's speech rate.
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_pitch-shift }}**: Adjust the speaker's voice pitch.
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_audio }}**: Select the audio format.
-1. To synthesize the text, click **{{ ui-key.yacloud.speechkit.speech-synthesis.label_button_playback }}**.
+1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-synthesis.label_button_playback }}** to synthesize speech.
 1. To download the result, click ![image](../../_assets/console-icons/arrow-down-to-line.svg).
 
 {{ speechkit-name }} Playground features basic speech synthesis options. For more flexible synthesis settings, use the [API](#tts-quickstart).
-
-## Authentication for API access {#auth}
-
-{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
 
 ## Speech recognition via the API {#stt-quickstart}
 

@@ -1,3 +1,8 @@
+---
+title: Зашифровать снимок
+description: Следуя данной инструкции, вы сможете зашифровать снимок.
+---
+
 # Зашифровать снимок
 
 1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}

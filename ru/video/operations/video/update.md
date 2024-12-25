@@ -13,6 +13,12 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите канал.
   1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Измените название и описание видео.
+  1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** измените тип доступа к видео:
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
+      
+        {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
+
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео будет доступно неограниченное время и всем, у кого есть ссылка на видео.
   1. Чтобы изменить обложку:
 
       1. Если у видео уже есть обложка, наведите указатель на превью обложки и нажмите значок ![image](../../../_assets/console-icons/circle-xmark.svg).

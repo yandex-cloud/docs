@@ -18,12 +18,18 @@ To get started in {{ yandex-cloud }}:
 
   You can start working from the management console right away.
 
+- SDK {#sdk}
+
+  To use the examples of requests using SDK:
+
+  {% include [yandexart-sdk-before-start](../../_includes/foundation-models/yandexart/yandexart-sdk-before-start.md) %}
+
 - API {#api}
 
   To run examples of requests using the API, install:
-
-  * [cURL](https://curl.haxx.se) to send API requests
-  * [jq](https://github.com/jqlang/jq) utility to work with JSON files
+  
+  * [cURL](https://curl.haxx.se) to send API requests.
+  * [jq](https://github.com/jqlang/jq) utility to work with JSON files.
 
   To work with the {{ yandexart-name }} API, you need to get authenticated using your account:
 
@@ -55,8 +61,33 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
   1. In the list of services, select **{{ foundation-models-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
-  1. Leave the [**seed** parameter](../concepts/yandexart/index.md) random or specify any value.
+  1. Leave the [**seed**](../concepts/yandexart/index.md) parameter random or specify any value.
   1. Click **Generate**. Generating an image takes some time. The output will appear on the left side of the screen.
+
+- SDK {#sdk}
+
+  The code in the example waits until the model completes the request, then saves the result to the `result` variable before saving the generated image on the disk to the `image.jpeg` file in the current directory. For additional methods of working with the {{ yandexart-name }} model, see [{#T}](../operations/yandexart/request.md).
+
+  1. Create a file named `generate-image.py` and paste the following code into it:
+
+      {% include [yandexart-sdk-small](../../_includes/foundation-models/examples/yandexart-sdk-small.md) %}
+
+      Where:
+      * `message`: Variable containing the text of the image generation request.
+
+      {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+      
+  1. Run the created file:
+
+      ```bash
+      python3 generate-image.py
+      ```
+
+     **Result:** 
+
+     ![succulent](../../_assets/yandexgpt/succulent.jpeg)
+
+  
 
 - API {#api}
 
@@ -98,7 +129,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      * `<IAM_token_value>`: IAM token you got for your account.
      * `prompt.json`: JSON file with request parameters.
      
-     The service will return the ID of your request in response:
+     The service will respond with your request ID:
 
      ```json
      {
@@ -119,7 +150,7 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
 
      * `<IAM_token_value>`: IAM token you obtained [when getting started](#before-begin).
      * `<request_ID>`: `id` field value obtained in response to the generation request.
-
+     
 
      **Result**:
 

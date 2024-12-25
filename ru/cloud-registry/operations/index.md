@@ -1,3 +1,8 @@
+---
+title: Пошаговые инструкции для {{ cloud-registry-full-name }}
+description: В этом разделе собраны пошаговые инструкции для {{ cloud-registry-name }}.
+---
+
 # Пошаговые инструкции для {{ cloud-registry-name }}
 
 * [Создание реестра](registry/create.md)

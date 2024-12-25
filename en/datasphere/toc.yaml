@@ -13,9 +13,9 @@ items:
             href: operations/community/create.md
           - name: Adding a user to a community
             href: operations/community/add-user.md
-          - name: Community label management
+          - name: Managing community labels
             href: operations/community/manage-community-labels.md
-          - name: Managing community limits
+          - name: Managing community restrictions
             href: operations/community/manage-community-config.md
           - name: Creating a service agent
             href: operations/community/create-ssa.md
@@ -35,7 +35,7 @@ items:
             href: operations/projects/create.md
           - name: Adding a user to a project
             href: operations/projects/add-user.md
-          - name: Project label management
+          - name: Managing project labels
             href: operations/projects/manage-project-labels.md
           - name: Selecting a Python version
             href: operations/projects/python-version.md
@@ -49,7 +49,7 @@ items:
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md
-          - name: Using shared resources
+          - name: Using a shared resource
             href: operations/projects/use-shared-resource.md
           - name: Troubleshooting
             href: operations/projects/debugging-tools.md
@@ -109,11 +109,11 @@ items:
             href: operations/deploy/node-update.md
           - name: Deleting a node
             href: operations/deploy/node-delete.md
-          - name: Configuring the node environment
+          - name: Configuring a node environment
             href: operations/deploy/node-customization.md
-          - name: Sending requests to nodes
+          - name: Sending a request to a node
             href: operations/deploy/node-api.md
-          - name: Stopping or resuming a node
+          - name: Suspending or resuming a node
             href: operations/deploy/node-suspend-resume.md
           - name: Creating an alias
             href: operations/deploy/alias-create.md
@@ -129,7 +129,7 @@ items:
             href: operations/projects/authentication.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
-          - name: Working with Visual Studio Code jobs
+          - name: Working with jobs from Visual Studio Code
             href: operations/projects/jobs-toolkit.md
           - name: Using results of completed jobs
             href: operations/projects/use-job-results.md
@@ -141,7 +141,7 @@ items:
             href: operations/projects/export.md
           - name: Opening a notebook in {{ ml-platform-name }}
             href: operations/projects/open-in-datasphere.md
-      - name: Migrating to new version
+      - name: Migrating a workflow to a new version
         href: operations/migration.md
   - name: Concepts
     items:
@@ -261,10 +261,6 @@ items:
             href: tutorials/node-from-model.md
           - name: Deploying a gRPC service based on a Docker image
             href: tutorials/grpc-node.md
-          - name: Fine-tuning {{ yagpt-name }}
-            href: tutorials/yagpt-tuning.md
-          - name: Tuning classifiers based on {{ yagpt-name }}
-            href: tutorials/yagpt-tuning-classifier.md
           - name: Image generation using the Stable Diffusion model
             href: tutorials/stable-diffusion.md
       - name: Data analytics
@@ -565,7 +561,7 @@ items:
     href: release-notes.md
   - name: Troubleshooting
     items:
-      - name: Problems with library installation
+      - name: Library installation issues
         href: qa/environment-problems.md
       - name: Errors when using a Spark connector
         href: troubleshooting/troubles-with-spark.md

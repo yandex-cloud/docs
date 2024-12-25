@@ -1,10 +1,23 @@
 # Using fine-tuned classifiers based on {{ yagpt-name }}
 
-To run a request to the classifier of a model [fine-tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method.
+To run a request to the classifier of a model [fine-tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 
-{% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+To use the examples:
+
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../../_includes/foundation-models/sdk-before-begin-ai-langmodel-user.md) %}
+
+- cURL {#curl}
+
+  1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
+  1. {% include [curl](../../../_includes/curl.md) %}
+
+{% endlist %}
 
 ## Send a request to the classifier {#request}
 
@@ -12,9 +25,31 @@ To send a request to the classifier:
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- SDK {#sdk}
 
-  {% include [curl](../../../_includes/curl.md) %}
+  1. Create a file named `classify.py` and paste the following code into it:
+
+      {% include [classifier-ds-trained-sdk](../../../_includes/foundation-models/examples/classifier-ds-trained-sdk.md) %}
+
+      Where:
+
+      * `request_text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
+
+      {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+      * `model`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+
+      The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.
+
+  1. Run the created file:
+
+      ```bash
+      python3 classify.py
+      ```
+
+      In response, the service will return the classification results with the `confidence` values for the probability of classifying the query text into each class.
+
+- cURL {#curl}
   
   {% include [bash-windows-note-single](../../../_includes/translate/bash-windows-note-single.md) %}
   
@@ -28,10 +63,10 @@ To send a request to the classifier:
       ```
   
       Where:
-      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. The parameter contains {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
-      * `text`: Message text. The total number of tokens per request must not exceed 8,000.
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+      * `text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
   
-      The names of the classes between which the model will be distributing requests must be specified during model tuning; therefore, they are not provided in the request.
+      The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.
       
   1. Send a request to the classifier by running the following command:
   
@@ -46,11 +81,11 @@ To send a request to the classifier:
 
       {% note info %}
       
-      The `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` endpoint works only with fine-tuned classifiers. For [prompt-based classifiers](readymade.md), use `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
+      The `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` endpoint only works with fine-tuned classifiers. For [prompt-based classifiers](readymade.md), use `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`.
       
       {% endnote %}
   
-      In the response, the service will return the classification results with the `confidence` values for the probability of classifying the request text into each class:
+      In response, the service will return the classification results with the `confidence` values for the probability of classifying the query text into each class:
   
       ```json
       {
@@ -72,9 +107,14 @@ To send a request to the classifier:
         "modelVersion": "<model_version>"
       }
       ```
-  
-      In multi-class classification, the sum of the `confidence` values for all classes is always `1`.
-  
-      In multi-label classification, the `confidence` value for each class is calculated independently (the sum of the values is not equal to `1`).
 
 {% endlist %}
+
+In multi-class classification, the sum of the `confidence` values for all classes is always `1`.
+  
+In multi-label classification, the `confidence` value for each class is calculated independently (the sum of the values is not equal to `1`).
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/classifier/index.md)
+* Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_classifiers)

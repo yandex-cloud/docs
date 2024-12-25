@@ -1,3 +1,8 @@
+---
+title: Delta Lake в {{ dataproc-full-name }}
+description: Из статьи вы узнаете, что такое Delta Lake в {{ dataproc-name }}, ознакомитесь с преимуществами Delta Lake и совместимостью версий Delta Lake и {{ dataproc-name }}.
+---
+
 # Delta Lake в {{ dataproc-name }}
 
 [Delta Lake](https://delta.io/) — это программное обеспечение с открытым исходным кодом, которое расширяет возможности платформы [{{ SPRK }}](https://spark.apache.org/):

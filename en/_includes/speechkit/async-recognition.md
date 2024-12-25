@@ -29,7 +29,7 @@
 
       The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.
 
-1. Run the file you created:
+1. Run the created file:
 
    ```bash
    export API_KEY=<service_account_API_key> && \
@@ -54,7 +54,7 @@
 
    Save the recognition operation `id` you get in the response.
 
-1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of single-channel audio.
+1. Wait until the recognition is completed. It takes about 10 seconds to recognize one minute of single-channel audio.
 1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash

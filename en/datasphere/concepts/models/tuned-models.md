@@ -1,14 +1,18 @@
 ---
-title: What fine-tuned foundation models in {{ ml-platform-full-name }} are
+title: About fine-tuned foundation models in {{ ml-platform-full-name }}
 ---
 
 # Fine-tuned foundation models
 
-{{ ml-platform-full-name }} allows you to tune [foundation models](./foundation-models.md) on your own examples to make them more tailored to the specifics of your tasks. Tuning is based on the Fine-tuning method. You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or through the API using code.
+_Foundation model tuning is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
-{% note info %}
+{{ ml-platform-full-name }} allows you to tune [foundation models](./foundation-models.md) on your own examples to make them more tailored to your specific needs. Tuning is based on the *Fine-tuning* method. You can send requests to a fine-tuned model through the {{ ml-platform-name }} Playground interface or through the API using code.
 
-Foundation model tuning is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
+{% note warning %}
+
+Foundation model tuning in {{ ml-platform-name }} is not available as of December 9, 2024. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../../../foundation-models/concepts/yandexgpt/models.md#model-lifecycle).
+
+Use the {{ foundation-models-full-name }} [tools](../../../foundation-models/concepts/tuning/index.md) to tune models.
 
 {% endnote %}
 
@@ -22,7 +26,7 @@ The following information is stored about each fine-tuned model:
 * Learning rate.
 * Name of the user who tuned the model.
 * Data required for tuning.
-* Model tuning date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `Nov 2, 2023, 17:39`.
+* Model tuning date in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format, e.g., `November 2, 2023, 17:39`.
 
 To get information about models tuned in a project:
 
@@ -36,5 +40,5 @@ A fine-tuned model is a project resource. A community administrator can share fi
 
 #### See also {#see-also}
 
-* [{{ yagpt-full-name }} model tuning](../../tutorials/yagpt-tuning.md)
+* [Text model tuning](../../../foundation-models/concepts/tuning/index.md)
 * [Foundation models](foundation-models.md)

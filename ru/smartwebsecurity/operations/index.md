@@ -21,6 +21,7 @@ description: На странице представлен список поша�
 
 * [{#T}](waf-profile-create.md)
 * [{#T}](waf-profile-update.md)
+* [{#T}](waf-profile-get.md)
 * [{#T}](waf-profile-delete.md)
 * [{#T}](configure-set-rules.md)
 * [{#T}](exclusion-rule-add.md)
@@ -31,6 +32,7 @@ description: На странице представлен список поша�
 
 * [{#T}](arl-profile-create.md)
 * [{#T}](arl-profile-update.md)
+* [{#T}](arl-profile-get.md)
 * [{#T}](arl-profile-delete.md)
 * [{#T}](arl-rule-add.md)
 * [{#T}](arl-rule-update.md)
