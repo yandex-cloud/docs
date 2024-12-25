@@ -12,14 +12,10 @@ items:
         items:
           - name: Overview
             href: concepts/geo-scope.md
-          - name: Discontinuation of the {{ region-id }}-c zone
-            href: concepts/ru-central1-c-deprecation.md
-          - name: Migration to the {{ region-id }}-d availability zone
+          - name: Migrating resources to a different availability zone
             href: concepts/zone-migration.md
           - name: Migrating resources through partners
             href: concepts/zone-migration-partners.md
-          - name: Consequences of forced migration from the {{ region-id }}-c zone
-            href: concepts/zone-migration-consequences.md
       - name: Regions
         href: concepts/region.md
       - name: Network overview
@@ -66,7 +62,7 @@ items:
         href: platform-comparison/gcp.md
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
-      - name: Equivalents for VMware
+      - name: Comparison with VMware
         items:
           - name: Overview
             href: platform-comparison/vmware/index.md

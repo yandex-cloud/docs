@@ -5,6 +5,8 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
 # Creating a security profile
 
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

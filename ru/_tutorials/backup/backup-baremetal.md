@@ -51,7 +51,7 @@
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
+  1. Нажмите ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `backup.editor` и `baremetal.editor`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Выберите сервисный аккаунт, созданный ранее, нажав на строку с его именем.
   1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.

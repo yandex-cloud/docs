@@ -1,14 +1,20 @@
-# {{ yagpt-full-name }} overview
+# Text generation overview
 
-{{ yagpt-full-name }} allows you to quickly create text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.
+{{ foundation-models-full-name }} provides access to large text models which can quickly generate text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect.
 
-The model understands prompts in more than 20 languages, including English and Japanese; however, Russian texts are its first priority. In addition to a text description, prompts must contain a special parameter called _temperature_ that determines the variability of the model's response: the higher the temperature value, the less predictable the model's output is going to be.
+{{ yagpt-name }} models understand prompts in more than 20 languages, including English and Japanese; however, Russian texts are its first priority. In addition to a text description, prompts must contain a special parameter called _temperature_ that determines the variability of the model's response: the higher the temperature value, the less predictable the model's output is going to be.
 
-There are two interfaces for {{ yagpt-full-name }} in {{ yandex-cloud }}. You can submit requests to [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration. You can also use the API to work with models in [asynchronous mode](../index.md#working-mode). You can view the examples of working with {{ yagpt-name }} via the API in [Step-by-step guides for {{ yagpt-full-name }}](../../operations/index.md#yandexgpt-api).
+{{ foundation-models-name }} also provides access to the {{ llama }} 3.1 8b and {{ llama }} 3.1 70b models. 
 
-{{ ai-playground }} is a good option for introduction and testing: use it to submit synchronous requests to {{ yagpt-full-name }} models, set up parameters and choose prompts. When communicating, the model saves the dialog context, but you can also create a new experiment if you need to change the context. Additionally, {{ yagpt-name }} Playground interfaces in chat format or prompt mode are available in the left-hand navigation menu. Use them when you need to fully repeat the model's behavior via the API and you do not want to save the results of the dialog. 
+To interact with text generation models in {{ yandex-cloud }}, there are two interfaces available. You can submit requests to [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/) or integrate the model into your applications using the API. You can use the [REST](../../text-generation/api-ref/index.md) and [gRPC](../../text-generation/api-ref/grpc/index.md) interfaces for integration. You can also use the API to work with models in [asynchronous mode](../index.md#working-mode). You can view the examples of working with {{ yagpt-name }} via the API in [Step-by-step guides for {{ yagpt-full-name }}](../../operations/index.md#yandexgpt-api).
 
-To learn more about the {{ yagpt-full-name }} models, see [{#T}](models.md).
+{{ ai-playground }} is a good option for introduction and testing: use it to submit synchronous requests to different models, set up parameters, and choose prompts. When communicating, the model saves the dialog context, but you can also create a new experiment if you need to change the context. Additionally, {{ yagpt-name }} Playground interfaces in chat format or prompt mode are available in the left-hand navigation menu. Use them when you need to fully repeat the model's behavior via the API and you do not want to save the results of the dialog. 
+
+To use {{ yagpt-name }} models, you need the `ai.languageModels.user` [role](../../security/index.md#languageModels-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+{{ ai-playground }} is a good option for introduction and testing: use it to submit synchronous requests to different models, set up parameters, and choose prompts. When communicating, the model saves the dialog context, but you can also create a new experiment if you need to change the context. Additionally, {{ yagpt-name }} Playground interfaces in chat format or prompt mode are available in the left-hand navigation menu. Use them when you need to fully repeat the model's behavior via the API and you do not want to save the results of the dialog. 
+
+For more information, see [{#T}](models.md).
 
 ## Formatting of model responses {#answers-formatting}
 
@@ -63,7 +69,9 @@ Result:
 
 The model returned a response in JSON format with line breaks replaced with `\n` and quotation marks escaped.
 
-If you do not get the result you expect using the prompt, try [fine-tuning](../../tutorials/yagpt-tuning.md) the model in [{{ ml-platform-full-name}}]({{ link-datasphere-main }}).
+If you do not get the result you expect using the prompt, try [fine-tuning](../tuning/index.md) the model.
+
+^1^ {{ meta-disclaimer }}
 
 #### See also {#see-also}
 

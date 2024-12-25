@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать профиль безопасности
 
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

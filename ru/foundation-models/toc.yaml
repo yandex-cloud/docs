@@ -762,6 +762,8 @@ items:
     items:
       - name: Вопросы и ответы
         href: qa/index.md
+      - name: Сторонние ошибки при работе с моделями
+        href: troubleshooting/known-issues.md
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
 base: ru/foundation-models

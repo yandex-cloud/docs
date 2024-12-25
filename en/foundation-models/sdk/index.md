@@ -3,7 +3,7 @@
 {{ ai-studio-full-name }} provides {{ ml-sdk-full-name }}, a library of tools and code examples for Python development. {{ ml-sdk-name }} provides a standardized method of working with foundation models and simplifies integration with other {{ yandex-cloud }} services.
 
 The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python interfaces based on gRPC API calls of {{ ai-studio-name }} services. {{ ml-sdk-name }} offers the following features:
-* [Text generation](../concepts/yandexgpt/index.md) by {{ yagpt-name }}
+* [Text generation](../concepts/yandexgpt/index.md) based on any supported [model](../concepts/yandexgpt/models.md)
 * Working with [embeddings](../concepts/embeddings.md)
 * Working with [{{ yagpt-name }} based classifiers](../concepts/classifier/index.md)
 * Creating [AI assistants](../concepts/assistant/index.md)

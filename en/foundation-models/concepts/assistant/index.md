@@ -2,9 +2,11 @@
 
 _The {{ assistant-api }} feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
-{{ assistant-api }} is a tool for creating AI assistants. These personalized assistants are proficient with generative response scenarios that adapt based on external information (known as _retrieval augmented generation_, or RAG), along with maintaining the query context.
+{{ assistant-api }} is a tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario adapted based on external information (known as _retrieval augmented generation_, or RAG), and save the model's request context.
 
-Create your AI assistant using [{{ ml-sdk-full-name }}](../../sdk/index.md) or by means of API requests in a programming language.
+You can create your AI assistant using the [{{ ml-sdk-full-name }}](../../sdk/index.md) or through API requests in a programming language.
+
+To use {{ assistant-api }} in {{ foundation-models-full-name }}, you need the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../security/index.md#service-roles) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 ## Assistant components {#content}
 
@@ -24,7 +26,7 @@ For detailed costs of running an assistant, see [Assistant pricing policy](../..
 
 ### Handling external information sources {#files}
 
-To enable your model to leverage external information sources for answering queries, upload supplementary files through the [Files API](../../files/api-ref/grpc/index.md) and create an associated [_search index_](../../searchindex/api-ref/grpc/SearchIndex/create.md). You can upload up to 1,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time. Currently, a search index can include up to 100 files.
+For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and create a [_search index_](../../searchindex/api-ref/grpc/SearchIndex/create.md) for them. You can upload up to 1,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time. Currently, a search index can include up to 100 files.
 
 For all {{ assistant-api }} limitations, see [{#T}](../limits.md).
 
@@ -61,7 +63,7 @@ All uploaded files and search indexes are subject to expiration. When uploading 
 
 {% endnote %}
 
-When you create a search index, you define the type of search it will support, with options for both full-text and vector searches. The indexing speed can vary based on the file types, their sizes, and the system load, taking from a few seconds to several hours. Files are indexed [asynchronously](../index.md#working-mode). When requested to create a search index, the service will return an [Operation](../../../api-design-guide/concepts/async.md) object. You can use that object to check the status of the index creation operation.
+When you create a search index, you define the type of search it will support, with options for both full-text and vector searches. The indexing speed can vary based on the file types, their sizes, and the system load, taking from a few seconds to several hours. Files are indexed [asynchronously](../index.md#working-mode). When requested to create a search index, the service will return an [operation](../../../api-design-guide/concepts/async.md) object. You can use that object to check the status of the index creation operation.
 
 Once a search index is created, you can configure an assistant to utilize it. In this case, the model will consider the contents of that search index and will primarily use information from it to generate responses. 
 

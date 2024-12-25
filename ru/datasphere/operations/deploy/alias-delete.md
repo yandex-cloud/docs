@@ -1,3 +1,8 @@
+---
+title: Удалить алиас
+description: Следуя данной инструкции, вы сможете удалить алиас.
+---
+
 # Удалить алиас
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}

@@ -21,14 +21,12 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
 
-## Deployment {#deployment}
+## Usage {#deployment}
 
 * [{#T}](node-from-model.md)
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
-* [{#T}](yagpt-tuning.md)
-* [{#T}](yagpt-tuning-classifier.md)
 * [{#T}](stable-diffusion.md)
 
 ## Analytics {#analytics}

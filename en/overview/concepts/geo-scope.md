@@ -5,12 +5,11 @@ An _availability zone_ is an infrastructure within a data center that hosts {{ y
 
 Each zone is isolated from hardware and software failures that may occur in other availability zones. By deploying your applications to multiple zones at the same time, you ensure their fault tolerance and significantly reduce the risk of data loss.
 
-The {{ yandex-cloud }} platform is hosted in four Yandex data centers. You can host resources in the following availability zones:
+The {{ yandex-cloud }} platform is based in three Yandex data centers. You can host resources in the following availability zones:
 
 * `{{ region-id }}-a`
 * `{{ region-id }}-b`
-* `{{ region-id }}-c` ([being deprecated](ru-central1-c-deprecation.md))
-* `{{ region-id }}-d`
+* `{{ region-id }}-d`: Recommended zone for new projects
 
 
 

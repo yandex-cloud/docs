@@ -72,7 +72,7 @@ To access a bucket in {{ objstorage-name }}, you need a [service account](../../
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `datasphere-sa`.
-  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `storage.editor` role.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `storage.editor` role to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -92,7 +92,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the static key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key. After you close the dialog, the private key value will become unavailable.
+  1. Save the ID and secret key. After you close the dialog, the key value will become unavailable.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -114,7 +114,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
      ```
 
      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
-  1. Save the `key_id` and the `secret` key. You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
 - API {#api}
 
@@ -176,7 +176,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you need a [static 
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -210,7 +210,7 @@ To move data from your local disk to {{ objstorage-name }}, configure the `rclon
    1. Enter the secret key value in the terminal.
    1. Specify the region by entering `{{ region-id }}` in the terminal.
    1. Specify the endpoint by entering `{{ s3-storage-host }}` in the terminal.
-   1. You can leave all other settings at their defaults by pressing **Enter** to skip them.
+   1. You can leave the other settings at their defaults; press **Enter** to skip them.
 
 {% note info %}
 

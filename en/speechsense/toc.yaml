@@ -15,12 +15,16 @@ items:
             href: operations/data/upload-chat-text.md
           - name: Searching data
             items:
-              - name: Overview
-                href: operations/data/search-data.md
-              - name: Searching data via the gRPC API
+              - name: Data search via the gRPC API
                 href: operations/data/search-data-grpc.md
-              - name: Searching data via the REST API
-                href: operations/data/search-data-rest.md
+              - name: Data search via the REST API
+                items:
+                  - name: Full-text search in REST API
+                    href: operations/data/rest-full-text-search.md
+                  - name: Filtering by parameters in REST API
+                    href: operations/data/rest-search-filters.md
+                  - name: Getting information about a dialog in REST API
+                    href: operations/data/rest-get-dialog-data.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
           - name: Viewing related dialogs

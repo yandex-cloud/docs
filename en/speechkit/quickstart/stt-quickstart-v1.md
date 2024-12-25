@@ -5,6 +5,18 @@ The service can recognize speech [in different ways](../stt/index.md#stt-ways). 
 * Maximum audio duration: {{ stt-short-audioLength }}
 * Maximum file size: {{ stt-short-fileSize }}
 
+To complete this example, prepare an audio file in one of the [supported formats](../formats.md) and compliant with the above limitations.
+
+In the example, the API is used via the [cURL](https://curl.se/) utility.
+
+## Authentication for API access {#auth}
+
+{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
+
+In the example below, authentication is performed under a Yandex account.
+
+## Execute a request {#execute}
+
 Send a speech recognition [request](../stt/request.md):
 
 ```bash
@@ -19,12 +31,12 @@ curl \
 
 Where:
 
-* `FOLDER_ID`: Folder ID you got [before you started](index.md#before-you-begin).
-* `IAM_TOKEN`: IAM token you got [before you started](index.md#before-you-begin).
+* `FOLDER_ID`: Folder ID you got [earlier](#auth).
+* `IAM_TOKEN`: IAM token you got [earlier](#auth).
 * `lang`: Recognition [language](../stt/models.md#languages).
-* `speech.ogg`: Speech audio file.
+* `speech.ogg`: Speech audio file you prepared.
 
-The service responds with the recognized text:
+The service will respond with the recognized text, for example:
 
 ```json
 {
