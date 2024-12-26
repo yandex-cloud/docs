@@ -18,6 +18,7 @@ You can create connections of the following types:
   * [{{ CH }}](#clickhouse-on-premise)
   * [{{ MY }}](#mysql-on-premise)
   * [{{ RD }}](#redis-on-premise)
+  * [{{ TR }}](#trino-on-premise)
 
 ## Connecting to a cluster with a managed database {#mdb-connection}
 
@@ -226,6 +227,32 @@ You can create connections of the following types:
         * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **Create**.
+
+{% endlist %}
+
+### {{ TR }} {#trino-on-premise}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
+  1. Select **{{ metadata-hub-full-name }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. Click **Create connection**.
+  1. Specify the connection name.
+  1. (Optional) Add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+  1. Select the **Connection type**.
+  1. Under **Connection to {{ TR }}**, specify the connection parameters:
+      1. In the **Coordinator** field, specify the [coordinator](https://trino.io/docs/current/overview/concepts.html#coordinator) host address and port number for the connection. 
+      1. (Optional) Enable TLS.
+          If your company has a certification authority (CA), the certificate issued by the CA will be used by default. If the company has no CA, upload the server's TLS certificate.
+  1. Under **Authentication**:
+      1. Specify the **Username** you will use to connect to the database.
+      1. Select the password setting method:
+          * **Enter manually**: You set the password manually.
+          * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+  1. Click **Create**.
 
 {% endlist %}
 

@@ -34,7 +34,7 @@ description: Из статьи вы узнаете, какие условия с
 `s3:x-amz-server-side-encryption` | Требует шифрования на стороне сервера.
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Требует определенный ключ для шифрования на стороне сервера.
 `s3:x-amz-storage-class` | Ограничивает доступ по [классу хранилища](../../../concepts/storage-class.md).
-`s3:x-amz-website-redirect-location` | Ограничивает доступ по заданной переадресации веб-сайта, сконфигурированного как статический веб-сайт.
+`s3:x-amz-website-redirect-location` | Позволяет перенаправить запросы к объекту на другой объект или URL, когда сайт сконфигурирован как статический сайт.
 `yc:private-endpoint-id` | Задает доступ через [сервисные подключения {{ vpc-short-name }}](../../../../vpc/concepts/private-endpoint.md). Содержит идентификатор сервисного подключения.
 
 {% include [conditions-combining-and](../../../../_includes/storage/conditions-combining-and.md) %}

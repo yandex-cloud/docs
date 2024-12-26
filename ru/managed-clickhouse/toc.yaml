@@ -87,8 +87,10 @@ items:
         href: tutorials/index.md
       - name: Добавление данных в БД
         href: tutorials/insert.md
-      - name: Миграция данных в {{ mch-name }}
+      - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
         href: tutorials/data-migration.md
+      - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
+        href: tutorials/ch-to-mch-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
       - name: Перешардирование данных в кластере

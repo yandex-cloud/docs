@@ -77,3 +77,8 @@ If an organization with an activated support service plan uses resources paid fr
 The [Premium plan](/support) covers all services of other plans and can be further enhanced to best suit your requirements. It may include troubleshooting recommendations for interactions of {{ yandex-cloud }} services with third-party software, consulting sessions with a dedicated support engineer based on your {{ yandex-cloud }} usage scenario, and services of a personal technical manager.
 
 For a cost estimate for the _Premium_ plan, contact your {{ yandex-cloud }} manager or [technical support]({{ link-console-support }}).
+
+
+## How to change your service plan {#change-service-plan}
+
+{% include [change-tariff](../_includes/support/change-pricing.md) %}

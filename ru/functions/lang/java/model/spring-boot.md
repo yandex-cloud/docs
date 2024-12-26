@@ -164,7 +164,7 @@
     curl \
       --request GET \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
-      https://<идентификатор_шлюза>.apigw.yandexcloud.net/get/Anonymous
+      https://{{ api-host-apigw }}/get/Anonymous
     ```
 
     Результат:

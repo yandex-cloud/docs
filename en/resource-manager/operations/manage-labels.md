@@ -10,56 +10,56 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
 - Management console {#console}
 
-   The example below shows how to add a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
+  The example below shows how to add a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-   1. Select the VM you need from the list.
-   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-   1. Specify the key and value and press **Enter**.
+  1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Select the VM you need from the list.
+  1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+  1. Enter the key and the value, and press **Enter**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add or update an existing service resource label, run this command:
+  To add or update an existing service resource label, run this command:
 
-   ```
-   yc <service_name> <resource_type> add-labels <resource_name_or_ID> \
-     --labels <label_name>=<label_value>
-   ```
+  ```
+  yc <service_name> <resource_type> add-labels <resource_name_or_ID> \
+    --labels <label_name>=<label_value>
+  ```
 
-   **Example**
+  **Example**
 
-   Adding a label to a VM:
+  Adding a label to a VM:
 
-   > ```
-   > yc compute instance add-labels cl123g4dridnn5cn****-**** --labels project=test
-   > ```
-   >
-   > Result:
-   >
-   > ```
-   > done (5s)
-   > id: fhm1pr2bu3p4********
-   > folder_id: b1g23ga45mev********
-   > created_at: "2020-08-07T11:29:18Z"
-   > name: cl123g4dridnn5cn****-****
-   > labels:
-   >   project: test
-   > zone_id: {{ region-id }}-a
-   > ...
-   > ```
+  > ```
+  > yc compute instance add-labels cl123g4dridnn5cn****-**** --labels project=test
+  > ```
+  >
+  > Result:
+  >
+  > ```
+  > done (5s)
+  > id: fhm1pr2bu3p4********
+  > folder_id: b1g23ga45mev********
+  > created_at: "2020-08-07T11:29:18Z"
+  > name: cl123g4dridnn5cn****-****
+  > labels:
+  >   project: test
+  > zone_id: {{ region-id }}-a
+  > ...
+  > ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, add the following fragment to the resource:
+  1. In the configuration file, add the following fragment to the resource:
 
       ```
         labels = {
@@ -67,37 +67,37 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
         }
       ```
 
-   1. Apply the changes:
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   That will add the label to the resource. You can check the new label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  That will add the label to the resource. You can check the new label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-   ```
-   yc <service_name> <resource_type> get <resource_name_or_ID>
-   ```
+  ```
+  yc <service_name> <resource_type> get <resource_name_or_ID>
+  ```
 
-   **Example**
+  **Example**
 
-   Defining a label for a {{ lockbox-name }} secret:
+  Defining a label for a {{ lockbox-name }} secret:
 
-   > ```
-   > resource "yandex_lockbox_secret" "my_secret" {
-   >   name   = lockbox-test-secret
-   >   labels = {
-   >     label-test-key = "label-test-value"
-   >   }
-   > }
-   > ```
+  > ```
+  > resource "yandex_lockbox_secret" "my_secret" {
+  >   name   = lockbox-test-secret
+  >   labels = {
+  >     label-test-key = "label-test-value"
+  >   }
+  > }
+  > ```
 
 {% endlist %}
 
-You can create a label with multiple values. For example, create a label named `my-cloud` with the following values:
+You can create a label with multiple values. For example, create a label named `my-cloud` with multiple values:
 
-* `my-vm`: For your VM instance.
-* `my-disk`: For your disk.
+* `my-vm`: For the VM.
+* `my-disk`: For the disk.
 
-## Editing a label {#update-label}
+## Updating a label {#update-label}
 
 You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
@@ -105,67 +105,63 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   {% note warning %}
+  {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
-   The existing set of `labels` is completely overwritten by the one transmitted in the request.
+  To edit a label of a service resource, use this command:
 
-   {% endnote %}
+  ```
+  yc <service_name> <resource_type> update <resource_name_or_ID> \
+    --labels <label_name>=<label_value>
+  ```
 
-   To edit a label of a service resource, use this command:
+  **Example**
 
-   ```
-   yc <service_name> <resource_type> update < resource_name_or_ID> \
-     --labels <label_name>=<label_value>
-   ```
+  Editing labels for {{ k8s }} cluster:
 
-   **Example**
-
-   Editing labels for {{ k8s }} cluster:
-
-   > ```
-   > yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
-   > ```
-   >
-   > Result:
-   >
-   > ```
-   > done (1m36s)
-   > id: cat1hknor234********
-   > folder_id: b1g23ga45mev********
-   > created_at: "2020-08-07T11:15:59Z"
-   > name: cluster
-   > labels:
-   >   new_lable: test_label
-   > status: RUNNING
-   > ...
-   > ```
+  > ```
+  > yc managed-kubernetes cluster update k8s-gpu --labels new_lable=test_label
+  > ```
+  >
+  > Result:
+  >
+  > ```
+  > done (1m36s)
+  > id: cat1hknor234********
+  > folder_id: b1g23ga45mev********
+  > created_at: "2020-08-07T11:15:59Z"
+  > name: cluster
+  > labels:
+  >   new_lable: test_label
+  > status: RUNNING
+  > ...
+  > ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, find the following fragment:
+  1. In the configuration file, find the following fragment:
 
       ```
         labels = {
-          <label_key> = "<label_value>"
+          <label_key> = <label_value>
         }
       ```
 
-   1. Update both the key and the value.
-   1. Apply the changes:
+  1. Update both the key and the value.
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   After that, the label for the resource will be updated. You can check the label update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  After that, the label for the resource will be updated. You can check the label update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-   ```
-   yc <service_name> <resource_type> get <resource_name_or_ID>
-   ```
+  ```
+  yc <service_name> <resource_type> get <resource_name_or_ID>
+  ```
 
 {% endlist %}
 
@@ -175,52 +171,52 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
 - Management console {#console}
 
-   The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
+  The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the VM is located.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-   1. Select the VM you need from the list.
-   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label in question and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
+  1. In the [management console]({{ link-console-main }}), select the folder the VM is located in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. Select the VM you need from the list.
+  1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Delete a service resource label:
+  Delete a service resource label:
 
-   ```
-   yc <service_name> <resource_type> remove-labels <resource_name_or_ID> \
-     --labels <label_name>
-   ```
+  ```
+  yc <service_name> <resource_type> remove-labels <resource_name_or_ID> \
+    --labels <label_name>
+  ```
 
-   **Example**
+  **Example**
 
-   Removing a label from a {{ mmy-short-name }} cluster:
+  Removing a label from a {{ mmy-short-name }} cluster:
 
-   > ```
-   > yc managed-mysql cluster remove-labels mysql123 --labels my_lable
-   > ```
-   >
-   > Result:
-   >
-   > ```
-   > id: c1qmjaatlurm********
-   > folder_id: b1g23ga45mev********
-   > created_at: "2020-08-20T11:53:20.015543Z"
-   > name: mysql123
-   > environment: PRODUCTION
-   > ...
-   > ```
+  > ```
+  > yc managed-mysql cluster remove-labels mysql123 --labels my_lable
+  > ```
+  >
+  > Result:
+  >
+  > ```
+  > id: c1qmjaatlurm********
+  > folder_id: b1g23ga45mev********
+  > created_at: "2020-08-20T11:53:20.015543Z"
+  > name: mysql123
+  > environment: PRODUCTION
+  > ...
+  > ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, find the following fragment:
+  1. In the configuration file, find the following fragment:
 
       ```
         labels = {
@@ -228,15 +224,15 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
         }
       ```
 
-   1. Delete the fragment.
-   1. Apply the changes:
+  1. Delete the fragment.
+  1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   After that, the label will be removed from the resource. You can check the deletion of the label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  After that, the label will be removed from the resource. You can check the deletion of the label using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-   ```
-   yc <service_name> <resource_type> get <resource_name_or_ID>
-   ```
+  ```
+  yc <service_name> <resource_type> get <resource_name_or_ID>
+  ```
 
 {% endlist %}

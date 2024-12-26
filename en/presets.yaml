@@ -7823,6 +7823,7 @@ default:
           switch_jobs: Jobs
           switch_monitoring: Monitoring
           switch_network: Network
+          switch_overview: Overview
           switch_subclusters: Subclusters
           switch_users: Users
           users:
@@ -7944,6 +7945,7 @@ default:
           maintenance-window-type: Maintenance window
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
+          network_field_zone: Availability zone
           new_section_resource: Resources
           resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake

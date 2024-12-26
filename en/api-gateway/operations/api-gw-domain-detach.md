@@ -1,6 +1,6 @@
 ---
-title: How to disconnect a domain from the {{ api-gw-full-name }} gateway
-description: In this tutorial, you will learn how to disconnect a domain from the {{ api-gw-full-name }} gateway.
+title: How to disconnect a domain from an API gateway in {{ api-gw-full-name }}
+description: In this tutorial, you will learn how to disconnect a domain from an API gateway in {{ api-gw-full-name }}.
 ---
 
 # Disconnecting a domain
@@ -9,9 +9,9 @@ description: In this tutorial, you will learn how to disconnect a domain from th
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the gateway.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Click the gateway name.
+  1. Click the API gateway name.
   1. Go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
   1. Click ![image](../../_assets/options.svg) in the domain row and select **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
   1. Confirm your action.
@@ -54,7 +54,7 @@ description: In this tutorial, you will learn how to disconnect a domain from th
             yc dns zone list-records <DNS_zone_ID>
             ```
         
-            The record in question is of the `ANAME` type and has a value in `<gateway_ID>.apigw.yandexcloud.net` format.
+            The record in question is of the `ANAME` type and has a value in `<API_gateway_ID>.apigw.yandexcloud.net` format.
 
         1. Delete a record:
 

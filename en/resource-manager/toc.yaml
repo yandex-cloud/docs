@@ -13,6 +13,9 @@ items:
         items:
           - name: Creating a cloud
             href: operations/cloud/create.md
+          - name: Creating a cloud in another region
+            href: operations/cloud/create-in-another-region.md
+            hidden: true
           - name: Renaming a cloud
             href: operations/cloud/update.md
           - name: Deleting a cloud
@@ -43,7 +46,7 @@ items:
             href: operations/folder/get-id.md
           - name: Getting notifications from services in a folder
             href: operations/folder/notify.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:

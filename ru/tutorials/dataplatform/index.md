@@ -28,6 +28,7 @@ description: На странице представлен список прак�
 * Использование реестра схем форматов данных с {{ mkf-full-name }}:
   * [Управление схемами данных в {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
+  * [{#T}](managed-schema-registry-rest.md)
   * [{#T}](confluent-schema-registry.md)
 
 ## {{ AF }} {#airflow}
@@ -38,6 +39,8 @@ description: На странице представлен список прак�
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](ch-to-mch-migration.md)
+* [{#T}](clickhouse-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](dp-mch-data-exchange.md)

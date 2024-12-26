@@ -15,11 +15,7 @@ description: Follow this guide to update a function label.
     
     To update the function label, run the command:
   
-    {% note warning %}
-    
-    The existing `labels` will be completely overwritten by the ones you provide in your request.
-    
-    {% endnote %}
+    {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
     ```
     yc serverless function update <function_name> --labels <key>=<value>

@@ -62,6 +62,8 @@ keywords:
 
         * Выберите существующий сервисный аккаунт или создайте новый.
 
+           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `{{ roles.maf.integrationProvider }}`.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
       * [Зоны доступности](../../overview/concepts/geo-scope) для размещения кластера.

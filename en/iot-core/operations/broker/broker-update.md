@@ -337,11 +337,7 @@ You can perform the following actions with broker labels:
 
   Update a broker label:
 
-  {% note warning %}
-
-  The existing `labels` will be completely overwritten by the ones you provide in your request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc iot broker update my-broker --labels test_label=my_broker_label

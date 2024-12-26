@@ -313,9 +313,11 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — в кластерах с версией {{ GP }} 6.25 и выше включает [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** — включает [гибридное хранилище](../concepts/hybrid-storage.md).
 
-            Эту опцию нельзя отключить после сохранения настроек кластера.
+            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
 
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
@@ -448,9 +450,11 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        * `cloud_storage.enable` — использование гибридного хранилища в кластерах с версией {{ GP }} 6.25 и выше. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloud_storage.enable` — использование [гибридного хранилища](../concepts/hybrid-storage.md).
 
-            Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+            Установите значение `true`, чтобы включить гибридное хранилище. Гибридное хранилище нельзя отключить после сохранения настроек кластера.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
 
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}

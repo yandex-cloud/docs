@@ -3,7 +3,7 @@
 В этом руководстве вы узнаете, как реализовать аутентификацию и авторизацию в вашем веб-приложении на основе протоколов [OAuth 2.0](https://oauth.net/2/) и [OpenID Connect](https://openid.net/connect/). Для аутентификации будут использованы [Google OAuth](https://developers.google.com/identity/protocols/oauth2) и [Firebase](https://firebase.google.com/docs). Авторизация будет выполняться на стороне [{{ api-gw-name }}](../../api-gateway/) с помощью JWT-авторайзера. Веб-приложение будет состоять из:
 * Внешнего сервиса аутентификации Firebase.
 * Простого REST API, развернутого в виде {{ api-gw-name }}.
-* Статического веб-сайта, развернутого в [бакете](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/).
+* Статического сайта, развернутого в [бакете](../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../storage/).
 
 Чтобы развернуть веб-приложение:
 1. [Подготовьте облако к работе](#prepare-cloud).
@@ -180,7 +180,7 @@ Firebase:
      created_at: "2020-06-17T09:20:22.929Z"
      name: jwt-api-gw
      status: ACTIVE
-     domain: d5dug9gkmu187i********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckghq1hm19********
      ```
 
@@ -292,7 +292,7 @@ Firebase:
 
 ## Разверните ресурсы {{ yandex-cloud }} и загрузите веб-приложение в бакет {{ objstorage-name }} {#deploy}
 
-Разверните статический веб-сайт.
+Разверните статический сайт.
 1. Создайте бакет {{ objstorage-name }}:
 
    {% list tabs group=instructions %}

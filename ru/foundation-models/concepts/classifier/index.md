@@ -9,7 +9,7 @@
 
 Модели классификации доступны только в [синхронном режиме](../index.md#working-mode).
 
-Сервис {{ foundation-models-name }} предоставляет классификаторы двух видов: [по промту](#readymade) на базе {{ gpt-lite }} и {{ gpt-pro }} и [дообучаемые](#trainable) классификаторы на базе {{ gpt-pro }}.
+Сервис {{ foundation-models-name }} предоставляет классификаторы двух видов: [по промту](#readymade) на базе {{ gpt-lite }} и {{ gpt-pro }} и [дообучаемые](#trainable) классификаторы на базе {{ gpt-lite }}.
 
 Чтобы использовать модели классификаторов {{ foundation-models-full-name }}, необходима [роль](../../security/index.md#languageModels-user) `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -110,11 +110,11 @@
 
 ## Дообучаемые классификаторы {#trainable}
 
-Если качество результатов классификаторов [Zero-shot](#zero-shot) и [Few-shot](#few-shot) вас не устраивает, [дообучите собственный классификатор](../tuning/classifier.md) на базе {{ yagpt-name }}. Дообучаемые классификаторы могут быть обучены всем поддерживаемым типам классификации.
+Если качество результатов классификаторов [Zero-shot](#zero-shot) и [Few-shot](#few-shot) вас не устраивает, [дообучите собственный классификатор](../tuning/classifier.md) на базе {{ gpt-lite }}. Дообучаемые классификаторы могут быть обучены всем поддерживаемым типам классификации.
 
 Чтобы [выполнить](../../operations/classifier/additionally-trained.md) запрос к классификатору дообученной в {{ ml-platform-name }} модели, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API. В этом случае в модель требуется передать только [идентификатор модели](./models.md) и текст запроса. Имена классов, по которым модель будет распределять запросы, должны быть заданы в процессе дообучения модели и в запросе не передаются.
 
-Формат тела запроса для классификатора дообученной в {{ ml-platform-name }} модели:
+Формат тела запроса для дообученного классификатора:
 
 ```json
 {
@@ -124,7 +124,7 @@
 ```
 
 Где:
-* `modelUri` — [идентификатор модели](./models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели.
+* `modelUri` — [идентификатор модели](./models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор дообученного классификатора.
 * `text` — текстовое содержимое сообщения. Суммарное количество токенов на один запрос не должно превышать 8000.
 
 Для [запросов](../../operations/classifier/additionally-trained.md) к дообучаемым классификаторам используйте эндпоинт `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`.

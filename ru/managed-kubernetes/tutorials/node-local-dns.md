@@ -318,6 +318,8 @@
 
      {% endcut %}
 
+     {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
   1. Создайте ресурсы для NodeLocal DNS:
 
      ```bash
@@ -462,7 +464,7 @@
 {% list tabs %}
 
 - Все поды
-  
+
   1. Создайте под для настройки сетевого трафика:
 
      ```bash
@@ -538,7 +540,7 @@
 
      ```bash
      kubectl delete pod dnschange
-     ```  
+     ```
 
   1. Чтобы все поды начали работать через NodeLocal DNS, перезапустите их, например, командой:
 
@@ -546,8 +548,8 @@
      kubectl get deployments --all-namespaces | \
        tail +2 | \
        awk '{
-         cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ; 
-         system(cmd) 
+         cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ;
+         system(cmd)
        }'
      ```
 

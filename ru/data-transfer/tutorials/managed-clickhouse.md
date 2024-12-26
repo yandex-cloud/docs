@@ -1,22 +1,8 @@
+---
+noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-clickhouse'
+---
+
 # Миграция кластера {{ CH }}
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести вашу базу данных из стороннего кластера-источника {{ CH }} в кластер-приемник {{ mch-name }}.
-
-Этот способ позволяет:
-
-* скопировать базу без остановки обслуживания пользователей;
-* обойтись без создания промежуточной [виртуальной машины](../../glossary/vm.md) или разрешения доступа к вашему кластеру-приемнику {{ mch-name }} из интернета.
-
-Подробнее см. в разделе [{#T}](../concepts/use-cases.md).
-
-
-## Перед началом работы {#before-you-begin}
-
-[Разрешите подключение к кластеру-источнику из интернета](../concepts/network.md#source-external).
-
-
-## Перенос данных {#data-transfer}
-
 {% include notitle [Data migration MCH](../../_tutorials/dataplatform/datatransfer/managed-clickhouse.md) %}
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

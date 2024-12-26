@@ -20,7 +20,7 @@ links:
   - title: Concepts
     description: Basic concepts and how the service works
     href: concepts/
-  - title: Runtime environments
+  - title: Runtime environment
     description: Supported runtime environments
     href: concepts/runtime/
   - title: Node.js
@@ -48,7 +48,7 @@ links:
     description: Writing functions in R
     href: lang/r/
   - title: .NET Core
-    description: Writing functions in .NET Core
+    description: Writing functions in C#
     href: lang/csharp/
   - title: API Functions reference
     description: HTTP API method descriptions

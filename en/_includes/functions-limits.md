@@ -12,7 +12,6 @@ Number of [provisioned function instances](../functions/concepts/function.md#pro
 Number of concurrent operations on a single function and its versions | 10
 Number of concurrent operations on all functions and their versions per folder | 15
 Number of concurrent operations on all functions and their versions per cloud | 20
-Number of [user networks](../functions/concepts/networking.md##user-network) per cloud | 1
 Number of network packets per second per function instance | 10,000
 
 For more information about relationships between quotas, see [{#T}](../functions/concepts/limits.md#related-quotas).
@@ -33,6 +32,7 @@ Maximum RAM per function instance | 8 GB
 Maximum total environment variable storage, including variable names^2^ | 4 KB
 Maximum number of triggers per [message queue](../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^3^ | 230 KB
+Number of [user networks](../functions/concepts/networking.md#user-network) per cloud | 1
 
 ^1^ A timeout longer than ten minutes is only available for [long-lived functions](../functions/concepts/long-lived-functions.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.

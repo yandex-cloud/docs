@@ -69,6 +69,10 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Работа с управляемым реестром схем формата данных
             href: tutorials/managed-schema-registry.md
+          - name: >-
+              Работа с управляемым реестром схем формата данных с помощью REST
+              API
+            href: tutorials/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
       - name: Поставка данных с помощью {{ data-transfer-name }}
@@ -123,6 +127,8 @@ items:
         href: concepts/producers-consumers.md
       - name: Управление схемами данных
         href: concepts/managed-schema-registry.md
+      - name: API в {{ mkf-name }}
+        href: concepts/available-apis.md
       - name: Классы хостов
         href: concepts/instance-types.md
       - name: Сеть в {{ mkf-name }}

@@ -52,11 +52,11 @@
         * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
 
 
-    1. (Опционально) Для кластера с версией {{ GP }} 6.25 и выше включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+    1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
-        Она активирует [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        Она включает [гибридное хранилище](../concepts/hybrid-storage.md). Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-        Эту опцию нельзя отключить после сохранения настроек кластера.
+        {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
 
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
@@ -66,11 +66,7 @@
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
-            {% note info %}
-
-            Имена `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` зарезервированы для собственных нужд {{ mgp-name }}. Создавать пользователей с этими именами нельзя.
-
-            {% endnote %}
+            {% include [reserved-usernames-note](../../_includes/mdb/mgp/reserved-usernames-note.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
 

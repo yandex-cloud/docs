@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
     created_at: "2024-01-26T09:18:55.985Z"
     name: example_gateway
     status: ACTIVE
-    domain: d5dr8k465604********.apigw.yandexcloud.net
+    domain: {{ api-host-apigw }}
     log_group_id: ckgsh1kdbvj1********
     connectivity: {}
     log_options:

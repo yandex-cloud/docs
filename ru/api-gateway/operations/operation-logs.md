@@ -117,7 +117,7 @@
           created_at: "2024-06-21T09:51:17.489Z"
           name: operation-logs
           status: ACTIVE
-          domain: d5dig9e60uco********.apigw.yandexcloud.net
+          domain: {{ api-host-apigw }}
           connectivity: {}
           log_options:
             folder_id: b1g681qpemb4********

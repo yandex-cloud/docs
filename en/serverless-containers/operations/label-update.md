@@ -11,11 +11,7 @@ description: Follow this guide to update a container label.
     
     To update a container label, run this command:
   
-    {% note warning %}
-    
-    The existing `labels` will be completely overwritten by the ones you provide in your request.
-    
-    {% endnote %}
+    {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
     ```
     yc serverless container update <container_name> --labels <key>=<value>
@@ -60,7 +56,7 @@ description: Follow this guide to update a container label.
      ...
      ```
 
-	  For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Check the configuration using this command:
      ```
@@ -87,7 +83,7 @@ description: Follow this guide to update a container label.
      
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-  You can verify that you have modified a container label using the [CLI](../../cli/):
+  You can check the container label modification using the [CLI](../../cli/):
 
   ```
   yc serverless container get <container_name_or_ID>

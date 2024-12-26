@@ -3,7 +3,7 @@
 1. [Установите Joomla и дополнительные компоненты](#install).
 1. [Настройте веб-сервер Apache2](#configure-apache2).
 1. [Настройте Joomla](#configure-joomla).
-1. [Загрузите файлы веб-сайта](#upload-files).
+1. [Загрузите файлы сайта](#upload-files).
 1. [Создайте инфраструктуру](#deploy).
 1. [Проверьте работу сайта](#test-site).
 
@@ -97,7 +97,7 @@
 
 {% include [joomla-postgresql-configure-joomla](../_tutorials_includes/joomla-postgresql-configure-joomla.md) %}
 
-## Загрузите файлы веб-сайта {#upload-files}
+## Загрузите файлы сайта {#upload-files}
 
 {% include [joomla-postgresql-upload-files](../_tutorials_includes/joomla-postgresql-upload-files.md) %}
 

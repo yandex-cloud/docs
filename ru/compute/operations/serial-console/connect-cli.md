@@ -41,6 +41,8 @@
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
+
   1. Подключитесь к серийной консоли нужной ВМ:
 
       ```bash
@@ -104,6 +106,8 @@
   1. Получите список ВМ в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
 
   1. Подключитесь к SAC Windows нужной ВМ:
 
