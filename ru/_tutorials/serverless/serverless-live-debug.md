@@ -320,7 +320,7 @@
     Watching changes in: live-debug.config.ts
     WS connection opened
     Local client ready.
-    Check url: https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    Check url: https://{{ api-host-apigw }}
     Waiting requests...
     ```
 
@@ -329,7 +329,7 @@
 1. Проверьте, что отладочный код работает. Для этого откройте еще один терминал и выполните команду:
 
     ```
-    curl https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    curl https://{{ api-host-apigw }}
     ```
 
     Результат:

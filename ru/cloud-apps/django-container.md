@@ -1,6 +1,6 @@
 # Django Container
 
-Демонстрационный веб-сайт. Реализован на [Django](https://www.djangoproject.com/) в контейнере [{{ serverless-containers-full-name }}](../serverless-containers). Позволяет начать работу с Django в бессерверном режиме.
+Демонстрационный сайт. Реализован на [Django](https://www.djangoproject.com/) в контейнере [{{ serverless-containers-full-name }}](../serverless-containers). Позволяет начать работу с Django в бессерверном режиме.
 
 ## Необходимые платные ресурсы {#paid-resources}
 

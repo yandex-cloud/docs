@@ -21,6 +21,14 @@ items:
             href: operations/api-gw-vars.md
           - name: Setting up a canary release
             href: operations/api-gw-canary.md
+          - name: Managing labels
+            items:
+              - name: Adding a label
+                href: operations/label-add.md
+              - name: Updating a label
+                href: operations/label-update.md
+              - name: Deleting a label
+                href: operations/label-delete.md
           - name: Viewing monitoring charts
             href: operations/api-gw-monitoring.md
           - name: Managing logs

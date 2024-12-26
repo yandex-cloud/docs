@@ -74,11 +74,11 @@ paths:
      {{ yc-serverless }} api-gateway create --help
      ```
 
-  1. Specify gateway parameters in the create command (not all the supported parameters are listed):
+  1. Specify API gateway parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
      ```bash
      {{ yc-serverless }} api-gateway create \
-       --name <gateway_name> \
+       --name <API_gateway_name> \
        --spec=<specification_file_path>
      ```
 

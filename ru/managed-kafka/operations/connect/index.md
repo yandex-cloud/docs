@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-  Чтобы разрешить подключение к [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), добавьте правило для входящего трафика:
+  Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -60,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
-     Чтобы разрешить подключение к [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), добавьте правило для входящего трафика:
+     Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [install-certificate](../../../_includes/mdb/mkf/install-certificate.md) %}
 
-Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md).
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) используется этот же сертификат.
 
 ## Получение FQDN хостов {{ KF }} {#get-fqdn}
 
@@ -117,6 +117,8 @@ description: Следуя данной инструкции, вы сможете
     {% include [list-hosts](../../../_includes/mdb/mkf/list-hosts.md) %}
 
 * Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) можно отсылать запросы к любому хосту-брокеру: API доступно со всех хостов-брокеров кластера.
 
 ## Что дальше {#whats-next}
 

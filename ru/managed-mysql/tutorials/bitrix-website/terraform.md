@@ -4,9 +4,9 @@ description: В этом практическом руководстве мы р
 canonical: '{{ link-docs }}/tutorials/web/bitrix-website/terraform'
 ---
 
-# Создание веб-сайта на базе «1С-Битрикс» с помощью {{ TF }}
+# Создание сайта на базе «1С-Битрикс» с помощью {{ TF }}
 
-Чтобы создать инфраструктуру для [веб-сайта на базе «1С-Битрикс»](index.md) c помощью {{ TF }}:
+Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью {{ TF }}:
 
 {% include [bitrix-website-terraform](../../../_tutorials/applied/bitrix-website-terraform.md) %}
 

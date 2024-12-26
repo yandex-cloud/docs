@@ -326,11 +326,7 @@ You can perform the following actions related to registry labels:
 
   Change a registry label:
 
-  {% note warning %}
-
-  The existing `labels` will be completely overwritten by the ones you provide in your request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc iot registry update my-registry --labels test_label=my_registry_label

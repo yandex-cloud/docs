@@ -1,12 +1,12 @@
 ---
-title: AWS SDK для Java
-description: Из статьи вы узнаете, что такое AWS SDK для Java, как его установить и настроить, а также ознакомитесь с примерами кода.
+title: AWS SDK для Java v.1.x
+description: Из статьи вы узнаете, что такое AWS SDK для Java v.1.x, как его установить и настроить, а также ознакомитесь с примерами кода.
 ---
 
-# AWS SDK для Java
+# AWS SDK для Java v.1.x
 
 
-[AWS SDK для Java](https://aws.amazon.com/ru/sdk-for-java/) — это комплект средств разработки для работы с сервисами AWS.
+[AWS SDK для Java v.1.x](https://aws.amazon.com/ru/sdk-for-java/) — это комплект средств разработки для работы с сервисами AWS.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -21,7 +21,6 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 ## Настройка {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
-
 
 ## Примеры кода {#java-sdk-examples}
 

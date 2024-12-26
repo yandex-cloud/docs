@@ -72,11 +72,11 @@ description: Следуя данной инструкции, вы сможете
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
       ```hcl
-      data "yandex_compute_image" "ubuntu_image" {
+      data "yandex_compute_image" "my_image" {
         family = "<имя_семейства>"
       }
 
-      output "ubuntu_id" {
+      output "image" {
         value = data.yandex_compute_image.my_image.image_id
       }
       ```

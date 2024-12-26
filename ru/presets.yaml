@@ -21,6 +21,7 @@ default:
   api-gw-short-name: API Gateway
   api-host: api.cloud.yandex.net
   api-host-airflow: airflow.api.cloud.yandex.net
+  api-host-apigw: d5dm1lba80md********.***.apigw.yandexcloud.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -424,6 +425,9 @@ default:
   mkf-msr: Managed Schema Registry
   mkf-name: Managed Service for Apache Kafka®
   mkf-short-name: Managed Service for Apache Kafka®
+  mkf:
+    kp: Karapace
+    kp-api-version: '6.1'
   ml-platform-full-name: Yandex DataSphere
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
@@ -614,6 +618,7 @@ default:
     maf:
       admin: managed-airflow.admin
       editor: managed-airflow.editor
+      integrationProvider: managed-airflow.integrationProvider
       user: managed-airflow.user
       viewer: managed-airflow.viewer
     mch:
@@ -7827,6 +7832,7 @@ default:
           switch_jobs: Задания
           switch_monitoring: Мониторинг
           switch_network: Сеть
+          switch_overview: Обзор
           switch_subclusters: Подкластеры
           switch_users: Пользователи
           users:
@@ -7948,6 +7954,7 @@ default:
           maintenance-window-type: Окно обслуживания
           network_field_form-type: Формат указания сети
           network_field_subnetwork: Подсеть
+          network_field_zone: Зона доступности
           new_section_resource: Ресурсы
           resource_presets_field_gen_v2: Intel Cascade Lake
           resource_presets_field_gen_v3: Intel Ice Lake

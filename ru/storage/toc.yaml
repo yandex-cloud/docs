@@ -206,7 +206,7 @@ items:
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
-      - name: Статический веб-сайт в {{ objstorage-full-name }}
+      - name: Статический сайт в {{ objstorage-full-name }}
         items:
           - name: Обзор
             href: tutorials/static/index.md
@@ -318,7 +318,7 @@ items:
         items:
           - name: Все SDK
             href: tools/sdk/index.md
-          - name: AWS SDK для Java
+          - name: AWS SDK для Java v.1.x
             href: tools/aws-sdk-java.md
           - name: AWS SDK для JavaScript
             href: tools/aws-sdk-js.md

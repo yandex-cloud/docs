@@ -10,7 +10,7 @@ When creating endpoints of certain types, you can select a [cloud subnet](../../
 
 You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network the selected subnet belongs to is referred to as the __selected network__.
 
-If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail, since an arbitrary DNS server is used for transfer service name resolution in the subnet. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
+If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. All the subnet's DNS servers must resolve the host domain name into an IP address; otherwise, the transfer may fail to start because the transfer services use an arbitrary subnet DNS server for name resolution. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
 The subnets selected for both endpoints of the same transfer must belong to the same availability zone.
 
@@ -71,12 +71,14 @@ Make sure to allow outgoing traffic to the port required by the security group s
 
 You can provide access to a source on an external network using one of the following methods:
 
-* By configuring a source to make it available from the internet.
-* Using [{{ interconnect-full-name }}](../../interconnect/index.yaml).
-* Using an intermediate VM configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/routing.md).
+* Configure the source to make it accessible from the internet.
+* Use [{{ interconnect-full-name }}](../../interconnect/index.yaml).
+* Use a VPN.
 
-If you need to migrate data between {{ yandex-cloud }} and a third-party cloud, allow incoming connections to the third-party cloud database from the internet from [IP addresses used by {{ data-transfer-name }}](https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0).
+If you need to transfer data between your cloud in {{ yandex-cloud }} and another cloud, including a different cloud in {{ yandex-cloud }}, or between your cloud in {{ yandex-cloud }} and a cluster in a user installation on your site, allow internet connections to a database in the third-party cloud or your site from [{{ data-transfer-name }} IP addresses]({{ dt-white-ip-list-uri }}).
 
-To run transfers requiring internet access, the [`data-transfer.admin`](../security/index.md) role is required. To create endpoints with a subnet specified in their settings, assign the [`vpc.user`](../../vpc/security/index.md) role to the user for the folder the subnet is in.
+If you are using [{{ interconnect-name }}](../../interconnect/concepts/index.md) or a VPN for connections, you do not need to configure the third-party cloud. To set up network connectivity, in the endpoint settings, specify a subnet from which you can connect to an external resource.
+
+To run transfers requiring internet access, the [`data-transfer.admin`](../security/index.md) role is required. To create endpoints with a subnet specified in their settings, assign to the user the [`vpc.user`](../../vpc/security/index.md) role for the folder the subnet resides in.
 
 

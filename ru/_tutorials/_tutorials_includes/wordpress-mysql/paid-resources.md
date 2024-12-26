@@ -1,4 +1,4 @@
-В стоимость поддержки веб-сайта на WordPress с кластером {{ MY }} входит:
+В стоимость поддержки сайта на WordPress с кластером {{ MY }} входит:
 * плата за постоянно запущенную [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
 * плата за кластер БД {{ MY }} (см. [тарифы {{ mmy-full-name }}](../../../managed-mysql/pricing.md));
 * плата за использование динамического или статического [внешнего IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));

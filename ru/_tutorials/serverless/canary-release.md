@@ -333,7 +333,7 @@
         created_at: "2023-09-25T16:01:48.926Z"
         name: canary
         status: ACTIVE
-        domain: d5d1ud9bli1e********.apigw.yandexcloud.net
+        domain: {{ api-host-apigw }}
         log_group_id: ckgefpleo5eg********
         connectivity: {}
         log_options:

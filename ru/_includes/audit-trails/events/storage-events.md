@@ -11,4 +11,4 @@
 `BucketPolicyUpdate` | Изменение политик доступа бакета
 `BucketTagsUpdate` | Изменение тегов бакета
 `BucketUpdate` | Изменение бакета
-`BucketWebsiteUpdate` | Изменение конфигурации веб-сайта
+`BucketWebsiteUpdate` | Изменение конфигурации сайта

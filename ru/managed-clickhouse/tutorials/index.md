@@ -7,6 +7,7 @@ description: Различные сценарии использования {{ m
 
 * [Добавление данных в БД](insert.md)
 * [{#T}](data-migration.md)
+* [{#T}](ch-to-mch-migration.md)
 * [Шардирование таблиц](sharding.md)
 * [Перешардирование данных в кластере](mch-mch-resharding.md)
 * [Использование гибридного хранилища](hybrid-storage.md)

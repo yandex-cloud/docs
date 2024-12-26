@@ -1,5 +1,5 @@
 ---
-title: Getting started with {{ api-gw-full-name }} (API gateways)
+title: Getting started with {{ api-gw-full-name }}
 description: Follow this guide to create and test different types of extensions. First, you will set up an API gateway for getting static responses and then add integration for invoking functions.
 ---
 
@@ -91,7 +91,7 @@ To get started in {{ yandex-cloud }}:
 
     Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved earlier.
 
-    For example:
+    Here is an example:
     
     ```bash
     curl https://d5dm1lba80md********.apigw.yandexcloud.net/hello?user=API
@@ -401,7 +401,7 @@ curl <service_domain>/numbers
 
 Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved [earlier](#api-gw-test).
 
-For example:
+Here is an example:
 
 ```bash
 curl https://d5dm1lba80md********.apigw.yandexcloud.net/numbers

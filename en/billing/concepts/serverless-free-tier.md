@@ -226,7 +226,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ search-api-full-name }} {#search-api}
 
-[{{ search-api-full-name }}](../../search-api/quickstart.md) is a service you can use to submit requests to the Yandex search database and get XML responses. {{ search-api-full-name }} is tailored for developers and webmasters, helping them to implement the search feature on individual websites, groups of websites, or across the internet. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results.
+[{{ search-api-full-name }}](../../search-api/quickstart.md) is a service that allows you to query the Yandex search database and get responses in XML format. {{ search-api-full-name }} is tailored for developers and webmasters, helping them to implement the search feature on individual websites, groups of websites, or across the internet. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results.
 
 {% include [not-charged-search-api.md](../../_includes/pricing/price-formula/not-charged-search-api.md) %}
 

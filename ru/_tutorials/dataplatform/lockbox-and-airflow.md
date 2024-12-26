@@ -17,7 +17,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
-   * `managed-airflow.integrationProvider`;
+   * `{{ roles.maf.integrationProvider }}`;
    * `lockbox.payloadViewer`.
 
    {% note info }

@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, какие SDK можно и
 
 {{ objstorage-name }} позволяет использовать SDK, предназначенные для работы с S3 API:
 
-* [AWS SDK для Java](../aws-sdk-java.md)
+* [AWS SDK для Java v.1.x](../aws-sdk-java.md)
 * [AWS SDK для JavaScript](../aws-sdk-js.md)
 * [AWS SDK для Python (boto)](../boto.md)
 * [AWS SDK для .NET](../aws-sdk-net.md)

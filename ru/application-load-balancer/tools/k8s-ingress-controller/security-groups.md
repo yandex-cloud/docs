@@ -112,7 +112,7 @@ description: Для корректной работы Ingress-контролле
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---
-    `30000-32767` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Упр\]^](#example) | Для подключения к узлам по SSH
+    `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `203.0.113.0/24`[^\[Упр\]^](#example) | Для подключения к узлам по SSH
 
   {% endlist %}
 
@@ -120,7 +120,7 @@ description: Для корректной работы Ingress-контролле
 
   {% list tabs group=traffic %}
 
-  - Исходящий трафик {#outgoing}
+  - Входящий трафик {#incoming}
 
     {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}
     --- | --- | --- | --- | ---

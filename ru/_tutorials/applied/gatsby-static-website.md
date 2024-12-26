@@ -1,6 +1,6 @@
 ---
 title: Хостинг статического сайта на фреймворке Gatsby
-description: Создание и размещение статического веб-сайта на фреймворке Gatsby в {{ yandex-cloud }}
+description: Создание и размещение статического сайта на фреймворке Gatsby в {{ yandex-cloud }}
 keywords:
   - gatsby
   - хостинг сайта gatsby
@@ -281,7 +281,7 @@ keywords:
 
 - Консоль управления {#console}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом:
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать сертификат.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -303,7 +303,7 @@ keywords:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом.
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Выполните команду:
 
@@ -436,7 +436,7 @@ keywords:
 
 - API {#api}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом.
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Чтобы добавить сертификат, воспользуйтесь методом REST API [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../certificate-manager/api-ref/Certificate/) или вызовом gRPC API [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md).
 

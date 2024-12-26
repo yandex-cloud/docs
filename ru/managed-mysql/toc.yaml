@@ -109,7 +109,7 @@ items:
         href: tutorials/cdc-debezium.md
       - name: Сайт на WordPress с БД {{ MY }}
         href: tutorials/wordpress-mysql.md
-      - name: Создание веб-сайта на базе «1С-Битрикс»
+      - name: Создание сайта на базе «1С-Битрикс»
         items:
           - name: Обзор
             href: tutorials/bitrix-website/index.md

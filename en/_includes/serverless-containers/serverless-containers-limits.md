@@ -10,7 +10,6 @@ Number of concurrent requests to containers per availability zone | 10
 Total RAM for all running container instances per availability zone | 20 GB
 Total number of CPUs of all running container instances per availability zone | 10
 Number of [provisioned container instances](../../serverless-containers/concepts/container.md#provisioned-instances) per cloud | 2
-Number of [user networks](../../serverless-containers/concepts/networking.md##user-network) per cloud | 1
 
 #### Limits {#serverless-containers-limits}
 
@@ -25,6 +24,7 @@ Maximum time for request processing by the container before timeout, including t
 Maximum total environment variable storage, including variable names^2^ | 4 KB
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^3^ | 230 KB
+Number of [user networks](../../serverless-containers/concepts/networking.md#user-network) per cloud | 1
 
 ^1^ A timeout of over 10 minutes is only available for [long-lived containers](../../serverless-containers/concepts/long-lived-containers.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.

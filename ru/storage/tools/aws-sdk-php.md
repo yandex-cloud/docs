@@ -24,8 +24,8 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 
    ```
    [default]
-     aws_access_key_id = <идентификатор_ключа>
-     aws_secret_access_key = <секретный_ключ>
+   aws_access_key_id = <идентификатор_ключа>
+   aws_secret_access_key = <секретный_ключ>
    ```
 
 1. Если вы используете образ LAMP из {{ marketplace-name }}, добавьте в конфигурационный файл Apache `httpd.conf` (для Debian и Ubuntu — `apache2.conf`) переменную окружения `HOME` с указанием на домашний каталог:

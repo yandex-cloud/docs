@@ -25,6 +25,9 @@ items:
             href: operations/hide-user-info.md
           - name: Deleting an organization
             href: operations/delete-org.md
+          - name: Connecting a managed organization
+            href: operations/add-region.md
+            hidden: true
       - name: Managing users
         items:
           - name: Overview
@@ -61,7 +64,7 @@ items:
             href: operations/manage-federations.md
           - name: Configuring an identity federation
             href: operations/setup-federation.md
-          - name: Configuring user group mapping for your federation
+          - name: Configuring a federated user group mapping
             href: operations/federation-group-mapping.md
           - name: Renewing a {{ yandex-cloud }} SAML certificate
             href: operations/renew-yc-certificate.md
@@ -123,6 +126,9 @@ items:
         href: concepts/groups.md
       - name: OS Login
         href: concepts/os-login.md
+      - name: Managed organizations
+        href: concepts/controlled-org.md
+        hidden: true
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting

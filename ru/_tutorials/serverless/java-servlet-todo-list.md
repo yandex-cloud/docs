@@ -363,7 +363,7 @@
      name: todo-list
      description: simple todo list
      status: ACTIVE
-     domain: d5delqeel34q********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckg2hdmevnvc********
      ```
 

@@ -2,11 +2,13 @@
 
 _Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
 
+В {{ foundation-models-full-name }} вы можете дообучить классификаторы на базе {{ gpt-lite }}.
+
 {% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 ## Данные для дообучения {#data}
 
-Для дообучения классификаторов на базе {{ yagpt-name }} подготовьте файл в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) c примерами текстов и их принадлежности к классам. Структура данных в примерах будет зависеть от [типа классификации](../classifier/index.md), для которой обучается модель.
+Для дообучения классификаторов на базе {{ gpt-lite }} подготовьте файл в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) c примерами текстов и их принадлежности к классам. Структура данных в примерах будет зависеть от [типа классификации](../classifier/index.md), для которой обучается модель.
 
 {% include [classifier-training](../../../_includes/datasphere/classifier-training.md) %}
 

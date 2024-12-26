@@ -33,7 +33,7 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
+Это означает, что при подключении к сайту не удалось проверить, есть ли его сертификат в списке отозванных.
 
 Чтобы исправить ошибку:
 

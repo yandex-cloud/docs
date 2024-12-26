@@ -1,0 +1,1 @@
+Если на уровне организации [включен](../../organization/operations/os-login-access.md) доступ по {{ oslogin }}, то для новых ВМ, создаваемых в этой организации, полю `serial_port_settings.ssh_authorization` по умолчанию будет присваиваться значение `OS_LOGIN`. Если доступ по {{ oslogin }} выключен, этому полю по умолчанию будет присваиваться значение `INSTANCE_METADATA`.

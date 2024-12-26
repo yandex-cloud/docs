@@ -46,7 +46,7 @@ info:
   title: Movies API
   version: 1.0.0
 servers:
-  - url: https://d3drb9haai**********.apigw.yandexcloud.net
+  - url: https://{{ api-host-apigw }}
 paths:
   /movies:
     get:
@@ -259,7 +259,7 @@ info:
   title: Staff API
   version: 1.0.0
 servers:
-  - url: https://d3drb9haai**********.apigw.yandexcloud.net
+  - url: https://{{ api-host-apigw }}
 paths:
   /staff:
     get:
@@ -318,7 +318,7 @@ x-yc-apigateway:
 curl \
   --request GET \
   --header "Authorization: Bearer `yc iam create-token`" \
-  "https://d5d16gda7ell********.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
+  "https://{{ api-host-apigw }}/staff?FirstName=Ivan&LastName=Ivanov"
 ```
 
 Где:

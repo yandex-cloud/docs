@@ -73,6 +73,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
+          - name: Yezzey
+            href: operations/extensions/yezzey.md
       - name: Встроенные функции
         items:
           - name: >-
@@ -125,18 +127,22 @@ items:
         href: concepts/instance-types.md
       - name: Сеть в {{ mgp-name }}
         href: concepts/network.md
+      - name: Хранилище в {{ mgp-name }}
+        items:
+          - name: Типы дисков
+            href: concepts/storage.md
+          - name: Типы хранения данных
+            href: concepts/tables.md
+          - name: Гибридное хранилище
+            href: concepts/hybrid-storage.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Типы дисков
-        href: concepts/storage.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Ресурсные группы
         href: concepts/resource-groups.md
       - name: Шардирование
         href: concepts/sharding.md
-      - name: Типы хранения данных
-        href: concepts/tables.md
       - name: Пользователи и роли
         href: concepts/cluster-users.md
       - name: Аутентификация пользователей

@@ -31,8 +31,8 @@
 
      ```text
      [default]
-       aws_access_key_id = <идентификатор_ключа>
-       aws_secret_access_key = <содержимое_ключа>
+     aws_access_key_id = <идентификатор_ключа>
+     aws_secret_access_key = <содержимое_ключа>
      ```
 
      Где:

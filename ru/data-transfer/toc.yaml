@@ -478,6 +478,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Декабрь 2024
+        href: release-notes/2412.md
       - name: Ноябрь 2024
         href: release-notes/2411.md
       - name: Октябрь 2024
