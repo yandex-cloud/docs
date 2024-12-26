@@ -14,7 +14,7 @@ labels:
   test: test
   version: beta
 status: ACTIVE
-domain: d5de8465hjvo********.apigw.yandexcloud.net
+domain: {{ api-host-apigw }}
 connectivity: {}
 log_options:
   folder_id: b1g681qpemb4********

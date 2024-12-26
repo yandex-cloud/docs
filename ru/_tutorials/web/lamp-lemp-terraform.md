@@ -1,6 +1,6 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
-1. [Загрузите файлы веб-сайта](#upload-files).
+1. [Загрузите файлы сайта](#upload-files).
 1. [Проверьте работу сайта](#test-site).
 
 В качестве примера используется доменное имя `example.com`.
@@ -76,11 +76,11 @@
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. [Получите публичный IP-адрес ВМ](../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы веб-сайта](#upload-files).
+1. [Получите публичный IP-адрес ВМ](../../compute/operations/vm-info/get-info.md) — он потребуется далее, чтобы [загрузить файлы сайта](#upload-files).
 
-После создания инфраструктуры, [загрузите файлы веб-сайта](#upload-files).
+После создания инфраструктуры, [загрузите файлы сайта](#upload-files).
 
-## Загрузите файлы веб-сайта {#upload-files}
+## Загрузите файлы сайта {#upload-files}
 
 {% include [lamp-lemp-paid-upload-files](../_tutorials_includes/lamp-lemp-upload-files.md) %}
 

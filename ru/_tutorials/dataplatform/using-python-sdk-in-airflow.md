@@ -17,7 +17,7 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
    * `compute.viewer`;
-   * `managed-airflow.integrationProvider`.
+   * `{{ roles.maf.integrationProvider }}`.
 
 1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
 

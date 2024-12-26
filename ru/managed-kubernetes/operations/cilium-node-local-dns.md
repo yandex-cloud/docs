@@ -207,6 +207,8 @@
 
    {% endcut %}
 
+   {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
 1. Создайте файл `node-local-dns-lrp.yaml`:
 
    {% cut "node-local-dns-lrp.yaml" %}

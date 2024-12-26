@@ -5,12 +5,9 @@ description: Follow this guide to create a new cloud.
 
 # Creating a new cloud
 
-
 [At sign-up](../../../billing/quickstart/index.md#create_billing_account), a [cloud](../../concepts/resources-hierarchy.md#cloud) named `cloud-<Yandex_ID>` will be automatically created for you. After you link a billing account, you can create an additional cloud.
 
 To create an additional cloud:
-
-
 
 {% list tabs group=instructions %}
 
@@ -36,7 +33,7 @@ To create an additional cloud:
 
   To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource indicating the cloud in the `cloud_id` field.
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_resourcemanager_cloud" "cloud1" {
@@ -62,7 +59,7 @@ To create an additional cloud:
 
       For more information about the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-docs-link }}).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

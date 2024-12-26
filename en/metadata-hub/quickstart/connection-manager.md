@@ -2,7 +2,7 @@
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, and {{ RD }} databases using {{ connection-manager-full-name }}.
+Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, and {{ RD }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
 
 ## Integrating with managed database services {#mdb-integration}
 

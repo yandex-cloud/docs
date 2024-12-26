@@ -94,7 +94,7 @@ description: В этой инструкции вы создадите и про�
     Например:
     
     ```bash
-    curl https://d5dm1lba80md********.apigw.yandexcloud.net/hello?user=API
+    curl https://{{ api-host-apigw }}/hello?user=API
     ```
 
     Результат:
@@ -404,7 +404,7 @@ curl <служебный_домен>/numbers
 Например:
 
 ```bash
-curl https://d5dm1lba80md********.apigw.yandexcloud.net/numbers
+curl https://{{ api-host-apigw }}/numbers
 ```
 
 Результат:

@@ -203,7 +203,7 @@ folder_id: b1guj13dic14********
 created_at: "2021-06-03T11:18:00.379Z"
 name: gate-1
 status: ACTIVE
-domain: d5dc6k87opms********.apigw.yandexcloud.net
+domain: {{ api-host-apigw }}
 log_group_id: ckg57bweoekk********
 ```
 

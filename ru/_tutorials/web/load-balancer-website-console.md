@@ -1,6 +1,6 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте группу ВМ](#create-vms).
-1. [Загрузите файлы веб-сайта](#upload-files).
+1. [Загрузите файлы сайта](#upload-files).
 1. [Создайте сетевой балансировщик](#create-load-balancer).
 1. [Протестируйте отказоустойчивость](#test).
 
@@ -77,12 +77,12 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `nlb-tg`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  Создание группы ВМ может занять несколько минут. Когда все ВМ перейдут в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на них файлы веб-сайта](#upload-files).
+  Создание группы ВМ может занять несколько минут. Когда все ВМ перейдут в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на них файлы сайта](#upload-files).
 
 {% endlist %}
 
 
-## Загрузите файлы веб-сайта {#upload-files}
+## Загрузите файлы сайта {#upload-files}
 
 {% include [load-balancer-website-upload-files](../_tutorials_includes/load-balancer-website/upload-files.md) %}
 

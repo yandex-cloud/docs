@@ -50,10 +50,16 @@
 
 - С SSH-ключом
 
+  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
   1. Создайте локальный пароль пользователя на ВМ:
       1. [Подключитесь](../vm-connect/ssh.md) к ВМ по SSH.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Отключитесь от ВМ. Для этого введите команду `logout`.
+
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
 
   1. Подключитесь к ВМ.
 
@@ -144,6 +150,8 @@
   * Перезапустите ВМ (для ВМ, созданных до 22 февраля 2019 года).
 * Если при подключении с помощью SSH-ключа возникает ошибка `Warning: remote host identification has changed!`, выполните команду `ssh-keygen -R <IP-адрес_ВМ>`.
 * Если при подключении с помощью SSH-сертификата возникает ошибка `Permission denied (publickey).`, убедитесь, что для ВМ включена авторизация по {{ oslogin }} при подключении к серийной консоли, а сертификат — не просрочен. При необходимости включите для ВМ авторизацию по {{ oslogin }} при подключении к серийной консоли или повторно экспортируйте SSH-сертификат.
+* Если при подключении с помощью SSH-сертификата возникает ошибка `Connection closed by 2a0d:d6c1:0:**::*** port 9600`, на локальной машине откройте файл `known_hosts` и удалите все строки, которые начинаются с `[serialssh.cloud.yandex.net]:9600`. Затем повторите подключение и на вопрос `Are you sure you want to continue connecting (yes/no/[fingerprint])?` ответьте `yes`.
+
 
 ## Отключиться от серийной консоли {#turn-off-serial-console}
 

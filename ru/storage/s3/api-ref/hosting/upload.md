@@ -52,7 +52,7 @@ PUT /{bucket}?website HTTP/2
 
   Элемент | Описание
   ----- | -----
-  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания сайта.
   `IndexDocument/Suffix` | Главная страница сайта.<br/><br/>Путь: `/WebsiteConfiguration/IndexDocument/Suffix`.
   `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом `4xx`.<br/><br/>Путь: `/WebsiteConfiguration/ErrorDocument/Key`.
 
@@ -74,7 +74,7 @@ PUT /{bucket}?website HTTP/2
 
   Элемент | Описание
   ----- | -----
-  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания сайта.
   `RedirectAllRequestsTo` | Содержит конфигурацию переадресации всех запросов.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo`.
   `HostName` | Хост, на который перенаравляются все запросы к бакету.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
   `Protocol` | Протокол, который используется при переадресации: `http`, `https`. Необязательный элемент.<br/><br/>Путь: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
@@ -109,7 +109,7 @@ PUT /{bucket}?website HTTP/2
 
   Элемент | Описание
   ----- | -----
-  `WebsiteConfiguration` | Заголовок верхнего уровня описания веб-сайта.
+  `WebsiteConfiguration` | Заголовок верхнего уровня описания сайта.
   `IndexDocument/Suffix` | Главная страница сайта.
   `ErrorDocument/Key` | Документ, который пользователь увидит при возникновении ошибок с кодом `4xx`.
   `RoutingRules` | Контейнер правил маршрутизации `RoutingRule`.<br/>Должен содержать хотя бы одно правило.

@@ -23,7 +23,6 @@ author: alehay
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-
 ## Примеры кода {#cpp-sdk-examples}
 
 [Смотри примеры кода C++](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) для работы с S3 от производителя.

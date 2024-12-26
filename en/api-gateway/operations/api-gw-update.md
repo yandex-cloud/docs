@@ -38,8 +38,8 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <gateway_ID> \
-       --new-name <new_gateway_name> \
+       --id <API_gateway_ID> \
+       --new-name <new_API_gateway_name> \
        --spec=<path_to_new_specification_file>
      ```
 

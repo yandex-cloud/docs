@@ -12,6 +12,7 @@
 
 * [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
+* [{#T}](./managed-schema-registry-rest.md)
 * [{#T}](./confluent-schema-registry.md)
 
 ## Поставка данных c помощью {{ data-transfer-name }} {#data-transfer}

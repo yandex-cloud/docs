@@ -37,7 +37,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <gateway_ID> \
+       --id <API_gateway_ID> \
        --canary-weight <percentage_of_requests> \
        --canary-variables=<list_of_variables>
      ```

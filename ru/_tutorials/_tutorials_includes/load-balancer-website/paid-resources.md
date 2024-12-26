@@ -1,4 +1,4 @@
-В стоимость поддержки веб-сайта входит:
+В стоимость поддержки сайта входит:
 
 * плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
 * плата за использование динамичесих или статических [внешних IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));

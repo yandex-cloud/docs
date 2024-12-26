@@ -7,7 +7,9 @@ description: В этой статье описаны системные и пр�
 
 {% include [system-requirements](../_includes/speechkit/system-requirements.md) %}
 
-{% include [system-requirements](../_includes/speechkit/system-requirements-gpu.md) %}
+{% include [licensing-server-requirements](../_includes/speechkit/licensing-server-requirements.md) %}
+
+{% include [system-requirements-gpu](../_includes/speechkit/system-requirements-gpu.md) %}
 
 ## Программные требования {#software}
 

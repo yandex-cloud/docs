@@ -69,7 +69,7 @@ By default, variables take the values specified in the `default` field of the [O
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <gateway_ID> \
+       --id <API_gateway_ID> \
        --variables <list_of_variables>
      ```
 

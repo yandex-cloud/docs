@@ -1,4 +1,23 @@
-# Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
+# Миграция данных с использованием сервиса {{ data-transfer-full-name }}
+
+С помощью сервиса {{ data-transfer-name }} вы можете перенести вашу базу данных из стороннего кластера-источника {{ CH }} в кластер-приемник {{ mch-name }}.
+
+Этот способ позволяет:
+
+* скопировать базу без остановки обслуживания пользователей;
+* обойтись без создания промежуточной [виртуальной машины](../../../glossary/vm.md) или разрешения доступа к вашему кластеру-приемнику {{ mch-name }} из интернета.
+
+Вы также можете использовать этот способ для переноса данных между двумя кластерами {{ mch-name }}. Для успешного переноса в эндпоинте-источнике укажите порты `8443` и `9440`, а также добавьте [SSL-сертификат](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert).
+
+Подробнее см. в разделе [{#T}](../../../data-transfer/concepts/use-cases.md).
+
+
+## Перед началом работы {#before-you-begin}
+
+[Разрешите подключение к кластеру-источнику из интернета](../../../data-transfer/concepts/network.md#source-external).
+
+
+## Перенос данных {#data-transfer}
 
 1. [Подготовьте кластер-источник](../../../data-transfer/operations/prepare.md#source-ch).
 1. Подготовьте инфраструктуру:
@@ -15,6 +34,8 @@
 
             Имя базы в кластере-приемнике должно совпадать с именем базы-источника.
 
+            Если вы планируете подключаться к кластеру через сервис [{{ websql-full-name }}](../../../websql/concepts/index.md), включите в настройках кластера настройку **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
+
         1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
@@ -29,8 +50,7 @@
 
                 Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-        1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
-        1. [Активируйте](../../../data-transfer/operations/transfer.md#activate) его.
+        1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты, и [активируйте](../../../data-transfer/operations/transfer.md#activate) его.
 
     - С помощью {{ TF }} {#tf}
 
@@ -65,6 +85,20 @@
                 * `target_clickhouse_version` — версия {{ CH }};
                 * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных.
 
+            * параметры [CLI {{ yandex-cloud }}](../../../cli/), чтобы активировать кластер автоматически:
+
+                * `profile_name` — имя вашего профиля в CLI {{ yandex-cloud }}.
+
+                    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+        1. (Опционально) Если вы планируете подключаться к кластеру через сервис [{{ websql-full-name }}](../../../websql/concepts/index.md), добавьте к ресурсу кластера блок `access`:
+
+            ```hcl
+            access {
+                web_sql = true
+            }
+            ```
+
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
@@ -83,22 +117,62 @@
 
     {% endlist %}
 
-1. Дождитесь перехода трансфера в статус {{ dt-status-finished }}.
+## Проверьте работоспособность трансфера {#verify-transfer}
 
-    Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
-
-1. Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ CH }}:
 
     {% list tabs group=instructions %}
+    
 
-    - Вручную {#manual}
+    - {{ websql-full-name }} {#websql}
 
-        * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
-        * [Удалите завершившийся трансфер](../../../data-transfer/operations/transfer.md#delete).
-        * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+        1. [Создайте подключение](../../../websql/operations/create-connection.md#connect-cluster) к БД в кластере {{ mch-name }}.
+        1. Проверьте, что БД содержит таблицы из кластера-источника. Для этого через созданное подключение [выполните запрос](../../../websql/operations/query-executor.md#execute-query) к БД:
 
-    - С помощью {{ TF }} {#tf}
+            ```sql
+            SHOW TABLES FROM <имя_базы_данных>;
+            ```
 
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+        1. Проверьте, что таблицы содержат данные из таблиц кластера-источника. Для этого через созданное подключение [выполните запрос](../../../websql/operations/query-executor.md#execute-query) к нужной таблице:
+
+            ```sql
+            SELECT * FROM <имя_базы_данных>.<имя_таблицы>;
+            ```
+
+
+    - CLI {#cli}
+
+        1. [Получите SSL-сертификат](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) для подключения к кластеру {{ mch-name }}.      
+        1. [Подключитесь к БД](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) в кластере {{ mch-name }} с помощью `clickhouse-client`.
+        1. Проверьте, что БД содержит таблицы из кластера-источника:
+
+            ```sql
+            SHOW TABLES FROM <имя_базы_данных>;
+            ```
+ 
+        1. Проверьте, что таблицы содержат данные из таблиц кластера-источника:
+
+            ```sql
+            SELECT * FROM <имя_базы_данных>.<имя_таблицы>;
+            ```
 
     {% endlist %}
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+{% list tabs group=instructions %}
+
+- Вручную {#manual}
+
+  * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
+  * [Удалите завершившийся трансфер](../../../data-transfer/operations/transfer.md#delete).
+  * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+
+- С помощью {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
+{% endlist %}

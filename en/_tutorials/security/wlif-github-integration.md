@@ -1,6 +1,6 @@
 # Getting the Lockbox secret value on the GitHub side
 
-[Workload Identity Federations](../../iam/concepts/workload-identity.md) allow you to configure a link between external systems and {{ yandex-cloud }} via the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. This allows external systems to perform actions on {{ yandex-cloud }} resources on behalf of service accounts without generating static credentials, such as authorized keys or IAM tokens. This is a more secure method that minimizes the risk of credential leakage and the possibility of unauthorized access.
+[Workload identity federations](../../iam/concepts/workload-identity.md) allow you to configure a link between external systems and {{ yandex-cloud }} via the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. This allows external systems to perform actions on {{ yandex-cloud }} resources on behalf of service accounts without generating static credentials, such as authorized keys or IAM tokens. This is a more secure method that minimizes the risk of credential leakage and the possibility of unauthorized access.
 
 This tutorial shows you as an example how to get the [{{ lockbox-full-name }}](../../lockbox/) [secret](../../lockbox/concepts/secret.md) value from the GitHub side under a {{ yandex-cloud }} service account. Similarly, you can perform any action via the {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml), or [{{ TF }}]({{ tf-provider-link }}).
 
@@ -32,7 +32,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder you want to create a workload identity federation in.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workload identity federation.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Go to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.

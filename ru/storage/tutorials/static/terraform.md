@@ -2,9 +2,9 @@
 canonical: '{{ link-docs }}/tutorials/web/static/terraform'
 ---
 
-# Статический веб-сайт в {{ objstorage-full-name }} с помощью {{ TF }}
+# Статический сайт в {{ objstorage-full-name }} с помощью {{ TF }}
 
-Чтобы разместить [статический веб-сайт в {{ objstorage-name }}](./index.md) с помощью {{ TF }}:
+Чтобы разместить [статический сайт в {{ objstorage-name }}](./index.md) с помощью {{ TF }}:
 
 {% include [static](../../../_tutorials/applied/static-terraform.md) %}
 

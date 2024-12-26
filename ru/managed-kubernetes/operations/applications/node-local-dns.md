@@ -15,6 +15,9 @@
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [NodeLocal DNS](/marketplace/products/yc/node-local-dns) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
+
+      {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
    * **Название приложения** — укажите название, под которым приложение будет развернуто в кластере {{ managed-k8s-name }}.
    * **Внутренний IP-адрес службы kube-dns** — адрес для обращения к NodeLocal DNS Cache. Запросы, отправленные из подов приложений по адресу в поле, маршрутизируются на [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) с помощью правил iptables.
 
@@ -59,8 +62,11 @@
    helm install \
      --set config.cilium=false \
      --set config.clusterIp="<IP-адрес_kube-dns>" \
+     --namespace kube-system \
      node-local-dns ./node-local-dns/
    ```
+
+   {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

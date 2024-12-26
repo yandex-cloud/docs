@@ -28,7 +28,7 @@ Field name | Type | Required | Description
 --- | --- | --- | ---
 `title` | `string` | No | Step name.
 `description` | `string` | No | Step description.
-`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Tracker](#Tracker)\|<br/>[Postbox](#Postbox)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
+`<step_type>` | string([FunctionCall](#FunctionCall)\|<br/>[ContainerCall](#ContainerCall)\|<br/>[HTTPCall](#HTTPCall)\|<br/>[GRPCCall](#GRPCCall)\|<br/>[YDBDocument](#YDBDocument)\|<br/>[YDS](#YDS)\|<br/>[YMQ](#YMQ)\|<br/>[FoundationModelsCall](#FoundationModelsCall)\|<br/>[ObjectStorage](#ObjectStorage)\|<br/>[Tracker](#Tracker)\|<br/>[Postbox](#Postbox)\|<br/>[Switch](#Switch)\|<br/>[Foreach](#Foreach)\|<br/>[Parallel](#Parallel)\|<br/>[Success](#Success)\|<br/>[Fail](#Fail)\|<br/>[NoOp](#NoOp)\|<br/>[Wait](#Wait)) | Yes | Step specification. Possible parameters depend on selected `<step_type>`.
 
 ## Integration steps {#integration-steps}
 
@@ -496,6 +496,16 @@ This step does nothing. You may need it, e.g., to successfully complete a pipeli
 Field name | Type | Required | [Templating](templating.md) is supported | Description
 --- | --- | --- | --- | ---
 `output` | `string` | No | Yes | A jq expression to filter the step's output data added into the [workflow state](workflow.md#state).
+`next` | `string` | No | No | ID of the next step.
+
+### Wait {#Wait}
+
+Waits for a certain period of time or up to a timestamp. If the waiting period is negative or zero, or the timestamp has already expired, the step will end right away.
+
+Field name | Type | Required | Templating is supported | Description
+--- | --- | --- | --- | ---
+`duration` | `Duration` | No | No | Waiting time
+`until` | `DateTime` | No | No | Timestamp in [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601) format, e.g., `2024-12-23T18:25:43.511Z`.
 `next` | `string` | No | No | ID of the next step.
 
 ## Specification example {#spec-example}

@@ -133,7 +133,7 @@
      created_at: "2024-08-19T18:58:32.101Z"
      name: speechkit-api-gw
      status: ACTIVE
-     domain: d5ddbmungf72********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      connectivity: {}
      log_options:
        folder_id: b1gt6g8ht345********

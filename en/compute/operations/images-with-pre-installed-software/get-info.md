@@ -72,11 +72,11 @@ You can get a public image ID or other information about it.
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
-      data "yandex_compute_image" "ubuntu_image" {
+      data "yandex_compute_image" "my_image" {
         family = "<family_name>"
       }
 
-      output "ubuntu_id" {
+      output "image" {
         value = data.yandex_compute_image.my_image.image_id
       }
       ```

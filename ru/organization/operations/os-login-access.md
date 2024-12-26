@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создавать виртуальные машины или узлы {{ k8s }} с доступом по {{ oslogin }}, разрешите такую возможность на уровне организации. После этого вы сможете [включить](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) доступ по {{ oslogin }} на ВМ, созданных из подготовленного образа с поддержкой {{ oslogin }}, или самостоятельно [настроить](../../compute/operations/vm-connect/enable-os-login.md) агента {{ oslogin }} на уже работающей ВМ. Подробнее про подключение по {{ oslogin }} см. в разделе [{#T}](../../compute/operations/vm-connect/os-login.md).
 
+{% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
+
 {% note info %}
 
 Образы с поддержкой {{ oslogin }} доступны в [{{ marketplace-full-name }}](/marketplace). Для ВМ, созданных из таких образов, в [консоли управления]({{ link-console-main }}) в форме создания и редактирования ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** активна опция **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**. Если эта опция неактивна, значит выбранный образ не поддерживает доступ по {{ oslogin }}.

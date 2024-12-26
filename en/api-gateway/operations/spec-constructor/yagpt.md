@@ -32,7 +32,7 @@ description: Follow this guide to add the {{ yagpt-full-name }} extension using 
 
         * `Text generation`:
 
-            * (Optional) **Temperature**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get more creative and randomized response from the model. Default value: `0.3`.
+            * (Optional) **Temperature**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
             * (Optional) **Number of tokens**: Maximum number of generation [tokens](../../../foundation-models/concepts/yandexgpt/tokens.md). The default value is `5`. This allows you to limit the size of the model response, if required.
 
         * `Text classification`:
@@ -56,7 +56,7 @@ description: Follow this guide to add the {{ yagpt-full-name }} extension using 
 For the API gateway to correctly process incoming requests, set the `Content-Type: application/json` header. Plus, consider the following:
 * If `Query parameter` is selected as a method to deliver the prompt, the request must include the query parameter from the **Prompt delivery method** section and its value.
 
-    Here is a gateway call path example: `<path_to_integration>?<specified_query_parameter>=<prompt_contents>`.
+    Here is an API gateway call path example: `<path_to_integration>?<specified_query_parameter>=<prompt_contents>`.
 * If `Request body` is selected as a method to deliver the prompt, the request body must include the field from the **Prompt delivery method** section and its value.
             
     Here is a request body example: `{"<request_body_field_name>": "<prompt_contents>"}`.

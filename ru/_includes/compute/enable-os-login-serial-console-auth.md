@@ -51,4 +51,13 @@ scheduling_policy:
 network_settings:
   type: STANDARD
 placement_policy: {}
+hardware_generation:
+  legacy_features:
+    pci_topology: PCI_TOPOLOGY_V1
 ```
+
+{% note info %}
+
+{% include [serial-port-settings-default](serial-port-settings-default.md) %}
+
+{% endnote %}

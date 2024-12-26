@@ -40,30 +40,30 @@ description: Из статьи вы узнаете, что такое AWS Comman
 
   ```ini
   [default]
-    aws_access_key_id = <идентификатор_статического_ключа>
-    aws_secret_access_key = <содержимое_статического_ключа>
+  aws_access_key_id = <идентификатор_статического_ключа>
+  aws_secret_access_key = <содержимое_статического_ключа>
   ```
 
 * Формат региона по умолчанию в `.aws/config`:
 
   ```ini
   [default]
-    region = {{ region-id }}
+  region = {{ region-id }}
   ```
 
 * Вы можете создать несколько профилей для разных сервисных аккаунтов, указав их данные в файле `.aws/credentials`:
 
   ```ini
   [default]
-    aws_access_key_id = <идентификатор_статического_ключа_1>
-    aws_secret_access_key = <содержимое_статического_ключа_1>
+  aws_access_key_id = <идентификатор_статического_ключа_1>
+  aws_secret_access_key = <содержимое_статического_ключа_1>
   [<имя_профиля_2>]
-    aws_access_key_id = <идентификатор_статического_ключа_2>
-    aws_secret_access_key = <содержимое_статического_ключа_2>
+  aws_access_key_id = <идентификатор_статического_ключа_2>
+  aws_secret_access_key = <содержимое_статического_ключа_2>
   ...
   [<имя_профиля_n>]
-    aws_access_key_id = <идентификатор_статического_ключа_n>
-    aws_secret_access_key = <содержимое_статического_ключа_n>
+  aws_access_key_id = <идентификатор_статического_ключа_n>
+  aws_secret_access_key = <содержимое_статического_ключа_n>
   ```
 
   Где `default` — профиль по умолчанию.
@@ -179,7 +179,7 @@ make_bucket: bucket-name
   ```text
   upload: ./testfile.txt to s3://bucket-name/path_style_prefix/textfile.txt
   ```
-  
+
 ### Получить список объектов {#getting-objects-list}
 
 ```bash

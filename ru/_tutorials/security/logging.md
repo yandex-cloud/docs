@@ -235,7 +235,7 @@
     
 ## Создайте группу ВМ {#create-vms}
 
-В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее см. [Веб-сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
+В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее см. [Сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ:
 
