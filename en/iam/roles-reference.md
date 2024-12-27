@@ -461,6 +461,35 @@ For more information, see [{#T}](../organization/security/index.md).
 For more information, see [{#T}](../postbox/security/index.md).
 
 
+## {{ cloud-registry-full-name }} {#cloud-registry-roles}
+
+#### cloud-registry.auditor {#cloud-registry-auditor}
+
+{% include [cloud-registry-auditor](../_roles/cloud-registry/auditor.md) %}
+
+#### cloud-registry.viewer {#cloud-registry-viewer}
+
+{% include [cloud-registry-viewer](../_roles/cloud-registry/viewer.md) %}
+
+#### cloud-registry.editor {#cloud-registry-editor}
+
+{% include [cloud-registry-editor](../_roles/cloud-registry/editor.md) %}
+
+#### cloud-registry.admin {#cloud-registry-admin}
+
+{% include [cloud-registry-admin](../_roles/cloud-registry/admin.md) %}
+
+#### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
+
+{% include [cloud-registry-artifacts-puller](../_roles/cloud-registry/artifacts/puller.md) %}
+
+#### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
+
+{% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
+
+For more information, see [{#T}](../cloud-registry/security/index.md).
+
+
 ## {{ video-full-name }} {#video-roles}
 
 #### video.auditor {#video-auditor}
@@ -896,6 +925,10 @@ For more information, see [{#T}](../iot-core/security/index.md).
 
 ## {{ foundation-models-full-name }} {#fm-roles}
 
+#### ai.playground.user {#ai-playground-user}
+
+{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
+
 #### ai.languageModels.user {#languageModels-user}
 
 {% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
@@ -903,6 +936,62 @@ For more information, see [{#T}](../iot-core/security/index.md).
 #### ai.imageGeneration.user {#imageGeneration-user}
 
 {% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
+
+#### ai.assistants.auditor {#ai-assistants-auditor}
+
+{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
+
+#### ai.assistants.viewer {#ai-assistants-viewer}
+
+{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
+
+#### ai.assistants.editor {#ai-assistants-editor}
+
+{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
+
+#### ai.assistants.admin {#ai-assistants-admin}
+
+{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.datasets.auditor {#ai-datasets-auditor}
+
+{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
+
+#### ai.datasets.viewer {#ai-datasets-viewer}
+
+{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
+
+#### ai.datasets.user {#ai-datasets-user}
+
+{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
+
+#### ai.datasets.editor {#ai-datasets-editor}
+
+{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
+
+#### ai.datasets.admin {#ai-datasets-admin}
+
+{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
+
+#### ai.models.auditor {#ai-models-auditor}
+
+{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
+
+#### ai.models.viewer {#ai-models-viewer}
+
+{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
+
+#### ai.models.user {#ai-models-user}
+
+{% include [ai-models-user](../_roles/ai/models/user.md) %}
+
+#### ai.models.editor {#ai-models-editor}
+
+{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
+
+#### ai.models.admin {#ai-models-admin}
+
+{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
 For more information, see [{#T}](../foundation-models/security/index.md).
 

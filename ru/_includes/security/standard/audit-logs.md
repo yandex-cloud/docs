@@ -97,11 +97,11 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 Убедитесь, что в случае записи аудит логов {{ at-full-name }} в bucket {{ objstorage-full-name }} сам бакет настроен в соответствии с лучшими практиками безопасности:
 
-* 4.1 В {{ objstorage-full-name }} включено шифрование данных at rest с помощью ключа KMS.
-* 3.8 В {{ objstorage-full-name }} включен механизм логирования действий с бакетом.
-* 3.8 В {{ objstorage-full-name }} включена функция **Блокировка версии объекта** (object lock).
-* 3.7 В {{ objstorage-full-name }} используются политики доступа (Bucket Policy).
-* 3.6 Отсутствует публичный доступ к бакету {{ objstorage-full-name }}.
+* [Отсутствует публичный доступ к бакету {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-access).
+* [В {{ objstorage-full-name }} используются политики доступа (Bucket Policy)](../../../security/standard/virtualenv-safe-config.md#bucket-policy).
+* [В {{ objstorage-full-name }} включена функция **Блокировка версии объекта** (object lock)](../../../security/standard/virtualenv-safe-config.md#object-lock).
+* [В {{ objstorage-full-name }} включен механизм логирования действий с бакетом](../../../security/standard/virtualenv-safe-config.md#bucket-logs).
+* [В {{ objstorage-full-name }} включено шифрование данных at rest с помощью ключа KMS](../../../security/standard/encryption.md#storage-kms).
 
 Вы можете воспользоваться решением для настройки безопасного бакета {{ objstorage-full-name }} с помощью {{ TF }}.
 
@@ -177,18 +177,6 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
       Список поддерживаемых сервисов:
 
-      * [{{ dns-full-name }}](#dns)
-      * [{{ compute-full-name }}](#compute)
-      * [{{ iam-full-name }}](#iam)
-      * [{{ kms-full-name }}](#kms)
-      * [{{ lockbox-full-name }}](#lockbox)
-      * [{{ mmg-full-name }}](#mmg)
-      * [{{ mmy-full-name }}](#mmy)
-      * [{{ mpg-full-name }}](#mpg)
-      * [{{ objstorage-full-name }}](#objstorage)
-      * [{{ speechsense-full-name }}](#speechsense)
-      * [{{ sws-full-name }}](#sws)
-      * [{{ wiki-full-name }}](#wiki)
-      * [{{ websql-full-name }}](#websql)
+      {% include [cp-events-service-list](../../../_includes/audit-trails/cp-events-service-list.md) %}
 
 {% endlist %}

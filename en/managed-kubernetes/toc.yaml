@@ -592,6 +592,8 @@ items:
             href: alb-ref/ingress.md
           - name: HttpBackendGroup
             href: alb-ref/http-backend-group.md
+          - name: GrpcBackendGroup
+            href: alb-ref/grpc-backend-group.md
           - name: IngressClass
             href: alb-ref/ingress-class.md
           - name: Service for Ingress
@@ -632,7 +634,7 @@ items:
         href: qa/logs.md
       - name: Troubleshooting
         href: qa/troubleshooting.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md
 base: en/managed-kubernetes
 deepBase: 2

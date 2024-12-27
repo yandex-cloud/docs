@@ -8,7 +8,7 @@ editable: false
 
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -42,13 +42,8 @@ The pricing below will apply starting October 1, 2024.
 {% include [usd-requests](../_pricing/smartwebsecurity/usd-requests-waf.md) %}
 
 
-### Pre-calculated costs of requests {#query-examples}
-
-
 To use additional protection against DDoS attacks at OSI layers 3 and 4, connect [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). You will be billed for the [public IP address](../vpc/pricing.md#prices-public-ip) and [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection) usage.
 
-
-## {{ sws-name }} cost calculation example {#price-example}
 
 
 

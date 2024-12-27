@@ -10,8 +10,8 @@ The **Comparison** report allows you to display several parameters in a single c
 
 To generate a **Comparison** report, specify these settings:
 
-* [Evaluation parameters](#parameter): Report will show changes in these parameters’ values.
-* [Filters](#filters): Apply to dialogs in the report.
+* [Evaluation parameters](#parameter): The report will cover the changes in these parameters.
+* [Filters](#filters): Filters applied to dialogs in the report.
 
 With the settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-a-comparison-report). It will show the values of several evaluation parameters in a [chart and table](#display).
 
@@ -21,9 +21,9 @@ _Evaluation parameters_ are those parameters whose value changes you can view in
 
 The report considers the total, average, minimum, or maximum value of the evaluation parameter for the selected period. For example, such values may be useful in the following cases:
 
-* Total: How many times the customer asked to call a supervisor during the conversation.
-* Average: Average dialog duration.
-* Minimum or maximum: To determine the agent with the least or most violations.
+* Total: How many times the customer asked for a supervisor during the conversation.
+* Average: Average dialog duration in seconds.
+* Minimum or maximum: Agents with the smallest and largest number of violations.
 
 In the report, you can select one of these evaluation parameter types:
 

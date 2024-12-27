@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
     ```bash
     helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \

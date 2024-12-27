@@ -13,7 +13,7 @@ The Ingress controller installed in the cluster will automatically deploy [L7 lo
 For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
 
 * [Ingress](../../k8s-ref/ingress.md): Backend traffic distribution and Ingress controller configuration rules.
-* [HttpBackendGroup](../../k8s-ref/http-backend-group.md): Combining backends into groups.
+* [HttpBackendGroup](../../k8s-ref/http-backend-group.md) and [GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md): Combining backends into groups.
 * [IngressClass](../../k8s-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
 * [Service](../../k8s-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
 

@@ -14,7 +14,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
     1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** option.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_configuration }}**, enable **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -36,7 +36,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
 
     Use the [update](../api-ref/Cluster/update.md) API method and include the following in the request:
 
-    * Cluster ID, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
+    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
     * `true` in the `uiProxy` parameter.
     * List of updatable cluster configuration fields in the `updateMask` parameter (in this case, `uiProxy`).
 

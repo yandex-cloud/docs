@@ -1,5 +1,5 @@
 ---
-title: Metrics of {{ dataproc-full-name }}
+title: '{{ dataproc-full-name }} metrics'
 description: In this article, you will learn about {{ dataproc-name }} metrics.
 editable: false
 ---

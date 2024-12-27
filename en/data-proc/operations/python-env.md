@@ -9,15 +9,15 @@ When using PySpark, it is often required to install or update Python packages in
 
 1. [Set up a virtual environment](#prepare).
 
-   For compatibility, a virtual environment is set up on a temporary {{ dataproc-name }} cluster. It is then placed in an archive that is saved in an {{ objstorage-name }} bucket.
+    For compatibility, a virtual environment is set up on a temporary {{ dataproc-name }} cluster. It is then placed in an archive that is saved in an {{ objstorage-name }} bucket.
 
 1. [Use the virtual environment](#launch) from the archive when running jobs in {{ dataproc-name }} clusters.
 
-   Python virtual environments can be used:
+    Python virtual environments can be used:
 
-   * [At regular runs of PySpark jobs](#launch-common)
-   * [When running PySpark jobs in {{ dataproc-name }} clusters integrated with {{ ml-platform-full-name }}](#launch-datasphere)
-   * [When running PySpark jobs in Zeppelin notebooks](#launch-zeppelin)
+    * [At regular runs of PySpark jobs](#launch-common)
+    * [When running PySpark jobs in {{ dataproc-name }} clusters integrated with {{ ml-platform-full-name }}](#launch-datasphere)
+    * [When running PySpark jobs in Zeppelin notebooks](#launch-zeppelin)
 
 ## Setting up a Python virtual environment {#prepare}
 
@@ -26,56 +26,56 @@ When using PySpark, it is often required to install or update Python packages in
 1. [Configure an ACL](../../storage/operations/buckets/edit-acl.md) for the bucket by granting the `READ and WRITE` permissions to the service account.
 1. [Create](./cluster-create.md) a temporary {{ dataproc-name }} cluster. When creating it, specify:
 
-   * {{ dataproc-name }} version, same as that of the cluster to use the environment on. This ensures compatibility.
-   * Components:
-      * `SPARK`
-      * `YARN`
-   * Bucket for storing logs.
-   * Service account with bucket access.
-   * (Optional) Public access to the subcluster with the master host.
+    * {{ dataproc-name }} version, same as that of the cluster to use the environment on. This ensures compatibility.
+    * Components:
+        * `SPARK`
+        * `YARN`
+    * Bucket for storing logs.
+    * Service account with bucket access.
+    * (Optional) Public access to the subcluster with the master host.
 
-   We recommend specifying the minimum required settings of host resources.
+    We recommend specifying the minimum required settings of host resources.
 
 1. [Use SSH to connect](./connect.md#data-proc-ssh) to the temporary {{ dataproc-name }} cluster.
 1. Run the built-in [Virtualenv](https://spark.apache.org/docs/latest/api/python/user_guide/python_packaging.html#using-virtualenv) tool for managing virtual environments:
 
-   ```bash
-   python -m venv pyspark_venv && \
-   source pyspark_venv/bin/activate
-   ```
+    ```bash
+    python -m venv pyspark_venv && \
+    source pyspark_venv/bin/activate
+    ```
 
 1. Install `venv-pack` and other Python environment modules you need:
 
-   ```bash
-   pip install venv-pack <module_list>
-   ```
+    ```bash
+    pip install venv-pack <list_of_modules>
+    ```
 
-   For example:
+    Example:
 
-   ```bash
-   pip install venv-pack pyarrow pandas catboost
-   ```
+    ```bash
+    pip install venv-pack pyarrow pandas catboost
+    ```
 
 1. Archive the resulting environment with the `venv-pack` command:
 
-   ```bash
-   venv-pack -o <archive_name>.tar.gz
-   ```
+    ```bash
+    venv-pack -o <archive_name>.tar.gz
+    ```
 
 1. Send the archive with the environment to the previously created {{ objstorage-short-name }} bucket:
 
-   ```bash
-   hdfs dfs -copyFromLocal <archive_name>.tar.gz s3a://<bucket_name>/
-   ```
+    ```bash
+    hdfs dfs -copyFromLocal <archive_name>.tar.gz s3a://<bucket_name>/
+    ```
 
 1. [Delete](./cluster-delete.md) the temporary {{ dataproc-name }} cluster to avoid paying for it.
 
 ## Using a virtual environment {#launch}
 
-To use the prepared virtual environment in the {{ dataproc-name }} cluster, grant the cluster service account permissions to write and read data in the bucket that stores the archive. You can do this using two methods:
+To use the prepared virtual environment in the {{ dataproc-name }} cluster, grant the cluster service account permissions to write and read data in the bucket that stores the archive. There are two ways to do this:
 
-* [Edit the bucket ACL](../../storage/operations/objects/edit-acl.md) by granting the cluster service account the `read` permission.
-* [Assign](../../iam/operations/roles/grant.md) the service account the `storage.viewer` role.
+* [Edit the bucket ACL](../../storage/operations/objects/edit-acl.md) by granting the `READ` permission to the cluster service account.
+* [Assign](../../iam/operations/roles/grant.md) the `storage.viewer` role to the service account.
 
 ### Using a virtual environment at regular runs of PySpark jobs {#launch-common}
 
@@ -83,11 +83,11 @@ When [creating a PySpark job](./jobs-pyspark.md#create), set the following [Spar
 
 * `spark.submit.deployMode=cluster`: Driver deploy mode.
 
-   Make sure to run jobs in `cluster` mode so that your virtual environment is set up properly. For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
+    Make sure to run jobs in `cluster` mode to set up your virtual environment properly. For more information about the driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
-* `spark.yarn.dist.archives='s3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the environment.
+* `spark.yarn.dist.archives='s3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the prepared environment.
 
-   After the `#` character, enter an arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
+    Enter an environment alias of your choice after the `#` character. The alias will be used as the name of the subdirectory the archive will be unpacked to.
 
 * `spark.yarn.appMasterEnv.PYSPARK_PYTHON=./<alias>/bin/python`: Overrides the run Python interpreter command for the YARN Application Master process.
 * `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON=./<alias>/bin/python`: Overrides the run Python interpreter command for the job driver.
@@ -102,26 +102,26 @@ To use Python virtual environments integrated with {{ ml-platform-full-name }}, 
 
 1. Set the `cluster` driver deploy mode on the {{ dataproc-name }} cluster side. To do this, provide the `livy:livy.spark.deploy-mode=cluster` [component property](../concepts/settings-list.md) value when [updating the cluster](./cluster-update.md).
 
-   For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
+    For more information about the driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
 1. On the {{ ml-platform-full-name }} side, [create a Livy session](../../datasphere/concepts/data-processing.md#session) with the following settings:
 
-   ```livy
-   %create_livy_session \
-       --cluster <cluster_name_or_ID> --id <Livy_session_ID> \
-       --conf spark.yarn.dist.archives=s3a://<bucket_name>/<archive_name>.tar.gz#<alias> \
-       --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./<alias>/bin/python \
-       --conf <other_Spark_context_parameters> ...
-   ```
+    ```livy
+    %create_livy_session \
+        --cluster <cluster_name_or_ID> --id <Livy_session_ID> \
+        --conf spark.yarn.dist.archives=s3a://<bucket_name>/<archive_name>.tar.gz#<alias> \
+        --conf spark.yarn.appMasterEnv.PYSPARK_PYTHON=./<alias>/bin/python \
+        --conf <other_Spark_context_parameters> ...
+    ```
 
-   Where:
+    Where:
 
-   * `<cluster_name_or_ID>`: Name or ID of the {{ dataproc-name }} cluster used for integration.
-   * `<Livy_session_ID>`: Arbitrary string to identify the Livy session in the cluster.
-   * `<bucket_name>`: Bucket with the environment archive.
-   * `<archive_name>`: Created archive with the Python environment.
-   * `<alias>`: Arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
-   * `<other_Spark_context_parameters>`: Defined if needed. For a complete list of parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
+    * `<cluster_name_or_ID>`: Name or ID of the {{ dataproc-name }} cluster used for integration.
+    * `<Livy_session_ID>`: Arbitrary string to identify the Livy session in the cluster.
+    * `<bucket_name>`: Bucket with the environment archive.
+    * `<archive_name>`: Ready-to-use archive with the Python environment.
+    * `<alias>`: Environment alias of your choice. The alias will be used as the name of the subdirectory the archive will be unpacked to.
+    * `<other_Spark_context_parameters>`: Specified if needed. For a complete list of parameters, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html#available-properties).
 
 Specify the created session [when running Python code in the cluster](../../datasphere/concepts/data-processing.md#run-code). Dependencies included in the virtual environment will be available for use.
 
@@ -129,28 +129,28 @@ Specify the created session [when running Python code in the cluster](../../data
 
 To use Python virtual environments when working in a Zeppelin notebook:
 
-1. Open the Zeppelin interface, go to the **Interpreter** settings, and edit the **spark** section by setting the Spark context mode to `Per Note` and `Isolated`. This will allow different notebooks to use different virtual environments.
-1. Create a new cell named `%spark.conf` and provide variables for a Spark session in it:
+1. In the Zeppelin interface, go to the **Interpreter** settings, and edit the **spark** section by setting the Spark context mode to `Per Note` and `Isolated`. This will allow different notebooks to use different virtual environments.
+1. Create a new cell named `%spark.conf` and use it to provide variables for a Spark session:
 
-   ```spark
-   %spark.conf
-   spark.submit.deployMode cluster
-   spark.yarn.dist.archives s3a://<bucket_name>/<archive_name>.tar.gz#<alias>
-   spark.yarn.appMasterEnv.PYSPARK_PYTHON ./<alias>/bin/python
-   spark.pyspark.python ./<alias>/bin/python
-   ```
+    ```spark
+    %spark.conf
+    spark.submit.deployMode cluster
+    spark.yarn.dist.archives s3a://<bucket_name>/<archive_name>.tar.gz#<alias>
+    spark.yarn.appMasterEnv.PYSPARK_PYTHON ./<alias>/bin/python
+    spark.pyspark.python ./<alias>/bin/python
+    ```
 
-   Where:
+    Where:
 
-   * `spark.submit.deployMode cluster`: Driver deploy mode.
+    * `spark.submit.deployMode cluster`: Driver deploy mode.
 
-      Make sure to run jobs in `cluster` mode so that your virtual environment is set up properly. For more information about driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
+        Make sure to run jobs in `cluster` mode to set up your virtual environment properly. For more information about the driver deploy mode, see [{#T}](../concepts/spark-sql.md#resource-management).
 
-   * `spark.yarn.dist.archives 's3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the environment.
+    * `spark.yarn.dist.archives 's3a://<bucket_name>/<archive_name>.tar.gz#<alias>'`: Path to the archive with the prepared environment.
 
-      After the `#` character, enter an arbitrary environment alias. The alias will be used as the name of the subdirectory the archive will be unpacked to.
+        Enter an environment alias of your choice after the `#` character. The alias will be used as the name of the subdirectory the archive will be unpacked to.
 
-   * `spark.yarn.appMasterEnv.PYSPARK_PYTHON ./<alias>/bin/python`: Overrides the run Python interpreter command for the YARN Application Master process.
-   * `spark.pyspark.python ./<alias>/bin/python`: Overrides the run Python interpreter command for the job driver.
+    * `spark.yarn.appMasterEnv.PYSPARK_PYTHON ./<alias>/bin/python`: Overrides the run Python interpreter command for the YARN Application Master process.
+    * `spark.pyspark.python ./<alias>/bin/python`: Overrides the run Python interpreter command for the job driver.
 
-   When executing the next cell that uses Spark, such as a cell in `%spark.pyspark` or `%spark.sql` mode, a Spark session will be created with the specified settings. The virtual environment dependencies will be available in this session.
+    When executing the next cell that uses Spark, such as a cell in `%spark.pyspark` or `%spark.sql` mode, a Spark session will be created with the specified settings. The virtual environment dependencies will be available in this session.

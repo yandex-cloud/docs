@@ -1,0 +1,1 @@
+{% include [google-tink](../../../_tutorials/security/encrypt/google-tink.md) %}

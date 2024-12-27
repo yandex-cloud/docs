@@ -68,7 +68,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
   Next, link the route table to a subnet to route traffic from it via the NAT gateway:
 
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the line with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+   1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. In the window that opens, select the created table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -105,7 +105,7 @@ To ensure a safe connection to the {{ dataproc-name }} cluster hosts, you will n
 
 {% note warning %}
 
-Save the private key in a secure location, as you will not be able to connect to the VM without it.
+Store your private key securely, as you will not be able to connect to the VM without it.
 
 {% endnote %}
 

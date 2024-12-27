@@ -1,6 +1,6 @@
 ---
 title: Bucket
-description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Bucket names are unique across {{ yandex-cloud }}, i.e., you cannot create buckets with identical names even if the folders they reside in belong to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name even if they reside in two different folders and in different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
   - bucket
@@ -22,11 +22,11 @@ You can [create a bucket](../operations/buckets/create.md) via the [management c
 
 ## Naming buckets {#naming}
 
-A bucket name is used as part of the data access URL and is visible to your users, e.g., `https://{{ s3-storage-host }}/bucket-name`.
+A bucket name is used as part of the data access URL and is visible to your users. For example, `https://{{ s3-storage-host }}/bucket-name`.
 
 The naming requirements are as follows:
 
-- Bucket names are unique throughout {{ objstorage-name }}, which means you cannot create two buckets with the same name, even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+- Bucket names are unique throughout {{ objstorage-name }}, i.e., you cannot create two buckets with the same name even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 - Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
@@ -81,7 +81,7 @@ You can:
 
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
-For more information on configuring the access, see [{#T}](../operations/buckets/access-via-vpc.md).
+For more information on configuring access, see [{#T}](../operations/buckets/access-via-vpc.md).
 
 
 ## Public access to buckets {#bucket-access}
@@ -102,7 +102,7 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 
 ## Recommendations and limitations {#details-of-usage}
 
-- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket capacity may be exceeded (e.g., during fast sequential upload of multiple objects).  
+- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket capacity may be exceeded (e.g., during fast sequential upload of multiple objects).
 - In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.

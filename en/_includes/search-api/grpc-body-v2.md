@@ -4,7 +4,8 @@
       "search_type": "<search_type>",
       "query_text": "<search_query_text>",
       "family_mode": "<result_filter_setting_value>",
-      "page": "<page_number>"
+      "page": "<page_number>",
+      "fix_typo_mode": "<typo_correction_mode_setting_value>"
     },
     "sort_spec": {
       "sort_mode": "<result_sorting_rule>",
@@ -18,6 +19,8 @@
     "max_passages": "<maximum_number_of_passages>",
     "region": "<region_ID>",
     "l10n": "<notification_language>",
-    "folder_id": "<folder_ID>"
+    "folder_id": "<folder_ID>",
+    "response_format": "<result_format>",
+    "user_agent": "<User-Agent_header>"
 }
 ```

@@ -12,7 +12,7 @@ description:
   - >-
     Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12
     and higher</li> <li>MySQL: 5 and higher</li> <li>ClickHouse®: 23 and
-    higher</li> <li>Redis (non-sharded clusters only): 6 and higher</li> </ul>
+    higher</li> <li>Valkey™ (non-sharded clusters only): 6 and higher</li> </ul>
 meta:
   title: Yandex WebSQL
 links:

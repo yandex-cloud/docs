@@ -53,3 +53,15 @@ common:
     to: /tutorials/dataplatform/data-processing-to-data-processing
   - from: ^/vpc/tutorials/dataproc-nat-instance
     to: /vpc/tutorials/data-processing-nat-instance
+
+ru-ru: 
+  - from: ^/security/standard/backup
+    to: /security/standard/virtualenv-safe-config
+  - from: ^/security/standard/physical-security
+    to: /security/standard/index
+
+ru-kz:
+  - from: ^/security/standard/backup
+    to: /security/standard/virtualenv-safe-config
+  - from: ^/security/standard/physical-security
+    to: /security/standard/index

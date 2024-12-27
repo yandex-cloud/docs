@@ -16,17 +16,17 @@ To view detailed information about the {{ dataproc-name }} cluster state:
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
-   The tab displays the following charts:
+  The tab displays the following charts:
 
-   * **Active nodes**: Number of running hosts (other than master hosts).
-   * **Apps failed**: Number of applications with runtime errors.
-   * **Available RAM**: Amount of free RAM (in bytes) available in YARN for hosts in data storage and processing subclusters.
-   * **Available virtual cores**: Number of cores available in YARN.
-   * **Containers pending**: Number of containers waiting to be launched by the YARN Resource Manager.
-   * **Decommissioned nodes**: Number of hosts that have been [decommissioned](../concepts/decommission.md).
+  * **Active nodes**: Number of running hosts (other than master hosts).
+  * **Apps failed**: Number of applications with runtime errors.
+  * **Available RAM**: Amount of free RAM (in bytes) available in YARN for hosts in data storage and processing subclusters.
+  * **Available virtual cores**: Number of cores available in YARN.
+  * **Containers pending**: Number of containers waiting to be launched by the YARN Resource Manager.
+  * **Decommissioned nodes**: Number of hosts that have been [decommissioned](../concepts/decommission.md).
 
 {% endlist %}
 
@@ -38,18 +38,18 @@ To view detailed information about the state of individual {{ dataproc-name }} h
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-   1. Open the VM of the host you want to monitor and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
+  1. Open the VM of the host you want to monitor and select the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
-   The tab displays charts with information on VM resource usage:
+  The tab displays charts with information on VM resource usage:
 
-   * **CPU Utilization**: Processor core workload.
-   * **Connections quota utilization**: Percentage of the available host connections utilized.
-   * **Disk bytes**: Storage read and write speed (bytes per second).
-   * **Disk operations**: Disk activity (ops per second).
-   * **Network bytes**: Speed of data exchange over the network, in bytes per second.
-   * **Network packets**: Number of packets exchanged over the network, per second.
+  * **CPU Utilization**: Processor core workload.
+  * **Connections quota utilization**: Percentage of the available host connections utilized.
+  * **Disk bytes**: Storage read and write speed (bytes per second).
+  * **Disk operations**: Disk activity (ops per second).
+  * **Network bytes**: Speed of network data exchange (bytes per second).
+  * **Network packets**: Network packet transmission activity (packets per second).
 
 {% endlist %}
 
@@ -60,15 +60,15 @@ To view detailed information about the state of individual {{ dataproc-name }} h
 
 - Management console {#console}
 
-   To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state metric alerts:
+  To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state indicator alerts:
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
-   1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **{{ dataproc-name }}**.
-   1. In the chart with metrics, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-   1. If the chart shows multiple metrics, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
-   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you want to configure alerts for.
+  1. In the list of services, select ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **{{ dataproc-name }}**.
+  1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
+  1. If the chart shows multiple indicators, select a data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see the [{{ monitoring-full-name }}](../../monitoring/concepts/querying.md) documentation.
+  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

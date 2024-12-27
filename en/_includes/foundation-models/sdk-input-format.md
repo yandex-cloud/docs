@@ -1,0 +1,1 @@
+As input data for a request, {{ ml-sdk-full-name }} can accept a string, a dictionary, an object of the `TextMessage` class, or an array containing any combination of these data types. For more information, see [{{ ml-sdk-full-name }} usage](../../foundation-models/sdk/index.md#usage).

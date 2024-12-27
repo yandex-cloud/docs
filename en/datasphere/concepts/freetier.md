@@ -10,8 +10,8 @@ The following limits apply to {{ ml-platform-name }} communities created under t
 * You cannot create [clusters from {{ dataproc-name }} templates](data-processing-template.md).
 * You cannot [deploy models](deploy/index.md) using nodes and aliases.
 
-All the above limits are marked with a special ![freetier-lock](../../_assets/datasphere/lock-yellow.svg) icon in the interface.
+All limitations are marked with a special ![freetier-lock](../../_assets/datasphere/lock-yellow.svg) icon in the interface.
 
-If you need to switch to the full-featured {{ ml-platform-name }} version, you can do that without creating a new community. In this case, all resources, projects, and computations will be retained, while the free tier mode restrictions will be removed. To switch to the full-featured version, contact your educational institution supervisor or the [support team]({{ link-console-support }}).
+If you need to switch to the full version of {{ ml-platform-name }}, you can do so without recreating the community. In which case all your resources, projects, and computations will be preserved and the free tier limitations removed. To switch to the full version, contact your educational institution supervisor or the [support team]({{ link-console-support }}).
 
 To use {{ ml-platform-name }} under special terms for educational institutions, [fill out this form](#datasphere-edu-form).

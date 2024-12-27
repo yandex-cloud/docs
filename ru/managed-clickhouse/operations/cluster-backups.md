@@ -208,7 +208,8 @@ description: Вы можете создавать резервные копии 
 
 
           * `local-ssd`;
-          * `network-ssd-nonreplicated`.
+          * `network-ssd-nonreplicated`;
+          * `network-ssd-io-m3`.
 
 
 

@@ -18,7 +18,9 @@ description: В этой инструкции вы научитесь созда
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](security/index.md#roles-list).
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. [Создайте виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md#console_1).
 

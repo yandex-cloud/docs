@@ -106,4 +106,4 @@ Verified OK
 
 #### См. также {#see-also}
 
-* [Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}](../../container-registry/tutorials/sign-with-cosign.md).
+* [Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}](../../container-registry/tutorials/sign-cr-with-cosign.md).

@@ -20,21 +20,13 @@
 
 {% include notitle [audit-logs](../../_includes/security/standard/audit-logs.md) %}
 
-## 6. Резервное копирование {#backup}
 
-{% include notitle [backup](../../_includes/security/standard/backup.md) %}
-
-
-## 7. Физическая безопасность {#physical-security}
-
-{% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
-
-## 8. Защита приложений {#app-security}
+## 6. Защита приложений {#app-security}
 
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
 
 
-## 9. Безопасность {{ k8s }} {#kubernetes-security}
+## 7. Безопасность {{ k8s }} {#kubernetes-security}
 
 {% include notitle [kubernetes-security](../../_includes/security/standard/kubernetes-security.md) %}
 

@@ -15,8 +15,8 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
 1. [Create a {{ lockbox-full-name }} secret](../../../lockbox/operations/secret-create.md) and place there the static key data as two `key-value` pairs:
 
-    * Key: `key-id`; value: <static_key_ID>`
-    * Key: `key-secret`; value: <secret_part_of_static_key>`
+    * Key: `key-id`; value: `<static_key_ID>`.
+    * Key: `key-secret`; value: `<static_key_secret_part>`.
 
 1. Set up one or more {{ dataproc-name }} clusters to work with Delta Lake:
 
@@ -24,7 +24,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     1. If you attached a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) for data storage to your cluster:
 
         1. Create a folder named `warehouse` in the bucket.
-        1. [Set ](../../concepts/settings-list.md#change-properties) the `spark.sql.warehouse.dir` property to the following value: `s3a://<bucket_name>/warehouse/`.
+        1. [Set](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` to `s3a://<bucket_name>/warehouse/`.
 
     1. [Create a {{ metastore-full-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) and [connect](../../../metadata-hub/operations/metastore/data-processing-connect.md) it to your {{ dataproc-name }} cluster.
 
@@ -45,7 +45,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     * [Add-ons for Delta Lake 2.0.2](https://github.com/yandex-cloud/yc-delta/blob/develop/yc-delta20)
     * [Add-ons for Delta Lake 2.3.0](https://github.com/yandex-cloud/yc-delta/blob/develop/yc-delta23)
 
-1. Add the downloaded archive to the dependencies of all clusters or individual jobs that need access to Delta Lake tables. You can do this using two methods:
+1. Add the downloaded archive to the dependencies of all clusters or individual jobs that need access to Delta Lake tables. There are two ways to do this:
 
     * Save the archive to the {{ objstorage-name }} bucket and provide the file URL in the `spark.jars` property:
 
@@ -60,8 +60,8 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     * Set `spark.sql.extensions` to `io.delta.sql.DeltaSparkSessionExtension`.
     * Set `spark.sql.catalog.spark_catalog` to `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
     * Set `spark.delta.logStore.s3a.impl` to `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`.
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value from the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your database in the [management console]({{ link-console-cloud }}).
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value from the **{{ ui-key.yacloud.lockbox.label_section-overview}}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value available on the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your database in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value available on the **{{ ui-key.yacloud.lockbox.label_section-overview}}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
 
 You can now use Delta Lake in multi-cluster mode.
 
@@ -186,7 +186,7 @@ To add the cleanup functions to your cloud:
     * `sa_name`: Name of the service account that will be created to use the functions.
     * `cf_ddb_name`: Name of the serverless database cleanup function; it must be unique within the folder.
     * `cf_s3_name`: Name of the serverless bucket cleanup function; it must be unique within the folder.
-    * `docapi_endpoint`: Document API endpoint. You can find it in the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your {{ ydb-short-name }} database in the [management console]({{ link-console-cloud }}).
+    * `docapi_endpoint`: Document API endpoint. You can find it on the **{{ ui-key.yacloud.ydb.database.switch_overview}}** tab of your {{ ydb-short-name }} database in the [management console]({{ link-console-cloud }}).
     * `docapi_table`: Name of the Delta Lake table to be cleaned up.
     * `s3_prefix_file`: Path to the `delta-prefixes.txt` file in the {{ objstorage-name }} bucket, e.g., `s3://<bucket_name>/delta-prefixes.txt`.
 

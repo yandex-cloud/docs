@@ -17,7 +17,10 @@ description: В этой инструкции вы научитесь созда
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](security/index.md#roles-list).
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. Подключаться к [кластерам](concepts/index.md) БД можно изнутри и извне {{ yandex-cloud }}:
    * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте [виртуальную машину](../compute/concepts/vm.md) в той же [облачной сети](../vpc/concepts/network.md#network), что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
    * Чтобы подключиться к кластеру {{ mmy-name }} из интернета, запросите публичный доступ к хостам при создании кластера.

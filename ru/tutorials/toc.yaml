@@ -62,6 +62,40 @@ items:
             href: security/protected-access-to-content/terraform.md
       - name: Загрузка аудитных логов в SIEM KUMA
         href: security/audit-trails-events-to-kuma.md
+      - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
+        href: security/coi-fluent-bit-logging.md
+      - name: Добавление HTML-страницы для работы {{ captcha-name }}
+        href: security/mobile-app/website.md
+      - name: Создание L7-балансировщика с профилем безопасности
+        href: security/balancer-with-sws-profile.md
+      - name: Сценарии использования {{ captcha-name }}
+        items:
+          - name: Капча в приложении Android
+            href: security/mobile-app/android/quickstart-android.md
+          - name: Невидимая капча в приложении Android
+            href: security/mobile-app/android/invisible-captcha-android.md
+          - name: Капча в приложении Android на Flutter
+            href: security/mobile-app/android/quickstart-android-flutter.md
+          - name: Капча в приложении iOS
+            href: security/mobile-app/ios/quickstart-ios.md
+      - name: Шифрование данных
+        items:
+          - name: Какой способ шифрования выбрать?
+            href: security/encrypt/index.md
+          - name: Шифрование с помощью CLI и API {{ yandex-cloud }}
+            href: security/encrypt/cli-api.md
+          - name: Шифрование с помощью SDK Yandex Cloud
+            href: security/encrypt/sdk.md
+          - name: Шифрование с помощью AWS Encryption SDK
+            href: security/encrypt/aws-encryption-sdk.md
+          - name: Шифрование с помощью Google Tink
+            href: security/encrypt/google-tink.md
+      - name: Управление ключами KMS с {{ TF-full }}
+        href: security/terraform-key.md
+      - name: Шифрование секретов в {{ TF-full }}
+        href: security/terraform-secret.md
+      - name: Auto Unseal в HashiCorp Vault
+        href: security/vault-secret.md
       - name: Интеграции федераций удостоверений сервисных аккаунтов
         items:
           - name: GitHub
@@ -122,6 +156,10 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+        href: archive/replicate-logs-to-storage-via-data-streams.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+        href: archive/replicate-logs-to-storage.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -146,10 +184,6 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
-      - name: >-
-          Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием
-        href: testing/loadtesting-grpc-autoscaling.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: testing/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
@@ -254,6 +288,10 @@ items:
                 href: infrastructure-management/run-docker-on-vm/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/run-docker-on-vm/terraform.md
+          - name: >-
+              Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{
+              cloud-logging-name }}
+            href: infrastructure-management/ua-http-logging.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -300,6 +338,38 @@ items:
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
             href: infrastructure-management/cert-manager-webhook.md
+  - name: Контейнерная инфраструктура
+    items:
+      - name: Все руководства
+        href: container-infrastructure/index.md
+      - name: >-
+          Развертывание и нагрузочное тестирование gRPC-сервиса с
+          масштабированием в {{ managed-k8s-name }}
+        href: container-infrastructure/loadtesting-grpc-autoscaling.md
+      - name: Настройка Gateway API в {{ managed-k8s-name }}
+        href: container-infrastructure/gateway-api.md
+      - name: >-
+          Установка Ingress-контроллера NGINX с сертификатом из {{
+          certificate-manager-name }}
+        href: container-infrastructure/nginx-ingress-certificate-manager.md
+      - name: Настройка Ingress-контроллера {{ alb-name }}
+        href: container-infrastructure/alb-ingress-controller.md
+      - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+        href: container-infrastructure/alb-ingress-controller-log-options.md
+      - name: >-
+          Проверка состояния приложений в кластере {{ managed-k8s-name }} с
+          помощью Ingress-контроллера {{ alb-name }}
+        href: container-infrastructure/custom-health-checks.md
+      - name: >-
+          Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name
+          }}
+        href: container-infrastructure/k8s-fluent-bit-logging.md
+      - name: Шифрование секретов в {{ managed-k8s-name }}
+        href: container-infrastructure/kms-k8s.md
+      - name: Синхронизация секретов {{ lockbox-name }} и {{ managed-k8s-name }}
+        href: container-infrastructure/kubernetes-lockbox-secrets.md
+      - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
+        href: container-infrastructure/sign-cr-with-cosign.md
   - name: Прикладные решения
     items:
       - name: Все руководства

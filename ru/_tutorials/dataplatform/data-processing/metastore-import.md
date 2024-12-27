@@ -135,7 +135,6 @@
         * [подсеть](../../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../../vpc/concepts/security-groups.md) для {{ dataproc-name }} и {{ metastore-name }};
         * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md);
-        * [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) для создания [бакета {{ objstorage-full-name }}](../../../storage/concepts/bucket.md);
         * бакет;
         * два кластера {{ dataproc-name }}.
 

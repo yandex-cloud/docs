@@ -4,11 +4,12 @@
       "searchType": "<search_type>",
       "queryText": "<search_query_text>",
       "familyMode": "<result_filter_setting_value>",
-      "page": "<page_number>"
+      "page": "<page_number>",
+      "fixTypoMode": "<typo_correction_mode_setting_value>"
     },
     "sortSpec": {
       "sortMode": "<result_sorting_rule>",
-      "sortOrder": "<result_sorting_order>"
+      "sortOrder": "<sort_order_of_results>"
     },
     "groupSpec": {
       "groupMode": "<result_grouping_method>",
@@ -18,6 +19,8 @@
     "maxPassages": "<maximum_number_of_passages>",
     "region": "<region_ID>",
     "l10N": "<notification_language>",
-    "folderId": "<folder_ID>"
+    "folderId": "<folder_ID>",
+    "responseFormat": "<result_format>",
+    "userAgent": "<User-Agent_header>"
 }
 ```

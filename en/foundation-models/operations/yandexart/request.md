@@ -1,6 +1,6 @@
 # Generating an image using {{ yandexart-name }}
 
-With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing the operation ID you can use to [follow up the operation's progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result once the generation is complete. Generating a result in asynchronous mode can take from a few minutes up to several hours.
+With {{ yandexart-name }}, you can generate images in [asynchronous mode](../../concepts/index.md#working-mode). In response to an asynchronous request, the model will return an [operation object](../../../api-design-guide/concepts/operation.md) containing an operation ID, which you can use to [track the operation progress](../../../api-design-guide/concepts/operation.md#monitoring) and get the result after the generation is completed. Generating a result in asynchronous mode can take from a few minutes up to several hours.
 
 ## Getting started {#before-begin}
 
@@ -28,7 +28,7 @@ To use the examples:
 
 {% note info %}
 
-To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do not use sensitive information and personal data in your prompts.
+{{ yandexart-name }} logs user prompts to generate better responses. Do not use sensitive information and personal data in your prompts.
 
 {% endnote %}
 
@@ -49,6 +49,12 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
       {% include [yandexart-sdk-big](../../../_includes/foundation-models/examples/yandexart-sdk-big.md) %}
 
       Where:
+
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
 
       * `message1`: Main part of the image generation prompt.
       * `message2`: Clarifying part of the image generation prompt.

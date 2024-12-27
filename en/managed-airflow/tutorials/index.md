@@ -1,6 +1,6 @@
 ---
 title: '{{ maf-full-name }} use cases'
-description: Various use cases for {{ maf-full-name }} in {{ yandex-cloud }}.
+description: Various {{ maf-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ maf-name }} tutorials

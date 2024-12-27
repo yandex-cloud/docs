@@ -20,11 +20,13 @@ description: Чтобы начать работать с {{ maf-full-name }}, с
 
    {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роли:
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
     * [{{ roles.maf.editor }}](security/index.md#managed-airflow-editor) — чтобы создать кластер;
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. [Создайте бакет {{ objstorage-full-name }}](../storage/operations/buckets/create.md) для хранения [DAG-файлов](concepts/index.md#about-the-service) {{ maf-name }}.
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).

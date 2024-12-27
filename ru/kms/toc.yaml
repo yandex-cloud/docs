@@ -85,10 +85,10 @@ items:
             href: tutorials/encrypt/aws-encryption-sdk.md
           - name: Шифрование с помощью Google Tink
             href: tutorials/encrypt/google-tink.md
-      - name: Шифрование секретов в Managed Service for Kubernetes
-        href: tutorials/k8s.md
+      - name: Шифрование секретов в {{ managed-k8s-name }}
+        href: tutorials/kms-k8s.md
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
-        href: tutorials/sign-with-cosign.md
+        href: tutorials/sign-cr-with-cosign.md
       - name: Управление ключами KMS с {{ TF-full }}
         href: tutorials/terraform-key.md
       - name: Шифрование секретов в {{ TF-full }}

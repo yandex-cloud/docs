@@ -21,7 +21,7 @@ default:
   api-gw-short-name: API Gateway
   api-host: api.cloud.yandex.net
   api-host-airflow: airflow.api.cloud.yandex.net
-  api-host-apigw: d5dm1lba80md********.***.apigw.yandexcloud.net
+  api-host-apigw: d5dm1lba80md********.i9******.apigw.yandexcloud.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -231,6 +231,7 @@ default:
   hm1-small: hm1.small (2 vCPU, 16 ГБ)
   hm1-xlarge: hm1.xlarge (4 vCPU, 48 ГБ)
   host-class: s2.micro
+  host-name: rc1a-goh2a9tr********
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr********
   i2:
     2xlarge: i2.2xlarge (16 vCPU, 128 ГБ)
@@ -695,6 +696,7 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
+  security-standard-current-version: 1.3.0
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -866,6 +868,15 @@ default:
     mt:
       detect|string: "2\_461,00\_₸"
       translate|string: "2\_461,00\_₸"
+  sku|KZT|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 4.2
+          v1|string: "4,20\_₸"
+        vcpu:
+          v1|number: 12.5
+          v1|string: "12,50\_₸"
   sku|KZT|alb:
     balancer:
       active|number: 11.1
@@ -1420,6 +1431,7 @@ default:
         mysql|month|number: 16
         mysql|month|string: "16,00\_₸"
         opensearch|month|string: "16,00\_₸"
+        pg|month|number: 16
         pg|month|string: "16,00\_₸"
       network-nvme:
         ch|month|number: 65.05
@@ -1502,10 +1514,12 @@ default:
         v3:
           cpu:
             c100|month|string: "5\_868,00\_₸"
+            c100|number: 8.15
             c100|string: "8,15\_₸"
             c50|month|string: "2\_448,00\_₸"
             c50|string: "3,40\_₸"
           ram|month|string: "1\_584,00\_₸"
+          ram|number: 2.2
           ram|string: "2,20\_₸"
       redis:
         backup|month|string: "9,60\_₸"
@@ -2121,6 +2135,15 @@ default:
     mt:
       detect|string: "492,20\_₽"
       translate|string: "492,20\_₽"
+  sku|RUB|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 0.84
+          v1|string: "0,84\_₽"
+        vcpu:
+          v1|number: 2.5
+          v1|string: "2,50\_₽"
   sku|RUB|alb:
     balancer:
       active|number: 2.22
@@ -2676,6 +2699,7 @@ default:
         mysql|month|number: 3.2
         mysql|month|string: "3,20\_₽"
         opensearch|month|string: "3,20\_₽"
+        pg|month|number: 3.2
         pg|month|string: "3,20\_₽"
       network-nvme:
         ch|month|number: 13.01
@@ -2758,10 +2782,12 @@ default:
         v3:
           cpu:
             c100|month|string: "1\_173,60\_₽"
+            c100|number: 1.63
             c100|string: "1,63\_₽"
             c50|month|string: "489,60\_₽"
             c50|string: "0,68\_₽"
           ram|month|string: "316,80\_₽"
+          ram|number: 0.44
           ram|string: "0,44\_₽"
       redis:
         backup|month|string: "1,92\_₽"
@@ -3377,6 +3403,15 @@ default:
     mt:
       detect|string: "3,937600\_$"
       translate|string: "3,937600\_$"
+  sku|USD|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 0.00672
+          v1|string: "0,006720\_$"
+        vcpu:
+          v1|number: 0.02
+          v1|string: "0,020000\_$"
   sku|USD|alb:
     balancer:
       active|number: 0.01776
@@ -5559,6 +5594,10 @@ default:
         label_users: Пользователи
       organization:
         action_send-invitation: Отправить приглашение
+      search:
+        label_placeholder: Поиск по облачным ресурсам
+        search_filters_all: Везде
+        search_filters_docs: Документация
       services:
         service_compute: Compute Cloud
       settings:
@@ -6552,6 +6591,7 @@ default:
           placeholder_filter-by-type: Тип аккаунта
         save: Сохранить
         save-changes: Сохранить изменения
+        search: Поиск
         section-base: Общая информация
         select: Выбрать
         start: Запустить
@@ -7301,6 +7341,7 @@ default:
               button_create_service-account-key: Создать статический ключ доступа
               button_create-key-popup: Создать новый ключ
               column_key_last-used-at: Дата последнего использования
+              column_key_scope: Область действия
               field_key-description: Описание
               field_key-expires-at: Срок действия
               field_key-scope: Область действия

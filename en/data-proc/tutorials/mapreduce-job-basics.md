@@ -14,69 +14,69 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
 1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) with the following settings:
 
-   * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
-      * `HDFS`
-      * `MAPREDUCE`
-      * `YARN`
-   * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
-   * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
+        * `HDFS`
+        * `MAPREDUCE`
+        * `YARN`
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Select the service account you previously created.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: Select a bucket to hold the processing results.
 
 ## Create a MapReduce job {#create-job}
 
 1. [Download](http://download.geonames.org/export/dump/cities500.zip) an archived CSV file with a dataset on the cities and [upload it to the input data bucket](../../storage/operations/objects/upload.md).
 1. Upload Python files to the input data bucket: `mapper.py`, which contains the code for data preprocessing (map stage), and `reducer.py`, which contains the code for the final computations (reduce stage):
 
-   `mapper.py`
+    `mapper.py`
 
-   ```python
-   #!/usr/bin/python
-   import sys
+    ```python
+    #!/usr/bin/python
+    import sys
+    
+    population = sum(int(line.split('\t')[14]) for line in sys.stdin)
+    print(population)
+    ```
 
-   population = sum(int(line.split('\t')[14]) for line in sys.stdin)
-   print(population)
-   ```
+    `reducer.py`
 
-   `reducer.py`
-
-   ```python
-   #!/usr/bin/python
-   import sys
-
-   population = sum(int(value) for value in sys.stdin)
-   print(population)
-   ```
+    ```python
+    #!/usr/bin/python
+    import sys
+    
+    population = sum(int(value) for value in sys.stdin)
+    print(population)
+    ```
 
 1. [Create a MapReduce job](../operations/jobs-mapreduce.md#create) with the following parameters:
 
-   * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
-   * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
-      * `-mapper`
-      * `mapper.py`
-      * `-reducer`
-      * `reducer.py`
-      * `-numReduceTasks`
-      * `1`
-      * `-input`
-      * `s3a://<input_data_bucket_name>/cities500.txt`
-      * `-output`
-      * `s3a://<processing_output_bucket_name>/<output_folder>`
-   * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
-      * `s3a://<input_data_bucket_name>/mapper.py`
-      * `s3a://<input_data_bucket_name>/reducer.py`
-   * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
-      * `mapreduce.job.maps: 6`
-      * `yarn.app.mapreduce.am.resource.mb: 2048`
-      * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `org.apache.hadoop.streaming.HadoopStreaming`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
+       * `-mapper`
+       * `mapper.py`
+       * `-reducer`
+       * `reducer.py`
+       * `-numReduceTasks`
+       * `1`
+       * `-input`
+       * `s3a://<input_data_bucket_name>/cities500.txt`
+       * `-output`
+       * `s3a://<output_bucket_name>/<output_directory>`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_files }}**:
+       * `s3a://<input_data_bucket_name>/mapper.py`
+       * `s3a://<input_data_bucket_name>/reducer.py`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_properties }}**:
+       * `mapreduce.job.maps: 6`
+       * `yarn.app.mapreduce.am.resource.mb: 2048`
+       * `yarn.app.mapreduce.am.command-opts: -Xmx2048m`
 
 1. Wait for the [job status](../operations/jobs-mapreduce.md#get-info) to change to `Done`.
 
 1. [Download from the bucket](../../storage/operations/objects/download.md) and review the file with the result from the bucket:
 
-   `part-00000`
+    `part-00000`
 
-   ```text
-   3157107417
-   ```
+    ```text
+    3157107417
+    ```
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 

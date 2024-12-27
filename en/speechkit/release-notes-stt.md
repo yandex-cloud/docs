@@ -6,11 +6,23 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release as of 17/12/24 {#171224}
+
+Improved recognition quality for Uzbek and Kazakh in `general:rc`.
+
+## Previous versions {#previous}
+
+### Release as of 10/12/24 {#101224}
+
+Updates to `general:rc` effective December 3 are now available in `general`.
+
+### Release as of 03/12/24 {#031224}
+
+In `general:rc`, fixed and improved error messages when using unsupported recognition languages and audio formats.
+
 ### Release as of 31/10/24 {#311024}
 
 Improved recognition quality for Uzbek and Turkish in `general:rc`.
-
-## Previous versions {#previous}
 
 ### Release as of 09/08/24 {#090924}
 

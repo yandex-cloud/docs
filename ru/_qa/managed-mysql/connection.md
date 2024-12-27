@@ -2,9 +2,9 @@
 
 Посмотрите примеры подключения в [документации](../../managed-mysql/operations/connect.md#connection-string) или на странице кластера в [консоли управления]({{ link-console-main }}) (нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на панели сверху).
 
-{{ MY }}-хосты с публичным доступом поддерживают только соединения с [SSL-сертификатом](../../managed-mysql/operations/connect.md#get-ssl-cert).
+Хосты {{ MY }} с публичным доступом поддерживают только соединения с [SSL-сертификатом](../../managed-mysql/operations/connect.md#get-ssl-cert).
 
-Существуют также [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), указывающие на **Текущий мастер** и **Наименее отстающую реплику** кластера.
+Существуют также особые FQDN, указывающие на [текущий мастер](../../managed-mysql/operations/connect.md#fqdn-master) и [наименее отстающую реплику](../../managed-mysql/operations/connect.md#fqdn-replica) кластера.
 
 #### Почему не получается подключиться из интернета? {#from-internet}
 
@@ -17,7 +17,7 @@
 
 Дополнительно:
 * Если публичный доступ в вашем кластере настроен только для некоторых хостов, автоматическая смена мастера может привести к тому, что вы не сможете подключиться к мастеру из интернета.
-* Если вы используете [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
+* Если вы используете [особые FQDN](../../managed-mysql/operations/connect.md#fqdn-master), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
 * Если вы используете [{#T}](../../managed-mysql/concepts/network.md#security-groups), проверьте их [настройки](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 #### Почему не получается подключиться из {{ yandex-cloud }}? {#from-yc}
@@ -31,7 +31,7 @@
 
 Дополнительно:
 * Если вы подключаетесь к хосту с публичным доступом, то соединение возможно только с [SSL-сертификатом](../../managed-mysql/operations/connect.md#get-ssl-cert).
-* Если вы используете [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
+* Если вы используете [особые FQDN](../../managed-mysql/operations/connect.md#fqdn-master), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
 * Если вы используете [{#T}](../../managed-mysql/concepts/network.md#security-groups), проверьте их настройки.
 
 #### Почему не получается подключиться к многохостовому кластеру? {#to-multi-host-cluster}
@@ -45,7 +45,7 @@
 
 Дополнительно:
 
-* Если вы используете [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
+* Если вы используете [особые FQDN](../../managed-mysql/operations/connect.md#fqdn-master), проверьте в списке хостов, что текущий мастер или реплика имеют публичный доступ.
 
 
 * Если после добавления хоста к нему невозможно подключиться, убедитесь, что [группа безопасности](../../managed-mysql/concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.

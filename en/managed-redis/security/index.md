@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mrd-full-name }}
-description: Access management in the Valkey™ database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ RD }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ mrd-name }}
@@ -14,7 +14,7 @@ In this section, you will learn:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-redis.admin`, or one of the following roles for that resource:
+Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -77,7 +77,7 @@ To use the service, you need the [{{ roles.mrd.editor }} role](../../iam/concept
 
 To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mrd.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mrd.admin }}` instead of `{{ roles.mrd.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mrd.admin }}` role instead of `{{ roles.mrd.editor }}`.
 
 ## What's next {#whats-next}
 

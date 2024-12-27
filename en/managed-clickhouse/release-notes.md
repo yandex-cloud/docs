@@ -5,6 +5,10 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
+## November 2024 {#nov-2024}
+
+A new version is out: {{ CH }} [24.10](https://clickhouse.com/blog/clickhouse-release-24-10).
+
 ## October 2024 {#oct-2024}
 
 * A new version is out: {{ CH }} [24.9](https://clickhouse.com/blog/clickhouse-release-24-09).

@@ -129,7 +129,7 @@ PITR не поддерживается для кластеров с включе
       * `--environment` — окружение: `PRESTABLE` или `PRODUCTION`.
 
 
-      * `--mongod-disk-type` — тип диска: `network-hdd` или `network-ssd`.
+      * `--mongod-disk-type` — тип диска: `network-hdd`, `network-ssd` или `network-ssd-io-m3`.
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.

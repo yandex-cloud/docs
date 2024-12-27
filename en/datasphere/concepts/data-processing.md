@@ -14,7 +14,7 @@ If you have no existing {{ dataproc-name }} clusters or you need a cluster for a
 * [Spark connector](temporary-data-processing-clusters.md#spark-with-temporary-cluster) (preferred)
 * [{{ dataproc-name }} template](temporary-data-processing-clusters.md#template)
 
-Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md).
+Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-name }} pricing policy](../../data-proc/pricing.md).
 
 ## Setting up a {{ ml-platform-name }} project to work with {{ dataproc-name }} clusters {#settings}
 

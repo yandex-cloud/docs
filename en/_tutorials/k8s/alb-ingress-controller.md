@@ -11,7 +11,7 @@ To set up access to the applications running in your {{ managed-k8s-name }} clus
 For full configuration of the resources for the {{ alb-name }} Ingress controller, see the following sections:
 
 * [Ingress](../../managed-kubernetes/alb-ref/ingress.md): Backend traffic distribution and load balancer configuration rules.
-* [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md): Combining backends into groups.
+* [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md), [GrpcBackendGroup](../../managed-kubernetes/alb-ref/grpc-backend-group.md): Combining backends into groups.
 * [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md): Managing multiple Ingress controllers in a {{ k8s }} cluster.
 * [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md): Description of {{ k8s }} services used as backends.
 
@@ -46,7 +46,7 @@ For full configuration of the resources for the {{ alb-name }} Ingress controlle
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-1. [Install the {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
+1. [Install an {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 
 
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
@@ -63,7 +63,7 @@ The [Ingress resource](../../application-load-balancer/k8s-ref/ingress.md) defin
 * L7 load balancer parameters set using annotations.
 * Rules for distribution of incoming traffic between [{{ k8s }} services](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
-    Services representing {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) backend groups.
+    Services acting as {{ alb-name }} backends may be specified in the Ingress resource either directly or as part of [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) backend groups.
 
 Create test applications and an Ingress resource:
 
@@ -321,11 +321,11 @@ Create test applications and an Ingress resource:
 
      Where:
 
-     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }} L7 load balancer.
+     * `ingress.alb.yc.io/subnets`: One or more subnets hosting the {{ alb-name }} L7 load balancer.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
-       If you set `auto`, deleting the load balancer will also delete its [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
+       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
 
      * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped together, each group served by a separate load balancer.
 
@@ -352,9 +352,9 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
      * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
-       * `http`: HTTP/1.1. Default.
-       * `http2`: HTTP/2.
-       * `grpc`: gRPC.
+       * `http`: HTTP/1.1, default
+       * `http2`: HTTP/2
+       * `grpc`: gRPC
      * `ingress.alb.yc.io/transport-security`: Encryption protocol for connections between the load balancer and backends.
 
         {% note warning %}
@@ -597,11 +597,11 @@ Create test applications and an Ingress resource:
      ```
 
      Where:
-     * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }} L7 load balancer.
+     * `ingress.alb.yc.io/subnets`: One or more subnets hosting the {{ alb-name }} L7 load balancer.
      * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
      * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
-       If you set `auto`, deleting the load balancer will also delete its [IP address](../../vpc/concepts/address.md) from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). To avoid this, use an existing reserved IP address.
+       If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
 
      * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped together, each group served by a separate load balancer.
 
@@ -624,9 +624,9 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
      * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
-       * `http`: HTTP/1.1. Default.
-       * `http2`: HTTP/2.
-       * `grpc`: gRPC.
+       * `http`: HTTP/1.1, default
+       * `http2`: HTTP/2
+       * `grpc`: gRPC
      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
      * `ingress.alb.yc.io/request-timeout`: Maximum period for which a connection can be established.
@@ -689,11 +689,11 @@ Create test applications and an Ingress resource:
 
 By default, the {{ alb-name }} Ingress controller receives application [health check](../../application-load-balancer/concepts/backend-group.md#health-checks) requests from the L7 load balancer at TCP port `10501` and health checks the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. If `kube-proxy` is healthy, then, even though an application does not respond in a particular pod, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
 
-You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md) resource parameters to customize health checks. For more information, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+You can use the [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md) resource parameters to customize health checks. For more information, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
 
 ## (Optional) Configure the Ingress resource group {#configure-group}
 
-If you specified a name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation when setting up the Ingress resource, you can specify logging settings for the L7 load balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress resource group settings in the optional `IngressGroupSettings` resource.
+If you specified a name for the Ingress resource group settings in the `ingress.alb.yc.io/group-settings-name` annotation when setting up the Ingress resource, you can specify logging settings for the L7 load balancer. To do this, [create a custom log group](../../logging/operations/create-group.md) and specify the Ingress resource group settings in the optional `IngressGroupSettings` resource:
 
 1. Create a `settings.yaml` file with your logging settings and the custom log group ID, e.g.:
 

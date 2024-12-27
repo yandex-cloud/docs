@@ -47,7 +47,7 @@ These tables use the following abbreviations:
     `total host RAM` × `RAM share allocated for YARN NodeManager`
 
     * Total host RAM is based on the host class selected when creating the subcluster.
-    * You can set the RAM share allocated for YARN NodeManager using the `dataproc:nodemanager_available_memory_ratio` property. By default, it is set to `0.8`. The remaining RAM is reserved for auxiliary load (sending logs and metrics, file system cache, etc.).
+    * You can set the RAM reserved for YARN NodeManager using the `dataproc:nodemanager_available_memory_ratio` property. By default, it is set to `0.8`. The remaining RAM is reserved for auxiliary load (sending logs and metrics, file system cache, etc.).
 
 In the tables, results of arithmetic operations are rounded:
 

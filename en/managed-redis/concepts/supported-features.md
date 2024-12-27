@@ -1,43 +1,43 @@
 ---
-title: Commands available in {{ mrd-full-name }}
-description: This page provides a list of {{ RD }} commands which cannot be run in a {{ RD }} cluster.
+title: Available {{ mrd-full-name }} commands
+description: This page provides a list of {{ RD }} commands which you cannot run in a {{ RD }} cluster.
 ---
 
-# Supported {{ mrd-name }} commands
+# Available {{ mrd-name }} commands
 
-{{ mrd-name }} allows you to run [any {{ RD }} commands](https://redis.io/commands), except the following:
+{{ mrd-name }} allows you to run [any {{ RD }}](https://valkey.io/commands) commands, except the following ones:
 
-* For non-sharded clusters:
+* For a non-sharded cluster:
 
-   - `ACL`
-   - `BGREWRITEAOF`
-   - `BGSAVE`
-   - `CONFIG`
-   - `DEBUG`
-   - `LASTSAVE`
-   - `MIGRATE`
-   - `MODULE`
-   - `MONITOR`
-   - `MOVE`
-   - `OBJECT`
-   - `REPLICAOF`
-   - `SAVE`
-   - `SHUTDOWN`
-   - `SLAVEOF`
+    - `ACL`
+    - `BGREWRITEAOF`
+    - `BGSAVE`
+    - `CONFIG`
+    - `DEBUG`
+    - `LASTSAVE`
+    - `MIGRATE`
+    - `MODULE`
+    - `MONITOR`
+    - `MOVE`
+    - `OBJECT`
+    - `REPLICAOF`
+    - `SAVE`
+    - `SHUTDOWN`
+    - `SLAVEOF`
 
 * The same commands are not supported for [sharded](sharding.md) clusters as for non-sharded ones, plus the following:
 
-   - `ADDSLOTS`
-   - `ADDSLOTSRANGE`
-   - `BUMPEPOCH`
-   - `DELSLOTS`
-   - `DELSLOTSRANGE`
-   - `FAILOVER`
-   - `FLUSHSLOTS`
-   - `FORGET`
-   - `MEET`
-   - `REPLICATE`
-   - `RESET`
-   - `SAVECONFIG`
-   - `SET-CONFIG-EPOCH`
-   - `SETSLOT`
+    - `ADDSLOTS`
+    - `ADDSLOTSRANGE`
+    - `BUMPEPOCH`
+    - `DELSLOTS`
+    - `DELSLOTSRANGE`
+    - `FAILOVER`
+    - `FLUSHSLOTS`
+    - `FORGET`
+    - `MEET`
+    - `REPLICATE`
+    - `RESET`
+    - `SAVECONFIG`
+    - `SET-CONFIG-EPOCH`
+    - `SETSLOT`

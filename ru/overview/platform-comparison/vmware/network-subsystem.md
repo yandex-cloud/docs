@@ -1,3 +1,8 @@
+---
+title: Сетевая подсистема (Network)
+description: В статье сопоставляются основные компоненты сетевой архитектуры VMware Cloud Director и {{ yandex-cloud }}.
+---
+
 # Сетевая подсистема (Network)
 
 ## Общая архитектура VMware NSX {#architecture-vmware-nsx}

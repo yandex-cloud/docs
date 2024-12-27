@@ -314,8 +314,8 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      ```
 
      Where:
-     * `hosts-count`: Minimum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `32`.
-     * `max-hosts-count`: Maximum number of hosts (VMs) in the {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
+     * `hosts-count`: Minimum number of hosts (VMs) per {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `32`.
+     * `max-hosts-count`: Maximum number of hosts (VMs) per {{ dataproc-name }} subcluster. The minimum value is `1`, and the maximum value is `100`.
      * `preemptible`: Indicates if [preemptible VMs](../../compute/concepts/preemptible-vm.md) are used. It can either be `true` or `false`.
      * `warmup-duration`: Time required to warm up a VM instance, in `<value>s` format. The minimum value is `0s`, and the maximum value is `600s`.
      * `stabilization-duration`: Period, in seconds, during which the required number of VMs cannot be decreased, in `<value>s` format. The minimum value is `60s` and the maximum value is `1800s`.
@@ -382,7 +382,11 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      ```
 
 
-  1. Create a configuration file describing the [service account](../../iam/concepts/users/service-accounts.md) to access the {{ dataproc-name }} cluster, as well as the [static key](../../iam/concepts/authorization/access-key.md) and the {{ objstorage-name }} bucket to store jobs and results.
+  1. Create a configuration file with a description of the following resources:
+      * [Service account](../../iam/concepts/users/service-accounts.md) to which you need to grant access to the {{ dataproc-name }} cluster.
+      * Service account to create the {{ objstorage-name }} bucket.
+      * [Static key](../../iam/concepts/authorization/access-key.md).
+      * {{ objstorage-name }} bucket for storing [job](../concepts/jobs.md) execution results
 
      ```hcl
      resource "yandex_iam_service_account" "data_proc_sa" {
@@ -402,18 +406,29 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        member    = "serviceAccount:${yandex_iam_service_account.data_proc_sa.id}"
      }
 
-     resource "yandex_iam_service_account_static_access_key" "sa_static_key" {
-       service_account_id = yandex_iam_service_account.data_proc_sa.id
+     resource "yandex_iam_service_account" "bucket_sa" {
+       name        = "<service_account_name>"
+       description = "<service_account_description>"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_member" "storage-editor" {
+       folder_id = "<folder_ID>"
+       role      = "storage.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.bucket_sa.id}"
+     }
+
+     resource "yandex_iam_service_account_static_access_key" "bucket_sa_static_key" {
+       service_account_id = yandex_iam_service_account.bucket_sa.id
      }
 
      resource "yandex_storage_bucket" "data_bucket" {
        depends_on = [
-         yandex_resourcemanager_folder_iam_member.dataproc-provisioner
+         yandex_resourcemanager_folder_iam_member.storage-editor
        ]
 
        bucket     = "<bucket_name>"
-       access_key = yandex_iam_service_account_static_access_key.sa_static_key.access_key
-       secret_key = yandex_iam_service_account_static_access_key.sa_static_key.secret_key
+       access_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.secret_key
      }
      ```
 

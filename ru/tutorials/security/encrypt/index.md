@@ -1,0 +1,1 @@
+{% include [choose-encryption-method](../../../_tutorials/security/encrypt/choose-encryption-method.md) %}

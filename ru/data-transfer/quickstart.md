@@ -53,7 +53,9 @@
 
 
 1. Перейдите в сервис [{{ billing-name }}]({{ link-console-billing }}) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роль `editor` или выше на нужный каталог или облако, которому принадлежит этот каталог.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `editor` или выше на нужный каталог или облако, которому принадлежит этот каталог.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Настройте источник и приемник {#db-settings}

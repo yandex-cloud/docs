@@ -4,15 +4,15 @@ A region is a geographic area that combines [availability zones](geo-scope.md). 
 
 Your region depends on the management console in which you signed up for an account. In the management console, you will only see the services and resources for the appropriate region.
 
-In {{ yandex-cloud }}, the following regions are available:
+Regions available in {{ yandex-cloud }}:
 
-| Region | Russia | Kazakhstan |
+Region | Russia | Kazakhstan
 --- | --- | ---
-| Availability zones | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | `kz1-a` |
-| Management console | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud) |
-| Paying for resources | [Plans for the Russia region](https://yandex.cloud/ru/prices) | [Plans for the Kazakhstan region](https://yandex.cloud/ru-kz/prices) |
-| {{ billing-name }} service | [https://billing.yandex.cloud](https://billing.yandex.cloud) | [https://kz.billing.yandex.cloud](https://kz.billing.yandex.cloud) |
-| {{ objstorage-full-name }} endpoint | https://storage.yandexcloud.net | https://storage.yandexcloud.kz |
+Availability zones | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | `kz1-a`
+Management console | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
+Paying for resources | [Plans for the Russia region](https://yandex.cloud/ru/prices) | [Plans for the Kazakhstan region](https://yandex.cloud/ru-kz/prices)
+Service {{ billing-name }} | [https://billing.yandex.cloud](https://billing.yandex.cloud) | [https://kz.billing.yandex.cloud](https://kz.billing.yandex.cloud)
+{{ objstorage-full-name }} endpoint | https://storage.yandexcloud.net | https://storage.yandexcloud.kz
 
 The following items are region-specific:
 
@@ -26,3 +26,4 @@ Your data is stored within your region and cannot be accessed from another. For 
 You can log in to the management console of each region. To start working in a new region, sign up and create a billing account there:
 * [Quick start guide for the Russia region](https://yandex.cloud/en/docs/overview/quickstart)
 * [Quick start guide for the Kazakhstan region](https://yandex.cloud/ru-kz/docs/overview/quickstart)
+

@@ -4,40 +4,40 @@ Specify the settings for the storage to import the data to:
 
 - {{ objstorage-name }} {#storage}
 
-   * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}**: Name of the previously created service account.
-   * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}**: Name of the previously created bucket.
-   * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}**: `Sqoop`.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_service-account }}**: Name of the previously created service account.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_bucket }}**: Name of the bucket you created earlier.
+    * **{{ ui-key.yacloud.mdb.cluster.overview.label_services }}**: `Sqoop`.
 
 - HDFS directory {#hdfs}
 
-   **Services**:
+    **Services**:
 
-   * `HBase`
-   * `HDFS`
-   * `Sqoop`
-   * `Yarn`
-   * `Zookeeper`
+    * `HBase`
+    * `HDFS`
+    * `Sqoop`
+    * `Yarn`
+    * `Zookeeper`
 
 - Apache Hive {#hive}
 
-   * **Services**:
+    * **Services**:
 
-      * `HDFS`
-      * `Hive`
-      * `Mapreduce`
-      * `Sqoop`
-      * `Yarn`
+        * `HDFS`
+        * `Hive`
+        * `Mapreduce`
+        * `Sqoop`
+        * `Yarn`
 
-   * **Properties**: The `hive:hive.execution.engine` key with the `mr` value.
+    * **Properties**: `hive:hive.execution.engine` key with the `mr` value.
 
 - Apache HBase {#hbase}
 
-   **Services**:
+    **Services**:
 
-   * `HBase`
-   * `HDFS`
-   * `Sqoop`
-   * `Yarn`
-   * `Zookeeper`
+    * `HBase`
+    * `HDFS`
+    * `Sqoop`
+    * `Yarn`
+    * `Zookeeper`
 
 {% endlist %}

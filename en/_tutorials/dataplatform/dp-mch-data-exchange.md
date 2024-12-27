@@ -16,12 +16,12 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-   1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
-   1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
-   1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
-   1. [Create a subnet](../../vpc/operations/subnet-create.md) in any availability zone in `dataproc-network`.
-   1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
-   1. If you are using security groups, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` in `dataproc-network` and add the following rules to it:
+    1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
+    1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
+    1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
+    1. In `dataproc-network`, [create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
+    1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
+    1. If using security groups, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` in `dataproc-network` and add the following rules to it:
 
         * One rule for inbound and another one for outbound service traffic:
 
@@ -55,7 +55,7 @@ Prepare the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
+    1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) cluster of any suitable configuration with the following settings:
 
         * With public access to cluster hosts.
         * Database: `db1`.

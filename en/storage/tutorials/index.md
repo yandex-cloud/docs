@@ -15,7 +15,7 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [Connecting a bucket as a disk in Windows](./s3-disk-connect.md)
 * [Automatically copying objects from one bucket to another](./bucket-to-bucket.md)
 * [Regular recognition of audio files in a bucket](./batch-recognition-stt.md)
-* [Generating a billing report with resource breakdown using S3 Select](./billing-resource-detailing.md)
+* [Generating a a resource-by-resource cost breakdown report using S3 Select](./billing-resource-detailing.md)
 * [{#T}](./clickhouse-hybrid-storage.md)
 * [Migrating data from {{ yds-full-name }} using {{ data-transfer-full-name }}](./yds-obj-migration.md)
 * [Server-side encryption](./server-side-encryption.md)

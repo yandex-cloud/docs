@@ -110,13 +110,23 @@ description: Следуя данной инструкции, вы сможете
 
 ## Получение FQDN хостов {{ KF }} {#get-fqdn}
 
-Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста {{ KF }}:
 
-* [Запросите список хостов в кластере](../cluster-hosts.md#list-hosts), чтобы получить имя хоста. FQDN совпадает с именем хоста.
+```text
+{{ host-name }}.{{ dns-zone }}
+```
 
-    {% include [list-hosts](../../../_includes/mdb/mkf/list-hosts.md) %}
+FQDN можно получить несколькими способами:
+
+* Посмотрите FQDN в консоли управления:
+
+    1. Перейдите на страницу кластера.
+    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
 * Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+
+* [Запросите список хостов в кластере](../cluster-hosts.md#list-hosts) с помощью CLI или API.
 
 При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) можно отсылать запросы к любому хосту-брокеру: API доступно со всех хостов-брокеров кластера.
 

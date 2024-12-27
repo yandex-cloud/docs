@@ -51,30 +51,41 @@ To create a chat with a model in your application and avoid delays in responses,
       from __future__ import annotations
       from yandex_cloud_ml_sdk import YCloudML
 
-      messages = '[\
-                    {\
-                      "role": "system",\
-                      "text": "You are a smart assistant"\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "Hi! What fields of science did Albert Einstein study?"\
-                    }\
-                  ]'
+      messages = [
+          {
+              "role": "system",
+              "text": "You are a smart assistant",
+          },
+          {
+              "role": "user",
+              "text": "Hi! What fields of science did Albert Einstein study?",
+          },
+      ]
 
-      def main() -> None:
-          sdk = YCloudML(folder_id='<folder_ID>', auth="<API_key>")
+      def main():
+          sdk = YCloudML(
+              folder_id="<folder_ID>",
+              auth="<API_key>",
+          )
 
-          result = sdk.models.completions('yandexgpt').configure(temperature=0.6).run(messages)
+          result = (
+              sdk.models.completions("yandexgpt").configure(temperature=0.6).run(messages)
+          )
 
           for alternative in result:
               print(alternative)
 
-      if __name__ == '__main__':
+      if __name__ == "__main__":
           main()
       ```
 
       Where:
+
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
 
       {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
@@ -89,31 +100,33 @@ To create a chat with a model in your application and avoid delays in responses,
       Result:
 
       ```text
-      Alternative(role='assistant', text='This looks like the beginning of a dialog between the user and the smart assistant. In response to the user’s question, the smart assistant can provide information about the fields of science studied by Albert Einstein.\n\nHere is an example:\n\n[              {                "role": "system",                "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."              }            ]', status=<AlternativeStatus.FINAL: 3>)
+      Alternative(role='assistant', text='Albert Einstein studied **physics** and **mathematics**. His work had a major influence on both fields as well as on theoretical physics in general.', status=<AlternativeStatus.FINAL: 3>)
       ```
 
   1. Add the model's response to the previous request and the user's new question to the end of the `messages` array in the `create-chat.py` file:
 
       ```python
       ...
-      messages = '[\
-                    {\
-                      "role": "system",\
-                      "text": "You are a smart assistant"\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "Hi! What fields of science did Albert Einstein study?"\
-                    },\
-                    {\
-                      "role": "assistant",\
-                      "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "What important discoveries did he make?"\
-                    }\
-                  ]'
+      messages = [
+          {
+              "role": "system",
+              "text": "You are a smart assistant",
+          },
+          {
+              "role": "user",
+              "text": "Hi! What fields of science did Albert Einstein study?",
+          },
+          {
+              "role": "assistant",
+              "text": ""”Albert Einstein studied **physics** and **mathematics**. 
+      His work had a major influence on both fields 
+      as well as on theoretical physics in general.""",
+          },
+          {
+              "role": "user",
+              "text": "What important discoveries did he make?",
+          },
+      ]
       ...
       ```
 
@@ -126,46 +139,59 @@ To create a chat with a model in your application and avoid delays in responses,
       Result:
 
       ```text
-      Alternative(role='assistant', text='**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics.\n\n* The theory of special relativity describes the laws of physics at speeds close to the speed of light. It was published in 1905 and became one of the most important scientific achievements of the early 20th century.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time. This theory was published in 1915.\n* Albert Einstein’s studies in quantum physics have led to the emergence of a new field of science, quantum electrodynamics. They also helped explain multiple phenomena occurring at the atomic and subatomic levels.' status=<AlternativeStatus.FINAL: 3>)
+      Alternative(role='assistant', text='Albert Einstein is one of the greatest scientists of the 20th century. Here are some of his important discoveries:\n* **Special theory of relativity.** Einstein has formulated the special theory of relativity, which describes motion, laws of mechanics, and spatiotemporal relationships at random velocities less than the speed of light in vacuum.\n* **General theory of relativity.** This theory describes gravity as the curvature of space-time and explains many astronomical phenomena, such as gravity waves and black holes.\n* **Photoelectric effect.** For this discovery, Einstein was awarded the Nobel Prize for Physics. His study explains how light can cause the emission of electrons from a material, providing the basis for quantum theory.\n* **Equivalence of mass and energy.** $E=mc^2$ is the most famous equation in science. It explains how mass can be transformed into energy and vice versa.', status=<AlternativeStatus.FINAL: 3>)
       ```
 
   1. Continue expanding the request context with the received responses and user questions:
 
       ```python
       ...
-      messages = '[\
-                    {\
-                      "role": "system",\
-                      "text": "You are a smart assistant"\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "Hi! What fields of science did Albert Einstein study?"\
-                    },\
-                    {\
-                      "role": "assistant",\
-                      "text": “Albert Einstein is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics."\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "What important discoveries did he make?"\
-                    },\
-                    {\
-                      "role": "assistant",\
-                      "text": "**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries in this field. In particular, he formulated the special and general theories of relativity and contributed significantly to the development of quantum physics.\n\n* The theory of special relativity describes the laws of physics at speeds close to the speed of light. It was published in 1905 and became one of the most important scientific achievements of the early 20th century.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time. This theory was published in 1915.\n* Albert Einstein’s studies in quantum physics have led to the emergence of a new field of science, quantum electrodynamics. They also helped explain multiple phenomena occurring at the atomic and subatomic levels."\
-                    },\
-                    {\
-                      "role": "user",\
-                      "text": "Make it shorter"\
-                    }\
-                  ]'
+      messages = [
+          {
+              "role": "system",
+              "text": "You are a smart assistant",
+          },
+          {
+              "role": "user",
+              "text": "Hi! What fields of science did Albert Einstein study?",
+          },
+          {
+              "role": "assistant",
+              "text": ""”Albert Einstein studied **physics** and **mathematics**. 
+      His work had a major influence on both fields 
+      as well as on theoretical physics in general.""",
+          },
+          {
+              "role": "user",
+              "text": "What important discoveries did he make?",
+          },
+          {
+              "role": "assistant",
+              "text": """Albert Einstein is one of the greatest scientists of the 20th century. 
+      Here are some of his important discoveries:\n* **Special theory of relativity.** 
+      Einstein has formulated the special theory of relativity, which describes motion, 
+      laws of mechanics, and spatiotemporal relationships at random velocities 
+      less than the speed of light in a vacuum.\n* **General theory of relativity.** 
+      This theory describes gravity as a curvature of space-time and explains 
+      many astronomical phenomena, such as gravity waves and black holes.\n* 
+      **Photoelectric effect.** For this discovery, Einstein was awarded 
+      the Nobel Prize for Physics. His study explains how light can cause the emission of electrons 
+      from a material, providing the basis for quantum theory.\n* **Equivalence of mass 
+      and energy.** $E=mc^2$ is the most famous equation in science. 
+      It explains how mass can be transformed into energy and vice versa.""",
+          },
+          {
+              "role": "user",
+              "text": "Make it shorter",
+          },
+      ]
       ...
       ```
 
       Result:
 
       ```text
-      Alternative(role='assistant', text='**Albert Einstein** is one of the greatest scientists of the 20th century. He studied physics and made a series of fundamental discoveries:\n* The **theory of special relativity** describes the laws of physics at speeds close to the speed of light.\n* The theory of general relativity generalizes the theory of special relativity and describes gravity as a curvature of space-time.\n* His studies in **quantum physics** have led to the emergence of quantum electrodynamics and helped explain phenomena occurring at the atomic and subatomic levels.' status=<AlternativeStatus.FINAL: 3>)
+      Alternative(role='assistant', text='Albert Einstein is one of the greatest scientists of the 20th century. Here are some of his important discoveries:\n* The **special theory of relativity** describes motion, laws of mechanics, and spatiotemporal relationships at velocities less than the speed of light.\n* The **theory of general relativity** explains gravity as a curvature of space-time.\n* For the discovery of the **photoelectric effect**, Einstein was awarded the Nobel Prize for Physics. His work explains the emission of electrons from a material exposed to light.\n* The $E=mc^2$ equation expresses the **equivalence of mass and energy**.', status=<AlternativeStatus.FINAL: 3>)
       ```
 
 - cURL {#curl}

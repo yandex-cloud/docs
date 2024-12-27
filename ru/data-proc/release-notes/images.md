@@ -2,6 +2,25 @@
 
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
+## Образы 2.2.x (бета) {#2-2-x}
+
+### 2.2.5 (бета) {#2-2-5}
+
+* Обновлены версии компонентов:
+
+    * Hadoop — 3.3.2.
+    * Spark — 3.5.0.
+
+* Python обновлен до версии [3.11.10](https://docs.python.org/3.11/whatsnew/3.11.html#summary-release-highlights "Список изменений").
+
+* Обновлены версии библиотек:
+
+    * IPython — 8.22.0.
+    * ipykernel — 6.29.5.
+    * Matplotlib — 3.9.2.
+    * pandas — 2.2.2.
+    * PyArrow — 14.0.2.
+    * scikit-learn — 1.5.1.
 
 ## Образы 2.1.x {#2-1-x}
 
@@ -250,4 +269,3 @@
     * scikit-learn — 0.21.3.
     * TensorFlow— 1.15.0.
     * XGBoost — 0.90.
-

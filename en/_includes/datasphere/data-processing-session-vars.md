@@ -13,4 +13,4 @@ The following global Spark configurations are overridden by the parameters requi
 * `spark.yarn.maxAppAttempts`
 * `spark.yarn.submit.waitAppCompletion`
 
-To specify additional libraries for a Spark session, use the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` parameters and place the libraries on all nodes when creating a {{ dataproc-name }} cluster with initialization scripts. Make sure the paths to the libraries you use are the same on all cluster nodes.
+To specify additional libraries for a Spark session, use the `spark.driver.extraClassPath` and `spark.executor.extraClassPath` parameters and place the libraries on all the nodes when creating a {{ dataproc-name }} cluster with initialization scripts. Make sure the paths to the libraries you use are the same on all cluster nodes.

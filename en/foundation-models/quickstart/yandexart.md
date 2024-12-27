@@ -49,7 +49,7 @@ To get started in {{ yandex-cloud }}:
 
 {% note info %}
 
-To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do not use sensitive information and personal data in your prompts.
+{{ yandexart-name }} logs user prompts to generate better responses. Do not use sensitive information and personal data in your prompts.
 
 {% endnote %}
 
@@ -75,6 +75,8 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
       Where:
       * `message`: Variable containing the text of the image generation request.
 
+          {% include [sdk-input-format](../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
       
   1. Run the created file:
@@ -86,8 +88,6 @@ To improve the quality of responses, {{ yandexart-name }} logs user prompts. Do 
      **Result:** 
 
      ![succulent](../../_assets/yandexgpt/succulent.jpeg)
-
-  
 
 - API {#api}
 

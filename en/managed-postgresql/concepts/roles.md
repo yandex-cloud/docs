@@ -7,7 +7,7 @@ description: With {{ mpg-name }}, you cannot access predefined roles. Instead, t
 
 With {{ mpg-name }}, you cannot access [predefined roles](https://www.postgresql.org/docs/current/predefined-roles.html). Instead, this service provides the following special roles:
 
-* `mdb_superuser`: For users who are not database owners but need to manage privileges in the same way as owners.
+* `mdb_superuser`: For users who are not database owners but need to manage privileges as owners.
 * `mdb_admin`: For users who are not database owners but need administrative privileges.
 * `mdb_monitor`: For users who need to be able to read various configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need to be able to perform logical replication.

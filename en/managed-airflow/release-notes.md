@@ -5,6 +5,10 @@ description: This section contains {{ maf-name }} release notes.
 
 # {{ maf-full-name }} release notes
 
+## November 2024 {#nov-2024}
+
+Added an option to select a [configuration](concepts/index.md#presets) (vCPUs and RAM) for each cluster component when [creating](operations/cluster-create.md) or [editing](operations/cluster-update.md) it.
+
 ## September 2024 {#sep-2024}
 
 * On July 16, 2024, {{ maf-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).

@@ -1,5 +1,5 @@
 ---
-title: Working with {{ search-api-full-name }}. Step-by-step guide
+title: Working with {{ search-api-full-name }}. Step-by-step guides
 description: Step-by-step guides on search queries and {{ search-api-name }} setup.
 ---
 
@@ -17,3 +17,4 @@ description: Step-by-step guides on search queries and {{ search-api-name }} set
 ## Using {{ search-api-name }} via API v2 {#api-v2}
 
 * [{#T}](./web-search.md)
+* [{#T}](./v2-mobile.md)
