@@ -80,7 +80,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
      Where:
      * `--new-name`: {{ managed-k8s-name }} cluster name.
      * `--description`: {{ managed-k8s-name }} cluster description.
-     * `--service-account-id`, `--service-account-name`: Service account for managing the {{ managed-k8s-name }} cluster.
+     * `--service-account-id`, `--service-account-name`: Service account for {{ managed-k8s-name }} cluster management.
      * `--node-service-account-id`, `--node-service-account-name`: Service account for managing the {{ managed-k8s-name }} nodes.
      * `--security-group-ids`: {{ managed-k8s-name }} cluster security groups.
 
@@ -179,11 +179,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  {% note warning %}
-
-  The existing `labels` will be completely overwritten by the ones you provide in your request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   Result:
 

@@ -37,7 +37,7 @@ Delta Lake and {{ dataproc-name }} versions are only compatible if the Delta Lak
 
 {% note info %}
 
-{{ dataproc-name }} 2.1.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and provided upon request. To access such clusters, contact [support]({{ link-console-support }}) or your account manager.
+{{ dataproc-name }} 2.1.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and provided upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

@@ -43,39 +43,35 @@ This example shows you how to create an [assistant](../../concepts/assistant/ind
 
       The example implements the simplest chat possible: enter your requests to the assistant from your keyboard and get answers. To end the dialog, enter `exit`.
 
-      {% cut "Estimated result" %}
+      {% cut "Approximate result" %}
 
       ```text
-      Enter your question to the assistant:
-      How much is a visa to Bali?
+      Enter your question to the assistant: How much is a visa to Bali?
       Answer: 300 rubles.
-      Enter your question to the assistant:
-      Do I need a visa to enter Kazakhstan?
+      Enter your question to the assistant: Do I need a visa to enter Kazakhstan?
       Answer: The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.
 
-      Answer: There is no information in the text about whether you need a visa to enter Kazakhstan. But you need a passport to visit this country.
-      Enter your question to the assistant:
-      Thank you!
-      Answer: You are welcome! If you have any more questions, I will do my best to help.
-      Enter your question to the assistant:
-      exit
+      Answer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.
+      Enter your question to the assistant: Thank you!
+      Answer: You are welcome! Is there anything else I can help you with?
+      Enter your question to the assistant: exit
       Outputting the whole message history when exiting the chat:
-          message=Message(id='fvt6lh2ng3r2********', parts=('You are welcome! If you have any more questions, I will do my best to help.',), thread_id='fvt4rk62dcic********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 8, 0, 4, 189394), labels=None, author=Author(id='fvtdvgoissl2********', role='ASSISTANT'))
-          message.text='You are welcome! If you have any more questions, I will do my best to help.'
+          message=Message(id='fvtaegenk534********', parts=('You are welcome! Is there anything else I can help you with?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 23, 15, 874678), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
+          message.text='You are welcome! Is there anything else I can help you with?'
 
-          message=Message(id='fvt8mmj7t3bs********', parts=('Thank you!',), thread_id='fvt4rk62dcic********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 8, 0, 2, 500379), labels=None, author=Author(id='fvtcqfte9ih3********', role='USER'))
+          message=Message(id='fvtrpbdnn8ar********', parts=('Thank you!',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 23, 14, 896935), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
           message.text='Thank you!'
 
-          message=Message(id='fvte2e8sl7be********', parts=('The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: There is no information in the text about whether you need a visa to enter Kazakhstan. But you need a passport to visit this country.',), thread_id='fvt4rk62dcic********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 59, 38, 449794), labels=None, author=Author(id='fvtdvgoissl2********', role='ASSISTANT'))
-          message.text='The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: There is no information in the text about whether you need a visa to enter Kazakhstan. But you need a passport to visit this country.'
+          message=Message(id='fvt1jbftbspp********', parts=('The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.' that a valid passport is required.',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 42, 310047), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
+          message.text='The text above says that a passport is required to enter Kazakhstan from Russia. It does not mention a visa in the context of traveling to Kazakhstan.\n\nAnswer: the given context provides no information about the cost and necessity of a visa to enter Kazakhstan, but it specifies that a valid passport is required.'
 
-          message=Message(id='fvtm404ffbo9********', parts=('Do I need a visa to enter Kazakhstan?',), thread_id='fvt4rk62dcicf81e5g5c', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 59, 35, 300522), labels=None, author=Author(id='fvtcqfte9ih3********', role='USER'))
+          message=Message(id='fvt1ugupmhe4********', parts=('Do I need a visa to enter Kazakhstan?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 39, 789471), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
           message.text='Do I need a visa to enter Kazakhstan?'
 
-          message=Message(id='fvtljfirc36m********', parts=('300 rubles.',), thread_id='fvt4rk62dcic********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 59, 17, 736961), labels=None, author=Author(id='fvtdvgoissl2********', role='ASSISTANT'))
+          message=Message(id='fvtif8psp9ve363c5irj', parts=('300 rubles.',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 27, 546395), labels=None, author=Author(id='fvtdo7i9cjot********', role='ASSISTANT'))
           message.text='300 rubles.'
 
-          message=Message(id='fvt3rc4oat2m********', parts=('How much is a visa to Bali?',), thread_id='fvt4rk62dcic********', created_by='aje62tfcd0oj********', created_at=datetime.datetime(2024, 12, 5, 7, 59, 16, 599110), labels=None, author=Author(id='fvtcqfte9ih3********', role='USER'))
+          message=Message(id='fvt82ggg27ui********', parts=('How much is a visa to Bali?',), thread_id='fvtm560nq0a5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 22, 26, 794009), labels=None, author=Author(id='fvtjg25ejkk0********', role='USER'))
           message.text='How much is a visa to Bali?'
       ```
 

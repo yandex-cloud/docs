@@ -31,6 +31,7 @@ description: Различные сценарии использования си
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](../infrastructure-management/terraform-modules.md)
 * [Запуск Docker-образа на виртуальной машине](../infrastructure-management/run-docker-on-vm/index.md)
+* [Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
 
 ## Сеть {#routing}
 
@@ -39,6 +40,7 @@ description: Различные сценарии использования си
 * [Маршрутизация через NAT-инстанс](../routing/nat-instance/index.md)
 * [Установка виртуального роутера Cisco CSR 1000v](../routing/cisco.md)
 * [Установка виртуального роутера Mikrotik CHR](../routing/mikrotik.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-name }}](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 

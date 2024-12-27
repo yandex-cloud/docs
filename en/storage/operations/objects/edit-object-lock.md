@@ -91,7 +91,7 @@ To put or configure a retention:
         retain_until_date: "2024-12-01T10:49:08.363Z"
       ```
 
-      The `mode` field states the lock [type](../../concepts/object-lock.md#types); the `retain_until_date` field states the retention end date.
+      The `mode` field states the lock [type](../../concepts/object-lock.md#types), while the `retain_until_date` field states its end date.
 
 - AWS CLI {#aws-cli}
 
@@ -133,6 +133,60 @@ To remove a retention:
   1. In the window that opens, disable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to set up a temporary lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Set up a temporary lock for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --retention "{}" \
+        --bypass-governance-retention
+      ```
+
+      {% include [object-lock-retention-remove-cli-legend](../../../_includes/storage/object-lock-retention-remove-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: m6384f81********
+      ```
+
+  1. {% include [get-object-retention-cli-command](../../../_includes/storage/get-object-retention-cli-command.md) %}
+
+      Running this command will return an error saying there is no lock configured for the object:
+
+      ```text
+      The specified object does not have a ObjectLock configuration.
+      ```
 
 - AWS CLI {#aws-cli}
 

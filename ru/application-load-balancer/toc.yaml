@@ -100,7 +100,7 @@ items:
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
-        href: tutorials/l7-bluegreen-deploy.md
+        href: tutorials/blue-green-canary-deployment.md
       - name: Терминирование TLS-соединений
         items:
           - name: Обзор
@@ -113,9 +113,9 @@ items:
         href: tutorials/logging.md
       - name: >-
           Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием
+          масштабированием в {{ managed-k8s-full-name }}
         href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Настройка Gateway API
+      - name: Настройка Gateway API в {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
       - name: >-
           Настройка L7-балансировщика {{ alb-name }} с помощью
@@ -137,6 +137,10 @@ items:
           Реализация защищенной высокодоступной сетевой инфраструктуры с
           выделением DMZ на основе Next-Generation Firewall
         href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{
+          sws-name }}
+        href: tutorials/balancer-with-sws-profile.md
   - name: Концепции
     items:
       - name: Обзор

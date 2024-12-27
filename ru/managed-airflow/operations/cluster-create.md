@@ -70,9 +70,9 @@ keywords:
       * Облачную сеть.
       * Подсеть в каждой из выбранных зон доступности.
 
-        {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }} в дополнительной служебной подсети. Убедитесь, что диапазон IP-адресов выбранных вами подсетей не пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. Иначе возникнет ошибка при создании кластера.
+        {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
-      * [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+      * [Группу безопасности](../concepts/network.md#security-groups) для сетевого трафика кластера.
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -343,7 +343,10 @@ keywords:
         * `network` — сетевые настройки:
 
             * `subnetIds` — список идентификаторов подсетей.
-            * `securityGroupIds` — список идентификаторов групп безопасности.
+
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `codeSync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
@@ -518,7 +521,10 @@ keywords:
         * `network` — сетевые настройки:
 
             * `subnet_ids` — список идентификаторов подсетей.
-            * `security_group_ids` — список идентификаторов групп безопасности.
+
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `code_sync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.

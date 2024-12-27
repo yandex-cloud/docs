@@ -59,7 +59,7 @@ With _constraints_ in {{ speechsense-name }}, you can narrow down the search are
 Every constraint in {{ speechsense-name }} is associated with a particular event that marks the beginning of the search area. Available events:
 
 * Beginning of the dialog.
-* Long pause (pause length is set manually).
+* Long pause (pause length is measured in seconds and set manually).
 * The agent interrupted the customer.
 * The customer interrupted the agent.
 * End of the dialog.

@@ -300,6 +300,9 @@
     1. Если нужно восстановить только определенные базы данных или таблицы, задайте их список в поле **{{ ui-key.yacloud.greenplum.field_restore-only }}**. Если оставить поле пустым, кластер будет восстановлен целиком.
     1. В настройке **{{ ui-key.yacloud.greenplum.field_hosts-count }}** укажите количество хостов-сегментов.
     1. В настройке **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** укажите количество [сегментов](../concepts/index.md) на хост.
+
+        {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     Чтобы восстановить из резервной копии удаленный ранее кластер:
@@ -315,6 +318,9 @@
     1. Если нужно восстановить только определенные базы данных или таблицы, задайте их список в поле **{{ ui-key.yacloud.greenplum.field_restore-only }}**. Если оставить поле пустым, кластер будет восстановлен целиком.
     1. В настройке **{{ ui-key.yacloud.greenplum.field_hosts-count }}** укажите количество хостов-сегментов.
     1. В настройке **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** укажите количество [сегментов](../concepts/index.md) на хост.
+
+        {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     {{ mgp-name }} запустит операцию создания кластера из резервной копии.
@@ -373,6 +379,9 @@
         * `--master-disk-size` — размер хранилища хостов-мастеров в гигабайтах.
         * `--master-disk-type` — [тип диска](../concepts/storage.md) хостов-мастеров.
         * `--segment-resource-preset` — [класс хостов-сегментов](../concepts/instance-types.md#available-flavors).
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `--segment-disk-size` — размер хранилища хостов-сегментов в гигабайтах.
         * `--segment-disk-type` — [тип диска](../concepts/storage.md) хостов-сегментов.
         * `--segment-host-count` — количество хостов-сегментов.
@@ -453,6 +462,8 @@
 
             * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
             * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
             * `restoreOnly` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
 
@@ -539,6 +550,8 @@
 
             * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
             * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
             * `restore_only` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
 

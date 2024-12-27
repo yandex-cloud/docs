@@ -5,6 +5,8 @@ items:
     href: quickstart.md
   - name: Изменение настроек консоли управления
     href: operations/update.md
+  - name: Поиск в консоли управления
+    href: operations/search.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/console

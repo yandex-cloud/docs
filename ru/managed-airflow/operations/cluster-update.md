@@ -30,7 +30,7 @@ keywords:
 
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера или создайте ее.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [группу безопасности](../concepts/network.md#security-groups) для сетевого трафика кластера или создайте ее.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -264,7 +264,7 @@ keywords:
 
             * `lockbox.enabled` — позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}. Возможные значения: `true` или `false`.
 
-        * `network.securityGroupIds` — список идентификаторов групп безопасности.
+        * `network.securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `codeSync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
@@ -451,7 +451,7 @@ keywords:
 
             * `lockbox.enabled` — позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}. Возможные значения: `true` или `false`.
 
-        * `network_spec.security_group_ids` — список идентификаторов групп безопасности.
+        * `network_spec.security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `code_sync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.

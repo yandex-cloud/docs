@@ -1,8 +1,8 @@
 title: '{{ search-api-full-name }}'
 description:
   - >-
-    {{ search-api-full-name }} is a service that allows you to send queries to
-    the Yandex search database and get responses in XML or HTML format. {{
+    {{ search-api-full-name }} is a service that allows you to query the Yandex
+    search database and get responses in XML or HTML format. {{
     search-api-full-name }} is tailored for developers and webmasters, helping
     them to implement the search feature on individual websites, groups of
     websites, or across the internet. Additionally, it offers features to
@@ -13,11 +13,12 @@ description:
     Yandex XML-compatible API v1.
   - >-
     The service is subject to the <a
-    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
-    service level is set out in the <a
-    href="https://yandex.ru/legal/cloud_sla_search_api">{{ search-api-full-name
-    }} service level</a> document.
-  - <h2>Service Terms of Use and License Agreement</h2>
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>.
+     The service level is set out in
+    in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_search_api"> {{ search-api-full-name
+    }} Service Level</a>.
+  - <h2>Terms of Use and License Agreement</h2>
   - >-
     In addition to the {{ yandex-cloud }} Terms of Use, the following Terms of
     Use apply to {{ search-api-name }}:
@@ -31,8 +32,8 @@ description:
 meta:
   title: '{{ search-api-full-name }}'
   description: >-
-    {{ search-api-full-name }} is a service that allows you to send queries to
-    the Yandex search database and get responses in XML and HTML format.
+    {{ search-api-full-name }} is a service that allows you to query the Yandex
+    search database and get responses in XML and HTML format.
 links:
   - title: Getting started
     description: Learn how to get started with the service
@@ -44,10 +45,10 @@ links:
     description: Running search queries via API v1
     href: operations/searching
   - title: Running queries via API v2
-    description: Performing search queries using API v2
+    description: Running search queries via API v2
     href: operations/web-search
   - title: XML response format
-    description: XML format of a text search response
+    description: XML format of response to a text search query
     href: concepts/response
   - title: Pricing policy
     description: Service pricing and cost calculations

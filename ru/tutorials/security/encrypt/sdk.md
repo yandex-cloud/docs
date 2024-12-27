@@ -1,0 +1,1 @@
+{% include [sdk](../../../_tutorials/security/encrypt/sdk.md) %}

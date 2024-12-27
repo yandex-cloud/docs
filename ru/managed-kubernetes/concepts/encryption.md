@@ -68,6 +68,6 @@ description: Из статьи вы узнаете, что такое шифро
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
+* [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
-* [{#T}](../../kms/tutorials/k8s.md)

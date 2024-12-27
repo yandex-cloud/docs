@@ -2,8 +2,8 @@
 title: '{{ RD }} backups'
 description: '{{ mrd-short-name }} provides automatic and manual {{ RD }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created every day. You can set the backup start time when creating or updating a {{ RD }} cluster.'
 keywords:
+  - back up
   - backup
-  - database backup
   - backups
   - Valkey backups
   - backup Valkey
@@ -14,7 +14,7 @@ keywords:
 
 {{ mrd-short-name }} supports automatic and manual database backups.
 
-{{ mrd-short-name }} uses AOF (append-only file) with forced write to disk every second through the [appendfsync everysec](http://download.redis.io/redis-stable/redis.conf) parameter.
+{{ mrd-short-name }} uses AOF (append-only file) with forced write to disk every second through the [appendfsync everysec](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf) parameter.
 
 A backup of all cluster data (an RDB snapshot) is automatically created every day and stored for seven days. You cannot disable automatic backups or change the retention period.
 
@@ -41,7 +41,7 @@ To avoid crashes:
 
 {% endnote %}
 
-Backups are only created on running clusters. If you do not use a {{ mrd-short-name }} cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you are not using your {{ mrd-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
 For more information about creating a backup manually, see [Managing backups](../operations/cluster-backups.md).
 

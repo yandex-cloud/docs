@@ -303,6 +303,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при трансфере из AWS RDS for {{ MY }}](#aws-binlog-time)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
 * [Ошибка обращения к бинарному логу](#binlog-bytes)
+* [Не удается получить позицию в бинарном логе](#binlog-position)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Сдвиг времени в типе данных DATETIME при трансфере в {{ CH }}](#timeshift)
 
@@ -317,6 +318,8 @@ description: Из статьи вы узнаете, как задать наст
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [binlog-position](../../../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

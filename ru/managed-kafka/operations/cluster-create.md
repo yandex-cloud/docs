@@ -14,15 +14,16 @@
 
 ## Различия в конфигурации кластеров с {{ ZK }} и протоколом {{ kraft-name }} {#zk-vs-kraft}
 
-Если вы создаете кластер с версией {{ KF }} 3.5 или ниже, в котором больше одного хоста, то в кластер будут добавлены три выделенных хоста {{ ZK }}. 
+Если вы создаете кластер с версией {{ KF }} 3.5 или ниже, в котором больше одного хоста, то в кластер будут добавлены три выделенных хоста {{ ZK }}.
 
 В кластерах с версией {{ KF }} 3.6 и выше поддержан протокол [{{ kraft-name }}](../concepts/kraft.md) (сокращенно {{ kraft-short-name }}). Он используется для хранения метаданных вместо {{ ZK }}.
 
 При создании кластера с протоколом {{ kraft-short-name }} действуют ограничения на конфигурацию:
-  * Можно создать кластер только с одной или тремя [зонами доступности](../../overview/concepts/geo-scope.md).
-  * Ограничено количество хостов-брокеров:
-    * Если выбрана одна зона доступности, можно создать один или три хоста-брокера.
-    * Если выбраны три зоны доступности, можно создать только один хост-брокер.
+
+* Можно создать кластер только с одной или тремя [зонами доступности](../../overview/concepts/geo-scope.md).
+* Ограничено количество хостов-брокеров:
+  * Если выбрана одна зона доступности, можно создать один или три хоста-брокера.
+  * Если выбраны три зоны доступности, можно создать только один хост-брокер.
 
 Подробнее о различиях в конфигурации кластеров с {{ ZK }} и {{ kraft-short-name }} см. в разделе [Взаимосвязь ресурсов в {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
@@ -96,7 +97,7 @@
 
         При выборе количества хостов учтите следующие особенности:
         * В версиях {{ KF }} 3.6 и выше [количество хостов-брокеров зависит](#zk-vs-kraft) от выбранных зон доступности:
-        
+
            * Одна зона доступности — один или три хоста-брокера. Чтобы использовать три хоста-брокера, включите настройку **{{ ui-key.yacloud.kafka.field_kraft-combined-mode }}**.
            * Три зоны доступности — один хост-брокер.
 
@@ -170,7 +171,7 @@
      Где:
 
      * `--environment` — окружение кластера: `prestable` или `production`.
-     * `--version` — версия {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6.
+     * `--version` — версия {{ KF }}: {{ versions.cli.str }}.
      * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне.
 
         Для [кластеров с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) доступны только следующие конфигурации:
@@ -303,7 +304,7 @@
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
-     * `version` — версия {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6.        
+     * `version` — версия {{ KF }}: {{ versions.tf.str }}.
      * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
 
        Если вы создаете [кластер с версией {{ KF }} 3.6 и выше](#zk-vs-kraft), укажите одну из доступных конфигураций:
@@ -335,90 +336,387 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  {% note warning %}
+    {% note warning %}
 
-  При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
+    При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
 
-  {% endnote %}
+    {% endnote %}
 
-  Чтобы создать кластер {{ mkf-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластер {{ mkf-name }}, в параметре `folderId`.
-  * Имя кластера {{ mkf-name }} в параметре `name`.
-  * Окружение: `PRESTABLE` или `PRODUCTION` — в параметре `environment`.
-  * Версию {{ KF }}: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5 или 3.6. — в параметре `configSpec.version`.    
-  * Зоны доступности в параметре `configSpec.zoneId`.
-    При создании [кластера с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) можно указать только одну или три зоны доступности.
-  * Количество хостов-брокеров в параметре `configSpec.brokersCount`.
-    При создании [кластера с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) можно указать только один или три хоста-брокера:
-      * Если в параметре `configSpec.zoneId` указаны три зоны доступности, укажите количество хостов-брокеров `1`.
-      * Если в параметре `configSpec.zoneId` указана одна зона доступности, укажите количество хостов-брокеров `1` или `3`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-  * Идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в параметре `securityGroupIds`.
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            {% note info %}
+
+            В примере приведены не все доступные параметры.
+
+            {% endnote %}
 
 
-  * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров {{ mkf-name }}) в параметре `maintenanceWindow`.
-  * Настройки защиты от удаления кластера {{ mkf-name }} в параметре `deletionProtection`.
+            ```json
+            {
+              "folderId": "<идентификатор_каталога>",
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "networkId": "<идентификатор_сети>",
+              "securityGroupIds": [
+                "<идентификатор_группы_безопасности_1>",
+                "<идентификатор_группы_безопасности_2>",
+                ...
+                "<идентификатор_группы_безопасности_N>"
+              ],
+              "configSpec": {
+                "version": "<версия_{{ KF }}>",
+                "kafka": {
+                  "resources": {
+                    "resourcePresetId": "<класс_хостов {{ KF }}>",
+                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskTypeId": "<тип_диска>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resourcePresetId": "<класс_хостов {{ ZK }}>",
+                    "diskSize": "<размер_хранилища_в_байтах>",
+                    "diskTypeId": "<тип_диска>"                   
+                  }
+                },
+                "zoneId": [
+                  <список_зон_доступности>
+                ],
+                "brokersCount": "<количество_брокеров_в_зоне>",
+                "assignPublicIp": <публичный_доступ:_true_или_false>,
+                "schemaRegistry": <управление_схемами_данных:_true_или_false>,
+                "restApiConfig": {
+                  "enabled": <отправка_запросов_к_API_{{ KF }}:_true_или_false>
+                },
+                "diskSizeAutoscaling": {
+                  <параметры_автоматического_увеличения_размера_хранилища>
+                },
+              },
+              "topicSpecs": [
+                {
+                  "name": "<имя_топика>",
+                  "partitions": "<количество_партиций>",
+                  "replicationFactor": "<фактор_репликации>"
+                },
+                { <аналогичный_набор_настроек_для_топика_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_топика_N> }
+              ],
+              "userSpecs": [
+                {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                    {
+                      "topicName": "<имя_топика>",
+                      "role": "<роль_пользователя>"
+                    }
+                  ]
+                },
+                { <аналогичный_набор_настроек_для_пользователя_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_пользователя_N> }
+              ],
+              "maintenanceWindow": {
+                "anytime": {},
+                "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня_по_UTC>"
+                }
+              },
+              "deletionProtection": <защита_от_удаления:_true_или_false>
+            }
+            ```
 
-    {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-  Чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md), передайте значение `true` для параметра `configSpec.schemaRegistry`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
+            Где:
 
-
-
-  Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
-
-  {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+            * `name` — имя кластера.
+            * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+            * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
 
-  Чтобы в кластере не заканчивалось место на диске, создайте кластер с [автоматическим увеличением размера хранилища](../concepts/storage.md#auto-rescale). Для этого передайте в запросе:
+            * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
 
-  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+            * `configSpec` — конфигурация кластера:
+
+                * `version` — версия {{ KF }}: {{ versions.cli.str }}.
+                * `kafka` — конфигурация {{ KF }}:
+
+                    * `resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.diskSize` — размер диска в байтах.
+                    * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
+
+                * `zookeeper` — конфигурация [{{ ZK }}](../concepts/index.md#zookeeper):
+
+                    * `resources.resourcePresetId` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
+                    * `resources.diskSize` — размер диска в байтах.
+                    * `resources.diskTypeId` — тип диска.
+
+
+                * `zoneId` и `brokersCount` – зоны доступности и число хостов-брокеров в каждой зоне.
+
+                  Если вы создаете [кластер с версией {{ KF }} 3.6 и выше](#zk-vs-kraft), укажите одну из доступных конфигураций:
+
+                  * `"zoneId": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokersCount": "1"`;
+                  * `"zoneId": ["<одна_зона_доступности>"], "brokersCount": "1"`;
+                  * `"zoneId": ["<одна_зона_доступности>"], "brokersCount": "3"`.
+
+                * `assignPublicIp` — доступность хостов-брокеров из интернета: `true` или `false`.
+                * `schemaRegistry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
+                * `restApiConfig` – конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
+                * `diskSizeAutoscaling` – [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
+
+                  {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
+
+            * `topicSpecs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
+
+                {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
+
+            * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+                {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
+
+            * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
+
+                * `anytime` — (по умолчанию) — в любое время.
+                * `weeklyMaintenanceWindow` — по расписанию:
+                    * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                    * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+
+            * `deletionProtection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    {% note warning %}
+
+    При создании кластера с {{ kraft-short-name }} не указывайте настройки {{ ZK }}.
+
+    {% endnote %}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/Сreate](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            {% note info %}
+
+            В примере приведены не все доступные параметры.
+
+            {% endnote %}
+
+
+            ```json
+            {
+              "folder_id": "<идентификатор_каталога>",
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "network_id": "<идентификатор_сети>",
+              "security_group_ids": [
+                "<идентификатор_группы_безопасности_1>",
+                "<идентификатор_группы_безопасности_2>",
+                ...
+                "<идентификатор_группы_безопасности_N>"
+              ],
+              "config_spec": {
+                "version": "<версия_{{ KF }}>",
+                "kafka": {
+                  "resources": {
+                    "resource_preset_id": "<класс_хостов {{ KF }}>",
+                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_type_id": "<тип_диска>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resource_preset_id": "<класс_хостов {{ ZK }}>",
+                    "disk_size": "<размер_хранилища_в_байтах>",
+                    "disk_type_id": "<тип_диска>"                   
+                  }
+                },
+                "zone_id": [
+                  <список_зон_доступности>
+                ],
+                "brokers_count": {
+                  "value": "<количество_брокеров_в_зоне>"
+                },
+                "assign_public_ip": <публичный_доступ:_true_или_false>,
+                "schema_registry": <управление_схемами_данных:_true_или_false>,
+                "rest_api_config": {
+                  "enabled": <отправка_запросов_к_API_{{ KF }}:_true_или_false>
+                },
+                "disk_size_autoscaling": {
+                  <параметры_автоматического_увеличения_размера_хранилища>
+                },
+              },
+              "topic_specs": [
+                {
+                  "name": "<имя_топика>",
+                  "partitions": {
+                    "value": "<количество_партиций>"
+                  },
+                  "replication_factor": {
+                    "value": "<фактор_репликации>"
+                  }
+                },
+                { <аналогичный_набор_настроек_для_топика_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_топика_N> }
+              ],
+              "user_specs": [
+                {
+                  "name": "<имя_пользователя>",
+                  "password": "<пароль_пользователя>",
+                  "permissions": [
+                    {
+                      "topic_name": "<имя_топика>",
+                      "role": "<роль_пользователя>"
+                    }
+                  ]
+                },
+                { <аналогичный_набор_настроек_для_пользователя_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_пользователя_N> }
+              ],
+              "maintenance_window": {
+                "anytime": {},
+                "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня_по_UTC>"
+                }
+              },
+              "deletion_protection": <защита_от_удаления:_true_или_false>
+            }
+            ```
+
+
+            Где:
+
+            * `name` — имя кластера.
+            * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+            * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
+
+
+            * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
+
+
+            * `config_spec` — конфигурация кластера:
+
+                * `version` — версия {{ KF }}: {{ versions.cli.str }}.
+                * `kafka` — конфигурация {{ KF }}:
+
+                    * `resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md). Список доступных классов хостов с их идентификаторами можно запросить с помощью вызова [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md).
+                    * `resources.disk_size` — размер диска в байтах.
+                    * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
+
+                * `zookeeper` — конфигурация [{{ ZK }}](../concepts/index.md#zookeeper):
+
+                    * `resources.resource_preset_id` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью вызова [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md).
+                    * `resources.disk_size` — размер диска в байтах.
+                    * `resources.disk_type_id` — тип диска.
+
+
+                * `zone_id` и `brokers_count` – зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
+
+                  Если вы создаете [кластер с версией {{ KF }} 3.6 и выше](#zk-vs-kraft), укажите одну из доступных конфигураций:
+
+                  * `"zone_id": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokers_count": {"value":"1"}`;
+                  * `"zone_id": ["<одна_зона_доступности>"], "brokers_count": {"value":"1"}`;
+                  * `"zone_id": ["<одна_зона_доступности>"], "brokers_count": {"value":"3"}`.
+
+                * `assign_public_ip` — доступность хостов-брокеров из интернета: `true` или `false`.
+                * `schema_registry` – управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`. Эту настройку невозможно изменить после создания кластера {{ mkf-name }}.
+                * `rest_api_config` – конфигурация {{ KF }} REST API. Для доступа к отправке запросов к REST API {{ KF }} укажите `enabled: true`.
+                * `disk_size_autoscaling` – чтобы в кластере не заканчивалось место на диске, укажите [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
+
+                  {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
+
+            * `topic_specs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
+
+                {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
+
+            * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+                {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
+
+            * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
+
+                * `anytime` — (по умолчанию) — в любое время.
+                * `weekly_maintenance_window` — по расписанию:
+                    * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                    * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+
+            * `deletion_protection` — защитить кластер, его базы данных и пользователей от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+
+            Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `host_group_ids`.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
+
+
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
 Чтобы убедиться, что созданный кластер с версией {{ KF }} 3.6 или выше использует протокол {{ kraft-short-name }}, получите информацию о хостах кластера:
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Нажмите на имя созданного кластера.
-  1. На панели слева выберите **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы получить список хостов кластера {{ mkf-name }}:
-
-  1. Посмотрите описание команды CLI для получения списка хостов кластера {{ mkf-name }}:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster list-hosts --help
-     ```
-  1. Получите список хостов кластера:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster list-hosts <имя_или_идентификатор_кластера>
-     ```
-
-- API {#api}
-
-  Чтобы получить список хостов кластера {{ mkf-name }}, воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор кластера.
-
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-
-{% endlist %}
+{% include [list-hosts](../../_includes/mdb/mkf/list-hosts.md) %}
 
 Отсутствие хостов {{ ZK }} говорит о том, что в кластере используется протокол {{ kraft-short-name }}.
 

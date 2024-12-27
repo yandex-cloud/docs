@@ -1,6 +1,7 @@
+# Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-full-name }}
 
 
-В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей {{ kms-full-name }}.
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -84,7 +85,7 @@
 
 {% list tabs %}
 
-- Подпись образа на асимметричных ключах {{ kms-full-name }}
+- Подпись образа на асимметричных ключах {{ kms-name }}
 
   1. Установите специальную сборку Cosign для вашей операционной системы:
 

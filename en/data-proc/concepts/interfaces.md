@@ -11,9 +11,9 @@ For some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppel
 * Spark History and JobHistory: To view job statuses and debug jobs.
 * Apache Zeppelin: For collaboration, experiments, or ad-hoc operations.
 
-{{ dataproc-name }} enables you to create clusters accessible from the internet or only from a cloud network. However, we recommend making service component interfaces inaccessible from outside {{ yandex-cloud }} in any configuration. You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](../operations/connect-interfaces.md#ui-proxy) or an [intermediate virtual machine](../operations/connect-interfaces.md#routing).
+{{ dataproc-name }} enables you to create clusters accessible from the internet or only from a cloud network. However, we recommend making service component interfaces inaccessible from outside {{ yandex-cloud }} in any configuration. You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](../operations/connect-interfaces.md#ui-proxy) or a [jump host VM](../operations/connect-interfaces.md#routing).
 
-UI Proxy is a tool that allows you to proxy the cluster component interface with HTTP traffic encryption and authentication via the {{ yandex-cloud }} IAM. To access the interfaces, the user must be logged in to {{ yandex-cloud }}, have cluster view permissions and the `dataproc.user` role.
+UI Proxy is a tool that allows you to proxy the cluster component interface with HTTP traffic encryption and authentication via the {{ yandex-cloud }} IAM. To access the interfaces, the user must be logged in to {{ yandex-cloud }}, have cluster viewing permissions and the `dataproc.user` role.
 
 UI Proxy is disabled by default. To use it, enable it when [creating](../operations/cluster-create.md#create) or [configuring](../operations/connect-interfaces.md#ui-proxy-enable) a cluster and [view](../operations/connect-interfaces.md#ui-proxy-list) a list of web interfaces available for connection.
 

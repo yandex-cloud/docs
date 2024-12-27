@@ -57,3 +57,4 @@ description: На странице представлен список прак�
 * [{#T}](./java-servlet-todo-list.md)
 * [{#T}](./telegram-bot-serverless.md)
 * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
+* [{#T}](./replicate-logs-to-storage-via-data-streams.md)

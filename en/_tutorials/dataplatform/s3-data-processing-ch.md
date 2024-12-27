@@ -54,7 +54,7 @@ Prepare the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-sg`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**: Enabled.
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
+    1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) cluster of any suitable configuration with the following settings:
 
         * With public access to cluster hosts.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.

@@ -1,48 +1,76 @@
 # Версии стандарта по защите облачной инфраструктуры {{ yandex-cloud }}
 
+### Изменения в версии {{ security-standard-current-version }} {#current-version}
+
+Дата публикации 27.12.2024.
+
+* **Удален раздел 6. Резервное копирование**. Содержимое раздела перенесено в раздел [3. Безопасная конфигурация виртуальной среды](../../../security/standard/virtualenv-safe-config.md#backup).
+
+* **Удален раздел 7. Физическая безопасность**. Содержимое раздела перенесено в раздел [{#T}](../../../security/standard/index.md#intro).
+
+* **Добавлены пункты:**
+    * [{#T}](../../../security/standard/authentication.md#api-key-scopes).
+    * [{#T}](../../../security/standard/authentication.md#key-usage-control).
+    * [{#T}](../../../security/standard/authentication.md#ciem-access-control).
+
+* **Обновлены пункты:**
+    * В пункт [{#T}](../../../security/standard/index.md#application) добавлены сервисы [{{ container-registry-full-name }}](../../../container-registry/), [{{ sws-full-name }}](../../../smartwebsecurity/) и [{{ captcha-full-name }}](../../../smartcaptcha/).
+    * В пункт [{#T}](../../../security/standard/network-security.md#ddos-protection) добавлена информация об использовании сервиса {{ sws-name }}.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#vpc-functions) (был `3.22`), в пункт добавлена информация об ограничениях сетевого взаимодействия между функциями и пользовательскими ресурсами.
+    * Изменен порядковый номер и переименован пункт [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (был `3.18 Публичные облачные функции применяются только в исключительных случаях`). В пункт добавлена информация о назначении ролей на функцию, работе с секретами и переменными окружения из функции и доступе из функции к управляемым БД {{ mpg-full-name }} и {{ mch-full-name }}.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#side-channel-attacks) (был `3.19`).
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#ntp-functions) (был `3.20`), в пункт добавлена информация об особенностях получения функциями данных времени.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#http-functions) (был `3.21`), в пункт добавлено описание особенностей вызова функции с query-параметром `?integration=raw`.
+    * В пункт [{#T}](../../../security/standard/encryption.md#storage-https) добавлены:
+        * проверка через CLI;
+        * ссылка на [инструкцию](../../../storage/operations/hosting/certificate.md) по настройке HTTPS.
+    * В пункте [{#T}](../../../security/standard/audit-logs.md#hardering) добавлены ссылки на лучшие практики безопасности.
+    * В пункте [{#T}](../../../security/standard/audit-logs.md#data-plane-events) расширен список сервисов, для которых возможно отслеживание событий этого уровня.
+    * В пункте [{#T}](../../../security/standard/app-security.md#use-sws) добавлена проверка через CLI.
+
 ### Изменения в версии 1.2 {#version-1-2}
 
 Дата публикации 25.09.2024.
 
 * **Удален раздел 6. Управление уязвимостями**.
 
-* **Добавлен раздел [{#T}](../../../security/standard/kubernetes-security.md):**
-    * [{#T}](../../../security/standard/kubernetes-security.md#not-use-critical-data).
-    * [{#T}](../../../security/standard/kubernetes-security.md#maximum-isolation).
-    * [{#T}](../../../security/standard/kubernetes-security.md#api-security).
-    * [{#T}](../../../security/standard/kubernetes-security.md#kubernetes-auth).
-    * [{#T}](../../../security/standard/kubernetes-security.md#kubernetes-safe-config).
-    * [{#T}](../../../security/standard/kubernetes-security.md#data-encryption).
-    * [{#T}](../../../security/standard/kubernetes-security.md#docker-images-periodic-scan).
-    * [{#T}](../../../security/standard/kubernetes-security.md#version-update).
-    * [{#T}](../../../security/standard/kubernetes-security.md#backup).
-    * [{#T}](../../../security/standard/kubernetes-security.md#check-list).
-    * [{#T}](../../../security/standard/kubernetes-security.md#security-standards).
-    * [{#T}](../../../security/standard/kubernetes-security.md#audit-logs).
+* **Добавлен раздел 7. Безопасность {{ k8s }}:**
+    * 7.1 Ограничено использование критичных данных.
+    * 7.2 Ресурсы изолированы друг от друга.
+    * 7.3 Нет доступа к API {{ k8s }} и группам узлов из недоверенных сетей.
+    * 7.4 В {{ managed-k8s-name }} настроены аутентификация и управление доступом.
+    * 7.5 В {{ managed-k8s-name }} используется безопасная конфигурация.
+    * 7.6 Шифрование данных и управление секретами {{ managed-k8s-name }} выполняются в формате ESO as a Service.
+    * 7.7 Docker-образы хранятся в реестре {{ container-registry-short-name }} с настроенным периодическим сканированием образов.
+    * 7.8 Используется одна из трех последних версий {{ k8s }} и ведется мониторинг обновлений.
+    * 7.9 Настроено резервное копирование.
+    * 7.10 Используются чек-листы для безопасного создания и использования Docker-образа.
+    * 7.11 Используется политика безопасности {{ k8s }}.
+    * 7.12 Настроен сбор аудитных логов для расследований инцидентов.
 
 * **Добавлены пункты:**
-    * [{#T}](../../../security/standard/authentication.md#group-mapping).
-    * [{#T}](../../../security/standard/authentication.md#key-usage-control).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#use-sts-for-storage-keys).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#use-presigned-urls).
-    * [{#T}](../../../security/standard/virtualenv-safe-config.md#os-login-onto-hosts).
-    * [{#T}](../../../security/standard/encryption.md#managed-vm-kms).
-    * [{#T}](../../../security/standard/audit-logs.md#data-plane-events).
-    * [{#T}](../../../security/standard/app-security.md#use-sws).
-    * [{#T}](../../../security/standard/app-security.md#use-waf).
-    * [{#T}](../../../security/standard/app-security.md#use-arl).
-    * [{#T}](../../../security/standard/app-security.md#setup-code-review).
+    * 1.1.1 Настроено сопоставление групп пользователей в федерации удостоверений.
+    * 1.24 Отслеживается дата последнего использования ключей доступа в {{ iam-full-name }}.
+    * 3.11 Для получения временных ключей доступа к {{ objstorage-name }} используется {{ sts-full-name }}.
+    * 3.12 Для единичных случаев доступа к отдельным объектам в непубличных бакетах {{ objstorage-name }} генерируются подписанные URL.
+    * 3.32 Для подключения к виртуальной машине или узлу {{ k8s }} используется {{ oslogin }}.
+    * 4.8 Используется шифрование дисков и снимков виртуальных машин.
+    * 5.8 Отслеживаются события уровня сервисов.
+    * 8.9 Используется профиль безопасности {{ sws-full-name }}.
+    * 8.10 Используется Web Application Firewall.
+    * 8.11 Используется Advanced Rate Limiter.
+    * 8.12 Настроены правила ревью кода.
 
 * **Обновлены пункты:**
-    * В пункт [{#T}](../../../security/standard/audit-logs.md#audit-trails) добавлено описание аудитных логов с событиями уровня сервисов.
-    * Пункт **6.2 Выполняется сканирование уязвимостей на уровне облачных IP-адресов** перенесен в раздел [3. Безопасная конфигурация виртуальной среды](../../../security/standard/virtualenv-safe-config.md#ip-level).
-    * Пункт **6.3 Внешние сканирования безопасности выполняются по правилам облака** перенесен в раздел [3. Безопасная конфигурация виртуальной среды](../../../security/standard/virtualenv-safe-config.md#external-security-scans).
-    * Пункт **6.4 Выстроен процесс обновлений безопасности** перенесен в раздел [3. Безопасная конфигурация виртуальной среды](../../../security/standard/virtualenv-safe-config.md#security-updates).
-    * Пункт **6.5 Используется Web Application Firewall** обновлен и перенесен в раздел [8. Защита приложений](../../../security/standard/app-security.md#use-waf).
-    * В пункт [{#T}](../../../security/standard/app-security.md#pipeline-artifacts-cosign) добавлена рекомендация по сохранению асимметричной ключевой пары электронной подписи [Cosign](https://github.com/sigstore/cosign) в сервисе [{{ kms-full-name }}](../../../kms/quickstart/index.md) и использованию сохраненной ключевой пары для подписания артефактов и проверки подписи.
+    * В пункт **5.1 Включен сервис {{ at-full-name }} на уровне организации** добавлено описание аудитных логов с событиями уровня сервисов.
+    * Пункт **6.2 Выполняется сканирование уязвимостей на уровне облачных IP-адресов** перенесен в раздел **3. Безопасная конфигурация виртуальной среды**.
+    * Пункт **6.3 Внешние сканирования безопасности выполняются по правилам облака** перенесен в раздел **3. Безопасная конфигурация виртуальной среды**.
+    * Пункт **6.4 Выстроен процесс обновлений безопасности** перенесен в раздел **3. Безопасная конфигурация виртуальной среды**.
+    * Пункт **6.5 Используется Web Application Firewall** обновлен и перенесен в раздел **8. Защита приложений**.
+    * В пункт **8.6 Обеспечивается целостность артефактов** добавлена рекомендация по сохранению асимметричной ключевой пары электронной подписи [Cosign](https://github.com/sigstore/cosign) в сервисе [{{ kms-full-name }}](../../../kms/quickstart/index.md) и использованию сохраненной ключевой пары для подписания артефактов и проверки подписи.
 
 * **Удалены пункты:**
-    * Пункт **4.6 Для критичных ВМ настроено шифрование диска с помощью KMS** удален, так как появился более удобный способ шифрования дисков, описанный в пункте [{#T}](../../../security/standard/encryption.md#managed-vm-kms).
+    * Пункт **4.6 Для критичных ВМ настроено шифрование диска с помощью {{ kms-short-name }}** удален, так как появился более удобный способ шифрования дисков, описанный в пункте **4.8 Используется шифрование дисков и снимков виртуальных машин**.
 
 ### Изменения в версии 1.1 {#version-1-1}
 

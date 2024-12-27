@@ -1,0 +1,1 @@
+The following examples use API key authentication. {{ ml-sdk-full-name }} also supports [IAM token](../../iam/concepts/authorization/iam-token.md) and [OAuth token](../../iam/concepts/authorization/oauth-token.md) authentication. For more information, see [Authentication in {{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md#authentication).

@@ -25,6 +25,29 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+### Пример расчета стоимости кластера {#example}
+
+Стоимость использования кластера со следующими параметрами в течение 30 дней:
+
+* **Веб-сервер**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
+* **Планировщик**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
+* **Воркеры**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-airflow](../_pricing_examples/managed-airflow/rub.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-airflow](../_pricing_examples/managed-airflow/kzt.md) %}
+
+{% endlist %}
+
+
+
 ## Цены для региона Россия {#prices}
 
 

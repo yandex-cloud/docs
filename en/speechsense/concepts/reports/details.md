@@ -4,7 +4,7 @@ title: _Details_ report in {{ speechsense-name }}
 
 # _Details_ report in {{ speechsense-name }}
 
-The **Details** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report on the average dialog duration, group its values by departments and specify the period of one year. As a result, the report will show how the average dialog duration changed throughout the year for each department.
+The **Details** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report based on average dialog duration, group the duration values by departments, and specify the period of one year. As a result, the report will demonstrate how average dialog duration evolved in the course of the year for each department.
 
 ## How to build a report {#form}
 
@@ -21,9 +21,9 @@ _Evaluation parameter_: Parameter whose changes you can view in the report. Only
 
 The report considers the total, average, minimum, or maximum value of the evaluation parameter for the selected period. For example, such values may be useful in the following cases:
 
-* Total: How many times the customer asked to call a supervisor during the conversation.
-* Average: Average dialog duration.
-* Minimum or maximum: To determine the agent with the least or most violations.
+* Total: How many times the customer asked for a supervisor during the conversation.
+* Average: Average dialog duration in seconds.
+* Minimum or maximum: Agents with the smallest and largest number of violations.
 
 In the report, you can select an evaluation parameter of one of the following types:
 

@@ -279,6 +279,7 @@ default:
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/242/yandex-code-assist.zip
   link-ca-jb-2024-3: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/243/yandex-code-assist.zip
+  link-ca-jb-repository: https://proxy.src.yandexcloud.net/proxy/plugin/jetbrains/stable
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix
   link-cloud-aup: https://yandex.ru/legal/cloud_aup/?lang=ru
@@ -533,8 +534,6 @@ default:
   prometheus-name: Prometheus
   promql-name: PromQL
   RD: Valkey™
-  rd:
-    docs: https://redis.io/docs
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -690,6 +689,7 @@ default:
   search-api-request-ch: 400 characters
   search-api-request-w: 40 words
   security-group: enp6saqnq4ie244g67sb
+  security-standard-current-version: 1.3.0
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -861,6 +861,15 @@ default:
     mt:
       detect|string: ₸2461.00
       translate|string: ₸2461.00
+  sku|KZT|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 4.2
+          v1|string: ₸4.20
+        vcpu:
+          v1|number: 12.5
+          v1|string: ₸12.50
   sku|KZT|alb:
     balancer:
       active|number: 11.1
@@ -1415,6 +1424,7 @@ default:
         mysql|month|number: 16
         mysql|month|string: ₸16.00
         opensearch|month|string: ₸16.00
+        pg|month|number: 16
         pg|month|string: ₸16.00
       network-nvme:
         ch|month|number: 65.05
@@ -1497,10 +1507,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₸5868.00
+            c100|number: 8.15
             c100|string: ₸8.15
             c50|month|string: ₸2448.00
             c50|string: ₸3.40
           ram|month|string: ₸1584.00
+          ram|number: 2.2
           ram|string: ₸2.20
       redis:
         backup|month|string: ₸9.60
@@ -2116,6 +2128,15 @@ default:
     mt:
       detect|string: ₽492.20
       translate|string: ₽492.20
+  sku|RUB|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 0.84
+          v1|string: ₽0.84
+        vcpu:
+          v1|number: 2.5
+          v1|string: ₽2.50
   sku|RUB|alb:
     balancer:
       active|number: 2.22
@@ -2671,6 +2692,7 @@ default:
         mysql|month|number: 3.2
         mysql|month|string: ₽3.20
         opensearch|month|string: ₽3.20
+        pg|month|number: 3.2
         pg|month|string: ₽3.20
       network-nvme:
         ch|month|number: 13.01
@@ -2753,10 +2775,12 @@ default:
         v3:
           cpu:
             c100|month|string: ₽1173.60
+            c100|number: 1.63
             c100|string: ₽1.63
             c50|month|string: ₽489.60
             c50|string: ₽0.68
           ram|month|string: ₽316.80
+          ram|number: 0.44
           ram|string: ₽0.44
       redis:
         backup|month|string: ₽1.92
@@ -3372,6 +3396,15 @@ default:
     mt:
       detect|string: $3.937600
       translate|string: $3.937600
+  sku|USD|airflow:
+    cluster:
+      generic:
+        ram:
+          v1|number: 0.00672
+          v1|string: $0.006720
+        vcpu:
+          v1|number: 0.02
+          v1|string: $0.020000
   sku|USD|alb:
     balancer:
       active|number: 0.01776
@@ -5552,6 +5585,10 @@ default:
         label_users: Users
       organization:
         action_send-invitation: Send invitation
+      search:
+        label_placeholder: Search in cloud resources
+        search_filters_all: Everywhere
+        search_filters_docs: Documentation
       services:
         service_compute: Compute Cloud
       settings:
@@ -6545,6 +6582,7 @@ default:
           placeholder_filter-by-type: Account type
         save: Save
         save-changes: Save changes
+        search: Search
         section-base: General information
         select: Select
         start: Start
@@ -7292,6 +7330,7 @@ default:
               button_create_service-account-key: Create static access key
               button_create-key-popup: Create new key
               column_key_last-used-at: Date of last use
+              column_key_scope: Scope
               field_key-description: Description
               field_key-expires-at: Expires at
               field_key-scope: Scope

@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
    ```bash
    cat <путь_к_файлу_с_авторизованным_ключом> | helm registry login cr.yandex \

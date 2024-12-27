@@ -11,7 +11,7 @@ description: Класс хостов определяет вычислитель
 
 От класса хоста зависит список доступных [типов диска](./storage.md):
 
-* **s1**, **s2**, **s3**, **m2**, **m3**, **c3**  — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **s1**, **s2**, **s3**, **m2**, **m3**, **c3**  — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 * **b1**, **b2**, **b3** — `network-ssd`, `network-hdd`.
 
 Ограничения на размер хранилища приведены в разделе [Квоты и лимиты](limits.md).

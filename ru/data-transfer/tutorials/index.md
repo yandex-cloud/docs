@@ -110,10 +110,10 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
 * [{{ OS }} в {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} в {{ objstorage-name }}](ydb-to-object-storage.md)
-
+* [Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}](replicate-logs-to-storage-via-data-streams.md)
+* [Репликация логов в {{ objstorage-name }} с помощью Fluent Bit](replicate-logs-to-storage.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 
 

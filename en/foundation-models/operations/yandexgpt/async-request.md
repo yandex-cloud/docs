@@ -39,6 +39,12 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
 
       Where:
 
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+      {% endnote %}
+
       * `messages_1` and `messages_2`: Arrays of messages providing the context for the model, each used for a different method of getting an asynchronous request result:
 
           * `role`: Message sender's role:
@@ -61,9 +67,9 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
 
       ```text
       Variant 1:
-      GPTModelResult(alternatives=(Alternative(role='assistant', text="Laminate flooring is suitable for installation in the kitchen or in a child's room. It withstands moisture and mechanical damage thanks to a 0.2 mm thick protective layer of melamine films and a wax-treated interlocking system.", status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=104, completion_tokens=47, total_tokens=151), model_version='07.03.2024')
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Ламинат подойдёт для укладки на кухне или в детской комнате – он не боится влаги и механических повреждений благодаря защитному слою из облицованных меламиновых плёнок толщиной 0,2 мм и обработанным воском замкам.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=74, completion_tokens=46, total_tokens=120), model_version='23.10.2024')
       Variant 2:
-      GPTModelResult(alternatives=(Alternative(role='assistant', text='[              {                "role": "system",                "text": "Find and correct errors in the text."              },              {                "role": "user",                "text": "Errors will not correct themselves."              }            ]', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=67, completion_tokens=53, total_tokens=120), model_version='07.03.2024')
+      GPTModelResult(alternatives=(Alternative(role='assistant', text='Errors will not correct themselves.\n\nErors → errors.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=32, completion_tokens=16, total_tokens=48), model_version='23.10.2024')
       ```
 
       The code waits for the result of the first method and then of the second one.
@@ -118,7 +124,7 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
      * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
   
-     The service will return the `operation` object in response:
+     In the response, the service will return the `operation` object:
   
      ```json
      {

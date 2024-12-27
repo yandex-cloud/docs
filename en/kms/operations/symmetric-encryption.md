@@ -65,9 +65,9 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
   * `--id`: ID of the [KMS key](../concepts/key.md). Make sure you set either the `--id` or `--name` flag.
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
-  * `--ciphertext-file`: Input file with plaintext.
+  * `--ciphertext-file`: Input file with ciphertext.
   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
-  * `--plaintext-file`: Output file with ciphertext.
+  * `--plaintext-file`: Output file with plaintext.
 
   ```bash
   yc kms symmetric-crypto decrypt \

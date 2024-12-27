@@ -18,7 +18,9 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. На странице [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) убедитесь, что у вас есть [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Создание первого бакета {#the-first-bucket}

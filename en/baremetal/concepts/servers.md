@@ -18,6 +18,26 @@ Pools are infrastructurally separate data center modules servers physically resi
 |---------------|------------------|------------------------------------|
 | `{{ region-id }}` | `{{ region-id }}-m`  | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
 
+## Server statuses {#server-status}
+
+A server can have one of the following statuses:
+
+* `PROVISIONING`: Server is being prepared to be leased out to a user.
+* `RUNNING`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
+* `STARTING`: Server is being powered up.
+* `STOPPING`: Server is being powered down.
+* `RESTARTING`: Server is rebooting.
+* `REINSTALLING`: Server operating system is being reinstalled.
+* `UPDATING`: Server or network settings are being updated.
+* `QUARANTINING`: Server is being [quarantined](#quarantine).
+* `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
+* `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
+* `ERROR`: There is an error. Contact [support]({{ link-console-support }}).
+
+## Quarantine {#quarantine}
+
+Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+
 #### See also {#see-also}
 
 * [{#T}](../../backup/tutorials/backup-baremetal.md)

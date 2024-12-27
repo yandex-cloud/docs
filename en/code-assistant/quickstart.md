@@ -68,25 +68,26 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
 - JetBrains IDE {#jb}
 
-  1. Download the {{ ca-name }} plugin for your [JetBrains IDE](https://www.jetbrains.com/ides/) version:
+  {% note info %}
 
-      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
+  If you previously installed {{ ca-full-name }} plugin for the JetBrains IDE from a downloadable ZIP archive, [uninstall the plugin](#remove-plugin) and reinstall it using the guide below.
 
-      {% include [unable-to-download](../_includes/code-assistant/unable-to-download.md) %}
-
-      {% note info %}
-
-      {% include [plugin-ide-zip](../_includes/code-assistant/plugin-ide-zip.md) %}
-
-      {% endnote %}
+  {% endnote %}
 
   1. Install the plugin:
-      1. Open the IDE.
-      1. Open settings by pressing **Ctrl** + **Alt** + **S** for Windows or Linux or **Command** + **,** for macOS.
-      1. Go to **Plugins**.
-      1. Click ![image](../_assets/console-icons/gear.svg) and select **Install Plugin from Disk...**.
-      1. Select the plugin file you downloaded previously.
-      1. Confirm that you would like to use a third-party plugin and click **OK**.
+      1. In the [JetBrains IDE](https://www.jetbrains.com/ides/) interface, click ![image](../_assets/console-icons/gear.svg) in the upper right corner and select **Plugins...**.
+      1. At the top of the plugin settings window that opens, click ![image](../_assets/console-icons/gear.svg) and select **Manage Plugin Repositories...**.
+      1. In the window that opens, click ![image](../_assets/console-icons/plus.svg), enter `{{ link-ca-jb-repository }}` in the field that appears, and click **OK**.
+      1. At the top of the settings window, go to the **Marketplace** tab and select the `{{ ca-full-name }}` plugin. If required, use the search bar.
+      1. Click **Install**.
+      1. After installation is complete, click **OK**.
+
+          If the plugin is installed successfully, you will see the **Code Assist plugin started** message in the IDE notification area.
+      1. Restart the IDE.
+  1. Enable automatic updates of the {{ ca-full-name }} plugin:
+      1. In the JetBrains IDE interface, click ![image](../_assets/console-icons/gear.svg) in the upper right corner and select **Settings...**.
+      1. Go to **Appearance & Behavior** → **System Settings** → **Updates** and enable **Update plugins automatically**.
+      1. Click **OK**.
 
   1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
       1. In the **Yandex Code Assistant OAuth** pop-up window, click **Yandex Code Assist: Login**.

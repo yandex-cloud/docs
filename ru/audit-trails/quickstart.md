@@ -16,12 +16,14 @@
 
 1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
 
-1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роли:
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
     * `iam.serviceAccounts.user` на сервисный аккаунт;
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на организацию, с которой будут собираться аудитные логи;
     * `kms.editor` на каталог, в котором будет создан ключ шифрования для бакета;
     * `storage.viewer` на бакет или каталог.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 

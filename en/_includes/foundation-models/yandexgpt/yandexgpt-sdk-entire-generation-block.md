@@ -4,6 +4,12 @@
 
     Where:
 
+    {% note info %}
+
+    {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+    {% endnote %}
+
     {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
 
     {% include [sdk-code-legend](../examples/sdk-code-legend.md) %}

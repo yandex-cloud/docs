@@ -252,6 +252,8 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+        href: tutorials/replicate-logs-to-storage-via-data-streams.md
   - name: Концепции
     items:
       - name: Обзор

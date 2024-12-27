@@ -63,7 +63,7 @@ items:
             href: operations/application-load-balancer-relocate.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -80,8 +80,8 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB to for DDoS protection
-          using {{ sws-name }}
+          Migrating services from a NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
@@ -167,6 +167,8 @@ items:
                 href: k8s-ref/ingress.md
               - name: HttpBackendGroup
                 href: k8s-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: k8s-ref/grpc-backend-group.md
               - name: IngressClass
                 href: k8s-ref/ingress-class.md
               - name: Service for Ingress

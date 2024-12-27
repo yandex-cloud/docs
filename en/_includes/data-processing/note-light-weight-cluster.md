@@ -1,1 +1,1 @@
-Using an image of version `2.0.39` or higher, you can create a [lightweight cluster](../../data-proc/concepts/index.md#light-weight) without HDFS and subclusters for data storage. In this case, be sure to add one or more data processing subclusters and specify a bucket name.
+You can use an image version `2.0.39` or higher to create a [lightweight cluster](../../data-proc/concepts/index.md#light-weight) without HDFS and subclusters for data storage. In this case, be sure to add one or more data processing subclusters and specify a bucket name.

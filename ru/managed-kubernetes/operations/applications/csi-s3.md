@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду, указав в ней параметры ключа, созданного [ранее](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \

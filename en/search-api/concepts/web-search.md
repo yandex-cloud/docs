@@ -5,13 +5,15 @@ description: This section describes the specificities and format of text queries
 
 # Text search with API v2
 
-With {{ search-api-name }} API v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. The queries run with [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
+With {{ search-api-name }} v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
 
 [Queries can be submitted](../operations/web-search.md) by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
 
 In response to a deferred query, {{ search-api-name }} returns an [Operation object](#response-format) containing the operation info: status, ID, call time, etc. 
 
 With the Operation object ID, you can [track](../operations/web-search.md#verify-operation) the query execution status and [get the results](../operations/web-search.md#get-response) once the processing is complete.
+
+Depending on the specified query parameters, you will get the result in [XML](./response.md) or [HTML](./html-response.md) format.
 
 ## Query body format {#parameters}
 
@@ -81,7 +83,7 @@ In response to a deferred query, {{ search-api-name }} returns an [Operation obj
 
 The `response` object within the [Operation object](../../api-design-guide/concepts/operation.md) becomes available only after the query is executed on the {{ search-api-name }} side and the `done` (operation status) field value changes to `true`.
 
-The `response` object's `rawData` field value contains the [Base64](https://en.wikipedia.org/wiki/Base64)-encoded [XML response](./response.md).
+The `rawData` value in the `response` object contains a [Base64](https://en.wikipedia.org/wiki/Base64)-encoded response in [XML](./response.md) or [HTML](./html-response.md) format, depending on the query parameters.
 
 For more information about the Operation object and its fields, see [{#T}](../../api-design-guide/concepts/operation.md).
 

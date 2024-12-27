@@ -243,7 +243,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
           ls /usr/lib/spark/jars
           ```
 
-          The versions are specified in the names of JAR files. Here is an example:
+          The versions are specified in the names of JAR files. Example:
 
           ```text
           spark-core_2.12-3.0.3.jar
@@ -263,7 +263,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
           )
           ```
 
-          Here is an example:
+          Example:
 
           ```scala
           scalaVersion := "2.12.10"
@@ -294,7 +294,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
       /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-<Scala_version>/<name_of_built_JAR_file>
       ```
 
-      Here is an example:
+      Example:
 
       ```bash
       /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main target/scala-2.12/spark-app_2.12-0.1.0-SNAPSHOT.jar
@@ -361,7 +361,7 @@ On a local computer:
 
 #### Prepare and run a PySpark job {#run-cli-pyspark}
 
-1. Create a file named `job.py` with the following code:
+1. Create a file named `config.pkr.hcl` with the following code:
 
     ```python
     import sys

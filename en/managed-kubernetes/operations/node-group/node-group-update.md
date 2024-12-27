@@ -379,11 +379,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
   Update a cloud label of a {{ managed-k8s-name }} node group:
 
-  {% note warning %}
-
-  The existing `labels` will be completely overwritten by the ones you provide in your request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label

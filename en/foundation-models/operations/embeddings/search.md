@@ -28,6 +28,12 @@ To use the examples:
 
 In the example, the `doc_texts` array contains the source data for vectorization, i.e., the knowledge base, while the `query_text` variable contains the search query text. After you get the embeddings, it is time to calculate the distance between each vector in the knowledge base and the query vector to find the most closely related text in the knowledge base.
 
+{% note info %}
+
+{% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
+{% endnote %}
+
 {% list tabs group=programming_language %}
 
 - SDK {#sdk}
@@ -49,9 +55,9 @@ In the example, the `doc_texts` array contains the source data for vectorization
       Result:
 
       ```text
-      Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow — January 29 [February 10], 1837, St. Petersburg) was a Russian poet, playwright, and novelist, the progenitor of Russian realism, a literary critic and theorist, historian, essay writer, and journalist.
-        
-        
+      Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow — January 29 [February 10], 1837, St. Petersburg)
+          was a Russian poet, playwright, and novelist, the progenitor of Russian realism,
+          a literary critic and theorist, historian, essay writer, and journalist.
       ```
 
 - Python 3 {#python}

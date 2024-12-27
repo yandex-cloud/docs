@@ -1,5 +1,5 @@
 ---
-title: Monitoring the state of {{ RD }} clusters and hosts
+title: Monitoring the state of a {{ RD }} cluster and hosts
 description: You can track the state of a {{ mrd-name }} cluster and its individual hosts with the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
@@ -72,7 +72,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **maxmemory**: Maximum amount of memory allocated for user data.
       * **used_memory**: Actual memory usage by a host.
 
-      If the value of the **used_memory** parameter reaches **maxmemory** when trying to insert new records, {{ RD }} will apply the memory management mode defined by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
+      If **used_memory** reaches **maxmemory** when trying to insert new records, {{ RD }} will apply the memory management mode controlled by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
 
       {% note info %}
 
@@ -102,7 +102,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
   * **Redis Used Memory on Masters**: RAM usage on master hosts (in bytes):
 
       * **db_hashtable_overhead**: To store all database hash tables.
-      * **used_memory_scripts**: To store and run [scripts](https://redis.io/commands/script-load).
+      * **used_memory_scripts**: To store and run [scripts](https://valkey.io/commands/script-load).
       * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
       * **mem_clients_normal**: To serve external connections.
       * **mem_clients_slaves**: To serve replication connections.
@@ -113,7 +113,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
   * **Redis Used Memory on Replicas**: RAM usage on replicas (in bytes):
 
       * **db_hashtable_overhead**: To store all database hash tables.
-      * **used_memory_scripts**: To store and run [scripts](https://redis.io/commands/script-load).
+      * **used_memory_scripts**: To store and run [scripts](https://valkey.io/commands/script-load).
       * **mem_aof_buffer**: For the [AOF](../concepts/replication.md#setting-appendonly) buffer.
       * **mem_clients_normal**: To serve external connections.
       * **mem_clients_slaves**: To serve replication connections.
@@ -121,7 +121,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **used_memory_startup**: For {{ RD }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
 
-  * **Redis-server OOM kills**: Number of {{ RD }} processes terminated because of a shortage of RAM (_OOM_ stands for out-of-memory).
+  * **Redis-server OOM kills**: Number of {{ RD }} processes terminated because of a RAM shortage (_OOM_ stands for out-of-memory).
 
       To reduce the number of terminations:
       * Change the application logic to reduce the amount of data stored in {{ RD }}.
@@ -133,7 +133,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **repl_backlog_size**: Maximum amount of memory available for the replication buffer.
       * **repl_backlog_histlen**: Portion of the replication buffer currently in use by data.
 
-      When the circular buffer runs out of memory, complete replication starts. This will reduce cluster performance since full replication significantly increases RAM usage as well as CPU and network workload.
+      When the circular buffer runs out of memory, complete replication starts. This will reduce cluster performance because full replication significantly increases RAM usage as well as CPU and network workload.
 
   * **Replication Lag**: Replica's lag behind the master (in seconds).
 

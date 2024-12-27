@@ -23,6 +23,8 @@
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}** — [закрыть ли кластер для доступа](../../concepts/expand.md#setting-close-cluster).
 
             Если настройка включена, то к кластеру нельзя подключиться и в него не поступают новые пользовательские запросы. В результате расширение кластера будет выполняться быстрее.
@@ -91,6 +93,8 @@
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `--close-cluster` — [закрыть ли кластер для доступа](../../concepts/expand.md#setting-close-cluster): `true` или `false`.
 
             {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
@@ -144,6 +148,8 @@
         * `addSegmentsPerHostCount` — количество добавляемых сегментов на хост.
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * `duration` — [таймаут](../../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
 
@@ -204,6 +210,8 @@
         * `add_segments_per_host_count` — количество добавляемых сегментов на хост.
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * `duration` — [таймаут](../../concepts/expand.md#setting-duration) в секундах, после истечения которого процесс перераспределения данных будет прерван.
 

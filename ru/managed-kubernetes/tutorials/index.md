@@ -11,6 +11,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](terraform-modules.md)
+* [{#T}](kms-k8s.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 
@@ -66,6 +67,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 ## Мониторинг {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](k8s-fluent-bit-logging.md)
 * [{#T}](filebeat-oss-monitoring.md)
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}

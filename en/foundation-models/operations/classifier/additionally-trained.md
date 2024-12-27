@@ -35,6 +35,8 @@ To send a request to the classifier:
 
       * `request_text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
 
+          {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
       * `model`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.

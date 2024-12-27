@@ -6,8 +6,8 @@ description: Различные сценарии использования {{ k
 # Практические руководства {{ kms-full-name }}
 
 * [Шифрование данных](encrypt/index.md)
-* [{#T}](k8s.md)
-* [{#T}](sign-with-cosign.md)
+* [{#T}](kms-k8s.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
 * [{#T}](vault-secret.md)

@@ -102,20 +102,39 @@ _Taints_ — это особые политики, которые присваи
 
 _Tolerations_ — это исключения из taint-политик. С помощью tolerations можно разрешить определенным подам работать на узлах, даже если taint-политика группы узлов препятствует этому.
 
-Например, если для узлов в группе настроена taint-политика `key1=value1:NoSchedule`, разместить поды на таком узле можно с помощью tolerations:
+Tolerations бывают двух типов:
 
-```yaml
-apiVersion: v1
-kind: Pod
-...
-spec:
+  * `Equal` — срабатывает, если в taint-политике и toleration совпадают ключ, значение и эффект. Используется по умолчанию.
+
+  * `Exists` — срабатывает, если в taint-политике и toleration совпадают ключ и эффект. Значение ключа не учитывается.
+
+  Например, если для узлов в группе настроена taint-политика `key1=value1:NoSchedule`, разместить поды на узле с помощью tolerations можно так:
+
+  ```yaml
+  apiVersion: v1
+  kind: Pod
   ...
-  tolerations:
-  - key: "key1"
-    operator: "Equal"
-    value: "value1"
-    effect: "NoSchedule"
-```
+  spec:
+    ...
+    tolerations:
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoSchedule"
+  ```
+  Или так:
+
+  ```yaml
+  apiVersion: v1
+  kind: Pod
+  ...
+  spec:
+    ...
+    tolerations:
+    - key: "key1"
+      operator: "Exists"
+      effect: "NoSchedule"
+  ```
 
 {% note info %}
 

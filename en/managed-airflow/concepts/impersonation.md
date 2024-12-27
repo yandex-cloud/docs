@@ -20,7 +20,7 @@ For more information about logging configuration, see [Transferring cluster logs
 
 ### {{ monitoring-name }} {#monitoring-integration}
 
-{{ monitoring-name }} is a service that collects and stores metrics for {{ yandex-cloud }} services. Metrics are displayed as charts on the cluster page under **{{ ui-key.yacloud.common.monitoring }}**. They show the cluster's current state and health and are available by default in all {{ maf-name }} clusters. For a list of available metrics, see the relevant [reference](../metrics.md).
+{{ monitoring-name }} is a service that collects and stores metrics for {{ yandex-cloud }} services. Metrics are displayed as charts on the cluster page under **{{ ui-key.yacloud.common.monitoring }}**. They show the current state and health of the cluster. Metrics are available by default in all {{ maf-name }} clusters. For a list of available metrics, see the relevant [reference](../metrics.md).
 
 ### {{ lockbox-name }} {#lockbox-integration}
 

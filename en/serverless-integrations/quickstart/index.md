@@ -32,4 +32,4 @@ Get started with {{ si-name }} features:
 
     {% include [event-router-preview-note](../../_includes/serverless-integrations/event-router-preview-note.md) %}
 
-* {{ api-gw-full-name }}: Set up an API gateway for getting static responses, then add an integration to call a function in {{ sf-name }}. For more information on {{ api-gw-name }}](../../api-gateway/quickstart/index.md) features, see the [{{ api-gw-name }} documentation.
+* {{ api-gw-full-name }}: Set up an API gateway for getting static responses, then add an integration to call a function in {{ sf-name }}. For more information on {{ api-gw-name }} features, see the [{{ api-gw-name }} documentation](../../api-gateway/quickstart/index.md).

@@ -139,17 +139,110 @@ description: Вы можете отслеживать степень запол�
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-* API {#api}
+* REST API {#api}
 
-    Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новые настройки хранилища в параметре `configSpec.kafka.resources` (`configSpec.zookeeper.resources` — для хостов {{ ZK }}).
-    * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Тип диска для кластера {{ KF }} нельзя изменить после создания.
+    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
+                      "configSpec": {
+                        "kafka": {
+                          "resources": {
+                            "diskSize": "<размер_хранилища_байт>"
+                          }
+                        },
+                        "zookeeper": {
+                          "resources": {
+                            "diskSize": "<размер_хранилища_байт>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            Укажите нужные параметры:
+            * `configSpec.kafka.resources.diskSize` — если нужно изменить размер хранилища хостов-брокеров.
+            * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища хостов {{ ZK }}. Применяется только для кластеров с версией {{ KF }} 3.5 или ниже.
+        * `configSpec.kafka.resources.diskSize` – размер хранилища хостов-брокеров в байтах.
+        * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов {{ ZK }} в байтах. Применяется только для кластеров с версией {{ KF }} 3.5 или ниже.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+* gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.kafka.resources.disk_size",
+                      "config_spec.zookeeper.resources.disk_size"
+                    ]
+                  },
+                  "config_spec": {
+                    "kafka": {
+                      "resources": {
+                        "disk_size": "<размер_хранилища_байт>"
+                      }
+                    },
+                    "zookeeper": {
+                      "resources": {
+                        "disk_size": "<размер_хранилища_байт>"
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            Укажите нужные параметры:
+            * `config_spec.kafka.resources.disk_size` — если нужно изменить размер хранилища хостов-брокеров.
+            * `config_spec.brokers_count` — если нужно изменить размер хранилища хостов {{ ZK }}. Применяется только для кластеров с версией {{ KF }} 3.5 или ниже.
+        * `config_spec.kafka.resources.disk_size` — размер хранилища хостов-брокеров в байтах.
+        * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов {{ ZK }} в байтах. Применяется только для кластеров с версией {{ KF }} 3.5 или ниже.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -198,11 +291,103 @@ description: Вы можете отслеживать степень запол�
 
         {% include [description-of-parameters](../../_includes/mdb/mkf/disk-auto-scaling.md) %}
 
-* API {#api}
+* REST API {#api}
 
-    Чтобы разрешить автоматическое увеличение размера хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.diskSizeAutoscaling.plannedUsageThreshold,configSpec.diskSizeAutoscaling.plannedUsageThreshold,configSpec.diskSizeAutoscaling.plannedUsageThreshold",
+                      "configSpec": {
+                        "diskSizeAutoscaling": {
+                          "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                          "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                          "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            Укажите нужные параметры:
+            * `configSpec.diskSizeAutoscaling.plannedUsageThreshold` — если нужно изменить процент заполнения хранилища для его планового увеличения.
+            * `configSpec.diskSizeAutoscaling.emergencyUsageThreshold` — если нужно изменить процент заполнения хранилища для его внепланового увеличения.
+            * `configSpec.diskSizeAutoscaling.diskSizeLimit` — если нужно изменить максимальный размер хранилища при его автоматическом расширении.
+
+        {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+* gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.disk_size_autoscaling.planned_usage_threshold",
+                      "config_spec.disk_size_autoscaling.emergency_usage_threshold",
+                      "config_spec.disk_size_autoscaling.disk_size_limit"
+                    ]
+                  },
+                  "config_spec": {
+                    "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                        "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                        "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            Укажите нужные параметры:
+            * `config_spec.disk_size_autoscaling.planned_usage_threshold` — если нужно изменить процент заполнения хранилища для его планового увеличения.
+            * `config_spec.disk_size_autoscaling.emergency_usage_threshold` — если нужно изменить процент заполнения хранилища для его внепланового увеличения.
+            * `config_spec.disk_size_autoscaling.disk_size_limit` — если нужно изменить максимальный размер хранилища при его автоматическом расширении.
+
+        {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

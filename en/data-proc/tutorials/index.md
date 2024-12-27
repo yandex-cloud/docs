@@ -3,7 +3,7 @@ title: '{{ dataproc-full-name }} tutorials'
 description: Various {{ dataproc-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
-# Tutorials for {{ dataproc-name }}
+# {{ dataproc-name }} tutorials
 
 ## Network settings and cluster maintenance {#network-settings}
 

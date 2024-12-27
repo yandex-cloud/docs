@@ -112,6 +112,9 @@
 
         * Количество хостов-сегментов.
         * [Количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
            * Выберите [тип диска](../concepts/storage.md).
@@ -188,6 +191,9 @@
         * `--user-password` — пароль. Длина от 8 до 128 символов.
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md).
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
                 * `network-hdd` (только для хостов-мастеров);
@@ -347,6 +353,8 @@
       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
+          {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
 
       * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
 
@@ -463,6 +471,9 @@
         * `masterHostCount` — количество хостов-мастеров: `1` или `2`.
         * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
         * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `userName` — имя пользователя.
         * `userPassword` — пароль пользователя.
         * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
@@ -601,6 +612,9 @@
         * `master_host_count` — количество хостов-мастеров: `1` или `2`.
         * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
         * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `user_name` — имя пользователя.
         * `user_password` — пароль пользователя.
         * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.

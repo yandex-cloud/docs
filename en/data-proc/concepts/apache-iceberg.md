@@ -12,11 +12,11 @@ description: Below is the information about {{ IBRG }} and the compatibility tab
 * Provides [hidden partitioning](https://iceberg.apache.org/docs/latest/partitioning/) in auto mode thus preventing errors related to manual partitioning.
 * Allows retrospective requests enabled by the [time travel](https://iceberg.apache.org/docs/latest/spark-queries/#time-travel) mechanism. You can use the feature to make reproducible requests based on table snapshots or compare changes.
 
-   {% note info %}
+    {% note info %}
 
-   This mechanism requires {{ SPRK }} 3.3.x or higher.
+    This mechanism requires {{ SPRK }} 3.3.x or higher.
 
-   {% endnote %}
+    {% endnote %}
 
 * Allows rolling tables back to previous versions (version rollback) for quick response to issues.
 * Provides [advanced filtering](https://iceberg.apache.org/docs/latest/performance/#metadata-filtering) that relies on column-level and partition-level statistics as well as table metadata. This accelerates request processing, even for very large tables: data files unrelated to the request will not be processed.
@@ -54,7 +54,7 @@ For more information about {{ IBRG }}, see the [official documentation](https://
 
 {% note info %}
 
-Access to image 2.2 is provided on request. Contact [technical support]({{ link-console-support }}) or your account manager.
+Access to image 2.2 is provided on request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

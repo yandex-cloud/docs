@@ -1,4 +1,4 @@
-# Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+# Репликация логов в {{ objstorage-full-name }} с помощью {{ yds-full-name }}
 
 С помощью [{{ yds-full-name }}](../../data-streams/) можно настроить автоматическую репликацию логов сервисов и пользовательских приложений в [{{ objstorage-full-name }}](../../storage/).
 
