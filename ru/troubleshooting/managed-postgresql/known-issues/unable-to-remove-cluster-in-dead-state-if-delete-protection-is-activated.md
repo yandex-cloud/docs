@@ -10,12 +10,12 @@
 
 Если кластер находится в состоянии `DEAD` или `UNKNOWN`, вы можете снять защиту от удаления средствами YC CLI командой:
 ```
-yc managed-postgreqsl cluster update --deletion-protection=false <CLUSTER_ID>
+yc managed-postgresql cluster update --deletion-protection=false <CLUSTER_ID>
 ```
 
 По завершении этой операции вы можете запустить удаление этого кластера:
 ```
-yc managed-postgreqsl cluster delete <CLUSTER_ID>
+yc managed-postgresql cluster delete <CLUSTER_ID>
 ```
 
 ## Если проблема осталась {#if-issue-still-persists}
