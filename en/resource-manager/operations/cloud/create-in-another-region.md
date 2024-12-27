@@ -1,13 +1,13 @@
 ---
 title: Creating a cloud in another region
-description: Follow this guide to create a new cloud in another region using a managed organization.
+description: Follow this guide to create a new cloud in another region using a controlled organization.
 ---
 
 # Create a cloud in another region
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-To create clouds in another [region](../../../overview/concepts/region.md), [connect](../../../organization/operations/add-region.md) a managed organization. After that, follow these steps:
+To create clouds in another [region](../../../overview/concepts/region.md), [connect](../../../organization/operations/add-region.md) a controlled organization. After that, follow these steps:
 
 {% list tabs group=instructions %}
 

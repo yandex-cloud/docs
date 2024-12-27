@@ -1,4 +1,4 @@
-# {{ dataproc-name }} resource relationships
+# Resource relationships in {{ dataproc-name }}
 
 {{ dataproc-name }} helps implement distributed data storage and processing using the [Apache Hadoop](http://hadoop.apache.org) service ecosystem.
 

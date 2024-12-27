@@ -108,7 +108,7 @@ items:
             href: operations/adjust-mtu-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:

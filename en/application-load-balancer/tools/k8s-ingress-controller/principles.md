@@ -55,7 +55,11 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
     {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
-* Services referenced in `Ingress` or `HttpBackendGroup` are deployed to backends. These can be configured using [Service](../../k8s-ref/service-for-ingress.md) resources.
+  * Based on [GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md) resources that support explicit backend group descriptions. These are [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `alb.yc.io` API group provided by an Ingress controller.
+
+    Same as to services, you should refer to `GrpcBackendGroup` in the `Ingress` rules (`spec.rules[*].http.paths[*].backend.resource`).  
+
+* On backends, services referenced in `Ingress` or `HttpBackendGroup`/`GrpcBackendGroup` are deployed. These can be configured using the [Service](../../k8s-ref/service-for-ingress.md) resources.
 
   {% include [k8s-ingress-controller-nodeport-note](../../../_includes/application-load-balancer/k8s-ingress-controller-nodeport-note.md) %}
 
@@ -66,7 +70,7 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 | [Load balancer](../../concepts/application-load-balancer.md) | [Ingress](../../k8s-ref/ingress.md) resources with identical `ingress.alb.yc.io/group-name` annotation values |
 | HTTP router [virtual hosts](../../concepts/http-router.md#virtual-host) | `Ingress.spec.rules` |
 | Virtual host [routes](../../concepts/http-router.md#routes) | `Ingress.spec.rules[*].http.paths` |
-| [Backend group](../../concepts/backend-group.md) | [HttpBackendGroup](../../k8s-ref/http-backend-group.md) or [services](../../k8s-ref/service-for-ingress.md) |
+| [Backend group](../../concepts/backend-group.md) | [HttpBackendGroup](../../k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md) or [services](../../k8s-ref/service-for-ingress.md) |
 | [Target group](../../concepts/target-group.md) | Cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group) |
 
 ## IDs of load balancer resources in a {{ k8s }} cluster {#alb-ids}

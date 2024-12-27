@@ -3,7 +3,7 @@
 
 In {{ dataproc-full-name }}, you can use [initialization actions](../../data-proc/concepts/init-action.md) to configure hosts.
 
-You can use them to automate the installation and setup of [GeeseFS](../../storage/tools/geesefs.md) – the software enabling {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
+With them, you can automate the installation and setup of [GeeseFS](../../storage/tools/geesefs.md), the software enabling {{ dataproc-full-name }} cluster hosts to mount {{ objstorage-full-name }} buckets via [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 
 To set up GeeseFS:
 
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dataproc.agent` and `dataproc.provisioner` roles.
 
-1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
+1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-full-name }} bucket.
 
 1. Grant to the service account the read access for the bucket. For this, use one of the following methods:
 

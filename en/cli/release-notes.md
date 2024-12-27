@@ -7,6 +7,51 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
+### Version 0.141.0 (16/12/24) {#version0.141.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Usage example: 
+
+```bash
+yc serverless function version create --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify options to obtain metadata in a container.
+ Usage example: 
+
+```bash
+yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ iam-name }}
+
+Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key. 
+
+The `--scope` parameter will be removed in the next YC CLI version.
+
+* Added the `yc iam api-key update` command for updating the API key. The command has the following parameters:
+  * `--description`, to edit the API key description.
+  * `--scopes`, to update the API key scope.
+  * `--expires_at`, to update the key expiration date. If the parameter is not set, the API key will have no expiration date.
+
+##### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+Added the `--cloud-storage` flag to the `yc managed-greenplum cluster create` command to specify the parameters for managing cloud storage. Example command to enable cloud storage: 
+
+```bash 
+yc managed-greenplum cluster create --cloud-storage enabled=true
+```
+
+## Previous releases {#previous-releases}
+
+
 ### Version 0.140.0 (29/11/24) {#version0.140.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -37,10 +82,8 @@ description: This page presents a list of YC CLI releases and the updates of eac
 **{{ mrd-name }}**
 
 * Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands:
-  * `use-luajit`.
-  * `io-threads-allowed`.
-
-## Previous releases {#previous-releases}
+  * `use-luajit`
+  * `io-threads-allowed`
 
 ### Version 0.139.0 (18/11/24) {#version0.139.0}
 

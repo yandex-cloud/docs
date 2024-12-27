@@ -327,11 +327,8 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
       Result:
 
       ```text
-      Alternative(role='assistant', text='[', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text":', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "role": "user",                "text": "Errors will not', status=<AlternativeStatus.PARTIAL: 1>)
-      Alternative(role='assistant', text='[              {                "role": "system",                "text": "Correct errors in the text."              },              {                "role": "user",                "text": "Errors will not correct themselves"              }            ]', status=<AlternativeStatus.FINAL: 3>)
+      Alternative(role='assistant', text='O', status=<AlternativeStatus.PARTIAL: 1>)
+      Alternative(role='assistant', text='Errors will not correct themselves.', status=<AlternativeStatus.FINAL: 3>)
       ```
 
 - Python {#python}

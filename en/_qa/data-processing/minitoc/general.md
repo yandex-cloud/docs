@@ -10,7 +10,7 @@
 
 * [I get the `^M: bad interpreter` error when running the initialization script. How do I fix this?](#syntax-error)
 
-* [When running a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this?](#sharedPrefixes-property)
+* [When I run a PySpark job, I get an error related to `com/amazonaws/auth/AWSCredentialsProvider`. How do I fix this?](#sharedPrefixes-property)
 
 * [When using dynamic partition overwrites, I get an error related to `PathOutputCommitProtocol`. How do I fix it?](#dynamic-partition-overwrite)
 

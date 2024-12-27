@@ -160,7 +160,7 @@ keywords:
          --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
                                 `resource-preset-id=<класс_хостов>,`
                                 `disk-size=<размер_диска_в_байтах>,`
-                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-io-m3|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`

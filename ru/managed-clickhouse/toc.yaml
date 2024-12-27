@@ -27,10 +27,10 @@ items:
             href: operations/cluster-stop.md
           - name: Управление хостами
             items:
-              - name: Управление хостами {{ ZK }}
-                href: operations/zk-hosts.md
               - name: Управление хостами {{ CH }}
                 href: operations/hosts.md
+              - name: Управление хостами {{ ZK }}
+                href: operations/zk-hosts.md
               - name: Миграция хостов в другую зону доступности
                 href: operations/host-migration.md
           - name: Управление резервными копиями

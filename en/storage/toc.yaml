@@ -103,7 +103,9 @@ items:
         href: tutorials/user-agent-statistics.md
       - name: Getting statistics of queries to objects using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: Generating a billing report with resource break-down using S3 Select
+      - name: >-
+          Generating a resource-by-resource cost breakdown report using S3
+          Select
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md

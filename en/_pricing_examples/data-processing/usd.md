@@ -1,4 +1,4 @@
-($0.010545 + $0.000960) × 2 + ($0.002795 + $0.000240) × 16 + $0.000152 × 20 = $0.074610
+> ($0.010545 + $0.000960) × 2 + ($0.002795 + $0.000240) × 16 + $0.000152 × 20 = $0.074610
 >
 > Total: $0.074610, cost of using the first subcluster per hour.
 
@@ -30,7 +30,7 @@ Where:
 
 > $0.074610 + $0.050990 = $0.125600
 >
-> Total: $0.125600, cost of using a cluster with two subclusters per hour.
+> Total: $0.125600, cost of using a cluster of two subclusters per hour.
 
 Where:
 

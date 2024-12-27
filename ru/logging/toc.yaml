@@ -71,6 +71,8 @@ items:
         href: tutorials/serverless-live-debug.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+      - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+        href: tutorials/alb-ingress-controller-log-options.md
   - name: Концепции
     items:
       - name: Лог-группа

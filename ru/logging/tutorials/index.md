@@ -13,3 +13,4 @@ description: Различные сценарии использования {{ c
 * [{#T}](grafana-logs-plugin.md)
 * [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](logging.md)
+* [{#T}](alb-ingress-controller-log-options.md)

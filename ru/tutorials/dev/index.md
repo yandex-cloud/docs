@@ -13,7 +13,6 @@ description: Различные сценарии использования по
 * [{#T}](gitlab-tracker-integration.md)
 * [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](../testing/hpc-on-preemptible.md)
 * [Нагрузочное тестирование gRPC-сервиса](../testing/loadtesting-grpc.md)
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](../testing/loadtesting-grpc-autoscaling.md)
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../testing/loadtesting-https-phantom.md)
 * [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](../testing/loadtesting-https-pandora.md)
 * [Нагрузочное тестирование с нескольких агентов](../testing/loadtesting-multiply.md)

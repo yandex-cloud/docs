@@ -1,11 +1,11 @@
 ---
 title: How to search in {{ search-api-name }} using API v2
-description: Follow this guide to learn how to use {{ search-api-name }}'s API v2 interface to submit search queries and get search results in XML format.
+description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML format.
 ---
 
 # Performing search queries using API v2
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 
@@ -205,19 +205,37 @@ After {{ search-api-name }} has successfully processed the query:
 
     {% endlist %}
 
-    Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML response](../concepts/response.md) in the `response.rawData` field.
+    Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) response in the `response.rawData` field.
 
-1. Decode the result from `Base64`:
+1. Depending on the requested response format, decode the result from `Base64`:
 
-    ```bash
-    echo "$(< result.json)" | \
-      jq -r .response.rawData | \
-      base64 --decode > result.xml
-    ```
+    {% list tabs group=search_api_request %}
 
-    The XML response to the query will be saved to a file named `result.xml`.
+    - XML {#xml}
+
+      ```bash
+      echo "$(< result.json)" | \
+        jq -r .response.rawData | \
+        base64 --decode > result.xml
+      ```
+
+      The XML response to the query will be saved to a file named `result.xml`.
+
+    - HTML {#html}
+
+      ```bash
+      echo "$(< result.json)" | \
+        jq -r .response.rawData | \
+        base64 --decode > result.html
+      ```
+
+      The HTML response to the query will be saved to a file named `result.html`.
+
+    {% endlist %}
 
 #### See also {#see-also}
 
 * [{#T}](../concepts/web-search.md)
 * [{#T}](../api-ref/authentication.md)
+* [{#T}](../concepts/response.md)
+* [{#T}](../concepts/html-response.md)

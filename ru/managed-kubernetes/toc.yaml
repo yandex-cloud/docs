@@ -172,6 +172,8 @@ items:
         href: tutorials/migration-to-an-availability-zone.md
       - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
         href: tutorials/terraform-modules.md
+      - name: Шифрование секретов в {{ managed-k8s-name }}
+        href: tutorials/kms-k8s.md
       - name: Настройка и тестирование масштабирования
         items:
           - name: Горизонтальное масштабирование приложения в кластере
@@ -242,6 +244,10 @@ items:
             href: tutorials/prometheus-grafana-monitoring.md
           - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
             href: tutorials/filebeat-oss-monitoring.md
+          - name: >-
+              Передача логов кластера {{ managed-k8s-name }} в {{
+              cloud-logging-name }}
+            href: tutorials/k8s-fluent-bit-logging.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD

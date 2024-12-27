@@ -9,13 +9,6 @@ description: Следуя данной инструкции, вы научите
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `my-account`  ролями `storage.uploader` и `managed-metastore.integrationProvider`.
 1. [Настройте сеть и создайте кластер](cluster-create.md) {{ metastore-name }}. При создании укажите сервисный аккаунт `my-account`.
-
-   {% note warning %}
-
-   Экспорт и импорт данных доступны в кластерах {{ metastore-name }} только со статическим ключом доступа.
-
-   {% endnote %}
-   
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) `my-bucket` в {{ objstorage-full-name }}. В нем будет храниться файл с метаданными для импорта и экспорта.
 1. [Выдайте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` сервисному аккаунту `my-account` на бакет `my-bucket`.
 

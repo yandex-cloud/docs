@@ -25,7 +25,7 @@ Make sure the cluster has the [component web interfaces](../concepts/interfaces.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI` interface.
 
 It shows information about all running and completed applications.
 
@@ -33,10 +33,10 @@ It shows information about all running and completed applications.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI` interface.
 1. Find the application you need and click its ID in the **ID** column.
 
-   This will open a window with information about the application's performance and a table with a list of application run attempts.
+    This will open a window with information about the application's performance and a table with a list of application run attempts.
 
 1. Click the link next to the attempt in question in the **Logs** column.
 
@@ -44,7 +44,7 @@ It shows information about all running and completed applications.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI` interface.
 1. In the left-hand menu, go to **Scheduler**.
 
 The **Application Queues** section shows the queue of applications and resources used by them.
@@ -55,23 +55,23 @@ The **Application Queues** section shows the queue of applications and resources
 
 * YARN Resource Manager Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name.
-   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
-   1. Find the application in question and follow the link in the **Tracking UI** column. The link name depends on the application status:
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the cluster name.
+    1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI` interface.
+    1. Find the application in question and follow the link in the **Tracking UI** column. The link name depends on the application status:
 
-      * **ApplicationMaster** for running applications
-      * **History** for finished applications
+        * **ApplicationMaster** for running applications
+        * **History** for finished applications
 
 * Spark History Server Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name.
-   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the cluster name.
+    1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `Spark History Server Web UI` interface.
 
-      This will open the list of finished applications. To switch to the list of running applications, click **Show incomplete applications** at the bottom of the table.
+        This will open the list of finished applications. To switch to the list of running applications, click **Show incomplete applications** at the bottom of the table.
 
-   1. Find the application in question and follow the link in the **App ID** column.
+    1. Find the application in question and follow the link in the **App ID** column.
 
 {% endlist %}
 
@@ -92,7 +92,7 @@ For each job, the table specifies:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `Spark History Server Web UI` interface.
 1. In the top menu, go to **Executors**.
 
 The UI will display two tables:
@@ -118,7 +118,7 @@ If garbage collection takes much time:
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `Spark History Server Web UI` interface.
 1. In the top menu, go to **Storage**.
 
 The UI displays the list of cacheable tables ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). For each RDD, it shows information about the used memory and disk space, as well as caching progress.
@@ -129,7 +129,7 @@ To view detailed statistics, click the RDD name.
 
 1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `Spark History Server Web UI` interface.
 1. In the top menu, go to **SQL**.
 
 The table lists executed SQL queries, including their start time and duration.

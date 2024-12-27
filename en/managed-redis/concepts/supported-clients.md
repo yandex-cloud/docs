@@ -1,16 +1,16 @@
 ---
 title: Supported {{ RD }} DBMS clients
-description: '{{ mrd-short-name }} guarantees operation only with certain {{ RD }} clients; however, you can use other clients without restrictions. The following clients are supported: redis Python package, jedis Java client, ioredis Node.js package, go-redis Go client, telnet, and redis-cli.'
+description: '{{ mrd-short-name }} guarantees operation only for some {{ RD }} DBMS clients but does not restrict the use of other clients. The following clients are supported: `redis` Python package, `jedis` Java client, `ioredis` Node.js package, `go-redis` Go client, `telnet`, and `redis-cli`.'
 keywords:
-  - Valkey clients
-  - clients Valkey
-  - Valkey
-  - Valkey dbms
+  - redis clients
+  - clients redis
+  - redis
+  - redis dbms
 ---
 
 # DBMS clients supported in {{ mrd-name }}
 
-{{ mrd-short-name }} guarantees operation only with certain DBMS clients; however, you can also use other clients.
+{{ mrd-short-name }} guarantees operation only for some DBMS clients but does not restrict the use of other clients.
 
 The following clients are supported:
 * Standard `redis-cli`

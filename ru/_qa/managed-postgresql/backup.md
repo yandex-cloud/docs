@@ -33,3 +33,12 @@
 
 1. [Добавьте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) в кластере-приемнике с доступом к базе данных для переноса и таким же именем, что и у пользователя, с помощью которого был создан логический дамп в кластере-источнике.
 1. [Восстанавливайте логической дамп](../../managed-postgresql/tutorials/data-migration.md#restore) с помощью этого пользователя или [выдайте его привилегии](../../managed-postgresql/operations/grant.md#grant-privilege) пользователю, с помощью которого вы восстанавливаете логической дамп.
+
+#### Что делать, если при выполнении логической репликации возникает ошибка `replication slot already exists`? {#repl-slot-exists}
+
+По умолчанию при [создании подписки](../../tutorials/dataplatform/postgresql-data-migration.md#create-publication-subscription) создается и слот репликации. Ошибка `replication slot already exists` означает, что слот репликации уже существует.
+
+Устранить ошибку можно одним из способов:
+
+1. Привяжите подписку к существующему слоту репликации. Для этого добавьте в запрос для создания подписки параметр `create_slot = false`.
+1. [Удалите существующий слот репликации](../../managed-postgresql/operations/replication-slots.md#delete) и попробуйте создать подписку еще раз.

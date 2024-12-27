@@ -23,6 +23,9 @@ links:
       Развертывайте базовую инфраструктуру удобными средствами управления
       облачными ресурсами
     href: infrastructure/
+  - title: Контейнерная инфраструктура
+    description: Развертывайте контейнерную инфраструктуру в {{ yandex-cloud }}
+    href: container-infrastructure/
   - title: Прикладные решения
     description: Выполняйте практические задачи средствами {{ yandex-cloud }}
     href: applied/

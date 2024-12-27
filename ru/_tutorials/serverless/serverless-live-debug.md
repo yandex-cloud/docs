@@ -1,4 +1,4 @@
-# Интерактивная отладка функций {{ sf-name }}
+# Интерактивная отладка функций {{ sf-full-name }}
 
 
 В этом руководстве вы настроите систему интерактивной отладки [функций](../../functions/concepts/function.md) {{ sf-full-name }} с помощью перенаправления запросов на локальный сервер. Подробнее о схеме решения читайте в [репозитории yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug).

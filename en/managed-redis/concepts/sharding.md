@@ -1,23 +1,23 @@
 ---
 title: Sharding in {{ RD }}
-description: Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
+description: In {{ mrd-name }}, sharding is implemented based on {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 ---
 
 # Sharding in {{ mrd-name }}
 
-Sharding in {{ mrd-name }} works based on [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial).
+Sharding in {{ mrd-name }} works based on [{{ RD }} Cluster](https://valkey.io/topics/cluster-tutorial).
 
 ## Advantages of sharding {#advantages}
 
 Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 
-Horizontal scaling involves distributing datasets and load across multiple nodes. A single machine may have low capacity or be slow; however, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This helps make your system more efficient compared to a single high-capacity server.
+Horizontal scaling involves distributing datasets and load across multiple nodes. A single machine may underperform in terms of capacity or speed; however, in a horizontally-scaled cluster, each machine processes only a portion of total workload and stores only a portion of total data. This helps make your system more efficient compared to a single high-capacity server.
 
-You can read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://redis.io/topics/cluster-spec).
+You can read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://valkey.io/topics/cluster-spec/).
 
 ## {{ RD }} Cluster structure {#valkey-cluster-structure}
 
-{{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. {{ RD }} Cluster includes multiple hosts for storing your data. {{ RD }} Cluster is divided into shards, each consisting of a master and multiple replicas. Data from clients is written to the master hosts and then [replicated](replication.md).
+{{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. {{ RD }} Cluster comprises multiple hosts for storing your data. {{ RD }} Cluster is divided into shards, each consisting of a master and a set of replicas. Data from clients is written to the master hosts and then [replicated](replication.md).
 
 Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots define the dataset stored in the shard.
 

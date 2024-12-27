@@ -85,7 +85,10 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 
 * `service_account_id` — идентификатор сервисного аккаунта.
 * `subnet_ids` — список идентификаторов подсетей.
-* `security_group_ids` — список идентификаторов групп безопасности.
+
+    {% include [choose-subnet](../choose-subnet.md) %}
+
+* `security_group_ids` — список идентификаторов [групп безопасности](../../../../managed-airflow/concepts/network.md#security-groups).
 * `webserver`, `scheduler`, `worker`, `triggerer` — конфигурация [компонентов](../../../../managed-airflow//concepts/index.md#components) {{ maf-name }}:
 
     * `count` — количество экземпляров в кластере для веб-сервера, планировщика и Triggerer.

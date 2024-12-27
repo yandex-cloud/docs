@@ -101,13 +101,12 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
@@ -182,13 +181,12 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
@@ -216,7 +214,7 @@ To apply or edit a bucket access policy:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-name }}.
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
 
@@ -281,13 +279,12 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
 
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).

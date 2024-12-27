@@ -1,1 +1,0 @@
-{% include [physical-security](../../_includes/security/standard/physical-security.md) %}

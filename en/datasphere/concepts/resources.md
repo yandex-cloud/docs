@@ -4,7 +4,7 @@ In {{ ml-platform-name }} projects, you can create resources, which are auxiliar
 
 You can view resources that are created or available in a project on the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**.
 
-You can use resources in multiple projects without recreating them. To make a resource available for all [community](community.md) projects, share it in the **{{ ui-key.yc-ui-datasphere.common.access }}** tab. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community in which you want to publish the resource. Community resources are available on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
+You can use resources in multiple projects without recreating them. To make a resource available for all [community](community.md) projects, share it in the **{{ ui-key.yc-ui-datasphere.common.access }}** tab. To do this, you need at least the `Editor` role in the project and the `Developer` role in the community you want to publish your resource in. Community resources are available on the community page under **{{ ui-key.yc-ui-datasphere.spaces-page.community-resources }}**.
 
 {{ ml-platform-name }} project resources:
 

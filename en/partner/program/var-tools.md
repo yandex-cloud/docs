@@ -2,11 +2,11 @@
 
 The VAR program participants have access to the following tools:
 
-* [Order registration](#deal-reg)
+* [Registering orders](#deal-reg)
 * [Order registration as part of a scheduled procurement](#tender)
 * [Project registration](#project-reg)
 * [Presale assistance](#presale)
-* [Acceleration program](#acceleration)
+* [Quickstart program](#acceleration)
 * [Co-marketing program](#co-marketing)
 * [Partner catalog](#catalog)
 * [Professional services](#pro)
@@ -23,11 +23,11 @@ Order registration conditions:
 * Target consumption for an order starts from 30,000 rubles per month.
 * You are registering an order with a new {{ yandex-cloud }} customer.
 
-   {% note info %}
-
-   For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_deal_registration/).
-
-   {% endnote %}
+  {% note info %}
+  
+  For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_deal_registration/).
+  
+  {% endnote %}
 
 To register an order:
 
@@ -39,7 +39,7 @@ To register an order:
 
    {% note info %}
 
-   After your application is approved, you will have 60 days to create a [subaccount](../terms.md#subaccount) and a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) for your customer.
+   After your application is approved, you will have 60 days to create a [subaccount](../terms.md#sub-account) and a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) for your customer.
 
    {% endnote %}
 
@@ -74,11 +74,11 @@ Order registration conditions:
 * The customer has not been brought in through a [referral program](../program/referral.md).
 * You already participated in a {{ yandex-cloud }} partner program at the time you won the scheduled procurement.
 
-   {% note info %}
-
-   For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_procurement/).
-
-   {% endnote %}
+  {% note info %}
+  
+  For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_procurement/).
+  
+  {% endnote %}
 
 You can register an order as part of a scheduled procurement just like a [regular order](#deal-reg). When filling out the application, put `Yes` in the **Order is part of procurement under 44-FZ/223-FZ** field under **Application data**.
 
@@ -92,11 +92,11 @@ Project registration conditions:
 * You are registering a project in the existing {{ yandex-cloud }} customer account.
 * Customer's cloud or folder shows zero consumption at the time of application submission.
 
-   {% note info %}
-
-   For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
-
-   {% endnote %}
+  {% note info %}
+  
+  For up-to-date conditions, see the [offer](https://yandex.ru/legal/cloud_partnership_project_protect/).
+  
+  {% endnote %}
 
 To register a project:
 
@@ -117,7 +117,7 @@ To submit a presale request:
 1. Click the **Presale request form** link.
 1. Fill out the form and click **Submit**. A customer manager will contact you within 3 business days.
 
-## Acceleration program {#acceleration}
+## Quickstart program {#acceleration}
 
 Our step-by-step acceleration program helps partners achieve their first sales with {{ yandex-cloud }}. Your participation in the program will help you greatly advance your knowledge of {{ yandex-cloud }} services, generate new orders, successfully implement projects based on {{ yandex-cloud }} services, and obtain a [technology specialization](../specializations/index.md).
 
@@ -145,10 +145,10 @@ The program's main goals and benefits:
 * Increased recognition through association with Russia's largest technology brand.
 * Optimizing marketing expenditure through joint funding of marketing activities, including:
 
-   * Events: conferences, business dinners, breakfast meetings.
-   * Webinars.
-   * Success stories.
-   * Guided tours to Yandex data center for partner's customers.
+  * Events: conferences, business dinners, breakfast meetings.
+  * Webinars.
+  * Success stories.
+  * Guided tours to Yandex data center for partner's customers.
 
 * Increased sales and expanded customer base.
 
@@ -201,21 +201,21 @@ Proactive assistance is aimed at preventing potential issues and optimizing your
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) is an online store offering a wide range of out-of-the-box tools to develop and analyze data from {{ yandex-cloud }} partners. On {{ marketplace-full-name }}, you can easily purchase the tools you need with just one click, greatly accelerating the process of implementing and integrating new technologies into your projects.
+[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) is an online store offering a wide range of out-of-the-box tools for development and analysis of {{ yandex-cloud }} partners' data. On {{ marketplace-full-name }}, you can easily purchase the tools you need with just one click, greatly accelerating the process of implementing and integrating new technologies into your projects.
 
 {{ marketplace-short-name }} benefits:
 
 * Preparation and implementation of custom images
 
-   {{ marketplace-short-name }} enables partners and vendors to prepare and implement their own images of tools and solutions. Thus you can offer unique products to large numbers of {{ yandex-cloud }} customers.
+  {{ marketplace-short-name }} enables partners and vendors to prepare and implement their own images of tools and solutions. Thus you can offer unique products to large numbers of {{ yandex-cloud }} customers.
 
 * Supporting your customers in {{ yandex-cloud }}
-
-   Thanks to integration with {{ yandex-cloud }}, {{ marketplace-short-name }} effectively supports your products for all the platform customers. This includes access to an extensive {{ yandex-cloud }} database and resources, which streamlines supporting and updating your products.
+  
+  Thanks to integration with {{ yandex-cloud }}, {{ marketplace-short-name }} effectively supports your products for all the platform customers. This includes access to an extensive {{ yandex-cloud }} database and resources, which streamlines supporting and updating your products.
 
 * Listing in the partner catalog
-
-   The development of your own products will make you eligible for the {{ yandex-cloud }} [partner catalog](#catalog), which will help you attract potential customers and boost successful sales.
+  
+  The development of your own products will make you eligible for the {{ yandex-cloud }} [partner catalog](#catalog), which will help you attract potential customers and boost successful sales.
 
 {{ marketplace-short-name }} supports various products, including:
 
@@ -234,41 +234,41 @@ Partner Kit is an exclusive package of materials you get with your welcome lette
 The Partner Kit contains:
 
 * Videos from the partner program training course prior to getting a partner status.
-
-   These videos will help you better understand the principles and basics of working with {{ yandex-cloud }}, and speed up your partner program onboarding.
+  
+  These videos will help you better understand the principles and basics of working with {{ yandex-cloud }}, and speed up your partner program onboarding.
 
 * Excel calculator.
-
-   The tool is designed to calculate detailed project specifications for customers and assists in preparation of commercial offers. Enter the required parameters and the calculator will automatically make the calculations for a much shorter document preparation time.
+  
+  The tool is designed to calculate detailed project specifications for customers and assists in preparation of commercial offers. Enter the required parameters and the calculator will automatically make the calculations for a much shorter document preparation time.
 
 * Commercial offer templates in old and new formats.
-
-   Use these to create commercial offers that meet current requirements and standards.
+  
+  Use these to create commercial offers that meet current requirements and standards.
 
 * Customer agreement templates.
-
-   Standard agreement forms that can be customized to suit your needs.
+  
+  Standard agreement forms that can be customized to suit your needs.
 
 * Statement of Conformity of {{ yandex-cloud }} Services to Federal Law No. 152-FZ (On personal data).
+  
+  Critical document confirming the conformity of {{ yandex-cloud }} services to Russian laws and regulations on personal data.
 
-   Critical document confirming the conformity of {{ yandex-cloud }} services to Russian laws and regulations on personal data.
-
-* Partner badges.
-
-   Icons and logos to use on your website, confirming your company's status as a {{ yandex-cloud }} partner.
+* Partner Badges.
+  
+  Icons and logos to use on your website, confirming your company's status as a {{ yandex-cloud }} partner.
 
 * Partner Marketing Kit.
-
-   Marketing materials including the essentials for creating advertisements and a partner [co-marketing](#co-marketing) presentation. These materials will help you promote your services and reinforce your brand.
+  
+  Marketing materials including the essentials for creating advertisements and a partner [co-marketing](#co-marketing) presentation. These materials will help you promote your services and reinforce your brand.
 
 * Technical specification writer tutorial.
-
-   A detailed guide for the technical specification writer – indispensable when preparing your project documentation.
+  
+  A detailed guide for the technical specification writer – indispensable when preparing your project documentation.
 
 * Presentation for {{ yandex-cloud }} partners.
-
-   The presentation will help you effectively showcase the {{ yandex-cloud }} capabilities to potential customers and partners.
+  
+  The presentation will help you effectively showcase the {{ yandex-cloud }} capabilities to potential customers and partners.
 
 * Training webinars on {{ marketplace-name }} products.
-
-   A series of webinars to develop insights into the products presented on [{{ marketplace-name }}]({{ link-cloud-marketplace }}). Improve your customer consultations and go for optimal solutions.
+  
+  A series of webinars for insight into the products presented on [{{ marketplace-name }}]({{ link-cloud-marketplace }}). Improve your customer consultations and go for optimal solutions.

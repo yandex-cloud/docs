@@ -41,7 +41,9 @@ After registration, you can change your search type and trusted IP addresses at 
 
 ## API v2 {#api-v2}
 
-[API v2](../operations/web-search.md) is an interface natively integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md). This interface allows you to [run](../operations/web-search.md) text queries using the `POST` method. Queries are executed in deferred (asynchronous) mode, and you get the result in [XML](./response.md) format.
+[API v2](../operations/web-search.md) is an interface natively integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md). It allows you to [run](../operations/web-search.md) text queries using the `POST` method and get your results in [XML](./response.md) or [HTML](./html-response.md) format in deferred (asynchronous) mode.
 
 With API v2, you set the search type directly in the [body](./web-search.md#parameters) of each query. You do not need to [register](../operations/workaround.md#registration) in {{ search-api-full-name }} or specify trusted IP addresses when using API v2.
+
+With {{ search-api-name }} v2, you can choose between default search and search optimized for [mobile devices](../operations/v2-mobile.md).
 

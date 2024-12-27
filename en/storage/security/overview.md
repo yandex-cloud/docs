@@ -5,46 +5,45 @@
 * [Access control list (ACL)](#acl)
 * [Bucket policy](#policy)
 * [Public access](#anonymous)
-* [{{ sts-name }}](#sts)​
+* [{{ sts-name }}](#sts)
 * [Pre-signed URLs](#pre-signed)
 
 The flow chart below shows how these methods work together in {{ objstorage-name }}.
 
 ![access-scheme](../../_assets/storage/access-scheme.svg)
 
-All checks follow this algorithm:
+The checks follow this algorithm:
 
 1. _IAM_ and _bucket ACL_:
-   * If the request passes the _IAM_ **or** _bucket ACL_ check, it is checked whether the _bucket access policy_ is enabled.
-   * If the request fails the _IAM_ **and** _bucket ACL_ checks, the _public access_ to the bucket is checked.
+    * If the request passes the _IAM_ **or** _bucket ACL_ check, it is checked is whether the _bucket access policy_ is enabled.
+    * If the request fails the _IAM_ **and** _bucket ACL_ checks, it is checked whether _public access_ to the bucket is enabled.
 1. _Public access_:
-   * If public access to perform the action is enabled, it is checked whether the _bucket access policy_ is enabled.
-   * If public access to perform the action is disabled, the next step is to check the access based on the _object ACL_.
+    * If public access to perform the action is enabled, it is checked whether the _bucket access policy_ is enabled.
+    * If public access to perform the action is disabled, an access check based on the _object ACL_ is performed.
 1. _Bucket access policy_:
-   * If access policy is enabled:
-      1. If the request meets at least one of the `Deny` rules of the bucket policy, the next step is to check the access based on the _object ACL_.
-      1. If the request meets at least one of the `Allow` rules of the bucket policy, it is checked whether the access is performed via _{{ sts-name }}_.
-      1. If the request does not meet any of the rules of the bucket policy, the next step is to check the access based on the _object ACL_.
-   * If the access policy is not enabled, it is checked whether access is performed via _{{ sts-name }}_.
+    * If access policy is enabled:
+      1. If the request meets at least one of the `Deny` rules in the bucket policy, an access check based on the _object ACL_ is performed.
+      1. If the request meets at least one of the `Allow` rules in the bucket policy, it is checked whether there is access via _{{ sts-name }}_.
+      1. If the request does not meet any of the bucket policy rules, an access check based on the _object ACL_ is performed.
+    * If the access policy is not enabled, it is checked whether there is access via _{{ sts-name }}_.
 1. _{{ sts-name }}_:
-   * If the request is made using {{ sts-name }}:
-      1. If the request meets at least one of the `Deny` policy rules for the temporary key, the next step is to check the access based on the _object ACL_.
-      1. If the request meets at least one of the `Allow` policy rules for the temporary key, access will be allowed.
-      1. If the request does not meet any of the policy rules for the temporary key, the next step is to check the access based on the _object ACL_.
-   * If the request is made directly, access will be allowed.
+    * If the request is made using {{ sts-name }}:
+      1. If the request meets at least one of the `Deny` rules in the policy for the temporary key, an access check based on the _object ACL_ is performed.
+      1. If the request meets at least one of the `Allow` rules in the policy for the temporary key, access will be allowed.
+      1. If the request does not meet any of the policy rules for the temporary key, an access check based on the _object ACL_ is performed.
+    * If the request is made directly, access will be allowed.
 1. _Object ACL_:
-   * If the request passes the _object ACL_ check, access will be allowed.
-   * If the request fails the _object ACL_ check, access will be denied.
+    * If the request passes the _object ACL_ check, access will be allowed.
+    * If the request fails the _object ACL_ check, access will be denied.
 
 ## {{ iam-name }} {#iam}
 
-[{{ iam-name }}](./index.md): Basic method for managing access in {{ yandex-cloud }} using role assignment. It defines basic access permissions. For more details, see [{#T}](./index.md#roles-list).
+[{{ iam-name }}](./index.md): Basic method for managing access in {{ yandex-cloud }} using role assignment. Enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
 
 Access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
-* [User group](../../organization/operations/manage-groups.md)
 * [System group](../../iam/concepts/access-control/system-group.md)
 * [Public group](../../iam/concepts/access-control/public-group.md)
 
@@ -52,7 +51,7 @@ Access is granted to a [cloud](../../resource-manager/concepts/resources-hierarc
 
 ## Access control list (ACL) {#acl}
 
-An [access control list (ACL)](./acl.md) is a list of action permissions stored directly in {{ objstorage-name }}. It defines basic access permissions. ACL permissions for buckets and objects are different; see [{#T}](./acl.md#permissions-types) for details.
+An [access control list (ACL)](./acl.md) is a list of action permissions stored directly in {{ objstorage-name }}. Enables the basic access control policy. ACL permissions for buckets and objects are different; see [{#T}](./acl.md#permissions-types) for details.
 
 {% note info %}
 
@@ -64,7 +63,6 @@ Access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
-* [User group](../../organization/operations/manage-groups.md) (you can specify a user group using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API, see [Editing a bucket ACL](../operations/buckets/edit-acl.md) and [Editing an object ACL](../operations/objects/edit-acl.md))
 * [System group](../../iam/concepts/access-control/system-group.md)
 * [Public group](../../iam/concepts/access-control/public-group.md)
 
@@ -78,7 +76,6 @@ Access grantees include:
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
-* [User group](../../organization/concepts/groups.md) (you can [specify](../operations/buckets/policy.md) a user group in the policy using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API)
 * Anonymous user
 
 Access is granted to a [bucket](../concepts/bucket.md), [object](../concepts/object.md), or a group of objects.

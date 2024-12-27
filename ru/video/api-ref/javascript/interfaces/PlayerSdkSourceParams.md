@@ -1,3 +1,8 @@
+---
+title: 'Interface: PlayerSdkSourceParams'
+description: Из статьи вы узнаете про параметры источника для работы видеоплеера SDK.
+---
+
 # Interface: PlayerSdkSourceParams
 
 ## Hierarchy {#Hierarchy}

@@ -45,6 +45,8 @@ description: Из статьи вы узнаете, что такое резер
 
 В течение выбранного срока действия вы обязаны оплачивать CVoS, даже если не используете сервисы {{ yandex-cloud }}. [Способ оплаты](../payment/index.md) зависит от юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)).
 
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+
 Подробная схема использования и оплаты CVoS представлена ниже.
 
 ![image](../../_assets/billing/cud-scheme.svg)

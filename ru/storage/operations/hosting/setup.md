@@ -27,8 +27,11 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `pages/index.html`;
-      * (опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+      * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
+
+        {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
+      * (опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
   Проверить хостинг можно перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
@@ -56,7 +59,10 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
-     * `index` — абсолютный путь к файлу главной страницы сайта. 
+     * `index` — абсолютный путь к файлу главной страницы сайта.
+
+       {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
      * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx.
   
   1. Выполните следующую команду:
@@ -157,6 +163,9 @@ description: Следуя данной инструкции, вы сможете
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).
      * `website` — параметры сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
+
+         {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
 
   1. Проверьте корректность конфигурационных файлов.

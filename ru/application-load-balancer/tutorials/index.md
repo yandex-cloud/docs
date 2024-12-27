@@ -9,7 +9,7 @@ description: Различные сценарии использования {{ a
 * [{#T}](alb-with-ddos-protection/index.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [{#T}](cdn-storage-integration.md)
-* [{#T}](l7-bluegreen-deploy.md)
+* [{#T}](blue-green-canary-deployment.md)
 * [{#T}](tls-termination/index.md)
 * [{#T}](logging.md)
 * [{#T}](load-testing-grpc-autoscaling.md)
@@ -19,3 +19,4 @@ description: Различные сценарии использования {{ a
 * [{#T}](high-accessible-dmz.md)
 * [{#T}](application-load-balancer-website.md)
 * [{#T}](custom-health-checks.md)
+* [{#T}](balancer-with-sws-profile.md)

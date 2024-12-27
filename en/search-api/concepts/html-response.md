@@ -1,17 +1,15 @@
 ---
-title: HTML format of a {{ search-api-full-name }} response for a text query
-description: This article describes the HTML format of a response returned by {{ search-api-name }} for a text search query.
+title: HTML format of {{ search-api-full-name }}'s response to a text query
+description: This article describes the HTML format of {{ search-api-name }}'s response to a text search query.
 ---
 
-# HTML format of a text search response
+# HTML format of response to a text search query
 
-In response to a text search query, {{ search-api-name }} can return an HTML file with search results. This file is identical to the HTML page of the corresponding search results on the [Yandex Search]({{ link-yandex }}) home page.
-
-Currently, you can get an HTML response only to queries submitted via the [API v1](./index.md#api-v1).
-
-Currently, response in HTML format is only available for queries made via the [API v1](./index.md#api-v1).
+In response to a text search query, {{ search-api-name }} can return an HTML file with search results. The returned HTML file is identical to the HTML page with the same search results you get on the [Yandex Search]({{ link-yandex }}) home page in [incognito mode](https://en.wikipedia.org/wiki/Private_browsing).
 
 A query result in HTML format contains more data than the result of a similar query in [XML format](./response.md): the HTML result includes ads, quick responses, and other elements which may appear in search results. The HTML response format is regularly updated together with the format of Yandex Search results.
+
+The service returns an HTML response for text queries processed both via [API v1](./index.md#api-v1) and [API v2](./index.md#api-v2).
 
 See the [example](https://{{ s3-storage-host-doc-files }}/search-api-html-result-example.html) of HTML search results.
 

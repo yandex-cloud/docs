@@ -7,17 +7,17 @@ from yandex_cloud_ml_sdk import YCloudML
 
 request_text = 'translate into Russian \"what\'s the weather like in London?\"'
 
-def main() -> None:
-    sdk = YCloudML(folder_id="<folder_ID>", auth="<API_key>")
+
+def main():
+    sdk = YCloudML(
+        folder_id="<folder_ID>",
+        auth="<API_key>",
+    )
 
     # Sample 1: Zero-shot classification
     model = sdk.models.text_classifiers("yandexgpt").configure(
         task_description="determine the intent type",
-        labels=[
-            "translation",
-            "alarm",
-            "weather"
-        ]
+        labels=["translation", "alarm", "weather"],
     )
 
     result = model.run(request_text)
@@ -30,16 +30,12 @@ def main() -> None:
     # Sample 2: Few-shot classification
     model = model.configure(
         task_description="determine the intent type",
-        labels=[
-            "translation",
-            "alarm",
-            "weather"
-        ],
+        labels=["translation", "alarm", "weather"],
         samples=[
             {"text": "set an alarm", "label": "alarm"},
             {"text": "weather for tomorrow", "label": "weather"},
-            {"text": "translate the phrase \"set an alarm\"", "label": "translation"}
-        ]
+            {"text": "translate the phrase \"set an alarm\"", "label": "translation"},
+        ],
     )
 
     result = model.run(request_text)
@@ -49,6 +45,7 @@ def main() -> None:
     for prediction in result:
         print(prediction)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 ```

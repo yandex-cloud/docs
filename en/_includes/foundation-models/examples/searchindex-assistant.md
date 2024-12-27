@@ -2,32 +2,32 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
+
 import pathlib
+
 from yandex_cloud_ml_sdk import YCloudML
-from yandex_cloud_ml_sdk.search_indexes import StaticIndexChunkingStrategy, TextSearchIndexType
-from os import walk
+from yandex_cloud_ml_sdk.search_indexes import (
+    StaticIndexChunkingStrategy,
+    TextSearchIndexType,
+)
 
 mypath = "<path_to_files_with_examples>"
-files_list = []
 
-for (dirpath, dirnames, filenames) in walk(mypath):
-    for i in enumerate(filenames):
-        filenames[i[0]] = mypath + filenames[i[0]]
-    files_list.extend(filenames)
-    break
 
-def local_path(path: str) -> pathlib.Path:
-    return pathlib.Path(__file__).parent / path
+def main():
+    sdk = YCloudML(
+        folder_id="<folder_ID>",
+        auth="<API_key>",
+    )
 
-def main() -> None:
-    sdk = YCloudML(folder_id="<folder_ID>", auth="<API_key>")
+    paths = pathlib.Path(mypath).iterdir()
 
     # Uploading files with examples
     # The files will be stored for five days
     files = []
-    for path in (files_list):
+    for path in paths:
         file = sdk.files.upload(
-            local_path(path),
+            path,
             ttl_days=5,
             expiration_policy="static",
         )
@@ -42,18 +42,19 @@ def main() -> None:
                 max_chunk_size_tokens=700,
                 chunk_overlap_tokens=300,
             )
-        )
+        ),
     )
 
     # Waiting until the search index is created
     search_index = operation.wait()
 
-    # Creating a tool to work with the search index or multiple search indexes if that was the case
+    # Creating a tool to work with the search index
+    # or multiple search indexes if that was the case
     tool = sdk.tools.search_index(search_index)
-    
+
     # Creating an assistant for the Latest {{ gpt-pro }} model
     # It will use the search index tool
-    assistant = sdk.assistants.create('yandexgpt', tools=[tool])
+    assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
 
     input_text = ""
@@ -66,22 +67,20 @@ def main() -> None:
 
             # Providing the model with the whole thread contents
             run = assistant.run(thread)
-    
-            # To get the result, wait until the run is complete   
+
+            # To get the result, wait until the run is complete
             result = run.wait()
-    
+
             # Displaying the response
-            print('Answer:', result.text)
+            print(f"Answer: {result.text}")
 
-    # This is how you print all the messages stored in the thread
-
-    print('Outputting the whole message history when exiting the chat:')
-
+    # You can view all the messages stored in the thread
+    print("Outputting the whole message history when exiting the chat:")
     for message in thread:
         print(f"    {message=}")
         print(f"    {message.text=}\n")
 
-    # Delete everything you no longer need
+    # Deleting everything you no longer need
     search_index.delete()
     thread.delete()
     assistant.delete()
@@ -89,6 +88,7 @@ def main() -> None:
     for file in files:
         file.delete()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 ```

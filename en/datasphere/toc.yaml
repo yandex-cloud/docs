@@ -23,7 +23,7 @@ items:
             href: operations/community/link-channel.md
           - name: Linking a billing account
             href: operations/community/link-ba.md
-          - name: Viewing service usage details
+          - name: Viewing a cost breakdown report
             href: operations/community/billing-details.md
           - name: Deleting a community
             href: operations/community/delete.md
@@ -45,7 +45,7 @@ items:
             href: operations/projects/update.md
           - name: Setting project limits
             href: operations/projects/restrictions.md
-          - name: Deleting a notebook or project
+          - name: Deleting a notebook or a project
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md

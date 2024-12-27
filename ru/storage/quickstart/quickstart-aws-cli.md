@@ -24,11 +24,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
   1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-  1. На странице [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) убедитесь, что у вас следующие _минимальные_ роли:
+  1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} _минимальные_ роли:
       * для создания [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и получения на него ключей доступа — [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Если вы хотите использовать существующий сервисный аккаунт, достаточно роли `iam.serviceAccounts.admin` на этот сервисный аккаунт.
       * для назначения сервисному аккаунту нужной роли — [storage.admin](../../storage/security/index.md#storage-admin) на каталог.
 
       Если у вас примитивная роль [admin](../../iam/roles-reference.md#admin) на каталог, назначать дополнительно роли не требуется.
+
+      {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 

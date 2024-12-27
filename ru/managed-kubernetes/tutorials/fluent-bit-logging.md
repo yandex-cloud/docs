@@ -14,4 +14,4 @@ description: Обработчик логов Fluent Bit позволяет тр�
 
 Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи [подов](../concepts/index.md#pod) и [сервисов](../concepts/index.md#service) {{ managed-k8s-name }} в {{ cloud-logging-name }}. Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
-{% include notitle [Настройка Managed K8S Fluent Bit](../../_tutorials/containers/k8s-fluent-bit-logging.md) %}
+{% include notitle [Настройка Managed K8S Fluent Bit](../../_tutorials/containers/config-k8s-fluent-bit-logging.md) %}

@@ -43,6 +43,8 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Сеть в {{ maf-name }}
+        href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Имперсонация

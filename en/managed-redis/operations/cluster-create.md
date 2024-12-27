@@ -228,7 +228,7 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, define the parameters of the resources you want to create:
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
@@ -897,7 +897,7 @@ To create a {{ RD }} cluster copy:
     network_id = yandex_vpc_network.mynet.id
   
     ingress {
-      description    = "Redis"
+      description    = "{{ RD }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -929,7 +929,7 @@ To create a {{ RD }} cluster copy:
       * `subnet-b` with the `10.2.0.0/24` range
       * `subnet-d` with the `10.3.0.0/24` range
     * Three `{{ mrd-host-class }}` class hosts, one in each subnet.
-    * New `redis-sg` security group allowing connections through the `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) ports from any subnet addresses.
+    * New `redis-sg` security group allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ RD }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
     * Protection against accidental cluster deletion.
@@ -1005,7 +1005,7 @@ To create a {{ RD }} cluster copy:
       network_id = yandex_vpc_network.mynet.id
 
       ingress {
-        description    = "Redis"
+        description    = "{{ RD }}"
         port           = {{ port-mrd }}
         protocol       = "TCP"
         v4_cidr_blocks = [
@@ -1016,7 +1016,7 @@ To create a {{ RD }} cluster copy:
       }
 
       ingress {
-        description    = "Redis Sentinel"
+        description    = "{{ RD }} Sentinel"
         port           = {{ port-mrd-sentinel }}
         protocol       = "TCP"
         v4_cidr_blocks = [

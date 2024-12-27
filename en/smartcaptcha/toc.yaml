@@ -35,6 +35,8 @@ items:
         href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Concepts
     items:
+      - name: CAPTCHA accessibility
+        href: concepts/accessibility.md
       - name: User validation
         href: concepts/validation.md
       - name: Domain validation

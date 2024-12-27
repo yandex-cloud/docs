@@ -37,6 +37,8 @@ To use the examples:
 
       * `request_text`: Message text.
 
+          {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
+
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
   1. Run the created file:
@@ -48,14 +50,13 @@ To use the examples:
       In response, the service will return the classification results for both examples with the `confidence` values for the probability of classifying the query text into each class:
 
       ```text
-      Zero-shot classification:
-      TextClassificationLabel(label='translation', confidence=1.1142491374016572e-08)
-      TextClassificationLabel(label='alarm', confidence=3.088581834731485e-08)
-      TextClassificationLabel(label='weather', confidence=1.0)
+      TextClassificationLabel(label='translation', confidence=0.9999947046656092)
+      TextClassificationLabel(label='alarm', confidence=6.01089130732152e-09)
+      TextClassificationLabel(label='weather', confidence=4.289328794822987e-06)
       Few-shot classification:
-      TextClassificationLabel(label='translation', confidence=0.9954985976219177)
-      TextClassificationLabel(label='alarm', confidence=3.306578582851216e-05)
-      TextClassificationLabel(label='weather', confidence=0.004468236118555069)
+      TextClassificationLabel(label='translation', confidence=0.9999989886405171)
+      TextClassificationLabel(label='alarm', confidence=4.4148929001561725e-09)
+      TextClassificationLabel(label='weather', confidence=6.945601458737463e-09)
       ```
 
 - cURL {#curl}
