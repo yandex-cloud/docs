@@ -47,35 +47,35 @@ Telegram-бот на serverless-стеке {{ yandex-cloud }}, который в
 
     {% list tabs group=operating_system %}
 
-    - Linux/macOS {#linux-macos}
+    * Linux/macOS {#linux-macos}
 
         ```bash
         curl \
           --request POST \
-          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
+          --url "https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo"
         ```
 
-    - Windows (cmd) {#windows-cmd}
+    * Windows (cmd) {#windows-cmd}
 
         ```bash
         curl ^
           --request POST ^
-          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
+          --url "https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo"
         ```
 
-    - Windows (PowerShell) {#windows-powershell}
+    * Windows (PowerShell) {#windows-powershell}
 
         ```powershell
         curl.exe `
           --request POST `
-          --url https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo
+          --url "https://api.telegram.org/bot<токен_бота>/setWebhook?url=<домен_API-шлюза>/echo"
         ```
 
     {% endlist %}
 
     Результат:
 
-    ```
+    ```json
     {"ok":true,"result":true,"description":"Webhook was set"}
     ```
 
