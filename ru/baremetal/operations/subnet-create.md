@@ -17,9 +17,7 @@ description: Следуя данной инструкции, вы сможете
   1. В поле **{{ ui-key.yacloud.baremetal.field_server-pool }}** выберите [пул](../concepts/servers.md#server-pools), из которого будет арендован сервер.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** укажите имя подсети. Требования к имени:
 
-     * длина — от 2 до 63 символов;
-     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-     * первый символ — буква, последний — не дефис.
+     {% include [name-format](../../_includes/name-format.md) %}
 
   1. (Опционально) Добавьте **{{ ui-key.yacloud.baremetal.field_description }}** подсети.
   1. (Опционально) Добавьте метки.
