@@ -36,7 +36,7 @@ spec:
         spec:
           containers:
           - name: docker-image-cleanup
-            image:
+            image: alpine:latest
             command:
             - /bin/sh
             - -c
