@@ -49,6 +49,10 @@
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
+{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
+
+{% include [unable-to-parse-obj](../../_includes/data-transfer/troubles/unable-to-parse-obj.md) %}
+
 ### Снижение скорости трансфера {#speed-degrade}
 
 **Проблема**:

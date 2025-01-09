@@ -199,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      {{ yc-k8s }} node-group update <идентификатор_или_имя_группы_узлов> \
      ...
-       --network-interface subnets=<имя_подсети_группы_узлов>, ipv4-address=nat
+       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],ipv4-address=nat
      ```
 
      Имена и идентификаторы групп узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в каталоге](node-group-list.md#list).

@@ -12,6 +12,8 @@
 
 Чтобы поставить паузу в тексте, используйте [TTS-разметку](../../speechkit/tts/markup/tts-markup#markup-elements). В скобках укажите длительность паузы в миллисекундах. Пауза появится в тех местах, где вы поставите тег. Например: `Начало sil<[3000]> продолжение через 3 секунды`.
 
+Обратите внимание, что указание паузы носит лишь рекомендательных характер. Сервис {{ speechkit-name }} предназначен для генерации естественной речи.
+
 #### Запрос cURL не работает в Windows PowerShell {#curl-powershell}
 
 В терминале Windows PowerShell команда `curl` является псевдонимом системного вызова [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest). 
