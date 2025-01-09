@@ -287,10 +287,6 @@ items:
           `ru-central1-a/b/c` is disabled`
         href: >-
           compute/known-issues/failed-precondition-relocation-to-zone-is-disabled.md
-      - name: >-
-          Устранение проблем с производительностью дискового и сетевого
-          ввода-вывода на виртуальной машине
-        href: compute/known-issues/throttling-and-vm-perfomance-issues.md
       - name: Примеры конфигураций и сценариев {{ compute-name }}
         href: compute/how-to/index.md
         hidden: true

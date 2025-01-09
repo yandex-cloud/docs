@@ -15,11 +15,11 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. В списке подключений нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке подключения, которое вы хотите изменить.
-  1. Выберите пункт **Редактировать**.
+  1. Выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Измените требуемые параметры подключения, такие как описание, метки, настройки сервера базы данных или данные аутентификации пользователя.
-  1. Нажмите **Применить** для сохранения изменений.
+  1. Нажмите **{{ ui-key.yacloud.common.apply }}** для сохранения изменений.
 
 {% endlist %}
 

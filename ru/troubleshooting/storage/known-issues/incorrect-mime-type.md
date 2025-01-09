@@ -33,7 +33,7 @@
     --exclude "*" \
     --include "*.js" \
     --no-mime-magic \
-    --add-header="Content-Type: application/javascript" \
+    --mime-type="application/javascript" \
     --no-preserve \
     --acl-public \
     /path/to/local/directory \
