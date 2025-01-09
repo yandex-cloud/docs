@@ -6995,6 +6995,11 @@ default:
         value_disk-type-network-ssd: SSD
         value_disk-type-network-ssd-io-m3: SSD IO
         value_disk-type-network-ssd-nonreplicated: Non-replicated SSD
+      connection-manager:
+        label_connection-type: Connection type
+        label_create-connection-action: Create connection
+        label_dependences: Dependencies
+        label_open-websql: Open in WebSQL
       cr:
         image:
           label_last-scan-time: Date of last scan
@@ -7262,6 +7267,7 @@ default:
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
             label_compute: Compute Cloud
+            label_connection-manager: Connection manager
             label_container-registry: Container Registry
             label_data-proc: Yandex Data Processing
             label_data-streams: Data Streams

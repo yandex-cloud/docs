@@ -33,7 +33,7 @@ Check the configuration of the S3 client you previously used to upload objects t
      --exclude "*" \
      --include "*.js" \
      --no-mime-magic \
-     --add-header="Content-Type: application/javascript" \
+     --mime-type="application/javascript" \
      --no-preserve \
      --acl-public \
      /path/to/local/directory \

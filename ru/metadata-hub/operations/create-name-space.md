@@ -14,4 +14,3 @@ description: Следуя данной инструкции, вы сможете
   {% include [new namespace](../../_includes/metadata-hub/create-name-space.md) %}
 
 {% endlist %}
-

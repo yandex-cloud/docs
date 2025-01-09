@@ -14,8 +14,8 @@ For instance, a VM instance and disk are zonal resources.
 
 Here are the addresses of our data centers:
 
-* In Mytishchi city: Ul. Silikatnaya 19
+* In Kaluga city: Kaluga, 1st Automobile pr-d 8
 * In Vladimir region: Vladimir, Ul. Energetikov 37 bld. 2
 * In Ryazan region: Sasovo, Ul. Pushkina 21
 
-We recommend specifying all the three addresses. The practice of other clients shows that this approach does not cause objections from the regulator.
+We recommend to specify all these addresses. The practice of our clients shows that this approach does not cause any complaints from regulatory authorities.

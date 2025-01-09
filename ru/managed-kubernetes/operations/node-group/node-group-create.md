@@ -40,11 +40,11 @@ description: Следуя данной инструкции, вы сможете
        --disk-size <размер_хранилища_ГБ> \
        --disk-type <тип_хранилища> \
        --fixed-size <фиксированное_количество_узлов_в_группе> \
-       --location <настройки_размещения_хостов_кластера> \
+       --location zone=[<зона_доступности>],subnet-id=[<идентификатор_подсети>] \
        --memory <количество_ГБ_RAM> \
        --name <имя_группы_узлов> \
        --network-acceleration-type <тип_ускорения_сети> \
-       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],subnets=[<имена_подсетей>],ipv4-address=<способ_назначения_IP-адреса> \
+       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],ipv4-address=<способ_назначения_IP-адреса> \
        --platform-id <идентификатор_платформы> \
        --container-runtime containerd \
        --preemptible \
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
        Тип масштабирования нельзя изменить после создания группы узлов.
 
-     * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md), [сеть](../../../vpc/concepts/network.md#network) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов.
+     * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов, но нельзя указывать несколько подсетей для одной зоны. Для каждой зоны доступности следует использовать отдельный параметр `--location`.
 
        Если в одной команде передать параметры `--location`, `--network-interface` и `--public-ip`, [возникнет ошибка](../../qa/troubleshooting.md#conflicting-flags). Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` или `--network-interface`.
 

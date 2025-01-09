@@ -15,14 +15,14 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
 
 {% endlist %}
 
 Для выбранного подключения вы можете просмотреть информацию о зависимостях от других сервисов и выполненных операциях.
 
-Вы можете открыть выбранное подключение в сервисе [{{ websql-full-name }}](../../websql/concepts/index.md) для выполнения запросов к базам данных. Перейдите по ссылке **Открыть в {{ websql-name }}**, расположенной в правом верхнем углу.
+Вы можете открыть выбранное подключение в сервисе [{{ websql-full-name }}](../../websql/concepts/index.md) для выполнения запросов к базам данных. Перейдите по ссылке **{{ ui-key.yacloud.connection-manager.label_open-websql }}**, расположенной в правом верхнем углу.
 
 ## Просмотр зависимостей подключения {#dependencies}
 
@@ -32,8 +32,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
-  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Зависимости**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
+  1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 
      В списке зависимостей показываются кластеры управляемых баз данных и экземпляры сервисов, которые используют {{ connection-manager-name }} для хранения информации о подключениях. Нажмите на строку в списке зависимостей, чтобы перейти к кластеру или экземпляру сервиса.
 
@@ -47,8 +47,8 @@ description: Пошаговые инструкции по работе с {{ con
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** и нажмите на имя нужного подключения.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **Операции**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
+  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      В списке операций вы можете просмотреть все операции выбранного подключения с момента его создания:
 
