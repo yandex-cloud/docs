@@ -19,7 +19,7 @@
    - `logging` — {{ cloud-logging-name }}.
    - `managed-clickhouse` — {{ mch-name }}.
    - `managed-elasticsearch` — {{ mes-name }}.
-    `managed-greenplum` — {{ mgp-name }}.
+   - `managed-greenplum` — {{ mgp-name }}.
    - `managed-kafka` — {{ mkf-name }}.
    - `managed-kubernetes` — {{ managed-k8s-name }}.
    - `managed-mongodb` — {{ mmg-name }}.
