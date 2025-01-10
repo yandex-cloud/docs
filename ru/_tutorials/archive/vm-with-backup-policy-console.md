@@ -463,6 +463,8 @@
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
   1. Опишите конфигурацию пользовательских метаданных в файле `user-data.yaml`:
 
       ```yaml

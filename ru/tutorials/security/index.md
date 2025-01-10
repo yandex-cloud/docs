@@ -14,7 +14,7 @@ description: Различные сценарии использования по
 * [{#T}](static-key-in-lockbox.md)
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
-* [{#T}](audit-trails-events-to-kuma.md)
+* [{#T}](audit-trails-events-to-kuma/index.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
 * [{#T}](coi-fluent-bit-logging.md)

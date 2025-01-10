@@ -42,6 +42,7 @@ The {{ backup-name }} agent is available for automatic installation on VMs when 
 * [Ubuntu 20.04 LTS OS Login](/marketplace/products/yc/ubuntu-2004-lts-oslogin)
 * [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
 * [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)
+* [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin)
 
 ### Windows-based images {#windows}
 

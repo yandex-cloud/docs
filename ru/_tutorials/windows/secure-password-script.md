@@ -377,6 +377,8 @@
       * imade_id — идентификатор образа с ОС Windows.
       * subnet_name — имя подсети в каталоге, в которой вы хотите разместить ВМ.
 
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
    {% endlist %}
 
 

@@ -27,18 +27,28 @@ items:
         href: tutorials/trunk-priv-add.md
       - name: Создать прямое транковое подключение и публичное соединение в нем
         href: tutorials/trunk-pub-add.md
-      - name: Создать партнерское транковое подключение и приватное соединение в нем
+      - name: >-
+          Создать транковое подключение через партнера и приватное соединение в
+          нем
         href: tutorials/partner-trunk-priv-add.md
-      - name: Создать партнерское транковое подключение и публичное соединение в нем
+      - name: >-
+          Создать транковое подключение через партнера и публичное соединение в
+          нем
         href: tutorials/partner-trunk-pub-add.md
-      - name: >-
-          Добавить приватное соединение в прямое или партнерское транковое
-          подключение
+      - name: Добавить приватное соединение в транковое подключение
         href: tutorials/priv-add.md
-      - name: >-
-          Добавить публичное соединение в прямое или партнерское транковое
-          подключение
+      - name: Добавить публичное соединение в транковое подключение
         href: tutorials/pub-add.md
+      - name: Изменить емкость транкового подключения
+        href: tutorials/trunk-capacity-change.md
+      - name: Изменить набор IP-префиксов в приватном соединении
+        href: tutorials/priv-prefixes-change.md
+      - name: Удалить приватное соединение
+        href: tutorials/priv-del.md
+      - name: Удалить публичное соединение
+        href: tutorials/pub-del.md
+      - name: Удалить транковое подключение
+        href: tutorials/trunk-del.md
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md
       - name: >-

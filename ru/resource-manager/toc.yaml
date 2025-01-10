@@ -68,8 +68,66 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/resource-manager/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cloud
+        items:
+          - name: Overview
+            href: cli-ref/cloud/index.md
+          - name: add-access-binding
+            href: cli-ref/cloud/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cloud/add-labels.md
+          - name: create
+            href: cli-ref/cloud/create.md
+          - name: delete
+            href: cli-ref/cloud/delete.md
+          - name: get
+            href: cli-ref/cloud/get.md
+          - name: list
+            href: cli-ref/cloud/list.md
+          - name: list-access-bindings
+            href: cli-ref/cloud/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/cloud/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cloud/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cloud/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/cloud/set-access-bindings.md
+          - name: update
+            href: cli-ref/cloud/update.md
+      - name: folder
+        items:
+          - name: Overview
+            href: cli-ref/folder/index.md
+          - name: add-access-binding
+            href: cli-ref/folder/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/folder/add-labels.md
+          - name: create
+            href: cli-ref/folder/create.md
+          - name: delete
+            href: cli-ref/folder/delete.md
+          - name: get
+            href: cli-ref/folder/get.md
+          - name: list
+            href: cli-ref/folder/list.md
+          - name: list-access-bindings
+            href: cli-ref/folder/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/folder/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/folder/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/folder/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/folder/set-access-bindings.md
+          - name: update
+            href: cli-ref/folder/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

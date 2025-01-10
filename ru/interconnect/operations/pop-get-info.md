@@ -4,15 +4,9 @@ title: Как получить информацию о точках присут
 
 # Получить информацию о точках присутствия
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Получите информацию о [точках присутствия](../concepts/pops.md) {{ interconnect-name }}:
 
@@ -39,3 +33,4 @@ title: Как получить информацию о точках присут
       * `REGION ID` — регион облака к которому данная точка присутствия относится.
 
 {% endlist %}
+

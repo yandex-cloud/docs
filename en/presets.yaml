@@ -5545,6 +5545,8 @@ default:
         key-values-input:
           label_key: Key
           label_value: Value
+        label-set:
+          label_labels: Labels
       iam:
         cloud:
           create:
@@ -6766,7 +6768,7 @@ default:
           button_action-pause: Pause
           button_action-resume: Resume
           button_action-start: Start group
-          button_action-stop: Stop group
+          button_action-stop: Stop group and VM
           button_create: Create group of virtual machines
           create:
             button_edit: Save
@@ -7595,8 +7597,6 @@ default:
           button_add-listener: Add listener
           button_attach-tg: Attach target group
           button_create: Create a network load balancer
-          button_start: Start
-          button_stop: Stop
           column_ip-address: IP address
           form:
             button_create-target-group: Create target group
@@ -8088,7 +8088,6 @@ default:
             action_edit: Edit
             title_node-groups: Node groups
             title_virtual-node-group: Virtual node group
-        title_opensearch-dashboards-section: OpenSearch Dashboards
       postbox:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
@@ -8392,9 +8391,8 @@ default:
         waf:
           action_exclusion-rule-add-rules: Add rules
           action_setup-base-rules: Set up a basic rule set
-          field_analyze-request-body: Inspect request body
+          field_analyze-request-body: 'Analyze request body (maximum size: 8 KB)'
           field_logging: Write logs
-          field_max-request-body-size: Maximum request body size
           label_action-edit-settings: Configure basic rule set
           label_analyze-request-body-action-deny: Block request
           label_analyze-request-body-action-ignore: Do not analyze body
@@ -8407,6 +8405,7 @@ default:
           label_paranoia-option-2: 2 or lower
           label_profiles: WAF profiles
           label_save-settings: Save settings
+          label_size-limit: Maximum request body size
           section_analyze-request: Request analysis
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rule-rules-section: Scope of use
@@ -8633,7 +8632,7 @@ default:
           button_action-dynamic: Make dynamic
           button_action-static: Make static
           button_create: Reserve address
-          label_title: IP addresses
+          label_title: Public IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
           popup-confirm_button_static: Change

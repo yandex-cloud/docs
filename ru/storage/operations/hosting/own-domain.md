@@ -95,6 +95,10 @@ description: Следуя данной инструкции, вы сможете
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
 
     {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
-   
+
+
+    {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
+
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}

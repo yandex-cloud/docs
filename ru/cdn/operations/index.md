@@ -26,6 +26,7 @@ description: На странице представлен список поша�
 * [{#T}](resources/enable-secure-token.md)
 * [{#T}](resources/configure-additions.md)
 * [{#T}](resources/disable-resource.md)
+* [{#T}](resources/labeling.md)
 * [{#T}](resources/delete-resource.md)
 * [{#T}](resources/get-stats.md)
 

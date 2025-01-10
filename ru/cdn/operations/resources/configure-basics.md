@@ -27,6 +27,12 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
+      * Чтобы добавить [метки](../../concepts/labels.md):
+
+          * Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          * Введите метку в формате `ключ: значение`.
+          * Нажмите **Enter**.
+
       * Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
 
           * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
@@ -143,6 +149,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       Чтобы отключить политику доступа по IP-адресам, используйте параметр `--clear-ip-address-acl`.
+
+      Чтобы добавить или удалить [метки](../../concepts/labels.md), используйте параметры `--add-labels`, `--remove-labels` и `--remove-all-labels`.
 
       Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 

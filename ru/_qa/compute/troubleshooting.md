@@ -59,6 +59,8 @@
         --metadata-from-file user-data=vm-init.tpl
       ```
 
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 - {{ TF }} {#tf}
 
   1. Создайте файл с конфигурацией cloud-init, например `vm-init.tpl`:

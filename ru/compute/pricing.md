@@ -4,7 +4,18 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=83bded152e49#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

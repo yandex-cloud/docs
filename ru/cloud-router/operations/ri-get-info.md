@@ -4,15 +4,9 @@ title: Как получить информацию о Routing Instance
 
 # Получить информацию о Routing Instance
 
-{% include [cr-api-access](../../_includes/cloud-router/cr-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для получения информации о Routing Instance:
 
@@ -23,7 +17,7 @@ title: Как получить информацию о Routing Instance
   1. Получите список `Routing Instance` (RI) для заданного каталога:
 
       ```bash
-      yc cloudrouter routing-instance list --folder-id b1gqf2hjizv2jwj4dnga 
+      yc cloudrouter routing-instance list --folder-id b1gqf2hjizv2jw****** 
       ```
 
       Результат:
@@ -32,8 +26,8 @@ title: Как получить информацию о Routing Instance
       +----------------------+--------------------+--------+-----------------------+
       |          ID          |        NAME        | STATUS | PRIVATE CONNECTION ID |
       +----------------------+--------------------+--------+-----------------------+
-      | cf3jqdc4gjpxigewc2rv | routing-instance   | ACTIVE | euuiog88zphgsq3c15pq, |
-      |                      |                    |        | euucr7p47329kqxrp4kh  |
+      | cf3jqdc4gjpxig****** | routing-instance   | ACTIVE | euuiog88zphgsq******, |
+      |                      |                    |        | euucr7p47329kq******  |
       +----------------------+--------------------+--------+-----------------------+
       ```
 

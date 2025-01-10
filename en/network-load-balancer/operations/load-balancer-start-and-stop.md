@@ -10,8 +10,8 @@ You can stop and restart a network load balancer, if required.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to stop a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. In the line of the load balancer you need to stop, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
+  1. In the line of the load balancer you need to stop, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Stop**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.stop }}**.
 
 - CLI {#cli}
 
@@ -45,8 +45,8 @@ You can restart a network load balancer in the `Stopped` status.
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to start a load balancer.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. In the line of the load balancer you need to start, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
+  1. In the line of the load balancer you need to start, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 

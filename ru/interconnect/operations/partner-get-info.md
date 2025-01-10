@@ -4,15 +4,9 @@ title: Как получить информацию о партнерах {{ int
 
 # Получить информацию о партнерах {{ interconnect-name }}
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Получите информацию о партнерах {{ yandex-cloud }} по предоставлению {{ interconnect-name }}:
 
@@ -43,3 +37,4 @@ title: Как получить информацию о партнерах {{ int
       * `STATUS` - состояние партнерства. При значении `DOWN` в этом поле, подключение через такого партнера не предоставляется.
 
 {% endlist %}
+

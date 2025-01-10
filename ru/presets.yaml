@@ -5554,6 +5554,8 @@ default:
         key-values-input:
           label_key: Ключ
           label_value: Значение
+        label-set:
+          label_labels: Метки
       iam:
         cloud:
           create:
@@ -6305,7 +6307,7 @@ default:
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
         field_server-zone: Зона доступности
-        field_ssh-public-key: Публичный SSH-ключ
+        field_ssh-public-key: Открытый SSH-ключ
         label_create-network: Создать VRF
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
@@ -6775,7 +6777,7 @@ default:
           button_action-pause: Приостановить процессы
           button_action-resume: Возобновить процессы
           button_action-start: Запустить группу
-          button_action-stop: Остановить группу
+          button_action-stop: Остановить группу и ВМ
           button_create: Создать группу виртуальных машин
           create:
             button_edit: Сохранить
@@ -7606,8 +7608,6 @@ default:
           button_add-listener: Добавить обработчик
           button_attach-tg: Подключить целевую группу
           button_create: Создать сетевой балансировщик
-          button_start: Запустить
-          button_stop: Остановить
           column_ip-address: IP-адрес
           form:
             button_create-target-group: Создать целевую группу
@@ -8099,7 +8099,6 @@ default:
             action_edit: Изменить
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
-        title_opensearch-dashboards-section: OpenSearch Dashboards
       postbox:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес
@@ -8403,9 +8402,8 @@ default:
         waf:
           action_exclusion-rule-add-rules: Добавить правила
           action_setup-base-rules: Настроить набор базовых правил
-          field_analyze-request-body: Инспектировать тело запроса
+          field_analyze-request-body: "Анализировать тело запроса (макс. 8\_КБ)"
           field_logging: Запись логов
-          field_max-request-body-size: Максимальный размер тела запроса
           label_action-edit-settings: Настроить набор базовых правил
           label_analyze-request-body-action-deny: Блокировать запрос
           label_analyze-request-body-action-ignore: Не анализировать тело запроса
@@ -8418,6 +8416,7 @@ default:
           label_paranoia-option-2: 2 и ниже
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
+          label_size-limit: Максимальный размер тела запроса
           section_analyze-request: Анализ запроса
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rule-rules-section: Область применения
@@ -8644,7 +8643,7 @@ default:
           button_action-dynamic: Сделать динамическим
           button_action-static: Сделать статическим
           button_create: Зарезервировать адрес
-          label_title: IP-адреса
+          label_title: Публичные IP-адреса
           popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
           popup-confirm_button_static: Изменить

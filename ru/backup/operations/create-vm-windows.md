@@ -145,6 +145,8 @@
       placement_policy: {}
       ```
 
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 {% endlist %}
 
 {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan-win.md) %}

@@ -50,7 +50,7 @@ capacity-scheduler:yarn.scheduler.capacity.resource-calculator=org.apache.hadoop
 
 ```text
 23/02/23 20:22:09 WARN TaskSetManager: Lost task 28.0 in stage 13.0 (TID 242) 
-        (rc1c-dataproc-*****.mdb.yandexcloud.net executor 5): ExecutorLostFailure 
+        (rc1c-dataproc-*****.{{ dns-zone }} executor 5): ExecutorLostFailure 
         (executor 5 exited caused by one of the running tasks) 
         Reason: Executor heartbeat timed out after 138218 ms
 ```

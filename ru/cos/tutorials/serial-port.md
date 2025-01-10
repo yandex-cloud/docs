@@ -119,6 +119,8 @@ description: Следуя данному руководству, вы сможе
         * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `--network-interface` — сетевые настройки ВМ.
         * `--metadata-from-file` — YAML-файлы [метаданных](../../compute/concepts/vm-metadata.md) для создания ВМ.
+
+            {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
         * `--create-boot-disk` — идентификатор образа для создания загрузочного диска.
 
         После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).

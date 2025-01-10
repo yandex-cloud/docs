@@ -134,6 +134,8 @@
      * `--metadata` — для изменения значения из одной строки.
      * `--metadata-from-file` — для изменения значения из нескольких строк.
 
+     {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 {% endlist %}
 
 ### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}

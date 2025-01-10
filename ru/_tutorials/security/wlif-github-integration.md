@@ -1,6 +1,6 @@
 # Получение значения секрета Lockbox на стороне GitHub
 
-[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity) (Workload Identity Federation) позволяют настроить связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами {{ yandex-cloud }} от имени сервисных аккаунтов без генерации статических учетных данных, например авторизованных ключей или IAM-токенов. Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+{% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
 В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret) [{{ lockbox-full-name }}](../../lockbox/) со стороны GitHub от имени сервисного аккаунта в {{ yandex-cloud }}. Аналогично можно выполнить любое действие через {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml) или [{{ TF }}]({{ tf-provider-link }}).
 
@@ -34,7 +34,7 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
+   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
    1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
    1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите URL OIDC-провайдера `https://token.actions.githubusercontent.com`.
    1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** введите получателя токена `https://github.com/<имя_пользователя_github>`.
@@ -97,7 +97,7 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создан сервисный аккаунт.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. В списке выберите сервисный аккаунт `sa-lockbox`.
    1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
@@ -155,7 +155,7 @@
        - name: GetIAMToken
          run: |
            SA_ID="<идентификатор_сервисного_аккаунта>"
-           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token=$not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')
+           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token=$not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://{{ auth-main-host }}/oauth/token | jq -r '.access_token')
            echo "IAMToken=${IAMTOKEN}" >> $GITHUB_OUTPUT
          id: IAMtoken
        # Запросить значение секрета через API, используя IAM-токен в {{ yandex-cloud }}
