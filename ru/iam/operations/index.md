@@ -75,3 +75,7 @@ description: Пошаговые инструкции по управлению �
 
 - [{#T}](service-control/list-get.md)
 - [{#T}](service-control/enable-disable.md)
+
+## Федерации сервисных аккаунтов {#wlif}
+
+- [{#T}](wlif/setup-wlif.md)

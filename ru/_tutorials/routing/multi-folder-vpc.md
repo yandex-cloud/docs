@@ -468,6 +468,8 @@
        --metadata-from-file user-data=vm-config.txt
      ```
 
+     {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
   1. Сохраните публичные IP-адреса ВМ для дальнейшего использования:
 
      ```bash

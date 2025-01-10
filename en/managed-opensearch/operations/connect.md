@@ -66,7 +66,7 @@ You can connect to {{ OS }} Dashboards:
 - Over the internet {#internet}
 
     1. Install the [SSL certificate](#ssl-certificate) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-    1. On the cluster page in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-<cluster_ID>.rw.{{ dns-zone }}>` in your browser.
+    1. On the cluster page in the management console, click **OpenSearch Dashboards** or go to `https://c-<cluster_ID>.rw.{{ dns-zone }}>` in your browser.
 
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 

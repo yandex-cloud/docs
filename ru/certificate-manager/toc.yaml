@@ -47,6 +47,8 @@ items:
         href: operations/cert-backup.md
       - name: Добавление алерта для сертификата
         href: operations/alert.md
+      - name: Настроить права доступа к сертификату
+        href: operations/cert-access.md
       - name: Посмотреть операции с сертификатом
         href: operations/operation-logs.md
   - name: Практические руководства

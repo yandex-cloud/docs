@@ -383,6 +383,8 @@
      --async
   ```
 
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 
 - PowerShell {#powershell}
 
@@ -402,8 +404,9 @@
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
      --host-id <идентификатор_выделенного_хоста> `
      --async
-
   ```
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   
 {% endlist %}

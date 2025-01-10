@@ -4,15 +4,9 @@ title: Как получить информацию о приватных сое
 
 # Получить информацию о приватных соединениях
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Посмотрите описание команды CLI для получения информации о [приватных соединениях](../concepts/priv-con.md):
 
@@ -23,7 +17,7 @@ title: Как получить информацию о приватных сое
   1. Получите список приватных соединений в указанном каталоге:
 
      ```bash
-      yc cic private-connection list --folder-id b1gqf2hjizv2jwj4dnga
+      yc cic private-connection list --folder-id b1gqf2hjizv2jw******
       ```
 
       Результат:
@@ -32,8 +26,8 @@ title: Как получить информацию о приватных сое
       +----------------------+--------------------+----------------------+
       |          ID          |        NAME        | TRUNK CONNECTION ID  |
       +----------------------+--------------------+----------------------+
-      | euuiog88zphgsq3c15pq | customer-name-prc1 | euuqqctbrflq3ir4n4p2 |
-      | euucr7p47329kqxrp4kh | customer-name-prc2 | euuvdjl5shd0fv7bqt38 |
+      | euuiog88zphgsq****** | customer-name-prc1 | euuqqctbrflq3i****** |
+      | euucr7p47329kq****** | customer-name-prc2 | euuvdjl5shd0fv****** |
       +----------------------+--------------------+----------------------+      
       ```
 
@@ -41,17 +35,17 @@ title: Как получить информацию о приватных сое
 
       ```bash
       # yc cic private-connection get <ID приватного соединения>
-      yc cic private-connection get euuiog88zphgsq3c15pq 
+      yc cic private-connection get euuiog88zphgsq******
       ```
 
       Результат:
 
       ```yml
-      id: euuiog88zphgsq3c15pq
+      id: euuiog88zphgsq******
       name: customer-name-prc1
-      folder_id: b1gqf2hjizv2jwj4dnga
+      folder_id: b1gqf2hjizv2jw******
       region_id: ru-central1
-      trunk_connection_id: euuqqctbrflq3ir4n4p2
+      trunk_connection_id: euuqqctbrflq3i******
       vlan_id: "1531"
       ipv4_peering:
         peering_subnet: 10.211.10.0/30

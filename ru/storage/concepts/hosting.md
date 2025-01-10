@@ -92,6 +92,10 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 {% include [redirect-https](../../_includes/storage/redirect-https.md) %}
 
 
+{% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
+
+
+
 При обращении к сайту вы будете получать ответы с кодами, описанными в разделе [{#T}](../s3/api-ref/hosting/answer-codes.md).
 
 При хостинге сайта вы можете:

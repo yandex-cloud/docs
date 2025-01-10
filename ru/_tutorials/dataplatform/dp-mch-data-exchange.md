@@ -165,7 +165,7 @@
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -228,7 +228,7 @@
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 

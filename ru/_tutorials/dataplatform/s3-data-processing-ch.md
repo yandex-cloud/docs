@@ -201,7 +201,7 @@
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 

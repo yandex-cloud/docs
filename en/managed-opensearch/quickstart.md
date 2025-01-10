@@ -99,7 +99,7 @@ To connect to a cluster:
 
 
    1. Install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
-   1. On the cluster page, in the management console, click **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** or go to `https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}>` in your browser.
+   1. On the cluster page, in the management console, click **OpenSearch Dashboards** or go to `https://c-<{{ OS }}_cluster_ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter `admin` for username and the password you set when [creating the cluster](#create-cluster).
 
 1. Explore a set of sample data:

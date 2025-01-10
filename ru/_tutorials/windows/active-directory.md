@@ -185,6 +185,8 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --metadata-from-file user-data=setpass
   ```
 
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 {% endlist %}
 
 ## Создайте ВМ для бастионного хоста {#jump-server-vm}

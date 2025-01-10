@@ -7,6 +7,10 @@ description: Следуя данной инструкции, вы сможете
 
 Если бакет используется для [хостинга статического сайта](../../concepts/hosting.md), то для доступа к сайту по протоколу [HTTPS](../../../glossary/ssl-certificate.md) необходимо загрузить собственный сертификат безопасности и соответствующий ему секретный ключ.
 
+
+{% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
+
 {{ objstorage-name }} поддерживает только [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded сертификаты.
 
 {% note info %}

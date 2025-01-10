@@ -156,6 +156,8 @@
 
       Где `<идентификатор_образа>` — идентификатор вашего образа с Windows Server, который используется для создания ВМ.
 
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
       Если команда выполнена успешно, сохраните IP-адрес из поля `one_to_one_nat`. Адрес будет использован на следующем шаге, чтобы создать подключение по RDP:
 
       ```

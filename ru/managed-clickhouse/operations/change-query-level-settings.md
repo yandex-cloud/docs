@@ -380,7 +380,7 @@ description: Следуя данной инструкции, вы сможете
       * Пример подключения без SSL с настройкой [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
 
          ```bash
-         clickhouse-client --host rc1d-***.mdb.yandexcloud.net \
+         clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
                            --port 9440 \

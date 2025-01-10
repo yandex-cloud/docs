@@ -45,6 +45,8 @@ items:
             href: operations/resources/configure-additions.md
           - name: Отключить ресурс
             href: operations/resources/disable-resource.md
+          - name: Управление метками ресурса
+            href: operations/resources/labeling.md
           - name: Удалить ресурс
             href: operations/resources/delete-resource.md
           - name: Посмотреть статистику ресурса
@@ -119,6 +121,8 @@ items:
         href: concepts/ip-address-acl.md
       - name: Выгрузка логов
         href: concepts/logs.md
+      - name: Метки
+        href: concepts/labels.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
