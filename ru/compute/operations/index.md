@@ -12,6 +12,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 

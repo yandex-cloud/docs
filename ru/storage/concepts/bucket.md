@@ -56,6 +56,10 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 О поддержке HTTPS при хостинге сайтов в {{ objstorage-name }} читайте в разделе [{#T}](./hosting.md).
 
 
+{% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
+
+
+
 ## Настройки бакетов {#bucket-settings}
 
 Вы можете:

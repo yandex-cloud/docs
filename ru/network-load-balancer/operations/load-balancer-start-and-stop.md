@@ -10,8 +10,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется остановить балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. В строке балансировщика, который требуется остановить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_stop }}**.
+  1. В строке балансировщика, который требуется остановить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
 
 - CLI {#cli}
 
@@ -45,8 +45,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется запустить балансировщик.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-  1. В строке балансировщика, который требуется запустить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_start }}**.
+  1. В строке балансировщика, который требуется запустить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Запустить**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 

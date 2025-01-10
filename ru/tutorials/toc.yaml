@@ -61,7 +61,13 @@ items:
           - name: '{{ TF }}'
             href: security/protected-access-to-content/terraform.md
       - name: Загрузка аудитных логов в SIEM KUMA
-        href: security/audit-trails-events-to-kuma.md
+        items:
+          - name: Обзор
+            href: security/audit-trails-events-to-kuma/index.md
+          - name: Консоль управления, CLI, API
+            href: security/audit-trails-events-to-kuma/console.md
+          - name: '{{ TF }}'
+            href: security/audit-trails-events-to-kuma/terraform.md
       - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
         href: security/coi-fluent-bit-logging.md
       - name: Добавление HTML-страницы для работы {{ captcha-name }}

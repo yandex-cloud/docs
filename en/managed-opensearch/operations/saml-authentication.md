@@ -200,7 +200,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 1. On the IdP side, create a user that meets the role mappings defined in {{ OS }}.
 1. Grant this user access to the [previously created application](#configuration-idp).
 
-To log in to {{ OS }} using the new user's credentials, go to the **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** page.
+To log in to {{ OS }} using the new user's credentials, go to the **OpenSearch Dashboards** page.
 
 ## Examples of integration with providers {#examples}
 

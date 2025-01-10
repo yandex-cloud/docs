@@ -103,11 +103,11 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       Результат:
       
       ``` 
-      id: e9b95m6al33r62n5vkab
-      folder_id: big67u7m5flplkc6vvpc
+      id: e9b95m6al33r********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
-      network_id: qqppl6fduhct76qkjh6s
+      network_id: qqppl6fduhct********
       zone_id: {{ region-id }}-d
       v4_cidr_blocks:
       - 10.1.0.0/16
@@ -168,14 +168,14 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    Результат:
 
    ``` 
-   id: enp136p8s2ael7ob6klg
-   folder_id: big67u7m5flplkc6vvpc
+   id: enp136p8s2ae********
+   folder_id: big67u7m5flp********
    created_at: "2021-06-09T10:50:29Z"
    name: my-rdgw-sg
-   network_id: qqppl6fduhct76qkjh6s
+   network_id: qqppl6fduhct********
    status: ACTIVE
    rules:
-   - id: env98jerk9b3tcp68k61
+   - id: env98jerk9b3********
      description: icmp
      direction: INGRESS
      protocol_name: ICMP
@@ -254,46 +254,48 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
          --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
          --metadata-from-file user-data=setpass
        ```
-   
-      Результат:
-   
-      ``` 
-      done (25s)
-      id: frmogfp7mm1kg87c25f3
-      folder_id: big67u7m5flplkc6vvpc
-      created_at: "2021-06-09T10:51:58Z"
-      name: my-rds-gw
-      zone_id: {{ region-id }}-d
-      platform_id: standard-v3
-      resources:
-      memory: "4294967296"
-      cores: "2"
-      core_fraction: "100"
-      status: RUNNING
-      boot_disk:
-      mode: READ_WRITE
-      device_name: fhmplfvr7g6pfv63fsr7
-      auto_delete: true
-      disk_id: fhmplfvr7g6pfv63fsr7
-      network_interfaces:
-      - index: "0"
-        mac_address: d0:0d:18:83:c8:7b
-        subnet_id: e9b95m6al33r62n5vkab
-        primary_v4_address:
-        address: 10.1.0.3
-        one_to_one_nat:
-        address: 178.154.231.126
-        ip_version: IPV4
-        security_group_ids:
-         - enp136p8s2ael7ob6klg
-           fqdn: my-rds-gw.{{ region-id }}.internal
-           scheduling_policy: {}
-           network_settings:
-           type: STANDARD
-           placement_policy: {}
-      ```
 
-{% endlist %} 
+       Результат:
+
+       ``` 
+       done (25s)
+       id: frmogfp7mm1k********
+       folder_id: big67u7m5flp********
+       created_at: "2021-06-09T10:51:58Z"
+       name: my-rds-gw
+       zone_id: {{ region-id }}-d
+       platform_id: standard-v3
+       resources:
+       memory: "4294967296"
+       cores: "2"
+       core_fraction: "100"
+       status: RUNNING
+       boot_disk:
+       mode: READ_WRITE
+       device_name: fhmplfvr7g6p********
+       auto_delete: true
+       disk_id: fhmplfvr7g6p********
+       network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:18:83:c8:7b
+         subnet_id: e9b95m6al33r********
+         primary_v4_address:
+         address: 10.1.0.3
+         one_to_one_nat:
+         address: 178.154.231.126
+         ip_version: IPV4
+         security_group_ids:
+          - enp136p8s2a********
+            fqdn: my-rds-gw.{{ region-id }}.internal
+            scheduling_policy: {}
+            network_settings:
+            type: STANDARD
+            placement_policy: {}
+       ```
+
+       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
+{% endlist %}
 
 ## Настройте роль RDGW {#role}
 
@@ -446,8 +448,8 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
       ``` 
       done (19s)
-      id: fhm5pflreh2jellq97r0
-      folder_id: big67u7m5flplkc6vvpc
+      id: fhm5pflreh2j********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
       zone_id: {{ region-id }}-d
@@ -459,13 +461,13 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       status: RUNNING
       boot_disk:
       mode: READ_WRITE
-      device_name: fhmmf65nlbt131b3e36l
+      device_name: fhmmf65nlbt1********
       auto_delete: true
-      disk_id: fhmmf65nlbt131b3e36l
+      disk_id: fhmmf65nlbt1********
       network_interfaces:
       - index: "0"
         mac_address: d0:0d:5d:ef:bb:74
-        subnet_id: e9b95m6al33r62n5vkab
+        subnet_id: e9b95m6al33r********
         primary_v4_address:
         address: 10.1.0.4
         fqdn: test-vm.{{ region-id }}.internal

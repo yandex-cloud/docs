@@ -73,7 +73,7 @@
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=rc1a-<идентификатор_кластера_PostgreSQL>.mdb.yandexcloud.net
+          host=rc1a-<идентификатор_кластера_PostgreSQL>.{{ dns-zone }}
           port=6432
           sslmode=disable
           dbname=<имя_БД>

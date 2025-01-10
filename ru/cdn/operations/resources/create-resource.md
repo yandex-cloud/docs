@@ -28,6 +28,13 @@ description: Следуя данной инструкции, вы сможете
         * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. В поле **{{ ui-key.yacloud.cdn.label_origins-group }}** вы увидите название созданной группы источников.
 
      Подробнее см. в разделе [{#T}](../../concepts/origins.md).
+
+  1. При необходимости добавьте [метки](../../concepts/labels.md):
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      1. Введите метку в формате `ключ: значение`.
+      1. Нажмите **Enter**.
+
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** введите **{{ ui-key.yacloud.cdn.label_personal-domain }}**. Вы можете добавить более одного **Доменного имени**. Поддерживаются имена с символами не из [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), например, кириллическими, и [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). Первое имя считается основным.
 
      {% note warning %}
@@ -155,6 +162,8 @@ description: Следуя данной инструкции, вы сможете
      * `--rewrite-flag` – [флаг](../../concepts/http-rewrite.md#flag). Возможные значения:
 
          {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+     * Чтобы добавить [метки](../../concepts/labels.md), используйте параметр `--add-labels`. Например: `--add-labels key1=value1`.
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 

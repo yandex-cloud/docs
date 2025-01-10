@@ -56,8 +56,10 @@ description: Следуя данной инструкции, вы сможете
   * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в [зоне доступности](../../../overview/concepts/geo-scope.md), указанной в параметре `--zone`.
   * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
   * `--metadata-from-file` — ключ `user-data` и его значение — путь к файлу с конфигурацией `cloud-config` в формате YAML. Например: `--metadata-from-file user-data="/home/user/metadata.yaml"`.
-  
+
       Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+
+  {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - {{ TF }} {#tf}
 
@@ -93,7 +95,7 @@ description: Следуя данной инструкции, вы сможете
     "platformId": "standard-v3",
     ...
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <имя_пользователя>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/nginx/Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
+      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <имя_пользователя>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/ nginx/ Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
     },
     ...
   }
@@ -136,7 +138,7 @@ description: Следуя данной инструкции, вы сможете
         apt-get update
         apt-get install -y nginx
         service nginx start
-        sed -i -- "s/nginx/Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
+        sed -i -- "s/ nginx/ Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
       defer: true
   runcmd:
     - ["/usr/local/etc/startup.sh"]

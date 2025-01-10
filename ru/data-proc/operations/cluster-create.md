@@ -104,6 +104,9 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
+  1. Выберите [окружение](../concepts/environment.md#environment), в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
+     * `PRODUCTION` — для стабильных версий ваших приложений.
+     * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
   1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера. Они позволяют разделить и сгруппировать ресурсы на логические группы.
   1. Задайте следующие настройки кластера:
 
@@ -217,6 +220,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      {{ yc-dp }} cluster create <имя_кластера> \
+       --environment=<окружение> \
        --bucket=<имя_бакета> \
        --zone=<зона_доступности> \
        --service-account-name=<имя_сервисного_аккаунта> \
@@ -251,6 +255,7 @@ description: Следуя данной инструкции, вы сможете
      {% endnote %}
 
      Где:
+     * `--environment` — [окружение](../concepts/environment.md#environment) кластера: `prestable` или `production`.
      * `--bucket` — имя бакета в {{ objstorage-name }}, в котором будут храниться зависимости заданий и результаты их выполнения. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} должен иметь разрешение `READ и WRITE` для этого бакета.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой должны быть размещены хосты кластера {{ dataproc-name }}.
      * `--service-account-name` — имя сервисного аккаунта кластера {{ dataproc-name }}.
@@ -386,7 +391,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-  
+
   1. Создайте конфигурационный файл с описанием следующих ресурсов:
       * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
       * Сервисный аккаунт для создания бакета {{ objstorage-name }}.
@@ -448,6 +453,7 @@ description: Следуя данной инструкции, вы сможете
        bucket              = "<имя_бакета>"
        name                = "<имя_кластера>"
        description         = "<описание_кластера>"
+       environment         = "<окружение_кластера>"
        service_account_id  = yandex_iam_service_account.data_proc_sa.id
        zone_id             = "<зона_доступности>"
        security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
@@ -573,6 +579,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать кластер {{ dataproc-name }}, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластера {{ dataproc-name }}, в параметре `folderId`.
   * Имя кластера {{ dataproc-name }} в параметре `name`.
+  * [Окружение](../concepts/environment.md#environment) кластера в параметре `environment` — `prestable` или `production`.
   * Конфигурацию кластера {{ dataproc-name }} в параметре `configSpec`, в том числе:
     * [Версию образа](../concepts/environment.md) в параметре `configSpec.versionId`.
 
@@ -699,6 +706,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ dataproc-name }} для выполнения заданий Spark без HDFS и подкластеров для хранения данных с тестовыми характеристиками:
   * С именем `my-dataproc`.
+  * С окружением `production`.
   * С бакетом `dataproc-bucket`.
   * В зоне доступности `{{ zone-id }}`.
   * С сервисным аккаунтом `dataproc-sa`.
@@ -717,6 +725,7 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   {{ yc-dp }} cluster create my-dataproc \
+     --environment=production \
      --bucket=dataproc-bucket \
      --zone={{ zone-id }} \
      --service-account-name=dataproc-sa \
