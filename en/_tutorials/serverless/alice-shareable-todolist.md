@@ -83,8 +83,6 @@ Substitute the values from the variables:
 * `hash`: Base64-encoded random 64-byte string (e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`).
 * `block`: Base64-encoded random 32-byte string (e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`).
 
-You can generate random values at [generate.plus](https://generate.plus/en/base64).
-
 Make sure the `variables.json` file contains the correct path to `secure-config.json`.
 
 ## Deploy the project {#deploy}
