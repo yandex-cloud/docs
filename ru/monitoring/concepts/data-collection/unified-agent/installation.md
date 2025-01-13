@@ -66,15 +66,18 @@ description: Из статьи вы узнаете, как установить 
 
   Чтобы запустить контейнер с агентом, выполните следующую команду:
 
+
   ```bash
-    sudo docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v /proc:/ua_proc \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
+  sudo docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v /proc:/ua_proc \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs81qpemb4******** \
+    {{ registry }}/yc/unified-agent
   ```
+
+
 
   Где `FOLDER_ID` – идентификатор каталога, куда будут записываться метрики.
 
@@ -87,17 +90,20 @@ description: Из статьи вы узнаете, как установить 
 
   Пример команды для запуска контейнера с пользовательским конфигурационным файлом:
 
+
   ```bash
-    docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
-      --entrypoint="" \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
+  docker run \
+    -p 16241:16241 -it --detach --uts=host \
+    --name=ua \
+    -v /proc:/ua_proc \
+    -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
+    --entrypoint="" \
+    -e PROC_DIRECTORY=/ua_proc \
+    -e FOLDER_ID=a1bs81qpemb4******** \
+    {{ registry }}/yc/unified-agent
   ```
+
+
 
   По умолчанию в конфигурационном файле агента, в секции [status](services.md#status), указан `host: null`. Учитывайте это, если используете собственный конфигурационный файл.
 
@@ -116,11 +122,11 @@ description: Из статьи вы узнаете, как установить 
       ```
 
       Для `ubuntu_name` укажите версию операционной системы:
-        * `ubuntu-14.04-trusty`;
-        * `ubuntu-16.04-xenial`;
-        * `ubuntu-18.04-bionic`;
-        * `ubuntu-20.04-focal`;
-        * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
+      * `ubuntu-14.04-trusty`;
+      * `ubuntu-16.04-xenial`;
+      * `ubuntu-18.04-bionic`;
+      * `ubuntu-20.04-focal`;
+      * `ubuntu-22.04-jammy`, начиная с версии `23.03.02`.
 
       Также вы можете скачать определенную версию {{ unified-agent-short-name }}. Для этого посмотрите все доступные версии и укажите нужную вместо значения `latest-version`:
 
@@ -151,6 +157,7 @@ description: Из статьи вы узнаете, как установить 
 
   После установки пакета отредактируйте файл конфигурации `/etc/yandex/unified_agent/config.yml`, например, настроив агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
+
 - Бинарный файл {#binary}
 
   {{ unified-agent-short-name }} распространяется в виде бинарного файла, собранного под архитектуру x86-64 / amd64 для операционных систем Ubuntu 14.04 или старше.
@@ -168,6 +175,7 @@ description: Из статьи вы узнаете, как установить 
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
 
+
   Чтобы запустить агент, выполните команду:
 
   ```bash
@@ -184,9 +192,13 @@ description: Из статьи вы узнаете, как установить 
 
   Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
+
   ```text
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
+
+
+
   Чтобы установить агент с помощью {{ TF }}, добавьте в конфигурационный файл метаданные:
 
   ```hcl
@@ -212,9 +224,10 @@ description: Из статьи вы узнаете, как установить 
   В файле конфигурации настроена отправка [базовых метрик виртуальной машины](./inputs.md#linux_metrics_input) и [метрик здоровья агента](./inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
 
   Дополнительно можно [настроить](./configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
-  
+
+
   После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
-  
+
   Обновление и поддержка агента выполняется самостоятельно.
 
 {% endlist %}

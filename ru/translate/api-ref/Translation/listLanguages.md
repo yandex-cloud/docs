@@ -1,35 +1,40 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/listLanguages.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 
-# Метод listLanguages
-Получает список поддерживаемых языков.
+# Translate API v2, REST: Translation.ListLanguages
 
-При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
- 
-## HTTP-запрос {#https-request}
+Retrieves the list of supported languages.
+
+## HTTP request
+
 ```
-POST https://translate.api.cloud.yandex.net/translate/v2/languages
+POST https://translate.{{ api-host }}/translate/v2/languages
 ```
- 
-## Параметры в теле запроса {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.translate.v2.ListLanguagesRequest}
+
+```json
 {
   "folderId": "string"
 }
 ```
 
- 
-Поле | Описание
---- | ---
-folderId | **string**<br><p>Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> ). Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта.</p> <p>Максимальная длина строки в символах — 50.</p> 
- 
-## Ответ {#responses}
+#|
+||Field | Description ||
+|| folderId | **string**
+
+ID of the folder to which you have access.
+Required for authorization with a [user account](/docs/iam/concepts/users/accounts).
+Do not specify this field if you make the request on behalf of a [service account](/docs/iam/concepts/users/accounts#sa). ||
+|#
+
+## Response {#yandex.cloud.ai.translate.v2.ListLanguagesResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "languages": [
     {
@@ -40,9 +45,22 @@ folderId | **string**<br><p>Идентификатор каталога, к ко
 }
 ```
 
- 
-Поле | Описание
---- | ---
-languages[] | **object**<br><p>Список поддерживаемых языков.</p> 
-languages[].<br>code | **string**<br><p>Код <a href="/docs/translate/concepts/supported-languages">языка</a> (например, ``en``).</p> 
-languages[].<br>name | **string**<br><p>Название языка (например, ``English``).</p> 
+#|
+||Field | Description ||
+|| languages[] | **[Language](#yandex.cloud.ai.translate.v2.Language)**
+
+List of supported languages. ||
+|#
+
+## Language {#yandex.cloud.ai.translate.v2.Language}
+
+#|
+||Field | Description ||
+|| code | **string**
+
+The language code.
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it. ||
+|| name | **string**
+
+The name of the language (for example, `` English ``). ||
+|#

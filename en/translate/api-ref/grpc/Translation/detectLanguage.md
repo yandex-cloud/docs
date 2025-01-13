@@ -31,7 +31,7 @@ Required field. The text to detect the language for. ||
 || language_code_hints[] | **string**
 
 List of the most likely languages. These languages will be given preference when detecting the text language.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
 
 To get the list of supported languages, use a [TranslationService.ListLanguages](/docs/translate/api-ref/grpc/Translation/listLanguages#ListLanguages) request. ||
 || folder_id | **string**
@@ -53,7 +53,7 @@ Don't specify this field if you make the request on behalf of a service account.
 ||Field | Description ||
 || language_code | **string**
 
-The text language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
 
 To get the language name, use a [TranslationService.ListLanguages](/docs/translate/api-ref/grpc/Translation/listLanguages#ListLanguages) request. ||
 |#

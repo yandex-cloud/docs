@@ -6772,7 +6772,7 @@ default:
             label_instance-address: Публичный IP-адрес
             section_base: Общая информация
             section_instances-state: Состояния виртуальных машин
-          switch_instances: Список ВМ
+          switch_instances: Виртуальные машины
         groups:
           button_action-pause: Приостановить процессы
           button_action-resume: Возобновить процессы
@@ -6969,8 +6969,8 @@ default:
             popup-confirm_button_delete: Удалить из группы
           overview:
             label_title: Обзор
-          switch_disks: Список дисков
-          switch_instances: Список ВМ
+          switch_disks: Диски
+          switch_instances: Виртуальные машины
         placement-groups:
           button_create: Создать
           button_menu-create-disk-placement-group: Группу размещения нереплицируемых дисков
@@ -8591,7 +8591,7 @@ default:
           button_create: Создать бакет
           button_empty-create: Создать бакет
           button_open-multipart-uploads: Показать список
-          button_permissions: ACL бакета
+          button_permissions: Настроить ACL
           create:
             button_create: Создать бакет
           label_title: Бакеты

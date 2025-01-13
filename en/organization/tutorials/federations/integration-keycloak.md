@@ -73,7 +73,7 @@ To follow the steps in this section, you will need:​
         ```
         -----BEGIN CERTIFICATE-----
           <certificate_value>
-        -----END CERTIFICATE-------
+        -----END CERTIFICATE-----
         ```
 
     You can also get the certificate through this direct link:

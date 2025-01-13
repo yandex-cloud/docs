@@ -33,7 +33,7 @@ Required field. The text to detect the language for. ||
 || languageCodeHints[] | **string**
 
 List of the most likely languages. These languages will be given preference when detecting the text language.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
 
 To get the list of supported languages, use a [TranslationService.ListLanguages](/docs/translate/api-ref/Translation/listLanguages#ListLanguages) request. ||
 || folderId | **string**
@@ -57,7 +57,7 @@ Don't specify this field if you make the request on behalf of a service account.
 ||Field | Description ||
 || languageCode | **string**
 
-The text language in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
 
 To get the language name, use a [TranslationService.ListLanguages](/docs/translate/api-ref/Translation/listLanguages#ListLanguages) request. ||
 |#

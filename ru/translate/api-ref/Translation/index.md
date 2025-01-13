@@ -1,16 +1,19 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/index.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/index.md
 ---
 
-# Translation
-Набор методов для сервиса Yandex Translate.
+# Translate API v2, REST: Translation
 
-При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
+A set of methods for the Translate service.
 
-## Методы {#methods}
-Метод | Описание
---- | ---
-[detectLanguage](detectLanguage.md) | Определяет язык текста.
-[listLanguages](listLanguages.md) | Получает список поддерживаемых языков.
-[translate](translate.md) | Переводит текст на указанный язык.
+Make sure you send your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header of each request.
+
+## Methods
+
+#|
+||Method | Description ||
+|| [Translate](translate.md) | Translates the text to the specified language. ||
+|| [DetectLanguage](detectLanguage.md) | Detects the language of the text. ||
+|| [ListLanguages](listLanguages.md) | Retrieves the list of supported languages. ||
+|#
