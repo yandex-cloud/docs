@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/index.md
+sourcePath: en/_api-ref-grpc/ai/translate/v2/api-ref/grpc/Translation/index.md
 ---
 
-# Translate API v2, REST: Translation
+# Translate API v2, gRPC: TranslationService
 
 A set of methods for the Translate service.
 

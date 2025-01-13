@@ -6763,7 +6763,7 @@ default:
             label_instance-address: Public IP address
             section_base: General information
             section_instances-state: VM states
-          switch_instances: List of VMs
+          switch_instances: Virtual machines
         groups:
           button_action-pause: Pause
           button_action-resume: Resume
@@ -6958,8 +6958,8 @@ default:
             popup-confirm_button_delete: Delete from group
           overview:
             label_title: Overview
-          switch_disks: List of disks
-          switch_instances: List of VMs
+          switch_disks: Disks
+          switch_instances: Virtual machines
         placement-groups:
           button_create: Create
           button_menu-create-disk-placement-group: Non-replicated disk placement group
@@ -8580,7 +8580,7 @@ default:
           button_create: Create bucket
           button_empty-create: Create bucket
           button_open-multipart-uploads: Show uploads
-          button_permissions: Bucket ACL
+          button_permissions: Configure ACL
           create:
             button_create: Create bucket
           label_title: Buckets

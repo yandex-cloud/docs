@@ -1,21 +1,21 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/ai/translate/api-ref/Translation/detectLanguage.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/detectLanguage.md
 ---
 
-# Метод detectLanguage
-Определяет язык текста.
+# Translate API v2, REST: Translation.DetectLanguage
 
-При работе с API Translate отправляйте данные для [аутентификации](/docs/translate/api-ref/authentication) в заголовке `Authorization` каждого запроса.
- 
-## HTTP-запрос {#https-request}
+Detects the language of the text.
+
+## HTTP request
+
 ```
-POST https://translate.api.cloud.yandex.net/translate/v2/detect
+POST https://translate.{{ api-host }}/translate/v2/detect
 ```
- 
-## Параметры в теле запроса {#body_params}
- 
-```json 
+
+## Body parameters {#yandex.cloud.ai.translate.v2.DetectLanguageRequest}
+
+```json
 {
   "text": "string",
   "languageCodeHints": [
@@ -25,23 +25,39 @@ POST https://translate.api.cloud.yandex.net/translate/v2/detect
 }
 ```
 
- 
-Поле | Описание
---- | ---
-text | **string**<br><p>Обязательное поле. Текст, язык которого требуется определить.</p> <p>Максимальная длина строки в символах — 1000.</p> 
-languageCodeHints[] | **string**<br><p>Список наиболее вероятных <a href="/docs/translate/concepts/supported-languages">языков</a> (например, ``ru``). Этим языкам будет отдаваться предпочтение при определении языка текста.</p> <p>Чтобы получить список поддерживаемых языков, используйте запрос <a href="/docs/translate/api-ref/Translation/listLanguages">listLanguages</a>.</p> <p>Максимальное количество элементов — 10. Максимальная длина строки в символах для каждого значения — 3.</p> 
-folderId | **string**<br><p>Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> ). Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта.</p> <p>Максимальная длина строки в символах — 50.</p> 
- 
-## Ответ {#responses}
+#|
+||Field | Description ||
+|| text | **string**
+
+Required field. The text to detect the language for. ||
+|| languageCodeHints[] | **string**
+
+List of the most likely languages. These languages will be given preference when detecting the text language.
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
+
+To get the list of supported languages, use a [TranslationService.ListLanguages](/docs/translate/api-ref/Translation/listLanguages#ListLanguages) request. ||
+|| folderId | **string**
+
+ID of the folder to which you have access.
+Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
+Don't specify this field if you make the request on behalf of a service account. ||
+|#
+
+## Response {#yandex.cloud.ai.translate.v2.DetectLanguageResponse}
+
 **HTTP Code: 200 - OK**
 
-```json 
+```json
 {
   "languageCode": "string"
 }
 ```
 
- 
-Поле | Описание
---- | ---
-languageCode | **string**<br><p><a href="/docs/translate/concepts/supported-languages">Язык</a> текста (например, ``ru``).</p> <p>Чтобы получить название языка, используйте запрос <a href="/docs/translate/api-ref/Translation/listLanguages">listLanguages</a>.</p> 
+#|
+||Field | Description ||
+|| languageCode | **string**
+
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
+
+To get the language name, use a [TranslationService.ListLanguages](/docs/translate/api-ref/Translation/listLanguages#ListLanguages) request. ||
+|#

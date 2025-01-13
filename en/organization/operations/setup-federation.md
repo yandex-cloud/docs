@@ -257,7 +257,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
     ```text
     -----BEGIN CERTIFICATE-----
       <certificate value>
-    -----END CERTIFICATE-------
+    -----END CERTIFICATE-----
     ```
 
 1. Add the certificate to the federation:

@@ -257,7 +257,7 @@
     ```text
     -----BEGIN CERTIFICATE-----
       <значение сертификата>
-    -----END CERTIFICATE-------
+    -----END CERTIFICATE-----
     ```
 
 1. Добавьте сертификат в федерацию:
