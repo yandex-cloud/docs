@@ -31,6 +31,8 @@ items:
         href: concepts/glossary-supported-pairs.md
       - name: Translation of special characters and HTML markup
         href: concepts/translate-html.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: API reference
     items:
       - name: Overview
@@ -51,40 +53,20 @@ items:
                 href: api-ref/grpc/Translation/detectLanguage.md
               - name: ListLanguages
                 href: api-ref/grpc/Translation/listLanguages.md
-      - name: REST
+      - name: REST v2
         items:
-          - name: v2
-            items:
-              - name: Handling errors
-                href: api-ref/errors-handling.md
-              - name: Troubleshooting
-                href: api-ref/support-headers.md
-              - name: Overview
-                href: api-ref/index.md
-              - name: Translation
-                items:
-                  - name: Overview
-                    href: api-ref/Translation/index.md
-                  - name: Translate
-                    href: api-ref/Translation/translate.md
-                  - name: DetectLanguage
-                    href: api-ref/Translation/detectLanguage.md
-                  - name: ListLanguages
-                    href: api-ref/Translation/listLanguages.md
-          - name: v1 (DEPRECATED)
+          - name: Overview
+            href: api-ref/index.md
+          - name: Translation
             items:
               - name: Overview
-                href: api-ref/v1/index.md
-              - name: How to translate text
-                href: api-ref/v1/translate.md
-              - name: Detecting language
-                href: api-ref/v1/detect.md
-              - name: List of supported languages
-                href: api-ref/v1/languages.md
-              - name: Response format
-                href: api-ref/v1/response.md
-  - name: Quotas and limits
-    href: concepts/limits.md
+                href: api-ref/Translation/index.md
+              - name: Translate
+                href: api-ref/Translation/translate.md
+              - name: DetectLanguage
+                href: api-ref/Translation/detectLanguage.md
+              - name: ListLanguages
+                href: api-ref/Translation/listLanguages.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -95,7 +77,13 @@ items:
         items:
           - name: Policy before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-  - name: FAQ
-    href: qa/index.md
+  - name: Troubleshooting
+    items:
+      - name: Handling errors
+        href: api-ref/errors-handling.md
+      - name: Support headers
+        href: api-ref/support-headers.md
+      - name: QA
+        href: qa/index.md
 base: en/translate
 deepBase: 2

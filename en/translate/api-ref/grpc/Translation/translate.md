@@ -45,16 +45,16 @@ Translates the text to the specified language.
 || source_language_code | **string**
 
 The text language to translate from.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``).
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
 
-Required for translating with glossary. ||
+Required for translating with [glossary](/docs/translate/concepts/glossary). ||
 || target_language_code | **string**
 
 Required field. The target language to translate the text.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it. ||
 || format | enum **Format**
 
-Format of the text.
+Format of the text to be translated.
 
 - `FORMAT_UNSPECIFIED`
 - `PLAIN_TEXT`: Text without markup. Default value.
@@ -66,17 +66,17 @@ The maximum total length of all strings is 10000 characters. ||
 || folder_id | **string**
 
 ID of the folder to which you have access.
-Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/grpc/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
-Don't specify this field if you make the request on behalf of a service account. ||
+Required for authorization with a [user account](/docs/iam/concepts/users/accounts).
+Do not specify this field if you make the request on behalf of a [service account](/docs/iam/concepts/users/accounts#sa). ||
 || model | **string**
 
-Do not specify this field, custom models are not supported yet. ||
+Model ID if you use custom model. ||
 || glossary_config | **[TranslateGlossaryConfig](#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig)**
 
 Glossary to be applied for the translation. For more information, see [Glossaries](/docs/translate/concepts/glossary). ||
 || speller | **bool**
 
-use speller ||
+Enable spell checking. ||
 |#
 
 ## TranslateGlossaryConfig {#yandex.cloud.ai.translate.v2.TranslateGlossaryConfig}
@@ -85,7 +85,7 @@ use speller ||
 ||Field | Description ||
 || glossary_data | **[GlossaryData](#yandex.cloud.ai.translate.v2.GlossaryData)**
 
-Pass glossary data in the request. Currently, only this way to pass glossary is supported.
+Pass glossary data in the request. Currently, the only way to pass glossary.
 
 Includes only one of the fields `glossary_data`. ||
 |#
@@ -112,7 +112,9 @@ Required field. Text in the source language. ||
 || translated_text | **string**
 
 Required field. Text in the target language. ||
-|| exact | **bool** ||
+|| exact | **bool**
+
+Allows to add translations for specific terms to [neuroglossaries](/docs/translate/concepts/glossary#word-forms). ||
 |#
 
 ## TranslateResponse {#yandex.cloud.ai.translate.v2.TranslateResponse}
@@ -145,5 +147,5 @@ Translated text. ||
 || detected_language_code | **string**
 
 The language code of the source text.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it. ||
 |#

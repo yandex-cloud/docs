@@ -31,52 +31,42 @@ items:
         href: concepts/glossary-supported-pairs.md
       - name: Перевод специальных символов и HTML-разметки
         href: concepts/translate-html.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Справочник API
     items:
       - name: Обзор
         href: concepts/api.md
       - name: Аутентификация в API
         href: api-ref/authentication.md
-      - name: gRPC
+      - name: gRPC (англ.)
         items:
-          - name: Обзор
+          - name: Overview
             href: api-ref/grpc/index.md
-          - name: TranslationService
-            href: api-ref/grpc/translation_service.md
-      - name: REST
+          - name: Translation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Translation/index.md
+              - name: Translate
+                href: api-ref/grpc/Translation/translate.md
+              - name: DetectLanguage
+                href: api-ref/grpc/Translation/detectLanguage.md
+              - name: ListLanguages
+                href: api-ref/grpc/Translation/listLanguages.md
+      - name: REST v2 (англ.)
         items:
-          - name: v2
+          - name: Overview
+            href: api-ref/index.md
+          - name: Translation
             items:
-              - name: Обработка ошибок
-                href: api-ref/errors-handling.md
-              - name: Диагностика ошибок
-                href: api-ref/support-headers.md
-              - name: Обзор
-                href: api-ref/index.md
-              - name: Translation
-                items:
-                  - name: Обзор
-                    href: api-ref/Translation/index.md
-                  - name: detectLanguage
-                    href: api-ref/Translation/detectLanguage.md
-                  - name: listLanguages
-                    href: api-ref/Translation/listLanguages.md
-                  - name: translate
-                    href: api-ref/Translation/translate.md
-          - name: v1 (DEPRECATED)
-            items:
-              - name: Обзор
-                href: api-ref/v1/index.md
-              - name: Перевод текста
-                href: api-ref/v1/translate.md
-              - name: Определение языка текста
-                href: api-ref/v1/detect.md
-              - name: Список поддерживаемых языков
-                href: api-ref/v1/languages.md
-              - name: Формат ответа
-                href: api-ref/v1/response.md
-  - name: Квоты и лимиты
-    href: concepts/limits.md
+              - name: Overview
+                href: api-ref/Translation/index.md
+              - name: Translate
+                href: api-ref/Translation/translate.md
+              - name: DetectLanguage
+                href: api-ref/Translation/detectLanguage.md
+              - name: ListLanguages
+                href: api-ref/Translation/listLanguages.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -87,7 +77,13 @@ items:
         items:
           - name: Правила до 1 января 2019 года
             href: pricing-archive/pricing-01012019.md
-  - name: Вопросы и ответы
-    href: qa/index.md
+  - name: Решение проблем
+    items:
+      - name: Обработка ошибок
+        href: api-ref/errors-handling.md
+      - name: Диагностика ошибок
+        href: api-ref/support-headers.md
+      - name: Вопросы и ответы
+        href: qa/index.md
 base: ru/translate
 deepBase: 2
