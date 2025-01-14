@@ -490,6 +490,8 @@ items:
             href: infrastructure/minecraft-server.md
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
+          - name: Распознавание архива изображений в {{ vision-full-name }}
+            href: archive/archive-from-vision-to-object-storage.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

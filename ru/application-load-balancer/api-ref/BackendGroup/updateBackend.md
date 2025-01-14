@@ -26,7 +26,7 @@ Required field. ID of the backend group to update the backend in. ||
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   // Includes only one of the fields `http`, `grpc`, `stream`
   "http": {
     "name": "string",
@@ -262,7 +262,7 @@ Required field. ID of the backend group to update the backend in. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

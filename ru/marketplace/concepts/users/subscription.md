@@ -1,5 +1,5 @@
 ---
-title: Подписка в {{ marketplace-full-name }}
+title: Подписка для пользователей в {{ marketplace-full-name }}
 description: Из статьи вы узнаете, что такое подписка в {{ marketplace-name }}.
 ---
 

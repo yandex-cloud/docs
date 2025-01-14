@@ -28,7 +28,7 @@ description: This section contains {{ sf-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Fixed the error that occurred when creating function versions with the `golang` runtime environment that use the [opentracing-go](github.com/opentracing/opentracing-go) package.
+* Fixed the error that occurred when creating function versions with the `golang` runtime environment that use the [opentracing-go](https://github.com/opentracing/opentracing-go) package.
 
 ## April 2024 {#april-2024}
 

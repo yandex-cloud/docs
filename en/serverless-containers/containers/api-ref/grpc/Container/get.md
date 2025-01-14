@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Co
 
 Returns the specified container.
 
-To get the list of all available containers, make a [List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request.
+To get the list of all available containers, make a [List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request.
 
 ## gRPC request
 
@@ -27,7 +27,7 @@ To get the list of all available containers, make a [List](/docs/serverless/cont
 
 Required field. ID of the container to return.
 
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request. ||
 |#
 
 ## Container {#yandex.cloud.serverless.containers.v1.Container}

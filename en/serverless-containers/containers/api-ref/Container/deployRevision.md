@@ -116,7 +116,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
 
 Required field. ID of the container to create a revision for.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 || description | **string**
 
 Description of the revision. ||

@@ -25,7 +25,7 @@ Deletes the specified API gateway.
 
 Required field. ID of the API gateway to update.
 
-To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gateway/api-ref/grpc/ApiGateway/list#List) request. ||
+To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/grpc/ApiGateway/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

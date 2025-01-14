@@ -7,7 +7,7 @@ sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Co
 
 Returns the specified revision of a container.
 
-To get the list of available revision, make a [ListRevisions](/docs/serverless/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request.
+To get the list of available revisions, make a [ListRevisions](/docs/serverless-containers/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request.
 
 ## gRPC request
 
@@ -27,7 +27,7 @@ To get the list of available revision, make a [ListRevisions](/docs/serverless/c
 
 Required field. ID of the revision to return.
 
-To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request. ||
+To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request. ||
 |#
 
 ## Revision {#yandex.cloud.serverless.containers.v1.Revision}

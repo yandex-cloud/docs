@@ -168,7 +168,7 @@ description: Для выполнения операций через API в ма
   * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.
   * `max_size` — размер бакета.
-  * `anonymous_access_flags` — настройки [доступа](../..//storage/concepts/bucket.md#bucket-access) к бакету:
+  * `anonymous_access_flags` — настройки [доступа](../../storage/concepts/bucket.md#bucket-access) к бакету:
     * `read` — публичный доступ на чтение объектов.
     * `list` — публичный доступ к списку объектов.
     * `configRead` — публичный доступ на чтение настроек.
@@ -217,7 +217,7 @@ description: Для выполнения операций через API в ма
   * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.
   * `maxSize` — размер бакета.
-  * `anonymousAccessFlags` — настройки [доступа](../..//storage/concepts/bucket.md#bucket-access) к бакету:
+  * `anonymousAccessFlags` — настройки [доступа](../../storage/concepts/bucket.md#bucket-access) к бакету:
     * `read` — публичный доступ на чтение объектов.
     * `list` — публичный доступ к списку объектов.
     * `configRead` — публичный доступ на чтение настроек.

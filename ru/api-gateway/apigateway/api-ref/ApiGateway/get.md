@@ -6,9 +6,9 @@ sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/g
 # API Gateway Service, REST: ApiGateway.Get
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request.
+To get associated openapi specification, make a [GetOpenapiSpec](/docs/api-gateway/apigateway/api-ref/ApiGateway/getOpenapiSpec#GetOpenapiSpec) request.
 
-To get the list of all available API gateways, make a [List](/docs/functions/api-gateway/api-ref/ApiGateway/list#List) request.
+To get the list of all available API gateways, make a [List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
 
 ## HTTP request
 
@@ -24,7 +24,7 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
 
 Required field. ID of the API gateway to return.
 
-To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gateway/api-ref/ApiGateway/list#List) request. ||
+To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.serverless.apigateway.v1.ApiGateway}

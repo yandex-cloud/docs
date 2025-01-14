@@ -26,7 +26,7 @@ Required field. ID of the agent to update. ||
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "computeInstanceParams": {
@@ -127,7 +127,7 @@ Required field. ID of the agent to update. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -190,7 +190,7 @@ ID of the service account to use for [authentication inside the instance](/docs/
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
 || platformId | **string**
 
-ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created.
+ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
 Default value: "standard-v2" ||
 |#
 

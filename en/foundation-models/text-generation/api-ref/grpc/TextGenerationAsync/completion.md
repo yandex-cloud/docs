@@ -19,7 +19,10 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
   "completion_options": {
     "stream": "bool",
     "temperature": "google.protobuf.DoubleValue",
-    "max_tokens": "google.protobuf.Int64Value"
+    "max_tokens": "google.protobuf.Int64Value",
+    "reasoning_options": {
+      "mode": "ReasoningMode"
+    }
   },
   "messages": [
     {
@@ -106,6 +109,24 @@ Default temperature: 0.3 ||
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||
+|| reasoning_options | **[ReasoningOptions](#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
+
+Configures reasoning capabilities for the model, allowing it to perform internal reasoning before responding. ||
+|#
+
+## ReasoningOptions {#yandex.cloud.ai.foundation_models.v1.ReasoningOptions}
+
+Represents reasoning options that enable the model's ability to perform internal reasoning before generating a response.
+
+#|
+||Field | Description ||
+|| mode | enum **ReasoningMode**
+
+Specifies the reasoning mode to be used.
+
+- `REASONING_MODE_UNSPECIFIED`: Unspecified reasoning mode.
+- `DISABLED`: Disables reasoning. The model will generate a response without performing any internal reasoning.
+- `ENABLED_HIDDEN`: Enables reasoning in a hidden manner without exposing the reasoning steps to the user. ||
 |#
 
 ## Message {#yandex.cloud.ai.foundation_models.v1.Message}
@@ -308,7 +329,10 @@ The schema should describe the required fields, their types, and any constraints
     "usage": {
       "input_text_tokens": "int64",
       "completion_tokens": "int64",
-      "total_tokens": "int64"
+      "total_tokens": "int64",
+      "completion_tokens_details": {
+        "reasoning_tokens": "int64"
+      }
     },
     "model_version": "string"
   }
@@ -540,4 +564,18 @@ The number of tokens in the generated completion. ||
 || total_tokens | **int64**
 
 The total number of tokens, including all input tokens and all generated tokens. ||
+|| completion_tokens_details | **[CompletionTokensDetails](#yandex.cloud.ai.foundation_models.v1.ContentUsage.CompletionTokensDetails)**
+
+Provides additional information about how the completion tokens were utilized. ||
+|#
+
+## CompletionTokensDetails {#yandex.cloud.ai.foundation_models.v1.ContentUsage.CompletionTokensDetails}
+
+Provides additional information about how the completion tokens were utilized.
+
+#|
+||Field | Description ||
+|| reasoning_tokens | **int64**
+
+The number of tokens used specifically for internal reasoning performed by the model. ||
 |#

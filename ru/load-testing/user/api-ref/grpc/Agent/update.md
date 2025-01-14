@@ -176,7 +176,7 @@ ID of the service account to use for [authentication inside the instance](/docs/
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
 || platform_id | **string**
 
-ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created.
+ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
 Default value: "standard-v2" ||
 |#
 

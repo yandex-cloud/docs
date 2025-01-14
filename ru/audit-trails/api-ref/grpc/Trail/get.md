@@ -143,6 +143,11 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/grpc/Trail/list#List)
           ]
         },
         // end of the list of possible fields
+        // Includes only one of the fields `dns_filter`
+        "dns_filter": {
+          "only_recursive_queries": "bool"
+        },
+        // end of the list of possible fields
         "resource_scopes": [
           {
             "id": "string",
@@ -432,6 +437,11 @@ Explicitly excluded events of specified service
 New events of the service will be delivered by default
 
 Includes only one of the fields `included_events`, `excluded_events`. ||
+|| dns_filter | **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+
+Filter is allowed only if service = dns
+
+Includes only one of the fields `dns_filter`. ||
 || resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail ||
@@ -444,4 +454,13 @@ Policy with explicitly specified event group
 #|
 ||Field | Description ||
 || event_types[] | **string** ||
+|#
+
+## DnsDataEventsFilter {#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter}
+
+#|
+||Field | Description ||
+|| only_recursive_queries | **bool**
+
+Only recursive queries will be delivered ||
 |#

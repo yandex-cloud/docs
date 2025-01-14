@@ -13,7 +13,7 @@ Storing images from {{ GL }} projects in {{ container-registry-full-name }} has
 
 * The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
 
-* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application. You can learn more about security scans in the [{{ yandex-cloud }} blog](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
+* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application.
 
 To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-name }}:
 

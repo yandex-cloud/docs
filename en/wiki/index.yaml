@@ -26,7 +26,7 @@ links:
     description: >-
       In Yandex Wiki, you can format pages without using markup, similarly to
       popular text editors
-    href: wysiwyg-edit
+    href: wysiwyg/text-format
   - title: Configure access
     description: By default, all users who have access to a page can edit it
     href: page-management/access-setup
@@ -34,9 +34,9 @@ links:
     description: >-
       You can format the text of your Wiki pages using Markdown, as well as add
       dynamic blocks and tables to them
-    href: edit-page
+    href: static-markup
   - title: Markup reference
     description: >-
       Wiki supports additional formatting elements that are not present in the
       standard Markdown syntax
-    href: static-markup
+    href: formatter

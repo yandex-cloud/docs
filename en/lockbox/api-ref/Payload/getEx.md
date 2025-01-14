@@ -42,6 +42,7 @@ Required field.  ||
 
 ```json
 {
+  "secretId": "string",
   "versionId": "string",
   "entries": "object"
 }
@@ -49,6 +50,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
+|| secretId | **string** ||
 || versionId | **string** ||
 || entries | **object** (map<**string**, **string** (bytes)>) ||
 |#

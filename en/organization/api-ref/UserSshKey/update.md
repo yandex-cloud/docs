@@ -25,7 +25,7 @@ Required field.  ||
 ```json
 {
   "name": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   "expiresAt": "string"
 }
 ```
@@ -33,7 +33,7 @@ Required field.  ||
 #|
 ||Field | Description ||
 || name | **string** ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

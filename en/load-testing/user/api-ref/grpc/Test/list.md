@@ -174,7 +174,7 @@ Configuration of the test.
 
 A test can have multiple configurations if it can be
 executed on multiple agents simultaneously. For more information, see
-[Load testing using multiple agents](docs/load-testing/tutorials/loadtesting-multiply). ||
+[Load testing using multiple agents](/docs/load-testing/tutorials/loadtesting-multiply). ||
 || details | **[Details](#yandex.cloud.loadtesting.api.v1.test.Details)**
 
 Test meta information. Name, description, etc. ||

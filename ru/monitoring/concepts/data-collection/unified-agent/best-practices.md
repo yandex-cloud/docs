@@ -85,3 +85,43 @@ routes:
 ```
 
 См. также раздел [{#T}](storage.md).
+
+## Расчет времени использования процессора {#cpu-time-tracking}
+
+Чтобы отобразить на графике метрику использования процессора в процентах, ранее использовалась метрика `sys.system.CpuUsagePercent`. Теперь ОС Linux не передает эту метрику, но ее можно вычислить с помощью двух других метрик:
+
+* `sys.system.UsefulTime` — время активного использования CPU.
+* `sys.system.IdleTime` — время простоя CPU.
+
+Чтобы добавить на дашборд диаграмму использования процессора в процентах:
+
+1. [Установите и запустите](./installation.md) {{ unified-agent-short-name }}.
+1. Откройте нужный дашборд или [создайте](../../../operations/dashboard/create.md) новый.
+1. В правом верхнем углу нажмите значок ![square-plus](../../../../_assets/console-icons/square-plus.svg) и выберите ![chart-column](../../../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-type.graph }}**, чтобы добавить на дашборд новый виджет.
+1. В добавляемом виджете создайте в текстовом режиме (значок ![code](../../../../_assets/console-icons/code.svg)) три запроса:
+
+    1. Запрос `UsefulTime`:
+
+        ```text
+        "sys.system.UsefulTime"{folderId = "<идентификатор_каталога>", service = "custom", cpu  = "-"}
+        ```
+
+        Где `<идентификатор_каталога>` — [идентификатор](../../../../resource-manager/operations/folder/get-id.md) каталога, в котором находится ваш дашборд.
+
+        Нажмите значок ![eye](../../../../_assets/console-icons/eye.svg), чтобы не отображать эту метрику на графике.
+    1. Запрос `IdleTime`:
+
+        ```text
+        "sys.system.IdleTime"{folderId = "<идентификатор_каталога>", service = "custom", cpu = "-"}
+        ```
+
+        Где `<идентификатор_каталога>` — [идентификатор](../../../../resource-manager/operations/folder/get-id.md) каталога, в котором находится ваш дашборд.
+
+        Нажмите значок ![eye](../../../../_assets/console-icons/eye.svg), чтобы не отображать эту метрику на графике.
+    1. Запрос `CpuUsagePercent`:
+
+        ```text
+        100 * UsefulTime / (IdleTime + UsefulTime)
+        ```
+1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** и убедитесь, что график загрузки процессора построен.
+1. В правом верхнем углу нажмите значок ![floppy-disk.svg](../../../../_assets/console-icons/floppy-disk.svg), чтобы сохранить ваш виджет.

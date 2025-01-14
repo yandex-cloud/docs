@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ managed-k8s-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ managed-k8s-name }}.
 editable: false
 ---
 

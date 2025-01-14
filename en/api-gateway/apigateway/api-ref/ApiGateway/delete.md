@@ -21,7 +21,7 @@ DELETE https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{
 
 Required field. ID of the API gateway to update.
 
-To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gateway/api-ref/ApiGateway/list#List) request. ||
+To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

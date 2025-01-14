@@ -28,7 +28,7 @@ To get the application load balancer ID, make a [LoadBalancerService.List](/docs
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -174,7 +174,7 @@ To get the application load balancer ID, make a [LoadBalancerService.List](/docs
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -1084,7 +1084,7 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 ID of the log group that stores access logs of the application load balancer.
 
-The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). ||
+The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloud-logging-trigger-create). ||
 || securityGroupIds[] | **string**
 
 ID's of the security groups attributed to the application load balancer.

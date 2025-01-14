@@ -117,7 +117,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
 {% endlist %}
 
-## See also {see-also}
+## See also {#see-also}
 
 * [How to add a VM instance to a placement group](add-vm.md)
 * [Creating a VM in a placement group](create-vm-in-pg.md)

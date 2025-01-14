@@ -28,7 +28,7 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Bro
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -45,7 +45,7 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Bro
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

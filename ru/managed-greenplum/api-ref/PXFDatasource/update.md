@@ -26,7 +26,7 @@ Required field.  ||
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "datasource": {
     "name": "string",
     // Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`
@@ -123,7 +123,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

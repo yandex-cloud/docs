@@ -27,7 +27,7 @@ Includes only one of the fields `folderId`, `containerId`. ||
 || containerId | **string**
 
 ID of the container to list revisions for.
-To get a container ID use a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request.
+To get a container ID use a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
 
 Includes only one of the fields `folderId`, `containerId`. ||
 || pageSize | **string** (int64)

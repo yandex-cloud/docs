@@ -27,7 +27,7 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "description": "string",
   "labels": "object",
   "configSpec": {
@@ -187,7 +187,7 @@ To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

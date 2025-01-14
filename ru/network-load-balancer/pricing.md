@@ -1,6 +1,9 @@
 ---
+title: Правила тарификации для {{ network-load-balancer-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ network-load-balancer-name }}.
 editable: false
 ---
+
 # Правила тарификации для {{ network-load-balancer-name }}
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}

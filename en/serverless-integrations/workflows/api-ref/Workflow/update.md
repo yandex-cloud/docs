@@ -44,7 +44,7 @@ Required field. ID of the Workflow. ||
   },
   "networkId": "string",
   "serviceAccountId": "string",
-  "updateMask": "object"
+  "updateMask": "string"
 }
 ```
 
@@ -71,7 +71,7 @@ ID of the VPC network Workflow will be executed in, in order to access private r
 || serviceAccountId | **string**
 
 ID of the Service Account which will be used for resources access in Workflow execution. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

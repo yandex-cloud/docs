@@ -7,9 +7,16 @@ description: Следуя данной инструкции, вы сможете
 
 Для отправки запросов к поисковой базе Яндекса с помощью сервиса {{ search-api-full-name }} через интерфейс API v1 вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). 
 
-Чтобы настроить сервис {{ search-api }} для использования через API v1, выполните следующие действия:
+Чтобы настроить сервис {{ search-api }} для использования через API v1:
 
-## Перед началом работы {#before-you-begin}
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Подготовьте сервисный аккаунт](#prepare-sa).
+1. [Зарегистрируйтесь в сервисе {{ search-api-name }}](#registration).
+1. [Создайте тестовый запрос](#test-request).
+1. [Настройте интеграцию с {{ search-api }}](#results).
+
+
+## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -49,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Регистрация {#registration}
+## Зарегистрируйтесь в сервисе {{ search-api-name }} {#registration}
 
 Чтобы использовать интерфейс API v1, необходимо зарегистрироваться в сервисе {{ search-api-name }}:
 

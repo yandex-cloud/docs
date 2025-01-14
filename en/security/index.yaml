@@ -18,18 +18,6 @@ links:
   - title: Cloud security checklist
     description: ''
     href: domains/checklist
-  - title: Security bulletins
-    description: ''
-    href: security-bulletins/
   - title: Kubernetes security
     description: ''
     href: domains/kubernetes
-  - title: Network security
-    description: ''
-    href: domains/network
-  - title: Authentication and access control
-    description: ''
-    href: domains/access
-  - title: Data encryption
-    description: ''
-    href: domains/encryption

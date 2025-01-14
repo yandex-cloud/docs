@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/ge
 
 Returns the specified revision of a container.
 
-To get the list of available revision, make a [ListRevisions](/docs/serverless/containers/api-ref/Container/listRevisions#ListRevisions) request.
+To get the list of available revisions, make a [ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request.
 
 ## HTTP request
 
@@ -23,7 +23,7 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/revisions/{contai
 
 Required field. ID of the revision to return.
 
-To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
+To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
 |#
 
 ## Response {#yandex.cloud.serverless.containers.v1.Revision}

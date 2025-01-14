@@ -62,12 +62,12 @@ Before you perform checks, make sure that:
 
 You can automate the audit of compliance with all the recommendations using available solutions from our partners:
 * [Neocat](/marketplace/products/neoflex/neocat): Product for cloud security management from Neoflex. It is used as an isolated installation within the user cloud perimeter and no administrator privileges need to be granted.
-* [Cloud Advisor](/blog/posts/2021/03/cloud-advisor-review): Agentless platform that identifies and prioritizes cloud security risks, helps you reduce costs, ensure compliance with regulatory requirements, and manage your cloud infrastructure.
+* Cloud Advisor: Agentless platform that identifies and prioritizes cloud security risks, helps you reduce costs, ensure compliance with regulatory requirements, and manage your cloud infrastructure.
 
 ### Responsibility limitation {#liability-limit}
 
-{{ yandex-cloud }} uses the concept of [Shared responsibility](/security/shared-responsibility). Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service ([IaaS](/blog/posts/2022/01/iaas)), platform as a service ([PaaS](/blog/posts/2023/03/paas)), or software as a service ([SaaS](/blog/posts/2023/03/saas)), and the security tools and policies the cloud provider has in place.
+{{ yandex-cloud }} uses the concept of [Shared responsibility](/security/shared-responsibility). Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS), and the security tools and policies the cloud provider has in place.
 
 ### Terms and abbreviations {#terms}
 
-This document uses the terms and definitions introduced in ISO/IEC 27000:2018 and ISO/IEC 29100:2011, as well as the terms from the {{ yandex-cloud }} [glossary](../../../glossary/).
+This document uses the terms and definitions introduced in ISO/IEC 27000:2018 and ISO/IEC 29100:2011, as well as the terms from the {{ yandex-cloud }} .

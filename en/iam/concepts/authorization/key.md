@@ -10,7 +10,7 @@ _Authorized keys_ are keys with the RSA-2048 or RSA-4096 encryption algorithm an
 
 After you [request an authorized key](../../operations/authorized-key/create.md), you will get a JSON file with public and private key parts. Save this file. You only get it once and cannot download it later.
 
-You can request the public part of the key using the [get](../../api-ref/Key/get) REST API method for the [Key](../../api-ref/Key/) resource or the [KeyService/Get](api-ref/grpc/key_service#Get) gRPC API call. You cannot request the private part of the key, as it is stored on the user side. If you need the private part of the key but cannot access the previously saved file, create a new authorized key.
+You can request the public part of the key using the [get](../../api-ref/Key/get) REST API method for the [Key](../../api-ref/Key/) resource or the [KeyService/Get](../../api-ref/grpc/Key/get) gRPC API call. You cannot request the private part of the key, as it is stored on the user side. If you need the private part of the key but cannot access the previously saved file, create a new authorized key.
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 

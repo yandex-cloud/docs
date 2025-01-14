@@ -21,7 +21,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{cont
 
 Required field. ID of the container to rollback to an old revision.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.serverless.containers.v1.RollbackContainerRequest}
@@ -38,7 +38,7 @@ To get a container ID, make a [ContainerService.List](/docs/serverless/container
 
 Required field. ID of the revision to rollback to.
 
-To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
+To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

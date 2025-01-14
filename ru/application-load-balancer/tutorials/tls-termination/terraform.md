@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/tls-termination-terraform'
+canonical: '{{ link-docs }}/tutorials/security/tls-termination/terraform'
 ---
 
 # Терминирование TLS-соединений с помощью {{ TF }}

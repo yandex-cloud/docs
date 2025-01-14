@@ -1,3 +1,8 @@
+---
+title: Подписывание запросов к {{ postbox-full-name }}
+description: Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке.
+---
+
 # Подписывание запросов
 
 Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке. {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Она используется в заголовке `Authorization`.

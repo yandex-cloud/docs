@@ -191,7 +191,7 @@ A list of messages that carry the error details. ||
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||

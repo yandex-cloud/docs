@@ -110,7 +110,7 @@
     datasphere_roles
     ```
 
-1. [Получите](/organization/api-ref/User/listMembers) список участников организации:
+1. [Получите](../../organization/api-ref/User/listMembers.md) список участников организации:
 
     ```python
     res = requests.get("https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 

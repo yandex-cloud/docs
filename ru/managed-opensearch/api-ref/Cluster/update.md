@@ -27,7 +27,7 @@ To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-open
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "description": "string",
   "labels": "object",
   "configSpec": {
@@ -81,7 +81,7 @@ To get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-open
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

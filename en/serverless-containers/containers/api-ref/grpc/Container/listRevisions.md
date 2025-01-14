@@ -37,7 +37,7 @@ Includes only one of the fields `folder_id`, `container_id`. ||
 || container_id | **string**
 
 ID of the container to list revisions for.
-To get a container ID use a [ContainerService.List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request.
+To get a container ID use a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request.
 
 Includes only one of the fields `folder_id`, `container_id`. ||
 || page_size | **int64**

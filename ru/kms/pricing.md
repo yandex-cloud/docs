@@ -6,7 +6,18 @@ editable: false
 
 # Правила тарификации для {{ kms-name }}
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% note tip %}
+
+
+Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=c217a2de7c35#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=552d16ce07df#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=3b03fab9e1c3#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

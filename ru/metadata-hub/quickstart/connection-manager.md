@@ -1,4 +1,9 @@
-# Начало работы с Connection manager
+---
+title: Как начать работать с {{ connection-manager-name }}
+description: Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }} и {{ TR }} с {{ connection-manager-full-name }}.
+---
+
+# Начало работы с {{ connection-manager-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
